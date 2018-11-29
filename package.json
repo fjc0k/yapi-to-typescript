@@ -1,0 +1,89 @@
+{
+  "name": "yapi-to-typescript",
+  "version": "0.0.1",
+  "description": "根据 YApi 的接口定义生成 TypeScript 的请求函数。",
+  "main": "lib/index.js",
+  "bin": {
+    "ytt": "lib/cli.js"
+  },
+  "homepage": "https://github.com/fjc0k/yapi-to-typescript",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fjc0k/yapi-to-typescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fjc0k/yapi-to-typescript/issues"
+  },
+  "keywords": [
+    "yapi",
+    "typescript",
+    "typing"
+  ],
+  "files": [
+    "lib"
+  ],
+  "author": {
+    "name": "Jay Fong",
+    "email": "fjc0kb@gmail.com",
+    "url": "https://github.com/fjc0k"
+  },
+  "scripts": {
+    "lint": "eslint --fix --ext .ts src/",
+    "testOnly": "jest",
+    "test": "jest --coverage",
+    "build": "tsc -d",
+    "release": "standard-version -a",
+    "postrelease": "git push --follow-tags origin master && yarn build && npm publish"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "io"
+  },
+  "eslintIgnore": [
+    "lib",
+    "__snapshots__"
+  ],
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.ts"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ]
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^5.0.4",
+    "@types/jest": "^23.3.9",
+    "@types/json-schema": "^7.0.1",
+    "@types/json5": "^0.0.30",
+    "@types/mockjs": "^1.0.2",
+    "@types/node": "^10.12.10",
+    "@types/superagent": "^3.8.4",
+    "codecov": "^3.1.0",
+    "eslint": "^5.9.0",
+    "eslint-config-io": "^0.0.8",
+    "jest": "^23.6.0",
+    "standard-version": "^4.4.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.1.6"
+  },
+  "dependencies": {
+    "change-case": "^3.0.2",
+    "fs-extra": "^7.0.1",
+    "json-schema-generator": "^2.0.6",
+    "json-schema-to-typescript": "^6.1.0",
+    "json-ts": "^1.6.4",
+    "json5": "^2.1.0",
+    "mockjs": "^1.0.1-beta3",
+    "superagent": "^4.0.0",
+    "ts-node": "^7.0.1",
+    "tslib": "^1.9.3"
+  }
+}

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`json-schema: array 1`] = `
+"export type Post = {
+  /**
+   * aa
+   */
+  a: string;
+  /**
+   * bb
+   */
+  b: number[];
+  c: {
+    /**
+     * c000
+     */
+    c0: string;
+    [k: string]: any;
+  };
+  [k: string]: any;
+}[];
+"
+`;
+
+exports[`json-schema: object 1`] = `
+"export interface EmptyObject {
+  /**
+   * aa
+   */
+  a: string;
+  /**
+   * bb
+   */
+  b: number;
+  c: {
+    /**
+     * c00
+     */
+    c0: boolean;
+    c1: number[];
+    [k: string]: any;
+  };
+  [k: string]: any;
+}
+"
+`;
+
+exports[`mockjs-json 1`] = `
+"export interface Post {
+  x?: [
+    {
+      email?: string;
+      [k: string]: any;
+    }
+  ];
+  id?: string;
+  number?: number;
+  [k: string]: any;
+}
+"
+`;
+
+exports[`others 1`] = `"export type fff = any"`;
