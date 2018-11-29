@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GET query 1`] = `
-"export interface Get {
+"export interface Test {
   /**
    * aa
    */
@@ -21,7 +21,7 @@ exports[`GET query 1`] = `
 `;
 
 exports[`POST form 1`] = `
-"export interface Post {
+"export interface Test {
   /**
    * aaa
    */
@@ -35,8 +35,27 @@ exports[`POST form 1`] = `
 "
 `;
 
+exports[`POST form with file 1`] = `
+"export interface Test {
+  /**
+   * aaa
+   */
+  a: string;
+  /**
+   * bbb
+   */
+  b?: string;
+  /**
+   * 文件
+   */
+  f: File;
+  [k: string]: any;
+}
+"
+`;
+
 exports[`POST json 1`] = `
-"export interface Post {
+"export interface Test {
   a: string;
   b: number;
   c: boolean;
@@ -50,7 +69,7 @@ exports[`POST json 1`] = `
 `;
 
 exports[`POST json-schema 1`] = `
-"export interface EmptyObject {
+"export interface Test {
   /**
    * aa
    */
@@ -90,4 +109,4 @@ exports[`POST json-schema 1`] = `
 "
 `;
 
-exports[`POST others 1`] = `"export type fff = any"`;
+exports[`POST others 1`] = `"export type Test = any"`;

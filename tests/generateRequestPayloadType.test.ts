@@ -81,7 +81,7 @@ describe('GET', () => {
       edit_uid: 0,
       username: '方剑成',
     }
-    expect(await generateRequestPayloadType(api)).toMatchSnapshot()
+    expect(await generateRequestPayloadType(api, 'Test')).toMatchSnapshot()
   })
 })
 
@@ -145,7 +145,76 @@ describe('POST', () => {
       edit_uid: 0,
       username: '方剑成',
     }
-    expect(await generateRequestPayloadType(api)).toMatchSnapshot()
+    expect(await generateRequestPayloadType(api, 'Test')).toMatchSnapshot()
+  })
+  test('form with file', async () => {
+    const api: any = {
+      _id: 1460,
+      method: 'POST',
+      catid: 91,
+      title: 'post',
+      path: '/post',
+      project_id: 27,
+      res_body_type: 'json',
+      uid: 63,
+      add_time: 1543250344,
+      up_time: 1543511881,
+      __v: 0,
+      desc: '',
+      markdown: '',
+      req_body_type: 'form',
+      res_body: '{"type":"array","items":{"type":"object","properties":{"a":{"type":"string","description":"aa"},"b":{"type":"array","items":{"type":"number","description":"bbbb"},"description":"bb"},"c":{"type":"object","properties":{"c0":{"type":"string","description":"c000"}},"required":["c0"]}},"required":["a","b","c"]}}',
+      req_body_other: 'ffffffffffffffffffffffff',
+      tag: [],
+      index: 0,
+      api_opened: false,
+      res_body_is_json_schema: true,
+      req_body_form: [
+        {
+          _id: '5c001f49a4a6ea4ee3dcb6d1',
+          desc: 'aaa',
+          type: 'text',
+          name: 'a',
+          required: '1',
+        },
+        {
+          _id: '5c001f49a4a6ea4ee3dcb6d0',
+          desc: 'bbb',
+          example: 'B',
+          type: 'text',
+          name: 'b',
+          required: '0',
+        },
+        {
+          _id: '5c001f49a4a6ea4ee3dcb6cf',
+          desc: '文件',
+          example: '',
+          type: 'file',
+          name: 'f',
+          required: '1',
+        },
+      ],
+      req_body_is_json_schema: true,
+      req_params: [],
+      req_headers: [
+        {
+          _id: '5c001f49a4a6ea4ee3dcb6ce',
+          value: 'multipart/form-data',
+          name: 'Content-Type',
+          required: '1',
+        },
+      ],
+      req_query: [],
+      query_path: {
+        path: '/post',
+        params: [],
+      },
+      type: 'static',
+      status: 'undone',
+      edit_uid: 0,
+      username: '方剑成',
+    }
+    expect(await generateRequestPayloadType(api, 'Test')).toMatchSnapshot()
   })
   test('json', async () => {
     const api: any = {
@@ -206,7 +275,7 @@ describe('POST', () => {
       edit_uid: 0,
       username: '方剑成',
     }
-    expect(await generateRequestPayloadType(api)).toMatchSnapshot()
+    expect(await generateRequestPayloadType(api, 'Test')).toMatchSnapshot()
   })
   test('json-schema', async () => {
     const api: any = {
@@ -267,7 +336,7 @@ describe('POST', () => {
       edit_uid: 0,
       username: '方剑成',
     }
-    expect(await generateRequestPayloadType(api)).toMatchSnapshot()
+    expect(await generateRequestPayloadType(api, 'Test')).toMatchSnapshot()
   })
   test('others', async () => {
     const api: any = {
@@ -321,6 +390,6 @@ describe('POST', () => {
       edit_uid: 0,
       username: '方剑成',
     }
-    expect(await generateRequestPayloadType(api)).toMatchSnapshot()
+    expect(await generateRequestPayloadType(api, 'Test')).toMatchSnapshot()
   })
 })

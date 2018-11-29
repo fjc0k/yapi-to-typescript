@@ -52,7 +52,7 @@ test('mockjs-json', async () => {
     edit_uid: 0,
     username: '方剑成',
   }
-  expect(await generateResponsePayloadType(api)).toMatchSnapshot()
+  expect(await generateResponsePayloadType(api, 'Test')).toMatchSnapshot()
 })
 
 test('json-schema: object', async () => {
@@ -107,7 +107,7 @@ test('json-schema: object', async () => {
     edit_uid: 0,
     username: '方剑成',
   }
-  expect(await generateResponsePayloadType(api)).toMatchSnapshot()
+  expect(await generateResponsePayloadType(api, 'Test')).toMatchSnapshot()
 })
 
 test('json-schema: array', async () => {
@@ -162,7 +162,7 @@ test('json-schema: array', async () => {
     edit_uid: 0,
     username: '方剑成',
   }
-  expect(await generateResponsePayloadType(api)).toMatchSnapshot()
+  expect(await generateResponsePayloadType(api, 'Test')).toMatchSnapshot()
 })
 
 test('others', async () => {
@@ -217,5 +217,5 @@ test('others', async () => {
     edit_uid: 0,
     username: '方剑成',
   }
-  expect(await generateResponsePayloadType(api)).toMatchSnapshot()
+  expect(await generateResponsePayloadType(api, 'Test')).toMatchSnapshot()
 })

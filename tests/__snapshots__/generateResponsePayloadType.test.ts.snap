@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`json-schema: array 1`] = `
-"export type Post = {
+"export type Test = {
   /**
    * aa
    */
@@ -23,7 +23,7 @@ exports[`json-schema: array 1`] = `
 `;
 
 exports[`json-schema: object 1`] = `
-"export interface EmptyObject {
+"export interface Test {
   /**
    * aa
    */
@@ -46,7 +46,7 @@ exports[`json-schema: object 1`] = `
 `;
 
 exports[`mockjs-json 1`] = `
-"export interface Post {
+"export interface Test {
   x?: [
     {
       email?: string;
@@ -60,4 +60,4 @@ exports[`mockjs-json 1`] = `
 "
 `;
 
-exports[`others 1`] = `"export type fff = any"`;
+exports[`others 1`] = `"export type Test = any"`;
