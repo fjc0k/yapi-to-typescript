@@ -14,11 +14,15 @@ const JSTTOptions: Partial<Options> = {
   },
 }
 
-// 去除 title 和 id，防止 JSTT 自作主张提取它们作为接口名
+/**
+ * 1. 去除 title 和 id，防止 JSTT 自作主张提取它们作为接口名
+ * 2. 将 additionalProperties 设为 false
+ */
 const normalizeSchema = (schema: JSONSchema4): JSONSchema4 => {
   if (!schema) return schema
   delete schema.title
   delete schema.id
+  schema.additionalProperties = false
   if (schema.properties) {
     Object.keys(schema.properties).forEach(key => {
       normalizeSchema(schema.properties[key])
