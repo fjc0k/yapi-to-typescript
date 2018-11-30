@@ -52,6 +52,7 @@ export default async (config: Config): Promise<void> => {
   fs.outputFileSync(path.resolve(process.cwd(), config.targetFile), [
     `/* tslint:disable */\n/* eslint-disable */`,
     `import request from './request'`,
+    `import FileData from 'yapi-to-typescript/lib/FileData'`,
     tsContent,
   ].join('\n\n'))
   console.log(tsContent)
