@@ -22,20 +22,12 @@ export default async (config: Config): Promise<void> => {
           categoryIdToApiList[categoryId].map(async api => {
             const requestDataInterfaceName = pascalCase(getInterfaceName(api, InterfaceType.Request))
             const responseDataInterfaceName = pascalCase(getInterfaceName(api, InterfaceType.Response))
-            const requestFullInterfaceName = `${requestDataInterfaceName}Full`
-            const responseFullInterfaceName = `${responseDataInterfaceName}Full`
-            const requestPayloadType = await generateRequestPayloadType(api, requestFullInterfaceName)
-            const responsePayloadType = await generateResponsePayloadType(api, responseFullInterfaceName)
+            const requestPayloadType = (await generateRequestPayloadType(api, requestDataInterfaceName)).trim()
+            const responsePayloadType = (await generateResponsePayloadType(api, responseDataInterfaceName, config.dataKey)).trim()
             return [
-              requestPayloadType.replace(/^export (?=(type|interface) )/g, ''),
-              responsePayloadType.replace(/^export (?=(type|interface) )/g, ''),
-              `/**\n * **请求类型**：${api.title}\n */\nexport type ${requestDataInterfaceName} = ${requestFullInterfaceName}`,
-              `/**\n * **响应类型**：${api.title}\n */\nexport type ${responseDataInterfaceName} = ${
-                config.dataKey
-                  ? `${responseFullInterfaceName} extends { ${config.dataKey}: any } ? ${responseFullInterfaceName}['${config.dataKey}'] : ${responseFullInterfaceName}`
-                  : responseFullInterfaceName
-              }`,
-              `/**\n * ${api.title}\n */\nexport function ${getRequestFunctionName(api)}(data${/(\{\}|any)$/s.test(requestPayloadType.trim()) ? '?' : ''}: ${requestDataInterfaceName}): Promise<${responseDataInterfaceName}> {\n${
+              `/**\n * **请求类型**：${api.title}\n */\n${requestPayloadType}`,
+              `/**\n * **响应类型**：${api.title}\n */\n${responsePayloadType}`,
+              `/**\n * ${api.title}\n */\nexport function ${getRequestFunctionName(api)}(data${/(\{\}|any)$/s.test(requestPayloadType) ? '?' : ''}: ${requestDataInterfaceName}): Promise<${responseDataInterfaceName}> {\n${
                 [
                   `  return request({`,
                   `    path: '${api.path}',`,

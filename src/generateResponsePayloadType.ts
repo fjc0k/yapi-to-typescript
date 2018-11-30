@@ -9,9 +9,10 @@ import jsonSchemaToTypes from './jsonSchemaToTypes'
  *
  * @param api Api
  * @param interfaceName 接口名称
+ * @param [dataKey] 数据所在字段，不设置表示整体都是数据
  * @returns typescript 定义
  */
-export default async function generateResponsePayloadType(api: Api, interfaceName: string): Promise<string> {
+export default async function generateResponsePayloadType(api: Api, interfaceName: string, dataKey?: string): Promise<string> {
   let jsonSchema: JSONSchema4
   switch (api.res_body_type) {
     case ResponseBodyType.Json:
@@ -24,6 +25,9 @@ export default async function generateResponsePayloadType(api: Api, interfaceNam
       break
     default:
       break
+  }
+  if (dataKey && jsonSchema && jsonSchema.properties && jsonSchema.properties[dataKey]) {
+    jsonSchema = jsonSchema.properties[dataKey]
   }
   return jsonSchemaToTypes(jsonSchema, interfaceName)
 }
