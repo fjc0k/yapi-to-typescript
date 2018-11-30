@@ -35,7 +35,7 @@ export default async (config: Config): Promise<void> => {
                   ? `${responseFullInterfaceName} extends { ${config.dataKey}: any } ? ${responseFullInterfaceName}['${config.dataKey}'] : ${responseFullInterfaceName}`
                   : responseFullInterfaceName
               }`,
-              `/**\n * ${api.title}\n */\nexport function ${getRequestFunctionName(api)}(data: ${requestDataInterfaceName}): Promise<${responseDataInterfaceName}> {\n${
+              `/**\n * ${api.title}\n */\nexport function ${getRequestFunctionName(api)}(data${/(\{\}|any)$/s.test(requestPayloadType.trim()) ? '?' : ''}: ${requestDataInterfaceName}): Promise<${responseDataInterfaceName}> {\n${
                 [
                   `  return request({`,
                   `    path: '${api.path}',`,
