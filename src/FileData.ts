@@ -1,4 +1,4 @@
-export default class FileData<T> {
+export default class FileData<T = any> {
   private content: T
 
   /**
