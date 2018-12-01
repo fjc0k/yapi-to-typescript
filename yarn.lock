@@ -5290,10 +5290,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vtils@^0.60.3:
-  version "0.60.3"
-  resolved "https://registry.yarnpkg.com/vtils/-/vtils-0.60.3.tgz#9fd608767d89d9cd8e5d7fd61d3587adddefe082"
-  integrity sha512-GaShp0JEdlgrm/MXqTnDlK/P/ZBI10WshImSWPwbXzTmm+Ed/NS1tM2+azfUJObnuTZ2VJUcdAOlprGt7L2O1A==
+vtils@^0.61.0:
+  version "0.61.0"
+  resolved "https://registry.yarnpkg.com/vtils/-/vtils-0.61.0.tgz#2b3a524f57a72d8dc9bebbebdd9198ae93405466"
+  integrity sha512-wneyl09weK23GBO9XkXKNR/vuSyCshmWi+vxyaBA2Ivwkvrtd2VQSumevLrLLUZ7CSC7Vj9pGJ6xE2/kc3AxKw==
   dependencies:
     is-chinese-phone-number "^0.1.9"
 
