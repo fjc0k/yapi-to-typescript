@@ -11,6 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "outDir": "lib",
+    "newLine": "LF",
     "lib": [
       "esnext",
       "dom"
