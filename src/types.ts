@@ -1,4 +1,6 @@
+import { ParsedPath } from 'path'
 import { JSONSchema4 } from 'json-schema'
+import * as changeCase from 'change-case'
 
 // 参考：https://github.com/YMFE/yapi/blob/master/server/models/interface.js#L9
 
@@ -147,9 +149,9 @@ export interface Config {
     /** 分类 id */
     [key: number]: {
       /** 获取发起请求函数的名称 */
-      getRequestFunctionName: (api: Api) => string,
+      getRequestFunctionName: (api: ExtendedApi) => string,
       /** 获取 ts 接口的名称 */
-      getInterfaceName: (api: Api, interfaceType: InterfaceType) => string,
+      getInterfaceName: (api: ExtendedApi, interfaceType: InterfaceType) => string,
     },
   },
 }
@@ -170,3 +172,9 @@ export interface RequestPayload {
 
 /** 请求，应返回包含结果的 Promise */
 export type Request = (payload: RequestPayload) => Promise<any>
+
+/** 扩展 API */
+export type ExtendedApi = Api & {
+  parsedPath: ParsedPath,
+  changeCase: typeof changeCase,
+}
