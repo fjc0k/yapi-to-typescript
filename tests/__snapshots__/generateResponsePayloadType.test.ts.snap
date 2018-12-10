@@ -15,9 +15,7 @@ exports[`json-schema: array 1`] = `
      * c000
      */
     c0: string;
-    [k: string]: any;
   };
-  [k: string]: any;
 }[];
 "
 `;
@@ -38,9 +36,7 @@ exports[`json-schema: object 1`] = `
      */
     c0: boolean;
     c1: number[];
-    [k: string]: any;
   };
-  [k: string]: any;
 }
 "
 `;
@@ -50,12 +46,10 @@ exports[`mockjs-json 1`] = `
   x?: [
     {
       email?: string;
-      [k: string]: any;
     }
   ];
   id?: string;
   number?: number;
-  [k: string]: any;
 }
 "
 `;

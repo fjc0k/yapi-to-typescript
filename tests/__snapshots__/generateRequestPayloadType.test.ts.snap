@@ -15,7 +15,6 @@ exports[`GET query 1`] = `
    * dd
    */
   d?: string;
-  [k: string]: any;
 }
 "
 `;
@@ -30,7 +29,6 @@ exports[`POST form 1`] = `
    * bbb
    */
   b?: string;
-  [k: string]: any;
 }
 "
 `;
@@ -48,8 +46,7 @@ exports[`POST form with file 1`] = `
   /**
    * 文件
    */
-  f: File;
-  [k: string]: any;
+  f: FileData;
 }
 "
 `;
@@ -61,9 +58,7 @@ exports[`POST json 1`] = `
   c: boolean;
   d: {
     e: number;
-    [k: string]: any;
   }[];
-  [k: string]: any;
 }
 "
 `;
@@ -96,15 +91,12 @@ exports[`POST json-schema 1`] = `
        * d2.0
        */
       'd2.0': string;
-      [k: string]: any;
     };
-    [k: string]: any;
   };
   /**
    * ee
    */
   e: boolean;
-  [k: string]: any;
 }
 "
 `;
