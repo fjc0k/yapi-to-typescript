@@ -1,13 +1,16 @@
 import path from 'path'
 import fs from 'fs-extra'
 import * as changeCase from 'change-case'
+import consola from 'consola'
 import { Config, ApiList, InterfaceType, ExtendedApi } from './types'
 import fetchApiCollection from './fetchApiCollection'
 import generateRequestPayloadType from './generateRequestPayloadType'
 import generateResponsePayloadType from './generateResponsePayloadType'
 
 export default async (config: Config): Promise<void> => {
+  consola.info('获取接口 JSON 文件中...')
   const apiCollection = await fetchApiCollection(config)
+  consola.info('生成 TypeScript 类型文件中...')
   const categoryIdToApiList = apiCollection.reduce((res, api) => {
     if (api.list.length) {
       res[api.list[0].catid] = api.list
@@ -60,5 +63,5 @@ export default async (config: Config): Promise<void> => {
     `import FileData from 'yapi-to-typescript/lib/FileData'`,
     tsContent,
   ].join('\n\n'))
-  console.log(tsContent)
+  consola.success(`操作完成.`)
 }
