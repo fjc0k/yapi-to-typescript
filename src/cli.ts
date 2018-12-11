@@ -4,11 +4,11 @@ require('ts-node').register({ transpileOnly: true })
 
 import fs from 'fs-extra'
 import cli from 'commander'
-import pkg from '../package.json'
 import { Config } from './types'
-import toTypeScript from './index'
+import toTypeScript from './index' // eslint-disable-line
 
 const cwd = process.cwd()
+const pkg = require('../package.json')
 
 const configTsFile = `${cwd}/ytt.config.ts`
 const configJsFile = `${cwd}/ytt.config.js`

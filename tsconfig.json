@@ -10,7 +10,6 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
-    "resolveJsonModule": true,
     "outDir": "lib",
     "newLine": "LF",
     "lib": [

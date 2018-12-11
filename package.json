@@ -32,7 +32,7 @@
     "lint": "eslint --fix --ext .ts src/",
     "testOnly": "jest",
     "test": "jest --coverage",
-    "build": "tsc -d",
+    "build": "tsc",
     "release": "standard-version -a",
     "postrelease": "git push --follow-tags origin master && yarn build && npm publish"
   },
@@ -72,7 +72,7 @@
     "jest": "^23.6.0",
     "standard-version": "^4.4.0",
     "ts-jest": "^23.10.5",
-    "typescript": "^3.1.6"
+    "typescript": "^3.2.2"
   },
   "dependencies": {
     "change-case": "^3.0.2",
