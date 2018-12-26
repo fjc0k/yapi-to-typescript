@@ -42,7 +42,7 @@ export default async function generateRequestPayloadType(api: Api, interfaceName
           break
         case RequestBodyType.Json:
           if (api.req_body_is_json_schema) {
-            jsonSchema = JSON.parse(api.req_body_other)
+            jsonSchema = api.req_body_other && JSON.parse(api.req_body_other)
           } else {
             jsonSchema = api.req_body_other && jsonSchemaGenerator(JSON5.parse(api.req_body_other))
           }

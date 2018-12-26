@@ -18,7 +18,7 @@ export default async function generateResponsePayloadType(api: Api, interfaceNam
     case ResponseBodyType.Json:
     case ResponseBodyType.JsonSchema:
       if (api.res_body_is_json_schema) {
-        jsonSchema = JSON.parse(api.res_body)
+        jsonSchema = api.res_body && JSON.parse(api.res_body)
       } else {
         jsonSchema = api.res_body && mockjsJsonToJsonSchema(JSON5.parse(api.res_body))
       }
