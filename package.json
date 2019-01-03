@@ -29,6 +29,7 @@
     "url": "https://github.com/fjc0k"
   },
   "scripts": {
+    "api": "ts-node src/cli.ts",
     "lint": "eslint --fix --ext .ts src/",
     "testOnly": "jest",
     "test": "jest --coverage",

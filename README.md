@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./logo.svg" width="150" />
+  <img src="./logo.svg" width="250" />
 </p>
 
 
@@ -20,7 +20,7 @@ npm i yapi-to-typescript -D
 
 ## 使用
 
-安装完成后，我们就可以使用 `ytt` 命令进行相关操作。
+`yapi-to-typescript` 安装完成后，我们就可以使用 `ytt` 命令进行相关操作。
 
 ### 生成配置文件
 
@@ -30,9 +30,48 @@ npm i yapi-to-typescript -D
 # yarn
 yarn ytt init
 
-# 或者，npx
-npx ytt init
-
 # 或者，npm
 npm run ytt init
 ```
+
+### 修改配置文件
+
+打开 `ytt.config.ts`，按照说明修改相关配置项即可。[查看配置说明](#配置项)
+
+### 生成 TypeScript 定义文件
+
+直接执行命令 `ytt` 即可抓取 YApi 的接口定义并生成相应的 TypeScript 定义文件：
+
+```bash
+# yarn
+yarn ytt
+
+# 或者，npm
+npm run ytt
+```
+
+### 建议
+
+因为 API 接口在开发过程中是不断变化的，建议你将 `ytt` 命令放入 `package.json` 的 `scripts` 字段中：
+
+```json
+{
+  "scripts": {
+    "api": "ytt"
+  }
+}
+```
+
+然后更新 API 的 TypeScript 定义只需执行以下命令即可：
+
+```bash
+# yarn
+yarn api
+
+# 或者，npm
+npm run api
+```
+
+
+## 配置项
+
