@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" color-interpolation-filters="sRGB" version="1" viewBox="0 0 340 250">
+<svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 250" color-interpolation-filters="sRGB">
   <linearGradient id="a" x1="0%" y1="0%" y2="0%">
-    <stop offset="0%" stop-color="#f9d423"/>
-    <stop offset="100%" stop-color="#e14fad"/>
+    <stop offset="0%" stop-color="#d51007"/>
+    <stop offset="100%" stop-color="#ff8177"/>
   </linearGradient>
-  <g fill="url(#a)" transform="translate(72.8 66)">
-    <path fill="none" stroke="url(#a)" stroke-width="3" d="M48.2 20V10h98v10M48.2 98v10h98V98"/>
-    <path fill="none" stroke="url(#a)" stroke-width="3" d="M58.2 15V0h78v15M58.2 100.5V118h78v-17.5"/>
-    <path fill="none" d="M0 20h194.4v78H0z"/>
-    <path d="M38.9 95H22.7q-1.9 0-2.8-.8-.8-.9-.8-2.8V78.6L3.8 58.1q-2.3-3.1-3-5.4-.8-2.3-.8-6.9V26.6q0-1.9.8-2.8.9-.8 2.8-.8H19q1.9 0 2.8.9.8.8.8 2.7V43l.1 2.1q.1 1.1.8 2.1l4.6 7.2q.5.9 1 1.3.6.4 1.4.4h1q.8 0 1.4-.4.5-.4 1-1.3l4.6-7.2q.7-1 .8-2.1l.1-2.1V26.6q0-1.9.9-2.8.8-.8 2.7-.8h14.9q1.9 0 2.8.9.8.8.8 2.7v19.2q0 4.6-.8 6.9-.8 2.3-3 5.4L42.5 78.7v12.7q0 1.9-.9 2.8-.8.8-2.7.8m-7.6-26.1h.7q2.3 0 4-1 1.8-1 3.4-3.2l10-13.5q1.2-1.6 1.4-3.6l.1-4.1V32h-1v11.5q0 2.1-.2 4-.2 2-1.2 3.3l-10 13.5q-1.5 1.9-3 2.8-1.6.8-3.5.8h-2.7q-1.7 0-3.4-.8t-3-2.8l-9.7-13.5q-1-1.5-1.2-3.3-.2-1.9-.2-4V32h-1v11.5q0 2.2.2 4.2t1.3 3.5L22 64.7q1.6 2.2 3.4 3.2 1.7 1 3.9 1h1V86h1V68.9zM106.9 95H90.7q-1.9 0-2.8-.8-.8-.9-.8-2.8V42.3H72.4q-1.9 0-2.8-.8-.8-.9-.8-2.8V26.6q0-1.9.9-2.8.8-.8 2.7-.8h52.8q1.9 0 2.7.9.9.8.9 2.7v12.1q0 1.9-.9 2.8-.8.8-2.7.8h-14.7v49.1q0 1.9-.8 2.8-.9.8-2.8.8m-8.6-62v53h1V33h20.5v-1h-42v1h20.5zm74.2 62h-16.2q-1.9 0-2.8-.8-.8-.9-.8-2.8V42.3H138q-1.9 0-2.8-.8-.8-.9-.8-2.8V26.6q0-1.9.8-2.8.9-.8 2.8-.8h52.8q1.9 0 2.8.9.8.8.8 2.7v12.1q0 1.9-.8 2.8-.9.8-2.8.8h-14.7v49.1q0 1.9-.8 2.8-.9.8-2.8.8m-8.6-62v53h1V33h20.5v-1h-42v1h20.5z"/>
+  <g fill="url(#a)" transform="translate(90.85 72)">
+    <path stroke="url(#a)" stroke-width="3" fill="none" d="M31.15 20V10h96v10M31.15 96v10h96V96"/>
+    <path stroke="url(#a)" stroke-width="3" fill="none" d="M41.15 10V0h96v20M127.15 101h10v-5"/>
+    <path fill="none" d="M0 20h158.3v76H0z"/>
+    <path d="M12.5 26v-3H53L28 63v30h-3V63L0 23h3.5l23 36.7L47.6 26H12.5zm42.8-3h50v3H81.8v67h-3V26H55.3v-3zm53 0h50v3h-23.5v67h-3V26h-23.5v-3z"/>
   </g>
 </svg>
