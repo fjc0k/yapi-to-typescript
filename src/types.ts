@@ -147,7 +147,7 @@ export interface Config {
   /** 要处理的分类列表 */
   categories: {
     /** 分类 id */
-    [key: number]: {
+    [id: number]: {
       /** 获取发起请求函数的名称 */
       getRequestFunctionName: (api: ExtendedApi) => string,
       /** 获取 ts 接口的名称 */
