@@ -18,13 +18,13 @@ afterEach(() => {
 })
 
 test('初始化成功', async () => {
-  process.argv.push('init')
+  process.argv = ['x', 'y', 'init']
   await run()
   expect(fs.readFileSync(yttConfigFile).toString()).toMatchSnapshot()
 })
 
 test('没有配置文件时报错', async () => {
-  process.argv.pop()
+  process.argv = ['x', 'y']
   await expect(run()).rejects.toThrowErrorMatchingSnapshot()
 })
 
@@ -47,6 +47,7 @@ test('生成 API 成功', async () => {
       },
     }
   `)
+  process.argv = ['x', 'y']
   await run()
   expect(fs.existsSync(targetFile)).toBeTruthy()
 })
