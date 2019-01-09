@@ -92,7 +92,7 @@ npm run api
 
 - **targetFile**
   - 类型: `string`
-  - 说明: 生成的 TypeScript 文件路径。
+  - 说明: 生成的 TypeScript 文件路径，同时，如果同级目录下不存在 `request.ts` 文件，执行 `ytt` 时则会自动创建一个默认的 `request.ts` 文件。
   - 举例: `src/api/index.ts`
 
 - **dataKey**

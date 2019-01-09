@@ -9,7 +9,7 @@ export class FileData<T = any> {
   /**
    * 文件数据辅助类，统一网页、小程序等平台的文件上传。
    *
-   * @param originalFileData 原始文件数据。
+   * @param originalFileData 原始文件数据
    */
   public constructor(originalFileData: T) {
     this.originalFileData = originalFileData
@@ -18,7 +18,7 @@ export class FileData<T = any> {
   /**
    * 获取原始文件数据。
    *
-   * @returns 原始文件数据。
+   * @returns 原始文件数据
    */
   public getOriginalFileData(): T {
     return this.originalFileData

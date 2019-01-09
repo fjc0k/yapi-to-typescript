@@ -1,6 +1,7 @@
 import { ParsedPath } from 'path'
 import { JSONSchema4 } from 'json-schema'
 import * as changeCase from 'change-case'
+import { FileData } from './utils'
 
 // 参考：https://github.com/YMFE/yapi/blob/master/server/models/interface.js#L9
 
@@ -166,8 +167,10 @@ export interface RequestPayload {
   requestBodyType: Api['req_body_type'],
   /** 响应主体类型，如：`json`、`text` 等 */
   responseBodyType: Api['res_body_type'],
-  /** 请求数据，一般是一个对象，需根据不同的 `请求主体类型 `予以加工并发送 */
+  /** 请求数据，一般是一个对象，需根据不同的 `请求主体类型` 予以加工并发送 */
   data: any,
+  /** 要发送的文件数据 */
+  fileData: { [key: string]: FileData },
 }
 
 /** 请求，应返回包含结果的 Promise */
