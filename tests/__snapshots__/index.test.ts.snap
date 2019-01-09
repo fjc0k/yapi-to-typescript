@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`成功 1`] = `
+"/* tslint:disable */
+/* eslint-disable */
+
+import request from './request'
+
+// @ts-ignore
+import { FileData, parseRequestData } from 'yapi-to-typescript/lib/utils'
+
+/**
+ * **请求类型**：get
+ */
+export interface GetRequest {}
+
+/**
+ * **响应类型**：get
+ */
+export interface GetResponse {
+  data: string;
+}
+
+/**
+ * get
+ */
+export function get(requestData?: GetRequest): Promise<GetResponse> {
+  const { data, fileData } = parseRequestData(requestData)
+  return request({
+    path: '/get',
+    method: 'GET',
+    requestBodyType: 'undefined',
+    responseBodyType: 'json',
+    data: data,
+    fileData: fileData
+  } as any)
+}
+
+/**
+ * **请求类型**：post
+ */
+export interface PostRequest {
+  page: number;
+}
+
+/**
+ * **响应类型**：post
+ */
+export interface PostResponse {
+  list: string[];
+}
+
+/**
+ * post
+ */
+export function post(requestData: PostRequest): Promise<PostResponse> {
+  const { data, fileData } = parseRequestData(requestData)
+  return request({
+    path: '/post',
+    method: 'POST',
+    requestBodyType: 'json',
+    responseBodyType: 'json',
+    data: data,
+    fileData: fileData
+  } as any)
+}"
+`;
+
+exports[`成功 2`] = `
+"import { RequestPayload } from 'yapi-to-typescript/lib/types'
+
+export default function request({
+  path,
+  method,
+  requestBodyType,
+  responseBodyType,
+  data,
+  fileData
+}: RequestPayload): Promise<any> {
+  return new Promise((resolve, reject) => {
+    // 在这里实现请求逻辑
+  })
+}
+"
+`;

@@ -50,7 +50,8 @@
       "^.+\\.ts$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "<rootDir>/src/**/*.ts"
+      "<rootDir>/src/**/*.ts",
+      "!<rootDir>/src/**/cli.ts"
     ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
@@ -87,7 +88,6 @@
     "mockjs": "^1.0.1-beta3",
     "superagent": "^4.0.0",
     "ts-node": "^7.0.1",
-    "tslib": "^1.9.3",
-    "vtils": "^0.61.0"
+    "tslib": "^1.9.3"
   }
 }

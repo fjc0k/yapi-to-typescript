@@ -41,6 +41,17 @@ exports[`json-schema: object 1`] = `
 "
 `;
 
+exports[`json-schema: object, with dataKey 1`] = `
+"export interface Test {
+  /**
+   * c00
+   */
+  c0: boolean;
+  c1: number[];
+}
+"
+`;
+
 exports[`mockjs-json 1`] = `
 "export interface Test {
   x?: [
