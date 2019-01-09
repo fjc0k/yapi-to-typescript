@@ -113,7 +113,7 @@ npm run api
       },
     }
     ```
-  - 说明: 要获取的分类列表，键为分类 ID，值为一个包含相关操作的对象。
+  - 说明: 要获取的分类列表，键为分类 ID，值为一个包含相关操作的对象。
   - 举例:
     ```ts
     {
@@ -126,7 +126,7 @@ npm run api
         // 获取接口名称，这里的接口指 TypeScript 中的 interface，非 api 接口
         getInterfaceName({ changeCase, parsedPath }, interfaceType) {
           const PascalName = changeCase.pascalCase(parsedPath.name)
-          return \`\${PascalName}\${interfaceType === InterfaceType.Request ? 'Request' : 'Response'}\`
+          return `${PascalName}${interfaceType === InterfaceType.Request ? 'Request' : 'Response'}`
         },
         // 获取 api 接口函数名称
         getRequestFunctionName({ changeCase, parsedPath }) {

@@ -32,7 +32,7 @@ cli
             // 生成的 TypeScript 文件路径，
             // 同时，如果同级目录下不存在 \`request.ts\` 文件，
             // 执行 \`ytt\` 时则会自动创建一个默认的 \`request.ts\` 文件
-            targetFile: 'src/api.ts',
+            targetFile: 'src/api/index.ts',
             // 若接口返回的是类似 { code: number, msg: string, data: any } 这种数据，
             // 往往我们只需要 data，这时我们可设置 dataKey 为 data，
             // 则接口函数返回的就是 data 的值
