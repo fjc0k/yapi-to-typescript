@@ -1,6 +1,7 @@
 import { ParsedPath } from 'path'
 import { JSONSchema4 } from 'json-schema'
 import * as changeCase from 'change-case'
+import { SuperAgent, SuperAgentRequest } from 'superagent'
 import { FileData } from './utils'
 
 // 参考：https://github.com/YMFE/yapi/blob/master/server/models/interface.js#L9
@@ -137,6 +138,8 @@ export enum InterfaceType {
 export interface Config {
   /** 项目 url */
   projectUrl: string,
+  /** 登录方式：classical（普通登录）、ldap（LDAP） */
+  loginMethod?: 'classical' | 'ldap',
   /** 登录邮箱 */
   email: string,
   /** 登录密码 */

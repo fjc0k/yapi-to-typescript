@@ -24,6 +24,8 @@ export async function run(): Promise<void> {
               const config: Config = {
                 // 项目全部接口页面的 url
                 projectUrl: 'http://foo.bar/project/20/interface/api',
+                // 登录方式：classical（普通登录）、ldap（LDAP）
+                loginMethod: 'classical',
                 // 登录 YApi 的邮箱
                 email: 'hello@foo.bar',
                 // 登录 YApi 的密码
