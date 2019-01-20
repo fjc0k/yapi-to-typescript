@@ -58,7 +58,7 @@ export async function run(): Promise<void> {
               }
 
               export default config
-            `.trim().replace(/ {10}/g, '')}\n`)
+            `.trim().replace(/ {12}/g, '')}\n`)
             resolve()
             break
           default:
