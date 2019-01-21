@@ -3,10 +3,19 @@
 </p>
 
 
-# yapi-to-typescript [![Build Status](https://travis-ci.org/fjc0k/yapi-to-typescript.svg?branch=master)](https://travis-ci.org/fjc0k/yapi-to-typescript) [![codecov](https://codecov.io/gh/fjc0k/yapi-to-typescript/branch/master/graph/badge.svg)](https://codecov.io/gh/fjc0k/yapi-to-typescript)
+# YApi to TypeScript [![Build Status](https://travis-ci.org/fjc0k/yapi-to-typescript.svg?branch=master)](https://travis-ci.org/fjc0k/yapi-to-typescript) [![codecov](https://codecov.io/gh/fjc0k/yapi-to-typescript/branch/master/graph/badge.svg)](https://codecov.io/gh/fjc0k/yapi-to-typescript)
 
 根据 [YApi](https://github.com/YMFE/yapi) 的接口定义生成 [TypeScript](https://github.com/Microsoft/TypeScript) 的请求函数。
 
+![](./preview.png)
+
+
+## 特性
+
+- 自动登录，支持普通登录、LDAP 登录
+- 可导出同项目下的多个分类
+- 可自定义接口名及请求函数名
+- 完整的注释
 
 ## 安装
 
@@ -80,19 +89,36 @@ npm run api
   - 说明: 项目全部接口页面的 url。
   - 举例: `http://foo.bar/project/20/interface/api`
 
-- **email**
-  - 类型: `string`
-  - 说明: 登录 YApi 的邮箱。
-  - 举例: `hello@foo.bar`
+- **login**
+  - 类型:
+  ```ts
+  {
+    /** 登录方式：classical（普通登录）、ldap（LDAP） */
+    method?: 'classical' | 'ldap',
+    /** 登录邮箱 */
+    email: string,
+    /** 登录密码 */
+    password: string,
+  }
+  ```
+  - 说明: 登录 YApi 的信息。
+  - 举例:
+  ```ts
+  {
+    method: 'classical',
+    email: 'hello@foo.bar',
+    password: '123456'
+  }
+  ```
 
-- **password**
+- **extraCookies**
   - 类型: `string`
-  - 说明: 登录 YApi 的密码。
-  - 举例: `123456`
+  - 说明: 随请求发送的其它 cookies。一般情况下可不予理会。
+  - 举例: `a=1; b=2; isAdmin=true`
 
 - **targetFile**
   - 类型: `string`
-  - 说明: 生成的 TypeScript 文件路径，同时，如果同级目录下不存在 `request.ts` 文件，执行 `ytt` 时则会自动创建一个默认的 `request.ts` 文件。
+  - 说明: 生成的 TypeScript 文件路径，同时，如果同级目录下不存在 `request.ts` 文件，执行 `ytt` 时则会自动创建一个默认的 `request.ts` 文件。你应在 `request.ts` 文件里完成相关请求逻辑。
   - 举例: `src/api/index.ts`
 
 - **dataKey**

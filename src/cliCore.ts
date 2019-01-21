@@ -34,6 +34,7 @@ export async function run(): Promise<void> {
                   password: '123456',
                 },
                 // 随请求发送的其他 Cookie，一般情况下不必理会
+                // 如：a=1; b=2
                 extraCookies: '',
                 // 生成的 TypeScript 文件路径，
                 // 同时，如果同级目录下不存在 \`request.ts\` 文件，

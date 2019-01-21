@@ -146,7 +146,7 @@ export interface Config {
     /** 登录密码 */
     password: string,
   },
-  /** 随请求发送的其他 Cookie */
+  /** 随请求发送的其他 cookie 字符串，比如：`a=1; b=2` */
   extraCookies?: string,
   /** 数据所在字段，不设置表示整体都是数据 */
   dataKey?: string,
