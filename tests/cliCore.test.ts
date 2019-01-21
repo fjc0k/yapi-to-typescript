@@ -32,8 +32,10 @@ test('生成 API 成功', async () => {
   fs.writeFileSync(yttConfigFile, `
     export default {
       projectUrl: 'http://foo.bar/project/20/interface/api',
-      email: 'hello@x.xx',
-      password: 'correctPassword',
+      login: {
+        email: 'hello@x.xx',
+        password: 'correctPassword',
+      },
       targetFile: ${JSON.stringify(targetFile)},
       categories: {
         58: {

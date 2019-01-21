@@ -18,8 +18,10 @@ afterAll(() => {
 test('成功', async () => {
   await ytt({
     projectUrl: 'http://foo.bar/project/20/interface/api',
-    email: 'hello@x.xx',
-    password: 'correctPassword',
+    login: {
+      email: 'hello@x.xx',
+      password: 'correctPassword',
+    },
     targetFile: targetFile,
     categories: {
       58: {
