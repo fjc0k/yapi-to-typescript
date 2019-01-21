@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./logo.svg" width="250" />
+  <img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/logo.svg" width="250" />
 </p>
 
 
@@ -7,7 +7,7 @@
 
 根据 [YApi](https://github.com/YMFE/yapi) 的接口定义生成 [TypeScript](https://github.com/Microsoft/TypeScript) 的请求函数。
 
-![](./preview.png)
+![](https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/preview.png)
 
 
 ## 特性
