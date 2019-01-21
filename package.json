@@ -61,13 +61,14 @@
     ]
   },
   "devDependencies": {
+    "@types/cookie": "^0.3.2",
     "@types/fs-extra": "^5.0.4",
     "@types/jest": "^23.3.9",
     "@types/json-schema": "^7.0.1",
     "@types/json5": "^0.0.30",
     "@types/mockjs": "^1.0.2",
     "@types/node": "^10.12.10",
-    "@types/superagent": "^3.8.4",
+    "@types/request-promise-native": "^1.0.15",
     "codecov": "^3.1.0",
     "eslint": "^5.9.0",
     "eslint-config-io": "^0.0.8",
@@ -80,13 +81,15 @@
     "change-case": "^3.0.2",
     "commander": "^2.19.0",
     "consola": "^2.3.0",
+    "cookie": "^0.3.1",
     "fs-extra": "^7.0.1",
     "json-schema-generator": "^2.0.6",
     "json-schema-to-typescript": "^6.1.0",
     "json-ts": "^1.6.4",
     "json5": "^2.1.0",
     "mockjs": "^1.0.1-beta3",
-    "superagent": "^4.0.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
     "ts-node": "^7.0.1",
     "tslib": "^1.9.3"
   }

@@ -1,7 +1,6 @@
 import { ParsedPath } from 'path'
 import { JSONSchema4 } from 'json-schema'
 import * as changeCase from 'change-case'
-import { SuperAgent, SuperAgentRequest } from 'superagent'
 import { FileData } from './utils'
 
 // 参考：https://github.com/YMFE/yapi/blob/master/server/models/interface.js#L9
