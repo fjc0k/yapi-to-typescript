@@ -138,12 +138,17 @@ export enum InterfaceType {
 export interface Config {
   /** 项目 url */
   projectUrl: string,
-  /** 登录方式：classical（普通登录）、ldap（LDAP） */
-  loginMethod?: 'classical' | 'ldap',
-  /** 登录邮箱 */
-  email: string,
-  /** 登录密码 */
-  password: string,
+  /** 登录信息 */
+  login: {
+    /** 登录方式：classical（普通登录）、ldap（LDAP） */
+    method?: 'classical' | 'ldap',
+    /** 登录邮箱 */
+    email: string,
+    /** 登录密码 */
+    password: string,
+  },
+  /** 随请求发送的其他 Cookie */
+  extraCookies?: string,
   /** 数据所在字段，不设置表示整体都是数据 */
   dataKey?: string,
   /** 生成的 ts 文件放在这里 */
