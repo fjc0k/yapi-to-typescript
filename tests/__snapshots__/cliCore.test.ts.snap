@@ -51,4 +51,4 @@ exports[`初始化成功 1`] = `
 "
 `;
 
-exports[`没有配置文件时报错 1`] = `"请先设置 ytt.config.{ts|js} 文件。"`;
+exports[`没有配置文件时报错 1`] = `"请先设置 ytt.config.ts 文件。"`;
