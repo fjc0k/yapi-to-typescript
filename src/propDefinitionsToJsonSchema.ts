@@ -16,7 +16,7 @@ export default function propDefinitionsToJsonSchema(propDefinitionsefinitions: P
       }
       return res
     }, []),
-    properties: propDefinitionsefinitions.reduce((res, prop) => {
+    properties: propDefinitionsefinitions.reduce<JSONSchema4['properties']>((res, prop) => {
       res[prop.name] = {
         type: prop.type,
         description: prop.comment,
@@ -24,6 +24,6 @@ export default function propDefinitionsToJsonSchema(propDefinitionsefinitions: P
         ...(prop.type === 'file' ? { tsType: 'FileData' } : {}),
       }
       return res
-    }, {} as JSONSchema4['properties']),
+    }, {}),
   }
 }

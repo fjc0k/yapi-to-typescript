@@ -20,24 +20,24 @@ export default async function generateRequestPayloadType(api: Api, interfaceName
     case Method.HEAD:
     case Method.OPTIONS:
       jsonSchema = propDefinitionsToJsonSchema(
-        api.req_query.map(item => ({
+        api.req_query.map<PropDefinition>(item => ({
           name: item.name,
           required: item.required === Required.True,
           type: 'string',
           comment: item.desc,
-        } as PropDefinition))
+        }))
       )
       break
     default:
       switch (api.req_body_type) {
         case RequestBodyType.Form:
           jsonSchema = propDefinitionsToJsonSchema(
-            api.req_body_form.map(item => ({
+            api.req_body_form.map<PropDefinition>(item => ({
               name: item.name,
               required: item.required === Required.True,
-              type: item.type === RequestFormItemType.File ? 'file' : 'string',
+              type: (item.type === RequestFormItemType.File ? 'file' : 'string') as any,
               comment: item.desc,
-            } as PropDefinition))
+            }))
           )
           break
         case RequestBodyType.Json:
