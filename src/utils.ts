@@ -29,30 +29,24 @@ export class FileData<T = any> {
  * 解析请求数据，从请求数据中分离出普通数据和文件数据。
  *
  * @param requestData 要解析的请求数据
- * @returns 包含普通数据(data)和文件数据(fileData)的对象，data、fileData 可能为 null，表示没有此类数据
+ * @returns 包含普通数据(data)和文件数据(fileData)的对象，data、fileData 为空对象时，表示没有此类数据
  */
 export function parseRequestData<
   RD extends { [key: string]: any },
   DK extends { [K in keyof RD]: RD[K] extends FileData ? never : K }[keyof RD],
   FDK extends { [K in keyof RD]: RD[K] extends FileData ? K : never }[keyof RD]
 >(requestData: RD): {
-  data: { [K in DK]: RD[K] } | null,
-  fileData: { [K in FDK]: RD[K] } | null,
+  data: { [K in DK]: RD[K] },
+  fileData: { [K in FDK]: RD[K] extends FileData<infer T> ? T : any },
 } {
   const result = {
-    data: null as any,
-    fileData: null as any,
+    data: {} as any,
+    fileData: {} as any,
   }
   Object.keys(requestData).forEach(key => {
     if (requestData[key] && requestData[key] instanceof FileData) {
-      if (!result.fileData) {
-        result.fileData = {}
-      }
-      result.fileData[key] = requestData[key]
+      result.fileData[key] = (requestData[key] as FileData).getOriginalFileData()
     } else {
-      if (!result.data) {
-        result.data = {}
-      }
       result.data[key] = requestData[key]
     }
   })

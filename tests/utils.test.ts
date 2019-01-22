@@ -18,7 +18,7 @@ test('parseRequestData', () => {
       y: 2,
     },
     fileData: {
-      f: new FileData(__filename),
+      f: __filename,
     },
   })
 })

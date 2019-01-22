@@ -177,7 +177,7 @@ export interface RequestPayload {
   /** 请求数据，一般是一个对象，需根据不同的 `请求主体类型` 予以加工并发送 */
   data: any,
   /** 要发送的文件数据 */
-  fileData: { [key: string]: FileData },
+  fileData: { [key: string]: any },
 }
 
 /** 请求，应返回包含结果的 Promise */

@@ -77,7 +77,7 @@ export default async (config: Config): Promise<void> => {
       }: RequestPayload): Promise<any> {
         return new Promise((resolve, reject) => {
           // 是否含有文件数据
-          const hasFileData = fileData !== null
+          const hasFileData = Object.keys(fileData).length > 0
 
           // 在这里实现请求逻辑
         })

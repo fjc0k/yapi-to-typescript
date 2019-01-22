@@ -161,3 +161,55 @@ npm run api
       },
     }
     ```
+
+## 常见问题
+
+### 1. 如何上传文件？
+
+**场景描述：** 在开发网页、微信小程序等应用时，常会遇到诸如设置头像之类的文件上传需求。但各端上传文件的方法是不一样的，对文件的描述也不一致。在接口处理时，如何兼容呢？
+
+**解决方案：** 在调用接口请求函数时，对文件数据进行封装，在 `request.ts` 判断是否有文件数据，再进行相关处理。需注意的是，传给 `request` 函数的 `fileData` 已经解封，可以直接用。下面是一个在网页中上传用户头像的示例：
+
+```ts
+// app.ts
+// 首先引入文件数据封装类
+import { FileData } from 'yapi-to-typescript/lib/utils'
+import { updateUserAvatar } from './api/index.ts'
+
+// 调用更新用户头像接口请求函数
+updateUserAvatar({
+  image: new FileData(
+    // 这里放原始文件数据，如 H5 中的 File、微信小程序中的文件路径
+    document.querySelector('#avatar-input').files[0] 
+  )
+})
+```
+
+```ts
+// api/request.ts
+import { RequestPayload } from 'yapi-to-typescript/lib/types'
+
+export default function request({
+  path,
+  method,
+  requestBodyType,
+  responseBodyType,
+  data,
+  fileData
+}: RequestPayload): Promise<any> {
+  return new Promise((resolve, reject) => {
+    const hasFileData = Object.keys(fileData).length > 0
+    if (hasFileData) {
+      const fullData = {
+        ...data,
+        ...fileData
+      }
+      const formData = new FormData()
+      Object.keys(fullData).forEach(key => {
+        formData.append(key, fullData[key])
+      })
+      // http post 相关...
+    }
+  })
+}
+```
