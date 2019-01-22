@@ -91,25 +91,25 @@ npm run api
 
 - **login**
   - 类型:
-  ```ts
-  {
-    /** 登录方式：classical（普通登录）、ldap（LDAP） */
-    method?: 'classical' | 'ldap',
-    /** 登录邮箱 */
-    email: string,
-    /** 登录密码 */
-    password: string,
-  }
-  ```
+    ```ts
+    {
+      /** 登录方式：classical（普通登录）、ldap（LDAP） */
+      method?: 'classical' | 'ldap',
+      /** 登录邮箱 */
+      email: string,
+      /** 登录密码 */
+      password: string,
+    }
+    ```
   - 说明: 登录 YApi 的信息。
   - 举例:
-  ```ts
-  {
-    method: 'classical',
-    email: 'hello@foo.bar',
-    password: '123456'
-  }
-  ```
+    ```ts
+    {
+      method: 'classical',
+      email: 'hello@foo.bar',
+      password: '123456'
+    }
+    ```
 
 - **extraCookies**
   - 类型: `string`
