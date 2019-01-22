@@ -76,7 +76,7 @@ export async function run(): Promise<void> {
                 config = require(configTsFile).default
                 break
               default:
-                reject(new Error('请先设置 ytt.config.{ts|js} 文件。'))
+                reject(new Error('请先设置 ytt.config.ts 文件。'))
                 return
             }
             toTypeScript(config).then(resolve, reject)
