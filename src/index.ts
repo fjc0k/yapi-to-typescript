@@ -24,7 +24,7 @@ export default async (config: Config): Promise<void> => {
       Object.keys(config.categories).map(async (categoryId: any) => {
         const { getRequestFunctionName, getInterfaceName } = config.categories[categoryId]
         return Promise.all(
-          categoryIdToApiList[categoryId].map(async api => {
+          (categoryIdToApiList[categoryId] || []).map(async api => {
             const extendedApi: ExtendedApi = {
               ...api,
               parsedPath: path.parse(api.path),

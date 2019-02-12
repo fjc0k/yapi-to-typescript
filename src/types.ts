@@ -1,7 +1,6 @@
 import { ParsedPath } from 'path'
 import { JSONSchema4 } from 'json-schema'
 import * as changeCase from 'change-case'
-import { FileData } from './utils'
 
 // 参考：https://github.com/YMFE/yapi/blob/master/server/models/interface.js#L9
 
@@ -49,6 +48,8 @@ export enum ResponseBodyType {
 }
 
 export interface Api {
+  /** 接口 ID */
+  _id: number,
   /** 接口名称 */
   title: string,
   /** 接口备注 */
@@ -145,6 +146,11 @@ export interface Config {
     email: string,
     /** 登录密码 */
     password: string,
+  } | {
+    /** 登录方式：openapi（开放API，仅 YApi 版本大于等于 1.5.0 时可用） */
+    method: 'openapi',
+    /** 项目 token（进入项目的设置-->token配置获取） */
+    token: string,
   },
   /** 随请求发送的其他 cookie 字符串，比如：`a=1; b=2` */
   extraCookies?: string,

@@ -33,6 +33,13 @@ export async function run(): Promise<void> {
                   // 登录密码
                   password: '123456',
                 },
+                /**
+                // openapi 方式登录，yapi 版本大于等于 1.5.0 时推荐使用
+                login: {
+                  method: 'openapi',
+                  token: '项目的token, 进入项目的设置-->token配置获取',
+                },
+                */
                 // 随请求发送的其他 Cookie，一般情况下不必理会
                 // 如：a=1; b=2
                 extraCookies: '',
@@ -66,7 +73,7 @@ export async function run(): Promise<void> {
               }
 
               export default config
-            `.trim().replace(/ {12}/g, '')}\n`)
+            `.trim().replace(/ {14}/g, '')}\n`)
             resolve()
             break
           default:

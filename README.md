@@ -12,7 +12,7 @@
 
 ## 特性
 
-- 自动登录，支持普通登录、LDAP 登录
+- 自动登录，支持普通登录、LDAP 登录、openapi 登录
 - 可导出同项目下的多个分类
 - 可自定义接口名及请求函数名
 - 完整的注释
@@ -99,15 +99,34 @@ npm run api
       email: string,
       /** 登录密码 */
       password: string,
+    } | {
+      /** 登录方式：openapi（开放API，仅 YApi 版本大于等于 1.5.0 时可用） */
+      method: 'openapi',
+      /** 项目 token（进入项目的设置-->token配置获取） */
+      token: string,
     }
     ```
-  - 说明: 登录 YApi 的信息。
+  - 说明: 登录 YApi 的信息。（**注意：使用 openapi 登录时 YApi 的版本应大于等于 1.5.0**）
   - 举例:
     ```ts
+    // 普通登录
     {
       method: 'classical',
       email: 'hello@foo.bar',
       password: '123456'
+    }
+
+    // LDAP 登录
+    {
+      method: 'ldap',
+      email: 'hello@foo.bar',
+      password: '123456'
+    }
+
+    // openapi 登录
+    {
+      method: 'openapi',
+      token: 'de4dae88c1458930e52ea402b91cc9a4493767938f054b59c7bb161aa0506246',
     }
     ```
 
