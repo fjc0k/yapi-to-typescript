@@ -1,6 +1,6 @@
 {
   "name": "yapi-to-typescript",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "根据 YApi 的接口定义生成 TypeScript 的请求函数。",
   "main": "lib/index.js",
   "bin": {
