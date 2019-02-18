@@ -1,16 +1,20 @@
-require('ts-node').register({ transpileOnly: true })
-
+import * as TSNode from 'ts-node'
 import fs from 'fs-extra'
 import cli from 'commander'
 import { Config } from './types'
 import toTypeScript from './index'
 
+TSNode.register({
+  transpileOnly: true,
+  compilerOptions: {
+    module: 'commonjs',
+  },
+})
+
 export async function run(): Promise<void> {
   return new Promise((resolve, reject) => {
-    const cwd = process.cwd()
     const pkg = require('../package.json')
-
-    const configTsFile = `${cwd}/ytt.config.ts`
+    const configFile = `${process.cwd()}/ytt.config.ts`
 
     cli
       .version(pkg.version)
@@ -18,7 +22,7 @@ export async function run(): Promise<void> {
       .action(cmd => {
         switch (cmd) {
           case 'init':
-            fs.outputFileSync(configTsFile, `${`
+            fs.outputFileSync(configFile, `${`
               import { Config, InterfaceType } from 'yapi-to-typescript/lib/types'
 
               const config: Config = {
@@ -79,8 +83,8 @@ export async function run(): Promise<void> {
           default:
             let config: Config = {} as any
             switch (true) {
-              case fs.existsSync(configTsFile):
-                config = require(configTsFile).default
+              case fs.existsSync(configFile):
+                config = require(configFile).default
                 break
               default:
                 reject(new Error('请先设置 ytt.config.ts 文件。'))
