@@ -14,7 +14,7 @@ export default async (config: Config): Promise<void> => {
   consola.info('生成 TypeScript 类型文件中...')
   // 生成分类 ID 到分类 API 列表的对象
   const categoryIdToApiList = apiCollection.reduce<{ [id: number]: ApiList }>((res, api) => {
-    if (api.list.length) {
+    if (api && api.list && api.list.length) {
       res[api.list[0].catid] = api.list
     }
     return res
