@@ -43,12 +43,14 @@ export function parseRequestData<
     data: {} as any,
     fileData: {} as any,
   }
-  Object.keys(requestData).forEach(key => {
-    if (requestData[key] && requestData[key] instanceof FileData) {
-      result.fileData[key] = (requestData[key] as FileData).getOriginalFileData()
-    } else {
-      result.data[key] = requestData[key]
-    }
-  })
+  if (requestData != null && typeof requestData === 'object') {
+    Object.keys(requestData).forEach(key => {
+      if (requestData[key] && requestData[key] instanceof FileData) {
+        result.fileData[key] = (requestData[key] as FileData).getOriginalFileData()
+      } else {
+        result.data[key] = requestData[key]
+      }
+    })
+  }
   return result
 }
