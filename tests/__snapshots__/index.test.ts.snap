@@ -29,7 +29,7 @@ export function get(requestData?: GetRequest): Promise<GetResponse> {
   return request({
     path: '/get',
     method: 'GET',
-    requestBodyType: 'undefined',
+    requestBodyType: 'query',
     responseBodyType: 'json',
     data: data,
     fileData: fileData
