@@ -25,10 +25,17 @@ export enum Required {
 
 /** 请求数据类型 */
 export enum RequestBodyType {
+  /** 查询字符串 */
+  Query = 'query',
+  /** 表单 */
   Form = 'form',
+  /** JSON */
   Json = 'json',
+  /** 纯文本 */
   Text = 'text',
+  /** 文件 */
   File = 'file',
+  /** 原始数据 */
   Raw = 'raw',
 }
 

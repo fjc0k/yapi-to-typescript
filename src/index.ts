@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs-extra'
 import * as changeCase from 'change-case'
 import consola from 'consola'
-import { Config, ApiList, InterfaceType, ExtendedApi } from './types'
+import { Config, ApiList, InterfaceType, ExtendedApi, Method, RequestBodyType } from './types'
 import fetchApiCollection from './fetchApiCollection'
 import generateRequestPayloadType from './generateRequestPayloadType'
 import generateResponsePayloadType from './generateResponsePayloadType'
@@ -43,7 +43,7 @@ export default async (config: Config): Promise<void> => {
                   `  return request({`,
                   `    path: '${api.path}',`,
                   `    method: '${api.method}',`,
-                  `    requestBodyType: '${api.req_body_type}',`,
+                  `    requestBodyType: '${api.method === Method.GET ? RequestBodyType.Query : api.req_body_type}',`,
                   `    responseBodyType: '${api.res_body_type}',`,
                   `    data: data,`,
                   `    fileData: fileData`,
