@@ -4,10 +4,13 @@ import Mock from 'mockjs'
 // fix: Mock.toJSONSchema 产生的 properties 为数组，然而 JSONSchema4 的 properties 为对象
 const fixProperties = (obj: any): JSONSchema4 => {
   if (obj.properties) {
-    obj.properties = obj.properties.reduce((res: any, prop: any) => {
-      res[prop.name] = fixProperties(prop)
-      return res
-    }, {})
+    obj.properties = obj.properties.reduce(
+      (res: any, prop: any) => {
+        res[prop.name] = fixProperties(prop)
+        return res
+      },
+      {},
+    )
   }
   if (obj.items) {
     obj.items = obj.items.map((item: any) => fixProperties(item))

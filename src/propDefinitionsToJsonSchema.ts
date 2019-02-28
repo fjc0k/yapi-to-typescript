@@ -10,20 +10,26 @@ import { PropDefinitions } from './types'
 export default function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): JSONSchema4 {
   return {
     type: 'object',
-    required: propDefinitions.reduce((res, prop) => {
-      if (prop.required) {
-        res.push(prop.name)
-      }
-      return res
-    }, []),
-    properties: propDefinitions.reduce<JSONSchema4['properties']>((res, prop) => {
-      res[prop.name] = {
-        type: prop.type,
-        description: prop.comment,
-        // 特殊处理 file
-        ...(prop.type === 'file' ? { tsType: 'FileData' } : {}),
-      }
-      return res
-    }, {}),
+    required: propDefinitions.reduce<string[]>(
+      (res, prop) => {
+        if (prop.required) {
+          res.push(prop.name)
+        }
+        return res
+      },
+      [],
+    ),
+    properties: propDefinitions.reduce<Exclude<JSONSchema4['properties'], undefined>>(
+      (res, prop) => {
+        res[prop.name] = {
+          type: prop.type,
+          description: prop.comment,
+          // 特殊处理 file
+          ...(prop.type === 'file' ? { tsType: 'FileData' } : {}),
+        }
+        return res
+      },
+      {},
+    ),
   }
 }

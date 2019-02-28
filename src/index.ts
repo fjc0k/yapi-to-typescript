@@ -9,16 +9,17 @@ import generateResponsePayloadType from './generateResponsePayloadType'
 
 export default async (config: Config): Promise<void> => {
   consola.info('获取接口 JSON 文件中...')
-  // 获取接口的 JSON 文件并转换为对象
   const apiCollection = await fetchApiCollection(config)
   consola.info('生成 TypeScript 类型文件中...')
-  // 生成分类 ID 到分类 API 列表的对象
-  const categoryIdToApiList = apiCollection.reduce<{ [id: number]: ApiList }>((res, api) => {
-    if (api && api.list && api.list.length) {
-      res[api.list[0].catid] = api.list
-    }
-    return res
-  }, {})
+  const categoryIdToApiList = apiCollection.reduce<{ [id: number]: ApiList }>(
+    (res, api) => {
+      if (api && api.list && api.list.length) {
+        res[api.list[0].catid] = api.list
+      }
+      return res
+    },
+    {},
+  )
   const tsContent = (
     await Promise.all(
       Object.keys(config.categories).map(async (categoryId: any) => {
@@ -51,15 +52,18 @@ export default async (config: Config): Promise<void> => {
                 ].join('\n')
               }\n}`,
             ].join('\n\n')
-          })
+          }),
         )
-      })
+      }),
     )
   )
-    .reduce((res, arr) => {
-      res.push(...arr)
-      return res
-    }, [])
+    .reduce(
+      (res, arr) => {
+        res.push(...arr)
+        return res
+      },
+      [],
+    )
     .join('\n\n')
   const targetFile = path.resolve(process.cwd(), config.targetFile)
   const requestFile = path.join(path.parse(targetFile).dir, 'request.ts')

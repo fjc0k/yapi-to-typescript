@@ -1,5 +1,6 @@
 import { compile, Options } from 'json-schema-to-typescript'
 import { JSONSchema4 } from 'json-schema'
+import { isEmpty, castArray } from 'vtils'
 
 const JSTTOptions: Partial<Options> = {
   bannerComment: '',
@@ -19,17 +20,17 @@ const JSTTOptions: Partial<Options> = {
  * 2. 将 additionalProperties 设为 false
  */
 const normalizeSchema = (schema: JSONSchema4): JSONSchema4 => {
-  if (!schema) return schema
+  if (isEmpty(schema)) return schema
   delete schema.title
   delete schema.id
   schema.additionalProperties = false
   if (schema.properties) {
-    Object.keys(schema.properties).forEach(key => {
-      normalizeSchema(schema.properties[key])
+    Object.values(schema.properties).forEach(item => {
+      normalizeSchema(item)
     })
   }
   if (schema.items) {
-    (Array.isArray(schema.items) ? schema.items : [schema.items]).forEach(item => {
+    castArray(schema.items).forEach(item => {
       normalizeSchema(item)
     })
   }
@@ -37,7 +38,7 @@ const normalizeSchema = (schema: JSONSchema4): JSONSchema4 => {
 }
 
 export default async function jsonSchemaToTypes(schema: JSONSchema4, interfaceName: string): Promise<string> {
-  if (!schema) {
+  if (isEmpty(schema)) {
     return `export type ${interfaceName} = any`
   }
   return compile(normalizeSchema(schema), interfaceName, JSTTOptions)

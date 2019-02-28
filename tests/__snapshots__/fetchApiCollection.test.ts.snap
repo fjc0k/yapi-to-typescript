@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`登录失败 1`] = `"[31m登录 http://foo.bar/api/user/login 失败，请检查邮箱、密码是否有误或服务是否可用。（服务器错误信息：undefined）[0m"`;
+exports[`登录失败 1`] = `"[31m登录 http://foo.bar/api/user/login 失败，请检查邮箱、密码是否有误或服务是否可用。（服务器错误信息：undefined）[39m"`;
 
 exports[`登录成功，并成功获取 API 列表 1`] = `
 Array [

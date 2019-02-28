@@ -14,7 +14,7 @@ import jsonSchemaToTypes from './jsonSchemaToTypes'
  * @returns typescript 定义
  */
 export default async function generateRequestPayloadType(api: Api, interfaceName: string): Promise<string> {
-  let jsonSchema: JSONSchema4
+  let jsonSchema: JSONSchema4 = {}
   switch (api.method) {
     case Method.GET:
     case Method.HEAD:
@@ -25,7 +25,7 @@ export default async function generateRequestPayloadType(api: Api, interfaceName
           required: item.required === Required.True,
           type: 'string',
           comment: item.desc,
-        }))
+        })),
       )
       break
     default:
@@ -37,14 +37,14 @@ export default async function generateRequestPayloadType(api: Api, interfaceName
               required: item.required === Required.True,
               type: (item.type === RequestFormItemType.File ? 'file' : 'string') as any,
               comment: item.desc,
-            }))
+            })),
           )
           break
         case RequestBodyType.Json:
-          if (api.req_body_is_json_schema) {
-            jsonSchema = api.req_body_other && JSON.parse(api.req_body_other)
-          } else {
-            jsonSchema = api.req_body_other && jsonSchemaGenerator(JSON5.parse(api.req_body_other))
+          if (api.req_body_other) {
+            jsonSchema = api.req_body_is_json_schema
+              ? JSON.parse(api.req_body_other)
+              : jsonSchemaGenerator(JSON5.parse(api.req_body_other))
           }
           break
         default:

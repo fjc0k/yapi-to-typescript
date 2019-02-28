@@ -13,14 +13,14 @@ import jsonSchemaToTypes from './jsonSchemaToTypes'
  * @returns typescript 定义
  */
 export default async function generateResponsePayloadType(api: Api, interfaceName: string, dataKey?: string): Promise<string> {
-  let jsonSchema: JSONSchema4
+  let jsonSchema: JSONSchema4 = {}
   switch (api.res_body_type) {
     case ResponseBodyType.Json:
     case ResponseBodyType.JsonSchema:
-      if (api.res_body_is_json_schema) {
-        jsonSchema = api.res_body && JSON.parse(api.res_body)
-      } else {
-        jsonSchema = api.res_body && mockjsJsonToJsonSchema(JSON5.parse(api.res_body))
+      if (api.res_body) {
+        jsonSchema = api.res_body_is_json_schema
+          ? JSON.parse(api.res_body)
+          : mockjsJsonToJsonSchema(JSON5.parse(api.res_body))
       }
       break
     default:
