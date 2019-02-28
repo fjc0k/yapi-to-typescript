@@ -1,6 +1,7 @@
 import rawRequest from 'request-promise-native'
 import cookie from 'cookie'
 import chalk from 'chalk'
+import { forOwn } from 'vtils'
 import { ApiCollection, Config, Api } from './types'
 
 type ApiResult<T = any> = {
@@ -16,14 +17,14 @@ export default async function fetchApiCollection(config: Config): Promise<ApiCol
       chalk.red('无法解析 projectUrl，请检查是否有误。'),
     )
   }
-  const [, baseUrl, projectId ] = matches
+  const [, baseUrl, projectId] = matches
 
   // 设置 request
   const cookieJar = rawRequest.jar()
   if (config.extraCookies) {
     const cookies = cookie.parse(config.extraCookies)
-    Object.keys(cookies).forEach(key => {
-      cookieJar.setCookie(`${key}=${cookies[key]}`, baseUrl)
+    forOwn(cookies, (cookie, key) => {
+      cookieJar.setCookie(`${key}=${cookie}`, baseUrl)
     })
   }
   const request = rawRequest.defaults({
