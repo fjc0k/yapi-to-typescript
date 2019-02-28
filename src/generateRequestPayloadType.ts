@@ -1,5 +1,4 @@
 import { JSONSchema4 } from 'json-schema'
-// @ts-ignore
 import jsonSchemaGenerator from 'json-schema-generator'
 import JSON5 from 'json5'
 import { Api, Method, Required, RequestBodyType, RequestFormItemType, PropDefinition } from './types'
