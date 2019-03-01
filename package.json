@@ -29,13 +29,14 @@
     "url": "https://github.com/fjc0k"
   },
   "scripts": {
-    "api": "ts-node src/cli.ts",
-    "lint": "eslint --fix --ext .ts src/",
-    "testOnly": "jest",
+    "api-test": "ts-node --transpile-only src/cli.ts",
+    "lint": "eslint --ext .ts src/",
+    "lint-fix": "eslint --fix --ext .ts src/",
+    "test-only": "jest",
     "test": "jest --coverage",
     "build": "tsc",
     "release": "standard-version -a",
-    "postrelease": "git push --follow-tags origin master && yarn build && npm publish"
+    "postrelease": "yarn lint && yarn build && yarn test-only && git push --follow-tags origin master && npm publish"
   },
   "eslintConfig": {
     "root": true,
@@ -91,7 +92,7 @@
     "mockjs": "^1.0.1-beta3",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
-    "ts-node": "^7.0.1",
+    "ts-node": "^8.0.2",
     "tslib": "^1.9.3",
     "vtils": "^0.76.1"
   }

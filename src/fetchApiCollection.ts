@@ -1,8 +1,8 @@
 import rawRequest from 'request-promise-native'
 import cookie from 'cookie'
-import chalk from 'chalk'
 import { forOwn } from 'vtils'
 import { ApiCollection, Config, Api } from './types'
+import throwError from './throwError'
 
 type ApiResult<T = any> = {
   errcode: number,
@@ -13,8 +13,8 @@ type ApiResult<T = any> = {
 export default async function fetchApiCollection(config: Config): Promise<ApiCollection> {
   const matches = config.projectUrl.match(/(.+\/)project\/(\d+)\//)
   if (!matches) {
-    throw new Error(
-      chalk.red('无法解析 projectUrl，请检查是否有误。'),
+    return throwError(
+      '无法解析 projectUrl，请检查是否有误。',
     )
   }
   const [, baseUrl, projectId] = matches
@@ -40,11 +40,9 @@ export default async function fetchApiCollection(config: Config): Promise<ApiCol
     const catListResult: ApiResult<ApiCollection> = await request.get(catListUrl)
 
     if (!catListResult || catListResult.errcode !== 0) {
-      throw new Error(
-        chalk.red(
-          `openapi 请求失败，请确认 YApi 的版本是否大于或等于 1.5.0，以及 token 是否正确。`
-            + `（服务器错误信息：${catListResult.errmsg}）`,
-        ),
+      return throwError(
+        'openapi 请求失败，请确认 YApi 的版本是否大于或等于 1.5.0，以及 token 是否正确。',
+        `（服务器错误信息：${catListResult.errmsg}）`,
       )
     }
 
@@ -76,11 +74,9 @@ export default async function fetchApiCollection(config: Config): Promise<ApiCol
     })
 
     if (!loginResult || loginResult.errcode !== 0) {
-      throw new Error(
-        chalk.red(
-          `登录 ${loginUrl} 失败，请检查邮箱、密码是否有误或服务是否可用。`
-            + `（服务器错误信息：${loginResult.errmsg}）`,
-        ),
+      return throwError(
+        `登录 ${loginUrl} 失败，请检查邮箱、密码是否有误或服务是否可用。`,
+        `（服务器错误信息：${loginResult.errmsg}）`,
       )
     }
 
