@@ -17,7 +17,6 @@
     ]
   },
   "include": [
-    "src",
-    "thirdParties.d.ts"
+    "src"
   ]
 }
