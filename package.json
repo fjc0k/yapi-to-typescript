@@ -2,7 +2,9 @@
   "name": "yapi-to-typescript",
   "version": "0.10.4",
   "description": "根据 YApi 的接口定义生成 TypeScript 的请求函数。",
-  "main": "lib/index.js",
+  "main": "client/index.js",
+  "module": "client/index.mjs",
+  "typing": "client/index.d.ts",
   "bin": {
     "ytt": "lib/cli.js"
   },
@@ -44,6 +46,7 @@
   },
   "eslintIgnore": [
     "lib",
+    "client",
     "__snapshots__"
   ],
   "jest": {
@@ -70,10 +73,12 @@
     "@types/mockjs": "^1.0.2",
     "@types/node": "^10.12.10",
     "@types/request-promise-native": "^1.0.15",
+    "bili": "^4.7.1",
     "codecov": "^3.1.0",
     "eslint": "^5.9.0",
-    "eslint-config-io": "^0.1.1",
+    "eslint-config-io": "^0.5.0",
     "jest": "^23.6.0",
+    "rollup-plugin-typescript2": "^0.20.1",
     "standard-version": "^4.4.0",
     "ts-jest": "^23.10.5",
     "typescript": "^3.3.3333"

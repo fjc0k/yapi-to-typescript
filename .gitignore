@@ -7,3 +7,4 @@ ytt.config.*
 /api.ts
 /request.ts
 .tmp*
+*_cache

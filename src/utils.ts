@@ -1,56 +1,153 @@
-export class FileData<T = any> {
-  /**
-   * 原始文件数据。
-   *
-   * @private
-   */
-  private originalFileData: T
+import chalk from 'chalk'
+import jsonSchemaGenerator from 'json-schema-generator'
+import Mock from 'mockjs'
+import { castArray, forOwn, isArray, isEmpty, isObject } from 'vtils'
+import { compile, Options } from 'json-schema-to-typescript'
+import { FileData } from './helpers'
+import { JSONSchema4 } from 'json-schema'
+import { PropDefinitions } from './types'
 
-  /**
-   * 文件数据辅助类，统一网页、小程序等平台的文件上传。
-   *
-   * @param originalFileData 原始文件数据
-   */
-  public constructor(originalFileData: T) {
-    this.originalFileData = originalFileData
-  }
-
-  /**
-   * 获取原始文件数据。
-   *
-   * @returns 原始文件数据
-   */
-  public getOriginalFileData(): T {
-    return this.originalFileData
-  }
+/**
+ * 抛出错误。
+ *
+ * @param msg 错误信息
+ */
+export function throwError(...msg: string[]): never {
+  throw new Error(chalk.red(msg.join('')))
 }
 
 /**
- * 解析请求数据，从请求数据中分离出普通数据和文件数据。
+ * 原地处理 JSONSchema。
  *
- * @param requestData 要解析的请求数据
- * @returns 包含普通数据(data)和文件数据(fileData)的对象，data、fileData 为空对象时，表示没有此类数据
+ * @param jsonSchema 待处理的 JSONSchema
+ * @returns 处理后的 JSONSchema
  */
-export function parseRequestData<
-  RD extends { [key: string]: any },
-  DK extends { [K in keyof RD]: RD[K] extends FileData ? never : K }[keyof RD],
-  FDK extends { [K in keyof RD]: RD[K] extends FileData ? K : never }[keyof RD]
->(requestData: RD): {
-  data: { [K in DK]: RD[K] },
-  fileData: { [K in FDK]: RD[K] extends FileData<infer T> ? T : any },
-} {
-  const result = {
-    data: {} as any,
-    fileData: {} as any,
+export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
+  if (!isObject(jsonSchema)) return jsonSchema
+
+  // 去除 title 和 id，防止 json-schema-to-typescript 提取它们作为接口名
+  delete jsonSchema.title
+  delete jsonSchema.id
+
+  // 将 additionalProperties 设为 false
+  jsonSchema.additionalProperties = false
+
+  // Mock.toJSONSchema 产生的 properties 为数组，然而 JSONSchema4 的 properties 为对象
+  if (isArray(jsonSchema.properties)) {
+    jsonSchema.properties = (jsonSchema.properties as JSONSchema4[])
+      .reduce<Exclude<JSONSchema4['properties'], undefined>>(
+        (props, js) => {
+          props[js.name] = js
+          return props
+        },
+        {},
+      )
   }
-  if (requestData != null && typeof requestData === 'object') {
-    Object.keys(requestData).forEach(key => {
-      if (requestData[key] && requestData[key] instanceof FileData) {
-        result.fileData[key] = (requestData[key] as FileData).getOriginalFileData()
-      } else {
-        result.data[key] = requestData[key]
-      }
-    })
+
+  // 继续处理对象的子元素
+  if (jsonSchema.properties) {
+    forOwn(jsonSchema.properties, processJsonSchema)
   }
-  return result
+
+  // 继续处理数组的子元素
+  if (jsonSchema.items) {
+    castArray(jsonSchema.items).forEach(processJsonSchema)
+  }
+
+  return jsonSchema
+}
+
+/**
+ * 将 JSONSchema 字符串转为 JSONSchema 对象。
+ *
+ * @param str 要转换的 JSONSchema 字符串
+ * @returns 转换后的 JSONSchema 对象
+ */
+export function jsonSchemaStringToJsonSchema(str: string): JSONSchema4 {
+  return processJsonSchema(
+    JSON.parse(str),
+  )
+}
+
+/**
+ * 获得 JSON 数据的 JSONSchema 对象。
+ *
+ * @param json JSON 数据
+ * @returns JSONSchema 对象
+ */
+export function jsonToJsonSchema(json: object): JSONSchema4 {
+  return processJsonSchema(
+    jsonSchemaGenerator(json),
+  )
+}
+
+/**
+ * 获得 mockjs 模板的 JSONSchema 对象。
+ *
+ * @param template mockjs 模板
+ * @returns JSONSchema 对象
+ */
+export function mockjsTemplateToJsonSchema(template: object): JSONSchema4 {
+  return processJsonSchema(
+    Mock.toJSONSchema(template) as any,
+  )
+}
+
+/**
+ * 获得属性定义列表的 JSONSchema 对象。
+ *
+ * @param propDefinitions 属性定义列表
+ * @returns JSONSchema 对象
+ */
+export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): JSONSchema4 {
+  return {
+    type: 'object',
+    required: propDefinitions.reduce<string[]>(
+      (res, prop) => {
+        if (prop.required) {
+          res.push(prop.name)
+        }
+        return res
+      },
+      [],
+    ),
+    properties: propDefinitions.reduce<Exclude<JSONSchema4['properties'], undefined>>(
+      (res, prop) => {
+        res[prop.name] = {
+          type: prop.type,
+          description: prop.comment,
+          ...(prop.type === 'file' ? { tsType: FileData.name } : {}),
+        }
+        return res
+      },
+      {},
+    ),
+  }
+}
+
+const JSTTOptions: Partial<Options> = {
+  bannerComment: '',
+  style: {
+    bracketSpacing: false,
+    printWidth: 120,
+    semi: true,
+    singleQuote: true,
+    tabWidth: 2,
+    trailingComma: 'none',
+    useTabs: false,
+  },
+}
+
+/**
+ * 根据 JSONSchema 对象生产 TypeScript 类型定义。
+ *
+ * @param jsonSchema JSONSchema 对象
+ * @param typeName 类型名称
+ * @returns TypeScript 类型定义
+ */
+export async function jsonSchemaToType(jsonSchema: JSONSchema4, typeName: string): Promise<string> {
+  if (isEmpty(jsonSchema)) {
+    return `export type ${typeName} = any`
+  }
+  return compile(jsonSchema, typeName, JSTTOptions)
 }

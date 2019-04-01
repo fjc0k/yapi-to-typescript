@@ -1,6 +1,6 @@
-import { ParsedPath } from 'path'
-import { JSONSchema4 } from 'json-schema'
 import * as changeCase from 'change-case'
+import { JSONSchema4 } from 'json-schema'
+import { ParsedPath } from 'path'
 
 // 参考：https://github.com/YMFE/yapi/blob/master/server/models/interface.js#L9
 
@@ -18,43 +18,51 @@ export enum Method {
 /** 是否必需 */
 export enum Required {
   /** 不必需 */
-  False = '0',
+  false = '0',
   /** 必需 */
-  True = '1',
+  true = '1',
 }
 
 /** 请求数据类型 */
 export enum RequestBodyType {
   /** 查询字符串 */
-  Query = 'query',
+  query = 'query',
   /** 表单 */
-  Form = 'form',
+  form = 'form',
   /** JSON */
-  Json = 'json',
+  json = 'json',
   /** 纯文本 */
-  Text = 'text',
+  text = 'text',
   /** 文件 */
-  File = 'file',
+  file = 'file',
   /** 原始数据 */
-  Raw = 'raw',
+  raw = 'raw',
 }
 
 /** 请求表单条目类型 */
 export enum RequestFormItemType {
-  Text = 'text',
-  File = 'file',
+  /** 纯文本 */
+  text = 'text',
+  /** 文件 */
+  file = 'file',
 }
 
 /** 返回数据类型 */
 export enum ResponseBodyType {
-  Json = 'json',
-  Text = 'text',
-  Xml = 'xml',
-  Raw = 'raw',
-  JsonSchema = 'json-schema',
+  /** JSON */
+  json = 'json',
+  /** 纯文本 */
+  text = 'text',
+  /** XML */
+  xml = 'xml',
+  /** 原始数据 */
+  raw = 'raw',
+  /** JSON Schema */
+  jsonSchema = 'json-schema',
 }
 
-export interface Api {
+/** 接口定义 */
+export interface Interface {
   /** 接口 ID */
   _id: number,
   /** 接口名称 */
@@ -65,7 +73,7 @@ export interface Api {
   path: string,
   /** 请求方式，HEAD、OPTIONS 处理与 GET 相似，其余处理与 POST 相似 */
   method: Method,
-  /** 分类 id */
+  /** 所属分类 id */
   catid: number,
   /** 仅 GET：请求串 */
   req_query: Array<{
@@ -79,7 +87,7 @@ export interface Api {
     required: Required,
   }>,
   /** 仅 POST：请求内容类型。为 text, file, raw 时不必特殊处理。 */
-  req_body_type?: RequestBodyType,
+  req_body_type: RequestBodyType,
   /** `req_body_type = json` 时是否为 json schema */
   req_body_is_json_schema: boolean,
   /** `req_body_type = form` 时的请求内容 */
@@ -105,21 +113,155 @@ export interface Api {
   res_body: string,
 }
 
-/** API 列表 */
-export type ApiList = Api[]
+/** 扩展接口定义 */
+export interface ExtendedInterface extends Interface {
+  parsedPath: ParsedPath,
+  changeCase: typeof changeCase,
+}
 
-/** API 集合，对应数据导出的 json 内容 */
-export type ApiCollection = Array<{
+/** 接口列表 */
+export type InterfaceList = Interface[]
+
+/** 分类信息 */
+export interface Category {
   /** 分类名称 */
   name: string,
   /** 分类备注 */
   desc: string,
   /** 分类接口列表 */
-  list: ApiList,
-}>
+  list: InterfaceList,
+}
+
+/** 分类列表，对应数据导出的 json 内容 */
+export type CategoryList = Category[]
+
+/**
+ * 配置。
+ */
+export interface Config {
+  /**
+   * YApi 服务地址。
+   *
+   * @example 'http://yapi.foo.bar'
+   */
+  serverUrl?: string,
+  /**
+   * 生产环境名称。
+   *
+   * **用于获取生产环境域名。**
+   *
+   * 获取方式：打开项目 --> `设置` --> `环境配置` --> 点开或新增生产环境 --> 复制生产环境名称。
+   *
+   * @example 'prod'
+   */
+  prodEnvName?: string,
+  /**
+   * 输出文件路径。
+   *
+   * 可以是 `相对路径` 或 `绝对路径`。
+   *
+   * @example 'src/api/index.ts'
+   */
+  outputFilePath?: string,
+  /**
+   * 如果接口响应的结果是 `JSON` 对象，
+   * 且我们想要的数据在该对象下，
+   * 那我们就可将 `dataKey` 设为我们想要的数据对应的键。
+   *
+   * 比如该对象为 `{ code: 0, msg: '成功', data: 100 }`，
+   * 我们想要的数据为 `100`，
+   * 则我们可将 `dataKey` 设为 `data`。
+   *
+   * @example 'data'
+   */
+  dataKey?: string,
+  /**
+   * 项目列表。
+   */
+  projects: Array<
+    Pick<Config, 'serverUrl' | 'prodEnvName' | 'outputFilePath' | 'dataKey'> & {
+      /**
+       * 项目的唯一标识。
+       *
+       * 获取方式：打开项目 --> `设置` --> `token配置` --> 复制 token。
+       *
+       * @example 'e02a47122259d0c1973a9ff81cabb30685d64abc72f39edaa1ac6b6a792a647d'
+       */
+      token: string,
+      /**
+       * 分类列表。
+       */
+      categories: Array<
+        Pick<Config, 'prodEnvName' | 'outputFilePath' | 'dataKey'> & {
+          /**
+           * 分类 ID。
+           *
+           * 获取方式：打开项目 --> 点开分类 --> 复制浏览器地址栏 `/api/cat_` 后面的数字。
+           *
+           * @example 20
+           */
+          id: number,
+          /**
+           * 获取请求函数的名称。
+           *
+           * @param interfaceInfo 接口信息
+           * @returns 请求函数的名称
+           */
+          getRequestFunctionName(interfaceInfo: ExtendedInterface): string,
+          /**
+           * 获取请求数据类型的名称。
+           *
+           * @param interfaceInfo 接口信息
+           * @returns 请求数据类型的名称
+           */
+          getRequestDataTypeName(interfaceInfo: ExtendedInterface): string,
+          /**
+           * 获取响应数据类型的名称。
+           *
+           * @param interfaceInfo 接口信息
+           * @returns 响应数据类型的名称
+           */
+          getResponseDataTypeName(interfaceInfo: ExtendedInterface): string,
+        }
+      >,
+    }
+  >,
+}
+
+/**
+ * 请求参数。
+ */
+export interface RequestFunctionParams {
+  /** 接口 Mock 地址，结尾无 `/` */
+  mockUrl: string,
+  /** 接口生产环境地址，结尾无 `/` */
+  prodUrl: string,
+  /** 接口路径，以 `/` 开头 */
+  path: string,
+  /** 请求方法 */
+  method: Method,
+  /** 请求数据类型 */
+  requestBodyType: RequestBodyType,
+  /** 返回数据类型 */
+  responseBodyType: ResponseBodyType,
+  /** 请求数据，不含文件数据 */
+  data: any,
+  /** 请求文件数据 */
+  fileData: Record<string, any>,
+}
+
+/**
+ * 请求函数。
+ *
+ * 发起请求获得响应结果后应根据 `responseBodyType` 对结果进行处理并将处理后的数据原样返回。
+ */
+export type RequestFunction = (
+  /** 参数 */
+  params: RequestFunctionParams,
+) => Promise<any>
 
 /** 属性定义 */
-export type PropDefinition = {
+export interface PropDefinition {
   /** 属性名称 */
   name: string,
   /** 是否必需 */
@@ -132,72 +274,3 @@ export type PropDefinition = {
 
 /** 属性定义列表 */
 export type PropDefinitions = PropDefinition[]
-
-/** 接口类型 */
-export enum InterfaceType {
-  /** 请求 */
-  Request = 0,
-  /** 响应 */
-  Response = 1,
-}
-
-/** 配置 */
-export interface Config {
-  /** 项目 url */
-  projectUrl: string,
-  /** 登录信息 */
-  login: {
-    /** 登录方式：classical（普通登录）、ldap（LDAP） */
-    method?: 'classical' | 'ldap',
-    /** 登录邮箱 */
-    email: string,
-    /** 登录密码 */
-    password: string,
-  } | {
-    /** 登录方式：openapi（开放API，仅 YApi 版本大于等于 1.5.0 时可用） */
-    method: 'openapi',
-    /** 项目 token（进入项目的设置-->token配置获取） */
-    token: string,
-  },
-  /** 随请求发送的其他 cookie 字符串，比如：`a=1; b=2` */
-  extraCookies?: string,
-  /** 数据所在字段，不设置表示整体都是数据 */
-  dataKey?: string,
-  /** 生成的 ts 文件放在这里 */
-  targetFile: string,
-  /** 要处理的分类列表 */
-  categories: {
-    /** 分类 id */
-    [id: number]: {
-      /** 获取发起请求函数的名称 */
-      getRequestFunctionName: (api: ExtendedApi) => string,
-      /** 获取 ts 接口的名称 */
-      getInterfaceName: (api: ExtendedApi, interfaceType: InterfaceType) => string,
-    },
-  },
-}
-
-/** 请求载荷 */
-export interface RequestPayload {
-  /** 请求路径，即 yapi 中的不含基本路径的 `接口路径`，如：`/user/getInfo` */
-  path: Api['path'],
-  /** 请求方法，如：`GET`、`POST`、`PUT`、`DELETE` 等 */
-  method: Api['method'],
-  /** 请求主体类型，如：`form`、`json`、`text` 等 */
-  requestBodyType: Api['req_body_type'],
-  /** 响应主体类型，如：`json`、`text` 等 */
-  responseBodyType: Api['res_body_type'],
-  /** 请求数据，一般是一个对象，需根据不同的 `请求主体类型` 予以加工并发送 */
-  data: any,
-  /** 要发送的文件数据 */
-  fileData: { [key: string]: any },
-}
-
-/** 请求，应返回包含结果的 Promise */
-export type Request = (payload: RequestPayload) => Promise<any>
-
-/** 扩展 API */
-export type ExtendedApi = Api & {
-  parsedPath: ParsedPath,
-  changeCase: typeof changeCase,
-}
