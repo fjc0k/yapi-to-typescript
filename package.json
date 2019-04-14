@@ -95,6 +95,7 @@
     "json-ts": "^1.6.4",
     "json5": "^2.1.0",
     "mockjs": "^1.0.1-beta3",
+    "ora": "^3.4.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
     "ts-node": "^8.0.2",

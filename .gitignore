@@ -8,3 +8,4 @@ ytt.config.*
 /request.ts
 .tmp*
 *_cache
+/client

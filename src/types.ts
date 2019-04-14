@@ -57,8 +57,10 @@ export enum ResponseBodyType {
   xml = 'xml',
   /** 原始数据 */
   raw = 'raw',
+
+  // yapi 实际上返回的是 json，有另外的字段指示其是否是 json schema
   /** JSON Schema */
-  jsonSchema = 'json-schema',
+  // jsonSchema = 'json-schema',
 }
 
 /** 接口定义 */
@@ -138,13 +140,13 @@ export type CategoryList = Category[]
 /**
  * 配置。
  */
-export interface Config {
+export interface ServerConfig {
   /**
    * YApi 服务地址。
    *
    * @example 'http://yapi.foo.bar'
    */
-  serverUrl?: string,
+  serverUrl: string,
   /**
    * 生产环境名称。
    *
@@ -164,6 +166,28 @@ export interface Config {
    */
   outputFilePath?: string,
   /**
+   * 请求函数文件路径。
+   *
+   * @default 与 `outputFilePath` 同级目录下的 `request.ts` 文件
+   * @example 'src/api/request.ts'
+   */
+  requestFunctionFilePath?: string,
+  /**
+   * 预处理接口信息，返回新的接口信息。
+   *
+   * 譬如你想对接口的 `path` 进行某些处理，就可使用该方法。
+   *
+   * @example
+   *
+   * ```js
+   * interfaceInfo => {
+   *   interfaceInfo.path = interfaceInfo.path.replace('v1', 'v2')
+   *   return interfaceInfo
+   * }
+   * ```
+   */
+  preproccessInterface?: <T extends Interface>(interfaceInfo: T) => T,
+  /**
    * 如果接口响应的结果是 `JSON` 对象，
    * 且我们想要的数据在该对象下，
    * 那我们就可将 `dataKey` 设为我们想要的数据对应的键。
@@ -179,7 +203,7 @@ export interface Config {
    * 项目列表。
    */
   projects: Array<
-    Pick<Config, 'serverUrl' | 'prodEnvName' | 'outputFilePath' | 'dataKey'> & {
+    Pick<ServerConfig, 'prodEnvName' | 'outputFilePath' | 'requestFunctionFilePath' | 'preproccessInterface' | 'dataKey'> & {
       /**
        * 项目的唯一标识。
        *
@@ -192,7 +216,7 @@ export interface Config {
        * 分类列表。
        */
       categories: Array<
-        Pick<Config, 'prodEnvName' | 'outputFilePath' | 'dataKey'> & {
+        Pick<ServerConfig, 'prodEnvName' | 'outputFilePath' | 'requestFunctionFilePath' | 'preproccessInterface' | 'dataKey'> & {
           /**
            * 分类 ID。
            *
@@ -228,22 +252,44 @@ export interface Config {
   >,
 }
 
+export type SyntheticalConfig = Partial<(
+  ServerConfig
+  & ServerConfig['projects'][0]
+  & ServerConfig['projects'][0]['categories'][0]
+  & {
+    mockUrl: string,
+    prodUrl: string,
+  }
+)>
+
+export type Config = ServerConfig | ServerConfig[]
+
 /**
- * 请求参数。
+ * 请求配置。
  */
-export interface RequestFunctionParams {
+export interface RequestConfig<
+  MockUrl extends string = string,
+  ProdUrl extends string = string,
+  Path extends string = string,
+> {
   /** 接口 Mock 地址，结尾无 `/` */
-  mockUrl: string,
+  mockUrl: MockUrl,
   /** 接口生产环境地址，结尾无 `/` */
-  prodUrl: string,
+  prodUrl: ProdUrl,
   /** 接口路径，以 `/` 开头 */
-  path: string,
+  path: Path,
   /** 请求方法 */
   method: Method,
   /** 请求数据类型 */
   requestBodyType: RequestBodyType,
   /** 返回数据类型 */
   responseBodyType: ResponseBodyType,
+}
+
+/**
+ * 请求参数。
+ */
+export interface RequestFunctionParams extends RequestConfig {
   /** 请求数据，不含文件数据 */
   data: any,
   /** 请求文件数据 */
