@@ -21,10 +21,10 @@
 
 ```bash
 # yarn
-yarn add yapi-to-typescript
+yarn add yapi-to-typescript@0.10.4
 
 # 或者，npm
-npm i yapi-to-typescript
+npm i yapi-to-typescript@0.10.4
 ```
 
 ## 使用
