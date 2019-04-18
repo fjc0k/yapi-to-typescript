@@ -63,7 +63,7 @@ export class Generator {
                       ...(await Promise.all(
                         interfaceList.map(
                           async interfaceInfo => {
-                            interfaceInfo = isFunction(syntheticalConfig.preproccessInterface) ? syntheticalConfig.preproccessInterface(interfaceInfo) : interfaceInfo
+                            interfaceInfo = isFunction(syntheticalConfig.preproccessInterface) ? syntheticalConfig.preproccessInterface(interfaceInfo, changeCase) : interfaceInfo
                             return Generator.generateInterfaceCode(
                               syntheticalConfig,
                               interfaceInfo,
