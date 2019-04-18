@@ -23,7 +23,8 @@
     "typing"
   ],
   "files": [
-    "lib"
+    "lib",
+    "client"
   ],
   "author": {
     "name": "Jay Fong",
