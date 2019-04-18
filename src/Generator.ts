@@ -156,13 +156,17 @@ export class Generator {
           path.dirname(outputFilePath),
           requestFilePath,
         )
+        const requestFileRelativePathWithoutExt = requestFileRelativePath.replace(
+          /\.(ts|js)$/i,
+          '',
+        )
         await fs.outputFile(
           outputFilePath,
           `${
             [
               `/* tslint:disable */\n/* eslint-disable */`,
               `/**\n * **该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！** \n */`,
-              `import request from ${JSON.stringify(requestFileRelativePath)}`,
+              `import request from ${JSON.stringify(requestFileRelativePathWithoutExt)}`,
               `// @ts-ignore\nimport { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'`,
               content.join('\n\n').trim(),
             ].join('\n\n')
