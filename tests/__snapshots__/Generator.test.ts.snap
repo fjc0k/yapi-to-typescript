@@ -306,7 +306,7 @@ noResponseDataTest.requestConfig = Object.freeze({
 }
 `;
 
-exports[`Generator 正确生成代码并写入文件: /Users/jayfong/Documents/JayFong/yapi-to-typescript/api/index.ts 1`] = `
+exports[`Generator 正确生成代码并写入文件 2`] = `
 "/* tslint:disable */
 /* eslint-disable */
 
@@ -618,7 +618,7 @@ noResponseDataTest.requestConfig = Object.freeze({
 "
 `;
 
-exports[`Generator 正确生成代码并写入文件: /Users/jayfong/Documents/JayFong/yapi-to-typescript/api/request.ts 1`] = `
+exports[`Generator 正确生成代码并写入文件 3`] = `
 "import { RequestFunction } from 'yapi-to-typescript'
 
 /** 是否是生产环境 */

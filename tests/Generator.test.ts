@@ -39,8 +39,8 @@ describe('Generator', () => {
 
     await generator.write(output)
     forOwn(output, ({ requestFilePath }, outputFilePath) => {
-      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(outputFilePath as any)
-      expect(fs.readFileSync(requestFilePath).toString()).toMatchSnapshot(requestFilePath)
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot()
+      expect(fs.readFileSync(requestFilePath).toString()).toMatchSnapshot()
     })
   })
 })
