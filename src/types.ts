@@ -315,7 +315,7 @@ export interface ServerConfig {
            * @param changeCase 常用的大小写转换函数集合对象
            * @returns 请求数据类型的名称
            */
-          getRequestDataTypeName(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+          getRequestDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
           /**
            * 获取响应数据类型的名称。
            *
@@ -323,7 +323,7 @@ export interface ServerConfig {
            * @param changeCase 常用的大小写转换函数集合对象
            * @returns 响应数据类型的名称
            */
-          getResponseDataTypeName(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+          getResponseDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
         }
       >,
     }

@@ -57,9 +57,9 @@ export class Generator {
                     const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}`
                     const categoryCode = [
                       [
-                        `const mockUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.mockUrl)}`,
-                        `const prodUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.prodUrl)}`,
-                        `const dataKey${categoryUID} = ${JSON.stringify(syntheticalConfig.dataKey)}`,
+                        `const mockUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.mockUrl)} as any`,
+                        `const prodUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.prodUrl)} as any`,
+                        `const dataKey${categoryUID} = ${JSON.stringify(syntheticalConfig.dataKey)} as any`,
                       ].join('\n'),
                       ...(await Promise.all(
                         interfaceList.map(
@@ -335,12 +335,22 @@ export class Generator {
       ...interfaceInfo,
       parsedPath: path.parse(interfaceInfo.path),
     }
-    const requestDataTypeName = changeCase.pascalCase(
-      await syntheticalConfig.getRequestDataTypeName!(extendedInterfaceInfo, changeCase),
+    const requestFunctionName = await syntheticalConfig.getRequestFunctionName!(
+      extendedInterfaceInfo,
+      changeCase,
     )
-    const responseDataTypeName = changeCase.pascalCase(
-      await syntheticalConfig.getResponseDataTypeName!(extendedInterfaceInfo, changeCase),
-    )
+    const requestDataTypeName = isFunction(syntheticalConfig.getRequestDataTypeName)
+      ? await syntheticalConfig.getRequestDataTypeName(
+        extendedInterfaceInfo,
+        changeCase,
+      )
+      : changeCase.pascalCase(`${requestFunctionName}Request`)
+    const responseDataTypeName = isFunction(syntheticalConfig.getResponseDataTypeName)
+      ? await syntheticalConfig.getResponseDataTypeName(
+        extendedInterfaceInfo,
+        changeCase,
+      )
+      : changeCase.pascalCase(`${requestFunctionName}Response`)
     const requestDataType = await Generator.generateRequestDataType({
       interfaceInfo: interfaceInfo,
       typeName: requestDataTypeName,
@@ -350,7 +360,6 @@ export class Generator {
       typeName: responseDataTypeName,
       dataKey: syntheticalConfig.dataKey,
     })
-    const requestFunctionName = await syntheticalConfig.getRequestFunctionName!(extendedInterfaceInfo, changeCase)
     const isRequestDataRequired = /(\{\}|any)$/s.test(requestDataType)
     return [
       `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求类型**\n */`,

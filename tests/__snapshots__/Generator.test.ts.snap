@@ -2,9 +2,9 @@
 
 exports[`Generator 正确生成代码并写入文件 1`] = `
 Array [
-  "const mockUrl_0_0_0 = \\"http://foo.bar/mock/32\\"
-const prodUrl_0_0_0 = \\"http://prod.com/\\"
-const dataKey_0_0_0 = undefined
+  "const mockUrl_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const prodUrl_0_0_0 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0 = undefined as any
 
 
 /**
@@ -329,9 +329,9 @@ import request from \\"./request\\"
 // @ts-ignore
 import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
 
-const mockUrl_0_0_0 = \\"http://foo.bar/mock/32\\"
-const prodUrl_0_0_0 = \\"http://prod.com/\\"
-const dataKey_0_0_0 = undefined
+const mockUrl_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const prodUrl_0_0_0 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0 = undefined as any
 
 
 /**
