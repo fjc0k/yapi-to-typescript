@@ -1,8 +1,83 @@
-import * as changeCase from 'change-case'
 import { JSONSchema4 } from 'json-schema'
 import { ParsedPath } from 'path'
 
-// 参考：https://github.com/YMFE/yapi/blob/master/server/models/interface.js#L9
+interface ChangeCase {
+  /**
+   * @example
+   * changeCase.camelCase('test string') // => 'testString'
+   */
+  camelCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.constantCase('test string') // => 'TEST_STRING'
+   */
+  constantCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.dotCase('test string') // => 'test.string'
+   */
+  dotCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.headerCase('test string') // => 'Test-String'
+   */
+  headerCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.lowerCase('TEST STRING') // => 'test string'
+   */
+  lowerCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.lowerCaseFirst('TEST') // => 'tEST'
+   */
+  lowerCaseFirst: (value: string) => string,
+  /**
+   * @example
+   * changeCase.paramCase('test string') // => 'test-string'
+   */
+  paramCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.pascalCase('test string') // => 'TestString'
+   */
+  pascalCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.pathCase('test string') // => 'test/string'
+   */
+  pathCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.sentenceCase('testString') // => 'Test string'
+   */
+  sentenceCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.snakeCase('test string') // => 'test_string'
+   */
+  snakeCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.swapCase('Test String') // => 'tEST sTRING'
+   */
+  swapCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.titleCase('a simple test') // => 'A Simple Test'
+   */
+  titleCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.upperCase('test string') // => 'TEST STRING'
+   */
+  upperCase: (value: string) => string,
+  /**
+   * @example
+   * changeCase.upperCaseFirst('test') // => 'Test'
+   */
+  upperCaseFirst: (value: string) => string,
+}
 
 /** 请求方式 */
 export enum Method {
@@ -113,12 +188,12 @@ export interface Interface {
   res_body_is_json_schema: boolean,
   /** 返回数据 */
   res_body: string,
+  [key: string]: any,
 }
 
 /** 扩展接口定义 */
 export interface ExtendedInterface extends Interface {
   parsedPath: ParsedPath,
-  changeCase: typeof changeCase,
 }
 
 /** 接口列表 */
@@ -186,7 +261,7 @@ export interface ServerConfig {
    * }
    * ```
    */
-  preproccessInterface?: <T extends Interface>(interfaceInfo: T) => T,
+  preproccessInterface?: <T extends Interface>(interfaceInfo: T, changeCase: ChangeCase) => T,
   /**
    * 如果接口响应的结果是 `JSON` 对象，
    * 且我们想要的数据在该对象下，
@@ -229,23 +304,26 @@ export interface ServerConfig {
            * 获取请求函数的名称。
            *
            * @param interfaceInfo 接口信息
+           * @param changeCase 常用的大小写转换函数集合对象
            * @returns 请求函数的名称
            */
-          getRequestFunctionName(interfaceInfo: ExtendedInterface): string,
+          getRequestFunctionName(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
           /**
            * 获取请求数据类型的名称。
            *
            * @param interfaceInfo 接口信息
+           * @param changeCase 常用的大小写转换函数集合对象
            * @returns 请求数据类型的名称
            */
-          getRequestDataTypeName(interfaceInfo: ExtendedInterface): string,
+          getRequestDataTypeName(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
           /**
            * 获取响应数据类型的名称。
            *
            * @param interfaceInfo 接口信息
+           * @param changeCase 常用的大小写转换函数集合对象
            * @returns 响应数据类型的名称
            */
-          getResponseDataTypeName(interfaceInfo: ExtendedInterface): string,
+          getResponseDataTypeName(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
         }
       >,
     }

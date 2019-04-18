@@ -1,6 +1,6 @@
-import chalk from 'chalk'
 import jsonSchemaGenerator from 'json-schema-generator'
 import Mock from 'mockjs'
+import path from 'path'
 import { castArray, forOwn, isArray, isEmpty, isObject } from 'vtils'
 import { compile, Options } from 'json-schema-to-typescript'
 import { FileData } from './helpers'
@@ -13,7 +13,32 @@ import { PropDefinitions } from './types'
  * @param msg 错误信息
  */
 export function throwError(...msg: string[]): never {
-  throw new Error(chalk.red(msg.join('')))
+  throw new Error(msg.join(''))
+}
+
+/**
+ * 将路径统一为 unix 风格的路径。
+ *
+ * @param path 路径
+ * @returns unix 风格的路径
+ */
+export function toUnixPath(path: string) {
+  return path.replace(/[/\\]+/g, '/')
+}
+
+/**
+ * 获得规范化的相对路径。
+ *
+ * @param from 来源路径
+ * @param to 去向路径
+ * @returns 相对路径
+ */
+export function getNormalizedRelativePath(from: string, to: string) {
+  return toUnixPath(path.relative(from, to))
+    .replace(
+      /^(?=[^.])/,
+      './',
+    )
 }
 
 /**
@@ -100,7 +125,7 @@ export function mockjsTemplateToJsonSchema(template: object): JSONSchema4 {
  * @returns JSONSchema 对象
  */
 export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): JSONSchema4 {
-  return {
+  return processJsonSchema({
     type: 'object',
     required: propDefinitions.reduce<string[]>(
       (res, prop) => {
@@ -122,7 +147,7 @@ export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): J
       },
       {},
     ),
-  }
+  })
 }
 
 const JSTTOptions: Partial<Options> = {
@@ -146,8 +171,9 @@ const JSTTOptions: Partial<Options> = {
  * @returns TypeScript 类型定义
  */
 export async function jsonSchemaToType(jsonSchema: JSONSchema4, typeName: string): Promise<string> {
-  if (isEmpty(jsonSchema)) {
-    return `export type ${typeName} = any`
+  if (isEmpty(jsonSchema) || isEmpty(jsonSchema.properties)) {
+    return `export interface ${typeName} {}`
   }
-  return compile(jsonSchema, typeName, JSTTOptions)
+  const code = await compile(jsonSchema, typeName, JSTTOptions)
+  return code.trim()
 }

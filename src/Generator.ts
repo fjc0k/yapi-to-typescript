@@ -5,8 +5,15 @@ import path from 'path'
 import request from 'request-promise-native'
 import { castArray, isEmpty, isFunction } from 'vtils'
 import { CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig } from './types'
+import { getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError } from './utils'
 import { JSONSchema4 } from 'json-schema'
-import { jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError } from './utils'
+
+interface OutputFileList {
+  [outputFilePath: string]: {
+    content: string[],
+    requestFilePath: string,
+  },
+}
 
 export class Generator {
   /** 配置 */
@@ -20,21 +27,15 @@ export class Generator {
     this.config = castArray(config)
   }
 
-  async generate(): Promise<void> {
-    // 输出文件列表
-    const outputFileList: {
-      [outputFilePath in string]: {
-        content: string[],
-        requestFilePath: string,
-      }
-    } = Object.create(null)
+  async generate(): Promise<OutputFileList> {
+    const outputFileList: OutputFileList = Object.create(null)
 
     await Promise.all(
       this.config.map(
         async (serverConfig, serverIndex) => Promise.all(
           serverConfig.projects.map(
             async (projectConfig, projectIndex) => {
-              const projectInfo = await this.fetchProjectInfo({
+              const projectInfo = await Generator.fetchProjectInfo({
                 ...serverConfig,
                 ...projectConfig,
               })
@@ -63,7 +64,7 @@ export class Generator {
                         interfaceList.map(
                           async interfaceInfo => {
                             interfaceInfo = isFunction(syntheticalConfig.preproccessInterface) ? syntheticalConfig.preproccessInterface(interfaceInfo) : interfaceInfo
-                            return this.generateInterfaceCode(
+                            return Generator.generateInterfaceCode(
                               syntheticalConfig,
                               interfaceInfo,
                               categoryUID,
@@ -98,8 +99,11 @@ export class Generator {
       ),
     )
 
-    // 写入文件
-    await Promise.all(
+    return outputFileList
+  }
+
+  async write(outputFileList: OutputFileList) {
+    return Promise.all(
       Object.keys(outputFileList).map(async outputFilePath => {
         const { content, requestFilePath } = outputFileList[outputFilePath]
 
@@ -148,14 +152,17 @@ export class Generator {
         }
 
         // 始终写入主文件
-        console.log('\n', outputFilePath, requestFilePath)
+        const requestFileRelativePath = getNormalizedRelativePath(
+          path.dirname(outputFilePath),
+          requestFilePath,
+        )
         await fs.outputFile(
           outputFilePath,
           `${
             [
               `/* tslint:disable */\n/* eslint-disable */`,
               `/**\n * **该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！** \n */`,
-              `import request from '${path.relative(path.dirname(outputFilePath), requestFilePath).replace(/^(?=[^.])/, './')}'`,
+              `import request from ${JSON.stringify(requestFileRelativePath)}`,
               `// @ts-ignore\nimport { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'`,
               content.join('\n\n').trim(),
             ].join('\n\n')
@@ -244,7 +251,7 @@ export class Generator {
     return jsonSchemaToType(jsonSchema, typeName)
   }
 
-  async fetchApi<T = any>(url: string, query: Record<string, string>): Promise<T> {
+  static async fetchApi<T = any>(url: string, query: Record<string, string>): Promise<T> {
     const res = await request.get(url, { qs: query, json: true })
     if (res && res.errcode) {
       throwError(res.errmsg)
@@ -257,7 +264,7 @@ export class Generator {
     const projectId: string = `${serverUrl}|${token}`
 
     if (!(projectId in this.projectIdToCategoryList)) {
-      const categoryList = await this.fetchApi<CategoryList>(
+      const categoryList = await Generator.fetchApi<CategoryList>(
         `${serverUrl}/api/plugin/export`,
         {
           type: 'json',
@@ -281,7 +288,7 @@ export class Generator {
   }
 
   /** 获取项目信息 */
-  async fetchProjectInfo(syntheticalConfig: SyntheticalConfig) {
+  static async fetchProjectInfo(syntheticalConfig: SyntheticalConfig) {
     const projectInfo = await this.fetchApi<{
       _id: number,
       name: string,
@@ -307,17 +314,16 @@ export class Generator {
   }
 
   /** 生成接口代码 */
-  async generateInterfaceCode(syntheticalConfig: SyntheticalConfig, interfaceInfo: Interface, categoryUID: string) {
+  static async generateInterfaceCode(syntheticalConfig: SyntheticalConfig, interfaceInfo: Interface, categoryUID: string) {
     const extendedInterfaceInfo: ExtendedInterface = {
       ...interfaceInfo,
       parsedPath: path.parse(interfaceInfo.path),
-      changeCase: changeCase,
     }
     const requestDataTypeName = changeCase.pascalCase(
-      await syntheticalConfig.getRequestDataTypeName!(extendedInterfaceInfo),
+      await syntheticalConfig.getRequestDataTypeName!(extendedInterfaceInfo, changeCase),
     )
     const responseDataTypeName = changeCase.pascalCase(
-      await syntheticalConfig.getResponseDataTypeName!(extendedInterfaceInfo),
+      await syntheticalConfig.getResponseDataTypeName!(extendedInterfaceInfo, changeCase),
     )
     const requestDataType = await Generator.generateRequestDataType({
       interfaceInfo: interfaceInfo,
@@ -328,7 +334,7 @@ export class Generator {
       typeName: responseDataTypeName,
       dataKey: syntheticalConfig.dataKey,
     })
-    const requestFunctionName = await syntheticalConfig.getRequestFunctionName!(extendedInterfaceInfo)
+    const requestFunctionName = await syntheticalConfig.getRequestFunctionName!(extendedInterfaceInfo, changeCase)
     const isRequestDataRequired = /(\{\}|any)$/s.test(requestDataType)
     return [
       `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求类型**\n */`,
@@ -346,7 +352,7 @@ export class Generator {
       `}`,
       [
         `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求配置**\n */`,
-        `${requestFunctionName}.requestConfig = {`,
+        `${requestFunctionName}.requestConfig = Object.freeze({`,
         `  mockUrl: mockUrl${categoryUID},`,
         `  prodUrl: prodUrl${categoryUID},`,
         `  path: ${JSON.stringify(interfaceInfo.path)},`,
@@ -357,7 +363,7 @@ export class Generator {
         `  ${JSON.stringify(syntheticalConfig.mockUrl)},`,
         `  ${JSON.stringify(syntheticalConfig.prodUrl)},`,
         `  ${JSON.stringify(interfaceInfo.path)}`,
-        `>`,
+        `>)`,
       ].join('\n'),
     ].join('\n')
   }

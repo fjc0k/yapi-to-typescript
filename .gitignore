@@ -3,9 +3,8 @@ node_modules
 lib
 .DS_Store
 coverage
-ytt.config.*
-/api.ts
-/request.ts
+ytt.config.ts
+/api
 .tmp*
 *_cache
 /client
