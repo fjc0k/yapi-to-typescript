@@ -41,10 +41,12 @@ putTest.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.raw,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/put_test\\"
+  \\"/put_test\\",
+  undefined
 >)
 
 
@@ -80,10 +82,12 @@ getTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/get_test\\"
+  \\"/get_test\\",
+  undefined
 >)
 
 
@@ -121,10 +125,12 @@ json5Test.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/json5_test\\"
+  \\"/json5_test\\",
+  undefined
 >)
 
 
@@ -162,10 +168,12 @@ jsonRequestTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/jsonRequest_test\\"
+  \\"/jsonRequest_test\\",
+  undefined
 >)
 
 
@@ -203,10 +211,12 @@ postTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/post_test\\"
+  \\"/post_test\\",
+  undefined
 >)
 
 
@@ -256,10 +266,12 @@ xxTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/xx_test\\"
+  \\"/xx_test\\",
+  undefined
 >)
 
 
@@ -293,10 +305,12 @@ noResponseDataTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/noResponseData_test\\"
+  \\"/noResponseData_test\\",
+  undefined
 >)",
 ]
 `;
@@ -353,10 +367,12 @@ putTest.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.raw,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/put_test\\"
+  \\"/put_test\\",
+  undefined
 >)
 
 
@@ -392,10 +408,12 @@ getTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/get_test\\"
+  \\"/get_test\\",
+  undefined
 >)
 
 
@@ -433,10 +451,12 @@ json5Test.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/json5_test\\"
+  \\"/json5_test\\",
+  undefined
 >)
 
 
@@ -474,10 +494,12 @@ jsonRequestTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/jsonRequest_test\\"
+  \\"/jsonRequest_test\\",
+  undefined
 >)
 
 
@@ -515,10 +537,12 @@ postTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/post_test\\"
+  \\"/post_test\\",
+  undefined
 >)
 
 
@@ -568,10 +592,12 @@ xxTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/xx_test\\"
+  \\"/xx_test\\",
+  undefined
 >)
 
 
@@ -605,10 +631,12 @@ noResponseDataTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
+  dataKey: undefined
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
-  \\"/noResponseData_test\\"
+  \\"/noResponseData_test\\",
+  undefined
 >)
 "
 `;
@@ -619,6 +647,15 @@ exports[`Generator 正确生成代码并写入文件 3`] = `
 /** 是否是生产环境 */
 const isProd = false
 
+/**
+ * 请求函数。
+ *
+ * **注意**：若 dataKey 不为空，取得接口返回值后，应类似这样返回结果：
+ *
+ * \`\`\`js
+ * return dataKey ? (response[dataKey] || response) : response
+ * \`\`\`
+ */
 const request: RequestFunction = ({
   /** 接口 Mock 地址，结尾无 \`/\` */
   mockUrl,
@@ -632,6 +669,8 @@ const request: RequestFunction = ({
   requestBodyType,
   /** 返回数据类型 */
   responseBodyType,
+  /** 接口返回值中数据所在的键 */
+  dataKey,
   /** 请求数据，不含文件数据 */
   data,
   /** 请求文件数据 */

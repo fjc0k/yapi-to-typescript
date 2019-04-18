@@ -117,6 +117,15 @@ export class Generator {
               /** 是否是生产环境 */
               const isProd = false
 
+              /**
+               * 请求函数。
+               *
+               * **注意**：若 dataKey 不为空，取得接口返回值后，应类似这样返回结果：
+               *
+               * \`\`\`js
+               * return dataKey ? (response[dataKey] || response) : response
+               * \`\`\`
+               */
               const request: RequestFunction = ({
                 /** 接口 Mock 地址，结尾无 \`/\` */
                 mockUrl,
@@ -130,6 +139,8 @@ export class Generator {
                 requestBodyType,
                 /** 返回数据类型 */
                 responseBodyType,
+                /** 接口返回值中数据所在的键 */
+                dataKey,
                 /** 请求数据，不含文件数据 */
                 data,
                 /** 请求文件数据 */
@@ -363,10 +374,12 @@ export class Generator {
         `  method: Method.${interfaceInfo.method},`,
         `  requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type},`,
         `  responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},`,
+        `  dataKey: ${JSON.stringify(syntheticalConfig.dataKey)}`,
         `} as RequestConfig<`,
         `  ${JSON.stringify(syntheticalConfig.mockUrl)},`,
         `  ${JSON.stringify(syntheticalConfig.prodUrl)},`,
-        `  ${JSON.stringify(interfaceInfo.path)}`,
+        `  ${JSON.stringify(interfaceInfo.path)},`,
+        `  ${JSON.stringify(syntheticalConfig.dataKey)}`,
         `>)`,
       ].join('\n'),
     ].join('\n')

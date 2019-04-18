@@ -349,6 +349,7 @@ export interface RequestConfig<
   MockUrl extends string = string,
   ProdUrl extends string = string,
   Path extends string = string,
+  DataKey extends string | undefined = undefined,
 > {
   /** 接口 Mock 地址，结尾无 `/` */
   mockUrl: MockUrl,
@@ -362,6 +363,8 @@ export interface RequestConfig<
   requestBodyType: RequestBodyType,
   /** 返回数据类型 */
   responseBodyType: ResponseBodyType,
+  /** 数据所在键 */
+  dataKey: DataKey,
 }
 
 /**
@@ -377,7 +380,7 @@ export interface RequestFunctionParams extends RequestConfig {
 /**
  * 请求函数。
  *
- * 发起请求获得响应结果后应根据 `responseBodyType` 对结果进行处理并将处理后的数据原样返回。
+ * 发起请求获得响应结果后应根据 `responseBodyType` 和 `dataKey` 对结果进行处理，并将处理后的数据返回。
  */
 export type RequestFunction = (
   /** 参数 */
