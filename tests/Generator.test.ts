@@ -35,7 +35,9 @@ const generator = new Generator({
 describe('Generator', () => {
   test('正确生成代码并写入文件', async () => {
     const output = await generator.generate()
-    expect(output).toMatchSnapshot()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot()
+    })
 
     await generator.write(output)
     forOwn(output, ({ requestFilePath }, outputFilePath) => {
