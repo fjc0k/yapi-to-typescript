@@ -59,6 +59,7 @@ export class Generator {
                       [
                         `const mockUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.mockUrl)}`,
                         `const prodUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.prodUrl)}`,
+                        `const dataKey${categoryUID} = ${JSON.stringify(syntheticalConfig.dataKey)}`,
                       ].join('\n'),
                       ...(await Promise.all(
                         interfaceList.map(
@@ -374,7 +375,7 @@ export class Generator {
         `  method: Method.${interfaceInfo.method},`,
         `  requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type},`,
         `  responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},`,
-        `  dataKey: ${JSON.stringify(syntheticalConfig.dataKey)}`,
+        `  dataKey: dataKey${categoryUID}`,
         `} as RequestConfig<`,
         `  ${JSON.stringify(syntheticalConfig.mockUrl)},`,
         `  ${JSON.stringify(syntheticalConfig.prodUrl)},`,
