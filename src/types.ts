@@ -112,6 +112,8 @@ export enum RequestBodyType {
   file = 'file',
   /** 原始数据 */
   raw = 'raw',
+  /** 无请求数据 */
+  none = 'none',
 }
 
 /** 请求表单条目类型 */

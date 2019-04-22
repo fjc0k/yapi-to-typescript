@@ -382,7 +382,7 @@ export class Generator {
         `  prodUrl: prodUrl${categoryUID},`,
         `  path: ${JSON.stringify(interfaceInfo.path)},`,
         `  method: Method.${interfaceInfo.method},`,
-        `  requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type},`,
+        `  requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type || RequestBodyType.none},`,
         `  responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},`,
         `  dataKey: dataKey${categoryUID}`,
         `} as RequestConfig<`,
