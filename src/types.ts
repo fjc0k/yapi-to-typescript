@@ -311,6 +311,7 @@ export interface ServerConfig {
           /**
            * 获取请求数据类型的名称。
            *
+           * @default changeCase.pascalCase(`${requestFunctionName}Request`)
            * @param interfaceInfo 接口信息
            * @param changeCase 常用的大小写转换函数集合对象
            * @returns 请求数据类型的名称
@@ -319,6 +320,7 @@ export interface ServerConfig {
           /**
            * 获取响应数据类型的名称。
            *
+           * @default changeCase.pascalCase(`${requestFunctionName}Response`)
            * @param interfaceInfo 接口信息
            * @param changeCase 常用的大小写转换函数集合对象
            * @returns 响应数据类型的名称

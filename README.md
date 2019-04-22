@@ -8,7 +8,7 @@
 
 > 这里是 v1 版本的文档，v0 版本的文档见：[yapi-to-typescript/tree/v0](https://github.com/fjc0k/yapi-to-typescript/tree/v0#yapi-to-typescript--)
 
-根据 [YApi](https://github.com/YMFE/yapi) 的接口定义生成 [TypeScript](https://github.com/Microsoft/TypeScript) 的请求函数。
+根据 [YApi](https://github.com/YMFE/yapi) 的接口定义生成 [TypeScript](https://github.com/Microsoft/TypeScript) 的接口类型及其请求函数代码。
 
 <img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png" width="600" />
 

@@ -171,7 +171,7 @@ const JSTTOptions: Partial<Options> = {
  * @returns TypeScript 类型定义
  */
 export async function jsonSchemaToType(jsonSchema: JSONSchema4, typeName: string): Promise<string> {
-  if (isEmpty(jsonSchema) || isEmpty(jsonSchema.properties)) {
+  if (isEmpty(jsonSchema)) {
     return `export interface ${typeName} {}`
   }
   const code = await compile(jsonSchema, typeName, JSTTOptions)
