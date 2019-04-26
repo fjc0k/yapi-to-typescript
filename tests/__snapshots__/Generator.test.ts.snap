@@ -446,6 +446,45 @@ emptyResponseTest.requestConfig = Object.freeze({
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
   undefined
+>)
+
+
+/**
+ * 接口 **返回 raw** 的 **请求类型**
+ */
+export interface RawResponseTestRequest {}
+
+/**
+ * 接口 **返回 raw** 的 **返回类型**
+ */
+export type RawResponseTestResponse = any
+
+/**
+ * 接口 **返回 raw** 的 **请求函数**
+ */
+export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
+  return request({
+    ...rawResponseTest.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **返回 raw** 的 **请求配置**
+ */
+rawResponseTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/rawResponse_test\\",
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.raw,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/rawResponse_test\\",
+  undefined
 >)",
 ]
 `;
@@ -906,6 +945,45 @@ emptyResponseTest.requestConfig = Object.freeze({
   \\"http://foo.bar/mock/32\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
+  undefined
+>)
+
+
+/**
+ * 接口 **返回 raw** 的 **请求类型**
+ */
+export interface RawResponseTestRequest {}
+
+/**
+ * 接口 **返回 raw** 的 **返回类型**
+ */
+export type RawResponseTestResponse = any
+
+/**
+ * 接口 **返回 raw** 的 **请求函数**
+ */
+export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
+  return request({
+    ...rawResponseTest.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **返回 raw** 的 **请求配置**
+ */
+rawResponseTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/rawResponse_test\\",
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.raw,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/rawResponse_test\\",
   undefined
 >)
 "

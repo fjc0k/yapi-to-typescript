@@ -265,7 +265,7 @@ export class Generator {
         }
         break
       default:
-        break
+        return `export type ${typeName} = any`
     }
 
     if (dataKey && jsonSchema && jsonSchema.properties && jsonSchema.properties[dataKey]) {
