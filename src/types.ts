@@ -295,13 +295,13 @@ export interface ServerConfig {
       categories: Array<
         Pick<ServerConfig, 'prodEnvName' | 'outputFilePath' | 'requestFunctionFilePath' | 'preproccessInterface' | 'dataKey'> & {
           /**
-           * 分类 ID。
+           * 分类 ID，可以设置多个。
            *
            * 获取方式：打开项目 --> 点开分类 --> 复制浏览器地址栏 `/api/cat_` 后面的数字。
            *
            * @example 20
            */
-          id: number,
+          id: number | number[],
           /**
            * 获取请求函数的名称。
            *

@@ -42,55 +42,63 @@ export class Generator {
               await Promise.all(
                 projectConfig.categories.map(
                   async (categoryConfig, categoryIndex) => {
-                    const syntheticalConfig: SyntheticalConfig = {
-                      ...serverConfig,
-                      ...projectConfig,
-                      ...categoryConfig,
-                      mockUrl: projectInfo.getMockUrl(),
-                    }
-                    syntheticalConfig.prodUrl = projectInfo.getProdUrl(syntheticalConfig.prodEnvName!)
-                    const interfaceList = await this.fetchInterfaceList(syntheticalConfig)
-                    const outputFilePath = path.resolve(
-                      process.cwd(),
-                      syntheticalConfig.outputFilePath!,
+                    await Promise.all(
+                      castArray(categoryConfig.id).map(async id => {
+                        categoryConfig = {
+                          ...categoryConfig,
+                          id: id,
+                        }
+                        const syntheticalConfig: SyntheticalConfig = {
+                          ...serverConfig,
+                          ...projectConfig,
+                          ...categoryConfig,
+                          mockUrl: projectInfo.getMockUrl(),
+                        }
+                        syntheticalConfig.prodUrl = projectInfo.getProdUrl(syntheticalConfig.prodEnvName!)
+                        const interfaceList = await this.fetchInterfaceList(syntheticalConfig)
+                        const outputFilePath = path.resolve(
+                          process.cwd(),
+                          syntheticalConfig.outputFilePath!,
+                        )
+                        const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}`
+                        const categoryCode = [
+                          [
+                            `const mockUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.mockUrl)} as any`,
+                            `const prodUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.prodUrl)} as any`,
+                            `const dataKey${categoryUID} = ${JSON.stringify(syntheticalConfig.dataKey)} as any`,
+                          ].join('\n'),
+                          ...(await Promise.all(
+                            interfaceList.map(
+                              async interfaceInfo => {
+                                interfaceInfo = isFunction(syntheticalConfig.preproccessInterface) ? syntheticalConfig.preproccessInterface(interfaceInfo, changeCase) : interfaceInfo
+                                return Generator.generateInterfaceCode(
+                                  syntheticalConfig,
+                                  interfaceInfo,
+                                  categoryUID,
+                                )
+                              },
+                            ),
+                          )),
+                        ].join('\n\n')
+                        if (!outputFileList[outputFilePath]) {
+                          outputFileList[outputFilePath] = {
+                            content: [],
+                            requestFilePath: (
+                              syntheticalConfig.requestFunctionFilePath
+                                ? path.resolve(
+                                  process.cwd(),
+                                  syntheticalConfig.requestFunctionFilePath,
+                                )
+                                : path.join(
+                                  path.dirname(outputFilePath),
+                                  'request.ts',
+                                )
+                            ),
+                          }
+                        }
+                        outputFileList[outputFilePath].content.push(categoryCode)
+                      }),
                     )
-                    const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}`
-                    const categoryCode = [
-                      [
-                        `const mockUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.mockUrl)} as any`,
-                        `const prodUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.prodUrl)} as any`,
-                        `const dataKey${categoryUID} = ${JSON.stringify(syntheticalConfig.dataKey)} as any`,
-                      ].join('\n'),
-                      ...(await Promise.all(
-                        interfaceList.map(
-                          async interfaceInfo => {
-                            interfaceInfo = isFunction(syntheticalConfig.preproccessInterface) ? syntheticalConfig.preproccessInterface(interfaceInfo, changeCase) : interfaceInfo
-                            return Generator.generateInterfaceCode(
-                              syntheticalConfig,
-                              interfaceInfo,
-                              categoryUID,
-                            )
-                          },
-                        ),
-                      )),
-                    ].join('\n\n')
-                    if (!outputFileList[outputFilePath]) {
-                      outputFileList[outputFilePath] = {
-                        content: [],
-                        requestFilePath: (
-                          syntheticalConfig.requestFunctionFilePath
-                            ? path.resolve(
-                              process.cwd(),
-                              syntheticalConfig.requestFunctionFilePath,
-                            )
-                            : path.join(
-                              path.dirname(outputFilePath),
-                              'request.ts',
-                            )
-                        ),
-                      }
-                    }
-                    outputFileList[outputFilePath].content.push(categoryCode)
                   },
                 ),
               )
