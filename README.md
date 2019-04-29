@@ -8,7 +8,7 @@
 
 根据 [YApi](https://github.com/YMFE/yapi) 的接口定义生成 [TypeScript](https://github.com/Microsoft/TypeScript) 的接口类型及其请求函数代码。
 
-<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?vv=122" width="600" />
+<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?vvv=13322" width="600" />
 
 
 ## 环境要求
