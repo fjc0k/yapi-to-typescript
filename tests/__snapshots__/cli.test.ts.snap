@@ -1,0 +1,583 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cli 正确初始化配置文件 & 生成结果 1`] = `
+"import { Config } from 'yapi-to-typescript'
+
+const servers: Config = [
+  {
+    serverUrl: 'http://foo.bar',
+    prodEnvName: 'production',
+    outputFilePath: 'src/api/index.ts',
+    requestFunctionFilePath: 'src/api/request.ts',
+    dataKey: 'data',
+    projects: [
+      {
+        token: 'hello',
+        categories: [
+          {
+            id: 50,
+            getRequestFunctionName(interfaceInfo, changeCase) {
+              return changeCase.camelCase(
+                interfaceInfo.parsedPath.name,
+              )
+            },
+          },
+        ],
+      },
+    ],
+  },
+]
+
+export default servers
+"
+`;
+
+exports[`cli 正确初始化配置文件 & 生成结果 2`] = `
+"/* tslint:disable */
+/* eslint-disable */
+
+/**
+ * **该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！** 
+ */
+
+import request from \\"./request\\"
+
+// @ts-ignore
+import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+
+const mockUrl_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const prodUrl_0_0_0 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0 = undefined as any
+
+
+/**
+ * 接口 **DELETE 方法** 的 **请求类型**
+ */
+export interface DeleteMethodRequest {
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **DELETE 方法** 的 **返回类型**
+ */
+export interface DeleteMethodResponse {}
+
+/**
+ * 接口 **DELETE 方法** 的 **请求函数**
+ */
+export function deleteMethod(requestData: DeleteMethodRequest): Promise<DeleteMethodResponse> {
+  return request({
+    ...deleteMethod.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **DELETE 方法** 的 **请求配置**
+ */
+deleteMethod.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/deleteMethod\\",
+  method: Method.DELETE,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/deleteMethod\\",
+  undefined
+>)
+
+
+/**
+ * 接口 **GET 方法** 的 **请求类型**
+ */
+export interface GetMethodRequest {
+  /**
+   * X 值
+   */
+  x: string;
+  /**
+   * Y 值
+   */
+  y?: string;
+}
+
+/**
+ * 接口 **GET 方法** 的 **返回类型**
+ */
+export interface GetMethodResponse {
+  /**
+   * 结果
+   */
+  result: number;
+}
+
+/**
+ * 接口 **GET 方法** 的 **请求函数**
+ */
+export function getMethod(requestData: GetMethodRequest): Promise<GetMethodResponse> {
+  return request({
+    ...getMethod.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **GET 方法** 的 **请求配置**
+ */
+getMethod.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/getMethod\\",
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/getMethod\\",
+  undefined
+>)
+
+
+/**
+ * 接口 **JSON5 响应** 的 **请求类型**
+ */
+export interface Json5ResponseRequest {}
+
+/**
+ * 接口 **JSON5 响应** 的 **返回类型**
+ */
+export interface Json5ResponseResponse {
+  id?: number;
+  age?: string;
+  name?: string;
+}
+
+/**
+ * 接口 **JSON5 响应** 的 **请求函数**
+ */
+export function json5Response(requestData?: Json5ResponseRequest): Promise<Json5ResponseResponse> {
+  return request({
+    ...json5Response.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **JSON5 响应** 的 **请求配置**
+ */
+json5Response.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/json5Response\\",
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/json5Response\\",
+  undefined
+>)
+
+
+/**
+ * 接口 **JSON5 请求** 的 **请求类型**
+ */
+export interface Json5RequestRequest {
+  id: number;
+  name: string;
+  likes: {}[];
+}
+
+/**
+ * 接口 **JSON5 请求** 的 **返回类型**
+ */
+export interface Json5RequestResponse {}
+
+/**
+ * 接口 **JSON5 请求** 的 **请求函数**
+ */
+export function json5Request(requestData: Json5RequestRequest): Promise<Json5RequestResponse> {
+  return request({
+    ...json5Request.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **JSON5 请求** 的 **请求配置**
+ */
+json5Request.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/json5Request\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/json5Request\\",
+  undefined
+>)
+
+
+/**
+ * 接口 **POST 方法** 的 **请求类型**
+ */
+export interface PostMethodRequest {
+  /**
+   * 页码
+   */
+  page: number;
+  /**
+   * 每页数量
+   */
+  limit: number;
+  /**
+   * 关键词
+   */
+  keyword?: string;
+}
+
+/**
+ * 接口 **POST 方法** 的 **返回类型**
+ */
+export interface PostMethodResponse {
+  /**
+   * 列表
+   */
+  list: {
+    /**
+     * 姓名
+     */
+    name: string;
+  }[];
+}
+
+/**
+ * 接口 **POST 方法** 的 **请求函数**
+ */
+export function postMethod(requestData: PostMethodRequest): Promise<PostMethodResponse> {
+  return request({
+    ...postMethod.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **POST 方法** 的 **请求配置**
+ */
+postMethod.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/postMethod\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/postMethod\\",
+  undefined
+>)
+
+
+/**
+ * 接口 **PUT 方法** 的 **请求类型**
+ */
+export interface PutMethodRequest {
+  /**
+   * X 值
+   */
+  x: string;
+}
+
+/**
+ * 接口 **PUT 方法** 的 **返回类型**
+ */
+export interface PutMethodResponse {
+  /**
+   * 错误
+   */
+  err: number;
+  /**
+   * 错误详情
+   */
+  msg: string;
+  /**
+   * 数据
+   */
+  data?: {};
+}
+
+/**
+ * 接口 **PUT 方法** 的 **请求函数**
+ */
+export function putMethod(requestData: PutMethodRequest): Promise<PutMethodResponse> {
+  return request({
+    ...putMethod.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **PUT 方法** 的 **请求配置**
+ */
+putMethod.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/putMethod\\",
+  method: Method.PUT,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/putMethod\\",
+  undefined
+>)
+
+
+/**
+ * 接口 **dataKey 例子** 的 **请求类型**
+ */
+export interface DataKeyExampleRequest {
+  /**
+   * X 值
+   */
+  x: string;
+}
+
+/**
+ * 接口 **dataKey 例子** 的 **返回类型**
+ */
+export interface DataKeyExampleResponse {
+  /**
+   * 错误
+   */
+  err: number;
+  /**
+   * 错误详情
+   */
+  msg: string;
+  /**
+   * 数据
+   */
+  data?: {
+    /**
+     * 成功啦
+     */
+    success: boolean;
+  };
+}
+
+/**
+ * 接口 **dataKey 例子** 的 **请求函数**
+ */
+export function dataKeyExample(requestData: DataKeyExampleRequest): Promise<DataKeyExampleResponse> {
+  return request({
+    ...dataKeyExample.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **dataKey 例子** 的 **请求配置**
+ */
+dataKeyExample.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/dataKeyExample\\",
+  method: Method.PUT,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/dataKeyExample\\",
+  undefined
+>)
+
+
+/**
+ * 接口 **没返回数据** 的 **请求类型**
+ */
+export interface NoResponseDataRequest {}
+
+/**
+ * 接口 **没返回数据** 的 **返回类型**
+ */
+export interface NoResponseDataResponse {}
+
+/**
+ * 接口 **没返回数据** 的 **请求函数**
+ */
+export function noResponseData(requestData?: NoResponseDataRequest): Promise<NoResponseDataResponse> {
+  return request({
+    ...noResponseData.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **没返回数据** 的 **请求配置**
+ */
+noResponseData.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/noResponseData\\",
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/noResponseData\\",
+  undefined
+>)
+
+
+/**
+ * 接口 **空返回数据** 的 **请求类型**
+ */
+export interface EmptyResponseRequest {}
+
+/**
+ * 接口 **空返回数据** 的 **返回类型**
+ */
+export interface EmptyResponseResponse {}
+
+/**
+ * 接口 **空返回数据** 的 **请求函数**
+ */
+export function emptyResponse(requestData?: EmptyResponseRequest): Promise<EmptyResponseResponse> {
+  return request({
+    ...emptyResponse.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **空返回数据** 的 **请求配置**
+ */
+emptyResponse.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/emptyResponse\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/emptyResponse\\",
+  undefined
+>)
+
+
+/**
+ * 接口 **返回 raw** 的 **请求类型**
+ */
+export interface RawResponseRequest {}
+
+/**
+ * 接口 **返回 raw** 的 **返回类型**
+ */
+export type RawResponseResponse = any
+
+/**
+ * 接口 **返回 raw** 的 **请求函数**
+ */
+export function rawResponse(requestData?: RawResponseRequest): Promise<RawResponseResponse> {
+  return request({
+    ...rawResponse.requestConfig,
+    ...parseRequestData(requestData)
+  } as any)
+}
+
+/**
+ * 接口 **返回 raw** 的 **请求配置**
+ */
+rawResponse.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0,
+  prodUrl: prodUrl_0_0_0,
+  path: \\"/rawResponse\\",
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.raw,
+  dataKey: dataKey_0_0_0
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"http://prod.com/\\",
+  \\"/rawResponse\\",
+  undefined
+>)
+"
+`;
+
+exports[`cli 正确初始化配置文件 & 生成结果 3`] = `
+"import { RequestFunction } from 'yapi-to-typescript'
+
+/** 是否是生产环境 */
+const isProd = false
+
+/**
+ * 请求函数。
+ *
+ * **注意**：若 dataKey 不为空，取得接口返回值后，应类似这样返回结果：
+ *
+ * \`\`\`js
+ * return dataKey ? (response[dataKey] || response) : response
+ * \`\`\`
+ */
+const request: RequestFunction = ({
+  /** 接口 Mock 地址，结尾无 \`/\` */
+  mockUrl,
+  /** 接口生产环境地址，结尾无 \`/\` */
+  prodUrl,
+  /** 接口路径，以 \`/\` 开头 */
+  path,
+  /** 请求方法 */
+  method,
+  /** 请求数据类型 */
+  requestBodyType,
+  /** 返回数据类型 */
+  responseBodyType,
+  /** 接口返回值中数据所在的键 */
+  dataKey,
+  /** 请求数据，不含文件数据 */
+  data,
+  /** 请求文件数据 */
+  fileData
+}): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    /** 请求地址 */
+    const url = \`\${isProd ? prodUrl : mockUrl}\${path}\`
+
+    /** 是否含有文件数据 */
+    const hasFileData = Object.keys(fileData).length > 0
+
+    // 在这里实现请求逻辑
+  })
+}
+
+export default request
+"
+`;
