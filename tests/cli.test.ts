@@ -15,8 +15,8 @@ describe('cli', () => {
     process.chdir(targetDir)
 
     process.argv.push('init')
-    await import('../src/cli')
-    await sleep(1000)
+    require('../src/cli')
+    await sleep(2000)
     expect(fs.readFileSync(generatedConfigFile).toString()).toMatchSnapshot()
 
     jest.resetModules()
@@ -28,7 +28,7 @@ describe('cli', () => {
         .replace(`dataKey: 'data',`, '')
         .replace(`id: 50,`, `id: 58,`),
     )
-    await import('../src/cli')
+    require('../src/cli')
     await sleep(2000)
     expect(fs.readFileSync(generatedApiFile).toString()).toMatchSnapshot()
     expect(fs.readFileSync(generatedRequestFile).toString()).toMatchSnapshot()
