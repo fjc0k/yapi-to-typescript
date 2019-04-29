@@ -32,6 +32,7 @@
     "url": "https://github.com/fjc0k"
   },
   "scripts": {
+    "docs": "typedoc --out docs --theme minimal --mode file src/types.ts && gh-pages -d docs",
     "lint": "eslint --fix --ext .ts src/",
     "testApi": "ts-node --transpile-only src/cli.ts",
     "testOnly": "jest",
@@ -39,7 +40,7 @@
     "build": "yarn buildCli && yarn buildClient",
     "buildCli": "tsc",
     "buildClient": "bili",
-    "release": "yarn lint && yarn testOnly && standard-version -a && yarn build && git push --follow-tags origin master && npm publish"
+    "release": "yarn lint && yarn testOnly && standard-version -a && yarn build && git push --follow-tags origin master && yarn docs && npm publish"
   },
   "eslintConfig": {
     "root": true,
@@ -80,10 +81,12 @@
     "codecov": "^3.1.0",
     "eslint": "^5.9.0",
     "eslint-config-io": "^0.5.0",
+    "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
     "rollup-plugin-typescript2": "^0.20.1",
     "standard-version": "^4.4.0",
     "ts-jest": "^23.10.5",
+    "typedoc": "^0.14.2",
     "typescript": "^3.3.3333"
   },
   "dependencies": {

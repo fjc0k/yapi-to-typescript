@@ -1,7 +1,7 @@
 import { JSONSchema4 } from 'json-schema'
 import { ParsedPath } from 'path'
 
-interface ChangeCase {
+export interface ChangeCase {
   /**
    * @example
    * changeCase.camelCase('test string') // => 'testString'
@@ -215,15 +215,9 @@ export interface Category {
 export type CategoryList = Category[]
 
 /**
- * 配置。
+ * 共享的配置。
  */
-export interface ServerConfig {
-  /**
-   * YApi 服务地址。
-   *
-   * @example 'http://yapi.foo.bar'
-   */
-  serverUrl: string,
+export interface SharedConfig {
   /**
    * 生产环境名称。
    *
@@ -276,64 +270,88 @@ export interface ServerConfig {
    * @example 'data'
    */
   dataKey?: string,
+}
+
+/**
+ * 分类的配置。
+ */
+export interface CategoryConfig extends SharedConfig {
+  /**
+   * 分类 ID，可以设置多个。
+   *
+   * 获取方式：打开项目 --> 点开分类 --> 复制浏览器地址栏 `/api/cat_` 后面的数字。
+   *
+   * @example 20
+   */
+  id: number | number[],
+
+  /**
+   * 获取请求函数的名称。
+   *
+   * @param interfaceInfo 接口信息
+   * @param changeCase 常用的大小写转换函数集合对象
+   * @returns 请求函数的名称
+   */
+  getRequestFunctionName(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+
+  /**
+   * 获取请求数据类型的名称。
+   *
+   * @default changeCase.pascalCase(`${requestFunctionName}Request`)
+   * @param interfaceInfo 接口信息
+   * @param changeCase 常用的大小写转换函数集合对象
+   * @returns 请求数据类型的名称
+   */
+  getRequestDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+
+  /**
+   * 获取响应数据类型的名称。
+   *
+   * @default changeCase.pascalCase(`${requestFunctionName}Response`)
+   * @param interfaceInfo 接口信息
+   * @param changeCase 常用的大小写转换函数集合对象
+   * @returns 响应数据类型的名称
+   */
+  getResponseDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+}
+
+/**
+ * 项目的配置。
+ */
+export interface ProjectConfig extends SharedConfig {
+  /**
+   * 项目的唯一标识。
+   *
+   * 获取方式：打开项目 --> `设置` --> `token配置` --> 复制 token。
+   *
+   * @example 'e02a47122259d0c1973a9ff81cabb30685d64abc72f39edaa1ac6b6a792a647d'
+   */
+  token: string,
+
+  /**
+   * 分类列表。
+   */
+  categories: CategoryConfig[],
+}
+
+/**
+ * 服务器的配置。
+ */
+export interface ServerConfig extends SharedConfig {
+  /**
+   * YApi 服务地址。
+   *
+   * @example 'http://yapi.foo.bar'
+   */
+  serverUrl: string,
+
   /**
    * 项目列表。
    */
-  projects: Array<
-    Pick<ServerConfig, 'prodEnvName' | 'outputFilePath' | 'requestFunctionFilePath' | 'preproccessInterface' | 'dataKey'> & {
-      /**
-       * 项目的唯一标识。
-       *
-       * 获取方式：打开项目 --> `设置` --> `token配置` --> 复制 token。
-       *
-       * @example 'e02a47122259d0c1973a9ff81cabb30685d64abc72f39edaa1ac6b6a792a647d'
-       */
-      token: string,
-      /**
-       * 分类列表。
-       */
-      categories: Array<
-        Pick<ServerConfig, 'prodEnvName' | 'outputFilePath' | 'requestFunctionFilePath' | 'preproccessInterface' | 'dataKey'> & {
-          /**
-           * 分类 ID，可以设置多个。
-           *
-           * 获取方式：打开项目 --> 点开分类 --> 复制浏览器地址栏 `/api/cat_` 后面的数字。
-           *
-           * @example 20
-           */
-          id: number | number[],
-          /**
-           * 获取请求函数的名称。
-           *
-           * @param interfaceInfo 接口信息
-           * @param changeCase 常用的大小写转换函数集合对象
-           * @returns 请求函数的名称
-           */
-          getRequestFunctionName(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
-          /**
-           * 获取请求数据类型的名称。
-           *
-           * @default changeCase.pascalCase(`${requestFunctionName}Request`)
-           * @param interfaceInfo 接口信息
-           * @param changeCase 常用的大小写转换函数集合对象
-           * @returns 请求数据类型的名称
-           */
-          getRequestDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
-          /**
-           * 获取响应数据类型的名称。
-           *
-           * @default changeCase.pascalCase(`${requestFunctionName}Response`)
-           * @param interfaceInfo 接口信息
-           * @param changeCase 常用的大小写转换函数集合对象
-           * @returns 响应数据类型的名称
-           */
-          getResponseDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
-        }
-      >,
-    }
-  >,
+  projects: ProjectConfig[],
 }
 
+/** 混合的配置。 */
 export type SyntheticalConfig = Partial<(
   ServerConfig
   & ServerConfig['projects'][0]
@@ -344,6 +362,7 @@ export type SyntheticalConfig = Partial<(
   }
 )>
 
+/** 配置。 */
 export type Config = ServerConfig | ServerConfig[]
 
 /**
