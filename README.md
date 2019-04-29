@@ -8,7 +8,7 @@
 
 根据 [YApi](https://github.com/YMFE/yapi) 的接口定义生成 [TypeScript](https://github.com/Microsoft/TypeScript) 的接口类型及其请求函数代码。
 
-<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=1" width="600" />
+<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?vv=122" width="600" />
 
 
 ## 环境要求
@@ -51,7 +51,7 @@ npm run ytt init
 
 ### 修改配置文件
 
-打开当前目录下的 `ytt.config.ts` 配置文件，直接修改即可。[查看配置说明](https://github.com/fjc0k/yapi-to-typescript#配置)
+打开当前目录下的 `ytt.config.ts` 配置文件，直接修改即可。[查看配置说明](http://fjc0k.github.io/yapi-to-typescript/interfaces/serverconfig.html)
 
 ### 生成 TypeScript 的接口类型及其请求函数代码
 
@@ -91,7 +91,7 @@ type Config = Servers
 
 ### 配置项
 
-具体配置项见：[API 文档](http://fjc0k.github.io/yapi-to-typescript/docs/interfaces/serverconfig.html)。
+具体配置项见：[API 文档](http://fjc0k.github.io/yapi-to-typescript/interfaces/serverconfig.html)。
 
 ## 许可
 
