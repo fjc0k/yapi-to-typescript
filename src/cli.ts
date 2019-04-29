@@ -44,34 +44,17 @@ TSNode.register({
                 prodEnvName: 'production',
                 outputFilePath: 'src/api/index.ts',
                 requestFunctionFilePath: 'src/api/request.ts',
+                dataKey: 'data',
                 projects: [
                   {
                     token: 'hello',
                     categories: [
                       {
                         id: 50,
-                        preproccessInterface(interfaceInfo) {
-                          // interfaceInfo.path = interfaceInfo.path.replace('v1', 'v2')
-                          return interfaceInfo
-                        },
                         getRequestFunctionName(interfaceInfo, changeCase) {
                           return changeCase.camelCase(
                             interfaceInfo.parsedPath.name,
                           )
-                        },
-                        getRequestDataTypeName(interfaceInfo, changeCase) {
-                          return \`\${
-                            changeCase.pascalCase(
-                              interfaceInfo.parsedPath.name,
-                            )
-                          }Request\`
-                        },
-                        getResponseDataTypeName(interfaceInfo, changeCase) {
-                          return \`\${
-                            changeCase.pascalCase(
-                              interfaceInfo.parsedPath.name,
-                            )
-                          }Response\`
                         },
                       },
                     ],
