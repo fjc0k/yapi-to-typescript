@@ -23,6 +23,7 @@ TSNode.register({
   cli
     .version(pkg.version)
     .arguments('[cmd]')
+    .allowUnknownOption()
     .action(async cmd => {
       switch (cmd) {
         case 'init':
