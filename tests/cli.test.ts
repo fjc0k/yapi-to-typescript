@@ -7,20 +7,18 @@ const generatedConfigFile = path.join(targetDir, 'ytt.config.ts')
 const generatedApiFile = path.join(targetDir, '/src/api/index.ts')
 const generatedRequestFile = path.join(targetDir, '/src/api/request.ts')
 
-const argvCount = process.argv.length
-
 describe('cli', () => {
   test('正确初始化配置文件 & 生成结果', async () => {
     fs.ensureDirSync(targetDir)
     process.chdir(targetDir)
 
-    process.argv.push('init')
-    require('../src/cli')
+    process.argv[2] = 'init'
+    await import('../src/cli')
     await sleep(2000)
     expect(fs.readFileSync(generatedConfigFile).toString()).toMatchSnapshot()
 
     jest.resetModules()
-    process.argv.splice(argvCount, process.argv.length)
+    process.argv[2] = ''
     fs.writeFileSync(
       generatedConfigFile,
       fs.readFileSync(generatedConfigFile).toString()
@@ -28,7 +26,7 @@ describe('cli', () => {
         .replace(`dataKey: 'data',`, '')
         .replace(`id: 50,`, `id: 58,`),
     )
-    require('../src/cli')
+    await import('../src/cli')
     await sleep(2000)
     expect(fs.readFileSync(generatedApiFile).toString()).toMatchSnapshot()
     expect(fs.readFileSync(generatedRequestFile).toString()).toMatchSnapshot()
