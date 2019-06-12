@@ -54,6 +54,7 @@ export class Generator {
                           ...categoryConfig,
                           mockUrl: projectInfo.getMockUrl(),
                         }
+                        syntheticalConfig.devUrl = projectInfo.getDevUrl(syntheticalConfig.devEnvName!)
                         syntheticalConfig.prodUrl = projectInfo.getProdUrl(syntheticalConfig.prodEnvName!)
                         const interfaceList = await this.fetchInterfaceList(syntheticalConfig)
                         const outputFilePath = path.resolve(
@@ -64,6 +65,7 @@ export class Generator {
                         const categoryCode = [
                           [
                             `const mockUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.mockUrl)} as any`,
+                            `const devUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.devUrl)} as any`,
                             `const prodUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.prodUrl)} as any`,
                             `const dataKey${categoryUID} = ${JSON.stringify(syntheticalConfig.dataKey)} as any`,
                           ].join('\n'),
@@ -138,6 +140,8 @@ export class Generator {
               const request: RequestFunction = ({
                 /** 接口 Mock 地址，结尾无 \`/\` */
                 mockUrl,
+                /** 接口测试环境地址，结尾无 \`/\` */
+                devUrl,
                 /** 接口生产环境地址，结尾无 \`/\` */
                 prodUrl,
                 /** 接口路径，以 \`/\` 开头 */
@@ -328,6 +332,12 @@ export class Generator {
     return {
       ...projectInfo,
       getMockUrl: () => `${syntheticalConfig.serverUrl}/mock/${projectInfo._id}`,
+      getDevUrl: (devEnvName: string) => {
+        const env = projectInfo.env.find(
+          e => e.name === devEnvName,
+        )
+        return env && env.domain || ''
+      },
       getProdUrl: (prodEnvName: string) => {
         const env = projectInfo.env.find(
           e => e.name === prodEnvName,
@@ -387,6 +397,7 @@ export class Generator {
         `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求配置**\n */`,
         `${requestFunctionName}.requestConfig = Object.freeze({`,
         `  mockUrl: mockUrl${categoryUID},`,
+        `  devUrl: devUrl${categoryUID},`,
         `  prodUrl: prodUrl${categoryUID},`,
         `  path: ${JSON.stringify(interfaceInfo.path)},`,
         `  method: Method.${interfaceInfo.method},`,
@@ -395,6 +406,7 @@ export class Generator {
         `  dataKey: dataKey${categoryUID}`,
         `} as RequestConfig<`,
         `  ${JSON.stringify(syntheticalConfig.mockUrl)},`,
+        `  ${JSON.stringify(syntheticalConfig.devUrl)},`,
         `  ${JSON.stringify(syntheticalConfig.prodUrl)},`,
         `  ${JSON.stringify(interfaceInfo.path)},`,
         `  ${JSON.stringify(syntheticalConfig.dataKey)}`,

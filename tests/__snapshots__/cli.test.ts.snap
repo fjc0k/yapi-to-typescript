@@ -46,6 +46,7 @@ import request from \\"./request\\"
 import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
 
 const mockUrl_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0 = \\"\\" as any
 const prodUrl_0_0_0 = \\"http://prod.com/\\" as any
 const dataKey_0_0_0 = undefined as any
 
@@ -80,6 +81,7 @@ export function deleteMethod(requestData: DeleteMethodRequest): Promise<DeleteMe
  */
 deleteMethod.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0,
+  devUrl: devUrl_0_0_0,
   prodUrl: prodUrl_0_0_0,
   path: \\"/deleteMethod\\",
   method: Method.DELETE,
@@ -88,6 +90,7 @@ deleteMethod.requestConfig = Object.freeze({
   dataKey: dataKey_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
+  \\"\\",
   \\"http://prod.com/\\",
   \\"/deleteMethod\\",
   undefined
@@ -133,6 +136,7 @@ export function getMethod(requestData: GetMethodRequest): Promise<GetMethodRespo
  */
 getMethod.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0,
+  devUrl: devUrl_0_0_0,
   prodUrl: prodUrl_0_0_0,
   path: \\"/getMethod\\",
   method: Method.GET,
@@ -141,6 +145,7 @@ getMethod.requestConfig = Object.freeze({
   dataKey: dataKey_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
+  \\"\\",
   \\"http://prod.com/\\",
   \\"/getMethod\\",
   undefined
@@ -176,6 +181,7 @@ export function json5Response(requestData?: Json5ResponseRequest): Promise<Json5
  */
 json5Response.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0,
+  devUrl: devUrl_0_0_0,
   prodUrl: prodUrl_0_0_0,
   path: \\"/json5Response\\",
   method: Method.GET,
@@ -184,6 +190,7 @@ json5Response.requestConfig = Object.freeze({
   dataKey: dataKey_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
+  \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Response\\",
   undefined
@@ -219,6 +226,7 @@ export function json5Request(requestData: Json5RequestRequest): Promise<Json5Req
  */
 json5Request.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0,
+  devUrl: devUrl_0_0_0,
   prodUrl: prodUrl_0_0_0,
   path: \\"/json5Request\\",
   method: Method.POST,
@@ -227,6 +235,7 @@ json5Request.requestConfig = Object.freeze({
   dataKey: dataKey_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
+  \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Request\\",
   undefined
@@ -281,6 +290,7 @@ export function postMethod(requestData: PostMethodRequest): Promise<PostMethodRe
  */
 postMethod.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0,
+  devUrl: devUrl_0_0_0,
   prodUrl: prodUrl_0_0_0,
   path: \\"/postMethod\\",
   method: Method.POST,
@@ -289,6 +299,7 @@ postMethod.requestConfig = Object.freeze({
   dataKey: dataKey_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
+  \\"\\",
   \\"http://prod.com/\\",
   \\"/postMethod\\",
   undefined
@@ -338,6 +349,7 @@ export function putMethod(requestData: PutMethodRequest): Promise<PutMethodRespo
  */
 putMethod.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0,
+  devUrl: devUrl_0_0_0,
   prodUrl: prodUrl_0_0_0,
   path: \\"/putMethod\\",
   method: Method.PUT,
@@ -346,6 +358,7 @@ putMethod.requestConfig = Object.freeze({
   dataKey: dataKey_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
+  \\"\\",
   \\"http://prod.com/\\",
   \\"/putMethod\\",
   undefined
@@ -400,6 +413,7 @@ export function dataKeyExample(requestData: DataKeyExampleRequest): Promise<Data
  */
 dataKeyExample.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0,
+  devUrl: devUrl_0_0_0,
   prodUrl: prodUrl_0_0_0,
   path: \\"/dataKeyExample\\",
   method: Method.PUT,
@@ -408,6 +422,7 @@ dataKeyExample.requestConfig = Object.freeze({
   dataKey: dataKey_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
+  \\"\\",
   \\"http://prod.com/\\",
   \\"/dataKeyExample\\",
   undefined
@@ -439,6 +454,7 @@ export function noResponseData(requestData?: NoResponseDataRequest): Promise<NoR
  */
 noResponseData.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0,
+  devUrl: devUrl_0_0_0,
   prodUrl: prodUrl_0_0_0,
   path: \\"/noResponseData\\",
   method: Method.GET,
@@ -447,6 +463,7 @@ noResponseData.requestConfig = Object.freeze({
   dataKey: dataKey_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
+  \\"\\",
   \\"http://prod.com/\\",
   \\"/noResponseData\\",
   undefined
@@ -478,6 +495,7 @@ export function emptyResponse(requestData?: EmptyResponseRequest): Promise<Empty
  */
 emptyResponse.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0,
+  devUrl: devUrl_0_0_0,
   prodUrl: prodUrl_0_0_0,
   path: \\"/emptyResponse\\",
   method: Method.POST,
@@ -486,6 +504,7 @@ emptyResponse.requestConfig = Object.freeze({
   dataKey: dataKey_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
+  \\"\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse\\",
   undefined
@@ -517,6 +536,7 @@ export function rawResponse(requestData?: RawResponseRequest): Promise<RawRespon
  */
 rawResponse.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0,
+  devUrl: devUrl_0_0_0,
   prodUrl: prodUrl_0_0_0,
   path: \\"/rawResponse\\",
   method: Method.GET,
@@ -525,6 +545,7 @@ rawResponse.requestConfig = Object.freeze({
   dataKey: dataKey_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
+  \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse\\",
   undefined
@@ -550,6 +571,8 @@ const isProd = false
 const request: RequestFunction = ({
   /** 接口 Mock 地址，结尾无 \`/\` */
   mockUrl,
+  /** 接口测试环境地址，结尾无 \`/\` */
+  devUrl,
   /** 接口生产环境地址，结尾无 \`/\` */
   prodUrl,
   /** 接口路径，以 \`/\` 开头 */

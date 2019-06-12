@@ -219,6 +219,16 @@ export type CategoryList = Category[]
  */
 export interface SharedConfig {
   /**
+   * 测试环境名称。
+   *
+   * **用于获取测试环境域名。**
+   *
+   * 获取方式：打开项目 --> `设置` --> `环境配置` --> 点开或新增测试环境 --> 复制测试环境名称。
+   *
+   * @example 'dev'
+   */
+  devEnvName?: string,
+  /**
    * 生产环境名称。
    *
    * **用于获取生产环境域名。**
@@ -358,6 +368,7 @@ export type SyntheticalConfig = Partial<(
   & ServerConfig['projects'][0]['categories'][0]
   & {
     mockUrl: string,
+    devUrl: string,
     prodUrl: string,
   }
 )>
@@ -370,12 +381,15 @@ export type Config = ServerConfig | ServerConfig[]
  */
 export interface RequestConfig<
   MockUrl extends string = string,
+  DevUrl extends string = string,
   ProdUrl extends string = string,
   Path extends string = string,
   DataKey extends string | undefined = undefined,
 > {
   /** 接口 Mock 地址，结尾无 `/` */
   mockUrl: MockUrl,
+  /** 接口测试环境地质，结尾无 `/` */
+  devUrl: DevUrl,
   /** 接口生产环境地址，结尾无 `/` */
   prodUrl: ProdUrl,
   /** 接口路径，以 `/` 开头 */
