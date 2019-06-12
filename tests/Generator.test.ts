@@ -1,6 +1,18 @@
 import fs from 'fs-extra'
+import path from 'path'
 import { forOwn } from 'vtils'
 import { Generator } from '../src/Generator'
+
+const apiDir = path.join(__dirname, '../api')
+
+beforeAll(() => {
+  fs.ensureDirSync(apiDir)
+  fs.emptyDirSync(apiDir)
+})
+
+afterAll(() => {
+  fs.removeSync(apiDir)
+})
 
 const generator = new Generator({
   serverUrl: 'http://foo.bar',

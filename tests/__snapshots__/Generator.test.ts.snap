@@ -1049,6 +1049,8 @@ const isProd = false
 const request: RequestFunction = ({
   /** 接口 Mock 地址，结尾无 \`/\` */
   mockUrl,
+  /** 接口测试环境地址，结尾无 \`/\` */
+  devUrl,
   /** 接口生产环境地址，结尾无 \`/\` */
   prodUrl,
   /** 接口路径，以 \`/\` 开头 */
