@@ -961,6 +961,9 @@ img { max-width: 100%; }
 					<a href="sharedconfig.html#datakey" class="tsd-kind-icon">data<wbr>Key</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="sharedconfig.html#devenvname" class="tsd-kind-icon">dev<wbr>Env<wbr>Name</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="sharedconfig.html#outputfilepath" class="tsd-kind-icon">output<wbr>File<wbr>Path</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -1030,6 +1033,7 @@ img { max-width: 100%; }
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sharedconfig.html#datakey" class="tsd-kind-icon">data<wbr>Key</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sharedconfig.html#devenvname" class="tsd-kind-icon">dev<wbr>Env<wbr>Name</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sharedconfig.html#outputfilepath" class="tsd-kind-icon">output<wbr>File<wbr>Path</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sharedconfig.html#preproccessinterface" class="tsd-kind-icon">preproccess<wbr>Interface</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sharedconfig.html#prodenvname" class="tsd-kind-icon">prod<wbr>Env<wbr>Name</a></li>
@@ -1047,7 +1051,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">data<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/ec9bd03/src/types.ts#L272">types.ts:272</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/0afe138/src/types.ts#L282">types.ts:282</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1067,12 +1071,34 @@ img { max-width: 100%; }
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="devenvname" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> dev<wbr>Env<wbr>Name</h3>
+				<div class="tsd-signature tsd-kind-icon">dev<wbr>Env<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/0afe138/src/types.ts#L230">types.ts:230</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>测试环境名称。</p>
+					</div>
+					<p><strong>用于获取测试环境域名。</strong></p>
+					<p>获取方式：打开项目 --&gt; <code>设置</code> --&gt; <code>环境配置</code> --&gt; 点开或新增测试环境 --&gt; 复制测试环境名称。</p>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p>&#39;dev&#39;</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 				<a name="outputfilepath" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagOptional">Optional</span> output<wbr>File<wbr>Path</h3>
 				<div class="tsd-signature tsd-kind-icon">output<wbr>File<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/ec9bd03/src/types.ts#L238">types.ts:238</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/0afe138/src/types.ts#L248">types.ts:248</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1093,7 +1119,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">preproccess<wbr>Interface<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/ec9bd03/src/types.ts#L260">types.ts:260</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/0afe138/src/types.ts#L270">types.ts:270</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1117,7 +1143,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">prod<wbr>Env<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/ec9bd03/src/types.ts#L230">types.ts:230</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/0afe138/src/types.ts#L240">types.ts:240</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1139,7 +1165,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Function<wbr>File<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/ec9bd03/src/types.ts#L245">types.ts:245</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/0afe138/src/types.ts#L255">types.ts:255</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
