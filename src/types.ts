@@ -370,10 +370,17 @@ export type SyntheticalConfig = Partial<(
     mockUrl: string,
     devUrl: string,
     prodUrl: string,
+    typesOnly: boolean,
   }
 )>
 
-/** 配置。 */
+/** cli配置。 */
+export type CliConfig = {
+  typesOnly: boolean,
+  serverConfigs: Config,
+}
+
+/** 所有的服务器配置。 */
 export type Config = ServerConfig | ServerConfig[]
 
 /**

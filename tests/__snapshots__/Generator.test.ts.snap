@@ -1,5 +1,415 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Generator 只生成类型代码并写入文件 1`] = `
+Array [
+  "
+
+
+/**
+ * 接口 **DELETE 方法** 的 **请求类型**
+ */
+export interface DeleteMethodTestRequest {
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **DELETE 方法** 的 **返回类型**
+ */
+export interface DeleteMethodTestResponse {}
+
+
+/**
+ * 接口 **GET 方法** 的 **请求类型**
+ */
+export interface GetMethodTestRequest {
+  /**
+   * X 值
+   */
+  x: string;
+  /**
+   * Y 值
+   */
+  y?: string;
+}
+
+/**
+ * 接口 **GET 方法** 的 **返回类型**
+ */
+export interface GetMethodTestResponse {
+  /**
+   * 结果
+   */
+  result: number;
+}
+
+
+/**
+ * 接口 **JSON5 响应** 的 **请求类型**
+ */
+export interface Json5ResponseTestRequest {}
+
+/**
+ * 接口 **JSON5 响应** 的 **返回类型**
+ */
+export interface Json5ResponseTestResponse {
+  id?: number;
+  age?: string;
+  name?: string;
+}
+
+
+/**
+ * 接口 **JSON5 请求** 的 **请求类型**
+ */
+export interface Json5RequestTestRequest {
+  id: number;
+  name: string;
+  likes: {}[];
+}
+
+/**
+ * 接口 **JSON5 请求** 的 **返回类型**
+ */
+export interface Json5RequestTestResponse {}
+
+
+/**
+ * 接口 **POST 方法** 的 **请求类型**
+ */
+export interface PostMethodTestRequest {
+  /**
+   * 页码
+   */
+  page: number;
+  /**
+   * 每页数量
+   */
+  limit: number;
+  /**
+   * 关键词
+   */
+  keyword?: string;
+}
+
+/**
+ * 接口 **POST 方法** 的 **返回类型**
+ */
+export interface PostMethodTestResponse {
+  /**
+   * 列表
+   */
+  list: {
+    /**
+     * 姓名
+     */
+    name: string;
+  }[];
+}
+
+
+/**
+ * 接口 **PUT 方法** 的 **请求类型**
+ */
+export interface PutMethodTestRequest {
+  /**
+   * X 值
+   */
+  x: string;
+}
+
+/**
+ * 接口 **PUT 方法** 的 **返回类型**
+ */
+export interface PutMethodTestResponse {
+  /**
+   * 错误
+   */
+  err: number;
+  /**
+   * 错误详情
+   */
+  msg: string;
+  /**
+   * 数据
+   */
+  data?: {};
+}
+
+
+/**
+ * 接口 **dataKey 例子** 的 **请求类型**
+ */
+export interface DataKeyExampleTestRequest {
+  /**
+   * X 值
+   */
+  x: string;
+}
+
+/**
+ * 接口 **dataKey 例子** 的 **返回类型**
+ */
+export interface DataKeyExampleTestResponse {
+  /**
+   * 错误
+   */
+  err: number;
+  /**
+   * 错误详情
+   */
+  msg: string;
+  /**
+   * 数据
+   */
+  data?: {
+    /**
+     * 成功啦
+     */
+    success: boolean;
+  };
+}
+
+
+/**
+ * 接口 **没返回数据** 的 **请求类型**
+ */
+export interface NoResponseDataTestRequest {}
+
+/**
+ * 接口 **没返回数据** 的 **返回类型**
+ */
+export interface NoResponseDataTestResponse {}
+
+
+/**
+ * 接口 **空返回数据** 的 **请求类型**
+ */
+export interface EmptyResponseTestRequest {}
+
+/**
+ * 接口 **空返回数据** 的 **返回类型**
+ */
+export interface EmptyResponseTestResponse {}
+
+
+/**
+ * 接口 **返回 raw** 的 **请求类型**
+ */
+export interface RawResponseTestRequest {}
+
+/**
+ * 接口 **返回 raw** 的 **返回类型**
+ */
+export type RawResponseTestResponse = any",
+]
+`;
+
+exports[`Generator 只生成类型代码并写入文件 2`] = `
+"/**
+ * 接口 **DELETE 方法** 的 **请求类型**
+ */
+export interface DeleteMethodTestRequest {
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **DELETE 方法** 的 **返回类型**
+ */
+export interface DeleteMethodTestResponse {}
+
+
+/**
+ * 接口 **GET 方法** 的 **请求类型**
+ */
+export interface GetMethodTestRequest {
+  /**
+   * X 值
+   */
+  x: string;
+  /**
+   * Y 值
+   */
+  y?: string;
+}
+
+/**
+ * 接口 **GET 方法** 的 **返回类型**
+ */
+export interface GetMethodTestResponse {
+  /**
+   * 结果
+   */
+  result: number;
+}
+
+
+/**
+ * 接口 **JSON5 响应** 的 **请求类型**
+ */
+export interface Json5ResponseTestRequest {}
+
+/**
+ * 接口 **JSON5 响应** 的 **返回类型**
+ */
+export interface Json5ResponseTestResponse {
+  id?: number;
+  age?: string;
+  name?: string;
+}
+
+
+/**
+ * 接口 **JSON5 请求** 的 **请求类型**
+ */
+export interface Json5RequestTestRequest {
+  id: number;
+  name: string;
+  likes: {}[];
+}
+
+/**
+ * 接口 **JSON5 请求** 的 **返回类型**
+ */
+export interface Json5RequestTestResponse {}
+
+
+/**
+ * 接口 **POST 方法** 的 **请求类型**
+ */
+export interface PostMethodTestRequest {
+  /**
+   * 页码
+   */
+  page: number;
+  /**
+   * 每页数量
+   */
+  limit: number;
+  /**
+   * 关键词
+   */
+  keyword?: string;
+}
+
+/**
+ * 接口 **POST 方法** 的 **返回类型**
+ */
+export interface PostMethodTestResponse {
+  /**
+   * 列表
+   */
+  list: {
+    /**
+     * 姓名
+     */
+    name: string;
+  }[];
+}
+
+
+/**
+ * 接口 **PUT 方法** 的 **请求类型**
+ */
+export interface PutMethodTestRequest {
+  /**
+   * X 值
+   */
+  x: string;
+}
+
+/**
+ * 接口 **PUT 方法** 的 **返回类型**
+ */
+export interface PutMethodTestResponse {
+  /**
+   * 错误
+   */
+  err: number;
+  /**
+   * 错误详情
+   */
+  msg: string;
+  /**
+   * 数据
+   */
+  data?: {};
+}
+
+
+/**
+ * 接口 **dataKey 例子** 的 **请求类型**
+ */
+export interface DataKeyExampleTestRequest {
+  /**
+   * X 值
+   */
+  x: string;
+}
+
+/**
+ * 接口 **dataKey 例子** 的 **返回类型**
+ */
+export interface DataKeyExampleTestResponse {
+  /**
+   * 错误
+   */
+  err: number;
+  /**
+   * 错误详情
+   */
+  msg: string;
+  /**
+   * 数据
+   */
+  data?: {
+    /**
+     * 成功啦
+     */
+    success: boolean;
+  };
+}
+
+
+/**
+ * 接口 **没返回数据** 的 **请求类型**
+ */
+export interface NoResponseDataTestRequest {}
+
+/**
+ * 接口 **没返回数据** 的 **返回类型**
+ */
+export interface NoResponseDataTestResponse {}
+
+
+/**
+ * 接口 **空返回数据** 的 **请求类型**
+ */
+export interface EmptyResponseTestRequest {}
+
+/**
+ * 接口 **空返回数据** 的 **返回类型**
+ */
+export interface EmptyResponseTestResponse {}
+
+
+/**
+ * 接口 **返回 raw** 的 **请求类型**
+ */
+export interface RawResponseTestRequest {}
+
+/**
+ * 接口 **返回 raw** 的 **返回类型**
+ */
+export type RawResponseTestResponse = any
+"
+`;
+
 exports[`Generator 正确生成代码并写入文件 1`] = `
 Array [
   "const mockUrl_0_0_0 = \\"http://foo.bar/mock/32\\" as any

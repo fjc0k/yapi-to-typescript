@@ -6,7 +6,7 @@ import fs from 'fs-extra'
 import ora from 'ora'
 import path from 'path'
 import prompt from 'prompts'
-import { Config } from './types'
+import { CliConfig } from './types'
 import { Generator } from './Generator'
 
 TSNode.register({
@@ -37,34 +37,37 @@ TSNode.register({
             if (!answers.override) return
           }
           await fs.outputFile(configFile, `${`
-            import { Config } from 'yapi-to-typescript'
+            import { CliConfig } from 'yapi-to-typescript'
 
-            const servers: Config = [
-              {
-                serverUrl: 'http://foo.bar',
-                prodEnvName: 'production',
-                outputFilePath: 'src/api/index.ts',
-                requestFunctionFilePath: 'src/api/request.ts',
-                dataKey: 'data',
-                projects: [
-                  {
-                    token: 'hello',
-                    categories: [
-                      {
-                        id: 50,
-                        getRequestFunctionName(interfaceInfo, changeCase) {
-                          return changeCase.camelCase(
-                            interfaceInfo.parsedPath.name,
-                          )
+            const cliConfig: CliConfig = {
+              typesOnly: false,
+              serverConfigs: [
+                {
+                  serverUrl: 'http://foo.bar',
+                  prodEnvName: 'production',
+                  outputFilePath: 'src/api/index.ts',
+                  requestFunctionFilePath: 'src/api/request.ts',
+                  dataKey: 'data',
+                  projects: [
+                    {
+                      token: 'hello',
+                      categories: [
+                        {
+                          id: 50,
+                          getRequestFunctionName(interfaceInfo, changeCase) {
+                            return changeCase.camelCase(
+                              interfaceInfo.parsedPath.name,
+                            )
+                          },
                         },
-                      },
-                    ],
-                  },
-                ],
-              },
-            ]
+                      ],
+                    },
+                  ],
+                },
+              ]
+            }
 
-            export default servers
+            export default cliConfig
           `.replace(/^ {12}/mg, '').trim()}\n`)
           consola.success('写入配置文件完毕')
           break
@@ -74,8 +77,8 @@ TSNode.register({
           }
           consola.success(`找到配置文件: ${configFile}`)
           try {
-            const config: Config = require(configFile).default
-            const generator = new Generator(config)
+            const cliConfig: CliConfig = require(configFile).default
+            const generator = new Generator(cliConfig)
 
             const spinner = ora('正在获取数据并生成代码...').start()
             const output = await generator.generate()
