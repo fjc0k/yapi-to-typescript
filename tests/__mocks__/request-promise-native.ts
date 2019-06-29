@@ -1,5 +1,5 @@
 const request = {
-  get: url => (
+  get: (url: string) => (
     url.endsWith('/api/plugin/export')
       ? [
         {
