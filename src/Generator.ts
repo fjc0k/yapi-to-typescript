@@ -4,21 +4,7 @@ import JSON5 from 'json5'
 import path from 'path'
 import request from 'request-promise-native'
 import { castArray, isEmpty, isFunction } from 'vtils'
-import {
-  CategoryList,
-  Config,
-  ExtendedInterface,
-  Interface,
-  InterfaceList,
-  Method,
-  PropDefinition,
-  RequestBodyType,
-  RequestFormItemType,
-  Required,
-  ResponseBodyType,
-  ServerConfig,
-  SyntheticalConfig,
-} from './types'
+import { CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig } from './types'
 import { getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError } from './utils'
 import { JSONSchema4 } from 'json-schema'
 
@@ -134,8 +120,8 @@ export class Generator {
       Object.keys(outputFileList).map(async outputFilePath => {
         const { content, requestFilePath, syntheticalConfig } = outputFileList[outputFilePath]
 
-        // 若 request 文件不存在，或者不在typesOnly模式下，则写入 request 文件
-        if (!(await fs.pathExists(requestFilePath)) && !syntheticalConfig.typesOnly) {
+        // 若非 typesOnly 模式且 request 文件不存在，则写入 request 文件
+        if (!syntheticalConfig.typesOnly && !(await fs.pathExists(requestFilePath))) {
           await fs.outputFile(
             requestFilePath,
             `${`

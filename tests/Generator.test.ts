@@ -10,7 +10,7 @@ beforeEach(() => {
   fs.emptyDirSync(apiDir)
 })
 
-beforeEach(() => {
+afterEach(() => {
   fs.removeSync(apiDir)
 })
 

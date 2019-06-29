@@ -51,7 +51,6 @@ describe('cli', () => {
     jest.resetModules()
     jest.mock('prompts')
 
-
     require('prompts').setAnswer(true)
     process.argv[2] = 'init'
     await import('../src/cli')
@@ -69,7 +68,6 @@ describe('cli', () => {
 
     jest.resetModules()
     jest.mock('prompts')
-
 
     require('prompts').setAnswer(false)
     process.argv[2] = 'init'

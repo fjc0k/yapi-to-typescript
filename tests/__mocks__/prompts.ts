@@ -1,6 +1,5 @@
-let answer: boolean = false;
+let answer: boolean = false
 
-// @ts-ignore
 const prompts = async (question: {
   type: string,
   name: string,
