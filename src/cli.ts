@@ -39,9 +39,10 @@ TSNode.register({
           await fs.outputFile(configFile, `${`
             import { Config } from 'yapi-to-typescript'
 
-            const servers: Config = [
+            const config: Config = [
               {
                 serverUrl: 'http://foo.bar',
+                typesOnly: false,
                 prodEnvName: 'production',
                 outputFilePath: 'src/api/index.ts',
                 requestFunctionFilePath: 'src/api/request.ts',
@@ -64,7 +65,7 @@ TSNode.register({
               },
             ]
 
-            export default servers
+            export default config
           `.replace(/^ {12}/mg, '').trim()}\n`)
           consola.success('写入配置文件完毕')
           break

@@ -39,4 +39,42 @@ describe('cli', () => {
     expect(fs.readFileSync(generatedApiFile).toString()).toMatchSnapshot()
     expect(fs.readFileSync(generatedRequestFile).toString()).toMatchSnapshot()
   })
+
+  test('检查到已有配置，可以选择覆盖', async () => {
+    process.chdir(targetDir)
+
+    process.argv[2] = 'init'
+    await import('../src/cli')
+    await sleep(500)
+    fs.writeFileSync(generatedConfigFile, 'error data')
+
+    jest.resetModules()
+    jest.mock('prompts')
+
+
+    require('prompts').setAnswer(true)
+    process.argv[2] = 'init'
+    await import('../src/cli')
+    await sleep(500)
+    expect(fs.readFileSync(generatedConfigFile).toString()).toMatchSnapshot()
+  })
+
+  test('检查到已有配置，选择不做任何操作', async () => {
+    process.chdir(targetDir)
+
+    process.argv[2] = 'init'
+    await import('../src/cli')
+    await sleep(500)
+    fs.writeFileSync(generatedConfigFile, 'error data')
+
+    jest.resetModules()
+    jest.mock('prompts')
+
+
+    require('prompts').setAnswer(false)
+    process.argv[2] = 'init'
+    await import('../src/cli')
+    await sleep(500)
+    expect(fs.readFileSync(generatedConfigFile).toString()).toBe('error data')
+  })
 })

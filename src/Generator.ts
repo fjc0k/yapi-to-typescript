@@ -4,12 +4,27 @@ import JSON5 from 'json5'
 import path from 'path'
 import request from 'request-promise-native'
 import { castArray, isEmpty, isFunction } from 'vtils'
-import { CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig } from './types'
+import {
+  CategoryList,
+  Config,
+  ExtendedInterface,
+  Interface,
+  InterfaceList,
+  Method,
+  PropDefinition,
+  RequestBodyType,
+  RequestFormItemType,
+  Required,
+  ResponseBodyType,
+  ServerConfig,
+  SyntheticalConfig,
+} from './types'
 import { getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError } from './utils'
 import { JSONSchema4 } from 'json-schema'
 
 interface OutputFileList {
   [outputFilePath: string]: {
+    syntheticalConfig: SyntheticalConfig,
     content: string[],
     requestFilePath: string,
   },
@@ -63,7 +78,7 @@ export class Generator {
                         )
                         const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}`
                         const categoryCode = [
-                          [
+                          syntheticalConfig.typesOnly ? '' : [
                             `const mockUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.mockUrl)} as any`,
                             `const devUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.devUrl)} as any`,
                             `const prodUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.prodUrl)} as any`,
@@ -84,6 +99,7 @@ export class Generator {
                         ].join('\n\n')
                         if (!outputFileList[outputFilePath]) {
                           outputFileList[outputFilePath] = {
+                            syntheticalConfig,
                             content: [],
                             requestFilePath: (
                               syntheticalConfig.requestFunctionFilePath
@@ -116,10 +132,10 @@ export class Generator {
   async write(outputFileList: OutputFileList) {
     return Promise.all(
       Object.keys(outputFileList).map(async outputFilePath => {
-        const { content, requestFilePath } = outputFileList[outputFilePath]
+        const { content, requestFilePath, syntheticalConfig } = outputFileList[outputFilePath]
 
-        // 若 request 文件不存在，则写入 request 文件
-        if (!(await fs.pathExists(requestFilePath))) {
+        // 若 request 文件不存在，或者不在typesOnly模式下，则写入 request 文件
+        if (!(await fs.pathExists(requestFilePath)) && !syntheticalConfig.typesOnly) {
           await fs.outputFile(
             requestFilePath,
             `${`
@@ -187,7 +203,7 @@ export class Generator {
         await fs.outputFile(
           outputFilePath,
           `${
-            [
+            syntheticalConfig.typesOnly ? content.join('\n\n').trim() : [
               `/* tslint:disable */\n/* eslint-disable */`,
               `/**\n * **该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！** \n */`,
               `import request from ${JSON.stringify(requestFileRelativePathWithoutExt)}`,
@@ -384,34 +400,36 @@ export class Generator {
       requestDataType.trim(),
       `\n/**\n * 接口 **${interfaceInfo.title}** 的 **返回类型**\n */`,
       responseDataType.trim(),
-      `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求函数**\n */`,
-      `export function ${requestFunctionName}(requestData${isRequestDataRequired ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {`,
-      [
-        `  return request({`,
-        `    ...${requestFunctionName}.requestConfig,`,
-        `    ...parseRequestData(requestData)`,
-        `  } as any)`,
-      ].join('\n'),
-      `}`,
-      [
-        `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求配置**\n */`,
-        `${requestFunctionName}.requestConfig = Object.freeze({`,
-        `  mockUrl: mockUrl${categoryUID},`,
-        `  devUrl: devUrl${categoryUID},`,
-        `  prodUrl: prodUrl${categoryUID},`,
-        `  path: ${JSON.stringify(interfaceInfo.path)},`,
-        `  method: Method.${interfaceInfo.method},`,
-        `  requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type || RequestBodyType.none},`,
-        `  responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},`,
-        `  dataKey: dataKey${categoryUID}`,
-        `} as RequestConfig<`,
-        `  ${JSON.stringify(syntheticalConfig.mockUrl)},`,
-        `  ${JSON.stringify(syntheticalConfig.devUrl)},`,
-        `  ${JSON.stringify(syntheticalConfig.prodUrl)},`,
-        `  ${JSON.stringify(interfaceInfo.path)},`,
-        `  ${JSON.stringify(syntheticalConfig.dataKey)}`,
-        `>)`,
-      ].join('\n'),
+      ...(syntheticalConfig.typesOnly ? [] : [
+        `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求函数**\n */`,
+        `export function ${requestFunctionName}(requestData${isRequestDataRequired ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {`,
+        [
+          `  return request({`,
+          `    ...${requestFunctionName}.requestConfig,`,
+          `    ...parseRequestData(requestData)`,
+          `  } as any)`,
+        ].join('\n'),
+        `}`,
+        [
+          `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求配置**\n */`,
+          `${requestFunctionName}.requestConfig = Object.freeze({`,
+          `  mockUrl: mockUrl${categoryUID},`,
+          `  devUrl: devUrl${categoryUID},`,
+          `  prodUrl: prodUrl${categoryUID},`,
+          `  path: ${JSON.stringify(interfaceInfo.path)},`,
+          `  method: Method.${interfaceInfo.method},`,
+          `  requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type || RequestBodyType.none},`,
+          `  responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},`,
+          `  dataKey: dataKey${categoryUID}`,
+          `} as RequestConfig<`,
+          `  ${JSON.stringify(syntheticalConfig.mockUrl)},`,
+          `  ${JSON.stringify(syntheticalConfig.devUrl)},`,
+          `  ${JSON.stringify(syntheticalConfig.prodUrl)},`,
+          `  ${JSON.stringify(interfaceInfo.path)},`,
+          `  ${JSON.stringify(syntheticalConfig.dataKey)}`,
+          `>)`,
+        ].join('\n'),
+      ]),
     ].join('\n')
   }
 }

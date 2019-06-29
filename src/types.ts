@@ -219,6 +219,12 @@ export type CategoryList = Category[]
  */
 export interface SharedConfig {
   /**
+   * 是否只生成接口请求内容和返回内容的 TypeSript 类型，是则请求文件和请求函数都不会生成。
+   *
+   * @default false
+   */
+  typesOnly?: boolean,
+  /**
    * 测试环境名称。
    *
    * **用于获取测试环境域名。**
