@@ -219,10 +219,9 @@ export type CategoryList = Category[]
  */
 export interface SharedConfig {
   /**
-   * 是否只生成 typescript types，如果是 request 文件将也不会生成
+   * 是否只生成接口请求内容和返回内容的 TypeSript 类型，是则请求文件和请求函数都不会生成。
    *
-   * @default false,
-   * @example false
+   * @default false
    */
   typesOnly?: boolean,
   /**

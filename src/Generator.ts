@@ -99,8 +99,8 @@ export class Generator {
                         ].join('\n\n')
                         if (!outputFileList[outputFilePath]) {
                           outputFileList[outputFilePath] = {
-                            content: [],
                             syntheticalConfig,
+                            content: [],
                             requestFilePath: (
                               syntheticalConfig.requestFunctionFilePath
                                 ? path.resolve(
@@ -134,7 +134,7 @@ export class Generator {
       Object.keys(outputFileList).map(async outputFilePath => {
         const { content, requestFilePath, syntheticalConfig } = outputFileList[outputFilePath]
 
-        // 若 request 文件不存在，则写入 request 文件
+        // 若 request 文件不存在，或者不在typesOnly模式下，则写入 request 文件
         if (!(await fs.pathExists(requestFilePath)) && !syntheticalConfig.typesOnly) {
           await fs.outputFile(
             requestFilePath,
