@@ -1,6 +1,6 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { forOwn } from 'vtils'
+import { forOwn, sleep } from 'vtils'
 import { Generator } from '../src/Generator'
 
 const apiDir = path.join(__dirname, '../api')
@@ -63,6 +63,9 @@ describe('Generator', () => {
   })
 
   test('只生成类型代码并写入文件', async () => {
+    // 解决 ci 不通过
+    await sleep(500)
+
     const generator = generatorFactory(true)
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
