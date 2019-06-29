@@ -377,7 +377,6 @@ export type SyntheticalConfig = Partial<(
     mockUrl: string,
     devUrl: string,
     prodUrl: string,
-    typesOnly: boolean,
   }
 )>
 

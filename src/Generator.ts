@@ -67,7 +67,6 @@ export class Generator {
                           ...serverConfig,
                           ...projectConfig,
                           ...categoryConfig,
-                          typesOnly: serverConfig.typesOnly,
                           mockUrl: projectInfo.getMockUrl(),
                         }
                         syntheticalConfig.devUrl = projectInfo.getDevUrl(syntheticalConfig.devEnvName!)
