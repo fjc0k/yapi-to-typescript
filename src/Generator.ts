@@ -6,7 +6,7 @@ import request from 'request-promise-native'
 import { castArray, isEmpty, isFunction } from 'vtils'
 import {
   CategoryList,
-  CliConfig,
+  Config,
   ExtendedInterface,
   Interface,
   InterfaceList,
@@ -24,6 +24,7 @@ import { JSONSchema4 } from 'json-schema'
 
 interface OutputFileList {
   [outputFilePath: string]: {
+    syntheticalConfig: SyntheticalConfig,
     content: string[],
     requestFilePath: string,
   },
@@ -33,16 +34,12 @@ export class Generator {
   /** 配置 */
   private config: ServerConfig[] = []
 
-  /** 是否只提取types */
-  private typesOnly: boolean = false
-
   /** { 项目标识: 分类列表 } */
   private projectIdToCategoryList: Record<string, CategoryList | undefined> = Object.create(null)
 
-  constructor(cliConfig: CliConfig) {
-    this.typesOnly = cliConfig.typesOnly
+  constructor(config: Config) {
     // config 可能是对象或数组，统一为数组
-    this.config = castArray(cliConfig.serverConfigs)
+    this.config = castArray(config)
   }
 
   async generate(): Promise<OutputFileList> {
@@ -70,7 +67,7 @@ export class Generator {
                           ...serverConfig,
                           ...projectConfig,
                           ...categoryConfig,
-                          typesOnly: this.typesOnly,
+                          typesOnly: serverConfig.typesOnly,
                           mockUrl: projectInfo.getMockUrl(),
                         }
                         syntheticalConfig.devUrl = projectInfo.getDevUrl(syntheticalConfig.devEnvName!)
@@ -104,6 +101,7 @@ export class Generator {
                         if (!outputFileList[outputFilePath]) {
                           outputFileList[outputFilePath] = {
                             content: [],
+                            syntheticalConfig,
                             requestFilePath: (
                               syntheticalConfig.requestFunctionFilePath
                                 ? path.resolve(
@@ -135,10 +133,10 @@ export class Generator {
   async write(outputFileList: OutputFileList) {
     return Promise.all(
       Object.keys(outputFileList).map(async outputFilePath => {
-        const { content, requestFilePath } = outputFileList[outputFilePath]
+        const { content, requestFilePath, syntheticalConfig } = outputFileList[outputFilePath]
 
         // 若 request 文件不存在，则写入 request 文件
-        if (!(await fs.pathExists(requestFilePath)) && !this.typesOnly) {
+        if (!(await fs.pathExists(requestFilePath)) && !syntheticalConfig.typesOnly) {
           await fs.outputFile(
             requestFilePath,
             `${`
@@ -206,7 +204,7 @@ export class Generator {
         await fs.outputFile(
           outputFilePath,
           `${
-            this.typesOnly ? content.join('\n\n').trim() : [
+            syntheticalConfig.typesOnly ? content.join('\n\n').trim() : [
               `/* tslint:disable */\n/* eslint-disable */`,
               `/**\n * **该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！** \n */`,
               `import request from ${JSON.stringify(requestFileRelativePathWithoutExt)}`,

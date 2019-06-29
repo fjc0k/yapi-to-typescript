@@ -1,72 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`cli 检查到已有配置，可以选择覆盖 1`] = `
-"import { CliConfig } from 'yapi-to-typescript'
+"import { Config } from 'yapi-to-typescript'
 
-const cliConfig: CliConfig = {
-  typesOnly: false,
-  serverConfigs: [
-    {
-      serverUrl: 'http://foo.bar',
-      prodEnvName: 'production',
-      outputFilePath: 'src/api/index.ts',
-      requestFunctionFilePath: 'src/api/request.ts',
-      dataKey: 'data',
-      projects: [
-        {
-          token: 'hello',
-          categories: [
-            {
-              id: 50,
-              getRequestFunctionName(interfaceInfo, changeCase) {
-                return changeCase.camelCase(
-                  interfaceInfo.parsedPath.name,
-                )
-              },
+const config: Config = [
+  {
+    serverUrl: 'http://foo.bar',
+    typesOnly: false,
+    prodEnvName: 'production',
+    outputFilePath: 'src/api/index.ts',
+    requestFunctionFilePath: 'src/api/request.ts',
+    dataKey: 'data',
+    projects: [
+      {
+        token: 'hello',
+        categories: [
+          {
+            id: 50,
+            getRequestFunctionName(interfaceInfo, changeCase) {
+              return changeCase.camelCase(
+                interfaceInfo.parsedPath.name,
+              )
             },
-          ],
-        },
-      ],
-    },
-  ]
-}
+          },
+        ],
+      },
+    ],
+  },
+]
 
-export default cliConfig
+export default config
 "
 `;
 
 exports[`cli 正确初始化配置文件 & 生成结果 1`] = `
-"import { CliConfig } from 'yapi-to-typescript'
+"import { Config } from 'yapi-to-typescript'
 
-const cliConfig: CliConfig = {
-  typesOnly: false,
-  serverConfigs: [
-    {
-      serverUrl: 'http://foo.bar',
-      prodEnvName: 'production',
-      outputFilePath: 'src/api/index.ts',
-      requestFunctionFilePath: 'src/api/request.ts',
-      dataKey: 'data',
-      projects: [
-        {
-          token: 'hello',
-          categories: [
-            {
-              id: 50,
-              getRequestFunctionName(interfaceInfo, changeCase) {
-                return changeCase.camelCase(
-                  interfaceInfo.parsedPath.name,
-                )
-              },
+const config: Config = [
+  {
+    serverUrl: 'http://foo.bar',
+    typesOnly: false,
+    prodEnvName: 'production',
+    outputFilePath: 'src/api/index.ts',
+    requestFunctionFilePath: 'src/api/request.ts',
+    dataKey: 'data',
+    projects: [
+      {
+        token: 'hello',
+        categories: [
+          {
+            id: 50,
+            getRequestFunctionName(interfaceInfo, changeCase) {
+              return changeCase.camelCase(
+                interfaceInfo.parsedPath.name,
+              )
             },
-          ],
-        },
-      ],
-    },
-  ]
-}
+          },
+        ],
+      },
+    ],
+  },
+]
 
-export default cliConfig
+export default config
 "
 `;
 

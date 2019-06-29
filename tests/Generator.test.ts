@@ -16,36 +16,34 @@ beforeEach(() => {
 
 const generatorFactory = (typesOnly: boolean) => {
   return new Generator({
+    serverUrl: 'http://foo.bar',
     typesOnly,
-    serverConfigs: {
-      serverUrl: 'http://foo.bar',
-      prodEnvName: 'production',
-      outputFilePath: 'api/index.ts',
-      requestFunctionFilePath: 'api/request.ts',
-      projects: [
-        {
-          token: 'hello',
-          categories: [
-            {
-              id: 58,
-              preproccessInterface(ii) {
-                ii.path += '_test'
-                return ii
-              },
-              getRequestFunctionName(ii, cc) {
-                return cc.camelCase(ii.parsedPath.name)
-              },
-              getRequestDataTypeName(ii, cc) {
-                return `${cc.pascalCase(ii.parsedPath.name)}Request`
-              },
-              getResponseDataTypeName(ii, cc) {
-                return `${cc.pascalCase(ii.parsedPath.name)}Response`
-              },
+    prodEnvName: 'production',
+    outputFilePath: 'api/index.ts',
+    requestFunctionFilePath: 'api/request.ts',
+    projects: [
+      {
+        token: 'hello',
+        categories: [
+          {
+            id: 58,
+            preproccessInterface(ii) {
+              ii.path += '_test'
+              return ii
             },
-          ],
-        },
-      ],
-    },
+            getRequestFunctionName(ii, cc) {
+              return cc.camelCase(ii.parsedPath.name)
+            },
+            getRequestDataTypeName(ii, cc) {
+              return `${cc.pascalCase(ii.parsedPath.name)}Request`
+            },
+            getResponseDataTypeName(ii, cc) {
+              return `${cc.pascalCase(ii.parsedPath.name)}Response`
+            },
+          },
+        ],
+      },
+    ],
   })
 }
 

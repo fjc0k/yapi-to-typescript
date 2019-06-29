@@ -219,6 +219,13 @@ export type CategoryList = Category[]
  */
 export interface SharedConfig {
   /**
+   * 是否只生成 typescript types，如果是 request 文件将也不会生成
+   *
+   * @default false,
+   * @example false
+   */
+  typesOnly?: boolean,
+  /**
    * 测试环境名称。
    *
    * **用于获取测试环境域名。**
@@ -374,13 +381,7 @@ export type SyntheticalConfig = Partial<(
   }
 )>
 
-/** cli配置。 */
-export type CliConfig = {
-  typesOnly: boolean,
-  serverConfigs: Config,
-}
-
-/** 所有的服务器配置。 */
+/** 配置。 */
 export type Config = ServerConfig | ServerConfig[]
 
 /**
