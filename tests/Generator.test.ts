@@ -5,15 +5,6 @@ import { Generator } from '../src/Generator'
 
 const apiDir = path.join(__dirname, '../api')
 
-beforeEach(() => {
-  fs.ensureDirSync(apiDir)
-  fs.emptyDirSync(apiDir)
-})
-
-afterEach(() => {
-  fs.removeSync(apiDir)
-})
-
 const generatorFactory = (typesOnly: boolean) => {
   return new Generator({
     serverUrl: 'http://foo.bar',
@@ -48,6 +39,15 @@ const generatorFactory = (typesOnly: boolean) => {
 }
 
 describe('Generator', () => {
+  beforeEach(() => {
+    fs.ensureDirSync(apiDir)
+    fs.emptyDirSync(apiDir)
+  })
+
+  afterEach(() => {
+    fs.removeSync(apiDir)
+  })
+
   test('正确生成代码并写入文件', async () => {
     const generator = generatorFactory(false)
     const output = await generator.generate()
