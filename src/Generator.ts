@@ -44,7 +44,7 @@ export class Generator {
                 projectConfig.categories.map(
                   async (categoryConfig, categoryIndex) => {
                     await Promise.all(
-                      castArray(categoryConfig.id).map(async id => {
+                      castArray(categoryConfig.id).map(async (id, categoryIndex2) => {
                         categoryConfig = {
                           ...categoryConfig,
                           id: id,
@@ -62,7 +62,7 @@ export class Generator {
                           process.cwd(),
                           syntheticalConfig.outputFilePath!,
                         )
-                        const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}`
+                        const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}_${categoryIndex2}`
                         const categoryCode = [
                           syntheticalConfig.typesOnly ? '' : [
                             `const mockUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.mockUrl)} as any`,

@@ -79,10 +79,10 @@ import request from \\"./request\\"
 // @ts-ignore
 import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
 
-const mockUrl_0_0_0 = \\"http://foo.bar/mock/32\\" as any
-const devUrl_0_0_0 = \\"\\" as any
-const prodUrl_0_0_0 = \\"http://prod.com/\\" as any
-const dataKey_0_0_0 = undefined as any
+const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_0 = \\"\\" as any
+const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_0 = undefined as any
 
 
 /**
@@ -114,14 +114,14 @@ export function deleteMethod(requestData: DeleteMethodRequest): Promise<DeleteMe
  * 接口 **DELETE 方法** 的 **请求配置**
  */
 deleteMethod.requestConfig = Object.freeze({
-  mockUrl: mockUrl_0_0_0,
-  devUrl: devUrl_0_0_0,
-  prodUrl: prodUrl_0_0_0,
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
   path: \\"/deleteMethod\\",
   method: Method.DELETE,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0
+  dataKey: dataKey_0_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -169,14 +169,14 @@ export function getMethod(requestData: GetMethodRequest): Promise<GetMethodRespo
  * 接口 **GET 方法** 的 **请求配置**
  */
 getMethod.requestConfig = Object.freeze({
-  mockUrl: mockUrl_0_0_0,
-  devUrl: devUrl_0_0_0,
-  prodUrl: prodUrl_0_0_0,
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
   path: \\"/getMethod\\",
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0
+  dataKey: dataKey_0_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -214,14 +214,14 @@ export function json5Response(requestData?: Json5ResponseRequest): Promise<Json5
  * 接口 **JSON5 响应** 的 **请求配置**
  */
 json5Response.requestConfig = Object.freeze({
-  mockUrl: mockUrl_0_0_0,
-  devUrl: devUrl_0_0_0,
-  prodUrl: prodUrl_0_0_0,
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
   path: \\"/json5Response\\",
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0
+  dataKey: dataKey_0_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -259,14 +259,14 @@ export function json5Request(requestData: Json5RequestRequest): Promise<Json5Req
  * 接口 **JSON5 请求** 的 **请求配置**
  */
 json5Request.requestConfig = Object.freeze({
-  mockUrl: mockUrl_0_0_0,
-  devUrl: devUrl_0_0_0,
-  prodUrl: prodUrl_0_0_0,
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
   path: \\"/json5Request\\",
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0
+  dataKey: dataKey_0_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -323,14 +323,14 @@ export function postMethod(requestData: PostMethodRequest): Promise<PostMethodRe
  * 接口 **POST 方法** 的 **请求配置**
  */
 postMethod.requestConfig = Object.freeze({
-  mockUrl: mockUrl_0_0_0,
-  devUrl: devUrl_0_0_0,
-  prodUrl: prodUrl_0_0_0,
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
   path: \\"/postMethod\\",
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0
+  dataKey: dataKey_0_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -382,14 +382,14 @@ export function putMethod(requestData: PutMethodRequest): Promise<PutMethodRespo
  * 接口 **PUT 方法** 的 **请求配置**
  */
 putMethod.requestConfig = Object.freeze({
-  mockUrl: mockUrl_0_0_0,
-  devUrl: devUrl_0_0_0,
-  prodUrl: prodUrl_0_0_0,
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
   path: \\"/putMethod\\",
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0
+  dataKey: dataKey_0_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -446,14 +446,14 @@ export function dataKeyExample(requestData: DataKeyExampleRequest): Promise<Data
  * 接口 **dataKey 例子** 的 **请求配置**
  */
 dataKeyExample.requestConfig = Object.freeze({
-  mockUrl: mockUrl_0_0_0,
-  devUrl: devUrl_0_0_0,
-  prodUrl: prodUrl_0_0_0,
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
   path: \\"/dataKeyExample\\",
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0
+  dataKey: dataKey_0_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -487,14 +487,14 @@ export function noResponseData(requestData?: NoResponseDataRequest): Promise<NoR
  * 接口 **没返回数据** 的 **请求配置**
  */
 noResponseData.requestConfig = Object.freeze({
-  mockUrl: mockUrl_0_0_0,
-  devUrl: devUrl_0_0_0,
-  prodUrl: prodUrl_0_0_0,
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
   path: \\"/noResponseData\\",
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0
+  dataKey: dataKey_0_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -528,14 +528,14 @@ export function emptyResponse(requestData?: EmptyResponseRequest): Promise<Empty
  * 接口 **空返回数据** 的 **请求配置**
  */
 emptyResponse.requestConfig = Object.freeze({
-  mockUrl: mockUrl_0_0_0,
-  devUrl: devUrl_0_0_0,
-  prodUrl: prodUrl_0_0_0,
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
   path: \\"/emptyResponse\\",
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0
+  dataKey: dataKey_0_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -569,14 +569,14 @@ export function rawResponse(requestData?: RawResponseRequest): Promise<RawRespon
  * 接口 **返回 raw** 的 **请求配置**
  */
 rawResponse.requestConfig = Object.freeze({
-  mockUrl: mockUrl_0_0_0,
-  devUrl: devUrl_0_0_0,
-  prodUrl: prodUrl_0_0_0,
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
   path: \\"/rawResponse\\",
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
-  dataKey: dataKey_0_0_0
+  dataKey: dataKey_0_0_0_0
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
