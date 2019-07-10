@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.2"></a>
+## [1.7.2](https://github.com/fjc0k/yapi-to-typescript/compare/v1.7.1...v1.7.2) (2019-07-10)
+
+
+### Bug Fixes
+
+* 解决分类 ID 指定多个时存在的问题 (close: [#11](https://github.com/fjc0k/yapi-to-typescript/issues/11)) ([ba09652](https://github.com/fjc0k/yapi-to-typescript/commit/ba09652))
+
+
+
 <a name="1.7.1"></a>
 ## [1.7.1](https://github.com/fjc0k/yapi-to-typescript/compare/v1.7.0...v1.7.1) (2019-06-29)
 
