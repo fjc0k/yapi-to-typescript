@@ -4,7 +4,6 @@ exports[`Generator 只生成类型代码并写入文件 1`] = `
 Array [
   "
 
-
 /**
  * 接口 **DELETE 方法** 的 **请求类型**
  */
@@ -19,7 +18,6 @@ export interface DeleteMethodTestRequest {
  * 接口 **DELETE 方法** 的 **返回类型**
  */
 export interface DeleteMethodTestResponse {}
-
 
 /**
  * 接口 **GET 方法** 的 **请求类型**
@@ -45,7 +43,6 @@ export interface GetMethodTestResponse {
   result: number;
 }
 
-
 /**
  * 接口 **JSON5 响应** 的 **请求类型**
  */
@@ -60,7 +57,6 @@ export interface Json5ResponseTestResponse {
   name?: string;
 }
 
-
 /**
  * 接口 **JSON5 请求** 的 **请求类型**
  */
@@ -74,7 +70,6 @@ export interface Json5RequestTestRequest {
  * 接口 **JSON5 请求** 的 **返回类型**
  */
 export interface Json5RequestTestResponse {}
-
 
 /**
  * 接口 **POST 方法** 的 **请求类型**
@@ -109,7 +104,6 @@ export interface PostMethodTestResponse {
   }[];
 }
 
-
 /**
  * 接口 **PUT 方法** 的 **请求类型**
  */
@@ -137,7 +131,6 @@ export interface PutMethodTestResponse {
    */
   data?: {};
 }
-
 
 /**
  * 接口 **dataKey 例子** 的 **请求类型**
@@ -172,7 +165,6 @@ export interface DataKeyExampleTestResponse {
   };
 }
 
-
 /**
  * 接口 **没返回数据** 的 **请求类型**
  */
@@ -183,7 +175,6 @@ export interface NoResponseDataTestRequest {}
  */
 export interface NoResponseDataTestResponse {}
 
-
 /**
  * 接口 **空返回数据** 的 **请求类型**
  */
@@ -193,7 +184,6 @@ export interface EmptyResponseTestRequest {}
  * 接口 **空返回数据** 的 **返回类型**
  */
 export interface EmptyResponseTestResponse {}
-
 
 /**
  * 接口 **返回 raw** 的 **请求类型**
@@ -208,7 +198,12 @@ export type RawResponseTestResponse = any",
 `;
 
 exports[`Generator 只生成类型代码并写入文件 2`] = `
-"/**
+"/* tslint:disable */
+/* eslint-disable */
+
+/* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
+
+/**
  * 接口 **DELETE 方法** 的 **请求类型**
  */
 export interface DeleteMethodTestRequest {
@@ -222,7 +217,6 @@ export interface DeleteMethodTestRequest {
  * 接口 **DELETE 方法** 的 **返回类型**
  */
 export interface DeleteMethodTestResponse {}
-
 
 /**
  * 接口 **GET 方法** 的 **请求类型**
@@ -248,7 +242,6 @@ export interface GetMethodTestResponse {
   result: number;
 }
 
-
 /**
  * 接口 **JSON5 响应** 的 **请求类型**
  */
@@ -263,7 +256,6 @@ export interface Json5ResponseTestResponse {
   name?: string;
 }
 
-
 /**
  * 接口 **JSON5 请求** 的 **请求类型**
  */
@@ -277,7 +269,6 @@ export interface Json5RequestTestRequest {
  * 接口 **JSON5 请求** 的 **返回类型**
  */
 export interface Json5RequestTestResponse {}
-
 
 /**
  * 接口 **POST 方法** 的 **请求类型**
@@ -312,7 +303,6 @@ export interface PostMethodTestResponse {
   }[];
 }
 
-
 /**
  * 接口 **PUT 方法** 的 **请求类型**
  */
@@ -340,7 +330,6 @@ export interface PutMethodTestResponse {
    */
   data?: {};
 }
-
 
 /**
  * 接口 **dataKey 例子** 的 **请求类型**
@@ -375,7 +364,6 @@ export interface DataKeyExampleTestResponse {
   };
 }
 
-
 /**
  * 接口 **没返回数据** 的 **请求类型**
  */
@@ -385,7 +373,6 @@ export interface NoResponseDataTestRequest {}
  * 接口 **没返回数据** 的 **返回类型**
  */
 export interface NoResponseDataTestResponse {}
-
 
 /**
  * 接口 **空返回数据** 的 **请求类型**
@@ -397,7 +384,6 @@ export interface EmptyResponseTestRequest {}
  */
 export interface EmptyResponseTestResponse {}
 
-
 /**
  * 接口 **返回 raw** 的 **请求类型**
  */
@@ -406,8 +392,7 @@ export interface RawResponseTestRequest {}
 /**
  * 接口 **返回 raw** 的 **返回类型**
  */
-export type RawResponseTestResponse = any
-"
+export type RawResponseTestResponse = any"
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 单分类 1`] = `
@@ -416,7 +401,6 @@ Array [
 const devUrl_0_0_0_0 = \\"\\" as any
 const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
 const dataKey_0_0_0_0 = undefined as any
-
 
 /**
  * 接口 **DELETE 方法** 的 **请求类型**
@@ -454,7 +438,7 @@ deleteMethodTest.requestConfig = Object.freeze({
   method: Method.DELETE,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -462,7 +446,6 @@ deleteMethodTest.requestConfig = Object.freeze({
   \\"/deleteMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **GET 方法** 的 **请求类型**
@@ -509,7 +492,7 @@ getMethodTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -517,7 +500,6 @@ getMethodTest.requestConfig = Object.freeze({
   \\"/getMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **JSON5 响应** 的 **请求类型**
@@ -554,7 +536,7 @@ json5ResponseTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -562,7 +544,6 @@ json5ResponseTest.requestConfig = Object.freeze({
   \\"/json5Response_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **JSON5 请求** 的 **请求类型**
@@ -599,7 +580,7 @@ json5RequestTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -607,7 +588,6 @@ json5RequestTest.requestConfig = Object.freeze({
   \\"/json5Request_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **POST 方法** 的 **请求类型**
@@ -663,7 +643,7 @@ postMethodTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -671,7 +651,6 @@ postMethodTest.requestConfig = Object.freeze({
   \\"/postMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **PUT 方法** 的 **请求类型**
@@ -722,7 +701,7 @@ putMethodTest.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -730,7 +709,6 @@ putMethodTest.requestConfig = Object.freeze({
   \\"/putMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **dataKey 例子** 的 **请求类型**
@@ -786,7 +764,7 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -794,7 +772,6 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   \\"/dataKeyExample_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **没返回数据** 的 **请求类型**
@@ -827,7 +804,7 @@ noResponseDataTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -835,7 +812,6 @@ noResponseDataTest.requestConfig = Object.freeze({
   \\"/noResponseData_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **空返回数据** 的 **请求类型**
@@ -868,7 +844,7 @@ emptyResponseTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -876,7 +852,6 @@ emptyResponseTest.requestConfig = Object.freeze({
   \\"/emptyResponse_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **返回 raw** 的 **请求类型**
@@ -909,7 +884,7 @@ rawResponseTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -924,20 +899,16 @@ exports[`Generator 正确生成代码并写入文件 - 单分类 2`] = `
 "/* tslint:disable */
 /* eslint-disable */
 
-/**
- * **该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！** 
- */
-
-import request from \\"./request\\"
+/* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
 // @ts-ignore
 import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+import request from \\"./request\\"
 
 const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_0 = \\"\\" as any
 const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
 const dataKey_0_0_0_0 = undefined as any
-
 
 /**
  * 接口 **DELETE 方法** 的 **请求类型**
@@ -975,7 +946,7 @@ deleteMethodTest.requestConfig = Object.freeze({
   method: Method.DELETE,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -983,7 +954,6 @@ deleteMethodTest.requestConfig = Object.freeze({
   \\"/deleteMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **GET 方法** 的 **请求类型**
@@ -1030,7 +1000,7 @@ getMethodTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1038,7 +1008,6 @@ getMethodTest.requestConfig = Object.freeze({
   \\"/getMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **JSON5 响应** 的 **请求类型**
@@ -1075,7 +1044,7 @@ json5ResponseTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1083,7 +1052,6 @@ json5ResponseTest.requestConfig = Object.freeze({
   \\"/json5Response_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **JSON5 请求** 的 **请求类型**
@@ -1120,7 +1088,7 @@ json5RequestTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1128,7 +1096,6 @@ json5RequestTest.requestConfig = Object.freeze({
   \\"/json5Request_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **POST 方法** 的 **请求类型**
@@ -1184,7 +1151,7 @@ postMethodTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1192,7 +1159,6 @@ postMethodTest.requestConfig = Object.freeze({
   \\"/postMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **PUT 方法** 的 **请求类型**
@@ -1243,7 +1209,7 @@ putMethodTest.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1251,7 +1217,6 @@ putMethodTest.requestConfig = Object.freeze({
   \\"/putMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **dataKey 例子** 的 **请求类型**
@@ -1307,7 +1272,7 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1315,7 +1280,6 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   \\"/dataKeyExample_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **没返回数据** 的 **请求类型**
@@ -1348,7 +1312,7 @@ noResponseDataTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1356,7 +1320,6 @@ noResponseDataTest.requestConfig = Object.freeze({
   \\"/noResponseData_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **空返回数据** 的 **请求类型**
@@ -1389,7 +1352,7 @@ emptyResponseTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1397,7 +1360,6 @@ emptyResponseTest.requestConfig = Object.freeze({
   \\"/emptyResponse_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **返回 raw** 的 **请求类型**
@@ -1430,15 +1392,14 @@ rawResponseTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
   undefined
->)
-"
+>)"
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 单分类 3`] = `
@@ -1489,8 +1450,7 @@ const request: RequestFunction = ({
   })
 }
 
-export default request
-"
+export default request"
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 多分类 1`] = `
@@ -1499,7 +1459,6 @@ Array [
 const devUrl_0_0_0_0 = \\"\\" as any
 const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
 const dataKey_0_0_0_0 = undefined as any
-
 
 /**
  * 接口 **DELETE 方法** 的 **请求类型**
@@ -1537,7 +1496,7 @@ deleteMethodTest.requestConfig = Object.freeze({
   method: Method.DELETE,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1545,7 +1504,6 @@ deleteMethodTest.requestConfig = Object.freeze({
   \\"/deleteMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **GET 方法** 的 **请求类型**
@@ -1592,7 +1550,7 @@ getMethodTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1600,7 +1558,6 @@ getMethodTest.requestConfig = Object.freeze({
   \\"/getMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **JSON5 响应** 的 **请求类型**
@@ -1637,7 +1594,7 @@ json5ResponseTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1645,7 +1602,6 @@ json5ResponseTest.requestConfig = Object.freeze({
   \\"/json5Response_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **JSON5 请求** 的 **请求类型**
@@ -1682,7 +1638,7 @@ json5RequestTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1690,7 +1646,6 @@ json5RequestTest.requestConfig = Object.freeze({
   \\"/json5Request_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **POST 方法** 的 **请求类型**
@@ -1746,7 +1701,7 @@ postMethodTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1754,7 +1709,6 @@ postMethodTest.requestConfig = Object.freeze({
   \\"/postMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **PUT 方法** 的 **请求类型**
@@ -1805,7 +1759,7 @@ putMethodTest.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1813,7 +1767,6 @@ putMethodTest.requestConfig = Object.freeze({
   \\"/putMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **dataKey 例子** 的 **请求类型**
@@ -1869,7 +1822,7 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1877,7 +1830,6 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   \\"/dataKeyExample_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **没返回数据** 的 **请求类型**
@@ -1910,7 +1862,7 @@ noResponseDataTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1918,7 +1870,6 @@ noResponseDataTest.requestConfig = Object.freeze({
   \\"/noResponseData_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **空返回数据** 的 **请求类型**
@@ -1951,7 +1902,7 @@ emptyResponseTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -1959,7 +1910,6 @@ emptyResponseTest.requestConfig = Object.freeze({
   \\"/emptyResponse_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **返回 raw** 的 **请求类型**
@@ -1992,7 +1942,7 @@ rawResponseTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2004,7 +1954,6 @@ rawResponseTest.requestConfig = Object.freeze({
 const devUrl_0_0_0_1 = \\"\\" as any
 const prodUrl_0_0_0_1 = \\"http://prod.com/\\" as any
 const dataKey_0_0_0_1 = undefined as any
-
 
 /**
  * 接口 **hello** 的 **请求类型**
@@ -2039,7 +1988,7 @@ get2Test.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_1
+  dataKey: dataKey_0_0_0_1,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2054,20 +2003,16 @@ exports[`Generator 正确生成代码并写入文件 - 多分类 2`] = `
 "/* tslint:disable */
 /* eslint-disable */
 
-/**
- * **该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！** 
- */
-
-import request from \\"./request\\"
+/* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
 // @ts-ignore
 import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+import request from \\"./request\\"
 
 const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_0 = \\"\\" as any
 const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
 const dataKey_0_0_0_0 = undefined as any
-
 
 /**
  * 接口 **DELETE 方法** 的 **请求类型**
@@ -2105,7 +2050,7 @@ deleteMethodTest.requestConfig = Object.freeze({
   method: Method.DELETE,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2113,7 +2058,6 @@ deleteMethodTest.requestConfig = Object.freeze({
   \\"/deleteMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **GET 方法** 的 **请求类型**
@@ -2160,7 +2104,7 @@ getMethodTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2168,7 +2112,6 @@ getMethodTest.requestConfig = Object.freeze({
   \\"/getMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **JSON5 响应** 的 **请求类型**
@@ -2205,7 +2148,7 @@ json5ResponseTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2213,7 +2156,6 @@ json5ResponseTest.requestConfig = Object.freeze({
   \\"/json5Response_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **JSON5 请求** 的 **请求类型**
@@ -2250,7 +2192,7 @@ json5RequestTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2258,7 +2200,6 @@ json5RequestTest.requestConfig = Object.freeze({
   \\"/json5Request_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **POST 方法** 的 **请求类型**
@@ -2314,7 +2255,7 @@ postMethodTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2322,7 +2263,6 @@ postMethodTest.requestConfig = Object.freeze({
   \\"/postMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **PUT 方法** 的 **请求类型**
@@ -2373,7 +2313,7 @@ putMethodTest.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2381,7 +2321,6 @@ putMethodTest.requestConfig = Object.freeze({
   \\"/putMethod_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **dataKey 例子** 的 **请求类型**
@@ -2437,7 +2376,7 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2445,7 +2384,6 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   \\"/dataKeyExample_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **没返回数据** 的 **请求类型**
@@ -2478,7 +2416,7 @@ noResponseDataTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2486,7 +2424,6 @@ noResponseDataTest.requestConfig = Object.freeze({
   \\"/noResponseData_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **空返回数据** 的 **请求类型**
@@ -2519,7 +2456,7 @@ emptyResponseTest.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2527,7 +2464,6 @@ emptyResponseTest.requestConfig = Object.freeze({
   \\"/emptyResponse_test\\",
   undefined
 >)
-
 
 /**
  * 接口 **返回 raw** 的 **请求类型**
@@ -2560,7 +2496,7 @@ rawResponseTest.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -2573,7 +2509,6 @@ const mockUrl_0_0_0_1 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_1 = \\"\\" as any
 const prodUrl_0_0_0_1 = \\"http://prod.com/\\" as any
 const dataKey_0_0_0_1 = undefined as any
-
 
 /**
  * 接口 **hello** 的 **请求类型**
@@ -2608,15 +2543,14 @@ get2Test.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_1
+  dataKey: dataKey_0_0_0_1,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/get2_test\\",
   undefined
->)
-"
+>)"
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 多分类 3`] = `
@@ -2667,6 +2601,5 @@ const request: RequestFunction = ({
   })
 }
 
-export default request
-"
+export default request"
 `;

@@ -7,6 +7,7 @@ import ora from 'ora'
 import path from 'path'
 import prompt from 'prompts'
 import { Config } from './types'
+import { dedent } from 'vtils'
 import { Generator } from './Generator'
 
 TSNode.register({
@@ -36,7 +37,7 @@ TSNode.register({
             })
             if (!answers.override) return
           }
-          await fs.outputFile(configFile, `${`
+          await fs.outputFile(configFile, dedent`
             import { Config } from 'yapi-to-typescript'
 
             const config: Config = [
@@ -66,7 +67,7 @@ TSNode.register({
             ]
 
             export default config
-          `.replace(/^ {12}/mg, '').trim()}\n`)
+          `)
           consola.success('写入配置文件完毕')
           break
         default:

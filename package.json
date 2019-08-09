@@ -105,6 +105,6 @@
     "request-promise-native": "^1.0.5",
     "ts-node": "^8.0.2",
     "tslib": "^1.9.3",
-    "vtils": "^2.21.0"
+    "vtils": "^2.21.1"
   }
 }

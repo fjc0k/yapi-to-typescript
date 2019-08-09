@@ -3,7 +3,7 @@ import fs from 'fs-extra'
 import JSON5 from 'json5'
 import path from 'path'
 import request from 'request-promise-native'
-import { castArray, isEmpty, isFunction } from 'vtils'
+import { castArray, dedent, isEmpty, isFunction } from 'vtils'
 import { CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig } from './types'
 import { getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError } from './utils'
 import { JSONSchema4 } from 'json-schema'
@@ -64,16 +64,20 @@ export class Generator {
                         )
                         const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}_${categoryIndex2}`
                         const categoryCode = [
-                          syntheticalConfig.typesOnly ? '' : [
-                            `const mockUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.mockUrl)} as any`,
-                            `const devUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.devUrl)} as any`,
-                            `const prodUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.prodUrl)} as any`,
-                            `const dataKey${categoryUID} = ${JSON.stringify(syntheticalConfig.dataKey)} as any`,
-                          ].join('\n'),
+                          syntheticalConfig.typesOnly
+                            ? ''
+                            : dedent`
+                              const mockUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.mockUrl)} as any
+                              const devUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.devUrl)} as any
+                              const prodUrl${categoryUID} = ${JSON.stringify(syntheticalConfig.prodUrl)} as any
+                              const dataKey${categoryUID} = ${JSON.stringify(syntheticalConfig.dataKey)} as any
+                            `,
                           ...(await Promise.all(
                             interfaceList.map(
                               async interfaceInfo => {
-                                interfaceInfo = isFunction(syntheticalConfig.preproccessInterface) ? syntheticalConfig.preproccessInterface(interfaceInfo, changeCase) : interfaceInfo
+                                interfaceInfo = isFunction(syntheticalConfig.preproccessInterface)
+                                  ? syntheticalConfig.preproccessInterface(interfaceInfo, changeCase)
+                                  : interfaceInfo
                                 return Generator.generateInterfaceCode(
                                   syntheticalConfig,
                                   interfaceInfo,
@@ -124,7 +128,7 @@ export class Generator {
         if (!syntheticalConfig.typesOnly && !(await fs.pathExists(requestFilePath))) {
           await fs.outputFile(
             requestFilePath,
-            `${`
+            dedent`
               import { RequestFunction } from 'yapi-to-typescript'
 
               /** 是否是生产环境 */
@@ -173,7 +177,7 @@ export class Generator {
               }
 
               export default request
-            `.trim().replace(/ {14}/g, '')}\n`,
+            `,
           )
         }
 
@@ -188,15 +192,20 @@ export class Generator {
         )
         await fs.outputFile(
           outputFilePath,
-          `${
-            syntheticalConfig.typesOnly ? content.join('\n\n').trim() : [
-              `/* tslint:disable */\n/* eslint-disable */`,
-              `/**\n * **该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！** \n */`,
-              `import request from ${JSON.stringify(requestFileRelativePathWithoutExt)}`,
-              `// @ts-ignore\nimport { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'`,
-              content.join('\n\n').trim(),
-            ].join('\n\n')
-          }\n`,
+          dedent`
+            /* tslint:disable */
+            /* eslint-disable */
+
+            /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
+
+            ${syntheticalConfig.typesOnly ? content.join('\n\n').trim() : dedent`
+              // @ts-ignore
+              import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+              import request from ${JSON.stringify(requestFileRelativePathWithoutExt)}
+
+              ${content.join('\n\n').trim()}
+            `}
+          `,
         )
       }),
     )
@@ -381,41 +390,48 @@ export class Generator {
       dataKey: syntheticalConfig.dataKey,
     })
     const isRequestDataRequired = /(\{\}|any)$/s.test(requestDataType)
-    return [
-      `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求类型**\n */`,
-      requestDataType.trim(),
-      `\n/**\n * 接口 **${interfaceInfo.title}** 的 **返回类型**\n */`,
-      responseDataType.trim(),
-      ...(syntheticalConfig.typesOnly ? [] : [
-        `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求函数**\n */`,
-        `export function ${requestFunctionName}(requestData${isRequestDataRequired ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {`,
-        [
-          `  return request({`,
-          `    ...${requestFunctionName}.requestConfig,`,
-          `    ...parseRequestData(requestData)`,
-          `  } as any)`,
-        ].join('\n'),
-        `}`,
-        [
-          `\n/**\n * 接口 **${interfaceInfo.title}** 的 **请求配置**\n */`,
-          `${requestFunctionName}.requestConfig = Object.freeze({`,
-          `  mockUrl: mockUrl${categoryUID},`,
-          `  devUrl: devUrl${categoryUID},`,
-          `  prodUrl: prodUrl${categoryUID},`,
-          `  path: ${JSON.stringify(interfaceInfo.path)},`,
-          `  method: Method.${interfaceInfo.method},`,
-          `  requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type || RequestBodyType.none},`,
-          `  responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},`,
-          `  dataKey: dataKey${categoryUID}`,
-          `} as RequestConfig<`,
-          `  ${JSON.stringify(syntheticalConfig.mockUrl)},`,
-          `  ${JSON.stringify(syntheticalConfig.devUrl)},`,
-          `  ${JSON.stringify(syntheticalConfig.prodUrl)},`,
-          `  ${JSON.stringify(interfaceInfo.path)},`,
-          `  ${JSON.stringify(syntheticalConfig.dataKey)}`,
-          `>)`,
-        ].join('\n'),
-      ]),
-    ].join('\n')
+    return dedent`
+      /**
+       * 接口 **${interfaceInfo.title}** 的 **请求类型**
+       */
+      ${requestDataType.trim()}
+
+      /**
+       * 接口 **${interfaceInfo.title}** 的 **返回类型**
+       */
+      ${responseDataType.trim()}
+
+      ${syntheticalConfig.typesOnly ? '' : dedent`
+        /**
+         * 接口 **${interfaceInfo.title}** 的 **请求函数**
+         */
+        export function ${requestFunctionName}(requestData${isRequestDataRequired ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {
+          return request({
+            ...${requestFunctionName}.requestConfig,
+            ...parseRequestData(requestData)
+          } as any)
+        }
+
+        /**
+         * 接口 **${interfaceInfo.title}** 的 **请求配置**
+         */
+        ${requestFunctionName}.requestConfig = Object.freeze({
+          mockUrl: mockUrl${categoryUID},
+          devUrl: devUrl${categoryUID},
+          prodUrl: prodUrl${categoryUID},
+          path: ${JSON.stringify(interfaceInfo.path)},
+          method: Method.${interfaceInfo.method},
+          requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type || RequestBodyType.none},
+          responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},
+          dataKey: dataKey${categoryUID},
+        } as RequestConfig<
+          ${JSON.stringify(syntheticalConfig.mockUrl)},
+          ${JSON.stringify(syntheticalConfig.devUrl)},
+          ${JSON.stringify(syntheticalConfig.prodUrl)},
+          ${JSON.stringify(interfaceInfo.path)},
+          ${JSON.stringify(syntheticalConfig.dataKey)}
+        >)
+      `}
+    `
   }
 }

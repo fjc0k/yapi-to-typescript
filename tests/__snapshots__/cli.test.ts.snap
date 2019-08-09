@@ -29,8 +29,7 @@ const config: Config = [
   },
 ]
 
-export default config
-"
+export default config"
 `;
 
 exports[`cli 正确初始化配置文件 & 生成结果 1`] = `
@@ -62,28 +61,23 @@ const config: Config = [
   },
 ]
 
-export default config
-"
+export default config"
 `;
 
 exports[`cli 正确初始化配置文件 & 生成结果 2`] = `
 "/* tslint:disable */
 /* eslint-disable */
 
-/**
- * **该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！** 
- */
-
-import request from \\"./request\\"
+/* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
 // @ts-ignore
 import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+import request from \\"./request\\"
 
 const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_0 = \\"\\" as any
 const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
 const dataKey_0_0_0_0 = undefined as any
-
 
 /**
  * 接口 **DELETE 方法** 的 **请求类型**
@@ -121,7 +115,7 @@ deleteMethod.requestConfig = Object.freeze({
   method: Method.DELETE,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -129,7 +123,6 @@ deleteMethod.requestConfig = Object.freeze({
   \\"/deleteMethod\\",
   undefined
 >)
-
 
 /**
  * 接口 **GET 方法** 的 **请求类型**
@@ -176,7 +169,7 @@ getMethod.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -184,7 +177,6 @@ getMethod.requestConfig = Object.freeze({
   \\"/getMethod\\",
   undefined
 >)
-
 
 /**
  * 接口 **JSON5 响应** 的 **请求类型**
@@ -221,7 +213,7 @@ json5Response.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -229,7 +221,6 @@ json5Response.requestConfig = Object.freeze({
   \\"/json5Response\\",
   undefined
 >)
-
 
 /**
  * 接口 **JSON5 请求** 的 **请求类型**
@@ -266,7 +257,7 @@ json5Request.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -274,7 +265,6 @@ json5Request.requestConfig = Object.freeze({
   \\"/json5Request\\",
   undefined
 >)
-
 
 /**
  * 接口 **POST 方法** 的 **请求类型**
@@ -330,7 +320,7 @@ postMethod.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -338,7 +328,6 @@ postMethod.requestConfig = Object.freeze({
   \\"/postMethod\\",
   undefined
 >)
-
 
 /**
  * 接口 **PUT 方法** 的 **请求类型**
@@ -389,7 +378,7 @@ putMethod.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -397,7 +386,6 @@ putMethod.requestConfig = Object.freeze({
   \\"/putMethod\\",
   undefined
 >)
-
 
 /**
  * 接口 **dataKey 例子** 的 **请求类型**
@@ -453,7 +441,7 @@ dataKeyExample.requestConfig = Object.freeze({
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -461,7 +449,6 @@ dataKeyExample.requestConfig = Object.freeze({
   \\"/dataKeyExample\\",
   undefined
 >)
-
 
 /**
  * 接口 **没返回数据** 的 **请求类型**
@@ -494,7 +481,7 @@ noResponseData.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -502,7 +489,6 @@ noResponseData.requestConfig = Object.freeze({
   \\"/noResponseData\\",
   undefined
 >)
-
 
 /**
  * 接口 **空返回数据** 的 **请求类型**
@@ -535,7 +521,7 @@ emptyResponse.requestConfig = Object.freeze({
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
@@ -543,7 +529,6 @@ emptyResponse.requestConfig = Object.freeze({
   \\"/emptyResponse\\",
   undefined
 >)
-
 
 /**
  * 接口 **返回 raw** 的 **请求类型**
@@ -576,15 +561,14 @@ rawResponse.requestConfig = Object.freeze({
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
-  dataKey: dataKey_0_0_0_0
+  dataKey: dataKey_0_0_0_0,
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse\\",
   undefined
->)
-"
+>)"
 `;
 
 exports[`cli 正确初始化配置文件 & 生成结果 3`] = `
@@ -635,6 +619,5 @@ const request: RequestFunction = ({
   })
 }
 
-export default request
-"
+export default request"
 `;

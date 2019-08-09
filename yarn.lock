@@ -6832,9 +6832,9 @@ vlq@^0.2.2:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/vlq/-/vlq-0.2.3.tgz#8f3e4328cf63b1540c0d67e1b2778386f8975b26"
 
-vtils@^2.21.0:
-  version "2.21.0"
-  resolved "https://registry.yarnpkg.com/vtils/-/vtils-2.21.0.tgz#bba60976764278d1c4d377a677d6966b35fb5094"
+vtils@^2.21.1:
+  version "2.21.1"
+  resolved "https://registry.yarnpkg.com/vtils/-/vtils-2.21.1.tgz#89b14c9cb5c4224b9d92f442855d66f0697ce420"
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"
