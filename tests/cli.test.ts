@@ -1,6 +1,6 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { sleep } from 'vtils'
+import { wait } from 'vtils'
 
 const targetDir = path.join(__dirname, '.tmpTest')
 const generatedConfigFile = path.join(targetDir, 'ytt.config.ts')
@@ -22,7 +22,7 @@ describe('cli', () => {
 
     process.argv[2] = 'init'
     await import('../src/cli')
-    await sleep(500)
+    await wait(500)
     expect(fs.readFileSync(generatedConfigFile).toString()).toMatchSnapshot()
 
     jest.resetModules()
@@ -35,7 +35,7 @@ describe('cli', () => {
         .replace(`id: 50,`, `id: 58,`),
     )
     await import('../src/cli')
-    await sleep(1000)
+    await wait(1000)
     expect(fs.readFileSync(generatedApiFile).toString()).toMatchSnapshot()
     expect(fs.readFileSync(generatedRequestFile).toString()).toMatchSnapshot()
   })
@@ -45,7 +45,7 @@ describe('cli', () => {
 
     process.argv[2] = 'init'
     await import('../src/cli')
-    await sleep(500)
+    await wait(500)
     fs.writeFileSync(generatedConfigFile, 'error data')
 
     jest.resetModules()
@@ -54,7 +54,7 @@ describe('cli', () => {
     require('prompts').setAnswer(true)
     process.argv[2] = 'init'
     await import('../src/cli')
-    await sleep(500)
+    await wait(500)
     expect(fs.readFileSync(generatedConfigFile).toString()).toMatchSnapshot()
   })
 
@@ -63,7 +63,7 @@ describe('cli', () => {
 
     process.argv[2] = 'init'
     await import('../src/cli')
-    await sleep(500)
+    await wait(500)
     fs.writeFileSync(generatedConfigFile, 'error data')
 
     jest.resetModules()
@@ -72,7 +72,7 @@ describe('cli', () => {
     require('prompts').setAnswer(false)
     process.argv[2] = 'init'
     await import('../src/cli')
-    await sleep(500)
+    await wait(500)
     expect(fs.readFileSync(generatedConfigFile).toString()).toBe('error data')
   })
 })
