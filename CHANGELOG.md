@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.0"></a>
+# [1.10.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.9.0...v1.10.0) (2019-08-19)
+
+
+### Features
+
+* 优化配置，将更多选项移至 SharedConfig，getRequestFunctionName 现在拥有默认值 ([bdb9b3c](https://github.com/fjc0k/yapi-to-typescript/commit/bdb9b3c))
+
+
+
 <a name="1.9.0"></a>
 # [1.9.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.8.0...v1.9.0) (2019-08-19)
 
