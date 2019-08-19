@@ -397,10 +397,7 @@ export type RawResponseTestResponse = any"
 
 exports[`Generator 正确生成代码并写入文件 - 全部分类 1`] = `
 Array [
-  "const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
-const devUrl_0_0_0_0 = \\"\\" as any
-const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
-const dataKey_0_0_0_0 = undefined as any",
+  "",
   "const mockUrl_0_0_0_1 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_1 = \\"\\" as any
 const prodUrl_0_0_0_1 = \\"http://prod.com/\\" as any
@@ -954,11 +951,6 @@ exports[`Generator 正确生成代码并写入文件 - 全部分类 2`] = `
 // @ts-ignore
 import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
 import request from \\"./request\\"
-
-const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
-const devUrl_0_0_0_0 = \\"\\" as any
-const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
-const dataKey_0_0_0_0 = undefined as any
 
 const mockUrl_0_0_0_1 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_1 = \\"\\" as any

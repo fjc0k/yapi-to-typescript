@@ -69,7 +69,7 @@ export class Generator {
                           syntheticalConfig.outputFilePath!,
                         )
                         const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}_${categoryIndex2}`
-                        const categoryCode = [
+                        const categoryCode = interfaceList.length === 0 ? '' : [
                           syntheticalConfig.typesOnly
                             ? ''
                             : dedent`
