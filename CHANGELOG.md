@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.0"></a>
+# [1.9.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.8.0...v1.9.0) (2019-08-19)
+
+
+### Bug Fixes
+
+* 分类下的接口列表为空时不生成相关代码 ([9f64e09](https://github.com/fjc0k/yapi-to-typescript/commit/9f64e09))
+
+
+### Features
+
+* 支持设置 0 表示全部分类 ([1fc0f69](https://github.com/fjc0k/yapi-to-typescript/commit/1fc0f69))
+
+
+
 <a name="1.8.0"></a>
 # [1.8.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.7.2...v1.8.0) (2019-08-09)
 
