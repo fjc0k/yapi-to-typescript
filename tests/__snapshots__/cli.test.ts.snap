@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`cli 检查到已有配置，可以选择覆盖 1`] = `
+exports[`cli 检查到已有配置，可以选择不覆盖: 不覆盖后的配置文件 1`] = `"hello"`;
+
+exports[`cli 检查到已有配置，可以选择不覆盖: 修改过的配置文件 1`] = `"hello"`;
+
+exports[`cli 检查到已有配置，可以选择不覆盖: 配置文件 1`] = `
 "import { Config } from 'yapi-to-typescript'
 
 const config: Config = [
@@ -32,7 +36,9 @@ const config: Config = [
 export default config"
 `;
 
-exports[`cli 正确初始化配置文件 & 生成结果 1`] = `
+exports[`cli 检查到已有配置，可以选择覆盖: 修改过的配置文件 1`] = `"hello"`;
+
+exports[`cli 检查到已有配置，可以选择覆盖: 覆盖后的配置文件 1`] = `
 "import { Config } from 'yapi-to-typescript'
 
 const config: Config = [
@@ -64,7 +70,39 @@ const config: Config = [
 export default config"
 `;
 
-exports[`cli 正确初始化配置文件 & 生成结果 2`] = `
+exports[`cli 检查到已有配置，可以选择覆盖: 配置文件 1`] = `
+"import { Config } from 'yapi-to-typescript'
+
+const config: Config = [
+  {
+    serverUrl: 'http://foo.bar',
+    typesOnly: false,
+    prodEnvName: 'production',
+    outputFilePath: 'src/api/index.ts',
+    requestFunctionFilePath: 'src/api/request.ts',
+    dataKey: 'data',
+    projects: [
+      {
+        token: 'hello',
+        categories: [
+          {
+            id: 50,
+            getRequestFunctionName(interfaceInfo, changeCase) {
+              return changeCase.camelCase(
+                interfaceInfo.parsedPath.name,
+              )
+            },
+          },
+        ],
+      },
+    ],
+  },
+]
+
+export default config"
+`;
+
+exports[`cli 正确初始化配置文件 & 生成结果: 接口文件 1`] = `
 "/* tslint:disable */
 /* eslint-disable */
 
@@ -571,7 +609,7 @@ rawResponse.requestConfig = Object.freeze({
 >)"
 `;
 
-exports[`cli 正确初始化配置文件 & 生成结果 3`] = `
+exports[`cli 正确初始化配置文件 & 生成结果: 请求文件 1`] = `
 "import { RequestFunction } from 'yapi-to-typescript'
 
 /** 是否是生产环境 */
@@ -620,4 +658,36 @@ const request: RequestFunction = ({
 }
 
 export default request"
+`;
+
+exports[`cli 正确初始化配置文件 & 生成结果: 配置文件 1`] = `
+"import { Config } from 'yapi-to-typescript'
+
+const config: Config = [
+  {
+    serverUrl: 'http://foo.bar',
+    typesOnly: false,
+    prodEnvName: 'production',
+    outputFilePath: 'src/api/index.ts',
+    requestFunctionFilePath: 'src/api/request.ts',
+    dataKey: 'data',
+    projects: [
+      {
+        token: 'hello',
+        categories: [
+          {
+            id: 50,
+            getRequestFunctionName(interfaceInfo, changeCase) {
+              return changeCase.camelCase(
+                interfaceInfo.parsedPath.name,
+              )
+            },
+          },
+        ],
+      },
+    ],
+  },
+]
+
+export default config"
 `;
