@@ -79,6 +79,23 @@ describe('Generator', () => {
     })
   })
 
+  test('正确生成代码并写入文件 - 全部分类', async () => {
+    // 解决 ci 不通过
+    await wait(500)
+
+    const generator = generatorFactory(0, false)
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot()
+    })
+
+    await generator.write(output)
+    forOwn(output, ({ requestFilePath }, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot()
+      expect(fs.readFileSync(requestFilePath).toString()).toMatchSnapshot()
+    })
+  })
+
   test('只生成类型代码并写入文件', async () => {
     // 解决 ci 不通过
     await wait(500)

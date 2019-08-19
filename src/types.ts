@@ -293,7 +293,7 @@ export interface SharedConfig {
  */
 export interface CategoryConfig extends SharedConfig {
   /**
-   * 分类 ID，可以设置多个。
+   * 分类 ID，可以设置多个。设为 `0` 时表示全部分类。
    *
    * 获取方式：打开项目 --> 点开分类 --> 复制浏览器地址栏 `/api/cat_` 后面的数字。
    *

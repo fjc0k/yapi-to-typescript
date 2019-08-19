@@ -43,8 +43,14 @@ export class Generator {
               await Promise.all(
                 projectConfig.categories.map(
                   async (categoryConfig, categoryIndex) => {
+                    const categoryIds = categoryConfig.id === 0
+                      ? projectInfo.cats.map(cat => cat._id)
+                      : castArray(categoryConfig.id)
+                        .filter(
+                          id => !!projectInfo.cats.find(cat => cat._id === id),
+                        )
                     await Promise.all(
-                      castArray(categoryConfig.id).map(async (id, categoryIndex2) => {
+                      categoryIds.map(async (id, categoryIndex2) => {
                         categoryConfig = {
                           ...categoryConfig,
                           id: id,
@@ -290,7 +296,7 @@ export class Generator {
     return jsonSchemaToType(jsonSchema, typeName)
   }
 
-  static async fetchApi<T = any>(url: string, query: Record<string, string>): Promise<T> {
+  static async fetchApi<T = any>(url: string, query: Record<string, any>): Promise<T> {
     const res = await request.get(url, { qs: query, json: true })
     if (res && res.errcode) {
       throwError(res.errmsg)
@@ -340,8 +346,17 @@ export class Generator {
       `${syntheticalConfig.serverUrl}/api/project/get`,
       { token: syntheticalConfig.token! },
     )
+    const projectCats = await this.fetchApi<Array<{
+      _id: number,
+      name: string,
+      desc: string,
+    }>>(
+      `${syntheticalConfig.serverUrl}/api/interface/getCatMenu`,
+      { token: syntheticalConfig.token!, project_id: projectInfo._id },
+    )
     return {
       ...projectInfo,
+      cats: projectCats,
       getMockUrl: () => `${syntheticalConfig.serverUrl}/mock/${projectInfo._id}`,
       getDevUrl: (devEnvName: string) => {
         const env = projectInfo.env.find(
