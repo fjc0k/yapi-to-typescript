@@ -379,10 +379,12 @@ export class Generator {
       ...interfaceInfo,
       parsedPath: path.parse(interfaceInfo.path),
     }
-    const requestFunctionName = await syntheticalConfig.getRequestFunctionName!(
-      extendedInterfaceInfo,
-      changeCase,
-    )
+    const requestFunctionName = isFunction(syntheticalConfig.getRequestFunctionName)
+      ? await syntheticalConfig.getRequestFunctionName(
+        extendedInterfaceInfo,
+        changeCase,
+      )
+      : changeCase.camelCase(interfaceInfo.parsedPath.name)
     const requestDataTypeName = isFunction(syntheticalConfig.getRequestDataTypeName)
       ? await syntheticalConfig.getRequestDataTypeName(
         extendedInterfaceInfo,

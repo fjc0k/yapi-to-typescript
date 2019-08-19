@@ -224,6 +224,7 @@ export interface SharedConfig {
    * @default false
    */
   typesOnly?: boolean,
+
   /**
    * 测试环境名称。
    *
@@ -234,6 +235,7 @@ export interface SharedConfig {
    * @example 'dev'
    */
   devEnvName?: string,
+
   /**
    * 生产环境名称。
    *
@@ -244,6 +246,7 @@ export interface SharedConfig {
    * @example 'prod'
    */
   prodEnvName?: string,
+
   /**
    * 输出文件路径。
    *
@@ -252,6 +255,7 @@ export interface SharedConfig {
    * @example 'src/api/index.ts'
    */
   outputFilePath?: string,
+
   /**
    * 请求函数文件路径。
    *
@@ -259,6 +263,20 @@ export interface SharedConfig {
    * @example 'src/api/request.ts'
    */
   requestFunctionFilePath?: string,
+
+  /**
+   * 如果接口响应的结果是 `JSON` 对象，
+   * 且我们想要的数据在该对象下，
+   * 那我们就可将 `dataKey` 设为我们想要的数据对应的键。
+   *
+   * 比如该对象为 `{ code: 0, msg: '成功', data: 100 }`，
+   * 我们想要的数据为 `100`，
+   * 则我们可将 `dataKey` 设为 `data`。
+   *
+   * @example 'data'
+   */
+  dataKey?: string,
+
   /**
    * 预处理接口信息，返回新的接口信息。
    *
@@ -273,42 +291,17 @@ export interface SharedConfig {
    * }
    * ```
    */
-  preproccessInterface?: <T extends Interface>(interfaceInfo: T, changeCase: ChangeCase) => T,
-  /**
-   * 如果接口响应的结果是 `JSON` 对象，
-   * 且我们想要的数据在该对象下，
-   * 那我们就可将 `dataKey` 设为我们想要的数据对应的键。
-   *
-   * 比如该对象为 `{ code: 0, msg: '成功', data: 100 }`，
-   * 我们想要的数据为 `100`，
-   * 则我们可将 `dataKey` 设为 `data`。
-   *
-   * @example 'data'
-   */
-  dataKey?: string,
-}
-
-/**
- * 分类的配置。
- */
-export interface CategoryConfig extends SharedConfig {
-  /**
-   * 分类 ID，可以设置多个。设为 `0` 时表示全部分类。
-   *
-   * 获取方式：打开项目 --> 点开分类 --> 复制浏览器地址栏 `/api/cat_` 后面的数字。
-   *
-   * @example 20
-   */
-  id: number | number[],
+  preproccessInterface?(interfaceInfo: Interface, changeCase: ChangeCase): Interface,
 
   /**
    * 获取请求函数的名称。
    *
+   * @default changeCase.camelCase(interfaceInfo.parsedPath.name)
    * @param interfaceInfo 接口信息
    * @param changeCase 常用的大小写转换函数集合对象
    * @returns 请求函数的名称
    */
-  getRequestFunctionName(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+  getRequestFunctionName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
 
   /**
    * 获取请求数据类型的名称。
@@ -329,6 +322,20 @@ export interface CategoryConfig extends SharedConfig {
    * @returns 响应数据类型的名称
    */
   getResponseDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+}
+
+/**
+ * 分类的配置。
+ */
+export interface CategoryConfig extends SharedConfig {
+  /**
+   * 分类 ID，可以设置多个。设为 `0` 时表示全部分类。
+   *
+   * 获取方式：打开项目 --> 点开分类 --> 复制浏览器地址栏 `/api/cat_` 后面的数字。
+   *
+   * @example 20
+   */
+  id: number | number[],
 }
 
 /**
