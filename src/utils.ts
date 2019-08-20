@@ -13,6 +13,7 @@ import { PropDefinitions } from './types'
  * @param msg 错误信息
  */
 export function throwError(...msg: string[]): never {
+  /* istanbul ignore next */
   throw new Error(msg.join(''))
 }
 

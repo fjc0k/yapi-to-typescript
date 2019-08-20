@@ -1,6 +1,8 @@
+import consola from 'consola'
 import fs from 'fs-extra'
 import path from 'path'
 import tempy from 'tempy'
+import { run } from '../src/cli'
 import { wait } from 'vtils'
 
 function getTempPaths() {
@@ -21,22 +23,29 @@ function getTempPaths() {
   }
 }
 
-async function runCli(options: { cmd: string, beforeRun?: () => any }) {
-  jest.resetModules()
-  process.argv[2] = options.cmd
-  options.beforeRun && options.beforeRun()
-  await import('../src/cli')
+async function runCli(cwd: string, cmd: string = '') {
+  process.argv[2] = cmd
+  await run(cwd)
+  await wait(100)
 }
 
 describe('cli', () => {
+  test('没有配置文件生成将会报错', async () => {
+    const tempPaths = getTempPaths()
+    const errorHandler = jest.fn()
+
+    jest.spyOn(consola, 'error').mockImplementationOnce(errorHandler)
+
+    await runCli(tempPaths.targetDir)
+
+    expect(errorHandler).toBeCalledTimes(1)
+  })
+
   test('正确初始化配置文件 & 生成结果', async () => {
     const tempPaths = getTempPaths()
 
-    process.chdir(tempPaths.targetDir)
-
     // 初始化配置文件
-    await runCli({ cmd: 'init' })
-    await wait(1000)
+    await runCli(tempPaths.targetDir, 'init')
     expect(fs.readFileSync(tempPaths.generatedConfigFile).toString()).toMatchSnapshot('配置文件')
 
     // 生成结果
@@ -47,8 +56,7 @@ describe('cli', () => {
         .replace(`dataKey: 'data',`, '')
         .replace(`id: 50,`, `id: 58,`),
     )
-    await runCli({ cmd: '' })
-    await wait(1000)
+    await runCli(tempPaths.targetDir)
     expect(fs.readFileSync(tempPaths.generatedApiFile).toString()).toMatchSnapshot('接口文件')
     expect(fs.readFileSync(tempPaths.generatedRequestFile).toString()).toMatchSnapshot('请求文件')
   })
@@ -56,11 +64,8 @@ describe('cli', () => {
   test('检查到已有配置，可以选择覆盖', async () => {
     const tempPaths = getTempPaths()
 
-    process.chdir(tempPaths.targetDir)
-
     // 初始化配置文件
-    await runCli({ cmd: 'init' })
-    await wait(1000)
+    await runCli(tempPaths.targetDir, 'init')
     expect(fs.readFileSync(tempPaths.generatedConfigFile).toString()).toMatchSnapshot('配置文件')
 
     // 修改配置文件
@@ -68,22 +73,16 @@ describe('cli', () => {
     expect(fs.readFileSync(tempPaths.generatedConfigFile).toString()).toMatchSnapshot('修改过的配置文件')
 
     // 覆盖配置文件
-    await runCli({
-      cmd: 'init',
-      beforeRun: () => require('prompts').setAnswer(true),
-    })
-    await wait(1000)
+    require('prompts').setAnswer(true)
+    await runCli(tempPaths.targetDir, 'init')
     expect(fs.readFileSync(tempPaths.generatedConfigFile).toString()).toMatchSnapshot('覆盖后的配置文件')
   })
 
   test('检查到已有配置，可以选择不覆盖', async () => {
     const tempPaths = getTempPaths()
 
-    process.chdir(tempPaths.targetDir)
-
     // 初始化配置文件
-    await runCli({ cmd: 'init' })
-    await wait(1000)
+    await runCli(tempPaths.targetDir, 'init')
     expect(fs.readFileSync(tempPaths.generatedConfigFile).toString()).toMatchSnapshot('配置文件')
 
     // 修改配置文件
@@ -91,10 +90,8 @@ describe('cli', () => {
     expect(fs.readFileSync(tempPaths.generatedConfigFile).toString()).toMatchSnapshot('修改过的配置文件')
 
     // 不覆盖配置文件
-    await runCli({
-      cmd: 'init',
-      beforeRun: () => require('prompts').setAnswer(false),
-    })
+    require('prompts').setAnswer(false)
+    await runCli(tempPaths.targetDir, 'init')
     await wait(1000)
     expect(fs.readFileSync(tempPaths.generatedConfigFile).toString()).toMatchSnapshot('不覆盖后的配置文件')
   })

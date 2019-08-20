@@ -92,7 +92,6 @@
   },
   "dependencies": {
     "change-case": "^3.0.2",
-    "commander": "^2.19.0",
     "consola": "^2.3.0",
     "fs-extra": "^7.0.1",
     "json-schema-generator": "^2.0.6",

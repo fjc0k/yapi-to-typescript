@@ -23,7 +23,10 @@ export class Generator {
   /** { 项目标识: 分类列表 } */
   private projectIdToCategoryList: Record<string, CategoryList | undefined> = Object.create(null)
 
-  constructor(config: Config) {
+  constructor(
+    config: Config,
+    private options: { cwd: string } = { cwd: process.cwd() },
+  ) {
     // config 可能是对象或数组，统一为数组
     this.config = castArray(config)
   }
@@ -65,7 +68,7 @@ export class Generator {
                         syntheticalConfig.prodUrl = projectInfo.getProdUrl(syntheticalConfig.prodEnvName!)
                         const interfaceList = await this.fetchInterfaceList(syntheticalConfig)
                         const outputFilePath = path.resolve(
-                          process.cwd(),
+                          this.options.cwd,
                           syntheticalConfig.outputFilePath!,
                         )
                         const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}_${categoryIndex2}`
@@ -100,7 +103,7 @@ export class Generator {
                             requestFilePath: (
                               syntheticalConfig.requestFunctionFilePath
                                 ? path.resolve(
-                                  process.cwd(),
+                                  this.options.cwd,
                                   syntheticalConfig.requestFunctionFilePath,
                                 )
                                 : path.join(
@@ -259,6 +262,7 @@ export class Generator {
             }
             break
           default:
+            /* istanbul ignore next */
             break
         }
         break
@@ -298,6 +302,7 @@ export class Generator {
 
   static async fetchApi<T = any>(url: string, query: Record<string, any>): Promise<T> {
     const res = await request.get(url, { qs: query, json: true })
+    /* istanbul ignore next */
     if (res && res.errcode) {
       throwError(res.errmsg)
     }

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import * as TSNode from 'ts-node'
-import cli from 'commander'
 import consola from 'consola'
 import fs from 'fs-extra'
 import ora from 'ora'
@@ -17,80 +16,92 @@ TSNode.register({
   },
 })
 
-;(async () => {
+export async function run(cwd: string = process.cwd()) {
   const pkg = require('../package.json')
-  const configFile = path.join(process.cwd(), 'ytt.config.ts')
+  const configFile = path.join(cwd, 'ytt.config.ts')
+  const cmd = process.argv[2]
 
-  cli
-    .version(pkg.version)
-    .arguments('[cmd]')
-    .allowUnknownOption()
-    .action(async cmd => {
-      switch (cmd) {
-        case 'init':
-          if (await fs.pathExists(configFile)) {
-            consola.info(`检测到配置文件: ${configFile}`)
-            const answers = await prompt({
-              type: 'confirm',
-              name: 'override',
-              message: '是否覆盖已有配置文件?',
-            })
-            if (!answers.override) return
-          }
-          await fs.outputFile(configFile, dedent`
-            import { Config } from 'yapi-to-typescript'
+  if (cmd === 'version') {
+    /* istanbul ignore next */
+    console.log(`${pkg.name} v${pkg.version}`)
+  } else if (cmd === 'help') {
+    /* istanbul ignore next */
+    console.log(`\n${dedent`
+      # 用法
+        初始化配置文件: ytt init
+        生成代码: ytt
+        查看版本: ytt version
+        查看帮助: ytt help
 
-            const config: Config = [
-              {
-                serverUrl: 'http://foo.bar',
-                typesOnly: false,
-                prodEnvName: 'production',
-                outputFilePath: 'src/api/index.ts',
-                requestFunctionFilePath: 'src/api/request.ts',
-                dataKey: 'data',
-                projects: [
-                  {
-                    token: 'hello',
-                    categories: [
-                      {
-                        id: 50,
-                        getRequestFunctionName(interfaceInfo, changeCase) {
-                          return changeCase.camelCase(
-                            interfaceInfo.parsedPath.name,
-                          )
-                        },
-                      },
-                    ],
+      # GitHub
+        https://github.com/fjc0k/yapi-to-typescript
+    `}\n`)
+  } else if (cmd === 'init') {
+    if (await fs.pathExists(configFile)) {
+      consola.info(`检测到配置文件: ${configFile}`)
+      const answers = await prompt({
+        type: 'confirm',
+        name: 'override',
+        message: '是否覆盖已有配置文件?',
+      })
+      if (!answers.override) return
+    }
+    await fs.outputFile(configFile, dedent`
+      import { Config } from 'yapi-to-typescript'
+
+      const config: Config = [
+        {
+          serverUrl: 'http://foo.bar',
+          typesOnly: false,
+          prodEnvName: 'production',
+          outputFilePath: 'src/api/index.ts',
+          requestFunctionFilePath: 'src/api/request.ts',
+          dataKey: 'data',
+          projects: [
+            {
+              token: 'hello',
+              categories: [
+                {
+                  id: 50,
+                  getRequestFunctionName(interfaceInfo, changeCase) {
+                    return changeCase.camelCase(
+                      interfaceInfo.parsedPath.name,
+                    )
                   },
-                ],
-              },
-            ]
+                },
+              ],
+            },
+          ],
+        },
+      ]
 
-            export default config
-          `)
-          consola.success('写入配置文件完毕')
-          break
-        default:
-          if (!await fs.pathExists(configFile)) {
-            return consola.error(`找不到配置文件: ${configFile}`)
-          }
-          consola.success(`找到配置文件: ${configFile}`)
-          try {
-            const config: Config = require(configFile).default
-            const generator = new Generator(config)
+      export default config
+    `)
+    consola.success('写入配置文件完毕')
+  } else {
+    if (!await fs.pathExists(configFile)) {
+      return consola.error(`找不到配置文件: ${configFile}`)
+    }
+    consola.success(`找到配置文件: ${configFile}`)
+    try {
+      const config: Config = require(configFile).default
+      const generator = new Generator(config, { cwd })
 
-            const spinner = ora('正在获取数据并生成代码...').start()
-            const output = await generator.generate()
-            spinner.stop()
-            consola.success('获取数据并生成代码完毕')
+      const spinner = ora('正在获取数据并生成代码...').start()
+      const output = await generator.generate()
+      spinner.stop()
+      consola.success('获取数据并生成代码完毕')
 
-            await generator.write(output)
-            consola.success('写入文件完毕')
-          } catch (err) {
-            return consola.error(err)
-          }
-          break
-      }
-    })
-    .parse(process.argv)
-})()
+      await generator.write(output)
+      consola.success('写入文件完毕')
+    } catch (err) {
+      /* istanbul ignore next */
+      return consola.error(err)
+    }
+  }
+}
+
+/* istanbul ignore next */
+if (require.main === module) {
+  run()
+}
