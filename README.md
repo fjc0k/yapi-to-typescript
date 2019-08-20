@@ -8,7 +8,9 @@
 
 根据 [YApi](https://github.com/YMFE/yapi) 的接口定义生成 [TypeScript](https://github.com/Microsoft/TypeScript) 的接口类型及其请求函数代码。
 
-<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?vvv=13322" width="600" />
+<!-- <img src="./assets/preview.png" width="750" /> -->
+
+<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=20190820" width="750" />
 
 
 ## 环境要求
@@ -46,7 +48,7 @@ npm i yapi-to-typescript --save
 yarn ytt init
 
 # 或者，npm
-npm run ytt init
+npx ytt init
 ```
 
 ### 修改配置文件
@@ -62,7 +64,7 @@ npm run ytt init
 yarn ytt
 
 # 或者，npm
-npm run ytt
+npx ytt
 ```
 
 ## 配置
