@@ -988,7 +988,8 @@ img { max-width: 100%; }
 			</p>
 			<h1 id="yapi-to-typescript-build-status-codecov">YApi to TypeScript <a href="https://travis-ci.org/fjc0k/yapi-to-typescript"><img src="https://travis-ci.org/fjc0k/yapi-to-typescript.svg?branch=master" alt="Build Status"></a> <a href="https://codecov.io/gh/fjc0k/yapi-to-typescript"><img src="https://codecov.io/gh/fjc0k/yapi-to-typescript/branch/master/graph/badge.svg" alt="codecov"></a></h1>
 			<p>根据 <a href="https://github.com/YMFE/yapi">YApi</a> 的接口定义生成 <a href="https://github.com/Microsoft/TypeScript">TypeScript</a> 的接口类型及其请求函数代码。</p>
-			<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?vvv=13322" width="600" />
+			<!-- <img src="./assets/preview.png" width="750" /> -->
+			<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=20190820" width="750" />
 			<h2 id="-">环境要求</h2>
 			<ul>
 				<li><code>Node &gt;= 8</code></li>
@@ -1015,7 +1016,7 @@ npm i yapi-to-typescript --save</code></pre>
 yarn ytt init
 
 <span class="hljs-comment"># 或者，npm</span>
-npm run ytt init</code></pre>
+npx ytt init</code></pre>
 			<h3 id="-">修改配置文件</h3>
 			<p>打开当前目录下的 <code>ytt.config.ts</code> 配置文件，直接修改即可。<a href="http://fjc0k.github.io/yapi-to-typescript/interfaces/serverconfig.html">查看配置说明</a></p>
 			<h3 id="-typescript-">生成 TypeScript 的接口类型及其请求函数代码</h3>
@@ -1024,7 +1025,7 @@ npm run ytt init</code></pre>
 yarn ytt
 
 <span class="hljs-comment"># 或者，npm</span>
-npm run ytt</code></pre>
+npx ytt</code></pre>
 			<h2 id="-">配置</h2>
 			<h3 id="-">概论</h3>
 			<p>从实质上而言，配置就是一个服务器列表，各个服务器又包含一个项目列表，各个项目下都有一个分类列表，其类型大致如此：</p>
@@ -1100,7 +1101,7 @@ npm run ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Category<wbr>List<span class="tsd-signature-symbol">:</span> <a href="interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/76c9ade/src/types.ts#L215">types.ts:215</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/02d6b71/src/types.ts#L215">types.ts:215</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1115,7 +1116,7 @@ npm run ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Config<span class="tsd-signature-symbol">:</span> <a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/76c9ade/src/types.ts#L390">types.ts:390</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/02d6b71/src/types.ts#L390">types.ts:390</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1130,7 +1131,7 @@ npm run ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Interface<wbr>List<span class="tsd-signature-symbol">:</span> <a href="interfaces/interface.html" class="tsd-signature-type">Interface</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/76c9ade/src/types.ts#L202">types.ts:202</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/02d6b71/src/types.ts#L202">types.ts:202</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1145,7 +1146,7 @@ npm run ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Prop<wbr>Definitions<span class="tsd-signature-symbol">:</span> <a href="interfaces/propdefinition.html" class="tsd-signature-type">PropDefinition</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/76c9ade/src/types.ts#L453">types.ts:453</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/02d6b71/src/types.ts#L453">types.ts:453</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1160,7 +1161,7 @@ npm run ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Request<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/76c9ade/src/types.ts#L435">types.ts:435</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/02d6b71/src/types.ts#L435">types.ts:435</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1197,7 +1198,7 @@ npm run ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Synthetical<wbr>Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/projectconfig.html" class="tsd-signature-type">ProjectConfig</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/categoryconfig.html" class="tsd-signature-type">CategoryConfig</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/76c9ade/src/types.ts#L378">types.ts:378</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/02d6b71/src/types.ts#L378">types.ts:378</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
