@@ -53,6 +53,9 @@ export async function run(cwd: string = process.cwd()) {
         {
           serverUrl: 'http://foo.bar',
           typesOnly: false,
+          reactHooks: {
+            enable: false,
+          },
           prodEnvName: 'production',
           outputFilePath: 'src/api/index.ts',
           requestFunctionFilePath: 'src/api/request.ts',
