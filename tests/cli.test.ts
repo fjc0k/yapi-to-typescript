@@ -2,8 +2,8 @@ import consola from 'consola'
 import fs from 'fs-extra'
 import path from 'path'
 import tempy from 'tempy'
-import { run } from '../src/cli'
-import { wait } from 'vtils'
+import {run} from '../src/cli'
+import {wait} from 'vtils'
 
 function getTempPaths() {
   const targetDir = tempy.directory()

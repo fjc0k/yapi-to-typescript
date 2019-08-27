@@ -1,4 +1,4 @@
-import { Config } from 'bili'
+import {Config} from 'bili'
 
 const config: Config = {
   input: 'src/index.ts',

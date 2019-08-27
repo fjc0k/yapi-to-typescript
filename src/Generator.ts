@@ -3,10 +3,10 @@ import fs from 'fs-extra'
 import JSON5 from 'json5'
 import path from 'path'
 import request from 'request-promise-native'
-import { castArray, dedent, isEmpty, isFunction } from 'vtils'
-import { CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig } from './types'
-import { getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError } from './utils'
-import { JSONSchema4 } from 'json-schema'
+import {castArray, dedent, isEmpty, isFunction} from 'vtils'
+import {CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig} from './types'
+import {getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError} from './utils'
+import {JSONSchema4} from 'json-schema'
 
 interface OutputFileList {
   [outputFilePath: string]: {
@@ -25,7 +25,7 @@ export class Generator {
 
   constructor(
     config: Config,
-    private options: { cwd: string } = { cwd: process.cwd() },
+    private options: { cwd: string } = {cwd: process.cwd()},
   ) {
     // config 可能是对象或数组，统一为数组
     this.config = castArray(config)
@@ -131,7 +131,7 @@ export class Generator {
   async write(outputFileList: OutputFileList) {
     return Promise.all(
       Object.keys(outputFileList).map(async outputFilePath => {
-        const { content, requestFilePath, syntheticalConfig } = outputFileList[outputFilePath]
+        const {content, requestFilePath, syntheticalConfig} = outputFileList[outputFilePath]
 
         // 若非 typesOnly 模式且 request 文件不存在，则写入 request 文件
         if (!syntheticalConfig.typesOnly && !(await fs.pathExists(requestFilePath))) {
@@ -210,6 +210,12 @@ export class Generator {
             ${syntheticalConfig.typesOnly ? content.join('\n\n').trim() : dedent`
               // @ts-ignore
               import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+              ${!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable ? '' : dedent`
+                // @ts-ignore
+                import { createApiHook } from 'yapi-to-typescript'
+                // @ts-ignore
+                import { useState, useEffect } from '${syntheticalConfig.reactHooks.pragma || 'react'}'
+              `}
               import request from ${JSON.stringify(requestFileRelativePathWithoutExt)}
 
               ${content.join('\n\n').trim()}
@@ -222,7 +228,7 @@ export class Generator {
 
   /** 生成请求数据类型 */
   static async generateRequestDataType(
-    { interfaceInfo, typeName }: {
+    {interfaceInfo, typeName}: {
       interfaceInfo: Interface,
       typeName: string,
     },
@@ -273,7 +279,7 @@ export class Generator {
 
   /** 生成响应数据类型 */
   static async generateResponseDataType(
-    { interfaceInfo, typeName, dataKey }: {
+    {interfaceInfo, typeName, dataKey}: {
       interfaceInfo: Interface,
       typeName: string,
       dataKey?: string,
@@ -301,7 +307,7 @@ export class Generator {
   }
 
   static async fetchApi<T = any>(url: string, query: Record<string, any>): Promise<T> {
-    const res = await request.get(url, { qs: query, json: true })
+    const res = await request.get(url, {qs: query, json: true})
     /* istanbul ignore next */
     if (res && res.errcode) {
       throwError(res.errmsg)
@@ -310,7 +316,7 @@ export class Generator {
   }
 
   /** 获取分类的接口列表 */
-  async fetchInterfaceList({ serverUrl, token, id }: SyntheticalConfig): Promise<InterfaceList> {
+  async fetchInterfaceList({serverUrl, token, id}: SyntheticalConfig): Promise<InterfaceList> {
     const projectId: string = `${serverUrl}|${token}`
 
     if (!(projectId in this.projectIdToCategoryList)) {
@@ -349,7 +355,7 @@ export class Generator {
       }>,
     }>(
       `${syntheticalConfig.serverUrl}/api/project/get`,
-      { token: syntheticalConfig.token! },
+      {token: syntheticalConfig.token!},
     )
     const projectCats = await this.fetchApi<Array<{
       _id: number,
@@ -357,7 +363,7 @@ export class Generator {
       desc: string,
     }>>(
       `${syntheticalConfig.serverUrl}/api/interface/getCatMenu`,
-      { token: syntheticalConfig.token!, project_id: projectInfo._id },
+      {token: syntheticalConfig.token!, project_id: projectInfo._id},
     )
     return {
       ...projectInfo,
@@ -412,20 +418,41 @@ export class Generator {
       dataKey: syntheticalConfig.dataKey,
     })
     const isRequestDataRequired = /(\{\}|any)$/s.test(requestDataType)
+
+    let autoApiHookName!: string
+    let manualApiHookName!: string
+    if (syntheticalConfig.reactHooks && syntheticalConfig.reactHooks.enable) {
+      autoApiHookName = isFunction(syntheticalConfig.reactHooks.getAutoApiHookName)
+        ? await syntheticalConfig.reactHooks.getAutoApiHookName(
+          extendedInterfaceInfo,
+          changeCase,
+        )
+        : `useAutoApi${changeCase.pascalCase(requestFunctionName)}`
+      manualApiHookName = isFunction(syntheticalConfig.reactHooks.getManualApiHookName)
+        ? await syntheticalConfig.reactHooks.getManualApiHookName(
+          extendedInterfaceInfo,
+          changeCase,
+        )
+        : `useManualApi${changeCase.pascalCase(requestFunctionName)}`
+    }
+
+    // 转义标题中的 /
+    const escapedTitle = String(interfaceInfo.title).replace(/\//g, '\\/')
+
     return dedent`
       /**
-       * 接口 **${interfaceInfo.title}** 的 **请求类型**
+       * 接口 **${escapedTitle}** 的 **请求类型**
        */
       ${requestDataType.trim()}
 
       /**
-       * 接口 **${interfaceInfo.title}** 的 **返回类型**
+       * 接口 **${escapedTitle}** 的 **返回类型**
        */
       ${responseDataType.trim()}
 
       ${syntheticalConfig.typesOnly ? '' : dedent`
         /**
-         * 接口 **${interfaceInfo.title}** 的 **请求函数**
+         * 接口 **${escapedTitle}** 的 **请求函数**
          */
         export function ${requestFunctionName}(requestData${isRequestDataRequired ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {
           return request({
@@ -435,7 +462,7 @@ export class Generator {
         }
 
         /**
-         * 接口 **${interfaceInfo.title}** 的 **请求配置**
+         * 接口 **${escapedTitle}** 的 **请求配置**
          */
         ${requestFunctionName}.requestConfig = Object.freeze({
           mockUrl: mockUrl${categoryUID},
@@ -453,6 +480,28 @@ export class Generator {
           ${JSON.stringify(interfaceInfo.path)},
           ${JSON.stringify(syntheticalConfig.dataKey)}
         >)
+
+        ${(!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable) ? '' : dedent`
+          /**
+           * 接口 **${escapedTitle}** 的 **自动触发 API 的 React Hook**
+           */
+          export const ${autoApiHookName} = createApiHook({
+            useState: useState,
+            useEffect: useEffect,
+            requestFunction: ${requestFunctionName},
+            autoTrigger: true,
+          })
+
+          /**
+           * 接口 **${escapedTitle}** 的 **手动触发 API 的 React Hook**
+           */
+          export const ${manualApiHookName} = createApiHook({
+            useState: useState,
+            useEffect: useEffect,
+            requestFunction: ${requestFunctionName},
+            autoTrigger: false,
+          })
+        `}
       `}
     `
   }

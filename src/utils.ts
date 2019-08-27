@@ -1,11 +1,11 @@
 import jsonSchemaGenerator from 'json-schema-generator'
 import Mock from 'mockjs'
 import path from 'path'
-import { castArray, forOwn, isArray, isEmpty, isObject } from 'vtils'
-import { compile, Options } from 'json-schema-to-typescript'
-import { FileData } from './helpers'
-import { JSONSchema4 } from 'json-schema'
-import { PropDefinitions } from './types'
+import {castArray, forOwn, isArray, isEmpty, isObject} from 'vtils'
+import {compile, Options} from 'json-schema-to-typescript'
+import {FileData} from './helpers'
+import {JSONSchema4} from 'json-schema'
+import {PropDefinitions} from './types'
 
 /**
  * 抛出错误。
@@ -62,12 +62,12 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
   if (isArray(jsonSchema.properties)) {
     jsonSchema.properties = (jsonSchema.properties as JSONSchema4[])
       .reduce<Exclude<JSONSchema4['properties'], undefined>>(
-        (props, js) => {
-          props[js.name] = js
-          return props
-        },
-        {},
-      )
+      (props, js) => {
+        props[js.name] = js
+        return props
+      },
+      {},
+    )
   }
 
   // 继续处理对象的子元素
@@ -142,7 +142,7 @@ export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): J
         res[prop.name] = {
           type: prop.type,
           description: prop.comment,
-          ...(prop.type === 'file' ? { tsType: FileData.name } : {}),
+          ...(prop.type === 'file' ? {tsType: FileData.name} : {}),
         }
         return res
       },

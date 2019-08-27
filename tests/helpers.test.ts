@@ -1,4 +1,4 @@
-import { FileData, parseRequestData } from '../src/helpers'
+import {FileData, parseRequestData} from '../src/helpers'
 
 describe('FileData', () => {
   test('正确返回原始值', () => {

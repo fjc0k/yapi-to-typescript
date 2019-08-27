@@ -5,9 +5,9 @@ import fs from 'fs-extra'
 import ora from 'ora'
 import path from 'path'
 import prompt from 'prompts'
-import { Config } from './types'
-import { dedent } from 'vtils'
-import { Generator } from './Generator'
+import {Config} from './types'
+import {dedent} from 'vtils'
+import {Generator} from './Generator'
 
 TSNode.register({
   transpileOnly: true,
@@ -85,7 +85,7 @@ export async function run(cwd: string = process.cwd()) {
     consola.success(`找到配置文件: ${configFile}`)
     try {
       const config: Config = require(configFile).default
-      const generator = new Generator(config, { cwd })
+      const generator = new Generator(config, {cwd})
 
       const spinner = ora('正在获取数据并生成代码...').start()
       const output = await generator.generate()

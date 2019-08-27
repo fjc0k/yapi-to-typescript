@@ -1,5 +1,5 @@
-import { JSONSchema4 } from 'json-schema'
-import { ParsedPath } from 'path'
+import {JSONSchema4} from 'json-schema'
+import {ParsedPath} from 'path'
 
 export interface ChangeCase {
   /**
@@ -322,6 +322,42 @@ export interface SharedConfig {
    * @returns 响应数据类型的名称
    */
   getResponseDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+
+  /**
+   * 支持生成 React Hooks 代码的相关配置。
+   */
+  reactHooks?: {
+    /**
+     * 是否开启该项功能。
+     *
+     * @default false
+     */
+    enable: boolean,
+    /**
+     * 从何处引入 useState、useEffect 等 Hooks。
+     *
+     * @default 'react'
+     */
+    pragma?: string,
+    /**
+     * 获取自动触发 API 的 Hook 的名称。
+     *
+     * @default `useAutoApi${changeCase.pascalCase(requestFunctionName)}`
+     * @param interfaceInfo 接口信息
+     * @param changeCase 常用的大小写转换函数集合对象
+     * @returns Hook 的名称
+     */
+    getAutoApiHookName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+    /**
+     * 获取手动触发 API 的 Hook 的名称。
+     *
+     * @default `useManualApi${changeCase.pascalCase(requestFunctionName)}`
+     * @param interfaceInfo 接口信息
+     * @param changeCase 常用的大小写转换函数集合对象
+     * @returns Hook 的名称
+     */
+    getManualApiHookName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+  },
 }
 
 /**
