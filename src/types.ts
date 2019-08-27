@@ -214,6 +214,41 @@ export interface Category {
 /** 分类列表，对应数据导出的 json 内容 */
 export type CategoryList = Category[]
 
+/** 支持生成 React Hooks 代码的相关配置 */
+export interface ReactHooksConfig {
+  /**
+   * 是否开启该项功能。
+   */
+  enable: boolean,
+
+  /**
+   * 从何处引入 useState、useEffect 等 Hooks。
+   *
+   * @default 'react'
+   */
+  pragma?: string,
+
+  /**
+   * 获取自动触发 API 的 Hook 的名称。
+   *
+   * @default `useAutoApi${changeCase.pascalCase(requestFunctionName)}`
+   * @param interfaceInfo 接口信息
+   * @param changeCase 常用的大小写转换函数集合对象
+   * @returns Hook 的名称
+   */
+  getAutoApiHookName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+
+  /**
+   * 获取手动触发 API 的 Hook 的名称。
+   *
+   * @default `useManualApi${changeCase.pascalCase(requestFunctionName)}`
+   * @param interfaceInfo 接口信息
+   * @param changeCase 常用的大小写转换函数集合对象
+   * @returns Hook 的名称
+   */
+  getManualApiHookName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+}
+
 /**
  * 共享的配置。
  */
@@ -278,6 +313,11 @@ export interface SharedConfig {
   dataKey?: string,
 
   /**
+   * 支持生成 React Hooks 代码的相关配置。
+   */
+  reactHooks?: ReactHooksConfig,
+
+  /**
    * 预处理接口信息，返回新的接口信息。
    *
    * 譬如你想对接口的 `path` 进行某些处理，就可使用该方法。
@@ -322,42 +362,6 @@ export interface SharedConfig {
    * @returns 响应数据类型的名称
    */
   getResponseDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
-
-  /**
-   * 支持生成 React Hooks 代码的相关配置。
-   */
-  reactHooks?: {
-    /**
-     * 是否开启该项功能。
-     *
-     * @default false
-     */
-    enable: boolean,
-    /**
-     * 从何处引入 useState、useEffect 等 Hooks。
-     *
-     * @default 'react'
-     */
-    pragma?: string,
-    /**
-     * 获取自动触发 API 的 Hook 的名称。
-     *
-     * @default `useAutoApi${changeCase.pascalCase(requestFunctionName)}`
-     * @param interfaceInfo 接口信息
-     * @param changeCase 常用的大小写转换函数集合对象
-     * @returns Hook 的名称
-     */
-    getAutoApiHookName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
-    /**
-     * 获取手动触发 API 的 Hook 的名称。
-     *
-     * @default `useManualApi${changeCase.pascalCase(requestFunctionName)}`
-     * @param interfaceInfo 接口信息
-     * @param changeCase 常用的大小写转换函数集合对象
-     * @returns Hook 的名称
-     */
-    getManualApiHookName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
-  },
 }
 
 /**
