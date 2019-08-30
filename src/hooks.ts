@@ -15,7 +15,7 @@ interface ApiHookResult<T extends RequestFunction> {
   data: AsyncReturnType<T> | null,
   loading: boolean,
   error: any,
-  trigger: () => void,
+  trigger: (callback?: () => any) => void,
 }
 
 interface ApiHook<T extends RequestFunction> {
@@ -29,12 +29,12 @@ interface ApiHookOptional<T extends RequestFunction> {
 export function createApiHook<T extends RequestFunction, O extends boolean>(
   {useState, useEffect, requestFunction, autoTrigger}: CreateApiHookPayload<T>,
 ): O extends true ? ApiHookOptional<T> : ApiHook<T> {
-  return function useApi(requestData: Parameters<T>[0] | (() => Parameters<T>[0])) {
+  const useApi: ApiHook<T> = function (requestData: Parameters<T>[0] | (() => Parameters<T>[0])) {
     const [data, setData] = useState<AsyncReturnType<T> | null>(null)
     const [loading, setLoading] = useState<boolean>(!!autoTrigger)
     const [error, setError] = useState<any>(null)
 
-    const request = (requestData: Parameters<T>[0]) => {
+    const request = (requestData: Parameters<T>[0], callback?: () => any) => {
       setLoading(true)
       ;(requestData == null ? requestFunction() : requestFunction(requestData))
         .then(
@@ -43,6 +43,9 @@ export function createApiHook<T extends RequestFunction, O extends boolean>(
               setError(null)
             }
             setData(data)
+            if (typeof callback === 'function') {
+              callback()
+            }
           },
           error => setError(error),
         )
@@ -66,12 +69,13 @@ export function createApiHook<T extends RequestFunction, O extends boolean>(
       data: data,
       loading: loading,
       error: error,
-      trigger: () => {
+      trigger: callback => {
         const _requestData = typeof requestData === 'function'
           ? requestData()
           : requestData
-        request(_requestData)
+        request(_requestData, callback)
       },
     }
-  } as any
+  }
+  return useApi as any
 }
