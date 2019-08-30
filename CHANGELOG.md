@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.14.0"></a>
+# [1.14.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.13.0...v1.14.0) (2019-08-30)
+
+
+### Features
+
+* **React Hooks:** trigger 支持传入回调，在请求触发成功后执行 ([92e9f1f](https://github.com/fjc0k/yapi-to-typescript/commit/92e9f1f))
+
+
+
 <a name="1.13.0"></a>
 # [1.13.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.12.1...v1.13.0) (2019-08-30)
 
