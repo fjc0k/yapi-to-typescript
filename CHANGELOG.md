@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.0"></a>
+# [1.13.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.12.1...v1.13.0) (2019-08-30)
+
+
+### Features
+
+* 完善 React Hooks 支持 ([5383a8a](https://github.com/fjc0k/yapi-to-typescript/commit/5383a8a))
+
+
+
 <a name="1.12.1"></a>
 ## [1.12.1](https://github.com/fjc0k/yapi-to-typescript/compare/v1.12.0...v1.12.1) (2019-08-27)
 
