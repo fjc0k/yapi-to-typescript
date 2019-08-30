@@ -3826,7 +3826,7 @@ deleteMethodTest.requestConfig = Object.freeze({
 /**
  * 接口 **DELETE 方法** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiDeleteMethodTest = createApiHook({
+export const useAutoApiDeleteMethodTest = createApiHook<typeof deleteMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: deleteMethodTest,
@@ -3836,7 +3836,7 @@ export const useAutoApiDeleteMethodTest = createApiHook({
 /**
  * 接口 **DELETE 方法** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiDeleteMethodTest = createApiHook({
+export const useManualApiDeleteMethodTest = createApiHook<typeof deleteMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: deleteMethodTest,
@@ -3900,7 +3900,7 @@ getMethodTest.requestConfig = Object.freeze({
 /**
  * 接口 **GET 方法** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiGetMethodTest = createApiHook({
+export const useAutoApiGetMethodTest = createApiHook<typeof getMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: getMethodTest,
@@ -3910,7 +3910,7 @@ export const useAutoApiGetMethodTest = createApiHook({
 /**
  * 接口 **GET 方法** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiGetMethodTest = createApiHook({
+export const useManualApiGetMethodTest = createApiHook<typeof getMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: getMethodTest,
@@ -3964,7 +3964,7 @@ json5ResponseTest.requestConfig = Object.freeze({
 /**
  * 接口 **JSON5 响应** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiJson5ResponseTest = createApiHook({
+export const useAutoApiJson5ResponseTest = createApiHook<typeof json5ResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: json5ResponseTest,
@@ -3974,7 +3974,7 @@ export const useAutoApiJson5ResponseTest = createApiHook({
 /**
  * 接口 **JSON5 响应** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiJson5ResponseTest = createApiHook({
+export const useManualApiJson5ResponseTest = createApiHook<typeof json5ResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: json5ResponseTest,
@@ -4028,7 +4028,7 @@ json5RequestTest.requestConfig = Object.freeze({
 /**
  * 接口 **JSON5 请求** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiJson5RequestTest = createApiHook({
+export const useAutoApiJson5RequestTest = createApiHook<typeof json5RequestTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: json5RequestTest,
@@ -4038,7 +4038,7 @@ export const useAutoApiJson5RequestTest = createApiHook({
 /**
  * 接口 **JSON5 请求** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiJson5RequestTest = createApiHook({
+export const useManualApiJson5RequestTest = createApiHook<typeof json5RequestTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: json5RequestTest,
@@ -4111,7 +4111,7 @@ postMethodTest.requestConfig = Object.freeze({
 /**
  * 接口 **POST 方法** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiPostMethodTest = createApiHook({
+export const useAutoApiPostMethodTest = createApiHook<typeof postMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: postMethodTest,
@@ -4121,7 +4121,7 @@ export const useAutoApiPostMethodTest = createApiHook({
 /**
  * 接口 **POST 方法** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiPostMethodTest = createApiHook({
+export const useManualApiPostMethodTest = createApiHook<typeof postMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: postMethodTest,
@@ -4189,7 +4189,7 @@ putMethodTest.requestConfig = Object.freeze({
 /**
  * 接口 **PUT 方法** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiPutMethodTest = createApiHook({
+export const useAutoApiPutMethodTest = createApiHook<typeof putMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: putMethodTest,
@@ -4199,7 +4199,7 @@ export const useAutoApiPutMethodTest = createApiHook({
 /**
  * 接口 **PUT 方法** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiPutMethodTest = createApiHook({
+export const useManualApiPutMethodTest = createApiHook<typeof putMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: putMethodTest,
@@ -4272,7 +4272,7 @@ dataKeyExampleTest.requestConfig = Object.freeze({
 /**
  * 接口 **dataKey 例子** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiDataKeyExampleTest = createApiHook({
+export const useAutoApiDataKeyExampleTest = createApiHook<typeof dataKeyExampleTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: dataKeyExampleTest,
@@ -4282,7 +4282,7 @@ export const useAutoApiDataKeyExampleTest = createApiHook({
 /**
  * 接口 **dataKey 例子** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiDataKeyExampleTest = createApiHook({
+export const useManualApiDataKeyExampleTest = createApiHook<typeof dataKeyExampleTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: dataKeyExampleTest,
@@ -4332,7 +4332,7 @@ noResponseDataTest.requestConfig = Object.freeze({
 /**
  * 接口 **没返回数据** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiNoResponseDataTest = createApiHook({
+export const useAutoApiNoResponseDataTest = createApiHook<typeof noResponseDataTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: noResponseDataTest,
@@ -4342,7 +4342,7 @@ export const useAutoApiNoResponseDataTest = createApiHook({
 /**
  * 接口 **没返回数据** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiNoResponseDataTest = createApiHook({
+export const useManualApiNoResponseDataTest = createApiHook<typeof noResponseDataTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: noResponseDataTest,
@@ -4392,7 +4392,7 @@ emptyResponseTest.requestConfig = Object.freeze({
 /**
  * 接口 **空返回数据** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiEmptyResponseTest = createApiHook({
+export const useAutoApiEmptyResponseTest = createApiHook<typeof emptyResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: emptyResponseTest,
@@ -4402,7 +4402,7 @@ export const useAutoApiEmptyResponseTest = createApiHook({
 /**
  * 接口 **空返回数据** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiEmptyResponseTest = createApiHook({
+export const useManualApiEmptyResponseTest = createApiHook<typeof emptyResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: emptyResponseTest,
@@ -4452,7 +4452,7 @@ rawResponseTest.requestConfig = Object.freeze({
 /**
  * 接口 **返回 raw** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiRawResponseTest = createApiHook({
+export const useAutoApiRawResponseTest = createApiHook<typeof rawResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: rawResponseTest,
@@ -4462,7 +4462,7 @@ export const useAutoApiRawResponseTest = createApiHook({
 /**
  * 接口 **返回 raw** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiRawResponseTest = createApiHook({
+export const useManualApiRawResponseTest = createApiHook<typeof rawResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: rawResponseTest,
@@ -4576,7 +4576,7 @@ deleteMethodTest.requestConfig = Object.freeze({
 /**
  * 接口 **DELETE 方法** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiDeleteMethodTest = createApiHook({
+export const useAutoApiDeleteMethodTest = createApiHook<typeof deleteMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: deleteMethodTest,
@@ -4586,7 +4586,7 @@ export const useAutoApiDeleteMethodTest = createApiHook({
 /**
  * 接口 **DELETE 方法** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiDeleteMethodTest = createApiHook({
+export const useManualApiDeleteMethodTest = createApiHook<typeof deleteMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: deleteMethodTest,
@@ -4650,7 +4650,7 @@ getMethodTest.requestConfig = Object.freeze({
 /**
  * 接口 **GET 方法** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiGetMethodTest = createApiHook({
+export const useAutoApiGetMethodTest = createApiHook<typeof getMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: getMethodTest,
@@ -4660,7 +4660,7 @@ export const useAutoApiGetMethodTest = createApiHook({
 /**
  * 接口 **GET 方法** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiGetMethodTest = createApiHook({
+export const useManualApiGetMethodTest = createApiHook<typeof getMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: getMethodTest,
@@ -4714,7 +4714,7 @@ json5ResponseTest.requestConfig = Object.freeze({
 /**
  * 接口 **JSON5 响应** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiJson5ResponseTest = createApiHook({
+export const useAutoApiJson5ResponseTest = createApiHook<typeof json5ResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: json5ResponseTest,
@@ -4724,7 +4724,7 @@ export const useAutoApiJson5ResponseTest = createApiHook({
 /**
  * 接口 **JSON5 响应** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiJson5ResponseTest = createApiHook({
+export const useManualApiJson5ResponseTest = createApiHook<typeof json5ResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: json5ResponseTest,
@@ -4778,7 +4778,7 @@ json5RequestTest.requestConfig = Object.freeze({
 /**
  * 接口 **JSON5 请求** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiJson5RequestTest = createApiHook({
+export const useAutoApiJson5RequestTest = createApiHook<typeof json5RequestTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: json5RequestTest,
@@ -4788,7 +4788,7 @@ export const useAutoApiJson5RequestTest = createApiHook({
 /**
  * 接口 **JSON5 请求** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiJson5RequestTest = createApiHook({
+export const useManualApiJson5RequestTest = createApiHook<typeof json5RequestTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: json5RequestTest,
@@ -4861,7 +4861,7 @@ postMethodTest.requestConfig = Object.freeze({
 /**
  * 接口 **POST 方法** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiPostMethodTest = createApiHook({
+export const useAutoApiPostMethodTest = createApiHook<typeof postMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: postMethodTest,
@@ -4871,7 +4871,7 @@ export const useAutoApiPostMethodTest = createApiHook({
 /**
  * 接口 **POST 方法** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiPostMethodTest = createApiHook({
+export const useManualApiPostMethodTest = createApiHook<typeof postMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: postMethodTest,
@@ -4939,7 +4939,7 @@ putMethodTest.requestConfig = Object.freeze({
 /**
  * 接口 **PUT 方法** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiPutMethodTest = createApiHook({
+export const useAutoApiPutMethodTest = createApiHook<typeof putMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: putMethodTest,
@@ -4949,7 +4949,7 @@ export const useAutoApiPutMethodTest = createApiHook({
 /**
  * 接口 **PUT 方法** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiPutMethodTest = createApiHook({
+export const useManualApiPutMethodTest = createApiHook<typeof putMethodTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: putMethodTest,
@@ -5022,7 +5022,7 @@ dataKeyExampleTest.requestConfig = Object.freeze({
 /**
  * 接口 **dataKey 例子** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiDataKeyExampleTest = createApiHook({
+export const useAutoApiDataKeyExampleTest = createApiHook<typeof dataKeyExampleTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: dataKeyExampleTest,
@@ -5032,7 +5032,7 @@ export const useAutoApiDataKeyExampleTest = createApiHook({
 /**
  * 接口 **dataKey 例子** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiDataKeyExampleTest = createApiHook({
+export const useManualApiDataKeyExampleTest = createApiHook<typeof dataKeyExampleTest, false>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: dataKeyExampleTest,
@@ -5082,7 +5082,7 @@ noResponseDataTest.requestConfig = Object.freeze({
 /**
  * 接口 **没返回数据** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiNoResponseDataTest = createApiHook({
+export const useAutoApiNoResponseDataTest = createApiHook<typeof noResponseDataTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: noResponseDataTest,
@@ -5092,7 +5092,7 @@ export const useAutoApiNoResponseDataTest = createApiHook({
 /**
  * 接口 **没返回数据** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiNoResponseDataTest = createApiHook({
+export const useManualApiNoResponseDataTest = createApiHook<typeof noResponseDataTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: noResponseDataTest,
@@ -5142,7 +5142,7 @@ emptyResponseTest.requestConfig = Object.freeze({
 /**
  * 接口 **空返回数据** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiEmptyResponseTest = createApiHook({
+export const useAutoApiEmptyResponseTest = createApiHook<typeof emptyResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: emptyResponseTest,
@@ -5152,7 +5152,7 @@ export const useAutoApiEmptyResponseTest = createApiHook({
 /**
  * 接口 **空返回数据** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiEmptyResponseTest = createApiHook({
+export const useManualApiEmptyResponseTest = createApiHook<typeof emptyResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: emptyResponseTest,
@@ -5202,7 +5202,7 @@ rawResponseTest.requestConfig = Object.freeze({
 /**
  * 接口 **返回 raw** 的 **自动触发 API 的 React Hook**
  */
-export const useAutoApiRawResponseTest = createApiHook({
+export const useAutoApiRawResponseTest = createApiHook<typeof rawResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: rawResponseTest,
@@ -5212,7 +5212,7 @@ export const useAutoApiRawResponseTest = createApiHook({
 /**
  * 接口 **返回 raw** 的 **手动触发 API 的 React Hook**
  */
-export const useManualApiRawResponseTest = createApiHook({
+export const useManualApiRawResponseTest = createApiHook<typeof rawResponseTest, true>({
   useState: useState,
   useEffect: useEffect,
   requestFunction: rawResponseTest,

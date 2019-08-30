@@ -417,7 +417,7 @@ export class Generator {
       typeName: responseDataTypeName,
       dataKey: syntheticalConfig.dataKey,
     })
-    const isRequestDataRequired = /(\{\}|any)$/s.test(requestDataType)
+    const isRequestDataOptional = /(\{\}|any)$/s.test(requestDataType)
 
     let autoApiHookName!: string
     let manualApiHookName!: string
@@ -454,7 +454,7 @@ export class Generator {
         /**
          * 接口 **${escapedTitle}** 的 **请求函数**
          */
-        export function ${requestFunctionName}(requestData${isRequestDataRequired ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {
+        export function ${requestFunctionName}(requestData${isRequestDataOptional ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {
           return request({
             ...${requestFunctionName}.requestConfig,
             ...parseRequestData(requestData)
@@ -485,7 +485,7 @@ export class Generator {
           /**
            * 接口 **${escapedTitle}** 的 **自动触发 API 的 React Hook**
            */
-          export const ${autoApiHookName} = createApiHook({
+          export const ${autoApiHookName} = createApiHook<typeof ${requestFunctionName}, ${isRequestDataOptional}>({
             useState: useState,
             useEffect: useEffect,
             requestFunction: ${requestFunctionName},
@@ -495,7 +495,7 @@ export class Generator {
           /**
            * 接口 **${escapedTitle}** 的 **手动触发 API 的 React Hook**
            */
-          export const ${manualApiHookName} = createApiHook({
+          export const ${manualApiHookName} = createApiHook<typeof ${requestFunctionName}, ${isRequestDataOptional}>({
             useState: useState,
             useEffect: useEffect,
             requestFunction: ${requestFunctionName},
