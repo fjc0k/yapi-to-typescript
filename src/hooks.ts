@@ -19,11 +19,11 @@ interface ApiHookResult<T extends RequestFunction> {
 }
 
 interface ApiHook<T extends RequestFunction> {
-  (requestData: Parameters<T>[0] | (() => Parameters<T>[0])): ApiHookResult<T>,
+  (requestData: Parameters<T>[0] | (() => Parameters<T>[0] | null | undefined)): ApiHookResult<T>,
 }
 
 interface ApiHookOptional<T extends RequestFunction> {
-  (requestData?: Parameters<T>[0] | (() => Parameters<T>[0])): ApiHookResult<T>,
+  (requestData?: Parameters<T>[0] | (() => Parameters<T>[0] | null | undefined)): ApiHookResult<T>,
 }
 
 export function createApiHook<T extends RequestFunction, O extends boolean>(
@@ -55,12 +55,16 @@ export function createApiHook<T extends RequestFunction, O extends boolean>(
     }
 
     if (autoTrigger) {
-      const _requestData = typeof requestData === 'function'
-        ? requestData()
+      const requestDataIsFunction = typeof requestData === 'function'
+      const _requestData = requestDataIsFunction
+        ? (requestData as any)()
         : requestData
       const hash = JSON.stringify(_requestData)
       useEffect(
-        () => request(_requestData),
+        () => {
+          if (requestDataIsFunction && _requestData == null) return
+          request(_requestData)
+        },
         [hash],
       )
     }
@@ -70,9 +74,11 @@ export function createApiHook<T extends RequestFunction, O extends boolean>(
       loading: loading,
       error: error,
       trigger: callback => {
-        const _requestData = typeof requestData === 'function'
-          ? requestData()
+        const requestDataIsFunction = typeof requestData === 'function'
+        const _requestData = requestDataIsFunction
+          ? (requestData as any)()
           : requestData
+        if (requestDataIsFunction && _requestData == null) return
         request(_requestData, callback)
       },
     }
