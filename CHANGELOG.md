@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.16.0"></a>
+# [1.16.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.15.0...v1.16.0) (2019-09-11)
+
+
+### Features
+
+* **React Hooks:** 不再为 data 设置 null 类型，你总应该在 loading 为 false 且 error 为空时使用 data，此时 data 是类型安全的 ([5451646](https://github.com/fjc0k/yapi-to-typescript/commit/5451646))
+
+
+
 <a name="1.15.0"></a>
 # [1.15.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.14.0...v1.15.0) (2019-09-02)
 
