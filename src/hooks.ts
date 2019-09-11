@@ -12,7 +12,7 @@ interface CreateApiHookPayload<T extends RequestFunction> {
 }
 
 interface ApiHookResult<T extends RequestFunction> {
-  data: AsyncReturnType<T> | null,
+  data: AsyncReturnType<T>,
   loading: boolean,
   error: any,
   trigger: (callback?: () => any) => void,
@@ -30,7 +30,7 @@ export function createApiHook<T extends RequestFunction, O extends boolean>(
   {useState, useEffect, requestFunction, autoTrigger}: CreateApiHookPayload<T>,
 ): O extends true ? ApiHookOptional<T> : ApiHook<T> {
   const useApi: ApiHook<T> = function (requestData: Parameters<T>[0] | (() => Parameters<T>[0])) {
-    const [data, setData] = useState<AsyncReturnType<T> | null>(null)
+    const [data, setData] = useState<AsyncReturnType<T>>(null as any)
     const [loading, setLoading] = useState<boolean>(!!autoTrigger)
     const [error, setError] = useState<any>(null)
 
