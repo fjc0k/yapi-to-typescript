@@ -12,10 +12,30 @@ interface CreateApiHookPayload<T extends RequestFunction> {
 }
 
 interface ApiHookResult<T extends RequestFunction> {
+  /**
+   * 接口返回数据。
+   */
   data: AsyncReturnType<T>,
+  /**
+   * 是否正在请求数据。
+   */
   loading: boolean,
+  /**
+   * 如果请求过程中发生错误，则将其赋给 error。
+   */
   error: any,
+  /**
+   * 触发请求。
+   *
+   * @param callback 请求完成并设置 data、error 后的回调
+   */
   trigger: (callback?: () => any) => void,
+  /**
+   * 刷新数据，同触发请求，但不会变更 loading 状态。
+   *
+   * @param callback 请求完成并设置 data、error 后的回调
+   */
+  refresh: (callback?: () => any) => void,
 }
 
 interface ApiHook<T extends RequestFunction> {
@@ -34,9 +54,11 @@ export function createApiHook<T extends RequestFunction, O extends boolean>(
     const [loading, setLoading] = useState<boolean>(!!autoTrigger)
     const [error, setError] = useState<any>(null)
 
-    const request = (requestData: Parameters<T>[0], callback?: () => any) => {
-      setLoading(true)
-      ;(requestData == null ? requestFunction() : requestFunction(requestData))
+    const request = (requestData: Parameters<T>[0], callback?: () => any, noChangeLoading?: boolean) => {
+      if (!noChangeLoading) {
+        setLoading(true)
+      }
+      (requestData == null ? requestFunction() : requestFunction(requestData))
         .then(
           data => {
             if (error != null) {
@@ -50,7 +72,9 @@ export function createApiHook<T extends RequestFunction, O extends boolean>(
           error => setError(error),
         )
         .then(() => {
-          setLoading(false)
+          if (!noChangeLoading) {
+            setLoading(false)
+          }
         })
     }
 
@@ -80,6 +104,14 @@ export function createApiHook<T extends RequestFunction, O extends boolean>(
           : requestData
         if (requestDataIsFunction && _requestData == null) return
         request(_requestData, callback)
+      },
+      refresh: callback => {
+        const requestDataIsFunction = typeof requestData === 'function'
+        const _requestData = requestDataIsFunction
+          ? (requestData as any)()
+          : requestData
+        if (requestDataIsFunction && _requestData == null) return
+        request(_requestData, callback, true)
       },
     }
   }
