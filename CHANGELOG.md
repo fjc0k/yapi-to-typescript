@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.17.0"></a>
+# [1.17.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.16.0...v1.17.0) (2019-09-12)
+
+
+### Features
+
+* **hooks:** 支持 refresh ([4ff6b43](https://github.com/fjc0k/yapi-to-typescript/commit/4ff6b43))
+
+
+
 <a name="1.16.0"></a>
 # [1.16.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.15.0...v1.16.0) (2019-09-11)
 
