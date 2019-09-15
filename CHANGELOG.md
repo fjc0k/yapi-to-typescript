@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.17.1"></a>
+## [1.17.1](https://github.com/fjc0k/yapi-to-typescript/compare/v1.17.0...v1.17.1) (2019-09-15)
+
+
+### Bug Fixes
+
+* **parseRequestData:** 解析非对象值时应将其值设为数据值 ([336906f](https://github.com/fjc0k/yapi-to-typescript/commit/336906f))
+
+
+
 <a name="1.17.0"></a>
 # [1.17.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.16.0...v1.17.0) (2019-09-12)
 
