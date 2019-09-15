@@ -29,10 +29,10 @@ describe('parseRequestData', () => {
       })
   })
 
-  test('传入非对象值时应返回空的数据和文件数据对象', () => {
-    ['', 2, false, [], /ff/].forEach(item => {
+  test('传入非对象值时应将传入的值设为数据，且将文件数据设为空', () => {
+    ['', 2, false, []].forEach(item => {
       expect(parseRequestData(item as any)).toEqual({
-        data: {},
+        data: item,
         fileData: {},
       })
     })
