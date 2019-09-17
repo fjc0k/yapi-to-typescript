@@ -154,6 +154,17 @@ export interface Interface {
   method: Method,
   /** 所属分类 id */
   catid: number,
+  /** 标签列表 */
+  tag: string[],
+  /** 路径参数 */
+  req_params: Array<{
+    /** 名称 */
+    name: string,
+    /** 备注 */
+    desc: string,
+    /** 示例 */
+    example: string,
+  }>,
   /** 仅 GET：请求串 */
   req_query: Array<{
     /** 名称 */
@@ -433,11 +444,12 @@ export type Config = ServerConfig | ServerConfig[]
  * 请求配置。
  */
 export interface RequestConfig<
-  MockUrl extends string = string,
-  DevUrl extends string = string,
-  ProdUrl extends string = string,
-  Path extends string = string,
-  DataKey extends string | undefined = undefined,
+  MockUrl extends string = any,
+  DevUrl extends string = any,
+  ProdUrl extends string = any,
+  Path extends string = any,
+  DataKey extends string | undefined = any,
+  ParamName extends string = any,
 > {
   /** 接口 Mock 地址，结尾无 `/` */
   mockUrl: MockUrl,
@@ -455,6 +467,8 @@ export interface RequestConfig<
   responseBodyType: ResponseBodyType,
   /** 数据所在键 */
   dataKey: DataKey,
+  /** 路径参数的名称列表 */
+  paramNames: ParamName[],
 }
 
 /**

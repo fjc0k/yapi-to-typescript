@@ -1,4 +1,5 @@
-import {FileData, parseRequestData} from '../src/helpers'
+import {FileData, parseRequestData, prepare} from '../src/helpers'
+import {RequestConfig} from '../src/types'
 
 describe('FileData', () => {
   test('正确返回原始值', () => {
@@ -36,5 +37,55 @@ describe('parseRequestData', () => {
         fileData: {},
       })
     })
+  })
+})
+
+describe('prepare', () => {
+  test('支持解析对象请求体', () => {
+    expect(
+      prepare(
+        {path: '/test'} as Partial<RequestConfig> as any,
+        {a: 1, b: '2'},
+      ),
+    ).toMatchSnapshot('对象')
+  })
+
+  test('支持解析非对象请求体', () => {
+    expect(
+      prepare(
+        {path: '/test'} as Partial<RequestConfig> as any,
+        [1, 2, 3, {x: false}],
+      ),
+    ).toMatchSnapshot('数组')
+
+    expect(
+      prepare(
+        {path: '/test'} as Partial<RequestConfig> as any,
+        true,
+      ),
+    ).toMatchSnapshot('布尔值')
+  })
+
+  test('支持解析带参路径', () => {
+    expect(
+      prepare(
+        {path: '/test/:a/{id}', paramNames: ['a', 'id']} as Partial<RequestConfig> as any,
+        {a: 1, b: '2', id: 110},
+      ),
+    ).toMatchSnapshot('路径参数 1')
+
+    expect(
+      prepare(
+        {path: '/test/a_{a}/id_{id}', paramNames: ['a', 'id']} as Partial<RequestConfig> as any,
+        {a: 1, b: '2', id: 110},
+      ),
+    ).toMatchSnapshot('路径参数 2')
+
+    expect(
+      prepare(
+        {path: '/test/a_{a}/id_{id}/id_{id}', paramNames: ['a', 'id']} as Partial<RequestConfig> as any,
+        {a: 1, b: '2', id: 110},
+      ),
+    ).toMatchSnapshot('路径参数 3 - 全部替换')
   })
 })

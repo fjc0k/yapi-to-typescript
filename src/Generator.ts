@@ -3,7 +3,7 @@ import fs from 'fs-extra'
 import JSON5 from 'json5'
 import path from 'path'
 import request from 'request-promise-native'
-import {castArray, dedent, isEmpty, isFunction} from 'vtils'
+import {castArray, dedent, isArray, isEmpty, isFunction} from 'vtils'
 import {CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig} from './types'
 import {getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError} from './utils'
 import {JSONSchema4} from 'json-schema'
@@ -209,7 +209,7 @@ export class Generator {
 
             ${syntheticalConfig.typesOnly ? content.join('\n\n').trim() : dedent`
               // @ts-ignore
-              import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+              import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
               ${!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable ? '' : dedent`
                 // @ts-ignore
                 import { createApiHook } from 'yapi-to-typescript'
@@ -233,7 +233,7 @@ export class Generator {
       typeName: string,
     },
   ): Promise<string> {
-    let jsonSchema: JSONSchema4 = {}
+    let jsonSchema!: JSONSchema4
 
     switch (interfaceInfo.method) {
       case Method.GET:
@@ -272,6 +272,29 @@ export class Generator {
             break
         }
         break
+    }
+
+    if (isArray(interfaceInfo.req_params) && interfaceInfo.req_params.length) {
+      const paramsJsonSchema = propDefinitionsToJsonSchema(
+        interfaceInfo.req_params.map<PropDefinition>(item => ({
+          name: item.name,
+          required: true,
+          type: 'string',
+          comment: item.desc,
+        })),
+      )
+      if (jsonSchema) {
+        jsonSchema.properties = {
+          ...jsonSchema.properties,
+          ...paramsJsonSchema.properties,
+        }
+        jsonSchema.required = [
+          ...(jsonSchema.required || []),
+          ...(paramsJsonSchema.required || []),
+        ]
+      } else {
+        jsonSchema = paramsJsonSchema
+      }
     }
 
     return jsonSchemaToType(jsonSchema, typeName)
@@ -436,6 +459,11 @@ export class Generator {
         : `useManualApi${changeCase.pascalCase(requestFunctionName)}`
     }
 
+    // 支持路径参数
+    const paramNames = (interfaceInfo.req_params || []).map(item => item.name)
+    const paramNamesLiteral = JSON.stringify(paramNames)
+    const paramNameType = paramNames.length === 0 ? 'string' : `'${paramNames.join('\' | \'')}'`
+
     // 转义标题中的 /
     const escapedTitle = String(interfaceInfo.title).replace(/\//g, '\\/')
 
@@ -455,10 +483,7 @@ export class Generator {
          * 接口 **${escapedTitle}** 的 **请求函数**
          */
         export function ${requestFunctionName}(requestData${isRequestDataOptional ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {
-          return request({
-            ...${requestFunctionName}.requestConfig,
-            ...parseRequestData(requestData)
-          } as any)
+          return request(prepare(${requestFunctionName}.requestConfig, requestData))
         }
 
         /**
@@ -473,12 +498,14 @@ export class Generator {
           requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type || RequestBodyType.none},
           responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},
           dataKey: dataKey${categoryUID},
+          paramNames: ${paramNamesLiteral},
         } as RequestConfig<
           ${JSON.stringify(syntheticalConfig.mockUrl)},
           ${JSON.stringify(syntheticalConfig.devUrl)},
           ${JSON.stringify(syntheticalConfig.prodUrl)},
           ${JSON.stringify(interfaceInfo.path)},
-          ${JSON.stringify(syntheticalConfig.dataKey)}
+          ${JSON.stringify(syntheticalConfig.dataKey)},
+          ${paramNameType}
         >)
 
         ${(!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable) ? '' : dedent`

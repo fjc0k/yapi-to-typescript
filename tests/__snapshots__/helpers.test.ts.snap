@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`prepare 支持解析对象请求体: 对象 1`] = `
+Object {
+  "data": Object {
+    "a": 1,
+    "b": "2",
+  },
+  "fileData": Object {},
+  "path": "/test",
+}
+`;
+
+exports[`prepare 支持解析带参路径: 路径参数 1 1`] = `
+Object {
+  "data": Object {
+    "b": "2",
+  },
+  "fileData": Object {},
+  "paramNames": Array [
+    "a",
+    "id",
+  ],
+  "path": "/test/1/110",
+}
+`;
+
+exports[`prepare 支持解析带参路径: 路径参数 2 1`] = `
+Object {
+  "data": Object {
+    "b": "2",
+  },
+  "fileData": Object {},
+  "paramNames": Array [
+    "a",
+    "id",
+  ],
+  "path": "/test/a_1/id_110",
+}
+`;
+
+exports[`prepare 支持解析带参路径: 路径参数 3 - 全部替换 1`] = `
+Object {
+  "data": Object {
+    "b": "2",
+  },
+  "fileData": Object {},
+  "paramNames": Array [
+    "a",
+    "id",
+  ],
+  "path": "/test/a_1/id_110/id_110",
+}
+`;
+
+exports[`prepare 支持解析非对象请求体: 布尔值 1`] = `
+Object {
+  "data": true,
+  "fileData": Object {},
+  "path": "/test",
+}
+`;
+
+exports[`prepare 支持解析非对象请求体: 数组 1`] = `
+Object {
+  "data": Array [
+    1,
+    2,
+    3,
+    Object {
+      "x": false,
+    },
+  ],
+  "fileData": Object {},
+  "path": "/test",
+}
+`;

@@ -188,6 +188,52 @@ export interface EmptyResponseTestRequest {}
 export interface EmptyResponseTestResponse {}
 
 /**
+ * 接口 **路径参数** 的 **请求类型**
+ */
+export interface TestTestRequest {
+  /**
+   * 23
+   */
+  id: string;
+  name: string;
+  pass: string;
+  test: string;
+  avatar: string;
+}
+
+/**
+ * 接口 **路径参数** 的 **返回类型**
+ */
+export interface TestTestResponse {}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求类型**
+ */
+export interface HihihiTestRequest {
+  /**
+   * 键1
+   */
+  K1: string;
+  /**
+   * 键2
+   */
+  K2?: number;
+  /**
+   * 嗨咯
+   */
+  hihihi: string;
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **返回类型**
+ */
+export interface HihihiTestResponse {}
+
+/**
  * 接口 **返回 raw** 的 **请求类型**
  */
 export interface RawResponseTestRequest {}
@@ -384,6 +430,52 @@ export interface EmptyResponseTestRequest {}
 export interface EmptyResponseTestResponse {}
 
 /**
+ * 接口 **路径参数** 的 **请求类型**
+ */
+export interface TestTestRequest {
+  /**
+   * 23
+   */
+  id: string;
+  name: string;
+  pass: string;
+  test: string;
+  avatar: string;
+}
+
+/**
+ * 接口 **路径参数** 的 **返回类型**
+ */
+export interface TestTestResponse {}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求类型**
+ */
+export interface HihihiTestRequest {
+  /**
+   * 键1
+   */
+  K1: string;
+  /**
+   * 键2
+   */
+  K2?: number;
+  /**
+   * 嗨咯
+   */
+  hihihi: string;
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **返回类型**
+ */
+export interface HihihiTestResponse {}
+
+/**
  * 接口 **返回 raw** 的 **请求类型**
  */
 export interface RawResponseTestRequest {}
@@ -402,7 +494,7 @@ exports[`Generator 正确生成代码并写入文件 - 全部分类: 接口文�
 /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
 // @ts-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
 
 import request from \\"./request\\"
 
@@ -430,10 +522,7 @@ export interface DeleteMethodTestResponse {}
  * 接口 **DELETE 方法** 的 **请求函数**
  */
 export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<DeleteMethodTestResponse> {
-  return request({
-    ...deleteMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(deleteMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -448,12 +537,14 @@ deleteMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/deleteMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -484,10 +575,7 @@ export interface GetMethodTestResponse {
  * 接口 **GET 方法** 的 **请求函数**
  */
 export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMethodTestResponse> {
-  return request({
-    ...getMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(getMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -502,12 +590,14 @@ getMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/getMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -528,10 +618,7 @@ export interface Json5ResponseTestResponse {
  * 接口 **JSON5 响应** 的 **请求函数**
  */
 export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promise<Json5ResponseTestResponse> {
-  return request({
-    ...json5ResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5ResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -546,12 +633,14 @@ json5ResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Response_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -572,10 +661,7 @@ export interface Json5RequestTestResponse {}
  * 接口 **JSON5 请求** 的 **请求函数**
  */
 export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<Json5RequestTestResponse> {
-  return request({
-    ...json5RequestTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5RequestTest.requestConfig, requestData))
 }
 
 /**
@@ -590,12 +676,14 @@ json5RequestTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Request_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -635,10 +723,7 @@ export interface PostMethodTestResponse {
  * 接口 **POST 方法** 的 **请求函数**
  */
 export function postMethodTest(requestData: PostMethodTestRequest): Promise<PostMethodTestResponse> {
-  return request({
-    ...postMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(postMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -653,12 +738,14 @@ postMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/postMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -693,10 +780,7 @@ export interface PutMethodTestResponse {
  * 接口 **PUT 方法** 的 **请求函数**
  */
 export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMethodTestResponse> {
-  return request({
-    ...putMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(putMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -711,12 +795,14 @@ putMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/putMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -756,10 +842,7 @@ export interface DataKeyExampleTestResponse {
  * 接口 **dataKey 例子** 的 **请求函数**
  */
 export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Promise<DataKeyExampleTestResponse> {
-  return request({
-    ...dataKeyExampleTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(dataKeyExampleTest.requestConfig, requestData))
 }
 
 /**
@@ -774,12 +857,14 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -796,10 +881,7 @@ export interface NoResponseDataTestResponse {}
  * 接口 **没返回数据** 的 **请求函数**
  */
 export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Promise<NoResponseDataTestResponse> {
-  return request({
-    ...noResponseDataTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(noResponseDataTest.requestConfig, requestData))
 }
 
 /**
@@ -814,12 +896,14 @@ noResponseDataTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/noResponseData_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -836,10 +920,7 @@ export interface EmptyResponseTestResponse {}
  * 接口 **空返回数据** 的 **请求函数**
  */
 export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promise<EmptyResponseTestResponse> {
-  return request({
-    ...emptyResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(emptyResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -854,12 +935,118 @@ emptyResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
-  undefined
+  undefined,
+  string
+>)
+
+/**
+ * 接口 **路径参数** 的 **请求类型**
+ */
+export interface TestTestRequest {
+  /**
+   * 23
+   */
+  id: string;
+  name: string;
+  pass: string;
+  test: string;
+  avatar: string;
+}
+
+/**
+ * 接口 **路径参数** 的 **返回类型**
+ */
+export interface TestTestResponse {}
+
+/**
+ * 接口 **路径参数** 的 **请求函数**
+ */
+export function testTest(requestData: TestTestRequest): Promise<TestTestResponse> {
+  return request(prepare(testTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数** 的 **请求配置**
+ */
+testTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  undefined,
+  'id' | 'name' | 'pass' | 'test' | 'avatar'
+>)
+
+/**
+ * 接口 **路径参数+对象** 的 **请求类型**
+ */
+export interface HihihiTestRequest {
+  /**
+   * 键1
+   */
+  K1: string;
+  /**
+   * 键2
+   */
+  K2?: number;
+  /**
+   * 嗨咯
+   */
+  hihihi: string;
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **返回类型**
+ */
+export interface HihihiTestResponse {}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求函数**
+ */
+export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestResponse> {
+  return request(prepare(hihihiTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求配置**
+ */
+hihihiTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/test/{id}/:hihihi_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [\\"hihihi\\",\\"id\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/test/{id}/:hihihi_test\\",
+  undefined,
+  'hihihi' | 'id'
 >)
 
 /**
@@ -876,10 +1063,7 @@ export type RawResponseTestResponse = any
  * 接口 **返回 raw** 的 **请求函数**
  */
 export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
-  return request({
-    ...rawResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(rawResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -894,12 +1078,14 @@ rawResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
@@ -923,10 +1109,7 @@ export interface Get2TestResponse {
  * 接口 **hello** 的 **请求函数**
  */
 export function get2Test(requestData?: Get2TestRequest): Promise<Get2TestResponse> {
-  return request({
-    ...get2Test.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(get2Test.requestConfig, requestData))
 }
 
 /**
@@ -941,12 +1124,14 @@ get2Test.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_2,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/get2_test\\",
-  undefined
+  undefined,
+  string
 >)"
 `;
 
@@ -1028,10 +1213,7 @@ export interface DeleteMethodTestResponse {}
  * 接口 **DELETE 方法** 的 **请求函数**
  */
 export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<DeleteMethodTestResponse> {
-  return request({
-    ...deleteMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(deleteMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -1046,12 +1228,14 @@ deleteMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/deleteMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1082,10 +1266,7 @@ export interface GetMethodTestResponse {
  * 接口 **GET 方法** 的 **请求函数**
  */
 export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMethodTestResponse> {
-  return request({
-    ...getMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(getMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -1100,12 +1281,14 @@ getMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/getMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1126,10 +1309,7 @@ export interface Json5ResponseTestResponse {
  * 接口 **JSON5 响应** 的 **请求函数**
  */
 export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promise<Json5ResponseTestResponse> {
-  return request({
-    ...json5ResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5ResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -1144,12 +1324,14 @@ json5ResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Response_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1170,10 +1352,7 @@ export interface Json5RequestTestResponse {}
  * 接口 **JSON5 请求** 的 **请求函数**
  */
 export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<Json5RequestTestResponse> {
-  return request({
-    ...json5RequestTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5RequestTest.requestConfig, requestData))
 }
 
 /**
@@ -1188,12 +1367,14 @@ json5RequestTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Request_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1233,10 +1414,7 @@ export interface PostMethodTestResponse {
  * 接口 **POST 方法** 的 **请求函数**
  */
 export function postMethodTest(requestData: PostMethodTestRequest): Promise<PostMethodTestResponse> {
-  return request({
-    ...postMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(postMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -1251,12 +1429,14 @@ postMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/postMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1291,10 +1471,7 @@ export interface PutMethodTestResponse {
  * 接口 **PUT 方法** 的 **请求函数**
  */
 export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMethodTestResponse> {
-  return request({
-    ...putMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(putMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -1309,12 +1486,14 @@ putMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/putMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1354,10 +1533,7 @@ export interface DataKeyExampleTestResponse {
  * 接口 **dataKey 例子** 的 **请求函数**
  */
 export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Promise<DataKeyExampleTestResponse> {
-  return request({
-    ...dataKeyExampleTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(dataKeyExampleTest.requestConfig, requestData))
 }
 
 /**
@@ -1372,12 +1548,14 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1394,10 +1572,7 @@ export interface NoResponseDataTestResponse {}
  * 接口 **没返回数据** 的 **请求函数**
  */
 export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Promise<NoResponseDataTestResponse> {
-  return request({
-    ...noResponseDataTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(noResponseDataTest.requestConfig, requestData))
 }
 
 /**
@@ -1412,12 +1587,14 @@ noResponseDataTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/noResponseData_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1434,10 +1611,7 @@ export interface EmptyResponseTestResponse {}
  * 接口 **空返回数据** 的 **请求函数**
  */
 export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promise<EmptyResponseTestResponse> {
-  return request({
-    ...emptyResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(emptyResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -1452,12 +1626,118 @@ emptyResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
-  undefined
+  undefined,
+  string
+>)
+
+/**
+ * 接口 **路径参数** 的 **请求类型**
+ */
+export interface TestTestRequest {
+  /**
+   * 23
+   */
+  id: string;
+  name: string;
+  pass: string;
+  test: string;
+  avatar: string;
+}
+
+/**
+ * 接口 **路径参数** 的 **返回类型**
+ */
+export interface TestTestResponse {}
+
+/**
+ * 接口 **路径参数** 的 **请求函数**
+ */
+export function testTest(requestData: TestTestRequest): Promise<TestTestResponse> {
+  return request(prepare(testTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数** 的 **请求配置**
+ */
+testTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  undefined,
+  'id' | 'name' | 'pass' | 'test' | 'avatar'
+>)
+
+/**
+ * 接口 **路径参数+对象** 的 **请求类型**
+ */
+export interface HihihiTestRequest {
+  /**
+   * 键1
+   */
+  K1: string;
+  /**
+   * 键2
+   */
+  K2?: number;
+  /**
+   * 嗨咯
+   */
+  hihihi: string;
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **返回类型**
+ */
+export interface HihihiTestResponse {}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求函数**
+ */
+export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestResponse> {
+  return request(prepare(hihihiTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求配置**
+ */
+hihihiTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/test/{id}/:hihihi_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [\\"hihihi\\",\\"id\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/test/{id}/:hihihi_test\\",
+  undefined,
+  'hihihi' | 'id'
 >)
 
 /**
@@ -1474,10 +1754,7 @@ export type RawResponseTestResponse = any
  * 接口 **返回 raw** 的 **请求函数**
  */
 export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
-  return request({
-    ...rawResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(rawResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -1492,12 +1769,14 @@ rawResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
-  undefined
+  undefined,
+  string
 >)",
   "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_2 = \\"\\" as any
@@ -1520,10 +1799,7 @@ export interface Get2TestResponse {
  * 接口 **hello** 的 **请求函数**
  */
 export function get2Test(requestData?: Get2TestRequest): Promise<Get2TestResponse> {
-  return request({
-    ...get2Test.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(get2Test.requestConfig, requestData))
 }
 
 /**
@@ -1538,12 +1814,14 @@ get2Test.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_2,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/get2_test\\",
-  undefined
+  undefined,
+  string
 >)",
 ]
 `;
@@ -1555,7 +1833,7 @@ exports[`Generator 正确生成代码并写入文件 - 单分类: 接口文件 1
 /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
 // @ts-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
 
 import request from \\"./request\\"
 
@@ -1583,10 +1861,7 @@ export interface DeleteMethodTestResponse {}
  * 接口 **DELETE 方法** 的 **请求函数**
  */
 export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<DeleteMethodTestResponse> {
-  return request({
-    ...deleteMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(deleteMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -1601,12 +1876,14 @@ deleteMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/deleteMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1637,10 +1914,7 @@ export interface GetMethodTestResponse {
  * 接口 **GET 方法** 的 **请求函数**
  */
 export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMethodTestResponse> {
-  return request({
-    ...getMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(getMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -1655,12 +1929,14 @@ getMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/getMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1681,10 +1957,7 @@ export interface Json5ResponseTestResponse {
  * 接口 **JSON5 响应** 的 **请求函数**
  */
 export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promise<Json5ResponseTestResponse> {
-  return request({
-    ...json5ResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5ResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -1699,12 +1972,14 @@ json5ResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Response_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1725,10 +2000,7 @@ export interface Json5RequestTestResponse {}
  * 接口 **JSON5 请求** 的 **请求函数**
  */
 export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<Json5RequestTestResponse> {
-  return request({
-    ...json5RequestTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5RequestTest.requestConfig, requestData))
 }
 
 /**
@@ -1743,12 +2015,14 @@ json5RequestTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Request_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1788,10 +2062,7 @@ export interface PostMethodTestResponse {
  * 接口 **POST 方法** 的 **请求函数**
  */
 export function postMethodTest(requestData: PostMethodTestRequest): Promise<PostMethodTestResponse> {
-  return request({
-    ...postMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(postMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -1806,12 +2077,14 @@ postMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/postMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1846,10 +2119,7 @@ export interface PutMethodTestResponse {
  * 接口 **PUT 方法** 的 **请求函数**
  */
 export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMethodTestResponse> {
-  return request({
-    ...putMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(putMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -1864,12 +2134,14 @@ putMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/putMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1909,10 +2181,7 @@ export interface DataKeyExampleTestResponse {
  * 接口 **dataKey 例子** 的 **请求函数**
  */
 export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Promise<DataKeyExampleTestResponse> {
-  return request({
-    ...dataKeyExampleTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(dataKeyExampleTest.requestConfig, requestData))
 }
 
 /**
@@ -1927,12 +2196,14 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1949,10 +2220,7 @@ export interface NoResponseDataTestResponse {}
  * 接口 **没返回数据** 的 **请求函数**
  */
 export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Promise<NoResponseDataTestResponse> {
-  return request({
-    ...noResponseDataTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(noResponseDataTest.requestConfig, requestData))
 }
 
 /**
@@ -1967,12 +2235,14 @@ noResponseDataTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/noResponseData_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -1989,10 +2259,7 @@ export interface EmptyResponseTestResponse {}
  * 接口 **空返回数据** 的 **请求函数**
  */
 export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promise<EmptyResponseTestResponse> {
-  return request({
-    ...emptyResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(emptyResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -2007,12 +2274,118 @@ emptyResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
-  undefined
+  undefined,
+  string
+>)
+
+/**
+ * 接口 **路径参数** 的 **请求类型**
+ */
+export interface TestTestRequest {
+  /**
+   * 23
+   */
+  id: string;
+  name: string;
+  pass: string;
+  test: string;
+  avatar: string;
+}
+
+/**
+ * 接口 **路径参数** 的 **返回类型**
+ */
+export interface TestTestResponse {}
+
+/**
+ * 接口 **路径参数** 的 **请求函数**
+ */
+export function testTest(requestData: TestTestRequest): Promise<TestTestResponse> {
+  return request(prepare(testTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数** 的 **请求配置**
+ */
+testTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  undefined,
+  'id' | 'name' | 'pass' | 'test' | 'avatar'
+>)
+
+/**
+ * 接口 **路径参数+对象** 的 **请求类型**
+ */
+export interface HihihiTestRequest {
+  /**
+   * 键1
+   */
+  K1: string;
+  /**
+   * 键2
+   */
+  K2?: number;
+  /**
+   * 嗨咯
+   */
+  hihihi: string;
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **返回类型**
+ */
+export interface HihihiTestResponse {}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求函数**
+ */
+export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestResponse> {
+  return request(prepare(hihihiTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求配置**
+ */
+hihihiTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/test/{id}/:hihihi_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"hihihi\\",\\"id\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/test/{id}/:hihihi_test\\",
+  undefined,
+  'hihihi' | 'id'
 >)
 
 /**
@@ -2029,10 +2402,7 @@ export type RawResponseTestResponse = any
  * 接口 **返回 raw** 的 **请求函数**
  */
 export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
-  return request({
-    ...rawResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(rawResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -2047,12 +2417,14 @@ rawResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
-  undefined
+  undefined,
+  string
 >)"
 `;
 
@@ -2133,10 +2505,7 @@ export interface DeleteMethodTestResponse {}
  * 接口 **DELETE 方法** 的 **请求函数**
  */
 export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<DeleteMethodTestResponse> {
-  return request({
-    ...deleteMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(deleteMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -2151,12 +2520,14 @@ deleteMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/deleteMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2187,10 +2558,7 @@ export interface GetMethodTestResponse {
  * 接口 **GET 方法** 的 **请求函数**
  */
 export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMethodTestResponse> {
-  return request({
-    ...getMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(getMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -2205,12 +2573,14 @@ getMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/getMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2231,10 +2601,7 @@ export interface Json5ResponseTestResponse {
  * 接口 **JSON5 响应** 的 **请求函数**
  */
 export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promise<Json5ResponseTestResponse> {
-  return request({
-    ...json5ResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5ResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -2249,12 +2616,14 @@ json5ResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Response_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2275,10 +2644,7 @@ export interface Json5RequestTestResponse {}
  * 接口 **JSON5 请求** 的 **请求函数**
  */
 export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<Json5RequestTestResponse> {
-  return request({
-    ...json5RequestTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5RequestTest.requestConfig, requestData))
 }
 
 /**
@@ -2293,12 +2659,14 @@ json5RequestTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Request_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2338,10 +2706,7 @@ export interface PostMethodTestResponse {
  * 接口 **POST 方法** 的 **请求函数**
  */
 export function postMethodTest(requestData: PostMethodTestRequest): Promise<PostMethodTestResponse> {
-  return request({
-    ...postMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(postMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -2356,12 +2721,14 @@ postMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/postMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2396,10 +2763,7 @@ export interface PutMethodTestResponse {
  * 接口 **PUT 方法** 的 **请求函数**
  */
 export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMethodTestResponse> {
-  return request({
-    ...putMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(putMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -2414,12 +2778,14 @@ putMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/putMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2459,10 +2825,7 @@ export interface DataKeyExampleTestResponse {
  * 接口 **dataKey 例子** 的 **请求函数**
  */
 export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Promise<DataKeyExampleTestResponse> {
-  return request({
-    ...dataKeyExampleTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(dataKeyExampleTest.requestConfig, requestData))
 }
 
 /**
@@ -2477,12 +2840,14 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2499,10 +2864,7 @@ export interface NoResponseDataTestResponse {}
  * 接口 **没返回数据** 的 **请求函数**
  */
 export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Promise<NoResponseDataTestResponse> {
-  return request({
-    ...noResponseDataTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(noResponseDataTest.requestConfig, requestData))
 }
 
 /**
@@ -2517,12 +2879,14 @@ noResponseDataTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/noResponseData_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2539,10 +2903,7 @@ export interface EmptyResponseTestResponse {}
  * 接口 **空返回数据** 的 **请求函数**
  */
 export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promise<EmptyResponseTestResponse> {
-  return request({
-    ...emptyResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(emptyResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -2557,12 +2918,118 @@ emptyResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
-  undefined
+  undefined,
+  string
+>)
+
+/**
+ * 接口 **路径参数** 的 **请求类型**
+ */
+export interface TestTestRequest {
+  /**
+   * 23
+   */
+  id: string;
+  name: string;
+  pass: string;
+  test: string;
+  avatar: string;
+}
+
+/**
+ * 接口 **路径参数** 的 **返回类型**
+ */
+export interface TestTestResponse {}
+
+/**
+ * 接口 **路径参数** 的 **请求函数**
+ */
+export function testTest(requestData: TestTestRequest): Promise<TestTestResponse> {
+  return request(prepare(testTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数** 的 **请求配置**
+ */
+testTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  undefined,
+  'id' | 'name' | 'pass' | 'test' | 'avatar'
+>)
+
+/**
+ * 接口 **路径参数+对象** 的 **请求类型**
+ */
+export interface HihihiTestRequest {
+  /**
+   * 键1
+   */
+  K1: string;
+  /**
+   * 键2
+   */
+  K2?: number;
+  /**
+   * 嗨咯
+   */
+  hihihi: string;
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **返回类型**
+ */
+export interface HihihiTestResponse {}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求函数**
+ */
+export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestResponse> {
+  return request(prepare(hihihiTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求配置**
+ */
+hihihiTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/test/{id}/:hihihi_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"hihihi\\",\\"id\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/test/{id}/:hihihi_test\\",
+  undefined,
+  'hihihi' | 'id'
 >)
 
 /**
@@ -2579,10 +3046,7 @@ export type RawResponseTestResponse = any
  * 接口 **返回 raw** 的 **请求函数**
  */
 export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
-  return request({
-    ...rawResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(rawResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -2597,12 +3061,14 @@ rawResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
-  undefined
+  undefined,
+  string
 >)",
 ]
 `;
@@ -2614,7 +3080,7 @@ exports[`Generator 正确生成代码并写入文件 - 多分类: 接口文件 1
 /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
 // @ts-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
 
 import request from \\"./request\\"
 
@@ -2642,10 +3108,7 @@ export interface DeleteMethodTestResponse {}
  * 接口 **DELETE 方法** 的 **请求函数**
  */
 export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<DeleteMethodTestResponse> {
-  return request({
-    ...deleteMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(deleteMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -2660,12 +3123,14 @@ deleteMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/deleteMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2696,10 +3161,7 @@ export interface GetMethodTestResponse {
  * 接口 **GET 方法** 的 **请求函数**
  */
 export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMethodTestResponse> {
-  return request({
-    ...getMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(getMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -2714,12 +3176,14 @@ getMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/getMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2740,10 +3204,7 @@ export interface Json5ResponseTestResponse {
  * 接口 **JSON5 响应** 的 **请求函数**
  */
 export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promise<Json5ResponseTestResponse> {
-  return request({
-    ...json5ResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5ResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -2758,12 +3219,14 @@ json5ResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Response_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2784,10 +3247,7 @@ export interface Json5RequestTestResponse {}
  * 接口 **JSON5 请求** 的 **请求函数**
  */
 export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<Json5RequestTestResponse> {
-  return request({
-    ...json5RequestTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5RequestTest.requestConfig, requestData))
 }
 
 /**
@@ -2802,12 +3262,14 @@ json5RequestTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Request_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2847,10 +3309,7 @@ export interface PostMethodTestResponse {
  * 接口 **POST 方法** 的 **请求函数**
  */
 export function postMethodTest(requestData: PostMethodTestRequest): Promise<PostMethodTestResponse> {
-  return request({
-    ...postMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(postMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -2865,12 +3324,14 @@ postMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/postMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2905,10 +3366,7 @@ export interface PutMethodTestResponse {
  * 接口 **PUT 方法** 的 **请求函数**
  */
 export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMethodTestResponse> {
-  return request({
-    ...putMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(putMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -2923,12 +3381,14 @@ putMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/putMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -2968,10 +3428,7 @@ export interface DataKeyExampleTestResponse {
  * 接口 **dataKey 例子** 的 **请求函数**
  */
 export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Promise<DataKeyExampleTestResponse> {
-  return request({
-    ...dataKeyExampleTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(dataKeyExampleTest.requestConfig, requestData))
 }
 
 /**
@@ -2986,12 +3443,14 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3008,10 +3467,7 @@ export interface NoResponseDataTestResponse {}
  * 接口 **没返回数据** 的 **请求函数**
  */
 export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Promise<NoResponseDataTestResponse> {
-  return request({
-    ...noResponseDataTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(noResponseDataTest.requestConfig, requestData))
 }
 
 /**
@@ -3026,12 +3482,14 @@ noResponseDataTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/noResponseData_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3048,10 +3506,7 @@ export interface EmptyResponseTestResponse {}
  * 接口 **空返回数据** 的 **请求函数**
  */
 export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promise<EmptyResponseTestResponse> {
-  return request({
-    ...emptyResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(emptyResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -3066,12 +3521,118 @@ emptyResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
-  undefined
+  undefined,
+  string
+>)
+
+/**
+ * 接口 **路径参数** 的 **请求类型**
+ */
+export interface TestTestRequest {
+  /**
+   * 23
+   */
+  id: string;
+  name: string;
+  pass: string;
+  test: string;
+  avatar: string;
+}
+
+/**
+ * 接口 **路径参数** 的 **返回类型**
+ */
+export interface TestTestResponse {}
+
+/**
+ * 接口 **路径参数** 的 **请求函数**
+ */
+export function testTest(requestData: TestTestRequest): Promise<TestTestResponse> {
+  return request(prepare(testTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数** 的 **请求配置**
+ */
+testTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  undefined,
+  'id' | 'name' | 'pass' | 'test' | 'avatar'
+>)
+
+/**
+ * 接口 **路径参数+对象** 的 **请求类型**
+ */
+export interface HihihiTestRequest {
+  /**
+   * 键1
+   */
+  K1: string;
+  /**
+   * 键2
+   */
+  K2?: number;
+  /**
+   * 嗨咯
+   */
+  hihihi: string;
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **返回类型**
+ */
+export interface HihihiTestResponse {}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求函数**
+ */
+export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestResponse> {
+  return request(prepare(hihihiTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求配置**
+ */
+hihihiTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/test/{id}/:hihihi_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"hihihi\\",\\"id\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/test/{id}/:hihihi_test\\",
+  undefined,
+  'hihihi' | 'id'
 >)
 
 /**
@@ -3088,10 +3649,7 @@ export type RawResponseTestResponse = any
  * 接口 **返回 raw** 的 **请求函数**
  */
 export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
-  return request({
-    ...rawResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(rawResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -3106,12 +3664,14 @@ rawResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 const mockUrl_0_0_0_1 = \\"http://foo.bar/mock/32\\" as any
@@ -3135,10 +3695,7 @@ export interface Get2TestResponse {
  * 接口 **hello** 的 **请求函数**
  */
 export function get2Test(requestData?: Get2TestRequest): Promise<Get2TestResponse> {
-  return request({
-    ...get2Test.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(get2Test.requestConfig, requestData))
 }
 
 /**
@@ -3153,12 +3710,14 @@ get2Test.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/get2_test\\",
-  undefined
+  undefined,
+  string
 >)"
 `;
 
@@ -3239,10 +3798,7 @@ export interface DeleteMethodTestResponse {}
  * 接口 **DELETE 方法** 的 **请求函数**
  */
 export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<DeleteMethodTestResponse> {
-  return request({
-    ...deleteMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(deleteMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -3257,12 +3813,14 @@ deleteMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/deleteMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3293,10 +3851,7 @@ export interface GetMethodTestResponse {
  * 接口 **GET 方法** 的 **请求函数**
  */
 export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMethodTestResponse> {
-  return request({
-    ...getMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(getMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -3311,12 +3866,14 @@ getMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/getMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3337,10 +3894,7 @@ export interface Json5ResponseTestResponse {
  * 接口 **JSON5 响应** 的 **请求函数**
  */
 export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promise<Json5ResponseTestResponse> {
-  return request({
-    ...json5ResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5ResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -3355,12 +3909,14 @@ json5ResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Response_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3381,10 +3937,7 @@ export interface Json5RequestTestResponse {}
  * 接口 **JSON5 请求** 的 **请求函数**
  */
 export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<Json5RequestTestResponse> {
-  return request({
-    ...json5RequestTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5RequestTest.requestConfig, requestData))
 }
 
 /**
@@ -3399,12 +3952,14 @@ json5RequestTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Request_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3444,10 +3999,7 @@ export interface PostMethodTestResponse {
  * 接口 **POST 方法** 的 **请求函数**
  */
 export function postMethodTest(requestData: PostMethodTestRequest): Promise<PostMethodTestResponse> {
-  return request({
-    ...postMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(postMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -3462,12 +4014,14 @@ postMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/postMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3502,10 +4056,7 @@ export interface PutMethodTestResponse {
  * 接口 **PUT 方法** 的 **请求函数**
  */
 export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMethodTestResponse> {
-  return request({
-    ...putMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(putMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -3520,12 +4071,14 @@ putMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/putMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3565,10 +4118,7 @@ export interface DataKeyExampleTestResponse {
  * 接口 **dataKey 例子** 的 **请求函数**
  */
 export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Promise<DataKeyExampleTestResponse> {
-  return request({
-    ...dataKeyExampleTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(dataKeyExampleTest.requestConfig, requestData))
 }
 
 /**
@@ -3583,12 +4133,14 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3605,10 +4157,7 @@ export interface NoResponseDataTestResponse {}
  * 接口 **没返回数据** 的 **请求函数**
  */
 export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Promise<NoResponseDataTestResponse> {
-  return request({
-    ...noResponseDataTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(noResponseDataTest.requestConfig, requestData))
 }
 
 /**
@@ -3623,12 +4172,14 @@ noResponseDataTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/noResponseData_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3645,10 +4196,7 @@ export interface EmptyResponseTestResponse {}
  * 接口 **空返回数据** 的 **请求函数**
  */
 export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promise<EmptyResponseTestResponse> {
-  return request({
-    ...emptyResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(emptyResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -3663,12 +4211,118 @@ emptyResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
-  undefined
+  undefined,
+  string
+>)
+
+/**
+ * 接口 **路径参数** 的 **请求类型**
+ */
+export interface TestTestRequest {
+  /**
+   * 23
+   */
+  id: string;
+  name: string;
+  pass: string;
+  test: string;
+  avatar: string;
+}
+
+/**
+ * 接口 **路径参数** 的 **返回类型**
+ */
+export interface TestTestResponse {}
+
+/**
+ * 接口 **路径参数** 的 **请求函数**
+ */
+export function testTest(requestData: TestTestRequest): Promise<TestTestResponse> {
+  return request(prepare(testTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数** 的 **请求配置**
+ */
+testTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  undefined,
+  'id' | 'name' | 'pass' | 'test' | 'avatar'
+>)
+
+/**
+ * 接口 **路径参数+对象** 的 **请求类型**
+ */
+export interface HihihiTestRequest {
+  /**
+   * 键1
+   */
+  K1: string;
+  /**
+   * 键2
+   */
+  K2?: number;
+  /**
+   * 嗨咯
+   */
+  hihihi: string;
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **返回类型**
+ */
+export interface HihihiTestResponse {}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求函数**
+ */
+export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestResponse> {
+  return request(prepare(hihihiTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求配置**
+ */
+hihihiTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/test/{id}/:hihihi_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"hihihi\\",\\"id\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/test/{id}/:hihihi_test\\",
+  undefined,
+  'hihihi' | 'id'
 >)
 
 /**
@@ -3685,10 +4339,7 @@ export type RawResponseTestResponse = any
  * 接口 **返回 raw** 的 **请求函数**
  */
 export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
-  return request({
-    ...rawResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(rawResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -3703,12 +4354,14 @@ rawResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
-  undefined
+  undefined,
+  string
 >)",
   "const mockUrl_0_0_0_1 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_1 = \\"\\" as any
@@ -3731,10 +4384,7 @@ export interface Get2TestResponse {
  * 接口 **hello** 的 **请求函数**
  */
 export function get2Test(requestData?: Get2TestRequest): Promise<Get2TestResponse> {
-  return request({
-    ...get2Test.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(get2Test.requestConfig, requestData))
 }
 
 /**
@@ -3749,12 +4399,14 @@ get2Test.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/get2_test\\",
-  undefined
+  undefined,
+  string
 >)",
 ]
 `;
@@ -3766,7 +4418,7 @@ exports[`Generator 生成 React Hooks 代码: 接口文件 1`] = `
 /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
 // @ts-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, parseRequestData } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
 // @ts-ignore
 import { createApiHook } from 'yapi-to-typescript'
 // @ts-ignore
@@ -3797,10 +4449,7 @@ export interface DeleteMethodTestResponse {}
  * 接口 **DELETE 方法** 的 **请求函数**
  */
 export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<DeleteMethodTestResponse> {
-  return request({
-    ...deleteMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(deleteMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -3815,12 +4464,14 @@ deleteMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/deleteMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3871,10 +4522,7 @@ export interface GetMethodTestResponse {
  * 接口 **GET 方法** 的 **请求函数**
  */
 export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMethodTestResponse> {
-  return request({
-    ...getMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(getMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -3889,12 +4537,14 @@ getMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/getMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3935,10 +4585,7 @@ export interface Json5ResponseTestResponse {
  * 接口 **JSON5 响应** 的 **请求函数**
  */
 export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promise<Json5ResponseTestResponse> {
-  return request({
-    ...json5ResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5ResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -3953,12 +4600,14 @@ json5ResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Response_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -3999,10 +4648,7 @@ export interface Json5RequestTestResponse {}
  * 接口 **JSON5 请求** 的 **请求函数**
  */
 export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<Json5RequestTestResponse> {
-  return request({
-    ...json5RequestTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5RequestTest.requestConfig, requestData))
 }
 
 /**
@@ -4017,12 +4663,14 @@ json5RequestTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Request_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4082,10 +4730,7 @@ export interface PostMethodTestResponse {
  * 接口 **POST 方法** 的 **请求函数**
  */
 export function postMethodTest(requestData: PostMethodTestRequest): Promise<PostMethodTestResponse> {
-  return request({
-    ...postMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(postMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -4100,12 +4745,14 @@ postMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/postMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4160,10 +4807,7 @@ export interface PutMethodTestResponse {
  * 接口 **PUT 方法** 的 **请求函数**
  */
 export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMethodTestResponse> {
-  return request({
-    ...putMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(putMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -4178,12 +4822,14 @@ putMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/putMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4243,10 +4889,7 @@ export interface DataKeyExampleTestResponse {
  * 接口 **dataKey 例子** 的 **请求函数**
  */
 export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Promise<DataKeyExampleTestResponse> {
-  return request({
-    ...dataKeyExampleTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(dataKeyExampleTest.requestConfig, requestData))
 }
 
 /**
@@ -4261,12 +4904,14 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4303,10 +4948,7 @@ export interface NoResponseDataTestResponse {}
  * 接口 **没返回数据** 的 **请求函数**
  */
 export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Promise<NoResponseDataTestResponse> {
-  return request({
-    ...noResponseDataTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(noResponseDataTest.requestConfig, requestData))
 }
 
 /**
@@ -4321,12 +4963,14 @@ noResponseDataTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/noResponseData_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4363,10 +5007,7 @@ export interface EmptyResponseTestResponse {}
  * 接口 **空返回数据** 的 **请求函数**
  */
 export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promise<EmptyResponseTestResponse> {
-  return request({
-    ...emptyResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(emptyResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -4381,12 +5022,14 @@ emptyResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4410,6 +5053,150 @@ export const useManualApiEmptyResponseTest = createApiHook<typeof emptyResponseT
 })
 
 /**
+ * 接口 **路径参数** 的 **请求类型**
+ */
+export interface TestTestRequest {
+  /**
+   * 23
+   */
+  id: string;
+  name: string;
+  pass: string;
+  test: string;
+  avatar: string;
+}
+
+/**
+ * 接口 **路径参数** 的 **返回类型**
+ */
+export interface TestTestResponse {}
+
+/**
+ * 接口 **路径参数** 的 **请求函数**
+ */
+export function testTest(requestData: TestTestRequest): Promise<TestTestResponse> {
+  return request(prepare(testTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数** 的 **请求配置**
+ */
+testTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  undefined,
+  'id' | 'name' | 'pass' | 'test' | 'avatar'
+>)
+
+/**
+ * 接口 **路径参数** 的 **自动触发 API 的 React Hook**
+ */
+export const useAutoApiTestTest = createApiHook<typeof testTest, false>({
+  useState: useState,
+  useEffect: useEffect,
+  requestFunction: testTest,
+  autoTrigger: true,
+})
+
+/**
+ * 接口 **路径参数** 的 **手动触发 API 的 React Hook**
+ */
+export const useManualApiTestTest = createApiHook<typeof testTest, false>({
+  useState: useState,
+  useEffect: useEffect,
+  requestFunction: testTest,
+  autoTrigger: false,
+})
+
+/**
+ * 接口 **路径参数+对象** 的 **请求类型**
+ */
+export interface HihihiTestRequest {
+  /**
+   * 键1
+   */
+  K1: string;
+  /**
+   * 键2
+   */
+  K2?: number;
+  /**
+   * 嗨咯
+   */
+  hihihi: string;
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **返回类型**
+ */
+export interface HihihiTestResponse {}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求函数**
+ */
+export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestResponse> {
+  return request(prepare(hihihiTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求配置**
+ */
+hihihiTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/test/{id}/:hihihi_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"hihihi\\",\\"id\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/test/{id}/:hihihi_test\\",
+  undefined,
+  'hihihi' | 'id'
+>)
+
+/**
+ * 接口 **路径参数+对象** 的 **自动触发 API 的 React Hook**
+ */
+export const useAutoApiHihihiTest = createApiHook<typeof hihihiTest, false>({
+  useState: useState,
+  useEffect: useEffect,
+  requestFunction: hihihiTest,
+  autoTrigger: true,
+})
+
+/**
+ * 接口 **路径参数+对象** 的 **手动触发 API 的 React Hook**
+ */
+export const useManualApiHihihiTest = createApiHook<typeof hihihiTest, false>({
+  useState: useState,
+  useEffect: useEffect,
+  requestFunction: hihihiTest,
+  autoTrigger: false,
+})
+
+/**
  * 接口 **返回 raw** 的 **请求类型**
  */
 export interface RawResponseTestRequest {}
@@ -4423,10 +5210,7 @@ export type RawResponseTestResponse = any
  * 接口 **返回 raw** 的 **请求函数**
  */
 export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
-  return request({
-    ...rawResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(rawResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -4441,12 +5225,14 @@ rawResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4547,10 +5333,7 @@ export interface DeleteMethodTestResponse {}
  * 接口 **DELETE 方法** 的 **请求函数**
  */
 export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<DeleteMethodTestResponse> {
-  return request({
-    ...deleteMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(deleteMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -4565,12 +5348,14 @@ deleteMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/deleteMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4621,10 +5406,7 @@ export interface GetMethodTestResponse {
  * 接口 **GET 方法** 的 **请求函数**
  */
 export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMethodTestResponse> {
-  return request({
-    ...getMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(getMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -4639,12 +5421,14 @@ getMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/getMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4685,10 +5469,7 @@ export interface Json5ResponseTestResponse {
  * 接口 **JSON5 响应** 的 **请求函数**
  */
 export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promise<Json5ResponseTestResponse> {
-  return request({
-    ...json5ResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5ResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -4703,12 +5484,14 @@ json5ResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Response_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4749,10 +5532,7 @@ export interface Json5RequestTestResponse {}
  * 接口 **JSON5 请求** 的 **请求函数**
  */
 export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<Json5RequestTestResponse> {
-  return request({
-    ...json5RequestTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(json5RequestTest.requestConfig, requestData))
 }
 
 /**
@@ -4767,12 +5547,14 @@ json5RequestTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Request_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4832,10 +5614,7 @@ export interface PostMethodTestResponse {
  * 接口 **POST 方法** 的 **请求函数**
  */
 export function postMethodTest(requestData: PostMethodTestRequest): Promise<PostMethodTestResponse> {
-  return request({
-    ...postMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(postMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -4850,12 +5629,14 @@ postMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/postMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4910,10 +5691,7 @@ export interface PutMethodTestResponse {
  * 接口 **PUT 方法** 的 **请求函数**
  */
 export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMethodTestResponse> {
-  return request({
-    ...putMethodTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(putMethodTest.requestConfig, requestData))
 }
 
 /**
@@ -4928,12 +5706,14 @@ putMethodTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/putMethod_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -4993,10 +5773,7 @@ export interface DataKeyExampleTestResponse {
  * 接口 **dataKey 例子** 的 **请求函数**
  */
 export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Promise<DataKeyExampleTestResponse> {
-  return request({
-    ...dataKeyExampleTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(dataKeyExampleTest.requestConfig, requestData))
 }
 
 /**
@@ -5011,12 +5788,14 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -5053,10 +5832,7 @@ export interface NoResponseDataTestResponse {}
  * 接口 **没返回数据** 的 **请求函数**
  */
 export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Promise<NoResponseDataTestResponse> {
-  return request({
-    ...noResponseDataTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(noResponseDataTest.requestConfig, requestData))
 }
 
 /**
@@ -5071,12 +5847,14 @@ noResponseDataTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/noResponseData_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -5113,10 +5891,7 @@ export interface EmptyResponseTestResponse {}
  * 接口 **空返回数据** 的 **请求函数**
  */
 export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promise<EmptyResponseTestResponse> {
-  return request({
-    ...emptyResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(emptyResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -5131,12 +5906,14 @@ emptyResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**
@@ -5160,6 +5937,150 @@ export const useManualApiEmptyResponseTest = createApiHook<typeof emptyResponseT
 })
 
 /**
+ * 接口 **路径参数** 的 **请求类型**
+ */
+export interface TestTestRequest {
+  /**
+   * 23
+   */
+  id: string;
+  name: string;
+  pass: string;
+  test: string;
+  avatar: string;
+}
+
+/**
+ * 接口 **路径参数** 的 **返回类型**
+ */
+export interface TestTestResponse {}
+
+/**
+ * 接口 **路径参数** 的 **请求函数**
+ */
+export function testTest(requestData: TestTestRequest): Promise<TestTestResponse> {
+  return request(prepare(testTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数** 的 **请求配置**
+ */
+testTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
+  undefined,
+  'id' | 'name' | 'pass' | 'test' | 'avatar'
+>)
+
+/**
+ * 接口 **路径参数** 的 **自动触发 API 的 React Hook**
+ */
+export const useAutoApiTestTest = createApiHook<typeof testTest, false>({
+  useState: useState,
+  useEffect: useEffect,
+  requestFunction: testTest,
+  autoTrigger: true,
+})
+
+/**
+ * 接口 **路径参数** 的 **手动触发 API 的 React Hook**
+ */
+export const useManualApiTestTest = createApiHook<typeof testTest, false>({
+  useState: useState,
+  useEffect: useEffect,
+  requestFunction: testTest,
+  autoTrigger: false,
+})
+
+/**
+ * 接口 **路径参数+对象** 的 **请求类型**
+ */
+export interface HihihiTestRequest {
+  /**
+   * 键1
+   */
+  K1: string;
+  /**
+   * 键2
+   */
+  K2?: number;
+  /**
+   * 嗨咯
+   */
+  hihihi: string;
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **返回类型**
+ */
+export interface HihihiTestResponse {}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求函数**
+ */
+export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestResponse> {
+  return request(prepare(hihihiTest.requestConfig, requestData))
+}
+
+/**
+ * 接口 **路径参数+对象** 的 **请求配置**
+ */
+hihihiTest.requestConfig = Object.freeze({
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/test/{id}/:hihihi_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"hihihi\\",\\"id\\"],
+} as RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/test/{id}/:hihihi_test\\",
+  undefined,
+  'hihihi' | 'id'
+>)
+
+/**
+ * 接口 **路径参数+对象** 的 **自动触发 API 的 React Hook**
+ */
+export const useAutoApiHihihiTest = createApiHook<typeof hihihiTest, false>({
+  useState: useState,
+  useEffect: useEffect,
+  requestFunction: hihihiTest,
+  autoTrigger: true,
+})
+
+/**
+ * 接口 **路径参数+对象** 的 **手动触发 API 的 React Hook**
+ */
+export const useManualApiHihihiTest = createApiHook<typeof hihihiTest, false>({
+  useState: useState,
+  useEffect: useEffect,
+  requestFunction: hihihiTest,
+  autoTrigger: false,
+})
+
+/**
  * 接口 **返回 raw** 的 **请求类型**
  */
 export interface RawResponseTestRequest {}
@@ -5173,10 +6094,7 @@ export type RawResponseTestResponse = any
  * 接口 **返回 raw** 的 **请求函数**
  */
 export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
-  return request({
-    ...rawResponseTest.requestConfig,
-    ...parseRequestData(requestData)
-  } as any)
+  return request(prepare(rawResponseTest.requestConfig, requestData))
 }
 
 /**
@@ -5191,12 +6109,14 @@ rawResponseTest.requestConfig = Object.freeze({
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_0,
+  paramNames: [],
 } as RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
-  undefined
+  undefined,
+  string
 >)
 
 /**

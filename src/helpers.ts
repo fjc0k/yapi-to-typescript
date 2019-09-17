@@ -1,3 +1,5 @@
+import {RequestConfig, RequestFunctionParams} from './types'
+
 export class FileData<T = any> {
   /**
    * 原始文件数据。
@@ -48,4 +50,29 @@ export function parseRequestData(requestData?: any): { data: any, fileData: any 
     }
   }
   return result
+}
+
+/**
+ * 准备要传给请求函数的参数。
+ */
+export function prepare(requestConfig: RequestConfig, requestData: any): RequestFunctionParams {
+  let requestPath = requestConfig.path
+  const {data, fileData} = parseRequestData(requestData)
+  if (Array.isArray(requestConfig.paramNames) && requestConfig.paramNames.length > 0 && data != null && typeof data === 'object' && !Array.isArray(data)) {
+    Object.keys(data).forEach(key => {
+      if (requestConfig.paramNames.indexOf(key) >= 0) {
+        // ref: https://github.com/YMFE/yapi/blob/master/client/containers/Project/Interface/InterfaceList/InterfaceEditForm.js#L465
+        requestPath = requestPath
+          .replace(new RegExp(`\\{${key}\\}`, 'g'), data[key])
+          .replace(new RegExp(`/:${key}(?=/|$)`, 'g'), `/${data[key]}`)
+        delete data[key]
+      }
+    })
+  }
+  return {
+    ...requestConfig,
+    path: requestPath,
+    data: data,
+    fileData: fileData,
+  }
 }
