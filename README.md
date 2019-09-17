@@ -1,5 +1,3 @@
-> 这里是 v1 版本的文档，v0 版本的文档见：[yapi-to-typescript/tree/v0](https://github.com/fjc0k/yapi-to-typescript/tree/v0#yapi-to-typescript--)
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/logo.png" width="150" />
 </p>
@@ -8,9 +6,9 @@
 
 根据 [YApi](https://github.com/YMFE/yapi) 的接口定义生成 [TypeScript](https://github.com/Microsoft/TypeScript) 的接口类型及其请求函数代码。
 
-<!-- <img src="./assets/preview.png" width="750" /> -->
+<!-- <img src="./assets/preview.png" width="500" /> -->
 
-<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=20190820" width="750" />
+<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=20190917" width="500" />
 
 
 ## 环境要求
@@ -18,12 +16,17 @@
 - `Node >= 8`
 - `YApi >= 1.5.12`
 
+
 ## 特性
 
 - 支持多服务器、多项目、多分类
 - 支持预处理接口信息
 - 可自定义类型或函数名称
 - 完整的注释
+- 支持生成 React Hooks 的请求代码
+- 支持参数路径
+- 支持上传文件
+
 
 ## 安装
 
@@ -34,6 +37,7 @@ yarn add yapi-to-typescript
 # 或者，npm
 npm i yapi-to-typescript --save
 ```
+
 
 ## 使用
 
@@ -67,6 +71,7 @@ yarn ytt
 npx ytt
 ```
 
+
 ## 配置
 
 ### 概论
@@ -94,6 +99,7 @@ type Config = Servers
 ### 配置项
 
 具体配置项见：[API 文档](http://fjc0k.github.io/yapi-to-typescript/interfaces/serverconfig.html)。
+
 
 ## 许可
 
