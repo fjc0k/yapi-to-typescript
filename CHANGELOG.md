@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.18.0"></a>
+# [1.18.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.17.1...v1.18.0) (2019-09-17)
+
+
+### Features
+
+* 支持路径参数 (close: [#13](https://github.com/fjc0k/yapi-to-typescript/issues/13)) ([a15d848](https://github.com/fjc0k/yapi-to-typescript/commit/a15d848))
+
+
+
 <a name="1.17.1"></a>
 ## [1.17.1](https://github.com/fjc0k/yapi-to-typescript/compare/v1.17.0...v1.17.1) (2019-09-15)
 
