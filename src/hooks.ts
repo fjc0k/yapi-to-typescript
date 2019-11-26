@@ -38,11 +38,11 @@ interface ApiHookResult<T extends RequestFunction> {
   refresh: (callback?: () => any) => void,
 }
 
-interface ApiHook<T extends RequestFunction> {
+export interface ApiHook<T extends RequestFunction> {
   (requestData: Parameters<T>[0] | (() => Parameters<T>[0] | null | undefined)): ApiHookResult<T>,
 }
 
-interface ApiHookOptional<T extends RequestFunction> {
+export interface ApiHookOptional<T extends RequestFunction> {
   (requestData?: Parameters<T>[0] | (() => Parameters<T>[0] | null | undefined)): ApiHookResult<T>,
 }
 
