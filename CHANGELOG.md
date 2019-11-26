@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.18.2"></a>
+## [1.18.2](https://github.com/fjc0k/yapi-to-typescript/compare/v1.18.1...v1.18.2) (2019-11-26)
+
+
+### Bug Fixes
+
+* export ApiHook ([c8a8d9a](https://github.com/fjc0k/yapi-to-typescript/commit/c8a8d9a))
+
+
+
 <a name="1.18.1"></a>
 ## [1.18.1](https://github.com/fjc0k/yapi-to-typescript/compare/v1.18.0...v1.18.1) (2019-09-17)
 
