@@ -96,7 +96,7 @@
     "consola": "^2.3.0",
     "fs-extra": "^7.0.1",
     "json-schema-generator": "^2.0.6",
-    "json-schema-to-typescript": "^6.1.0",
+    "json-schema-to-typescript": "^8.0.0",
     "json-ts": "^1.6.4",
     "json5": "^2.1.0",
     "mockjs": "^1.0.1-beta3",

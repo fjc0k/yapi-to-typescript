@@ -1,7 +1,7 @@
 import jsonSchemaGenerator from 'json-schema-generator'
 import Mock from 'mockjs'
 import path from 'path'
-import {castArray, forOwn, isArray, isEmpty, isObject} from 'vtils'
+import {castArray, forOwn, isArray, isEmpty, isObject, randomString} from 'vtils'
 import {compile, Options} from 'json-schema-to-typescript'
 import {FileData} from './helpers'
 import {JSONSchema4} from 'json-schema'
@@ -175,6 +175,8 @@ export async function jsonSchemaToType(jsonSchema: JSONSchema4, typeName: string
   if (isEmpty(jsonSchema)) {
     return `export interface ${typeName} {}`
   }
-  const code = await compile(jsonSchema, typeName, JSTTOptions)
-  return code.trim()
+  // JSTT 会转换 typeName，因此传入一个全大写的假 typeName，生成代码后再替换回真正的 typeName
+  const fakeTypeName = `FAKE${randomString()}`.toUpperCase()
+  const code = await compile(jsonSchema, fakeTypeName, JSTTOptions)
+  return code.replace(fakeTypeName, typeName).trim()
 }

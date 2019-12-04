@@ -54,7 +54,7 @@ describe('cli', () => {
       fs.readFileSync(tempPaths.generatedConfigFile).toString()
         .replace('yapi-to-typescript', path.join(__dirname, '../src'))
         .replace(`dataKey: 'data',`, '')
-        .replace(`id: 50,`, `id: 58,`),
+        .replace(`id: 50,`, `id: 82,`),
     )
     await runCli(tempPaths.targetDir)
     expect(fs.readFileSync(tempPaths.generatedApiFile).toString()).toMatchSnapshot('接口文件')
