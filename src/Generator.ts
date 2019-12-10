@@ -494,7 +494,9 @@ export class Generator {
       },
       {
         label: '更新时间',
-        value: `\`${formatDate(interfaceInfo.up_time, 'YYYY-MM-DD HH:mm:ss')}\``,
+        value: process.env.JEST_WORKER_ID // 测试时使用 unix 时间戳
+          ? String(interfaceInfo.up_time)
+          : `\`${formatDate(interfaceInfo.up_time, 'YYYY-MM-DD HH:mm:ss')}\``,
       },
     ]
     const interfaceExtraComments: string = interfaceSummary
