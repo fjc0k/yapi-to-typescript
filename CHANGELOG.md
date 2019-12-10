@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.19.0"></a>
+# [1.19.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.18.3...v1.19.0) (2019-12-10)
+
+
+### Features
+
+* 为生成的代码增加接口摘要信息 ([d6daad2](https://github.com/fjc0k/yapi-to-typescript/commit/d6daad2))
+* 生成的文件添加 prettier-ignore ([66d5156](https://github.com/fjc0k/yapi-to-typescript/commit/66d5156))
+
+
+
 <a name="1.18.3"></a>
 ## [1.18.3](https://github.com/fjc0k/yapi-to-typescript/compare/v1.18.2...v1.18.3) (2019-12-04)
 
