@@ -204,6 +204,7 @@ export class Generator {
           dedent`
             /* tslint:disable */
             /* eslint-disable */
+            /* prettier-ignore */
 
             /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
