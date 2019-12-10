@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.19.1"></a>
+## [1.19.1](https://github.com/fjc0k/yapi-to-typescript/compare/v1.19.0...v1.19.1) (2019-12-10)
+
+
+### Bug Fixes
+
+* **ci:** 测试时使用 unix 时间戳 ([5d1edd0](https://github.com/fjc0k/yapi-to-typescript/commit/5d1edd0))
+
+
+
 <a name="1.19.0"></a>
 # [1.19.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.18.3...v1.19.0) (2019-12-10)
 
