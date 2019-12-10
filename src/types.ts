@@ -1,4 +1,5 @@
 import {JSONSchema4} from 'json-schema'
+import {LiteralUnion, Omit} from 'vtils'
 import {ParsedPath} from 'path'
 
 export interface ChangeCase {
@@ -144,14 +145,20 @@ export enum ResponseBodyType {
 export interface Interface {
   /** 接口 ID */
   _id: number,
+  /** 所属分类信息（由 YTT 自行实现） */
+  _category: Omit<Category, 'list'>,
   /** 接口名称 */
   title: string,
+  /** 状态 */
+  status: LiteralUnion<'done' | 'undone', string>,
   /** 接口备注 */
   markdown: string,
   /** 请求路径 */
   path: string,
   /** 请求方式，HEAD、OPTIONS 处理与 GET 相似，其余处理与 POST 相似 */
   method: Method,
+  /** 所属项目 id */
+  project_id: number,
   /** 所属分类 id */
   catid: number,
   /** 标签列表 */
@@ -201,6 +208,10 @@ export interface Interface {
   res_body_is_json_schema: boolean,
   /** 返回数据 */
   res_body: string,
+  /** 创建时间（unix时间戳） */
+  add_time: number,
+  /** 更新时间（unix时间戳） */
+  up_time: number,
   [key: string]: any,
 }
 
@@ -220,6 +231,10 @@ export interface Category {
   desc: string,
   /** 分类接口列表 */
   list: InterfaceList,
+  /** 创建时间（unix时间戳） */
+  add_time: number,
+  /** 更新时间（unix时间戳） */
+  up_time: number,
 }
 
 /** 分类列表，对应数据导出的 json 内容 */

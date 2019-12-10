@@ -92,6 +92,7 @@
   },
   "dependencies": {
     "@types/react": "^16.9.2",
+    "@vtils/date": "^2.55.0",
     "change-case": "^3.0.2",
     "consola": "^2.3.0",
     "fs-extra": "^7.0.1",
@@ -106,6 +107,6 @@
     "request-promise-native": "^1.0.5",
     "ts-node": "^8.0.2",
     "tslib": "^1.9.3",
-    "vtils": "^2.23.0"
+    "vtils": "^2.55.0"
   }
 }

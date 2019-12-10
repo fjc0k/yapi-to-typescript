@@ -3,8 +3,9 @@ import fs from 'fs-extra'
 import JSON5 from 'json5'
 import path from 'path'
 import request from 'request-promise-native'
-import {castArray, dedent, isArray, isEmpty, isFunction} from 'vtils'
+import {castArray, dedent, isArray, isEmpty, isFunction, omit} from 'vtils'
 import {CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig} from './types'
+import {formatDate} from '@vtils/date'
 import {getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError} from './utils'
 import {JSONSchema4} from 'json-schema'
 
@@ -364,6 +365,13 @@ export class Generator {
       ),
     )
 
+    if (category) {
+      category.list.forEach(interfaceInfo => {
+        // 实现 _category 字段
+        interfaceInfo._category = omit(category, ['list'])
+      })
+    }
+
     return category ? category.list : []
   }
 
@@ -468,27 +476,61 @@ export class Generator {
     // 转义标题中的 /
     const escapedTitle = String(interfaceInfo.title).replace(/\//g, '\\/')
 
+    // 接口标题
+    const interfaceTitle: string = `[${escapedTitle}↗](${syntheticalConfig.serverUrl}/project/${interfaceInfo.project_id}/interface/api/${interfaceInfo._id})`
+
+    // 接口摘要
+    const interfaceSummary: Array<{
+      label: string,
+      value: string | string[],
+    }> = [
+      {
+        label: '分类',
+        value: `[${interfaceInfo._category.name}↗](${syntheticalConfig.serverUrl}/project/${interfaceInfo.project_id}/interface/api/cat_${interfaceInfo.catid})`,
+      },
+      {
+        label: '标签',
+        value: interfaceInfo.tag.map(tag => `\`${tag}\``),
+      },
+      {
+        label: '更新时间',
+        value: `\`${formatDate(interfaceInfo.up_time, 'YYYY-MM-DD HH:mm:ss')}\``,
+      },
+    ]
+    const interfaceExtraComments: string = interfaceSummary
+      .filter(item => !isEmpty(item.value))
+      .map(item => `* @${item.label} ${castArray(item.value).join(', ')}`)
+      .join('\n')
+
     return dedent`
       /**
-       * 接口 **${escapedTitle}** 的 **请求类型**
+       * 接口 ${interfaceTitle} 的 **请求类型**
+       *
+       ${interfaceExtraComments}
        */
       ${requestDataType.trim()}
 
       /**
-       * 接口 **${escapedTitle}** 的 **返回类型**
+       * 接口 ${interfaceTitle} 的 **返回类型**
+       *
+       ${interfaceExtraComments}
        */
       ${responseDataType.trim()}
 
       ${syntheticalConfig.typesOnly ? '' : dedent`
         /**
-         * 接口 **${escapedTitle}** 的 **请求函数**
+         * 接口 ${interfaceTitle} 的 **请求函数**
+         *
+         ${interfaceExtraComments}
          */
         export function ${requestFunctionName}(requestData${isRequestDataOptional ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {
           return request(prepare(${requestFunctionName}.requestConfig, requestData))
         }
 
         /**
-         * 接口 **${escapedTitle}** 的 **请求配置**
+         * 接口 ${interfaceTitle} 的 **请求配置**
+         *
+         ${interfaceExtraComments}
          */
         ${requestFunctionName}.requestConfig = Object.freeze({
           mockUrl: mockUrl${categoryUID},
@@ -511,7 +553,9 @@ export class Generator {
 
         ${(!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable) ? '' : dedent`
           /**
-           * 接口 **${escapedTitle}** 的 **自动触发 API 的 React Hook**
+           * 接口 ${interfaceTitle} 的 **自动触发 API 的 React Hook**
+           *
+           ${interfaceExtraComments}
            */
           export const ${autoApiHookName} = createApiHook<typeof ${requestFunctionName}, ${isRequestDataOptional}>({
             useState: useState,
@@ -521,7 +565,9 @@ export class Generator {
           })
 
           /**
-           * 接口 **${escapedTitle}** 的 **手动触发 API 的 React Hook**
+           * 接口 ${interfaceTitle} 的 **手动触发 API 的 React Hook**
+           *
+           ${interfaceExtraComments}
            */
           export const ${manualApiHookName} = createApiHook<typeof ${requestFunctionName}, ${isRequestDataOptional}>({
             useState: useState,
