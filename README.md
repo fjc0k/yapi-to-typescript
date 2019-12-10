@@ -6,15 +6,9 @@
 
 根据 [YApi](https://github.com/YMFE/yapi) 的接口定义生成 [TypeScript](https://github.com/Microsoft/TypeScript) 的接口类型及其请求函数代码。
 
-<!-- <img src="./assets/preview.png" width="500" /> -->
+<!-- <img src="./assets/preview.png" width="700" /> -->
 
-<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=20190917" width="500" />
-
-
-## 环境要求
-
-- `Node >= 8`
-- `YApi >= 1.5.12`
+<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=20191210" width="700" />
 
 
 ## 特性
@@ -26,6 +20,12 @@
 - 支持生成 React Hooks 的请求代码
 - 支持参数路径
 - 支持上传文件
+
+
+## 环境要求
+
+- `Node >= 8`
+- `YApi >= 1.5.12`
 
 
 ## 安装
