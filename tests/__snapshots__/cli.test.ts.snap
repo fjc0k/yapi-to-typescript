@@ -132,6 +132,7 @@ const dataKey_0_0_0_0 = undefined as any
  * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /deleteMethod\`
  * @更新时间 1568765163
  */
 export interface DeleteMethodRequest {
@@ -145,6 +146,7 @@ export interface DeleteMethodRequest {
  * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /deleteMethod\`
  * @更新时间 1568765163
  */
 export interface DeleteMethodResponse {}
@@ -153,6 +155,7 @@ export interface DeleteMethodResponse {}
  * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /deleteMethod\`
  * @更新时间 1568765163
  */
 export function deleteMethod(requestData: DeleteMethodRequest): Promise<DeleteMethodResponse> {
@@ -163,6 +166,7 @@ export function deleteMethod(requestData: DeleteMethodRequest): Promise<DeleteMe
  * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /deleteMethod\`
  * @更新时间 1568765163
  */
 deleteMethod.requestConfig = Object.freeze({
@@ -188,6 +192,7 @@ deleteMethod.requestConfig = Object.freeze({
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /getMethod\`
  * @更新时间 1568765164
  */
 export interface GetMethodRequest {
@@ -205,6 +210,7 @@ export interface GetMethodRequest {
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /getMethod\`
  * @更新时间 1568765164
  */
 export interface GetMethodResponse {
@@ -218,6 +224,7 @@ export interface GetMethodResponse {
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /getMethod\`
  * @更新时间 1568765164
  */
 export function getMethod(requestData: GetMethodRequest): Promise<GetMethodResponse> {
@@ -228,6 +235,7 @@ export function getMethod(requestData: GetMethodRequest): Promise<GetMethodRespo
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /getMethod\`
  * @更新时间 1568765164
  */
 getMethod.requestConfig = Object.freeze({
@@ -253,6 +261,7 @@ getMethod.requestConfig = Object.freeze({
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /json5Response\`
  * @更新时间 1568765164
  */
 export interface Json5ResponseRequest {}
@@ -261,6 +270,7 @@ export interface Json5ResponseRequest {}
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /json5Response\`
  * @更新时间 1568765164
  */
 export interface Json5ResponseResponse {
@@ -273,6 +283,7 @@ export interface Json5ResponseResponse {
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /json5Response\`
  * @更新时间 1568765164
  */
 export function json5Response(requestData?: Json5ResponseRequest): Promise<Json5ResponseResponse> {
@@ -283,6 +294,7 @@ export function json5Response(requestData?: Json5ResponseRequest): Promise<Json5
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /json5Response\`
  * @更新时间 1568765164
  */
 json5Response.requestConfig = Object.freeze({
@@ -308,6 +320,7 @@ json5Response.requestConfig = Object.freeze({
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /json5Request\`
  * @更新时间 1568765164
  */
 export interface Json5RequestRequest {
@@ -320,6 +333,7 @@ export interface Json5RequestRequest {
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /json5Request\`
  * @更新时间 1568765164
  */
 export interface Json5RequestResponse {}
@@ -328,6 +342,7 @@ export interface Json5RequestResponse {}
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /json5Request\`
  * @更新时间 1568765164
  */
 export function json5Request(requestData: Json5RequestRequest): Promise<Json5RequestResponse> {
@@ -338,6 +353,7 @@ export function json5Request(requestData: Json5RequestRequest): Promise<Json5Req
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /json5Request\`
  * @更新时间 1568765164
  */
 json5Request.requestConfig = Object.freeze({
@@ -363,6 +379,7 @@ json5Request.requestConfig = Object.freeze({
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /postMethod\`
  * @更新时间 1568765164
  */
 export interface PostMethodRequest {
@@ -384,6 +401,7 @@ export interface PostMethodRequest {
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /postMethod\`
  * @更新时间 1568765164
  */
 export interface PostMethodResponse {
@@ -402,6 +420,7 @@ export interface PostMethodResponse {
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /postMethod\`
  * @更新时间 1568765164
  */
 export function postMethod(requestData: PostMethodRequest): Promise<PostMethodResponse> {
@@ -412,6 +431,7 @@ export function postMethod(requestData: PostMethodRequest): Promise<PostMethodRe
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /postMethod\`
  * @更新时间 1568765164
  */
 postMethod.requestConfig = Object.freeze({
@@ -437,6 +457,7 @@ postMethod.requestConfig = Object.freeze({
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`PUT /putMethod\`
  * @更新时间 1568765164
  */
 export interface PutMethodRequest {
@@ -450,6 +471,7 @@ export interface PutMethodRequest {
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`PUT /putMethod\`
  * @更新时间 1568765164
  */
 export interface PutMethodResponse {
@@ -471,6 +493,7 @@ export interface PutMethodResponse {
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`PUT /putMethod\`
  * @更新时间 1568765164
  */
 export function putMethod(requestData: PutMethodRequest): Promise<PutMethodResponse> {
@@ -481,6 +504,7 @@ export function putMethod(requestData: PutMethodRequest): Promise<PutMethodRespo
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`PUT /putMethod\`
  * @更新时间 1568765164
  */
 putMethod.requestConfig = Object.freeze({
@@ -506,6 +530,7 @@ putMethod.requestConfig = Object.freeze({
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`PUT /dataKeyExample\`
  * @更新时间 1568765165
  */
 export interface DataKeyExampleRequest {
@@ -519,6 +544,7 @@ export interface DataKeyExampleRequest {
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`PUT /dataKeyExample\`
  * @更新时间 1568765165
  */
 export interface DataKeyExampleResponse {
@@ -545,6 +571,7 @@ export interface DataKeyExampleResponse {
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`PUT /dataKeyExample\`
  * @更新时间 1568765165
  */
 export function dataKeyExample(requestData: DataKeyExampleRequest): Promise<DataKeyExampleResponse> {
@@ -555,6 +582,7 @@ export function dataKeyExample(requestData: DataKeyExampleRequest): Promise<Data
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`PUT /dataKeyExample\`
  * @更新时间 1568765165
  */
 dataKeyExample.requestConfig = Object.freeze({
@@ -580,6 +608,7 @@ dataKeyExample.requestConfig = Object.freeze({
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /noResponseData\`
  * @更新时间 1568765165
  */
 export interface NoResponseDataRequest {}
@@ -588,6 +617,7 @@ export interface NoResponseDataRequest {}
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /noResponseData\`
  * @更新时间 1568765165
  */
 export interface NoResponseDataResponse {}
@@ -596,6 +626,7 @@ export interface NoResponseDataResponse {}
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /noResponseData\`
  * @更新时间 1568765165
  */
 export function noResponseData(requestData?: NoResponseDataRequest): Promise<NoResponseDataResponse> {
@@ -606,6 +637,7 @@ export function noResponseData(requestData?: NoResponseDataRequest): Promise<NoR
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /noResponseData\`
  * @更新时间 1568765165
  */
 noResponseData.requestConfig = Object.freeze({
@@ -631,6 +663,7 @@ noResponseData.requestConfig = Object.freeze({
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /emptyResponse\`
  * @更新时间 1568765165
  */
 export interface EmptyResponseRequest {}
@@ -639,6 +672,7 @@ export interface EmptyResponseRequest {}
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /emptyResponse\`
  * @更新时间 1568765165
  */
 export interface EmptyResponseResponse {}
@@ -647,6 +681,7 @@ export interface EmptyResponseResponse {}
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /emptyResponse\`
  * @更新时间 1568765165
  */
 export function emptyResponse(requestData?: EmptyResponseRequest): Promise<EmptyResponseResponse> {
@@ -657,6 +692,7 @@ export function emptyResponse(requestData?: EmptyResponseRequest): Promise<Empty
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /emptyResponse\`
  * @更新时间 1568765165
  */
 emptyResponse.requestConfig = Object.freeze({
@@ -682,6 +718,7 @@ emptyResponse.requestConfig = Object.freeze({
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1568765165
  */
 export interface TestRequest {
@@ -699,6 +736,7 @@ export interface TestRequest {
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1568765165
  */
 export interface TestResponse {}
@@ -707,6 +745,7 @@ export interface TestResponse {}
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1568765165
  */
 export function test(requestData: TestRequest): Promise<TestResponse> {
@@ -717,6 +756,7 @@ export function test(requestData: TestRequest): Promise<TestResponse> {
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1568765165
  */
 test.requestConfig = Object.freeze({
@@ -742,6 +782,7 @@ test.requestConfig = Object.freeze({
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /test/{id}/:hihihi\`
  * @更新时间 1568765165
  */
 export interface HihihiRequest {
@@ -767,6 +808,7 @@ export interface HihihiRequest {
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /test/{id}/:hihihi\`
  * @更新时间 1568765165
  */
 export interface HihihiResponse {}
@@ -775,6 +817,7 @@ export interface HihihiResponse {}
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /test/{id}/:hihihi\`
  * @更新时间 1568765165
  */
 export function hihihi(requestData: HihihiRequest): Promise<HihihiResponse> {
@@ -785,6 +828,7 @@ export function hihihi(requestData: HihihiRequest): Promise<HihihiResponse> {
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /test/{id}/:hihihi\`
  * @更新时间 1568765165
  */
 hihihi.requestConfig = Object.freeze({
@@ -810,6 +854,7 @@ hihihi.requestConfig = Object.freeze({
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /rawResponse\`
  * @更新时间 1568765166
  */
 export interface RawResponseRequest {}
@@ -818,6 +863,7 @@ export interface RawResponseRequest {}
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /rawResponse\`
  * @更新时间 1568765166
  */
 export type RawResponseResponse = any
@@ -826,6 +872,7 @@ export type RawResponseResponse = any
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /rawResponse\`
  * @更新时间 1568765166
  */
 export function rawResponse(requestData?: RawResponseRequest): Promise<RawResponseResponse> {
@@ -836,6 +883,7 @@ export function rawResponse(requestData?: RawResponseRequest): Promise<RawRespon
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`GET /rawResponse\`
  * @更新时间 1568765166
  */
 rawResponse.requestConfig = Object.freeze({

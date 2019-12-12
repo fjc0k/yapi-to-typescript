@@ -493,6 +493,10 @@ export class Generator {
         value: interfaceInfo.tag.map(tag => `\`${tag}\``),
       },
       {
+        label: '请求头',
+        value: `\`${interfaceInfo.method.toUpperCase()} ${interfaceInfo.path}\``,
+      },
+      {
         label: '更新时间',
         value: process.env.JEST_WORKER_ID // 测试时使用 unix 时间戳
           ? String(interfaceInfo.up_time)
