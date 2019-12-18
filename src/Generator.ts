@@ -2,6 +2,7 @@ import * as changeCase from 'change-case'
 import fs from 'fs-extra'
 import JSON5 from 'json5'
 import path from 'path'
+import prettier from 'prettier'
 import request from 'request-promise-native'
 import {castArray, dedent, isArray, isEmpty, isFunction, omit} from 'vtils'
 import {CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig} from './types'
@@ -200,31 +201,40 @@ export class Generator {
           /\.(ts|js)x?$/i,
           '',
         )
-        await fs.outputFile(
-          outputFilePath,
-          dedent`
-            /* tslint:disable */
-            /* eslint-disable */
-            /* prettier-ignore */
+        const outputContent = dedent`
+          /* tslint:disable */
+          /* eslint-disable */
+          /* prettier-ignore */
 
-            /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
+          /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
-            ${syntheticalConfig.typesOnly ? content.join('\n\n').trim() : dedent`
+          ${syntheticalConfig.typesOnly ? content.join('\n\n').trim() : dedent`
+            // @ts-ignore
+            import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
+            ${!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable ? '' : dedent`
               // @ts-ignore
-              import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
-              ${!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable ? '' : dedent`
-                // @ts-ignore
-                import { createApiHook } from 'yapi-to-typescript'
-                // @ts-ignore
-                import { useState, useEffect } from '${syntheticalConfig.reactHooks.pragma || 'react'}'
-              `}
+              import { createApiHook } from 'yapi-to-typescript'
               // @ts-ignore
-              import request from ${JSON.stringify(requestFileRelativePathWithoutExt)}
-
-              ${content.join('\n\n').trim()}
+              import { useState, useEffect } from '${syntheticalConfig.reactHooks.pragma || 'react'}'
             `}
-          `,
-        )
+            // @ts-ignore
+            import request from ${JSON.stringify(requestFileRelativePathWithoutExt)}
+
+            ${content.join('\n\n').trim()}
+          `}
+        `
+        // ref: https://prettier.io/docs/en/options.html
+        const prettyOutputContent = prettier.format(outputContent, {
+          parser: 'typescript',
+          printWidth: 120,
+          tabWidth: 2,
+          singleQuote: true,
+          semi: false,
+          trailingComma: 'all',
+          bracketSpacing: false,
+          endOfLine: 'lf',
+        })
+        await fs.outputFile(outputFilePath, prettyOutputContent)
       }),
     )
   }

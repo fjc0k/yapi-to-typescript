@@ -122,11 +122,11 @@ exports[`cli 正确初始化配置文件 & 生成结果: 接口文件 1`] = `
 import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
 
 // @ts-ignore
-import request from \\"./request\\"
+import request from './request'
 
-const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
-const devUrl_0_0_0_0 = \\"\\" as any
-const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
+const mockUrl_0_0_0_0 = 'http://foo.bar/mock/32' as any
+const devUrl_0_0_0_0 = '' as any
+const prodUrl_0_0_0_0 = 'http://prod.com/' as any
 const dataKey_0_0_0_0 = undefined as any
 
 /**
@@ -140,7 +140,7 @@ export interface DeleteMethodRequest {
   /**
    * ID
    */
-  id: string;
+  id: string
 }
 
 /**
@@ -174,20 +174,13 @@ deleteMethod.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/deleteMethod\\",
+  path: '/deleteMethod',
   method: Method.DELETE,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/deleteMethod\\",
-  undefined,
-  string
->)
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod', undefined, string>)
 
 /**
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **请求类型**
@@ -200,11 +193,11 @@ export interface GetMethodRequest {
   /**
    * X 值
    */
-  x: string;
+  x: string
   /**
    * Y 值
    */
-  y?: string;
+  y?: string
 }
 
 /**
@@ -218,7 +211,7 @@ export interface GetMethodResponse {
   /**
    * 结果
    */
-  result: number;
+  result: number
 }
 
 /**
@@ -243,20 +236,13 @@ getMethod.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/getMethod\\",
+  path: '/getMethod',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/getMethod\\",
-  undefined,
-  string
->)
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod', undefined, string>)
 
 /**
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **请求类型**
@@ -275,9 +261,9 @@ export interface Json5ResponseRequest {}
  * @更新时间 1568765164
  */
 export interface Json5ResponseResponse {
-  id?: number;
-  age?: string;
-  name?: string;
+  id?: number
+  age?: string
+  name?: string
 }
 
 /**
@@ -302,20 +288,13 @@ json5Response.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/json5Response\\",
+  path: '/json5Response',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/json5Response\\",
-  undefined,
-  string
->)
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response', undefined, string>)
 
 /**
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **请求类型**
@@ -325,9 +304,9 @@ json5Response.requestConfig = Object.freeze({
  * @更新时间 1568765164
  */
 export interface Json5RequestRequest {
-  id: number;
-  name: string;
-  likes: {}[];
+  id: number
+  name: string
+  likes: {}[]
 }
 
 /**
@@ -361,20 +340,13 @@ json5Request.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/json5Request\\",
+  path: '/json5Request',
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/json5Request\\",
-  undefined,
-  string
->)
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request', undefined, string>)
 
 /**
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **请求类型**
@@ -387,15 +359,15 @@ export interface PostMethodRequest {
   /**
    * 页码
    */
-  page: number;
+  page: number
   /**
    * 每页数量
    */
-  limit: number;
+  limit: number
   /**
    * 关键词
    */
-  keyword?: string;
+  keyword?: string
 }
 
 /**
@@ -413,8 +385,8 @@ export interface PostMethodResponse {
     /**
      * 姓名
      */
-    name: string;
-  }[];
+    name: string
+  }[]
 }
 
 /**
@@ -439,20 +411,13 @@ postMethod.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/postMethod\\",
+  path: '/postMethod',
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/postMethod\\",
-  undefined,
-  string
->)
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod', undefined, string>)
 
 /**
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **请求类型**
@@ -465,7 +430,7 @@ export interface PutMethodRequest {
   /**
    * X 值
    */
-  x: string;
+  x: string
 }
 
 /**
@@ -479,15 +444,15 @@ export interface PutMethodResponse {
   /**
    * 错误
    */
-  err: number;
+  err: number
   /**
    * 错误详情
    */
-  msg: string;
+  msg: string
   /**
    * 数据
    */
-  data?: {};
+  data?: {}
 }
 
 /**
@@ -512,20 +477,13 @@ putMethod.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/putMethod\\",
+  path: '/putMethod',
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/putMethod\\",
-  undefined,
-  string
->)
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod', undefined, string>)
 
 /**
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **请求类型**
@@ -538,7 +496,7 @@ export interface DataKeyExampleRequest {
   /**
    * X 值
    */
-  x: string;
+  x: string
 }
 
 /**
@@ -552,11 +510,11 @@ export interface DataKeyExampleResponse {
   /**
    * 错误
    */
-  err: number;
+  err: number
   /**
    * 错误详情
    */
-  msg: string;
+  msg: string
   /**
    * 数据
    */
@@ -564,8 +522,8 @@ export interface DataKeyExampleResponse {
     /**
      * 成功啦
      */
-    success: boolean;
-  };
+    success: boolean
+  }
 }
 
 /**
@@ -590,20 +548,13 @@ dataKeyExample.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/dataKeyExample\\",
+  path: '/dataKeyExample',
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/dataKeyExample\\",
-  undefined,
-  string
->)
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample', undefined, string>)
 
 /**
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求类型**
@@ -645,20 +596,13 @@ noResponseData.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/noResponseData\\",
+  path: '/noResponseData',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/noResponseData\\",
-  undefined,
-  string
->)
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData', undefined, string>)
 
 /**
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **请求类型**
@@ -700,20 +644,13 @@ emptyResponse.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/emptyResponse\\",
+  path: '/emptyResponse',
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/emptyResponse\\",
-  undefined,
-  string
->)
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse', undefined, string>)
 
 /**
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **请求类型**
@@ -726,11 +663,11 @@ export interface TestRequest {
   /**
    * 23
    */
-  id: string;
-  name: string;
-  pass: string;
-  test: string;
-  avatar: string;
+  id: string
+  name: string
+  pass: string
+  test: string
+  avatar: string
 }
 
 /**
@@ -764,20 +701,13 @@ test.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/path/:id/hello/:name/:pass/{avatar}/:test\\",
+  path: '/path/:id/hello/:name/:pass/{avatar}/:test',
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
-  paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/path/:id/hello/:name/:pass/{avatar}/:test\\",
-  undefined,
-  'id' | 'name' | 'pass' | 'test' | 'avatar'
->)
+  paramNames: ['id', 'name', 'pass', 'test', 'avatar'],
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/path/:id/hello/:name/:pass/{avatar}/:test', undefined, 'id' | 'name' | 'pass' | 'test' | 'avatar'>)
 
 /**
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **请求类型**
@@ -790,19 +720,19 @@ export interface HihihiRequest {
   /**
    * 键1
    */
-  K1: string;
+  K1: string
   /**
    * 键2
    */
-  K2?: number;
+  K2?: number
   /**
    * 嗨咯
    */
-  hihihi: string;
+  hihihi: string
   /**
    * ID
    */
-  id: string;
+  id: string
 }
 
 /**
@@ -836,20 +766,13 @@ hihihi.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/test/{id}/:hihihi\\",
+  path: '/test/{id}/:hihihi',
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
-  paramNames: [\\"hihihi\\",\\"id\\"],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/test/{id}/:hihihi\\",
-  undefined,
-  'hihihi' | 'id'
->)
+  paramNames: ['hihihi', 'id'],
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/test/{id}/:hihihi', undefined, 'hihihi' | 'id'>)
 
 /**
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **请求类型**
@@ -891,20 +814,14 @@ rawResponse.requestConfig = Object.freeze({
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/rawResponse\\",
+  path: '/rawResponse',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
-} as RequestConfig<
-  \\"http://foo.bar/mock/32\\",
-  \\"\\",
-  \\"http://prod.com/\\",
-  \\"/rawResponse\\",
-  undefined,
-  string
->)"
+} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse', undefined, string>)
+"
 `;
 
 exports[`cli 正确初始化配置文件 & 生成结果: 请求文件 1`] = `
