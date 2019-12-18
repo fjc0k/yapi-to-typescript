@@ -197,7 +197,7 @@ export class Generator {
           requestFilePath,
         )
         const requestFileRelativePathWithoutExt = requestFileRelativePath.replace(
-          /\.(ts|js)$/i,
+          /\.(ts|js)x?$/i,
           '',
         )
         await fs.outputFile(
@@ -218,6 +218,7 @@ export class Generator {
                 // @ts-ignore
                 import { useState, useEffect } from '${syntheticalConfig.reactHooks.pragma || 'react'}'
               `}
+              // @ts-ignore
               import request from ${JSON.stringify(requestFileRelativePathWithoutExt)}
 
               ${content.join('\n\n').trim()}

@@ -10,6 +10,7 @@ exports[`Generator 正确生成代码并写入文件 - 全部分类: 接口文�
 // @ts-ignore
 import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
 
+// @ts-ignore
 import request from \\"./request\\"
 
 const mockUrl_0_0_0_1 = \\"http://foo.bar/mock/32\\" as any
