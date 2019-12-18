@@ -59,7 +59,7 @@ export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<
  * @请求头 \`DELETE /deleteMethod_test\`
  * @更新时间 1568765163
  */
-deleteMethodTest.requestConfig = Object.freeze({
+deleteMethodTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -69,7 +69,7 @@ deleteMethodTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod_test', undefined, string>)
+} as Readonly<RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod_test', undefined, string>>
 
 /**
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **请求类型**
@@ -121,7 +121,7 @@ export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMet
  * @请求头 \`GET /getMethod_test\`
  * @更新时间 1568765164
  */
-getMethodTest.requestConfig = Object.freeze({
+getMethodTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -131,7 +131,7 @@ getMethodTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod_test', undefined, string>)
+} as Readonly<RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod_test', undefined, string>>
 
 /**
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **请求类型**
@@ -173,7 +173,7 @@ export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promi
  * @请求头 \`GET /json5Response_test\`
  * @更新时间 1568765164
  */
-json5ResponseTest.requestConfig = Object.freeze({
+json5ResponseTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -183,7 +183,7 @@ json5ResponseTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response_test', undefined, string>)
+} as Readonly<RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response_test', undefined, string>>
 
 /**
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **请求类型**
@@ -225,7 +225,7 @@ export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<
  * @请求头 \`POST /json5Request_test\`
  * @更新时间 1568765164
  */
-json5RequestTest.requestConfig = Object.freeze({
+json5RequestTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -235,7 +235,7 @@ json5RequestTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request_test', undefined, string>)
+} as Readonly<RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request_test', undefined, string>>
 
 /**
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **请求类型**
@@ -296,7 +296,7 @@ export function postMethodTest(requestData: PostMethodTestRequest): Promise<Post
  * @请求头 \`POST /postMethod_test\`
  * @更新时间 1568765164
  */
-postMethodTest.requestConfig = Object.freeze({
+postMethodTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -306,7 +306,7 @@ postMethodTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod_test', undefined, string>)
+} as Readonly<RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod_test', undefined, string>>
 
 /**
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **请求类型**
@@ -362,7 +362,7 @@ export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMet
  * @请求头 \`PUT /putMethod_test\`
  * @更新时间 1568765164
  */
-putMethodTest.requestConfig = Object.freeze({
+putMethodTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -372,7 +372,7 @@ putMethodTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod_test', undefined, string>)
+} as Readonly<RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod_test', undefined, string>>
 
 /**
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **请求类型**
@@ -433,7 +433,7 @@ export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Prom
  * @请求头 \`PUT /dataKeyExample_test\`
  * @更新时间 1568765165
  */
-dataKeyExampleTest.requestConfig = Object.freeze({
+dataKeyExampleTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -443,7 +443,9 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample_test', undefined, string>)
+} as Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample_test', undefined, string>
+>
 
 /**
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求类型**
@@ -481,7 +483,7 @@ export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Pro
  * @请求头 \`GET /noResponseData_test\`
  * @更新时间 1568765165
  */
-noResponseDataTest.requestConfig = Object.freeze({
+noResponseDataTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -491,7 +493,9 @@ noResponseDataTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData_test', undefined, string>)
+} as Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData_test', undefined, string>
+>
 
 /**
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **请求类型**
@@ -529,7 +533,7 @@ export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promi
  * @请求头 \`POST /emptyResponse_test\`
  * @更新时间 1568765165
  */
-emptyResponseTest.requestConfig = Object.freeze({
+emptyResponseTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -539,7 +543,7 @@ emptyResponseTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse_test', undefined, string>)
+} as Readonly<RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse_test', undefined, string>>
 
 /**
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **请求类型**
@@ -586,7 +590,7 @@ export function testTest(requestData: TestTestRequest): Promise<TestTestResponse
  * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test_test\`
  * @更新时间 1568765165
  */
-testTest.requestConfig = Object.freeze({
+testTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -596,7 +600,16 @@ testTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: ['id', 'name', 'pass', 'test', 'avatar'],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/path/:id/hello/:name/:pass/{avatar}/:test_test', undefined, 'id' | 'name' | 'pass' | 'test' | 'avatar'>)
+} as Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/path/:id/hello/:name/:pass/{avatar}/:test_test',
+    undefined,
+    'id' | 'name' | 'pass' | 'test' | 'avatar'
+  >
+>
 
 /**
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **请求类型**
@@ -651,7 +664,7 @@ export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestRe
  * @请求头 \`POST /test/{id}/:hihihi_test\`
  * @更新时间 1568765165
  */
-hihihiTest.requestConfig = Object.freeze({
+hihihiTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -661,7 +674,9 @@ hihihiTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: ['hihihi', 'id'],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/test/{id}/:hihihi_test', undefined, 'hihihi' | 'id'>)
+} as Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/test/{id}/:hihihi_test', undefined, 'hihihi' | 'id'>
+>
 
 /**
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **请求类型**
@@ -699,7 +714,7 @@ export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<R
  * @请求头 \`GET /rawResponse_test\`
  * @更新时间 1568765166
  */
-rawResponseTest.requestConfig = Object.freeze({
+rawResponseTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -709,7 +724,7 @@ rawResponseTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse_test', undefined, string>)
+} as Readonly<RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse_test', undefined, string>>
 
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_2 = '' as any
@@ -758,7 +773,7 @@ export function get2Test(requestData?: Get2TestRequest): Promise<Get2TestRespons
  * @请求头 \`GET /get2_test\`
  * @更新时间 1575945946
  */
-get2Test.requestConfig = Object.freeze({
+get2Test.requestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
@@ -768,7 +783,7 @@ get2Test.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_2,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/get2_test', undefined, string>)
+} as Readonly<RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/get2_test', undefined, string>>
 
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_3 = '' as any
@@ -811,7 +826,7 @@ export function picture_3dDetailTest(requestData?: Picture_3dDetailTestRequest):
  * @请求头 \`GET /issue-17/picture_3d_detail_test\`
  * @更新时间 1575455147
  */
-picture_3dDetailTest.requestConfig = Object.freeze({
+picture_3dDetailTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
@@ -821,7 +836,9 @@ picture_3dDetailTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_3,
   paramNames: [],
-} as RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/issue-17/picture_3d_detail_test', undefined, string>)
+} as Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/issue-17/picture_3d_detail_test', undefined, string>
+>
 "
 `;
 
@@ -925,7 +942,7 @@ export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<
  * @请求头 \`DELETE /deleteMethod_test\`
  * @更新时间 1568765163
  */
-deleteMethodTest.requestConfig = Object.freeze({
+deleteMethodTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -935,14 +952,14 @@ deleteMethodTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/deleteMethod_test\\",
   undefined,
   string
->)
+>>
 
 /**
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **请求类型**
@@ -994,7 +1011,7 @@ export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMet
  * @请求头 \`GET /getMethod_test\`
  * @更新时间 1568765164
  */
-getMethodTest.requestConfig = Object.freeze({
+getMethodTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1004,14 +1021,14 @@ getMethodTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/getMethod_test\\",
   undefined,
   string
->)
+>>
 
 /**
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **请求类型**
@@ -1053,7 +1070,7 @@ export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promi
  * @请求头 \`GET /json5Response_test\`
  * @更新时间 1568765164
  */
-json5ResponseTest.requestConfig = Object.freeze({
+json5ResponseTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1063,14 +1080,14 @@ json5ResponseTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Response_test\\",
   undefined,
   string
->)
+>>
 
 /**
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **请求类型**
@@ -1112,7 +1129,7 @@ export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<
  * @请求头 \`POST /json5Request_test\`
  * @更新时间 1568765164
  */
-json5RequestTest.requestConfig = Object.freeze({
+json5RequestTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1122,14 +1139,14 @@ json5RequestTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/json5Request_test\\",
   undefined,
   string
->)
+>>
 
 /**
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **请求类型**
@@ -1190,7 +1207,7 @@ export function postMethodTest(requestData: PostMethodTestRequest): Promise<Post
  * @请求头 \`POST /postMethod_test\`
  * @更新时间 1568765164
  */
-postMethodTest.requestConfig = Object.freeze({
+postMethodTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1200,14 +1217,14 @@ postMethodTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/postMethod_test\\",
   undefined,
   string
->)
+>>
 
 /**
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **请求类型**
@@ -1263,7 +1280,7 @@ export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMet
  * @请求头 \`PUT /putMethod_test\`
  * @更新时间 1568765164
  */
-putMethodTest.requestConfig = Object.freeze({
+putMethodTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1273,14 +1290,14 @@ putMethodTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/putMethod_test\\",
   undefined,
   string
->)
+>>
 
 /**
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **请求类型**
@@ -1341,7 +1358,7 @@ export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Prom
  * @请求头 \`PUT /dataKeyExample_test\`
  * @更新时间 1568765165
  */
-dataKeyExampleTest.requestConfig = Object.freeze({
+dataKeyExampleTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1351,14 +1368,14 @@ dataKeyExampleTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test\\",
   undefined,
   string
->)
+>>
 
 /**
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求类型**
@@ -1396,7 +1413,7 @@ export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Pro
  * @请求头 \`GET /noResponseData_test\`
  * @更新时间 1568765165
  */
-noResponseDataTest.requestConfig = Object.freeze({
+noResponseDataTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1406,14 +1423,14 @@ noResponseDataTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/noResponseData_test\\",
   undefined,
   string
->)
+>>
 
 /**
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **请求类型**
@@ -1451,7 +1468,7 @@ export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promi
  * @请求头 \`POST /emptyResponse_test\`
  * @更新时间 1568765165
  */
-emptyResponseTest.requestConfig = Object.freeze({
+emptyResponseTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1461,14 +1478,14 @@ emptyResponseTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
   undefined,
   string
->)
+>>
 
 /**
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **请求类型**
@@ -1515,7 +1532,7 @@ export function testTest(requestData: TestTestRequest): Promise<TestTestResponse
  * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test_test\`
  * @更新时间 1568765165
  */
-testTest.requestConfig = Object.freeze({
+testTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1525,14 +1542,14 @@ testTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
   undefined,
   'id' | 'name' | 'pass' | 'test' | 'avatar'
->)
+>>
 
 /**
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **请求类型**
@@ -1587,7 +1604,7 @@ export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestRe
  * @请求头 \`POST /test/{id}/:hihihi_test\`
  * @更新时间 1568765165
  */
-hihihiTest.requestConfig = Object.freeze({
+hihihiTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1597,14 +1614,14 @@ hihihiTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_1,
   paramNames: [\\"hihihi\\",\\"id\\"],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/test/{id}/:hihihi_test\\",
   undefined,
   'hihihi' | 'id'
->)
+>>
 
 /**
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **请求类型**
@@ -1642,7 +1659,7 @@ export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<R
  * @请求头 \`GET /rawResponse_test\`
  * @更新时间 1568765166
  */
-rawResponseTest.requestConfig = Object.freeze({
+rawResponseTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1652,14 +1669,14 @@ rawResponseTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_1,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
   undefined,
   string
->)",
+>>",
   "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_2 = \\"\\" as any
 const prodUrl_0_0_0_2 = \\"http://prod.com/\\" as any
@@ -1707,7 +1724,7 @@ export function get2Test(requestData?: Get2TestRequest): Promise<Get2TestRespons
  * @请求头 \`GET /get2_test\`
  * @更新时间 1575945946
  */
-get2Test.requestConfig = Object.freeze({
+get2Test.requestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
@@ -1717,14 +1734,14 @@ get2Test.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_2,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/get2_test\\",
   undefined,
   string
->)",
+>>",
   "const mockUrl_0_0_0_3 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_3 = \\"\\" as any
 const prodUrl_0_0_0_3 = \\"http://prod.com/\\" as any
@@ -1766,7 +1783,7 @@ export function picture_3dDetailTest(requestData?: Picture_3dDetailTestRequest):
  * @请求头 \`GET /issue-17/picture_3d_detail_test\`
  * @更新时间 1575455147
  */
-picture_3dDetailTest.requestConfig = Object.freeze({
+picture_3dDetailTest.requestConfig = {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
@@ -1776,13 +1793,13 @@ picture_3dDetailTest.requestConfig = Object.freeze({
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_3,
   paramNames: [],
-} as RequestConfig<
+} as Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
   \\"/issue-17/picture_3d_detail_test\\",
   undefined,
   string
->)",
+>>",
 ]
 `;

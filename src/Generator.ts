@@ -549,7 +549,7 @@ export class Generator {
          *
          ${interfaceExtraComments}
          */
-        ${requestFunctionName}.requestConfig = Object.freeze({
+        ${requestFunctionName}.requestConfig = {
           mockUrl: mockUrl${categoryUID},
           devUrl: devUrl${categoryUID},
           prodUrl: prodUrl${categoryUID},
@@ -559,14 +559,14 @@ export class Generator {
           responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},
           dataKey: dataKey${categoryUID},
           paramNames: ${paramNamesLiteral},
-        } as RequestConfig<
+        } as Readonly<RequestConfig<
           ${JSON.stringify(syntheticalConfig.mockUrl)},
           ${JSON.stringify(syntheticalConfig.devUrl)},
           ${JSON.stringify(syntheticalConfig.prodUrl)},
           ${JSON.stringify(interfaceInfo.path)},
           ${JSON.stringify(syntheticalConfig.dataKey)},
           ${paramNameType}
-        >)
+        >>
 
         ${(!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable) ? '' : dedent`
           /**
