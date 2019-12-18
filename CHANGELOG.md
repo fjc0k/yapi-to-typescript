@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.20.0"></a>
+# [1.20.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.19.2...v1.20.0) (2019-12-18)
+
+
+### Bug Fixes
+
+* prettier-ignore ([8f89ecb](https://github.com/fjc0k/yapi-to-typescript/commit/8f89ecb))
+* 请求文件支持 .jsx、.tsx 后缀 ([0738605](https://github.com/fjc0k/yapi-to-typescript/commit/0738605))
+
+
+### Features
+
+* 使用 prettier 美化生成的接口文件 ([a3fe676](https://github.com/fjc0k/yapi-to-typescript/commit/a3fe676))
+
+
+
 <a name="1.19.2"></a>
 ## [1.19.2](https://github.com/fjc0k/yapi-to-typescript/compare/v1.19.1...v1.19.2) (2019-12-12)
 
