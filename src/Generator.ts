@@ -201,10 +201,9 @@ export class Generator {
           /\.(ts|js)x?$/i,
           '',
         )
-        const outputContent = dedent`
+        const rawOutputContent = dedent`
           /* tslint:disable */
           /* eslint-disable */
-          /* prettier-ignore */
 
           /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
@@ -224,7 +223,7 @@ export class Generator {
           `}
         `
         // ref: https://prettier.io/docs/en/options.html
-        const prettyOutputContent = prettier.format(outputContent, {
+        const prettyOutputContent = prettier.format(rawOutputContent, {
           parser: 'typescript',
           printWidth: 120,
           tabWidth: 2,
@@ -234,7 +233,12 @@ export class Generator {
           bracketSpacing: false,
           endOfLine: 'lf',
         })
-        await fs.outputFile(outputFilePath, prettyOutputContent)
+        const outputContent = `${dedent`
+          /* prettier-ignore-start */
+          ${prettyOutputContent}
+          /* prettier-ignore-end */
+        `}\n`
+        await fs.outputFile(outputFilePath, outputContent)
       }),
     )
   }

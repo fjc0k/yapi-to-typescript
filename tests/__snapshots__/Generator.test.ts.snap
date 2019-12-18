@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Generator 正确生成代码并写入文件 - 全部分类: 接口文件 1`] = `
-"/* tslint:disable */
+"/* prettier-ignore-start */
+/* tslint:disable */
 /* eslint-disable */
-/* prettier-ignore */
 
 /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
 // @ts-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
+import {Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare} from 'yapi-to-typescript'
 
 // @ts-ignore
 import request from './request'
@@ -839,6 +839,8 @@ picture_3dDetailTest.requestConfig = {
 } as Readonly<
   RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/issue-17/picture_3d_detail_test', undefined, string>
 >
+
+/* prettier-ignore-end */
 "
 `;
 
