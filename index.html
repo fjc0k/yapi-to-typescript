@@ -972,8 +972,8 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#propdefinitions" class="tsd-kind-icon">Prop<wbr>Definitions</a>
 		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#requestfunction" class="tsd-kind-icon">Request<wbr>Function</a>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="globals.html#requestfunctionrestargs" class="tsd-kind-icon">Request<wbr>Function<wbr>Rest<wbr>Args</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#syntheticalconfig" class="tsd-kind-icon">Synthetical<wbr>Config</a>
@@ -988,6 +988,27 @@ img { max-width: 100%; }
 			</p>
 			<h1 id="yapi-to-typescript-build-status-codecov">YApi to TypeScript <a href="https://travis-ci.org/fjc0k/yapi-to-typescript"><img src="https://travis-ci.org/fjc0k/yapi-to-typescript.svg?branch=master" alt="Build Status"></a> <a href="https://codecov.io/gh/fjc0k/yapi-to-typescript"><img src="https://codecov.io/gh/fjc0k/yapi-to-typescript/branch/master/graph/badge.svg" alt="codecov"></a></h1>
 			<p>根据 <a href="https://github.com/YMFE/yapi">YApi</a> 的接口定义生成 <a href="https://github.com/Microsoft/TypeScript">TypeScript</a> 的接口类型及其请求函数代码。</p>
+			<!-- TOC depthFrom:2 -->
+			<ul>
+				<li><a href="#%E9%A2%84%E8%A7%88">预览</a></li>
+				<li><a href="#%E7%89%B9%E6%80%A7">特性</a></li>
+				<li><a href="#%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82">环境要求</a></li>
+				<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+				<li><a href="#%E4%BD%BF%E7%94%A8">使用</a><ul>
+						<li><a href="#%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">生成配置文件</a></li>
+						<li><a href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">修改配置文件</a></li>
+						<li><a href="#%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81">生成代码</a></li>
+					</ul>
+				</li>
+				<li><a href="#%E9%85%8D%E7%BD%AE">配置</a><ul>
+						<li><a href="#%E6%A6%82%E8%AE%BA">概论</a></li>
+						<li><a href="#%E9%85%8D%E7%BD%AE%E9%A1%B9">配置项</a></li>
+					</ul>
+				</li>
+				<li><a href="#%E8%AE%B8%E5%8F%AF">许可</a></li>
+			</ul>
+			<!-- /TOC -->
+			<h2 id="-">预览</h2>
 			<!-- <img src="./assets/preview.png" width="700" /> -->
 			<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=20191210" width="700" />
 			<h2 id="-">特性</h2>
@@ -1022,7 +1043,7 @@ yarn ytt init
 npx ytt init</code></pre>
 			<h3 id="-">修改配置文件</h3>
 			<p>打开当前目录下的 <code>ytt.config.ts</code> 配置文件，直接修改即可。<a href="http://fjc0k.github.io/yapi-to-typescript/interfaces/serverconfig.html">查看配置说明</a></p>
-			<h3 id="-typescript-">生成 TypeScript 的接口类型及其请求函数代码</h3>
+			<h3 id="-">生成代码</h3>
 			<p>直接执行命令 <code>ytt</code> 即可抓取 <code>YApi</code> 的接口定义并生成相应的 <code>TypeScript</code> 代码：</p>
 			<pre><code class="language-bash"><span class="hljs-comment"># yarn</span>
 yarn ytt
@@ -1091,7 +1112,7 @@ npx ytt</code></pre>
 							<li class="tsd-kind-type-alias"><a href="globals.html#config" class="tsd-kind-icon">Config</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#interfacelist" class="tsd-kind-icon">Interface<wbr>List</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#propdefinitions" class="tsd-kind-icon">Prop<wbr>Definitions</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#requestfunction" class="tsd-kind-icon">Request<wbr>Function</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#requestfunctionrestargs" class="tsd-kind-icon">Request<wbr>Function<wbr>Rest<wbr>Args</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#syntheticalconfig" class="tsd-kind-icon">Synthetical<wbr>Config</a></li>
 						</ul>
 					</section>
@@ -1106,7 +1127,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Category<wbr>List<span class="tsd-signature-symbol">:</span> <a href="interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5128ef1/src/types.ts#L241">types.ts:241</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5fdab31/src/types.ts#L241">types.ts:241</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1121,7 +1142,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Config<span class="tsd-signature-symbol">:</span> <a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5128ef1/src/types.ts#L456">types.ts:456</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5fdab31/src/types.ts#L456">types.ts:456</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1136,7 +1157,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Interface<wbr>List<span class="tsd-signature-symbol">:</span> <a href="interfaces/interface.html" class="tsd-signature-type">Interface</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5128ef1/src/types.ts#L224">types.ts:224</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5fdab31/src/types.ts#L224">types.ts:224</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1151,7 +1172,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Prop<wbr>Definitions<span class="tsd-signature-symbol">:</span> <a href="interfaces/propdefinition.html" class="tsd-signature-type">PropDefinition</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5128ef1/src/types.ts#L522">types.ts:522</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5fdab31/src/types.ts#L517">types.ts:517</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1160,41 +1181,19 @@ npx ytt</code></pre>
 					</div>
 				</div>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="requestfunction" class="tsd-anchor"></a>
-				<h3>Request<wbr>Function</h3>
-				<div class="tsd-signature tsd-kind-icon">Request<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
+				<a name="requestfunctionrestargs" class="tsd-anchor"></a>
+				<h3>Request<wbr>Function<wbr>Rest<wbr>Args</h3>
+				<div class="tsd-signature tsd-kind-icon">Request<wbr>Function<wbr>Rest<wbr>Args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RequestFunctionRestArgs&lt;T&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5128ef1/src/types.ts#L504">types.ts:504</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5fdab31/src/types.ts#L502">types.ts:502</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>请求函数。</p>
+						<p>请求函数的额外参数</p>
 					</div>
-					<p>发起请求获得响应结果后应根据 <code>responseBodyType</code> 和 <code>dataKey</code> 对结果进行处理，并将处理后的数据返回。</p>
-				</div>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><a href="interfaces/requestfunctionparams.html" class="tsd-signature-type">RequestFunctionParams</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>params: <a href="interfaces/requestfunctionparams.html" class="tsd-signature-type">RequestFunctionParams</a></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
@@ -1203,7 +1202,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Synthetical<wbr>Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/projectconfig.html" class="tsd-signature-type">ProjectConfig</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/categoryconfig.html" class="tsd-signature-type">CategoryConfig</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5128ef1/src/types.ts#L444">types.ts:444</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/5fdab31/src/types.ts#L444">types.ts:444</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
