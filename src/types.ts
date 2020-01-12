@@ -492,19 +492,14 @@ export interface RequestConfig<
 export interface RequestFunctionParams extends RequestConfig {
   /** 请求数据，不含文件数据 */
   data: any,
+  /** 是否有文件数据 */
+  hasFileData: boolean,
   /** 请求文件数据 */
   fileData: Record<string, any>,
 }
 
-/**
- * 请求函数。
- *
- * 发起请求获得响应结果后应根据 `responseBodyType` 和 `dataKey` 对结果进行处理，并将处理后的数据返回。
- */
-export type RequestFunction = (
-  /** 参数 */
-  params: RequestFunctionParams,
-) => Promise<any>
+/** 请求函数的额外参数 */
+export type RequestFunctionRestArgs<T extends Function> = T extends (payload: any, ...args: infer R) => any ? R : never
 
 /** 属性定义 */
 export interface PropDefinition {

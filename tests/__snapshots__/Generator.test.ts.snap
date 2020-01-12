@@ -8,7 +8,15 @@ exports[`Generator 正确生成代码并写入文件 - 全部分类: 接口文�
 /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
 // @ts-ignore
-import {Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare} from 'yapi-to-typescript'
+import {
+  Method,
+  RequestBodyType,
+  ResponseBodyType,
+  RequestConfig,
+  RequestFunctionRestArgs,
+  FileData,
+  prepare,
+} from 'yapi-to-typescript'
 
 // @ts-ignore
 import request from './request'
@@ -48,8 +56,11 @@ export interface DeleteMethodTestResponse {}
  * @请求头 \`DELETE /deleteMethod_test\`
  * @更新时间 1568765163
  */
-export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<DeleteMethodTestResponse> {
-  return request(prepare(deleteMethodTest.requestConfig, requestData))
+export function deleteMethodTest(
+  requestData: DeleteMethodTestRequest,
+  ...args: RequestFunctionRestArgs<typeof request>
+) {
+  return request<DeleteMethodTestResponse>(prepare(deleteMethodTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -110,8 +121,8 @@ export interface GetMethodTestResponse {
  * @请求头 \`GET /getMethod_test\`
  * @更新时间 1568765164
  */
-export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMethodTestResponse> {
-  return request(prepare(getMethodTest.requestConfig, requestData))
+export function getMethodTest(requestData: GetMethodTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<GetMethodTestResponse>(prepare(getMethodTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -162,8 +173,11 @@ export interface Json5ResponseTestResponse {
  * @请求头 \`GET /json5Response_test\`
  * @更新时间 1568765164
  */
-export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promise<Json5ResponseTestResponse> {
-  return request(prepare(json5ResponseTest.requestConfig, requestData))
+export function json5ResponseTest(
+  requestData?: Json5ResponseTestRequest,
+  ...args: RequestFunctionRestArgs<typeof request>
+) {
+  return request<Json5ResponseTestResponse>(prepare(json5ResponseTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -214,8 +228,11 @@ export interface Json5RequestTestResponse {}
  * @请求头 \`POST /json5Request_test\`
  * @更新时间 1568765164
  */
-export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<Json5RequestTestResponse> {
-  return request(prepare(json5RequestTest.requestConfig, requestData))
+export function json5RequestTest(
+  requestData: Json5RequestTestRequest,
+  ...args: RequestFunctionRestArgs<typeof request>
+) {
+  return request<Json5RequestTestResponse>(prepare(json5RequestTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -285,8 +302,8 @@ export interface PostMethodTestResponse {
  * @请求头 \`POST /postMethod_test\`
  * @更新时间 1568765164
  */
-export function postMethodTest(requestData: PostMethodTestRequest): Promise<PostMethodTestResponse> {
-  return request(prepare(postMethodTest.requestConfig, requestData))
+export function postMethodTest(requestData: PostMethodTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<PostMethodTestResponse>(prepare(postMethodTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -351,8 +368,8 @@ export interface PutMethodTestResponse {
  * @请求头 \`PUT /putMethod_test\`
  * @更新时间 1568765164
  */
-export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMethodTestResponse> {
-  return request(prepare(putMethodTest.requestConfig, requestData))
+export function putMethodTest(requestData: PutMethodTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<PutMethodTestResponse>(prepare(putMethodTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -422,8 +439,11 @@ export interface DataKeyExampleTestResponse {
  * @请求头 \`PUT /dataKeyExample_test\`
  * @更新时间 1568765165
  */
-export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Promise<DataKeyExampleTestResponse> {
-  return request(prepare(dataKeyExampleTest.requestConfig, requestData))
+export function dataKeyExampleTest(
+  requestData: DataKeyExampleTestRequest,
+  ...args: RequestFunctionRestArgs<typeof request>
+) {
+  return request<DataKeyExampleTestResponse>(prepare(dataKeyExampleTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -472,8 +492,11 @@ export interface NoResponseDataTestResponse {}
  * @请求头 \`GET /noResponseData_test\`
  * @更新时间 1568765165
  */
-export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Promise<NoResponseDataTestResponse> {
-  return request(prepare(noResponseDataTest.requestConfig, requestData))
+export function noResponseDataTest(
+  requestData?: NoResponseDataTestRequest,
+  ...args: RequestFunctionRestArgs<typeof request>
+) {
+  return request<NoResponseDataTestResponse>(prepare(noResponseDataTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -522,8 +545,11 @@ export interface EmptyResponseTestResponse {}
  * @请求头 \`POST /emptyResponse_test\`
  * @更新时间 1568765165
  */
-export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promise<EmptyResponseTestResponse> {
-  return request(prepare(emptyResponseTest.requestConfig, requestData))
+export function emptyResponseTest(
+  requestData?: EmptyResponseTestRequest,
+  ...args: RequestFunctionRestArgs<typeof request>
+) {
+  return request<EmptyResponseTestResponse>(prepare(emptyResponseTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -579,8 +605,8 @@ export interface TestTestResponse {}
  * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test_test\`
  * @更新时间 1568765165
  */
-export function testTest(requestData: TestTestRequest): Promise<TestTestResponse> {
-  return request(prepare(testTest.requestConfig, requestData))
+export function testTest(requestData: TestTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<TestTestResponse>(prepare(testTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -653,8 +679,8 @@ export interface HihihiTestResponse {}
  * @请求头 \`POST /test/{id}/:hihihi_test\`
  * @更新时间 1568765165
  */
-export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestResponse> {
-  return request(prepare(hihihiTest.requestConfig, requestData))
+export function hihihiTest(requestData: HihihiTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<HihihiTestResponse>(prepare(hihihiTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -703,8 +729,11 @@ export type RawResponseTestResponse = any
  * @请求头 \`GET /rawResponse_test\`
  * @更新时间 1568765166
  */
-export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
-  return request(prepare(rawResponseTest.requestConfig, requestData))
+export function rawResponseTest(
+  requestData?: RawResponseTestRequest,
+  ...args: RequestFunctionRestArgs<typeof request>
+) {
+  return request<RawResponseTestResponse>(prepare(rawResponseTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -761,8 +790,8 @@ export interface Get2TestResponse {
  * @请求头 \`GET /get2_test\`
  * @更新时间 1575945946
  */
-export function get2Test(requestData?: Get2TestRequest): Promise<Get2TestResponse> {
-  return request(prepare(get2Test.requestConfig, requestData))
+export function get2Test(requestData?: Get2TestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<Get2TestResponse>(prepare(get2Test.requestConfig, requestData), ...args)
 }
 
 /**
@@ -815,8 +844,11 @@ export interface Picture_3dDetailTestResponse {}
  * @请求头 \`GET /issue-17/picture_3d_detail_test\`
  * @更新时间 1575455147
  */
-export function picture_3dDetailTest(requestData?: Picture_3dDetailTestRequest): Promise<Picture_3dDetailTestResponse> {
-  return request(prepare(picture_3dDetailTest.requestConfig, requestData))
+export function picture_3dDetailTest(
+  requestData?: Picture_3dDetailTestRequest,
+  ...args: RequestFunctionRestArgs<typeof request>
+) {
+  return request<Picture_3dDetailTestResponse>(prepare(picture_3dDetailTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -845,54 +877,21 @@ picture_3dDetailTest.requestConfig = {
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 全部分类: 请求文件 1`] = `
-"import { RequestFunction } from 'yapi-to-typescript'
+"import { RequestFunctionParams } from 'yapi-to-typescript'
 
-/** 是否是生产环境 */
-const isProd = false
+export interface RequestOptions {}
 
-/**
- * 请求函数。
- *
- * **注意**：若 dataKey 不为空，取得接口返回值后，应类似这样返回结果：
- *
- * \`\`\`js
- * return dataKey ? (response[dataKey] || response) : response
- * \`\`\`
- */
-const request: RequestFunction = ({
-  /** 接口 Mock 地址，结尾无 \`/\` */
-  mockUrl,
-  /** 接口测试环境地址，结尾无 \`/\` */
-  devUrl,
-  /** 接口生产环境地址，结尾无 \`/\` */
-  prodUrl,
-  /** 接口路径，以 \`/\` 开头 */
-  path,
-  /** 请求方法 */
-  method,
-  /** 请求数据类型 */
-  requestBodyType,
-  /** 返回数据类型 */
-  responseBodyType,
-  /** 接口返回值中数据所在的键 */
-  dataKey,
-  /** 请求数据，不含文件数据 */
-  data,
-  /** 请求文件数据 */
-  fileData
-}): Promise<any> => {
-  return new Promise((resolve, reject) => {
-    /** 请求地址 */
-    const url = \`\${isProd ? prodUrl : mockUrl}\${path}\`
+export default function request<TResponseData>(
+  payload: RequestFunctionParams,
+  options: RequestOptions = {},
+): Promise<TResponseData> {
+  return new Promise<any>((resolve, reject) => {
+    // 请求地址
+    const url = \`\${payload.prodUrl}\${payload.path}\`
 
-    /** 是否含有文件数据 */
-    const hasFileData = Object.keys(fileData).length > 0
-
-    // 在这里实现请求逻辑
+    // 具体请求逻辑
   })
-}
-
-export default request"
+}"
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 全部分类: 输出内容 1`] = `
@@ -933,8 +932,8 @@ export interface DeleteMethodTestResponse {}
  * @请求头 \`DELETE /deleteMethod_test\`
  * @更新时间 1568765163
  */
-export function deleteMethodTest(requestData: DeleteMethodTestRequest): Promise<DeleteMethodTestResponse> {
-  return request(prepare(deleteMethodTest.requestConfig, requestData))
+export function deleteMethodTest(requestData: DeleteMethodTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<DeleteMethodTestResponse>(prepare(deleteMethodTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1002,8 +1001,8 @@ export interface GetMethodTestResponse {
  * @请求头 \`GET /getMethod_test\`
  * @更新时间 1568765164
  */
-export function getMethodTest(requestData: GetMethodTestRequest): Promise<GetMethodTestResponse> {
-  return request(prepare(getMethodTest.requestConfig, requestData))
+export function getMethodTest(requestData: GetMethodTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<GetMethodTestResponse>(prepare(getMethodTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1061,8 +1060,8 @@ export interface Json5ResponseTestResponse {
  * @请求头 \`GET /json5Response_test\`
  * @更新时间 1568765164
  */
-export function json5ResponseTest(requestData?: Json5ResponseTestRequest): Promise<Json5ResponseTestResponse> {
-  return request(prepare(json5ResponseTest.requestConfig, requestData))
+export function json5ResponseTest(requestData?: Json5ResponseTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<Json5ResponseTestResponse>(prepare(json5ResponseTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1120,8 +1119,8 @@ export interface Json5RequestTestResponse {}
  * @请求头 \`POST /json5Request_test\`
  * @更新时间 1568765164
  */
-export function json5RequestTest(requestData: Json5RequestTestRequest): Promise<Json5RequestTestResponse> {
-  return request(prepare(json5RequestTest.requestConfig, requestData))
+export function json5RequestTest(requestData: Json5RequestTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<Json5RequestTestResponse>(prepare(json5RequestTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1198,8 +1197,8 @@ export interface PostMethodTestResponse {
  * @请求头 \`POST /postMethod_test\`
  * @更新时间 1568765164
  */
-export function postMethodTest(requestData: PostMethodTestRequest): Promise<PostMethodTestResponse> {
-  return request(prepare(postMethodTest.requestConfig, requestData))
+export function postMethodTest(requestData: PostMethodTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<PostMethodTestResponse>(prepare(postMethodTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1271,8 +1270,8 @@ export interface PutMethodTestResponse {
  * @请求头 \`PUT /putMethod_test\`
  * @更新时间 1568765164
  */
-export function putMethodTest(requestData: PutMethodTestRequest): Promise<PutMethodTestResponse> {
-  return request(prepare(putMethodTest.requestConfig, requestData))
+export function putMethodTest(requestData: PutMethodTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<PutMethodTestResponse>(prepare(putMethodTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1349,8 +1348,8 @@ export interface DataKeyExampleTestResponse {
  * @请求头 \`PUT /dataKeyExample_test\`
  * @更新时间 1568765165
  */
-export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest): Promise<DataKeyExampleTestResponse> {
-  return request(prepare(dataKeyExampleTest.requestConfig, requestData))
+export function dataKeyExampleTest(requestData: DataKeyExampleTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<DataKeyExampleTestResponse>(prepare(dataKeyExampleTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1404,8 +1403,8 @@ export interface NoResponseDataTestResponse {}
  * @请求头 \`GET /noResponseData_test\`
  * @更新时间 1568765165
  */
-export function noResponseDataTest(requestData?: NoResponseDataTestRequest): Promise<NoResponseDataTestResponse> {
-  return request(prepare(noResponseDataTest.requestConfig, requestData))
+export function noResponseDataTest(requestData?: NoResponseDataTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<NoResponseDataTestResponse>(prepare(noResponseDataTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1459,8 +1458,8 @@ export interface EmptyResponseTestResponse {}
  * @请求头 \`POST /emptyResponse_test\`
  * @更新时间 1568765165
  */
-export function emptyResponseTest(requestData?: EmptyResponseTestRequest): Promise<EmptyResponseTestResponse> {
-  return request(prepare(emptyResponseTest.requestConfig, requestData))
+export function emptyResponseTest(requestData?: EmptyResponseTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<EmptyResponseTestResponse>(prepare(emptyResponseTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1523,8 +1522,8 @@ export interface TestTestResponse {}
  * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test_test\`
  * @更新时间 1568765165
  */
-export function testTest(requestData: TestTestRequest): Promise<TestTestResponse> {
-  return request(prepare(testTest.requestConfig, requestData))
+export function testTest(requestData: TestTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<TestTestResponse>(prepare(testTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1595,8 +1594,8 @@ export interface HihihiTestResponse {}
  * @请求头 \`POST /test/{id}/:hihihi_test\`
  * @更新时间 1568765165
  */
-export function hihihiTest(requestData: HihihiTestRequest): Promise<HihihiTestResponse> {
-  return request(prepare(hihihiTest.requestConfig, requestData))
+export function hihihiTest(requestData: HihihiTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<HihihiTestResponse>(prepare(hihihiTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1650,8 +1649,8 @@ export type RawResponseTestResponse = any
  * @请求头 \`GET /rawResponse_test\`
  * @更新时间 1568765166
  */
-export function rawResponseTest(requestData?: RawResponseTestRequest): Promise<RawResponseTestResponse> {
-  return request(prepare(rawResponseTest.requestConfig, requestData))
+export function rawResponseTest(requestData?: RawResponseTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<RawResponseTestResponse>(prepare(rawResponseTest.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1714,8 +1713,8 @@ export interface Get2TestResponse {
  * @请求头 \`GET /get2_test\`
  * @更新时间 1575945946
  */
-export function get2Test(requestData?: Get2TestRequest): Promise<Get2TestResponse> {
-  return request(prepare(get2Test.requestConfig, requestData))
+export function get2Test(requestData?: Get2TestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<Get2TestResponse>(prepare(get2Test.requestConfig, requestData), ...args)
 }
 
 /**
@@ -1774,8 +1773,8 @@ export interface Picture_3dDetailTestResponse {}
  * @请求头 \`GET /issue-17/picture_3d_detail_test\`
  * @更新时间 1575455147
  */
-export function picture_3dDetailTest(requestData?: Picture_3dDetailTestRequest): Promise<Picture_3dDetailTestResponse> {
-  return request(prepare(picture_3dDetailTest.requestConfig, requestData))
+export function picture_3dDetailTest(requestData?: Picture_3dDetailTestRequest, ...args: RequestFunctionRestArgs<typeof request>) {
+  return request<Picture_3dDetailTestResponse>(prepare(picture_3dDetailTest.requestConfig, requestData), ...args)
 }
 
 /**

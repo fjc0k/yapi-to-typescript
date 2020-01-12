@@ -140,54 +140,21 @@ export class Generator {
           await fs.outputFile(
             requestFilePath,
             dedent`
-              import { RequestFunction } from 'yapi-to-typescript'
+              import { RequestFunctionParams } from 'yapi-to-typescript'
 
-              /** 是否是生产环境 */
-              const isProd = false
+              export interface RequestOptions {}
 
-              /**
-               * 请求函数。
-               *
-               * **注意**：若 dataKey 不为空，取得接口返回值后，应类似这样返回结果：
-               *
-               * \`\`\`js
-               * return dataKey ? (response[dataKey] || response) : response
-               * \`\`\`
-               */
-              const request: RequestFunction = ({
-                /** 接口 Mock 地址，结尾无 \`/\` */
-                mockUrl,
-                /** 接口测试环境地址，结尾无 \`/\` */
-                devUrl,
-                /** 接口生产环境地址，结尾无 \`/\` */
-                prodUrl,
-                /** 接口路径，以 \`/\` 开头 */
-                path,
-                /** 请求方法 */
-                method,
-                /** 请求数据类型 */
-                requestBodyType,
-                /** 返回数据类型 */
-                responseBodyType,
-                /** 接口返回值中数据所在的键 */
-                dataKey,
-                /** 请求数据，不含文件数据 */
-                data,
-                /** 请求文件数据 */
-                fileData
-              }): Promise<any> => {
-                return new Promise((resolve, reject) => {
-                  /** 请求地址 */
-                  const url = \`\${isProd ? prodUrl : mockUrl}\${path}\`
+              export default function request<TResponseData>(
+                payload: RequestFunctionParams,
+                options: RequestOptions = {},
+              ): Promise<TResponseData> {
+                return new Promise<any>((resolve, reject) => {
+                  // 请求地址
+                  const url = \`\${payload.prodUrl}\${payload.path}\`
 
-                  /** 是否含有文件数据 */
-                  const hasFileData = Object.keys(fileData).length > 0
-
-                  // 在这里实现请求逻辑
+                  // 具体请求逻辑
                 })
               }
-
-              export default request
             `,
           )
         }
@@ -209,7 +176,7 @@ export class Generator {
 
           ${syntheticalConfig.typesOnly ? content.join('\n\n').trim() : dedent`
             // @ts-ignore
-            import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
+            import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
             ${!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable ? '' : dedent`
               // @ts-ignore
               import { createApiHook } from 'yapi-to-typescript'
@@ -544,8 +511,8 @@ export class Generator {
          *
          ${interfaceExtraComments}
          */
-        export function ${requestFunctionName}(requestData${isRequestDataOptional ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {
-          return request(prepare(${requestFunctionName}.requestConfig, requestData))
+        export function ${requestFunctionName}(requestData${isRequestDataOptional ? '?' : ''}: ${requestDataTypeName}, ...args: RequestFunctionRestArgs<typeof request>) {
+          return request<${responseDataTypeName}>(prepare(${requestFunctionName}.requestConfig, requestData), ...args)
         }
 
         /**

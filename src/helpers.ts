@@ -73,6 +73,7 @@ export function prepare(requestConfig: RequestConfig, requestData: any): Request
     ...requestConfig,
     path: requestPath,
     data: data,
+    hasFileData: fileData && Object.keys(fileData).length > 0,
     fileData: fileData,
   }
 }
