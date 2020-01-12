@@ -450,10 +450,28 @@ export type SyntheticalConfig = Partial<(
     devUrl: string,
     prodUrl: string,
   }
+  & RequestToolConfig
 )>
+
+/** 请求工具配置。 */
+export type RequestToolConfig = {
+  /**
+   * 请求工具类型定义路径。
+   */
+  packagePath: string,
+  /**
+   * 请求工具Options类型名称。
+   */
+  optionsType: string,
+}
 
 /** 配置。 */
 export type Config = ServerConfig | ServerConfig[]
+
+export type GeneratorConfig = {
+  yapiConfig: Config,
+  requestToolConfig?: RequestToolConfig,
+}
 
 /**
  * 请求配置。
@@ -504,6 +522,7 @@ export interface RequestFunctionParams extends RequestConfig {
 export type RequestFunction = (
   /** 参数 */
   params: RequestFunctionParams,
+  options?: any
 ) => Promise<any>
 
 /** 属性定义 */
