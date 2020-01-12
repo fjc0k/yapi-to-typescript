@@ -5,7 +5,7 @@ import path from 'path'
 import prettier from 'prettier'
 import request from 'request-promise-native'
 import {castArray, dedent, isArray, isEmpty, isFunction, omit} from 'vtils'
-import {CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig} from './types'
+import {CategoryList, ExtendedInterface, GeneratorConfig, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, RequestToolConfig, Required, ResponseBodyType, ServerConfig, SyntheticalConfig} from './types'
 import {formatDate} from '@vtils/date'
 import {getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError} from './utils'
 import {JSONSchema4} from 'json-schema'
@@ -20,24 +20,31 @@ interface OutputFileList {
 
 export class Generator {
   /** 配置 */
-  private config: ServerConfig[] = []
+  private config: {
+    yapiConfig: ServerConfig[],
+    requestToolConfig?: RequestToolConfig,
+  }
 
   /** { 项目标识: 分类列表 } */
   private projectIdToCategoryList: Record<string, CategoryList | undefined> = Object.create(null)
 
   constructor(
-    config: Config,
+    config: GeneratorConfig,
     private options: { cwd: string } = {cwd: process.cwd()},
   ) {
     // config 可能是对象或数组，统一为数组
-    this.config = castArray(config)
+    this.config = {
+      yapiConfig: castArray(config.yapiConfig),
+      requestToolConfig: config.requestToolConfig,
+    }
   }
 
   async generate(): Promise<OutputFileList> {
     const outputFileList: OutputFileList = Object.create(null)
+    const {requestToolConfig} = this.config
 
     await Promise.all(
-      this.config.map(
+      this.config.yapiConfig.map(
         async (serverConfig, serverIndex) => Promise.all(
           serverConfig.projects.map(
             async (projectConfig, projectIndex) => {
@@ -65,6 +72,7 @@ export class Generator {
                           ...projectConfig,
                           ...categoryConfig,
                           mockUrl: projectInfo.getMockUrl(),
+                          ...requestToolConfig,
                         }
                         syntheticalConfig.devUrl = projectInfo.getDevUrl(syntheticalConfig.devEnvName!)
                         syntheticalConfig.prodUrl = projectInfo.getProdUrl(syntheticalConfig.prodEnvName!)
@@ -131,6 +139,7 @@ export class Generator {
   }
 
   async write(outputFileList: OutputFileList) {
+    const {requestToolConfig: {packagePath = '', optionsType = ''} = {}} = this.config
     return Promise.all(
       Object.keys(outputFileList).map(async outputFilePath => {
         const {content, requestFilePath, syntheticalConfig} = outputFileList[outputFilePath]
@@ -141,6 +150,7 @@ export class Generator {
             requestFilePath,
             dedent`
               import { RequestFunction } from 'yapi-to-typescript'
+              ${packagePath && optionsType ? `import { ${optionsType} } from '${packagePath}'` : ''}
 
               /** 是否是生产环境 */
               const isProd = false
@@ -175,7 +185,7 @@ export class Generator {
                 data,
                 /** 请求文件数据 */
                 fileData
-              }): Promise<any> => {
+              }${packagePath && optionsType ? `, options: ${optionsType}` : ''}): Promise<any> => {
                 return new Promise((resolve, reject) => {
                   /** 请求地址 */
                   const url = \`\${isProd ? prodUrl : mockUrl}\${path}\`
@@ -210,6 +220,7 @@ export class Generator {
           ${syntheticalConfig.typesOnly ? content.join('\n\n').trim() : dedent`
             // @ts-ignore
             import { Method, RequestBodyType, ResponseBodyType, RequestConfig, FileData, prepare } from 'yapi-to-typescript'
+            ${packagePath && optionsType ? `import { ${optionsType} } from '${packagePath}'` : ''}
             ${!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable ? '' : dedent`
               // @ts-ignore
               import { createApiHook } from 'yapi-to-typescript'
@@ -522,6 +533,7 @@ export class Generator {
       .filter(item => !isEmpty(item.value))
       .map(item => `* @${item.label} ${castArray(item.value).join(', ')}`)
       .join('\n')
+    const {packagePath, optionsType} = syntheticalConfig
 
     return dedent`
       /**
@@ -544,8 +556,8 @@ export class Generator {
          *
          ${interfaceExtraComments}
          */
-        export function ${requestFunctionName}(requestData${isRequestDataOptional ? '?' : ''}: ${requestDataTypeName}): Promise<${responseDataTypeName}> {
-          return request(prepare(${requestFunctionName}.requestConfig, requestData))
+        export function ${requestFunctionName}(requestData${isRequestDataOptional ? '?' : ''}: ${requestDataTypeName}${packagePath && optionsType ? `, options: ${optionsType}` : ''}): Promise<${responseDataTypeName}> {
+          return request(prepare(${requestFunctionName}.requestConfig, requestData)${packagePath && optionsType ? `, options` : ''})
         }
 
         /**
