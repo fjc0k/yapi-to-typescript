@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.20.0...v2.0.0) (2020-01-12)
+
+
+### Features
+
+* 接口请求函数支持设置选项 ([4a23350](https://github.com/fjc0k/yapi-to-typescript/commit/4a23350))
+
+
+
 <a name="1.20.0"></a>
 # [1.20.0](https://github.com/fjc0k/yapi-to-typescript/compare/v1.19.2...v1.20.0) (2019-12-18)
 
