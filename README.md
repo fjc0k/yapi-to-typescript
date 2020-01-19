@@ -27,7 +27,7 @@
 
 <!-- <img src="./assets/preview.png" width="700" /> -->
 
-<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=20191210" width="700" />
+<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/v2/assets/preview.png?v=20191210" width="700" />
 
 
 ## 特性
@@ -51,10 +51,10 @@
 
 ```bash
 # yarn
-yarn add yapi-to-typescript
+yarn add yapi-to-typescript@2.0.1
 
 # 或者，npm
-npm i yapi-to-typescript --save
+npm i yapi-to-typescript@2.0.1 --save
 ```
 
 
