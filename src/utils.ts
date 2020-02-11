@@ -54,8 +54,8 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
   // 去除 title 和 id，防止 json-schema-to-typescript 提取它们作为接口名
   delete jsonSchema.title
   delete jsonSchema.id
-  
-  // 忽略条目个数限制
+
+  // 忽略数组长度限制
   delete jsonSchema.minItems
   delete jsonSchema.maxItems
 
@@ -146,7 +146,7 @@ export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): J
         res[prop.name] = {
           type: prop.type,
           description: prop.comment,
-          ...(prop.type === 'file' ? {tsType: FileData.name} : {}),
+          ...(prop.type === 'file' as any ? {tsType: FileData.name} : {}),
         }
         return res
       },
