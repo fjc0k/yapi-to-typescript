@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.2"></a>
+## [2.0.2](https://github.com/fjc0k/yapi-to-typescript/compare/v2.0.1...v2.0.2) (2020-02-11)
+
+
+### Bug Fixes
+
+* 忽略 JSONSchema 数组的长度限制 ([#20](https://github.com/fjc0k/yapi-to-typescript/issues/20)) ([096a72b](https://github.com/fjc0k/yapi-to-typescript/commit/096a72b))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/fjc0k/yapi-to-typescript/compare/v2.0.0...v2.0.1) (2020-01-13)
 
