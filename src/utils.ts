@@ -59,6 +59,10 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
   delete jsonSchema.title
   delete jsonSchema.id
 
+  // 忽略数组长度限制
+  delete jsonSchema.minItems
+  delete jsonSchema.maxItems
+
   // 将 additionalProperties 设为 false
   jsonSchema.additionalProperties = false
 
