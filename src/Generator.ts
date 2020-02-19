@@ -198,15 +198,32 @@ export class Generator {
             await fs.outputFile(
               requestHookMakerFilePath,
               dedent`
-                // ref: https://www.npmjs.com/package/swr
-                import useSWR, { SWRConfig } from 'swr'
+                import { useState, useEffect } from 'react'
+                import { RequestConfig } from 'yapi-to-typescript'
+                import { Request } from ${JSON.stringify(getNormalizedRelativePath(requestHookMakerFilePath, outputFilePath))}
+                import baseRequest from ${JSON.stringify(getNormalizedRelativePath(requestHookMakerFilePath, requestFunctionFilePath))}
 
-                export default function makeRequestHook<TRequestData, TResponseData>(request) {
-                  return function useRequest(
-                    data: (() => TRequestData | null) | TRequestData | null,
-                    config?: SWRConfig,
-                  ) {
-                    return useSWR([request.requestConfig.url, data], )
+                export default function makeRequestHook<TRequestData, TRequestConfig extends RequestConfig, TRequestResult extends ReturnType<typeof baseRequest>>(request: Request<TRequestData, TRequestConfig, TRequestResult>) {
+                  type Data = TRequestResult extends Promise<infer R> ? R : TRequestResult
+                  return function useRequest(requestData: TRequestData) {
+                    // 一个简单的 Hook 实现，实际项目可结合其他库使用，比如：
+                    // @umijs/hooks 的 useRequest (https://github.com/umijs/hooks)
+                    // swr (https://github.com/zeit/swr)
+
+                    const [loading, setLoading] = useState(true)
+                    const [data, setData] = useState<Data>()
+
+                    useEffect(() => {
+                      request(requestData).then(data => {
+                        setLoading(false)
+                        setData(data as any)
+                      })
+                    }, [JSON.stringify(requestData)])
+
+                    return {
+                      loading,
+                      data,
+                    }
                   }
                 }
               `,
@@ -229,8 +246,46 @@ export class Generator {
             import request from ${JSON.stringify(getNormalizedRelativePath(outputFilePath, requestFunctionFilePath))}
             ${!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enabled ? '' : dedent`
               // @ts-ignore
-              import makeRequestHook from '${JSON.stringify(getNormalizedRelativePath(outputFilePath, requestHookMakerFilePath))}'
+              import makeRequestHook from ${JSON.stringify(getNormalizedRelativePath(outputFilePath, requestHookMakerFilePath))}
             `}
+
+            // makeRequest
+            function makeRequestRequired<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(requestConfig: TRequestConfig) {
+              const req = function (requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
+                return request<TResponseData>(prepare(requestConfig, requestData), ...args)
+              }
+              req.requestConfig = requestConfig
+              return req
+            }
+            function makeRequestOptional<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(requestConfig: TRequestConfig) {
+              const req = function (requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
+                return request<TResponseData>(prepare(requestConfig, requestData), ...args)
+              }
+              req.requestConfig = requestConfig
+              return req
+            }
+            function makeRequest<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(requestConfig: TRequestConfig) {
+              const optional = makeRequestOptional<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
+              const required = makeRequestRequired<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
+              return (
+                requestConfig.requestDataOptional
+                  ? optional
+                  : required
+                ) as (
+                  TRequestConfig['requestDataOptional'] extends true
+                    ? typeof optional
+                    : typeof required
+                )
+            }
+
+            // Request
+            export type Request<TReqeustData, TRequestConfig extends RequestConfig, TRequestResult> = (
+              TRequestConfig['requestDataOptional'] extends true
+                ? (requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
+                : (requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
+            ) & {
+              requestConfig: TRequestConfig
+            }
 
             ${content.join('\n\n').trim()}
           `}
@@ -456,6 +511,8 @@ export class Generator {
         changeCase,
       )
       : changeCase.camelCase(interfaceInfo.parsedPath.name)
+    const requestConfigName = changeCase.camelCase(`${requestFunctionName}RequestConfig`)
+    const requestConfigTypeName = changeCase.pascalCase(requestConfigName)
     const requestDataTypeName = isFunction(syntheticalConfig.getRequestDataTypeName)
       ? await syntheticalConfig.getRequestDataTypeName(
         extendedInterfaceInfo,
@@ -546,20 +603,25 @@ export class Generator {
 
       ${syntheticalConfig.typesOnly ? '' : dedent`
         /**
-         * 接口 ${interfaceTitle} 的 **请求函数**
+         * 接口 ${interfaceTitle} 的 **请求配置的类型**
          *
          ${interfaceExtraComments}
-         */
-        export function ${requestFunctionName}(requestData${isRequestDataOptional ? '?' : ''}: ${requestDataTypeName}, ...args: RequestFunctionRestArgs<typeof request>) {
-          return request<${responseDataTypeName}>(prepare(${requestFunctionName}.requestConfig, requestData), ...args)
-        }
+        */
+        type ${requestConfigTypeName} = Readonly<RequestConfig<
+          ${JSON.stringify(syntheticalConfig.mockUrl)},
+          ${JSON.stringify(syntheticalConfig.devUrl)},
+          ${JSON.stringify(syntheticalConfig.prodUrl)},
+          ${JSON.stringify(interfaceInfo.path)},
+          ${JSON.stringify(syntheticalConfig.dataKey)},
+          ${paramNameType}
+        >>
 
         /**
          * 接口 ${interfaceTitle} 的 **请求配置**
          *
          ${interfaceExtraComments}
-         */
-        ${requestFunctionName}.requestConfig = {
+        */
+        const ${requestConfigName}: ${requestConfigTypeName} = {
           mockUrl: mockUrl${categoryUID},
           devUrl: devUrl${categoryUID},
           prodUrl: prodUrl${categoryUID},
@@ -569,14 +631,15 @@ export class Generator {
           responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},
           dataKey: dataKey${categoryUID},
           paramNames: ${paramNamesLiteral},
-        } as Readonly<RequestConfig<
-          ${JSON.stringify(syntheticalConfig.mockUrl)},
-          ${JSON.stringify(syntheticalConfig.devUrl)},
-          ${JSON.stringify(syntheticalConfig.prodUrl)},
-          ${JSON.stringify(interfaceInfo.path)},
-          ${JSON.stringify(syntheticalConfig.dataKey)},
-          ${paramNameType}
-        >>
+          requestDataOptional: ${JSON.stringify(isRequestDataOptional)},
+        }
+
+        /**
+         * 接口 ${interfaceTitle} 的 **请求函数**
+         *
+         ${interfaceExtraComments}
+         */
+        export const ${requestFunctionName} = makeRequest<${requestDataTypeName}, ${responseDataTypeName}, ${requestConfigTypeName}>(${requestConfigName})
 
         ${(!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enabled) ? '' : dedent`
           /**
@@ -584,7 +647,7 @@ export class Generator {
            *
            ${interfaceExtraComments}
            */
-          export const ${requestHookName} = makeRequestHook<${requestDataTypeName}, ${responseDataTypeName}>(${requestFunctionName})
+          export const ${requestHookName} = makeRequestHook<${requestDataTypeName}, ${requestConfigTypeName}, ReturnType<typeof ${requestFunctionName}>>(${requestFunctionName})
         `}
       `}
     `

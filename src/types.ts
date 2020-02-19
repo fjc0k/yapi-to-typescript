@@ -475,6 +475,8 @@ export interface RequestConfig<
   dataKey: DataKey,
   /** 路径参数的名称列表 */
   paramNames: ParamName[],
+  /** 请求数据是否可选 */
+  requestDataOptional: boolean,
 }
 
 /**
