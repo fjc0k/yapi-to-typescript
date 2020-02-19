@@ -35,10 +35,14 @@ export function toUnixPath(path: string) {
  * @returns 相对路径
  */
 export function getNormalizedRelativePath(from: string, to: string) {
-  return toUnixPath(path.relative(from, to))
+  return toUnixPath(path.relative(path.dirname(from), to))
     .replace(
       /^(?=[^.])/,
       './',
+    )
+    .replace(
+      /\.(ts|js)x?$/i,
+      '',
     )
 }
 
@@ -142,7 +146,7 @@ export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): J
         res[prop.name] = {
           type: prop.type,
           description: prop.comment,
-          ...(prop.type === 'file' ? {tsType: FileData.name} : {}),
+          ...(prop.type === 'file' as any ? {tsType: FileData.name} : {}),
         }
         return res
       },

@@ -245,34 +245,25 @@ export interface ReactHooksConfig {
   /**
    * 是否开启该项功能。
    */
-  enable: boolean,
+  enabled: boolean,
 
   /**
-   * 从何处引入 useState、useEffect 等 Hooks。
+   * 请求 Hook 函数制造者文件路径。
    *
-   * @default 'react'
+   * @default 与 `outputFilePath` 同级目录下的 `makeRequestHook.ts` 文件
+   * @example 'src/api/makeRequestHook.ts'
    */
-  pragma?: string,
+  requestHookMakerFilePath?: string,
 
   /**
-   * 获取自动触发 API 的 Hook 的名称。
+   * 获取请求 Hook 的名称。
    *
-   * @default `useAutoApi${changeCase.pascalCase(requestFunctionName)}`
+   * @default `use${changeCase.pascalCase(requestFunctionName)}`
    * @param interfaceInfo 接口信息
    * @param changeCase 常用的大小写转换函数集合对象
-   * @returns Hook 的名称
+   * @returns 请求 Hook 的名称
    */
-  getAutoApiHookName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
-
-  /**
-   * 获取手动触发 API 的 Hook 的名称。
-   *
-   * @default `useManualApi${changeCase.pascalCase(requestFunctionName)}`
-   * @param interfaceInfo 接口信息
-   * @param changeCase 常用的大小写转换函数集合对象
-   * @returns Hook 的名称
-   */
-  getManualApiHookName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+  getRequestHookName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
 }
 
 /**

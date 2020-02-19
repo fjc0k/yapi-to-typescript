@@ -14,7 +14,8 @@ interface OutputFileList {
   [outputFilePath: string]: {
     syntheticalConfig: SyntheticalConfig,
     content: string[],
-    requestFilePath: string,
+    requestFunctionFilePath: string,
+    requestHookMakerFilePath: string,
   },
 }
 
@@ -102,7 +103,7 @@ export class Generator {
                           outputFileList[outputFilePath] = {
                             syntheticalConfig,
                             content: [],
-                            requestFilePath: (
+                            requestFunctionFilePath: (
                               syntheticalConfig.requestFunctionFilePath
                                 ? path.resolve(
                                   this.options.cwd,
@@ -112,6 +113,21 @@ export class Generator {
                                   path.dirname(outputFilePath),
                                   'request.ts',
                                 )
+                            ),
+                            requestHookMakerFilePath: (
+                              syntheticalConfig.reactHooks && syntheticalConfig.reactHooks.enabled
+                                ? (
+                                  syntheticalConfig.reactHooks.requestHookMakerFilePath
+                                    ? path.resolve(
+                                      this.options.cwd,
+                                      syntheticalConfig.reactHooks.requestHookMakerFilePath,
+                                    )
+                                    : path.join(
+                                      path.dirname(outputFilePath),
+                                      'makeRequestHook.ts',
+                                    )
+                                )
+                                : ''
                             ),
                           }
                         }
@@ -133,61 +149,72 @@ export class Generator {
   async write(outputFileList: OutputFileList) {
     return Promise.all(
       Object.keys(outputFileList).map(async outputFilePath => {
-        const {content, requestFilePath, syntheticalConfig} = outputFileList[outputFilePath]
+        const {content, requestFunctionFilePath, requestHookMakerFilePath, syntheticalConfig} = outputFileList[outputFilePath]
 
-        // 若非 typesOnly 模式且 request 文件不存在，则写入 request 文件
-        if (!syntheticalConfig.typesOnly && !(await fs.pathExists(requestFilePath))) {
-          await fs.outputFile(
-            requestFilePath,
-            dedent`
-              import { RequestFunctionParams } from 'yapi-to-typescript'
+        if (!syntheticalConfig.typesOnly) {
+          if (!(await fs.pathExists(requestFunctionFilePath))) {
+            await fs.outputFile(
+              requestFunctionFilePath,
+              dedent`
+                import { RequestFunctionParams } from 'yapi-to-typescript'
 
-              export interface RequestOptions {
-                /**
-                 * 使用的服务器。
-                 *
-                 * - \`prod\`: 生产服务器
-                 * - \`dev\`: 测试服务器
-                 * - \`mock\`: 模拟服务器
-                 *
-                 * @default prod
-                 */
-                server?: 'prod' | 'dev' | 'mock',
-              }
+                export interface RequestOptions {
+                  /**
+                   * 使用的服务器。
+                   *
+                   * - \`prod\`: 生产服务器
+                   * - \`dev\`: 测试服务器
+                   * - \`mock\`: 模拟服务器
+                   *
+                   * @default prod
+                   */
+                  server?: 'prod' | 'dev' | 'mock',
+                }
 
-              export default function request<TResponseData>(
-                payload: RequestFunctionParams,
-                options: RequestOptions = {
-                  server: 'prod',
-                },
-              ): Promise<TResponseData> {
-                return new Promise<TResponseData>((resolve, reject) => {
-                  // 基本地址
-                  const baseUrl = options.server === 'mock'
-                    ? payload.mockUrl
-                    : options.server === 'dev'
-                      ? payload.devUrl
-                      : payload.prodUrl
+                export default function request<TResponseData>(
+                  payload: RequestFunctionParams,
+                  options: RequestOptions = {
+                    server: 'prod',
+                  },
+                ): Promise<TResponseData> {
+                  return new Promise<TResponseData>((resolve, reject) => {
+                    // 基本地址
+                    const baseUrl = options.server === 'mock'
+                      ? payload.mockUrl
+                      : options.server === 'dev'
+                        ? payload.devUrl
+                        : payload.prodUrl
 
-                  // 请求地址
-                  const url = \`\${baseUrl}\${payload.path}\`
+                    // 请求地址
+                    const url = \`\${baseUrl}\${payload.path}\`
 
-                  // 具体请求逻辑
-                })
-              }
-            `,
-          )
+                    // 具体请求逻辑
+                  })
+                }
+              `,
+            )
+          }
+          if (!(await fs.pathExists(requestHookMakerFilePath))) {
+            await fs.outputFile(
+              requestHookMakerFilePath,
+              dedent`
+                // ref: https://www.npmjs.com/package/swr
+                import useSWR, { SWRConfig } from 'swr'
+
+                export default function makeRequestHook<TRequestData, TResponseData>(request) {
+                  return function useRequest(
+                    data: (() => TRequestData | null) | TRequestData | null,
+                    config?: SWRConfig,
+                  ) {
+                    return useSWR([request.requestConfig.url, data], )
+                  }
+                }
+              `,
+            )
+          }
         }
 
         // 始终写入主文件
-        const requestFileRelativePath = getNormalizedRelativePath(
-          path.dirname(outputFilePath),
-          requestFilePath,
-        )
-        const requestFileRelativePathWithoutExt = requestFileRelativePath.replace(
-          /\.(ts|js)x?$/i,
-          '',
-        )
         const rawOutputContent = dedent`
           /* tslint:disable */
           /* eslint-disable */
@@ -196,15 +223,14 @@ export class Generator {
 
           ${syntheticalConfig.typesOnly ? content.join('\n\n').trim() : dedent`
             // @ts-ignore
+            // prettier-ignore
             import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
-            ${!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable ? '' : dedent`
-              // @ts-ignore
-              import { createApiHook } from 'yapi-to-typescript'
-              // @ts-ignore
-              import { useState, useEffect } from '${syntheticalConfig.reactHooks.pragma || 'react'}'
-            `}
             // @ts-ignore
-            import request from ${JSON.stringify(requestFileRelativePathWithoutExt)}
+            import request from ${JSON.stringify(getNormalizedRelativePath(outputFilePath, requestFunctionFilePath))}
+            ${!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enabled ? '' : dedent`
+              // @ts-ignore
+              import makeRequestHook from '${JSON.stringify(getNormalizedRelativePath(outputFilePath, requestHookMakerFilePath))}'
+            `}
 
             ${content.join('\n\n').trim()}
           `}
@@ -452,23 +478,16 @@ export class Generator {
       dataKey: syntheticalConfig.dataKey,
     })
     const isRequestDataOptional = /(\{\}|any)$/s.test(requestDataType)
-
-    let autoApiHookName!: string
-    let manualApiHookName!: string
-    if (syntheticalConfig.reactHooks && syntheticalConfig.reactHooks.enable) {
-      autoApiHookName = isFunction(syntheticalConfig.reactHooks.getAutoApiHookName)
-        ? await syntheticalConfig.reactHooks.getAutoApiHookName(
-          extendedInterfaceInfo,
-          changeCase,
-        )
-        : `useAutoApi${changeCase.pascalCase(requestFunctionName)}`
-      manualApiHookName = isFunction(syntheticalConfig.reactHooks.getManualApiHookName)
-        ? await syntheticalConfig.reactHooks.getManualApiHookName(
-          extendedInterfaceInfo,
-          changeCase,
-        )
-        : `useManualApi${changeCase.pascalCase(requestFunctionName)}`
-    }
+    const requestHookName = syntheticalConfig.reactHooks && syntheticalConfig.reactHooks.enabled
+      ? (
+        isFunction(syntheticalConfig.reactHooks.getRequestHookName)
+          ? await syntheticalConfig.reactHooks.getRequestHookName(
+            extendedInterfaceInfo,
+            changeCase,
+          )
+          : `use${changeCase.pascalCase(requestFunctionName)}`
+      )
+      : ''
 
     // 支持路径参数
     const paramNames = (interfaceInfo.req_params || []).map(item => item.name)
@@ -559,30 +578,13 @@ export class Generator {
           ${paramNameType}
         >>
 
-        ${(!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enable) ? '' : dedent`
+        ${(!syntheticalConfig.reactHooks || !syntheticalConfig.reactHooks.enabled) ? '' : dedent`
           /**
-           * 接口 ${interfaceTitle} 的 **自动触发 API 的 React Hook**
+           * 接口 ${interfaceTitle} 的 **React Hook**
            *
            ${interfaceExtraComments}
            */
-          export const ${autoApiHookName} = createApiHook<typeof ${requestFunctionName}, ${isRequestDataOptional}>({
-            useState: useState,
-            useEffect: useEffect,
-            requestFunction: ${requestFunctionName},
-            autoTrigger: true,
-          })
-
-          /**
-           * 接口 ${interfaceTitle} 的 **手动触发 API 的 React Hook**
-           *
-           ${interfaceExtraComments}
-           */
-          export const ${manualApiHookName} = createApiHook<typeof ${requestFunctionName}, ${isRequestDataOptional}>({
-            useState: useState,
-            useEffect: useEffect,
-            requestFunction: ${requestFunctionName},
-            autoTrigger: false,
-          })
+          export const ${requestHookName} = makeRequestHook<${requestDataTypeName}, ${responseDataTypeName}>(${requestFunctionName})
         `}
       `}
     `
