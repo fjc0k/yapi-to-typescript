@@ -51,10 +51,10 @@
 
 ```bash
 # yarn
-yarn add yapi-to-typescript@2.0.1
+yarn add yapi-to-typescript@2.0.2
 
 # 或者，npm
-npm i yapi-to-typescript@2.0.1 --save
+npm i yapi-to-typescript@2.0.2 --save
 ```
 
 
@@ -117,7 +117,7 @@ type Config = Servers
 
 ### 配置项
 
-具体配置项见：[API 文档](http://fjc0k.github.io/yapi-to-typescript/interfaces/serverconfig.html)。
+具体配置项见：[API 文档](http://fjc0k.github.io/yapi-to-typescript/v2/interfaces/serverconfig.html)。
 
 
 ## 许可
