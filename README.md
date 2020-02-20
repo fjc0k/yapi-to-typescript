@@ -117,7 +117,7 @@ type Config = Servers
 
 ### 配置项
 
-具体配置项见：[API 文档](http://fjc0k.github.io/yapi-to-typescript/interfaces/serverconfig.html)。
+具体配置项见：[API 文档](http://fjc0k.github.io/yapi-to-typescript/v3/interfaces/serverconfig.html)。
 
 
 ## 许可
