@@ -9,3 +9,4 @@ ytt.config.ts
 *_cache
 /client
 /docs
+/src/api

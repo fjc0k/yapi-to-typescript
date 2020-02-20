@@ -32,7 +32,7 @@
     "url": "https://github.com/fjc0k"
   },
   "scripts": {
-    "docs": "typedoc --out docs --theme minimal --mode file src/types.ts && gh-pages -d docs",
+    "docs": "typedoc --out docs --theme minimal --mode file src/types.ts && gh-pages --dist docs --dest v2",
     "lint": "eslint --fix --ext .ts src/",
     "testApi": "ts-node --transpile-only src/cli.ts",
     "testOnly": "jest",
