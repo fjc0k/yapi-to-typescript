@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/fjc0k/yapi-to-typescript/compare/v2.0.2...v3.0.0) (2020-02-20)
+
+
+### Bug Fixes
+
+* 仅在 React Hooks 启用时生成相关代码 ([7736b7b](https://github.com/fjc0k/yapi-to-typescript/commit/7736b7b))
+
+
+### Features
+
+* 重写 React Hooks 实现 ([4ba4f15](https://github.com/fjc0k/yapi-to-typescript/commit/4ba4f15))
+* 重构 ([91a6fc3](https://github.com/fjc0k/yapi-to-typescript/commit/91a6fc3))
+
+
+
 <a name="2.0.2"></a>
 ## [2.0.2](https://github.com/fjc0k/yapi-to-typescript/compare/v2.0.1...v2.0.2) (2020-02-11)
 
