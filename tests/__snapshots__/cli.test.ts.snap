@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`cli help: help 1`] = `
+"
+# 用法
+  初始化配置文件: ytt init
+  生成代码: ytt
+  查看版本: ytt version
+  查看帮助: ytt help
+
+# GitHub
+  https://github.com/fjc0k/yapi-to-typescript
+"
+`;
+
 exports[`cli 检查到已有配置，可以选择不覆盖: 不覆盖后的配置文件 1`] = `"hello"`;
 
 exports[`cli 检查到已有配置，可以选择不覆盖: 修改过的配置文件 1`] = `"hello"`;
@@ -677,6 +690,73 @@ const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
 export const dataKeyExample = makeRequest<DataKeyExampleRequest, DataKeyExampleResponse, DataKeyExampleRequestConfig>(
   dataKeyExampleRequestConfig,
 )
+
+/**
+ * 接口 [文件↗](http://foo.bar/project/27/interface/api/887) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /upload\`
+ * @更新时间 1582161261
+ */
+export interface UploadRequest {
+  /**
+   * 文件
+   */
+  file: FileData
+  /**
+   * 名称
+   */
+  name: string
+}
+
+/**
+ * 接口 [文件↗](http://foo.bar/project/27/interface/api/887) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /upload\`
+ * @更新时间 1582161261
+ */
+export interface UploadResponse {}
+
+/**
+ * 接口 [文件↗](http://foo.bar/project/27/interface/api/887) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /upload\`
+ * @更新时间 1582161261
+ */
+type UploadRequestConfig = Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload', undefined, string>
+>
+
+/**
+ * 接口 [文件↗](http://foo.bar/project/27/interface/api/887) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /upload\`
+ * @更新时间 1582161261
+ */
+const uploadRequestConfig: UploadRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/upload',
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [文件↗](http://foo.bar/project/27/interface/api/887) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`POST /upload\`
+ * @更新时间 1582161261
+ */
+export const upload = makeRequest<UploadRequest, UploadResponse, UploadRequestConfig>(uploadRequestConfig)
 
 /**
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求类型**

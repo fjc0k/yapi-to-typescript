@@ -268,9 +268,9 @@ export class Generator {
               const optional = makeRequestOptional<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
               const required = makeRequestRequired<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
               return (
-                requestConfig.requestDataOptional
-                  ? optional
-                  : required
+                  requestConfig.requestDataOptional
+                    ? optional
+                    : required
                 ) as (
                   TRequestConfig['requestDataOptional'] extends true
                     ? typeof optional
@@ -368,6 +368,7 @@ export class Generator {
           comment: item.desc,
         })),
       )
+      /* istanbul ignore else */
       if (jsonSchema) {
         jsonSchema.properties = {
           ...jsonSchema.properties,
@@ -407,6 +408,7 @@ export class Generator {
         return `export type ${typeName} = any`
     }
 
+    /* istanbul ignore if */
     if (dataKey && jsonSchema && jsonSchema.properties && jsonSchema.properties[dataKey]) {
       jsonSchema = jsonSchema.properties[dataKey]
     }
@@ -488,13 +490,13 @@ export class Generator {
         const env = projectInfo.env.find(
           e => e.name === devEnvName,
         )
-        return env && env.domain || ''
+        return env && env.domain /* istanbul ignore next */ || ''
       },
       getProdUrl: (prodEnvName: string) => {
         const env = projectInfo.env.find(
           e => e.name === prodEnvName,
         )
-        return env && env.domain || ''
+        return env && env.domain /* istanbul ignore next */ || ''
       },
     }
   }
@@ -510,6 +512,7 @@ export class Generator {
         extendedInterfaceInfo,
         changeCase,
       )
+      /* istanbul ignore next */
       : changeCase.camelCase(interfaceInfo.parsedPath.name)
     const requestConfigName = changeCase.camelCase(`${requestFunctionName}RequestConfig`)
     const requestConfigTypeName = changeCase.pascalCase(requestConfigName)
@@ -538,6 +541,7 @@ export class Generator {
     const requestHookName = syntheticalConfig.reactHooks && syntheticalConfig.reactHooks.enabled
       ? (
         isFunction(syntheticalConfig.reactHooks.getRequestHookName)
+          /* istanbul ignore next */
           ? await syntheticalConfig.reactHooks.getRequestHookName(
             extendedInterfaceInfo,
             changeCase,
@@ -547,7 +551,7 @@ export class Generator {
       : ''
 
     // 支持路径参数
-    const paramNames = (interfaceInfo.req_params || []).map(item => item.name)
+    const paramNames = (interfaceInfo.req_params /* istanbul ignore next */ || []).map(item => item.name)
     const paramNamesLiteral = JSON.stringify(paramNames)
     const paramNameType = paramNames.length === 0 ? 'string' : `'${paramNames.join('\' | \'')}'`
 
@@ -578,6 +582,7 @@ export class Generator {
         label: '更新时间',
         value: process.env.JEST_WORKER_ID // 测试时使用 unix 时间戳
           ? String(interfaceInfo.up_time)
+          /* istanbul ignore next */
           : `\`${dayjs(interfaceInfo.up_time * 1000).format('YYYY-MM-DD HH:mm:ss')}\``,
       },
     ]
@@ -627,7 +632,7 @@ export class Generator {
           prodUrl: prodUrl${categoryUID},
           path: ${JSON.stringify(interfaceInfo.path)},
           method: Method.${interfaceInfo.method},
-          requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type || RequestBodyType.none},
+          requestBodyType: RequestBodyType.${interfaceInfo.method === Method.GET ? RequestBodyType.query : interfaceInfo.req_body_type /* istanbul ignore next */ || RequestBodyType.none},
           responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},
           dataKey: dataKey${categoryUID},
           paramNames: ${paramNamesLiteral},

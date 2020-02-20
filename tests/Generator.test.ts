@@ -1,10 +1,10 @@
 import fs from 'fs-extra'
 import path from 'path'
 import tempy from 'tempy'
-import {forOwn} from 'vtils'
+import {forOwn, OneOrMore} from 'vtils'
 import {Generator} from '../src/Generator'
 
-const generatorFactory = (id: number | number[], typesOnly: boolean, enableReactHooks: boolean = false) => {
+const generatorFactory = (id: OneOrMore<0 | 82 | 87 | 151>, typesOnly: boolean, enableReactHooks: boolean = false) => {
   const apiDir = tempy.directory()
   return new Generator({
     serverUrl: 'http://foo.bar',
@@ -43,7 +43,7 @@ const generatorFactory = (id: number | number[], typesOnly: boolean, enableReact
 
 describe('Generator', () => {
   test('正确生成代码并写入文件 - 单分类', async () => {
-    const generator = generatorFactory(58, false)
+    const generator = generatorFactory(82, false)
     const output = await generator.generate()
     forOwn(output, ({content}) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -57,7 +57,7 @@ describe('Generator', () => {
   })
 
   test('正确生成代码并写入文件 - 多分类', async () => {
-    const generator = generatorFactory([58, 113], false)
+    const generator = generatorFactory([82, 87], false)
     const output = await generator.generate()
     forOwn(output, ({content}) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -85,7 +85,7 @@ describe('Generator', () => {
   })
 
   test('只生成类型代码并写入文件', async () => {
-    const generator = generatorFactory(58, true)
+    const generator = generatorFactory(82, true)
     const output = await generator.generate()
     forOwn(output, ({content}) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -99,7 +99,7 @@ describe('Generator', () => {
   })
 
   test('生成 React Hooks 代码', async () => {
-    const generator = generatorFactory(58, false, true)
+    const generator = generatorFactory(82, false, true)
     const output = await generator.generate()
     forOwn(output, ({content}) => {
       expect(content).toMatchSnapshot('输出内容')

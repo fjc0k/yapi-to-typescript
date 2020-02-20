@@ -16,16 +16,17 @@ TSNode.register({
   },
 })
 
-export async function run(cwd: string = process.cwd()) {
+export async function run(
+  /* istanbul ignore next */
+  cwd: string = process.cwd(),
+) {
   const pkg = require('../package.json')
   const configFile = path.join(cwd, 'ytt.config.ts')
   const cmd = process.argv[2]
 
   if (cmd === 'version') {
-    /* istanbul ignore next */
     console.log(`${pkg.name} v${pkg.version}`)
   } else if (cmd === 'help') {
-    /* istanbul ignore next */
     console.log(`\n${dedent`
       # 用法
         初始化配置文件: ytt init

@@ -36,6 +36,7 @@ export function parseRequestData(requestData?: any): { data: any, fileData: any 
     data: {} as any,
     fileData: {} as any,
   }
+  /* istanbul ignore else */
   if (requestData != null) {
     if (typeof requestData === 'object' && !Array.isArray(requestData)) {
       Object.keys(requestData).forEach(key => {

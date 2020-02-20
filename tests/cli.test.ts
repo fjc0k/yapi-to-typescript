@@ -5,6 +5,8 @@ import tempy from 'tempy'
 import {run} from '../src/cli'
 import {wait} from 'vtils'
 
+const pkg = require('../package.json')
+
 function getTempPaths() {
   const targetDir = tempy.directory()
   fs.symlinkSync(
@@ -30,6 +32,30 @@ async function runCli(cwd: string, cmd: string = '') {
 }
 
 describe('cli', () => {
+  test('version', async () => {
+    const tempPaths = getTempPaths()
+
+    let text = ''
+    const log = jest.fn(message => {text = message})
+    jest.spyOn(console, 'log').mockImplementationOnce(log)
+
+    await runCli(tempPaths.targetDir, 'version')
+
+    expect(text).toMatch(`${pkg.name} v${pkg.version}`)
+  })
+
+  test('help', async () => {
+    const tempPaths = getTempPaths()
+
+    let text = ''
+    const log = jest.fn(message => {text = message})
+    jest.spyOn(console, 'log').mockImplementationOnce(log)
+
+    await runCli(tempPaths.targetDir, 'help')
+
+    expect(text).toMatchSnapshot('help')
+  })
+
   test('没有配置文件生成将会报错', async () => {
     const tempPaths = getTempPaths()
     const errorHandler = jest.fn()

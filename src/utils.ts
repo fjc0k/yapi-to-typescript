@@ -53,6 +53,7 @@ export function getNormalizedRelativePath(from: string, to: string) {
  * @returns 处理后的 JSONSchema
  */
 export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
+  /* istanbul ignore if */
   if (!isObject(jsonSchema)) return jsonSchema
 
   // 去除 title 和 id，防止 json-schema-to-typescript 提取它们作为接口名
