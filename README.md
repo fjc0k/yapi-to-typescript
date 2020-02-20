@@ -27,7 +27,7 @@
 
 <!-- <img src="./assets/preview.png" width="700" /> -->
 
-<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=20191210" width="700" />
+<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/preview.png?v=20190221" width="700" />
 
 
 ## 特性
@@ -122,4 +122,4 @@ type Config = Servers
 
 ## 许可
 
-MIT @ Jay Fong
+MIT (c) Jay Fong
