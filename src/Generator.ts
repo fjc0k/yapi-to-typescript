@@ -1,4 +1,5 @@
 import * as changeCase from 'change-case'
+import dayjs from 'dayjs'
 import fs from 'fs-extra'
 import JSON5 from 'json5'
 import path from 'path'
@@ -6,7 +7,6 @@ import prettier from 'prettier'
 import request from 'request-promise-native'
 import {castArray, dedent, isArray, isEmpty, isFunction, omit} from 'vtils'
 import {CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig} from './types'
-import {formatDate} from '@vtils/date'
 import {getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError} from './utils'
 import {JSONSchema4} from 'json-schema'
 
@@ -194,7 +194,7 @@ export class Generator {
               `,
             )
           }
-          if (!(await fs.pathExists(requestHookMakerFilePath))) {
+          if (syntheticalConfig.reactHooks && syntheticalConfig.reactHooks.enabled && !(await fs.pathExists(requestHookMakerFilePath))) {
             await fs.outputFile(
               requestHookMakerFilePath,
               dedent`
@@ -578,7 +578,7 @@ export class Generator {
         label: '更新时间',
         value: process.env.JEST_WORKER_ID // 测试时使用 unix 时间戳
           ? String(interfaceInfo.up_time)
-          : `\`${formatDate(interfaceInfo.up_time, 'YYYY-MM-DD HH:mm:ss')}\``,
+          : `\`${dayjs(interfaceInfo.up_time * 1000).format('YYYY-MM-DD HH:mm:ss')}\``,
       },
     ]
     const interfaceExtraComments: string = interfaceSummary

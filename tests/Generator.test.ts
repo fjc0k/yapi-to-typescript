@@ -13,7 +13,7 @@ const generatorFactory = (id: number | number[], typesOnly: boolean, enableReact
     outputFilePath: path.join(apiDir, 'index.ts'),
     requestFunctionFilePath: path.join(apiDir, 'request.ts'),
     reactHooks: {
-      enable: enableReactHooks,
+      enabled: enableReactHooks,
     },
     projects: [
       {
@@ -50,9 +50,9 @@ describe('Generator', () => {
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFilePath}, outputFilePath) => {
+    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
       expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.readFileSync(requestFilePath).toString()).toMatchSnapshot('请求文件')
+      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
     })
   })
 
@@ -64,9 +64,9 @@ describe('Generator', () => {
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFilePath}, outputFilePath) => {
+    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
       expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.readFileSync(requestFilePath).toString()).toMatchSnapshot('请求文件')
+      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
     })
   })
 
@@ -78,9 +78,9 @@ describe('Generator', () => {
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFilePath}, outputFilePath) => {
+    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
       expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.readFileSync(requestFilePath).toString()).toMatchSnapshot('请求文件')
+      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
     })
   })
 
@@ -92,9 +92,9 @@ describe('Generator', () => {
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFilePath}, outputFilePath) => {
+    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
       expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.existsSync(requestFilePath)).toBe(false)
+      expect(fs.existsSync(requestFunctionFilePath)).toBe(false)
     })
   })
 
@@ -106,9 +106,10 @@ describe('Generator', () => {
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFilePath}, outputFilePath) => {
+    forOwn(output, ({requestFunctionFilePath, requestHookMakerFilePath}, outputFilePath) => {
       expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.readFileSync(requestFilePath).toString()).toMatchSnapshot('请求文件')
+      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
+      expect(fs.readFileSync(requestHookMakerFilePath).toString()).toMatchSnapshot('Hook 生成文件')
     })
   })
 })
