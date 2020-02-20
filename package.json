@@ -37,7 +37,7 @@
     "testApi": "ts-node --transpile-only src/cli.ts",
     "testOnly": "jest",
     "test": "jest --coverage",
-    "build": "yarn buildCli && yarn buildClient",
+    "build": "rm -rf src/api && yarn buildCli && yarn buildClient",
     "buildCli": "tsc",
     "buildClient": "bili",
     "release": "yarn lint && yarn testOnly && standard-version -a && yarn build && git push --follow-tags origin master && yarn docs && npm publish"
