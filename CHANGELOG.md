@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.1"></a>
+## [3.0.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.0.0...v3.0.1) (2020-02-20)
+
+
+### Bug Fixes
+
+* 排除 src/api ([30608c0](https://github.com/fjc0k/yapi-to-typescript/commit/30608c0))
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/fjc0k/yapi-to-typescript/compare/v2.0.2...v3.0.0) (2020-02-20)
 
