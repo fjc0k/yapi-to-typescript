@@ -211,7 +211,7 @@ export interface DeleteMethodResponse {}
  * @更新时间 1568765163
  */
 type DeleteMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod', undefined, string, false>
 >
 
 /**
@@ -285,7 +285,7 @@ export interface GetMethodResponse {
  * @更新时间 1568765164
  */
 type GetMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod', undefined, string, false>
 >
 
 /**
@@ -349,7 +349,7 @@ export interface Json5ResponseResponse {
  * @更新时间 1568765164
  */
 type Json5ResponseRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response', undefined, string, true>
 >
 
 /**
@@ -413,7 +413,7 @@ export interface Json5RequestResponse {}
  * @更新时间 1568765164
  */
 type Json5RequestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request', undefined, string, false>
 >
 
 /**
@@ -496,7 +496,7 @@ export interface PostMethodResponse {
  * @更新时间 1568765164
  */
 type PostMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod', undefined, string, false>
 >
 
 /**
@@ -574,7 +574,7 @@ export interface PutMethodResponse {
  * @更新时间 1568765164
  */
 type PutMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod', undefined, string, false>
 >
 
 /**
@@ -657,7 +657,7 @@ export interface DataKeyExampleResponse {
  * @更新时间 1568765165
  */
 type DataKeyExampleRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample', undefined, string, false>
 >
 
 /**
@@ -726,7 +726,7 @@ export interface UploadResponse {}
  * @更新时间 1582161261
  */
 type UploadRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload', undefined, string, false>
 >
 
 /**
@@ -784,7 +784,7 @@ export interface NoResponseDataResponse {}
  * @更新时间 1568765165
  */
 type NoResponseDataRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData', undefined, string, true>
 >
 
 /**
@@ -844,7 +844,7 @@ export interface EmptyResponseResponse {}
  * @更新时间 1568765165
  */
 type EmptyResponseRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse', undefined, string, true>
 >
 
 /**
@@ -919,7 +919,8 @@ type TestRequestConfig = Readonly<
     'http://prod.com/',
     '/path/:id/hello/:name/:pass/{avatar}/:test',
     undefined,
-    'id' | 'name' | 'pass' | 'test' | 'avatar'
+    'id' | 'name' | 'pass' | 'test' | 'avatar',
+    false
   >
 >
 
@@ -995,7 +996,15 @@ export interface HihihiResponse {}
  * @更新时间 1568765165
  */
 type HihihiRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/test/{id}/:hihihi', undefined, 'hihihi' | 'id'>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/test/{id}/:hihihi',
+    undefined,
+    'hihihi' | 'id',
+    false
+  >
 >
 
 /**
@@ -1053,7 +1062,7 @@ export type RawResponseResponse = any
  * @更新时间 1568765166
  */
 type RawResponseRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse', undefined, string, true>
 >
 
 /**

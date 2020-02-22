@@ -456,6 +456,7 @@ export interface RequestConfig<
   Path extends string = any,
   DataKey extends string | undefined = any,
   ParamName extends string = any,
+  RequestDataOptional extends boolean = any,
 > {
   /** 接口 Mock 地址，结尾无 `/` */
   mockUrl: MockUrl,
@@ -476,7 +477,7 @@ export interface RequestConfig<
   /** 路径参数的名称列表 */
   paramNames: ParamName[],
   /** 请求数据是否可选 */
-  requestDataOptional: boolean,
+  requestDataOptional: RequestDataOptional,
 }
 
 /**

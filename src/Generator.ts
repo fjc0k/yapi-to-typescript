@@ -618,7 +618,8 @@ export class Generator {
           ${JSON.stringify(syntheticalConfig.prodUrl)},
           ${JSON.stringify(interfaceInfo.path)},
           ${JSON.stringify(syntheticalConfig.dataKey)},
-          ${paramNameType}
+          ${paramNameType},
+          ${JSON.stringify(isRequestDataOptional)}
         >>
 
         /**

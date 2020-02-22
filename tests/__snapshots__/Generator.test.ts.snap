@@ -824,7 +824,15 @@ export interface DeleteMethodTestTestTestResponse {}
  * @更新时间 1568765163
  */
 type DeleteMethodTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod_test_test_test', undefined, string>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/deleteMethod_test_test_test',
+    undefined,
+    string,
+    false
+  >
 >
 
 /**
@@ -900,7 +908,7 @@ export interface GetMethodTestTestTestResponse {
  * @更新时间 1568765164
  */
 type GetMethodTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod_test_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod_test_test_test', undefined, string, false>
 >
 
 /**
@@ -966,7 +974,15 @@ export interface Json5ResponseTestTestTestResponse {
  * @更新时间 1568765164
  */
 type Json5ResponseTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response_test_test_test', undefined, string>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/json5Response_test_test_test',
+    undefined,
+    string,
+    true
+  >
 >
 
 /**
@@ -1032,7 +1048,15 @@ export interface Json5RequestTestTestTestResponse {}
  * @更新时间 1568765164
  */
 type Json5RequestTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request_test_test_test', undefined, string>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/json5Request_test_test_test',
+    undefined,
+    string,
+    false
+  >
 >
 
 /**
@@ -1117,7 +1141,15 @@ export interface PostMethodTestTestTestResponse {
  * @更新时间 1568765164
  */
 type PostMethodTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod_test_test_test', undefined, string>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/postMethod_test_test_test',
+    undefined,
+    string,
+    false
+  >
 >
 
 /**
@@ -1197,7 +1229,7 @@ export interface PutMethodTestTestTestResponse {
  * @更新时间 1568765164
  */
 type PutMethodTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod_test_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod_test_test_test', undefined, string, false>
 >
 
 /**
@@ -1282,7 +1314,15 @@ export interface DataKeyExampleTestTestTestResponse {
  * @更新时间 1568765165
  */
 type DataKeyExampleTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample_test_test_test', undefined, string>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/dataKeyExample_test_test_test',
+    undefined,
+    string,
+    false
+  >
 >
 
 /**
@@ -1353,7 +1393,7 @@ export interface UploadTestTestTestResponse {}
  * @更新时间 1582161261
  */
 type UploadTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload_test_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload_test_test_test', undefined, string, false>
 >
 
 /**
@@ -1415,7 +1455,15 @@ export interface NoResponseDataTestTestTestResponse {}
  * @更新时间 1568765165
  */
 type NoResponseDataTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData_test_test_test', undefined, string>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/noResponseData_test_test_test',
+    undefined,
+    string,
+    true
+  >
 >
 
 /**
@@ -1477,7 +1525,15 @@ export interface EmptyResponseTestTestTestResponse {}
  * @更新时间 1568765165
  */
 type EmptyResponseTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse_test_test_test', undefined, string>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/emptyResponse_test_test_test',
+    undefined,
+    string,
+    true
+  >
 >
 
 /**
@@ -1554,7 +1610,8 @@ type TestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/path/:id/hello/:name/:pass/{avatar}/:test_test_test_test',
     undefined,
-    'id' | 'name' | 'pass' | 'test' | 'avatar'
+    'id' | 'name' | 'pass' | 'test' | 'avatar',
+    false
   >
 >
 
@@ -1640,7 +1697,8 @@ type HihihiTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/test/{id}/:hihihi_test_test_test',
     undefined,
-    'hihihi' | 'id'
+    'hihihi' | 'id',
+    false
   >
 >
 
@@ -1703,7 +1761,15 @@ export type RawResponseTestTestTestResponse = any
  * @更新时间 1568765166
  */
 type RawResponseTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse_test_test_test', undefined, string>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/rawResponse_test_test_test',
+    undefined,
+    string,
+    true
+  >
 >
 
 /**
@@ -1775,7 +1841,7 @@ export interface Get2TestTestResponse {
  * @更新时间 1575945946
  */
 type Get2TestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/get2_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/get2_test_test', undefined, string, true>
 >
 
 /**
@@ -1842,7 +1908,15 @@ export interface Picture_3dDetailTestResponse {}
  * @更新时间 1575455147
  */
 type Picture_3dDetailTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/issue-17/picture_3d_detail_test', undefined, string>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/issue-17/picture_3d_detail_test',
+    undefined,
+    string,
+    true
+  >
 >
 
 /**
@@ -1964,7 +2038,8 @@ type DeleteMethodTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/deleteMethod_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -2041,7 +2116,8 @@ type GetMethodTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/getMethod_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -2108,7 +2184,8 @@ type Json5ResponseTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/json5Response_test_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -2175,7 +2252,8 @@ type Json5RequestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/json5Request_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -2261,7 +2339,8 @@ type PostMethodTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/postMethod_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -2342,7 +2421,8 @@ type PutMethodTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/putMethod_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -2428,7 +2508,8 @@ type DataKeyExampleTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -2500,7 +2581,8 @@ type UploadTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/upload_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -2563,7 +2645,8 @@ type NoResponseDataTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/noResponseData_test_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -2626,7 +2709,8 @@ type EmptyResponseTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/emptyResponse_test_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -2698,7 +2782,8 @@ type TestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/path/:id/hello/:name/:pass/{avatar}/:test_test_test_test\\",
   undefined,
-  'id' | 'name' | 'pass' | 'test' | 'avatar'
+  'id' | 'name' | 'pass' | 'test' | 'avatar',
+  false
 >>
 
 /**
@@ -2778,7 +2863,8 @@ type HihihiTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/test/{id}/:hihihi_test_test_test\\",
   undefined,
-  'hihihi' | 'id'
+  'hihihi' | 'id',
+  false
 >>
 
 /**
@@ -2841,7 +2927,8 @@ type RawResponseTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/rawResponse_test_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -2913,7 +3000,8 @@ type Get2TestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/get2_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -2982,7 +3070,8 @@ type Picture_3dDetailTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/issue-17/picture_3d_detail_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -3103,7 +3192,7 @@ export interface DeleteMethodTestResponse {}
  * @更新时间 1568765163
  */
 type DeleteMethodTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod_test', undefined, string, false>
 >
 
 /**
@@ -3179,7 +3268,7 @@ export interface GetMethodTestResponse {
  * @更新时间 1568765164
  */
 type GetMethodTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod_test', undefined, string, false>
 >
 
 /**
@@ -3243,7 +3332,7 @@ export interface Json5ResponseTestResponse {
  * @更新时间 1568765164
  */
 type Json5ResponseTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response_test', undefined, string, true>
 >
 
 /**
@@ -3309,7 +3398,7 @@ export interface Json5RequestTestResponse {}
  * @更新时间 1568765164
  */
 type Json5RequestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request_test', undefined, string, false>
 >
 
 /**
@@ -3394,7 +3483,7 @@ export interface PostMethodTestResponse {
  * @更新时间 1568765164
  */
 type PostMethodTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod_test', undefined, string, false>
 >
 
 /**
@@ -3472,7 +3561,7 @@ export interface PutMethodTestResponse {
  * @更新时间 1568765164
  */
 type PutMethodTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod_test', undefined, string, false>
 >
 
 /**
@@ -3555,7 +3644,7 @@ export interface DataKeyExampleTestResponse {
  * @更新时间 1568765165
  */
 type DataKeyExampleTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample_test', undefined, string, false>
 >
 
 /**
@@ -3626,7 +3715,7 @@ export interface UploadTestResponse {}
  * @更新时间 1582161261
  */
 type UploadTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload_test', undefined, string, false>
 >
 
 /**
@@ -3686,7 +3775,7 @@ export interface NoResponseDataTestResponse {}
  * @更新时间 1568765165
  */
 type NoResponseDataTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData_test', undefined, string, true>
 >
 
 /**
@@ -3748,7 +3837,7 @@ export interface EmptyResponseTestResponse {}
  * @更新时间 1568765165
  */
 type EmptyResponseTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse_test', undefined, string, true>
 >
 
 /**
@@ -3825,7 +3914,8 @@ type TestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/path/:id/hello/:name/:pass/{avatar}/:test_test',
     undefined,
-    'id' | 'name' | 'pass' | 'test' | 'avatar'
+    'id' | 'name' | 'pass' | 'test' | 'avatar',
+    false
   >
 >
 
@@ -3901,7 +3991,15 @@ export interface HihihiTestResponse {}
  * @更新时间 1568765165
  */
 type HihihiTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/test/{id}/:hihihi_test', undefined, 'hihihi' | 'id'>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/test/{id}/:hihihi_test',
+    undefined,
+    'hihihi' | 'id',
+    false
+  >
 >
 
 /**
@@ -3961,7 +4059,7 @@ export type RawResponseTestResponse = any
  * @更新时间 1568765166
  */
 type RawResponseTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse_test', undefined, string, true>
 >
 
 /**
@@ -4082,7 +4180,8 @@ type DeleteMethodTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/deleteMethod_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -4159,7 +4258,8 @@ type GetMethodTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/getMethod_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -4226,7 +4326,8 @@ type Json5ResponseTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/json5Response_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -4293,7 +4394,8 @@ type Json5RequestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/json5Request_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -4379,7 +4481,8 @@ type PostMethodTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/postMethod_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -4460,7 +4563,8 @@ type PutMethodTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/putMethod_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -4546,7 +4650,8 @@ type DataKeyExampleTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -4618,7 +4723,8 @@ type UploadTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/upload_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -4681,7 +4787,8 @@ type NoResponseDataTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/noResponseData_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -4744,7 +4851,8 @@ type EmptyResponseTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/emptyResponse_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -4816,7 +4924,8 @@ type TestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/path/:id/hello/:name/:pass/{avatar}/:test_test\\",
   undefined,
-  'id' | 'name' | 'pass' | 'test' | 'avatar'
+  'id' | 'name' | 'pass' | 'test' | 'avatar',
+  false
 >>
 
 /**
@@ -4896,7 +5005,8 @@ type HihihiTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/test/{id}/:hihihi_test\\",
   undefined,
-  'hihihi' | 'id'
+  'hihihi' | 'id',
+  false
 >>
 
 /**
@@ -4959,7 +5069,8 @@ type RawResponseTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/rawResponse_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -5080,7 +5191,7 @@ export interface DeleteMethodTestTestResponse {}
  * @更新时间 1568765163
  */
 type DeleteMethodTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod_test_test', undefined, string, false>
 >
 
 /**
@@ -5156,7 +5267,7 @@ export interface GetMethodTestTestResponse {
  * @更新时间 1568765164
  */
 type GetMethodTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod_test_test', undefined, string, false>
 >
 
 /**
@@ -5222,7 +5333,7 @@ export interface Json5ResponseTestTestResponse {
  * @更新时间 1568765164
  */
 type Json5ResponseTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response_test_test', undefined, string, true>
 >
 
 /**
@@ -5288,7 +5399,7 @@ export interface Json5RequestTestTestResponse {}
  * @更新时间 1568765164
  */
 type Json5RequestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request_test_test', undefined, string, false>
 >
 
 /**
@@ -5373,7 +5484,7 @@ export interface PostMethodTestTestResponse {
  * @更新时间 1568765164
  */
 type PostMethodTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod_test_test', undefined, string, false>
 >
 
 /**
@@ -5453,7 +5564,7 @@ export interface PutMethodTestTestResponse {
  * @更新时间 1568765164
  */
 type PutMethodTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod_test_test', undefined, string, false>
 >
 
 /**
@@ -5538,7 +5649,7 @@ export interface DataKeyExampleTestTestResponse {
  * @更新时间 1568765165
  */
 type DataKeyExampleTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample_test_test', undefined, string, false>
 >
 
 /**
@@ -5609,7 +5720,7 @@ export interface UploadTestTestResponse {}
  * @更新时间 1582161261
  */
 type UploadTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload_test_test', undefined, string, false>
 >
 
 /**
@@ -5669,7 +5780,7 @@ export interface NoResponseDataTestTestResponse {}
  * @更新时间 1568765165
  */
 type NoResponseDataTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData_test_test', undefined, string, true>
 >
 
 /**
@@ -5731,7 +5842,7 @@ export interface EmptyResponseTestTestResponse {}
  * @更新时间 1568765165
  */
 type EmptyResponseTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse_test_test', undefined, string, true>
 >
 
 /**
@@ -5808,7 +5919,8 @@ type TestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/path/:id/hello/:name/:pass/{avatar}/:test_test_test',
     undefined,
-    'id' | 'name' | 'pass' | 'test' | 'avatar'
+    'id' | 'name' | 'pass' | 'test' | 'avatar',
+    false
   >
 >
 
@@ -5892,7 +6004,8 @@ type HihihiTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/test/{id}/:hihihi_test_test',
     undefined,
-    'hihihi' | 'id'
+    'hihihi' | 'id',
+    false
   >
 >
 
@@ -5953,7 +6066,7 @@ export type RawResponseTestTestResponse = any
  * @更新时间 1568765166
  */
 type RawResponseTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse_test_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse_test_test', undefined, string, true>
 >
 
 /**
@@ -6025,7 +6138,7 @@ export interface Get2TestResponse {
  * @更新时间 1575945946
  */
 type Get2TestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/get2_test', undefined, string>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/get2_test', undefined, string, true>
 >
 
 /**
@@ -6144,7 +6257,8 @@ type DeleteMethodTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/deleteMethod_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -6221,7 +6335,8 @@ type GetMethodTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/getMethod_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -6288,7 +6403,8 @@ type Json5ResponseTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/json5Response_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -6355,7 +6471,8 @@ type Json5RequestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/json5Request_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -6441,7 +6558,8 @@ type PostMethodTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/postMethod_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -6522,7 +6640,8 @@ type PutMethodTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/putMethod_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -6608,7 +6727,8 @@ type DataKeyExampleTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -6680,7 +6800,8 @@ type UploadTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/upload_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -6743,7 +6864,8 @@ type NoResponseDataTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/noResponseData_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -6806,7 +6928,8 @@ type EmptyResponseTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/emptyResponse_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -6878,7 +7001,8 @@ type TestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/path/:id/hello/:name/:pass/{avatar}/:test_test_test\\",
   undefined,
-  'id' | 'name' | 'pass' | 'test' | 'avatar'
+  'id' | 'name' | 'pass' | 'test' | 'avatar',
+  false
 >>
 
 /**
@@ -6958,7 +7082,8 @@ type HihihiTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/test/{id}/:hihihi_test_test\\",
   undefined,
-  'hihihi' | 'id'
+  'hihihi' | 'id',
+  false
 >>
 
 /**
@@ -7021,7 +7146,8 @@ type RawResponseTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/rawResponse_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -7093,7 +7219,8 @@ type Get2TestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/get2_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -7255,7 +7382,8 @@ type DeleteMethodTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/deleteMethod_test_test_test_test_test',
     undefined,
-    string
+    string,
+    false
   >
 >
 
@@ -7351,7 +7479,8 @@ type GetMethodTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/getMethod_test_test_test_test_test',
     undefined,
-    string
+    string,
+    false
   >
 >
 
@@ -7437,7 +7566,8 @@ type Json5ResponseTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/json5Response_test_test_test_test_test',
     undefined,
-    string
+    string,
+    true
   >
 >
 
@@ -7523,7 +7653,8 @@ type Json5RequestTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/json5Request_test_test_test_test_test',
     undefined,
-    string
+    string,
+    false
   >
 >
 
@@ -7628,7 +7759,8 @@ type PostMethodTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/postMethod_test_test_test_test_test',
     undefined,
-    string
+    string,
+    false
   >
 >
 
@@ -7728,7 +7860,8 @@ type PutMethodTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/putMethod_test_test_test_test_test',
     undefined,
-    string
+    string,
+    false
   >
 >
 
@@ -7833,7 +7966,8 @@ type DataKeyExampleTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/dataKeyExample_test_test_test_test_test',
     undefined,
-    string
+    string,
+    false
   >
 >
 
@@ -7918,7 +8052,15 @@ export interface UploadTestTestTestTestTestResponse {}
  * @更新时间 1582161261
  */
 type UploadTestTestTestTestTestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload_test_test_test_test_test', undefined, string>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/upload_test_test_test_test_test',
+    undefined,
+    string,
+    false
+  >
 >
 
 /**
@@ -7999,7 +8141,8 @@ type NoResponseDataTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/noResponseData_test_test_test_test_test',
     undefined,
-    string
+    string,
+    true
   >
 >
 
@@ -8081,7 +8224,8 @@ type EmptyResponseTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/emptyResponse_test_test_test_test_test',
     undefined,
-    string
+    string,
+    true
   >
 >
 
@@ -8172,7 +8316,8 @@ type TestTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/path/:id/hello/:name/:pass/{avatar}/:test_test_test_test_test_test',
     undefined,
-    'id' | 'name' | 'pass' | 'test' | 'avatar'
+    'id' | 'name' | 'pass' | 'test' | 'avatar',
+    false
   >
 >
 
@@ -8271,7 +8416,8 @@ type HihihiTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/test/{id}/:hihihi_test_test_test_test_test',
     undefined,
-    'hihihi' | 'id'
+    'hihihi' | 'id',
+    false
   >
 >
 
@@ -8353,7 +8499,8 @@ type RawResponseTestTestTestTestTestRequestConfig = Readonly<
     'http://prod.com/',
     '/rawResponse_test_test_test_test_test',
     undefined,
-    string
+    string,
+    true
   >
 >
 
@@ -8488,7 +8635,8 @@ type DeleteMethodTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/deleteMethod_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -8574,7 +8722,8 @@ type GetMethodTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/getMethod_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -8650,7 +8799,8 @@ type Json5ResponseTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/json5Response_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -8726,7 +8876,8 @@ type Json5RequestTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/json5Request_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -8821,7 +8972,8 @@ type PostMethodTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/postMethod_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -8911,7 +9063,8 @@ type PutMethodTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/putMethod_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -9006,7 +9159,8 @@ type DataKeyExampleTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/dataKeyExample_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -9087,7 +9241,8 @@ type UploadTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/upload_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  false
 >>
 
 /**
@@ -9159,7 +9314,8 @@ type NoResponseDataTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/noResponseData_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -9231,7 +9387,8 @@ type EmptyResponseTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/emptyResponse_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
@@ -9312,7 +9469,8 @@ type TestTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/path/:id/hello/:name/:pass/{avatar}/:test_test_test_test_test_test\\",
   undefined,
-  'id' | 'name' | 'pass' | 'test' | 'avatar'
+  'id' | 'name' | 'pass' | 'test' | 'avatar',
+  false
 >>
 
 /**
@@ -9401,7 +9559,8 @@ type HihihiTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/test/{id}/:hihihi_test_test_test_test_test\\",
   undefined,
-  'hihihi' | 'id'
+  'hihihi' | 'id',
+  false
 >>
 
 /**
@@ -9473,7 +9632,8 @@ type RawResponseTestTestTestTestTestRequestConfig = Readonly<RequestConfig<
   \\"http://prod.com/\\",
   \\"/rawResponse_test_test_test_test_test\\",
   undefined,
-  string
+  string,
+  true
 >>
 
 /**
