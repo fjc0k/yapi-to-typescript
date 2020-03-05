@@ -5,7 +5,7 @@ import JSON5 from 'json5'
 import path from 'path'
 import prettier from 'prettier'
 import request from 'request-promise-native'
-import {castArray, dedent, isArray, isEmpty, isFunction, omit} from 'vtils'
+import {castArray, dedent, isArray, isEmpty, isFunction, omit, unique} from 'vtils'
 import {CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig} from './types'
 import {getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError} from './utils'
 import {JSONSchema4} from 'json-schema'
@@ -49,12 +49,23 @@ export class Generator {
               await Promise.all(
                 projectConfig.categories.map(
                   async (categoryConfig, categoryIndex) => {
-                    const categoryIds = categoryConfig.id === 0
-                      ? projectInfo.cats.map(cat => cat._id)
-                      : castArray(categoryConfig.id)
-                        .filter(
-                          id => !!projectInfo.cats.find(cat => cat._id === id),
-                        )
+                    // 分类处理
+                    // 数组化
+                    let categoryIds = castArray(categoryConfig.id)
+                    // 全部分类
+                    if (categoryIds.includes(0)) {
+                      categoryIds.push(
+                        ...projectInfo.cats.map(cat => cat._id),
+                      )
+                    }
+                    // 唯一化
+                    categoryIds = unique(categoryIds)
+                    // 去掉被排除的分类
+                    const excludedCategoryIds = categoryIds.filter(id => id < 0).map(Math.abs)
+                    categoryIds = categoryIds.filter(id => !excludedCategoryIds.includes(Math.abs(id)))
+                    // 删除不存在的分类
+                    categoryIds = categoryIds.filter(id => !!projectInfo.cats.find(cat => cat._id === id))
+
                     await Promise.all(
                       categoryIds.map(async (id, categoryIndex2) => {
                         categoryConfig = {

@@ -388,6 +388,8 @@ export interface CategoryConfig extends SharedConfig {
   /**
    * 分类 ID，可以设置多个。设为 `0` 时表示全部分类。
    *
+   * 如果需要获取全部分类，同时排除指定分类，可以这样：`[0, -20, -21]`，分类 ID 前面的负号表示排除。
+   *
    * 获取方式：打开项目 --> 点开分类 --> 复制浏览器地址栏 `/api/cat_` 后面的数字。
    *
    * @example 20

@@ -4,7 +4,7 @@ import tempy from 'tempy'
 import {forOwn, OneOrMore} from 'vtils'
 import {Generator} from '../src/Generator'
 
-const generatorFactory = (id: OneOrMore<0 | 82 | 87 | 151>, typesOnly: boolean, enableReactHooks: boolean = false) => {
+const generatorFactory = (id: OneOrMore<0 | 82 | 87 | 151 | -82 | -87 | -151>, typesOnly: boolean, enableReactHooks: boolean = false) => {
   const apiDir = tempy.directory()
   return new Generator({
     serverUrl: 'http://foo.bar',
@@ -72,6 +72,20 @@ describe('Generator', () => {
 
   test('正确生成代码并写入文件 - 全部分类', async () => {
     const generator = generatorFactory(0, false)
+    const output = await generator.generate()
+    forOwn(output, ({content}) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
+      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
+    })
+  })
+
+  test('正确生成代码并写入文件 - 排除分类', async () => {
+    const generator = generatorFactory([0, -82], false)
     const output = await generator.generate()
     forOwn(output, ({content}) => {
       expect(content).toMatchSnapshot('输出内容')

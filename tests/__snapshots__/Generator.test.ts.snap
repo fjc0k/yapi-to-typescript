@@ -7256,6 +7256,397 @@ export const get2Test = makeRequest<Get2TestRequest, Get2TestResponse, Get2TestR
 ]
 `;
 
+exports[`Generator 正确生成代码并写入文件 - 排除分类: 接口文件 1`] = `
+"/* prettier-ignore-start */
+/* tslint:disable */
+/* eslint-disable */
+
+/* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
+
+// @ts-ignore
+// prettier-ignore
+import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+import request from './request'
+
+// makeRequest
+function makeRequestRequired<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(
+  requestConfig: TRequestConfig,
+) {
+  const req = function(requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
+    return request<TResponseData>(prepare(requestConfig, requestData), ...args)
+  }
+  req.requestConfig = requestConfig
+  return req
+}
+function makeRequestOptional<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(
+  requestConfig: TRequestConfig,
+) {
+  const req = function(requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
+    return request<TResponseData>(prepare(requestConfig, requestData), ...args)
+  }
+  req.requestConfig = requestConfig
+  return req
+}
+function makeRequest<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(requestConfig: TRequestConfig) {
+  const optional = makeRequestOptional<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
+  const required = makeRequestRequired<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
+  return (requestConfig.requestDataOptional ? optional : required) as TRequestConfig['requestDataOptional'] extends true
+    ? typeof optional
+    : typeof required
+}
+
+// Request
+export type Request<
+  TReqeustData,
+  TRequestConfig extends RequestConfig,
+  TRequestResult
+> = (TRequestConfig['requestDataOptional'] extends true
+  ? (requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
+  : (requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult) & {
+  requestConfig: TRequestConfig
+}
+
+const mockUrl_0_0_0_1 = 'http://foo.bar/mock/32' as any
+const devUrl_0_0_0_1 = '' as any
+const prodUrl_0_0_0_1 = 'http://prod.com/' as any
+const dataKey_0_0_0_1 = undefined as any
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2_test_test_test\`
+ * @更新时间 1575945946
+ */
+export interface Get2TestTestTestRequest {}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2_test_test_test\`
+ * @更新时间 1575945946
+ */
+export interface Get2TestTestTestResponse {
+  msg: string
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2_test_test_test\`
+ * @更新时间 1575945946
+ */
+type Get2TestTestTestRequestConfig = Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/get2_test_test_test', undefined, string, true>
+>
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2_test_test_test\`
+ * @更新时间 1575945946
+ */
+const get2TestTestTestRequestConfig: Get2TestTestTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: '/get2_test_test_test',
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  requestDataOptional: true,
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2_test_test_test\`
+ * @更新时间 1575945946
+ */
+export const get2TestTestTest = makeRequest<
+  Get2TestTestTestRequest,
+  Get2TestTestTestResponse,
+  Get2TestTestTestRequestConfig
+>(get2TestTestTestRequestConfig)
+
+const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
+const devUrl_0_0_0_2 = '' as any
+const prodUrl_0_0_0_2 = 'http://prod.com/' as any
+const dataKey_0_0_0_2 = undefined as any
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
+ * @更新时间 1575455147
+ */
+export interface Picture_3dDetailTestTestRequest {}
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
+ * @更新时间 1575455147
+ */
+export interface Picture_3dDetailTestTestResponse {}
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
+ * @更新时间 1575455147
+ */
+type Picture_3dDetailTestTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/issue-17/picture_3d_detail_test_test',
+    undefined,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
+ * @更新时间 1575455147
+ */
+const picture_3dDetailTestTestRequestConfig: Picture_3dDetailTestTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/issue-17/picture_3d_detail_test_test',
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  requestDataOptional: true,
+}
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
+ * @更新时间 1575455147
+ */
+export const picture_3dDetailTestTest = makeRequest<
+  Picture_3dDetailTestTestRequest,
+  Picture_3dDetailTestTestResponse,
+  Picture_3dDetailTestTestRequestConfig
+>(picture_3dDetailTestTestRequestConfig)
+
+/* prettier-ignore-end */
+"
+`;
+
+exports[`Generator 正确生成代码并写入文件 - 排除分类: 请求文件 1`] = `
+"import { RequestFunctionParams } from 'yapi-to-typescript'
+
+export interface RequestOptions {
+  /**
+   * 使用的服务器。
+   *
+   * - \`prod\`: 生产服务器
+   * - \`dev\`: 测试服务器
+   * - \`mock\`: 模拟服务器
+   *
+   * @default prod
+   */
+  server?: 'prod' | 'dev' | 'mock',
+}
+
+export default function request<TResponseData>(
+  payload: RequestFunctionParams,
+  options: RequestOptions = {
+    server: 'prod',
+  },
+): Promise<TResponseData> {
+  return new Promise<TResponseData>((resolve, reject) => {
+    // 基本地址
+    const baseUrl = options.server === 'mock'
+      ? payload.mockUrl
+      : options.server === 'dev'
+        ? payload.devUrl
+        : payload.prodUrl
+
+    // 请求地址
+    const url = \`\${baseUrl}\${payload.path}\`
+
+    // 具体请求逻辑
+  })
+}"
+`;
+
+exports[`Generator 正确生成代码并写入文件 - 排除分类: 输出内容 1`] = `
+Array [
+  "",
+  "const mockUrl_0_0_0_1 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_1 = \\"\\" as any
+const prodUrl_0_0_0_1 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_1 = undefined as any
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2_test_test_test\`
+ * @更新时间 1575945946
+ */
+export interface Get2TestTestTestRequest {}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2_test_test_test\`
+ * @更新时间 1575945946
+ */
+export interface Get2TestTestTestResponse {
+  msg: string;
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2_test_test_test\`
+ * @更新时间 1575945946
+*/
+type Get2TestTestTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/get2_test_test_test\\",
+  undefined,
+  string,
+  true
+>>
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2_test_test_test\`
+ * @更新时间 1575945946
+*/
+const get2TestTestTestRequestConfig: Get2TestTestTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/get2_test_test_test\\",
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  requestDataOptional: true,
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2_test_test_test\`
+ * @更新时间 1575945946
+ */
+export const get2TestTestTest = makeRequest<Get2TestTestTestRequest, Get2TestTestTestResponse, Get2TestTestTestRequestConfig>(get2TestTestTestRequestConfig)",
+  "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_2 = \\"\\" as any
+const prodUrl_0_0_0_2 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_2 = undefined as any
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
+ * @更新时间 1575455147
+ */
+export interface Picture_3dDetailTestTestRequest {}
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
+ * @更新时间 1575455147
+ */
+export interface Picture_3dDetailTestTestResponse {}
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
+ * @更新时间 1575455147
+*/
+type Picture_3dDetailTestTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/issue-17/picture_3d_detail_test_test\\",
+  undefined,
+  string,
+  true
+>>
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
+ * @更新时间 1575455147
+*/
+const picture_3dDetailTestTestRequestConfig: Picture_3dDetailTestTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: \\"/issue-17/picture_3d_detail_test_test\\",
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  requestDataOptional: true,
+}
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
+ * @更新时间 1575455147
+ */
+export const picture_3dDetailTestTest = makeRequest<Picture_3dDetailTestTestRequest, Picture_3dDetailTestTestResponse, Picture_3dDetailTestTestRequestConfig>(picture_3dDetailTestTestRequestConfig)",
+]
+`;
+
 exports[`Generator 生成 React Hooks 代码: Hook 生成文件 1`] = `
 "import { useState, useEffect } from 'react'
 import { RequestConfig } from 'yapi-to-typescript'
