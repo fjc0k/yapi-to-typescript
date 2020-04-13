@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.1.1"></a>
+## [3.1.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.1.0...v3.1.1) (2020-04-13)
+
+
+### Bug Fixes
+
+* 去除服务器地址末尾的 / (close:[#22](https://github.com/fjc0k/yapi-to-typescript/issues/22)) ([afcbc80](https://github.com/fjc0k/yapi-to-typescript/commit/afcbc80))
+
+
+
 <a name="3.1.0"></a>
 # [3.1.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.0.2...v3.1.0) (2020-03-05)
 
