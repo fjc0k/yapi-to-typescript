@@ -30,8 +30,18 @@ export class Generator {
     config: Config,
     private options: { cwd: string } = {cwd: process.cwd()},
   ) {
-    // config 可能是对象或数组，统一为数组
-    this.config = castArray(config)
+    this.config = (
+      // config 可能是对象或数组，统一为数组
+      castArray(config)
+        .map(item => {
+          if (item.serverUrl) {
+            // 去除地址后面的 /
+            // fix: https://github.com/fjc0k/yapi-to-typescript/issues/22
+            item.serverUrl = item.serverUrl.replace(/\/+$/, '')
+          }
+          return item
+        })
+    )
   }
 
   async generate(): Promise<OutputFileList> {
