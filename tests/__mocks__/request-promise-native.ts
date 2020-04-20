@@ -1,3 +1,5 @@
+let exportCount: number = 0
+
 const mockData: Record<string, any> = {
   '/api/plugin/export': [
     {
@@ -797,7 +799,16 @@ const mockData: Record<string, any> = {
 const request = {
   get: (url: string) => {
     const path = Object.keys(mockData).find(path => url.endsWith(path))
+    if (path!.endsWith('/api/plugin/export')) {
+      exportCount++
+    }
     return path && mockData[path]
+  },
+  resetExportCount() {
+    exportCount = 0
+  },
+  getExportCount() {
+    return exportCount
   },
 }
 

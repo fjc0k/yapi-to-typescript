@@ -5,7 +5,7 @@ import JSON5 from 'json5'
 import path from 'path'
 import prettier from 'prettier'
 import request from 'request-promise-native'
-import {castArray, dedent, isArray, isEmpty, isFunction, omit, unique} from 'vtils'
+import {castArray, dedent, isArray, isEmpty, isFunction, memoize, omit, unique} from 'vtils'
 import {CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig} from './types'
 import {getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError} from './utils'
 import {JSONSchema4} from 'json-schema'
@@ -22,9 +22,6 @@ interface OutputFileList {
 export class Generator {
   /** 配置 */
   private config: ServerConfig[] = []
-
-  /** { 项目标识: 分类列表 } */
-  private projectIdToCategoryList: Record<string, CategoryList | undefined> = Object.create(null)
 
   constructor(
     config: Config,
@@ -446,24 +443,23 @@ export class Generator {
     return res.data || res
   }
 
+  fetchExport = memoize(({serverUrl, token}: SyntheticalConfig) => {
+    return Generator.fetchApi<CategoryList>(
+      `${serverUrl}/api/plugin/export`,
+      {
+        type: 'json',
+        status: 'all',
+        isWiki: 'false',
+        token: token!,
+      },
+    )
+  }, {
+    serializer: ({serverUrl, token}) => `${serverUrl}|${token}`,
+  })
+
   /** 获取分类的接口列表 */
   async fetchInterfaceList({serverUrl, token, id}: SyntheticalConfig): Promise<InterfaceList> {
-    const projectId: string = `${serverUrl}|${token}`
-
-    if (!(projectId in this.projectIdToCategoryList)) {
-      const categoryList = await Generator.fetchApi<CategoryList>(
-        `${serverUrl}/api/plugin/export`,
-        {
-          type: 'json',
-          status: 'all',
-          isWiki: 'false',
-          token: token!,
-        },
-      )
-      this.projectIdToCategoryList[projectId] = categoryList
-    }
-
-    const category = (this.projectIdToCategoryList[projectId] || []).find(
+    const category = (await this.fetchExport({serverUrl, token}) || []).find(
       cat => (
         !isEmpty(cat)
           && !isEmpty(cat.list)

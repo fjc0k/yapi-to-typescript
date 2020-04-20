@@ -4,6 +4,10 @@ import tempy from 'tempy'
 import {forOwn, OneOrMore} from 'vtils'
 import {Generator} from '../src/Generator'
 
+afterEach(() => {
+  require('request-promise-native').resetExportCount()
+})
+
 const generatorFactory = (id: OneOrMore<0 | 82 | 87 | 151 | -82 | -87 | -151>, typesOnly: boolean, enableReactHooks: boolean = false) => {
   const apiDir = tempy.directory()
   return new Generator({
@@ -125,5 +129,11 @@ describe('Generator', () => {
       expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
       expect(fs.readFileSync(requestHookMakerFilePath).toString()).toMatchSnapshot('Hook 生成文件')
     })
+  })
+
+  test('同一个项目导出接口列表 API 应只请求一次', async () => {
+    const generator = generatorFactory(0, false)
+    await generator.generate()
+    expect(require('request-promise-native').getExportCount()).toEqual(1)
   })
 })
