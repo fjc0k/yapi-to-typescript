@@ -10,9 +10,22 @@ import {dedent} from 'vtils'
 import {Generator} from './Generator'
 
 TSNode.register({
+  // 不加载本地的 tsconfig.json
+  skipProject: true,
+  // 仅转译，不做类型检查
   transpileOnly: true,
+  // 自定义编译选项
   compilerOptions: {
+    strict: false,
+    target: 'es2017',
     module: 'commonjs',
+    moduleResolution: 'node',
+    declaration: false,
+    removeComments: false,
+    esModuleInterop: true,
+    allowSyntheticDefaultImports: true,
+    importHelpers: false,
+    lib: ['es2017'],
   },
 })
 
