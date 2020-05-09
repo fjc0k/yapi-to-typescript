@@ -19,6 +19,7 @@
 - [配置](#配置)
   - [概论](#概论)
   - [配置项](#配置项)
+- [参与贡献](#参与贡献)
 - [许可](#许可)
 
 <!-- /TOC -->
@@ -90,7 +91,6 @@ yarn ytt
 npx ytt
 ```
 
-
 ## 配置
 
 ### 概论
@@ -119,6 +119,12 @@ type Config = Servers
 
 具体配置项见：[API 文档](http://fjc0k.github.io/yapi-to-typescript/v3/interfaces/serverconfig.html)。
 
+## 参与贡献
+
+为避免无用功，功能新增或变更请提 issue 由维护者评估后再决定是否继续；功能修复以及经评估可行的功能新增或变更请提 PR。
+
+- 安装依赖：`yarn`
+- 运行测试：`yarn test`
 
 ## 许可
 
