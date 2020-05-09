@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.1.4"></a>
+## [3.1.4](https://github.com/fjc0k/yapi-to-typescript/compare/v3.1.3...v3.1.4) (2020-05-09)
+
+
+### Bug Fixes
+
+* 修复类型不能读取的问题 ([#26](https://github.com/fjc0k/yapi-to-typescript/issues/26)) ([1f1a682](https://github.com/fjc0k/yapi-to-typescript/commit/1f1a682))
+
+
+
 <a name="3.1.3"></a>
 ## [3.1.3](https://github.com/fjc0k/yapi-to-typescript/compare/v3.1.2...v3.1.3) (2020-04-30)
 
