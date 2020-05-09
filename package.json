@@ -4,7 +4,7 @@
   "description": "根据 YApi 的接口定义生成 TypeScript 的接口类型及其请求函数代码。",
   "main": "client/index.js",
   "module": "client/index.mjs",
-  "typing": "client/index.d.ts",
+  "types": "client/index.d.ts",
   "bin": {
     "ytt": "lib/cli.js"
   },
