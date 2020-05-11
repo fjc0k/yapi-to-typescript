@@ -261,6 +261,10 @@ export interface GetMethodRequest {
    * Y 值
    */
   y?: string
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string
 }
 
 /**

@@ -140,7 +140,7 @@ export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): J
     required: propDefinitions.reduce<string[]>(
       (res, prop) => {
         if (prop.required) {
-          res.push(prop.name)
+          res.push(prop.name.trim())
         }
         return res
       },
@@ -148,7 +148,7 @@ export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): J
     ),
     properties: propDefinitions.reduce<Exclude<JSONSchema4['properties'], undefined>>(
       (res, prop) => {
-        res[prop.name] = {
+        res[prop.name.trim()] = {
           type: prop.type,
           description: prop.comment,
           ...(prop.type === 'file' as any ? {tsType: FileData.name} : {}),

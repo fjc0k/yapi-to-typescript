@@ -46,6 +46,10 @@ export interface GetMethodTestTestTestTestRequest {
    * Y 值
    */
   y?: string
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string
 }
 
 /**
@@ -414,6 +418,10 @@ export interface GetMethodTestTestTestTestRequest {
    * Y 值
    */
   y?: string;
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string;
 }
 
 /**
@@ -884,6 +892,10 @@ export interface GetMethodTestTestTestRequest {
    * Y 值
    */
   y?: string
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string
 }
 
 /**
@@ -2087,6 +2099,10 @@ export interface GetMethodTestTestTestRequest {
    * Y 值
    */
   y?: string;
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string;
 }
 
 /**
@@ -3244,6 +3260,10 @@ export interface GetMethodTestRequest {
    * Y 值
    */
   y?: string
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string
 }
 
 /**
@@ -4229,6 +4249,10 @@ export interface GetMethodTestRequest {
    * Y 值
    */
   y?: string;
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string;
 }
 
 /**
@@ -5243,6 +5267,10 @@ export interface GetMethodTestTestRequest {
    * Y 值
    */
   y?: string
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string
 }
 
 /**
@@ -6306,6 +6334,10 @@ export interface GetMethodTestTestRequest {
    * Y 值
    */
   y?: string;
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string;
 }
 
 /**
@@ -7840,6 +7872,10 @@ export interface GetMethodTestTestTestTestTestRequest {
    * Y 值
    */
   y?: string
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string
 }
 
 /**
@@ -9084,6 +9120,10 @@ export interface GetMethodTestTestTestTestTestRequest {
    * Y 值
    */
   y?: string;
+  /**
+   * 测试 trim 的值
+   */
+  trim?: string;
 }
 
 /**

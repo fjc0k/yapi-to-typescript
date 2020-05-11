@@ -70,7 +70,13 @@ const mockData: Record<string, any> = {
           path: '/getMethod',
           project_id: 27,
           res_body_type: 'json',
-          req_body_form: [],
+          req_body_form: [{
+            required: '0',
+            _id: '5cbdd1c293bc6574a2de33dd',
+            name: '   trim       ',
+            example: '2',
+            desc: '测试 trim 的值',
+          }],
           req_params: [],
           req_headers: [],
           req_query: [
@@ -87,6 +93,13 @@ const mockData: Record<string, any> = {
               name: 'y',
               example: '2',
               desc: 'Y 值',
+            },
+            {
+              required: '0',
+              _id: '5cbdd1c293bc6574a2de33dc',
+              name: '   trim       ',
+              example: '2',
+              desc: '测试 trim 的值',
             },
           ],
           markdown: '',
