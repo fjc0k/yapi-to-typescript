@@ -46,10 +46,6 @@ export interface GetMethodTestTestTestTestRequest {
    * Y 值
    */
   y?: string
-  /**
-   * 测试 trim 的值
-   */
-  trim?: string
 }
 
 /**
@@ -418,10 +414,6 @@ export interface GetMethodTestTestTestTestRequest {
    * Y 值
    */
   y?: string;
-  /**
-   * 测试 trim 的值
-   */
-  trim?: string;
 }
 
 /**
@@ -892,10 +884,6 @@ export interface GetMethodTestTestTestRequest {
    * Y 值
    */
   y?: string
-  /**
-   * 测试 trim 的值
-   */
-  trim?: string
 }
 
 /**
@@ -1964,6 +1952,203 @@ export const picture_3dDetailTest = makeRequest<
   Picture_3dDetailTestRequestConfig
 >(picture_3dDetailTestRequestConfig)
 
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test\`
+ * @更新时间 1589249547
+ */
+export interface GetTestRequest {
+  a: string
+  b: string
+  c: string
+  'd    e': string
+}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test\`
+ * @更新时间 1589249547
+ */
+export interface GetTestResponse {}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test\`
+ * @更新时间 1589249547
+ */
+type GetTestRequestConfig = Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/28/get_test', undefined, string, false>
+>
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test\`
+ * @更新时间 1589249547
+ */
+const getTestRequestConfig: GetTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_3,
+  devUrl: devUrl_0_0_0_3,
+  prodUrl: prodUrl_0_0_0_3,
+  path: '/28/get_test',
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_3,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test\`
+ * @更新时间 1589249547
+ */
+export const getTest = makeRequest<GetTestRequest, GetTestResponse, GetTestRequestConfig>(getTestRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test\`
+ * @更新时间 1589249694
+ */
+export interface FormTestRequest {
+  a: string
+  b: string
+  c: string
+  'd   e': string
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test\`
+ * @更新时间 1589249694
+ */
+export interface FormTestResponse {}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test\`
+ * @更新时间 1589249694
+ */
+type FormTestRequestConfig = Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/28/post/form_test', undefined, string, false>
+>
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test\`
+ * @更新时间 1589249694
+ */
+const formTestRequestConfig: FormTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_3,
+  devUrl: devUrl_0_0_0_3,
+  prodUrl: prodUrl_0_0_0_3,
+  path: '/28/post/form_test',
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_3,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test\`
+ * @更新时间 1589249694
+ */
+export const formTest = makeRequest<FormTestRequest, FormTestResponse, FormTestRequestConfig>(formTestRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test\`
+ * @更新时间 1589249798
+ */
+export interface JsonTestRequest {
+  a: string
+  b: string
+  'c   d': string
+  e: {
+    f: string
+  }
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test\`
+ * @更新时间 1589249798
+ */
+export interface JsonTestResponse {
+  a?: number
+  b?: string
+  c?: {
+    d?: string
+  }
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test\`
+ * @更新时间 1589249798
+ */
+type JsonTestRequestConfig = Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/28/post/json_test', undefined, string, false>
+>
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test\`
+ * @更新时间 1589249798
+ */
+const jsonTestRequestConfig: JsonTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_3,
+  devUrl: devUrl_0_0_0_3,
+  prodUrl: prodUrl_0_0_0_3,
+  path: '/28/post/json_test',
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_3,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test\`
+ * @更新时间 1589249798
+ */
+export const jsonTest = makeRequest<JsonTestRequest, JsonTestResponse, JsonTestRequestConfig>(jsonTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -2099,10 +2284,6 @@ export interface GetMethodTestTestTestRequest {
    * Y 值
    */
   y?: string;
-  /**
-   * 测试 trim 的值
-   */
-  trim?: string;
 }
 
 /**
@@ -3117,7 +3298,222 @@ const picture_3dDetailTestRequestConfig: Picture_3dDetailTestRequestConfig = {
  * @请求头 \`GET /issue-17/picture_3d_detail_test\`
  * @更新时间 1575455147
  */
-export const picture_3dDetailTest = makeRequest<Picture_3dDetailTestRequest, Picture_3dDetailTestResponse, Picture_3dDetailTestRequestConfig>(picture_3dDetailTestRequestConfig)",
+export const picture_3dDetailTest = makeRequest<Picture_3dDetailTestRequest, Picture_3dDetailTestResponse, Picture_3dDetailTestRequestConfig>(picture_3dDetailTestRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test\`
+ * @更新时间 1589249547
+ */
+export interface GetTestRequest {
+  a: string;
+  b: string;
+  c: string;
+  'd    e': string;
+}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test\`
+ * @更新时间 1589249547
+ */
+export interface GetTestResponse {}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test\`
+ * @更新时间 1589249547
+*/
+type GetTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/28/get_test\\",
+  undefined,
+  string,
+  false
+>>
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test\`
+ * @更新时间 1589249547
+*/
+const getTestRequestConfig: GetTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_3,
+  devUrl: devUrl_0_0_0_3,
+  prodUrl: prodUrl_0_0_0_3,
+  path: \\"/28/get_test\\",
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_3,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test\`
+ * @更新时间 1589249547
+ */
+export const getTest = makeRequest<GetTestRequest, GetTestResponse, GetTestRequestConfig>(getTestRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test\`
+ * @更新时间 1589249694
+ */
+export interface FormTestRequest {
+  a: string;
+  b: string;
+  c: string;
+  'd   e': string;
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test\`
+ * @更新时间 1589249694
+ */
+export interface FormTestResponse {}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test\`
+ * @更新时间 1589249694
+*/
+type FormTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/28/post/form_test\\",
+  undefined,
+  string,
+  false
+>>
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test\`
+ * @更新时间 1589249694
+*/
+const formTestRequestConfig: FormTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_3,
+  devUrl: devUrl_0_0_0_3,
+  prodUrl: prodUrl_0_0_0_3,
+  path: \\"/28/post/form_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_3,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test\`
+ * @更新时间 1589249694
+ */
+export const formTest = makeRequest<FormTestRequest, FormTestResponse, FormTestRequestConfig>(formTestRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test\`
+ * @更新时间 1589249798
+ */
+export interface JsonTestRequest {
+  a: string;
+  b: string;
+  'c   d': string;
+  e: {
+    f: string;
+  };
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test\`
+ * @更新时间 1589249798
+ */
+export interface JsonTestResponse {
+  a?: number;
+  b?: string;
+  c?: {
+    d?: string;
+  };
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test\`
+ * @更新时间 1589249798
+*/
+type JsonTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/28/post/json_test\\",
+  undefined,
+  string,
+  false
+>>
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test\`
+ * @更新时间 1589249798
+*/
+const jsonTestRequestConfig: JsonTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_3,
+  devUrl: devUrl_0_0_0_3,
+  prodUrl: prodUrl_0_0_0_3,
+  path: \\"/28/post/json_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_3,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test\`
+ * @更新时间 1589249798
+ */
+export const jsonTest = makeRequest<JsonTestRequest, JsonTestResponse, JsonTestRequestConfig>(jsonTestRequestConfig)",
 ]
 `;
 
@@ -3260,10 +3656,6 @@ export interface GetMethodTestRequest {
    * Y 值
    */
   y?: string
-  /**
-   * 测试 trim 的值
-   */
-  trim?: string
 }
 
 /**
@@ -4249,10 +4641,6 @@ export interface GetMethodTestRequest {
    * Y 值
    */
   y?: string;
-  /**
-   * 测试 trim 的值
-   */
-  trim?: string;
 }
 
 /**
@@ -5267,10 +5655,6 @@ export interface GetMethodTestTestRequest {
    * Y 值
    */
   y?: string
-  /**
-   * 测试 trim 的值
-   */
-  trim?: string
 }
 
 /**
@@ -6334,10 +6718,6 @@ export interface GetMethodTestTestRequest {
    * Y 值
    */
   y?: string;
-  /**
-   * 测试 trim 的值
-   */
-  trim?: string;
 }
 
 /**
@@ -7488,6 +7868,209 @@ export const picture_3dDetailTestTest = makeRequest<
   Picture_3dDetailTestTestRequestConfig
 >(picture_3dDetailTestTestRequestConfig)
 
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test_test\`
+ * @更新时间 1589249547
+ */
+export interface GetTestTestRequest {
+  a: string
+  b: string
+  c: string
+  'd    e': string
+}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test_test\`
+ * @更新时间 1589249547
+ */
+export interface GetTestTestResponse {}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test_test\`
+ * @更新时间 1589249547
+ */
+type GetTestTestRequestConfig = Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/28/get_test_test', undefined, string, false>
+>
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test_test\`
+ * @更新时间 1589249547
+ */
+const getTestTestRequestConfig: GetTestTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/28/get_test_test',
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test_test\`
+ * @更新时间 1589249547
+ */
+export const getTestTest = makeRequest<GetTestTestRequest, GetTestTestResponse, GetTestTestRequestConfig>(
+  getTestTestRequestConfig,
+)
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test_test\`
+ * @更新时间 1589249694
+ */
+export interface FormTestTestRequest {
+  a: string
+  b: string
+  c: string
+  'd   e': string
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test_test\`
+ * @更新时间 1589249694
+ */
+export interface FormTestTestResponse {}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test_test\`
+ * @更新时间 1589249694
+ */
+type FormTestTestRequestConfig = Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/28/post/form_test_test', undefined, string, false>
+>
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test_test\`
+ * @更新时间 1589249694
+ */
+const formTestTestRequestConfig: FormTestTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/28/post/form_test_test',
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test_test\`
+ * @更新时间 1589249694
+ */
+export const formTestTest = makeRequest<FormTestTestRequest, FormTestTestResponse, FormTestTestRequestConfig>(
+  formTestTestRequestConfig,
+)
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test_test\`
+ * @更新时间 1589249798
+ */
+export interface JsonTestTestRequest {
+  a: string
+  b: string
+  'c   d': string
+  e: {
+    f: string
+  }
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test_test\`
+ * @更新时间 1589249798
+ */
+export interface JsonTestTestResponse {
+  a?: number
+  b?: string
+  c?: {
+    d?: string
+  }
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test_test\`
+ * @更新时间 1589249798
+ */
+type JsonTestTestRequestConfig = Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/28/post/json_test_test', undefined, string, false>
+>
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test_test\`
+ * @更新时间 1589249798
+ */
+const jsonTestTestRequestConfig: JsonTestTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/28/post/json_test_test',
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test_test\`
+ * @更新时间 1589249798
+ */
+export const jsonTestTest = makeRequest<JsonTestTestRequest, JsonTestTestResponse, JsonTestTestRequestConfig>(
+  jsonTestTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -7675,7 +8258,222 @@ const picture_3dDetailTestTestRequestConfig: Picture_3dDetailTestTestRequestConf
  * @请求头 \`GET /issue-17/picture_3d_detail_test_test\`
  * @更新时间 1575455147
  */
-export const picture_3dDetailTestTest = makeRequest<Picture_3dDetailTestTestRequest, Picture_3dDetailTestTestResponse, Picture_3dDetailTestTestRequestConfig>(picture_3dDetailTestTestRequestConfig)",
+export const picture_3dDetailTestTest = makeRequest<Picture_3dDetailTestTestRequest, Picture_3dDetailTestTestResponse, Picture_3dDetailTestTestRequestConfig>(picture_3dDetailTestTestRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test_test\`
+ * @更新时间 1589249547
+ */
+export interface GetTestTestRequest {
+  a: string;
+  b: string;
+  c: string;
+  'd    e': string;
+}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test_test\`
+ * @更新时间 1589249547
+ */
+export interface GetTestTestResponse {}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test_test\`
+ * @更新时间 1589249547
+*/
+type GetTestTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/28/get_test_test\\",
+  undefined,
+  string,
+  false
+>>
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test_test\`
+ * @更新时间 1589249547
+*/
+const getTestTestRequestConfig: GetTestTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: \\"/28/get_test_test\\",
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get_test_test\`
+ * @更新时间 1589249547
+ */
+export const getTestTest = makeRequest<GetTestTestRequest, GetTestTestResponse, GetTestTestRequestConfig>(getTestTestRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test_test\`
+ * @更新时间 1589249694
+ */
+export interface FormTestTestRequest {
+  a: string;
+  b: string;
+  c: string;
+  'd   e': string;
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test_test\`
+ * @更新时间 1589249694
+ */
+export interface FormTestTestResponse {}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test_test\`
+ * @更新时间 1589249694
+*/
+type FormTestTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/28/post/form_test_test\\",
+  undefined,
+  string,
+  false
+>>
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test_test\`
+ * @更新时间 1589249694
+*/
+const formTestTestRequestConfig: FormTestTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: \\"/28/post/form_test_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form_test_test\`
+ * @更新时间 1589249694
+ */
+export const formTestTest = makeRequest<FormTestTestRequest, FormTestTestResponse, FormTestTestRequestConfig>(formTestTestRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test_test\`
+ * @更新时间 1589249798
+ */
+export interface JsonTestTestRequest {
+  a: string;
+  b: string;
+  'c   d': string;
+  e: {
+    f: string;
+  };
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test_test\`
+ * @更新时间 1589249798
+ */
+export interface JsonTestTestResponse {
+  a?: number;
+  b?: string;
+  c?: {
+    d?: string;
+  };
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test_test\`
+ * @更新时间 1589249798
+*/
+type JsonTestTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/28/post/json_test_test\\",
+  undefined,
+  string,
+  false
+>>
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test_test\`
+ * @更新时间 1589249798
+*/
+const jsonTestTestRequestConfig: JsonTestTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: \\"/28/post/json_test_test\\",
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json_test_test\`
+ * @更新时间 1589249798
+ */
+export const jsonTestTest = makeRequest<JsonTestTestRequest, JsonTestTestResponse, JsonTestTestRequestConfig>(jsonTestTestRequestConfig)",
 ]
 `;
 
@@ -7872,10 +8670,6 @@ export interface GetMethodTestTestTestTestTestRequest {
    * Y 值
    */
   y?: string
-  /**
-   * 测试 trim 的值
-   */
-  trim?: string
 }
 
 /**
@@ -9120,10 +9914,6 @@ export interface GetMethodTestTestTestTestTestRequest {
    * Y 值
    */
   y?: string;
-  /**
-   * 测试 trim 的值
-   */
-  trim?: string;
 }
 
 /**

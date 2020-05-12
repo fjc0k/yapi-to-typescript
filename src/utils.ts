@@ -79,6 +79,16 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
     )
   }
 
+  // 移除字段名称首尾空格
+  if (jsonSchema.properties) {
+    forOwn(jsonSchema.properties, (_, prop) => {
+      const propDef = jsonSchema.properties![prop]
+      delete jsonSchema.properties![prop]
+      jsonSchema.properties![(prop as string).trim()] = propDef
+    })
+    jsonSchema.required = jsonSchema.required && jsonSchema.required.map(prop => prop.trim())
+  }
+
   // 继续处理对象的子元素
   if (jsonSchema.properties) {
     forOwn(jsonSchema.properties, processJsonSchema)
@@ -140,7 +150,7 @@ export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): J
     required: propDefinitions.reduce<string[]>(
       (res, prop) => {
         if (prop.required) {
-          res.push(prop.name.trim())
+          res.push(prop.name)
         }
         return res
       },
@@ -148,7 +158,7 @@ export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): J
     ),
     properties: propDefinitions.reduce<Exclude<JSONSchema4['properties'], undefined>>(
       (res, prop) => {
-        res[prop.name.trim()] = {
+        res[prop.name] = {
           type: prop.type,
           description: prop.comment,
           ...(prop.type === 'file' as any ? {tsType: FileData.name} : {}),
