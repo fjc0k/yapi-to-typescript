@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.0"></a>
+# [3.3.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.1.5...v3.3.0) (2020-08-05)
+
+
+### Features
+
+* 将查询参数序列号进请求路径中 (close: [#34](https://github.com/fjc0k/yapi-to-typescript/issues/34), close: [#39](https://github.com/fjc0k/yapi-to-typescript/issues/39)) ([ac43e58](https://github.com/fjc0k/yapi-to-typescript/commit/ac43e58))
+* 支持生成 JavaScript 代码 ([2787d51](https://github.com/fjc0k/yapi-to-typescript/commit/2787d51))
+* 移除字段名称首尾空格 ([bfed5cb](https://github.com/fjc0k/yapi-to-typescript/commit/bfed5cb))
+* **src/utils:** 修改当 yapi 下发的字段名称中含有空格时出现的字段多余空格问题 ([#28](https://github.com/fjc0k/yapi-to-typescript/issues/28)) ([23e3e35](https://github.com/fjc0k/yapi-to-typescript/commit/23e3e35))
+
+
+
 <a name="3.2.0"></a>
 # [3.2.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.1.5...v3.2.0) (2020-05-12)
 
