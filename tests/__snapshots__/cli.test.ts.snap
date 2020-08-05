@@ -208,7 +208,7 @@ export interface DeleteMethodResponse {}
  * @更新时间 1568765163
  */
 type DeleteMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod', undefined, string, false>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod', undefined, string, string, false>
 >
 
 /**
@@ -228,6 +228,7 @@ const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: [],
   requestDataOptional: false,
 }
 
@@ -282,7 +283,7 @@ export interface GetMethodResponse {
  * @更新时间 1568765164
  */
 type GetMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod', undefined, string, false>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod', undefined, string, 'x' | 'y', false>
 >
 
 /**
@@ -302,6 +303,7 @@ const getMethodRequestConfig: GetMethodRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: ['x', 'y'],
   requestDataOptional: false,
 }
 
@@ -346,7 +348,7 @@ export interface Json5ResponseResponse {
  * @更新时间 1568765164
  */
 type Json5ResponseRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response', undefined, string, true>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response', undefined, string, string, true>
 >
 
 /**
@@ -366,6 +368,7 @@ const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: [],
   requestDataOptional: true,
 }
 
@@ -410,7 +413,7 @@ export interface Json5RequestResponse {}
  * @更新时间 1568765164
  */
 type Json5RequestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request', undefined, string, false>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request', undefined, string, string, false>
 >
 
 /**
@@ -430,6 +433,7 @@ const json5RequestRequestConfig: Json5RequestRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: [],
   requestDataOptional: false,
 }
 
@@ -493,7 +497,7 @@ export interface PostMethodResponse {
  * @更新时间 1568765164
  */
 type PostMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod', undefined, string, false>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod', undefined, string, string, false>
 >
 
 /**
@@ -513,6 +517,7 @@ const postMethodRequestConfig: PostMethodRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: [],
   requestDataOptional: false,
 }
 
@@ -571,7 +576,16 @@ export interface PutMethodResponse {
  * @更新时间 1568765164
  */
 type PutMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/putMethod', undefined, string, false>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/putMethod',
+    undefined,
+    string,
+    'id' | 'namre',
+    false
+  >
 >
 
 /**
@@ -591,6 +605,7 @@ const putMethodRequestConfig: PutMethodRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: ['id', 'namre'],
   requestDataOptional: false,
 }
 
@@ -654,7 +669,16 @@ export interface DataKeyExampleResponse {
  * @更新时间 1568765165
  */
 type DataKeyExampleRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/dataKeyExample', undefined, string, false>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/dataKeyExample',
+    undefined,
+    string,
+    'id' | 'namre',
+    false
+  >
 >
 
 /**
@@ -674,6 +698,7 @@ const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: ['id', 'namre'],
   requestDataOptional: false,
 }
 
@@ -723,7 +748,7 @@ export interface UploadResponse {}
  * @更新时间 1582161261
  */
 type UploadRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload', undefined, string, false>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload', undefined, string, string, false>
 >
 
 /**
@@ -743,6 +768,7 @@ const uploadRequestConfig: UploadRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: [],
   requestDataOptional: false,
 }
 
@@ -781,7 +807,7 @@ export interface NoResponseDataResponse {}
  * @更新时间 1568765165
  */
 type NoResponseDataRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData', undefined, string, true>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData', undefined, string, string, true>
 >
 
 /**
@@ -801,6 +827,7 @@ const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: [],
   requestDataOptional: true,
 }
 
@@ -841,7 +868,7 @@ export interface EmptyResponseResponse {}
  * @更新时间 1568765165
  */
 type EmptyResponseRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse', undefined, string, true>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse', undefined, string, string, true>
 >
 
 /**
@@ -861,6 +888,7 @@ const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: [],
   requestDataOptional: true,
 }
 
@@ -917,6 +945,7 @@ type TestRequestConfig = Readonly<
     '/path/:id/hello/:name/:pass/{avatar}/:test',
     undefined,
     'id' | 'name' | 'pass' | 'test' | 'avatar',
+    string,
     false
   >
 >
@@ -938,6 +967,7 @@ const testRequestConfig: TestRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: ['id', 'name', 'pass', 'test', 'avatar'],
+  queryNames: [],
   requestDataOptional: false,
 }
 
@@ -1000,6 +1030,7 @@ type HihihiRequestConfig = Readonly<
     '/test/{id}/:hihihi',
     undefined,
     'hihihi' | 'id',
+    string,
     false
   >
 >
@@ -1021,6 +1052,7 @@ const hihihiRequestConfig: HihihiRequestConfig = {
   responseBodyType: ResponseBodyType.json,
   dataKey: dataKey_0_0_0_0,
   paramNames: ['hihihi', 'id'],
+  queryNames: [],
   requestDataOptional: false,
 }
 
@@ -1059,7 +1091,7 @@ export type RawResponseResponse = any
  * @更新时间 1568765166
  */
 type RawResponseRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse', undefined, string, true>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse', undefined, string, string, true>
 >
 
 /**
@@ -1079,6 +1111,7 @@ const rawResponseRequestConfig: RawResponseRequestConfig = {
   responseBodyType: ResponseBodyType.raw,
   dataKey: dataKey_0_0_0_0,
   paramNames: [],
+  queryNames: [],
   requestDataOptional: true,
 }
 

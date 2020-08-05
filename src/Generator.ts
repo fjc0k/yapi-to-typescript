@@ -605,6 +605,11 @@ export class Generator {
     const paramNamesLiteral = JSON.stringify(paramNames)
     const paramNameType = paramNames.length === 0 ? 'string' : `'${paramNames.join('\' | \'')}'`
 
+    // 支持查询参数
+    const queryNames = (interfaceInfo.req_query /* istanbul ignore next */ || []).map(item => item.name)
+    const queryNamesLiteral = JSON.stringify(queryNames)
+    const queryNameType = queryNames.length === 0 ? 'string' : `'${queryNames.join('\' | \'')}'`
+
     // 转义标题中的 /
     const escapedTitle = String(interfaceInfo.title).replace(/\//g, '\\/')
 
@@ -669,6 +674,7 @@ export class Generator {
           ${JSON.stringify(interfaceInfo.path)},
           ${JSON.stringify(syntheticalConfig.dataKey)},
           ${paramNameType},
+          ${queryNameType},
           ${JSON.stringify(isRequestDataOptional)}
         >>
 
@@ -687,6 +693,7 @@ export class Generator {
           responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},
           dataKey: dataKey${categoryUID},
           paramNames: ${paramNamesLiteral},
+          queryNames: ${queryNamesLiteral},
           requestDataOptional: ${JSON.stringify(isRequestDataOptional)},
         }
 

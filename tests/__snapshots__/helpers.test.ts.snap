@@ -81,3 +81,18 @@ Object {
   "path": "/test",
 }
 `;
+
+exports[`prepare 支持追加查询参数 1`] = `
+Object {
+  "data": Object {
+    "b": "2",
+  },
+  "fileData": Object {},
+  "hasFileData": false,
+  "path": "/search?a=1&id=110",
+  "queryNames": Array [
+    "a",
+    "id",
+  ],
+}
+`;

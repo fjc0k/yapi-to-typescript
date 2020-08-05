@@ -466,6 +466,7 @@ export interface RequestConfig<
   Path extends string = any,
   DataKey extends string | undefined = any,
   ParamName extends string = any,
+  QueryName extends string = any,
   RequestDataOptional extends boolean = any,
 > {
   /** 接口 Mock 地址，结尾无 `/` */
@@ -486,6 +487,8 @@ export interface RequestConfig<
   dataKey: DataKey,
   /** 路径参数的名称列表 */
   paramNames: ParamName[],
+  /** 查询参数的名称列表 */
+  queryNames: QueryName[],
   /** 请求数据是否可选 */
   requestDataOptional: RequestDataOptional,
 }

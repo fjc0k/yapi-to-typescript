@@ -95,4 +95,13 @@ describe('prepare', () => {
       ),
     ).toMatchSnapshot('路径参数 3 - 全部替换')
   })
+
+  test('支持追加查询参数', () => {
+    expect(
+      prepare(
+        {path: '/search', queryNames: ['a', 'id']} as Partial<RequestConfig> as any,
+        {a: 1, b: '2', id: 110},
+      ),
+    ).toMatchSnapshot()
+  })
 })
