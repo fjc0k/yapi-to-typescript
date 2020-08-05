@@ -3,16 +3,23 @@ import path from 'path'
 import tempy from 'tempy'
 import {forOwn, OneOrMore} from 'vtils'
 import {Generator} from '../src/Generator'
+import {ServerConfig} from '../src'
 
 afterEach(() => {
   require('request-promise-native').resetExportCount()
 })
 
-const generatorFactory = (id: OneOrMore<0 | 82 | 87 | 151 | -82 | -87 | -151>, typesOnly: boolean, enableReactHooks: boolean = false) => {
+const generatorFactory = (
+  id: OneOrMore<0 | 82 | 87 | 151 | -82 | -87 | -151>,
+  typesOnly: boolean,
+  enableReactHooks: boolean = false,
+  target: ServerConfig['target'] = 'typescript',
+) => {
   const apiDir = tempy.directory()
   return new Generator({
     serverUrl: 'http://foo.bar',
     typesOnly: typesOnly,
+    target: target,
     prodEnvName: 'production',
     outputFilePath: path.join(apiDir, 'index.ts'),
     requestFunctionFilePath: path.join(apiDir, 'request.ts'),
@@ -135,5 +142,27 @@ describe('Generator', () => {
     const generator = generatorFactory(0, false)
     await generator.generate()
     expect(require('request-promise-native').getExportCount()).toEqual(1)
+  })
+
+  test('生成 JavaScript 代码', async () => {
+    const generator = generatorFactory(82, false, false, 'javascript')
+    const output = await generator.generate()
+    forOwn(output, ({content}) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
+      expect(fs.existsSync(`${outputFilePath}`)).toBe(false)
+      expect(fs.existsSync(`${requestFunctionFilePath}`)).toBe(false)
+      outputFilePath = `${outputFilePath}`.replace(/\.ts(x)?$/, '.js$1')
+      requestFunctionFilePath = `${requestFunctionFilePath}`.replace(/\.ts(x)?$/, '.js$1')
+      expect(fs.existsSync(`${outputFilePath}`)).toBe(true)
+      expect(fs.existsSync(`${requestFunctionFilePath}`)).toBe(true)
+      expect(fs.existsSync(`${outputFilePath.replace(/\.[^.]+$/, '.d.ts')}`)).toBe(true)
+      expect(fs.existsSync(`${requestFunctionFilePath.replace(/\.[^.]+$/, '.d.ts')}`)).toBe(true)
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
+      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
+    })
   })
 })

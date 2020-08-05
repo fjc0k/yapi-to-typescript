@@ -18,12 +18,13 @@ exports[`cli 检查到已有配置，可以选择不覆盖: 不覆盖后的配�
 exports[`cli 检查到已有配置，可以选择不覆盖: 修改过的配置文件 1`] = `"hello"`;
 
 exports[`cli 检查到已有配置，可以选择不覆盖: 配置文件 1`] = `
-"import { Config } from 'yapi-to-typescript'
+"import { defineConfig } from 'yapi-to-typescript'
 
-const config: Config = [
+export default defineConfig([
   {
     serverUrl: 'http://foo.bar',
     typesOnly: false,
+    target: 'typescript',
     reactHooks: {
       enabled: false,
     },
@@ -47,20 +48,19 @@ const config: Config = [
       },
     ],
   },
-]
-
-export default config"
+])"
 `;
 
 exports[`cli 检查到已有配置，可以选择覆盖: 修改过的配置文件 1`] = `"hello"`;
 
 exports[`cli 检查到已有配置，可以选择覆盖: 覆盖后的配置文件 1`] = `
-"import { Config } from 'yapi-to-typescript'
+"import { defineConfig } from 'yapi-to-typescript'
 
-const config: Config = [
+export default defineConfig([
   {
     serverUrl: 'http://foo.bar',
     typesOnly: false,
+    target: 'typescript',
     reactHooks: {
       enabled: false,
     },
@@ -84,18 +84,17 @@ const config: Config = [
       },
     ],
   },
-]
-
-export default config"
+])"
 `;
 
 exports[`cli 检查到已有配置，可以选择覆盖: 配置文件 1`] = `
-"import { Config } from 'yapi-to-typescript'
+"import { defineConfig } from 'yapi-to-typescript'
 
-const config: Config = [
+export default defineConfig([
   {
     serverUrl: 'http://foo.bar',
     typesOnly: false,
+    target: 'typescript',
     reactHooks: {
       enabled: false,
     },
@@ -119,9 +118,7 @@ const config: Config = [
       },
     ],
   },
-]
-
-export default config"
+])"
 `;
 
 exports[`cli 正确初始化配置文件 & 生成结果: 接口文件 1`] = `
@@ -1139,12 +1136,13 @@ export default function request<TResponseData>(
 `;
 
 exports[`cli 正确初始化配置文件 & 生成结果: 配置文件 1`] = `
-"import { Config } from 'yapi-to-typescript'
+"import { defineConfig } from 'yapi-to-typescript'
 
-const config: Config = [
+export default defineConfig([
   {
     serverUrl: 'http://foo.bar',
     typesOnly: false,
+    target: 'typescript',
     reactHooks: {
       enabled: false,
     },
@@ -1168,7 +1166,5 @@ const config: Config = [
       },
     ],
   },
-]
-
-export default config"
+])"
 `;

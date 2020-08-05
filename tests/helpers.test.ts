@@ -1,5 +1,12 @@
-import {FileData, parseRequestData, prepare} from '../src/helpers'
+import {defineConfig, FileData, parseRequestData, prepare} from '../src/helpers'
 import {RequestConfig} from '../src/types'
+
+describe('defineConfig', () => {
+  test('直接返回传入的配置', () => {
+    const config = {} as any
+    expect(defineConfig(config)).toBe(config)
+  })
+})
 
 describe('FileData', () => {
   test('正确返回原始值', () => {

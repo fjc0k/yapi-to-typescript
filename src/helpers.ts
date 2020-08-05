@@ -1,4 +1,13 @@
-import {RequestConfig, RequestFunctionParams} from './types'
+import {Config, RequestConfig, RequestFunctionParams} from './types'
+
+/**
+ * 定义配置。
+ *
+ * @param config 配置
+ */
+export function defineConfig(config: Config) {
+  return config
+}
 
 export class FileData<T = any> {
   /**

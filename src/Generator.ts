@@ -7,6 +7,7 @@ import prettier from 'prettier'
 import request from 'request-promise-native'
 import {castArray, dedent, isArray, isEmpty, isFunction, memoize, omit, unique} from 'vtils'
 import {CategoryList, Config, ExtendedInterface, Interface, InterfaceList, Method, PropDefinition, RequestBodyType, RequestFormItemType, Required, ResponseBodyType, ServerConfig, SyntheticalConfig} from './types'
+import {exec} from 'child_process'
 import {getNormalizedRelativePath, jsonSchemaStringToJsonSchema, jsonSchemaToType, jsonToJsonSchema, mockjsTemplateToJsonSchema, propDefinitionsToJsonSchema, throwError} from './utils'
 import {JSONSchema4} from 'json-schema'
 
@@ -85,6 +86,7 @@ export class Generator {
                           ...categoryConfig,
                           mockUrl: projectInfo.getMockUrl(),
                         }
+                        syntheticalConfig.target = syntheticalConfig.target || 'typescript'
                         syntheticalConfig.devUrl = projectInfo.getDevUrl(syntheticalConfig.devEnvName!)
                         syntheticalConfig.prodUrl = projectInfo.getProdUrl(syntheticalConfig.prodEnvName!)
                         const interfaceList = await this.fetchInterfaceList(syntheticalConfig)
@@ -167,7 +169,13 @@ export class Generator {
   async write(outputFileList: OutputFileList) {
     return Promise.all(
       Object.keys(outputFileList).map(async outputFilePath => {
-        const {content, requestFunctionFilePath, requestHookMakerFilePath, syntheticalConfig} = outputFileList[outputFilePath]
+        // eslint-disable-next-line prefer-const
+        let {content, requestFunctionFilePath, requestHookMakerFilePath, syntheticalConfig} = outputFileList[outputFilePath]
+
+        // 支持 .jsx? 后缀
+        outputFilePath = outputFilePath.replace(/\.js(x)?$/, '.ts$1')
+        requestFunctionFilePath = requestFunctionFilePath.replace(/\.js(x)?$/, '.ts$1')
+        requestHookMakerFilePath = requestHookMakerFilePath.replace(/\.js(x)?$/, '.ts$1')
 
         if (!syntheticalConfig.typesOnly) {
           if (!(await fs.pathExists(requestFunctionFilePath))) {
@@ -325,8 +333,33 @@ export class Generator {
           /* prettier-ignore-end */
         `}\n`
         await fs.outputFile(outputFilePath, outputContent)
+
+        // 如果要生成 JavaScript 代码，
+        // 则先对主文件进行 tsc 编译，主文件引用到的其他文件也会被编译，
+        // 然后，删除原始的 .tsx? 文件。
+        if (syntheticalConfig.target === 'javascript') {
+          await this.tsc(outputFilePath)
+          await Promise.all([
+            fs.remove(requestFunctionFilePath).catch(() => {}),
+            fs.remove(requestHookMakerFilePath).catch(() => {}),
+            fs.remove(outputFilePath).catch(() => {}),
+          ])
+        }
       }),
     )
+  }
+
+  async tsc(file: string) {
+    return new Promise(resolve => {
+      exec(
+        `${require.resolve('typescript/bin/tsc')} --target ES2019 --module ESNext --jsx preserve --declaration --esModuleInterop ${file}`,
+        {
+          cwd: this.options.cwd,
+          env: process.env,
+        },
+        () => resolve(),
+      )
+    })
   }
 
   /** 生成请求数据类型 */

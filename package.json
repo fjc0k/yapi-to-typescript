@@ -87,8 +87,7 @@
     "standard-version": "^4.4.0",
     "tempy": "^0.3.0",
     "ts-jest": "^23.10.5",
-    "typedoc": "^0.14.2",
-    "typescript": "^3.3.3333"
+    "typedoc": "^0.14.2"
   },
   "dependencies": {
     "@types/react": "^16.9.2",
@@ -108,6 +107,7 @@
     "request-promise-native": "^1.0.5",
     "ts-node": "^8.0.2",
     "tslib": "^1.9.3",
+    "typescript": "^3.9.7",
     "vtils": "^2.55.0"
   }
 }

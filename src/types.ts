@@ -271,6 +271,14 @@ export interface ReactHooksConfig {
  */
 export interface SharedConfig {
   /**
+   * 要生成的目标代码类型。
+   * 默认为 `typescript`，若设为 `javascript`，会将生成的 `.ts` 文件转换为 `.js` + `.d.ts` 文件并删除原 `.ts` 文件。
+   *
+   * @default 'typescript'
+   */
+  target?: 'typescript' | 'javascript',
+
+  /**
    * 是否只生成接口请求内容和返回内容的 TypeSript 类型，是则请求文件和请求函数都不会生成。
    *
    * @default false
