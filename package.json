@@ -29,8 +29,7 @@
     "ytt": "lib/cjs/cli.js"
   },
   "files": [
-    "lib",
-    "client"
+    "lib"
   ],
   "scripts": {
     "build": "shx rm -rf ./lib && tsc -P tsconfig.esm.json && tsc -P tsconfig.cjs.json",
