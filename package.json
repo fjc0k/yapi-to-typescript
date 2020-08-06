@@ -1,13 +1,14 @@
 {
   "name": "yapi-to-typescript",
   "version": "3.3.0",
-  "description": "根据 YApi 的接口定义生成 TypeScript 的接口类型及其请求函数代码。",
-  "main": "client/index.js",
-  "module": "client/index.mjs",
-  "types": "client/index.d.ts",
+  "description": "根据 YApi 的接口定义生成 TypeScript/JavaScript 的接口类型及其请求函数代码。",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/esm/index.d.ts",
   "bin": {
-    "ytt": "lib/cli.js"
+    "ytt": "lib/cjs/cli.js"
   },
+  "sideEffects": false,
   "homepage": "https://github.com/fjc0k/yapi-to-typescript",
   "license": "MIT",
   "repository": {
@@ -37,9 +38,7 @@
     "testApi": "ts-node --transpile-only src/cli.ts",
     "testOnly": "jest",
     "test": "jest --coverage",
-    "build": "rm -rf src/api && yarn buildCli && yarn buildClient",
-    "buildCli": "tsc",
-    "buildClient": "bili",
+    "build": "shx rm -rf ./lib && tsc -P tsconfig.esm.json && tsc -P tsconfig.cjs.json",
     "release": "yarn lint && yarn testOnly && standard-version -a && yarn build && git push --follow-tags origin master && yarn docs && npm publish"
   },
   "eslintConfig": {
@@ -48,7 +47,6 @@
   },
   "eslintIgnore": [
     "lib",
-    "client",
     "__snapshots__",
     "api"
   ],
@@ -77,13 +75,12 @@
     "@types/node": "^10.12.10",
     "@types/prompts": "^1.2.0",
     "@types/request-promise-native": "^1.0.15",
-    "bili": "^4.7.1",
     "codecov": "^3.1.0",
     "eslint": "^5.9.0",
     "eslint-config-io": "^0.7.0",
     "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
-    "rollup-plugin-typescript2": "^0.20.1",
+    "shx": "^0.3.2",
     "standard-version": "^4.4.0",
     "tempy": "^0.3.0",
     "ts-jest": "^23.10.5",
@@ -106,7 +103,7 @@
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
     "ts-node": "^8.0.2",
-    "tslib": "^1.9.3",
+    "tslib": "^2.0.0",
     "typescript": "^3.9.7",
     "vtils": "^2.55.0"
   }

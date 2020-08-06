@@ -1,25 +1,17 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": { "*": ["types/*"] },
     "strict": true,
-    "target": "es2017",
-    "module": "commonjs",
+    "target": "ES5",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "declaration": true,
     "removeComments": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
-    "outDir": "lib",
     "newLine": "LF",
+    "preserveSymlinks": true,
     "skipLibCheck": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ]
-  },
-  "include": [
-    "src"
-  ]
+    "lib": ["ESNext"]
+  }
 }
