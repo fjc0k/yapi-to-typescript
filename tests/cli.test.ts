@@ -29,6 +29,10 @@ async function runCli(cwd: string, cmd = '') {
   await wait(100)
 }
 
+beforeEach(() => {
+  require('prompts').setAnswer('configFileType', 'ts')
+})
+
 describe('cli', () => {
   test('help', async () => {
     const tempPaths = getTempPaths()
@@ -99,7 +103,7 @@ describe('cli', () => {
     ).toMatchSnapshot('修改过的配置文件')
 
     // 覆盖配置文件
-    require('prompts').setAnswer(true)
+    require('prompts').setAnswer('override', true)
     await runCli(tempPaths.targetDir, 'init')
     expect(
       fs.readFileSync(tempPaths.generatedConfigFile).toString(),
@@ -122,7 +126,7 @@ describe('cli', () => {
     ).toMatchSnapshot('修改过的配置文件')
 
     // 不覆盖配置文件
-    require('prompts').setAnswer(false)
+    require('prompts').setAnswer('override', false)
     await runCli(tempPaths.targetDir, 'init')
     await wait(1000)
     expect(

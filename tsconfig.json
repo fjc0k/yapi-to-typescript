@@ -12,6 +12,16 @@
     "newLine": "LF",
     "preserveSymlinks": true,
     "skipLibCheck": true,
-    "lib": ["ESNext"]
+    "lib": ["ESNext"],
+    "plugins": [
+      {
+        "name": "typescript-snapshots-plugin",
+        "snapshotCallIdentifiers": [
+          "toMatchSnapshot",
+          "toThrowErrorMatchingSnapshot",
+          "toMatchDiffSnapshot"
+        ]
+      }
+    ]
   }
 }

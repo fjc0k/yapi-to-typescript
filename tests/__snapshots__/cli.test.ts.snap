@@ -36,7 +36,7 @@ export default defineConfig([
         token: 'hello',
         categories: [
           {
-            id: 50,
+            id: 0,
             getRequestFunctionName(interfaceInfo, changeCase) {
               return changeCase.camelCase(
                 interfaceInfo.parsedPath.name,
@@ -72,7 +72,7 @@ export default defineConfig([
         token: 'hello',
         categories: [
           {
-            id: 50,
+            id: 0,
             getRequestFunctionName(interfaceInfo, changeCase) {
               return changeCase.camelCase(
                 interfaceInfo.parsedPath.name,
@@ -106,7 +106,7 @@ export default defineConfig([
         token: 'hello',
         categories: [
           {
-            id: 50,
+            id: 0,
             getRequestFunctionName(interfaceInfo, changeCase) {
               return changeCase.camelCase(
                 interfaceInfo.parsedPath.name,
@@ -171,10 +171,10 @@ export type Request<
   requestConfig: TRequestConfig
 }
 
-const mockUrl_0_0_0_0 = 'http://foo.bar/mock/32' as any
-const devUrl_0_0_0_0 = '' as any
-const prodUrl_0_0_0_0 = 'http://prod.com/' as any
-const dataKey_0_0_0_0 = undefined as any
+const mockUrl_0_0_0_1 = 'http://foo.bar/mock/32' as any
+const devUrl_0_0_0_1 = '' as any
+const prodUrl_0_0_0_1 = 'http://prod.com/' as any
+const dataKey_0_0_0_1 = undefined as any
 
 /**
  * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求类型**
@@ -218,14 +218,14 @@ type DeleteMethodRequestConfig = Readonly<
  * @更新时间 1568765163
  */
 const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/deleteMethod',
   method: Method.DELETE,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
@@ -293,14 +293,14 @@ type GetMethodRequestConfig = Readonly<
  * @更新时间 1568765164
  */
 const getMethodRequestConfig: GetMethodRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/getMethod',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: ['x', 'y'],
   requestDataOptional: false,
@@ -358,14 +358,14 @@ type Json5ResponseRequestConfig = Readonly<
  * @更新时间 1568765164
  */
 const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/json5Response',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
@@ -423,14 +423,14 @@ type Json5RequestRequestConfig = Readonly<
  * @更新时间 1568765164
  */
 const json5RequestRequestConfig: Json5RequestRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/json5Request',
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
@@ -507,14 +507,14 @@ type PostMethodRequestConfig = Readonly<
  * @更新时间 1568765164
  */
 const postMethodRequestConfig: PostMethodRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/postMethod',
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
@@ -595,14 +595,14 @@ type PutMethodRequestConfig = Readonly<
  * @更新时间 1568765164
  */
 const putMethodRequestConfig: PutMethodRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/putMethod',
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: ['id', 'namre'],
   requestDataOptional: false,
@@ -688,14 +688,14 @@ type DataKeyExampleRequestConfig = Readonly<
  * @更新时间 1568765165
  */
 const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/dataKeyExample',
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: ['id', 'namre'],
   requestDataOptional: false,
@@ -758,14 +758,14 @@ type UploadRequestConfig = Readonly<
  * @更新时间 1582161261
  */
 const uploadRequestConfig: UploadRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/upload',
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
@@ -817,14 +817,14 @@ type NoResponseDataRequestConfig = Readonly<
  * @更新时间 1568765165
  */
 const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/noResponseData',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
@@ -878,14 +878,14 @@ type EmptyResponseRequestConfig = Readonly<
  * @更新时间 1568765165
  */
 const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/emptyResponse',
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
@@ -957,14 +957,14 @@ type TestRequestConfig = Readonly<
  * @更新时间 1568765165
  */
 const testRequestConfig: TestRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/path/:id/hello/:name/:pass/{avatar}/:test',
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: ['id', 'name', 'pass', 'test', 'avatar'],
   queryNames: [],
   requestDataOptional: false,
@@ -1042,14 +1042,14 @@ type HihihiRequestConfig = Readonly<
  * @更新时间 1568765165
  */
 const hihihiRequestConfig: HihihiRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/test/{id}/:hihihi',
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: ['hihihi', 'id'],
   queryNames: [],
   requestDataOptional: false,
@@ -1101,14 +1101,14 @@ type RawResponseRequestConfig = Readonly<
  * @更新时间 1568765166
  */
 const rawResponseRequestConfig: RawResponseRequestConfig = {
-  mockUrl: mockUrl_0_0_0_0,
-  devUrl: devUrl_0_0_0_0,
-  prodUrl: prodUrl_0_0_0_0,
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
   path: '/rawResponse',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
-  dataKey: dataKey_0_0_0_0,
+  dataKey: dataKey_0_0_0_1,
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
@@ -1124,6 +1124,381 @@ const rawResponseRequestConfig: RawResponseRequestConfig = {
 export const rawResponse = makeRequest<RawResponseRequest, RawResponseResponse, RawResponseRequestConfig>(
   rawResponseRequestConfig,
 )
+
+const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
+const devUrl_0_0_0_2 = '' as any
+const prodUrl_0_0_0_2 = 'http://prod.com/' as any
+const dataKey_0_0_0_2 = undefined as any
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2\`
+ * @更新时间 1575945946
+ */
+export interface Get2Request {}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2\`
+ * @更新时间 1575945946
+ */
+export interface Get2Response {
+  msg: string
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2\`
+ * @更新时间 1575945946
+ */
+type Get2RequestConfig = Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/get2', undefined, string, string, true>
+>
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2\`
+ * @更新时间 1575945946
+ */
+const get2RequestConfig: Get2RequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/get2',
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/27/interface/api/445) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /get2\`
+ * @更新时间 1575945946
+ */
+export const get2 = makeRequest<Get2Request, Get2Response, Get2RequestConfig>(get2RequestConfig)
+
+const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
+const devUrl_0_0_0_3 = '' as any
+const prodUrl_0_0_0_3 = 'http://prod.com/' as any
+const dataKey_0_0_0_3 = undefined as any
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail\`
+ * @更新时间 1575455147
+ */
+export interface Picture_3dDetailRequest {}
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail\`
+ * @更新时间 1575455147
+ */
+export interface Picture_3dDetailResponse {}
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail\`
+ * @更新时间 1575455147
+ */
+type Picture_3dDetailRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/issue-17/picture_3d_detail',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail\`
+ * @更新时间 1575455147
+ */
+const picture_3dDetailRequestConfig: Picture_3dDetailRequestConfig = {
+  mockUrl: mockUrl_0_0_0_3,
+  devUrl: devUrl_0_0_0_3,
+  prodUrl: prodUrl_0_0_0_3,
+  path: '/issue-17/picture_3d_detail',
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_3,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+}
+
+/**
+ * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /issue-17/picture_3d_detail\`
+ * @更新时间 1575455147
+ */
+export const picture_3dDetail = makeRequest<
+  Picture_3dDetailRequest,
+  Picture_3dDetailResponse,
+  Picture_3dDetailRequestConfig
+>(picture_3dDetailRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get\`
+ * @更新时间 1589249547
+ */
+export interface GetRequest {
+  a: string
+  b: string
+  c: string
+  'd    e': string
+}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get\`
+ * @更新时间 1589249547
+ */
+export interface GetResponse {}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get\`
+ * @更新时间 1589249547
+ */
+type GetRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/28/get',
+    undefined,
+    string,
+    '   a' | ' b' | 'c ' | '    d    e   ',
+    false
+  >
+>
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get\`
+ * @更新时间 1589249547
+ */
+const getRequestConfig: GetRequestConfig = {
+  mockUrl: mockUrl_0_0_0_3,
+  devUrl: devUrl_0_0_0_3,
+  prodUrl: prodUrl_0_0_0_3,
+  path: '/28/get',
+  method: Method.GET,
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_3,
+  paramNames: [],
+  queryNames: ['   a', ' b', 'c ', '    d    e   '],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`GET /28/get\`
+ * @更新时间 1589249547
+ */
+export const get = makeRequest<GetRequest, GetResponse, GetRequestConfig>(getRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form\`
+ * @更新时间 1589249694
+ */
+export interface FormRequest {
+  a: string
+  b: string
+  c: string
+  'd   e': string
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form\`
+ * @更新时间 1589249694
+ */
+export interface FormResponse {}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form\`
+ * @更新时间 1589249694
+ */
+type FormRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/28/post/form',
+    undefined,
+    string,
+    '   a' | ' b' | 'c ' | '    d    e   ',
+    false
+  >
+>
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form\`
+ * @更新时间 1589249694
+ */
+const formRequestConfig: FormRequestConfig = {
+  mockUrl: mockUrl_0_0_0_3,
+  devUrl: devUrl_0_0_0_3,
+  prodUrl: prodUrl_0_0_0_3,
+  path: '/28/post/form',
+  method: Method.POST,
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_3,
+  paramNames: [],
+  queryNames: ['   a', ' b', 'c ', '    d    e   '],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/form\`
+ * @更新时间 1589249694
+ */
+export const form = makeRequest<FormRequest, FormResponse, FormRequestConfig>(formRequestConfig)
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json\`
+ * @更新时间 1589249798
+ */
+export interface JsonRequest {
+  a: string
+  b: string
+  'c   d': string
+  e: {
+    f: string
+  }
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **返回类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json\`
+ * @更新时间 1589249798
+ */
+export interface JsonResponse {
+  a?: number
+  b?: string
+  c?: {
+    d?: string
+  }
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置的类型**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json\`
+ * @更新时间 1589249798
+ */
+type JsonRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/28/post/json',
+    undefined,
+    string,
+    '   a' | ' b' | 'c ' | '    d    e   ',
+    false
+  >
+>
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json\`
+ * @更新时间 1589249798
+ */
+const jsonRequestConfig: JsonRequestConfig = {
+  mockUrl: mockUrl_0_0_0_3,
+  devUrl: devUrl_0_0_0_3,
+  prodUrl: prodUrl_0_0_0_3,
+  path: '/28/post/json',
+  method: Method.POST,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_3,
+  paramNames: [],
+  queryNames: ['   a', ' b', 'c ', '    d    e   '],
+  requestDataOptional: false,
+}
+
+/**
+ * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求函数**
+ *
+ * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
+ * @请求头 \`POST /28/post/json\`
+ * @更新时间 1589249798
+ */
+export const json = makeRequest<JsonRequest, JsonResponse, JsonRequestConfig>(jsonRequestConfig)
 
 /* prettier-ignore-end */
 "
@@ -1187,7 +1562,7 @@ export default defineConfig([
         token: 'hello',
         categories: [
           {
-            id: 50,
+            id: 0,
             getRequestFunctionName(interfaceInfo, changeCase) {
               return changeCase.camelCase(
                 interfaceInfo.parsedPath.name,

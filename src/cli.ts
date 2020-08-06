@@ -93,15 +93,17 @@ export async function run(
               enabled: false,
             },
             prodEnvName: 'production',
-            outputFilePath: 'src/api/index.ts',
-            requestFunctionFilePath: 'src/api/request.ts',
+            outputFilePath: 'src/api/index.${answers.configFileType}',
+            requestFunctionFilePath: 'src/api/request.${
+              answers.configFileType
+            }',
             dataKey: 'data',
             projects: [
               {
                 token: 'hello',
                 categories: [
                   {
-                    id: 50,
+                    id: 0,
                     getRequestFunctionName(interfaceInfo, changeCase) {
                       return changeCase.camelCase(
                         interfaceInfo.parsedPath.name,

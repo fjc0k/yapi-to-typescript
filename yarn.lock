@@ -7562,6 +7562,11 @@ typedoc@^0.14.2:
     typedoc-default-themes "^0.5.0"
     typescript "3.2.x"
 
+typescript-snapshots-plugin@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.npm.taobao.org/typescript-snapshots-plugin/download/typescript-snapshots-plugin-1.7.0.tgz#14c7699381e2244a37e4273a68fd11fd2bb480a9"
+  integrity sha1-FMdpk4HiJEo35Cc6aP0R/Su0gKk=
+
 typescript@3.2.x:
   version "3.2.4"
   resolved "https://registry.npm.taobao.org/typescript/download/typescript-3.2.4.tgz?cache=0&sync_timestamp=1596612506181&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-3.2.4.tgz#c585cb952912263d915b462726ce244ba510ef3d"
