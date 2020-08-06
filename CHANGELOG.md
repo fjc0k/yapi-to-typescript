@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.1-beta.4"></a>
+
+## [3.3.1-beta.4](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1-beta.3...v3.3.1-beta.4) (2020-08-06)
+
+### Features
+
+- **cli:** 优化生成的配置文件 ([4dc5a54](https://github.com/fjc0k/yapi-to-typescript/commit/4dc5a54))
+
 <a name="3.3.1-beta.3"></a>
 
 ## [3.3.1-beta.3](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1-beta.2...v3.3.1-beta.3) (2020-08-06)
