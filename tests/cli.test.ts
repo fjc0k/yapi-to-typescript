@@ -5,8 +5,6 @@ import tempy from 'tempy'
 import { run } from '../src/cli'
 import { wait } from 'vtils'
 
-const pkg = require('../package.json')
-
 function getTempPaths() {
   const targetDir = tempy.directory()
   fs.symlinkSync(
@@ -32,20 +30,6 @@ async function runCli(cwd: string, cmd = '') {
 }
 
 describe('cli', () => {
-  test('version', async () => {
-    const tempPaths = getTempPaths()
-
-    let text = ''
-    const log = jest.fn(message => {
-      text = message
-    })
-    jest.spyOn(console, 'log').mockImplementationOnce(log)
-
-    await runCli(tempPaths.targetDir, 'version')
-
-    expect(text).toMatch(`${pkg.name} v${pkg.version}`)
-  })
-
   test('help', async () => {
     const tempPaths = getTempPaths()
 

@@ -36,8 +36,6 @@ export async function run(
   /* istanbul ignore next */
   cwd: string = process.cwd(),
 ) {
-  const pkg = require('../package.json')
-
   const configTSFile = path.join(cwd, 'ytt.config.ts')
   const configJSFile = path.join(cwd, 'ytt.config.js')
   const configTSFileExist = await fs.pathExists(configTSFile)
@@ -48,15 +46,12 @@ export async function run(
 
   const cmd = process.argv[2]
 
-  if (cmd === 'version') {
-    console.log(`${pkg.name} v${pkg.version}`)
-  } else if (cmd === 'help') {
+  if (cmd === 'help') {
     console.log(
       `\n${dedent`
         # 用法
           初始化配置文件: ytt init
           生成代码: ytt
-          查看版本: ytt version
           查看帮助: ytt help
 
         # GitHub

@@ -5,7 +5,6 @@ exports[`cli help: help 1`] = `
 # 用法
   初始化配置文件: ytt init
   生成代码: ytt
-  查看版本: ytt version
   查看帮助: ytt help
 
 # GitHub
