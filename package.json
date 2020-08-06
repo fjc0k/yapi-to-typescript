@@ -36,6 +36,7 @@
     "build": "shx rm -rf ./lib && tsc -P tsconfig.esm.json && tsc -P tsconfig.cjs.json",
     "docs": "typedoc --out docs --theme minimal --mode file src/types.ts && gh-pages --dist docs --dest v3",
     "release": "yarn testOnly && standard-version -a && yarn build && git push --follow-tags origin master && yarn docs && npm publish",
+    "releaseBeta": "yarn testOnly && standard-version -a --release-as patch --prerelease beta && yarn build && git push --follow-tags origin master && npm publish --tag next",
     "test": "jest --coverage",
     "testApi": "ts-node -T src/cli.ts",
     "testOnly": "jest"
