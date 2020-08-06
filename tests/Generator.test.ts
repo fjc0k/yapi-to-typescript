@@ -1,18 +1,19 @@
 import fs from 'fs-extra'
 import path from 'path'
 import tempy from 'tempy'
-import {forOwn, OneOrMore} from 'vtils'
-import {Generator} from '../src/Generator'
-import {ServerConfig} from '../src'
+import { forOwn } from 'vtils'
+import { Generator } from '../src/Generator'
+import { OneOrMany } from 'vtils/types'
+import { ServerConfig } from '../src'
 
 afterEach(() => {
   require('request-promise-native').resetExportCount()
 })
 
 const generatorFactory = (
-  id: OneOrMore<0 | 82 | 87 | 151 | -82 | -87 | -151>,
+  id: OneOrMany<0 | 82 | 87 | 151 | -82 | -87 | -151>,
   typesOnly: boolean,
-  enableReactHooks: boolean = false,
+  enableReactHooks = false,
   target: ServerConfig['target'] = 'typescript',
 ) => {
   const apiDir = tempy.directory()
@@ -56,69 +57,87 @@ describe('Generator', () => {
   test('正确生成代码并写入文件 - 单分类', async () => {
     const generator = generatorFactory(82, false)
     const output = await generator.generate()
-    forOwn(output, ({content}) => {
+    forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
-      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
+    forOwn(output, ({ requestFunctionFilePath }, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+      expect(
+        fs.readFileSync(requestFunctionFilePath).toString(),
+      ).toMatchSnapshot('请求文件')
     })
   })
 
   test('正确生成代码并写入文件 - 多分类', async () => {
     const generator = generatorFactory([82, 87], false)
     const output = await generator.generate()
-    forOwn(output, ({content}) => {
+    forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
-      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
+    forOwn(output, ({ requestFunctionFilePath }, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+      expect(
+        fs.readFileSync(requestFunctionFilePath).toString(),
+      ).toMatchSnapshot('请求文件')
     })
   })
 
   test('正确生成代码并写入文件 - 全部分类', async () => {
     const generator = generatorFactory(0, false)
     const output = await generator.generate()
-    forOwn(output, ({content}) => {
+    forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
-      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
+    forOwn(output, ({ requestFunctionFilePath }, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+      expect(
+        fs.readFileSync(requestFunctionFilePath).toString(),
+      ).toMatchSnapshot('请求文件')
     })
   })
 
   test('正确生成代码并写入文件 - 排除分类', async () => {
     const generator = generatorFactory([0, -82], false)
     const output = await generator.generate()
-    forOwn(output, ({content}) => {
+    forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
-      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
+    forOwn(output, ({ requestFunctionFilePath }, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+      expect(
+        fs.readFileSync(requestFunctionFilePath).toString(),
+      ).toMatchSnapshot('请求文件')
     })
   })
 
   test('只生成类型代码并写入文件', async () => {
     const generator = generatorFactory(82, true)
     const output = await generator.generate()
-    forOwn(output, ({content}) => {
+    forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
-      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
+    forOwn(output, ({ requestFunctionFilePath }, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
       expect(fs.existsSync(requestFunctionFilePath)).toBe(false)
     })
   })
@@ -126,16 +145,28 @@ describe('Generator', () => {
   test('生成 React Hooks 代码', async () => {
     const generator = generatorFactory(82, false, true)
     const output = await generator.generate()
-    forOwn(output, ({content}) => {
+    forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFunctionFilePath, requestHookMakerFilePath}, outputFilePath) => {
-      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
-      expect(fs.readFileSync(requestHookMakerFilePath).toString()).toMatchSnapshot('Hook 生成文件')
-    })
+    forOwn(
+      output,
+      (
+        { requestFunctionFilePath, requestHookMakerFilePath },
+        outputFilePath,
+      ) => {
+        expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+          '接口文件',
+        )
+        expect(
+          fs.readFileSync(requestFunctionFilePath).toString(),
+        ).toMatchSnapshot('请求文件')
+        expect(
+          fs.readFileSync(requestHookMakerFilePath).toString(),
+        ).toMatchSnapshot('Hook 生成文件')
+      },
+    )
   })
 
   test('同一个项目导出接口列表 API 应只请求一次', async () => {
@@ -147,22 +178,35 @@ describe('Generator', () => {
   test('生成 JavaScript 代码', async () => {
     const generator = generatorFactory(82, false, false, 'javascript')
     const output = await generator.generate()
-    forOwn(output, ({content}) => {
+    forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
     })
 
     await generator.write(output)
-    forOwn(output, ({requestFunctionFilePath}, outputFilePath) => {
+    forOwn(output, ({ requestFunctionFilePath }, outputFilePath) => {
       expect(fs.existsSync(`${outputFilePath}`)).toBe(false)
       expect(fs.existsSync(`${requestFunctionFilePath}`)).toBe(false)
       outputFilePath = `${outputFilePath}`.replace(/\.ts(x)?$/, '.js$1')
-      requestFunctionFilePath = `${requestFunctionFilePath}`.replace(/\.ts(x)?$/, '.js$1')
+      requestFunctionFilePath = `${requestFunctionFilePath}`.replace(
+        /\.ts(x)?$/,
+        '.js$1',
+      )
       expect(fs.existsSync(`${outputFilePath}`)).toBe(true)
       expect(fs.existsSync(`${requestFunctionFilePath}`)).toBe(true)
-      expect(fs.existsSync(`${outputFilePath.replace(/\.[^.]+$/, '.d.ts')}`)).toBe(true)
-      expect(fs.existsSync(`${requestFunctionFilePath.replace(/\.[^.]+$/, '.d.ts')}`)).toBe(true)
-      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot('接口文件')
-      expect(fs.readFileSync(requestFunctionFilePath).toString()).toMatchSnapshot('请求文件')
+      expect(
+        fs.existsSync(`${outputFilePath.replace(/\.[^.]+$/, '.d.ts')}`),
+      ).toBe(true)
+      expect(
+        fs.existsSync(
+          `${requestFunctionFilePath.replace(/\.[^.]+$/, '.d.ts')}`,
+        ),
+      ).toBe(true)
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+      expect(
+        fs.readFileSync(requestFunctionFilePath).toString(),
+      ).toMatchSnapshot('请求文件')
     })
   })
 })

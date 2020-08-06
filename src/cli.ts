@@ -5,9 +5,10 @@ import fs from 'fs-extra'
 import ora from 'ora'
 import path from 'path'
 import prompt from 'prompts'
-import {Config, ServerConfig} from './types'
-import {dedent} from 'vtils'
-import {Generator} from './Generator'
+import { Config, ServerConfig } from './types'
+import { dedent } from 'vtils'
+import { Defined } from 'vtils/types'
+import { Generator } from './Generator'
 
 TSNode.register({
   // 不加载本地的 tsconfig.json
@@ -40,7 +41,8 @@ export async function run(
   const configTSFile = path.join(cwd, 'ytt.config.ts')
   const configJSFile = path.join(cwd, 'ytt.config.js')
   const configTSFileExist = await fs.pathExists(configTSFile)
-  const configJSFileExist = !configTSFileExist && await fs.pathExists(configJSFile)
+  const configJSFileExist =
+    !configTSFileExist && (await fs.pathExists(configJSFile))
   const configFileExist = configTSFileExist || configJSFileExist
   const configFile = configTSFileExist ? configTSFile : configJSFile
 
@@ -49,16 +51,18 @@ export async function run(
   if (cmd === 'version') {
     console.log(`${pkg.name} v${pkg.version}`)
   } else if (cmd === 'help') {
-    console.log(`\n${dedent`
-      # 用法
-        初始化配置文件: ytt init
-        生成代码: ytt
-        查看版本: ytt version
-        查看帮助: ytt help
+    console.log(
+      `\n${dedent`
+        # 用法
+          初始化配置文件: ytt init
+          生成代码: ytt
+          查看版本: ytt version
+          查看帮助: ytt help
 
-      # GitHub
-        https://github.com/fjc0k/yapi-to-typescript
-    `}\n`)
+        # GitHub
+          https://github.com/fjc0k/yapi-to-typescript
+      `}\n`,
+    )
   } else if (cmd === 'init') {
     if (configFileExist) {
       consola.info(`检测到配置文件: ${configFile}`)
@@ -74,43 +78,48 @@ export async function run(
       name: 'configFileType',
       type: 'select',
       choices: [
-        {title: 'TypeScript(ytt.config.ts)', value: 'ts'},
-        {title: 'JavaScript(ytt.config.js)', value: 'js'},
+        { title: 'TypeScript(ytt.config.ts)', value: 'ts' },
+        { title: 'JavaScript(ytt.config.js)', value: 'js' },
       ],
     })
-    await fs.outputFile(answers.configFileType === 'js' ? configJSFile : configTSFile, dedent`
-      import { defineConfig } from 'yapi-to-typescript'
+    await fs.outputFile(
+      answers.configFileType === 'js' ? configJSFile : configTSFile,
+      dedent`
+        import { defineConfig } from 'yapi-to-typescript'
 
-      export default defineConfig([
-        {
-          serverUrl: 'http://foo.bar',
-          typesOnly: false,
-          target: '${(answers.configFileType === 'js' ? 'javascript' : 'typescript') as ServerConfig['target']}',
-          reactHooks: {
-            enabled: false,
-          },
-          prodEnvName: 'production',
-          outputFilePath: 'src/api/index.ts',
-          requestFunctionFilePath: 'src/api/request.ts',
-          dataKey: 'data',
-          projects: [
-            {
-              token: 'hello',
-              categories: [
-                {
-                  id: 50,
-                  getRequestFunctionName(interfaceInfo, changeCase) {
-                    return changeCase.camelCase(
-                      interfaceInfo.parsedPath.name,
-                    )
-                  },
-                },
-              ],
+        export default defineConfig([
+          {
+            serverUrl: 'http://foo.bar',
+            typesOnly: false,
+            target: '${(answers.configFileType === 'js'
+              ? 'javascript'
+              : 'typescript') as Defined<ServerConfig['target']>}',
+            reactHooks: {
+              enabled: false,
             },
-          ],
-        },
-      ])
-    `)
+            prodEnvName: 'production',
+            outputFilePath: 'src/api/index.ts',
+            requestFunctionFilePath: 'src/api/request.ts',
+            dataKey: 'data',
+            projects: [
+              {
+                token: 'hello',
+                categories: [
+                  {
+                    id: 50,
+                    getRequestFunctionName(interfaceInfo, changeCase) {
+                      return changeCase.camelCase(
+                        interfaceInfo.parsedPath.name,
+                      )
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ])
+      `,
+    )
     consola.success('写入配置文件完毕')
   } else {
     if (!configFileExist) {
@@ -119,7 +128,7 @@ export async function run(
     consola.success(`找到配置文件: ${configFile}`)
     try {
       const config: Config = require(configFile).default
-      const generator = new Generator(config, {cwd})
+      const generator = new Generator(config, { cwd })
 
       const spinner = ora('正在获取数据并生成代码...').start()
       const output = await generator.generate()

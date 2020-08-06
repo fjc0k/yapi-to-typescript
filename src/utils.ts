@@ -1,11 +1,12 @@
 import jsonSchemaGenerator from 'json-schema-generator'
 import Mock from 'mockjs'
 import path from 'path'
-import {castArray, forOwn, isArray, isEmpty, isObject, randomString} from 'vtils'
-import {compile, Options} from 'json-schema-to-typescript'
-import {FileData} from './helpers'
-import {JSONSchema4} from 'json-schema'
-import {PropDefinitions} from './types'
+import { castArray, forOwn, isArray, isEmpty, isObject } from 'vtils'
+import { compile, Options } from 'json-schema-to-typescript'
+import { Defined } from 'vtils/types'
+import { FileData } from './helpers'
+import { JSONSchema4 } from 'json-schema'
+import { PropDefinitions } from './types'
 
 /**
  * 抛出错误。
@@ -36,14 +37,8 @@ export function toUnixPath(path: string) {
  */
 export function getNormalizedRelativePath(from: string, to: string) {
   return toUnixPath(path.relative(path.dirname(from), to))
-    .replace(
-      /^(?=[^.])/,
-      './',
-    )
-    .replace(
-      /\.(ts|js)x?$/i,
-      '',
-    )
+    .replace(/^(?=[^.])/, './')
+    .replace(/\.(ts|js)x?$/i, '')
 }
 
 /**
@@ -69,14 +64,12 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
 
   // Mock.toJSONSchema 产生的 properties 为数组，然而 JSONSchema4 的 properties 为对象
   if (isArray(jsonSchema.properties)) {
-    jsonSchema.properties = (jsonSchema.properties as JSONSchema4[])
-      .reduce<Exclude<JSONSchema4['properties'], undefined>>(
-      (props, js) => {
-        props[js.name] = js
-        return props
-      },
-      {},
-    )
+    jsonSchema.properties = (jsonSchema.properties as JSONSchema4[]).reduce<
+      Defined<JSONSchema4['properties']>
+    >((props, js) => {
+      props[js.name] = js
+      return props
+    }, {})
   }
 
   // 移除字段名称首尾空格
@@ -86,7 +79,8 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
       delete jsonSchema.properties![prop]
       jsonSchema.properties![(prop as string).trim()] = propDef
     })
-    jsonSchema.required = jsonSchema.required && jsonSchema.required.map(prop => prop.trim())
+    jsonSchema.required =
+      jsonSchema.required && jsonSchema.required.map(prop => prop.trim())
   }
 
   // 继续处理对象的子元素
@@ -109,9 +103,7 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
  * @returns 转换后的 JSONSchema 对象
  */
 export function jsonSchemaStringToJsonSchema(str: string): JSONSchema4 {
-  return processJsonSchema(
-    JSON.parse(str),
-  )
+  return processJsonSchema(JSON.parse(str))
 }
 
 /**
@@ -121,9 +113,7 @@ export function jsonSchemaStringToJsonSchema(str: string): JSONSchema4 {
  * @returns JSONSchema 对象
  */
 export function jsonToJsonSchema(json: object): JSONSchema4 {
-  return processJsonSchema(
-    jsonSchemaGenerator(json),
-  )
+  return processJsonSchema(jsonSchemaGenerator(json))
 }
 
 /**
@@ -133,9 +123,7 @@ export function jsonToJsonSchema(json: object): JSONSchema4 {
  * @returns JSONSchema 对象
  */
 export function mockjsTemplateToJsonSchema(template: object): JSONSchema4 {
-  return processJsonSchema(
-    Mock.toJSONSchema(template) as any,
-  )
+  return processJsonSchema(Mock.toJSONSchema(template) as any)
 }
 
 /**
@@ -144,29 +132,27 @@ export function mockjsTemplateToJsonSchema(template: object): JSONSchema4 {
  * @param propDefinitions 属性定义列表
  * @returns JSONSchema 对象
  */
-export function propDefinitionsToJsonSchema(propDefinitions: PropDefinitions): JSONSchema4 {
+export function propDefinitionsToJsonSchema(
+  propDefinitions: PropDefinitions,
+): JSONSchema4 {
   return processJsonSchema({
     type: 'object',
-    required: propDefinitions.reduce<string[]>(
-      (res, prop) => {
-        if (prop.required) {
-          res.push(prop.name)
-        }
-        return res
-      },
-      [],
-    ),
-    properties: propDefinitions.reduce<Exclude<JSONSchema4['properties'], undefined>>(
-      (res, prop) => {
-        res[prop.name] = {
-          type: prop.type,
-          description: prop.comment,
-          ...(prop.type === 'file' as any ? {tsType: FileData.name} : {}),
-        }
-        return res
-      },
-      {},
-    ),
+    required: propDefinitions.reduce<string[]>((res, prop) => {
+      if (prop.required) {
+        res.push(prop.name)
+      }
+      return res
+    }, []),
+    properties: propDefinitions.reduce<
+      Exclude<JSONSchema4['properties'], undefined>
+    >((res, prop) => {
+      res[prop.name] = {
+        type: prop.type,
+        description: prop.comment,
+        ...(prop.type === ('file' as any) ? { tsType: FileData.name } : {}),
+      }
+      return res
+    }, {}),
   })
 }
 
@@ -190,12 +176,15 @@ const JSTTOptions: Partial<Options> = {
  * @param typeName 类型名称
  * @returns TypeScript 类型定义
  */
-export async function jsonSchemaToType(jsonSchema: JSONSchema4, typeName: string): Promise<string> {
+export async function jsonSchemaToType(
+  jsonSchema: JSONSchema4,
+  typeName: string,
+): Promise<string> {
   if (isEmpty(jsonSchema)) {
     return `export interface ${typeName} {}`
   }
   // JSTT 会转换 typeName，因此传入一个全大写的假 typeName，生成代码后再替换回真正的 typeName
-  const fakeTypeName = `FAKE${randomString()}`.toUpperCase()
+  const fakeTypeName = 'THISISAFAKETYPENAME'
   const code = await compile(jsonSchema, fakeTypeName, JSTTOptions)
   return code.replace(fakeTypeName, typeName).trim()
 }

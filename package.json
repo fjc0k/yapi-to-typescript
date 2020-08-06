@@ -2,95 +2,62 @@
   "name": "yapi-to-typescript",
   "version": "3.3.0",
   "description": "根据 YApi 的接口定义生成 TypeScript/JavaScript 的接口类型及其请求函数代码。",
+  "keywords": [
+    "yapi",
+    "codegen",
+    "typescript"
+  ],
+  "homepage": "https://github.com/fjc0k/yapi-to-typescript",
+  "bugs": {
+    "url": "https://github.com/fjc0k/yapi-to-typescript/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fjc0k/yapi-to-typescript.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Jay Fong",
+    "email": "fjc0kb@gmail.com",
+    "url": "https://github.com/fjc0k"
+  },
+  "sideEffects": false,
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/esm/index.d.ts",
   "bin": {
     "ytt": "lib/cjs/cli.js"
   },
-  "sideEffects": false,
-  "homepage": "https://github.com/fjc0k/yapi-to-typescript",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:fjc0k/yapi-to-typescript.git"
-  },
-  "bugs": {
-    "url": "https://github.com/fjc0k/yapi-to-typescript/issues"
-  },
-  "keywords": [
-    "yapi",
-    "typescript",
-    "typing"
-  ],
   "files": [
     "lib",
     "client"
   ],
-  "author": {
-    "name": "Jay Fong",
-    "email": "fjc0kb@gmail.com",
-    "url": "https://github.com/fjc0k"
-  },
   "scripts": {
-    "docs": "typedoc --out docs --theme minimal --mode file src/types.ts && gh-pages --dist docs --dest v3",
-    "lint": "eslint --fix --ext .ts src/",
-    "testApi": "ts-node --transpile-only src/cli.ts",
-    "testOnly": "jest",
-    "test": "jest --coverage",
     "build": "shx rm -rf ./lib && tsc -P tsconfig.esm.json && tsc -P tsconfig.cjs.json",
-    "release": "yarn lint && yarn testOnly && standard-version -a && yarn build && git push --follow-tags origin master && yarn docs && npm publish"
+    "docs": "typedoc --out docs --theme minimal --mode file src/types.ts && gh-pages --dist docs --dest v3",
+    "release": "yarn testOnly && standard-version -a && yarn build && git push --follow-tags origin master && yarn docs && npm publish",
+    "test": "jest --coverage",
+    "testApi": "ts-node -T src/cli.ts",
+    "testOnly": "jest"
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": "io"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
-  "eslintIgnore": [
-    "lib",
-    "__snapshots__",
-    "api"
-  ],
-  "jest": {
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "collectCoverageFrom": [
-      "<rootDir>/src/**/*.ts",
-      "!<rootDir>/src/index.ts",
-      "!<rootDir>/src/api/**/*"
+  "lint-staged": {
+    "*.{css,less,scss,sass,html,htm,vue,yml,yaml,json,md}": [
+      "prettier --write"
     ],
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "js",
-      "json"
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
     ]
   },
-  "devDependencies": {
-    "@types/fs-extra": "^5.0.4",
-    "@types/jest": "^23.3.9",
-    "@types/json-schema": "^7.0.1",
-    "@types/json5": "^0.0.30",
-    "@types/mockjs": "^1.0.2",
-    "@types/node": "^10.12.10",
-    "@types/prompts": "^1.2.0",
-    "@types/request-promise-native": "^1.0.15",
-    "codecov": "^3.1.0",
-    "eslint": "^5.9.0",
-    "eslint-config-io": "^0.7.0",
-    "gh-pages": "^2.0.1",
-    "jest": "^23.6.0",
-    "shx": "^0.3.2",
-    "standard-version": "^4.4.0",
-    "tempy": "^0.3.0",
-    "ts-jest": "^23.10.5",
-    "typedoc": "^0.14.2"
-  },
   "dependencies": {
-    "@types/react": "^16.9.2",
-    "@vtils/date": "^2.55.0",
     "change-case": "^3.0.2",
     "consola": "^2.3.0",
+    "dayjs": "^1.8.32",
     "fs-extra": "^7.0.1",
     "json-schema-generator": "^2.0.6",
     "json-schema-to-typescript": "^8.0.0",
@@ -105,6 +72,27 @@
     "ts-node": "^8.0.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.7",
-    "vtils": "^2.55.0"
+    "vtils": "^3.32.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^5.0.4",
+    "@types/json-schema": "^7.0.1",
+    "@types/json5": "^0.0.30",
+    "@types/mockjs": "^1.0.2",
+    "@types/node": "^10.12.10",
+    "@types/prompts": "^1.2.0",
+    "@types/react": "^16.9.2",
+    "@types/request-promise-native": "^1.0.15",
+    "codecov": "^3",
+    "eslint": "^7",
+    "gh-pages": "^2.0.1",
+    "haoma": "^2.3.0",
+    "husky": "^4",
+    "jest": "^26",
+    "lint-staged": "^10",
+    "shx": "^0.3.2",
+    "standard-version": "^4.4.0",
+    "tempy": "^0.3.0",
+    "typedoc": "^0.14.2"
   }
 }

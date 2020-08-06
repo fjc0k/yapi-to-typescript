@@ -1,83 +1,83 @@
-import {JSONSchema4} from 'json-schema'
-import {LiteralUnion, Omit} from 'vtils'
-import {ParsedPath} from 'path'
+import { JSONSchema4 } from 'json-schema'
+import { LiteralUnion, OmitStrict } from 'vtils/types'
+import { ParsedPath } from 'path'
 
 export interface ChangeCase {
   /**
    * @example
    * changeCase.camelCase('test string') // => 'testString'
    */
-  camelCase: (value: string) => string,
+  camelCase: (value: string) => string
   /**
    * @example
    * changeCase.constantCase('test string') // => 'TEST_STRING'
    */
-  constantCase: (value: string) => string,
+  constantCase: (value: string) => string
   /**
    * @example
    * changeCase.dotCase('test string') // => 'test.string'
    */
-  dotCase: (value: string) => string,
+  dotCase: (value: string) => string
   /**
    * @example
    * changeCase.headerCase('test string') // => 'Test-String'
    */
-  headerCase: (value: string) => string,
+  headerCase: (value: string) => string
   /**
    * @example
    * changeCase.lowerCase('TEST STRING') // => 'test string'
    */
-  lowerCase: (value: string) => string,
+  lowerCase: (value: string) => string
   /**
    * @example
    * changeCase.lowerCaseFirst('TEST') // => 'tEST'
    */
-  lowerCaseFirst: (value: string) => string,
+  lowerCaseFirst: (value: string) => string
   /**
    * @example
    * changeCase.paramCase('test string') // => 'test-string'
    */
-  paramCase: (value: string) => string,
+  paramCase: (value: string) => string
   /**
    * @example
    * changeCase.pascalCase('test string') // => 'TestString'
    */
-  pascalCase: (value: string) => string,
+  pascalCase: (value: string) => string
   /**
    * @example
    * changeCase.pathCase('test string') // => 'test/string'
    */
-  pathCase: (value: string) => string,
+  pathCase: (value: string) => string
   /**
    * @example
    * changeCase.sentenceCase('testString') // => 'Test string'
    */
-  sentenceCase: (value: string) => string,
+  sentenceCase: (value: string) => string
   /**
    * @example
    * changeCase.snakeCase('test string') // => 'test_string'
    */
-  snakeCase: (value: string) => string,
+  snakeCase: (value: string) => string
   /**
    * @example
    * changeCase.swapCase('Test String') // => 'tEST sTRING'
    */
-  swapCase: (value: string) => string,
+  swapCase: (value: string) => string
   /**
    * @example
    * changeCase.titleCase('a simple test') // => 'A Simple Test'
    */
-  titleCase: (value: string) => string,
+  titleCase: (value: string) => string
   /**
    * @example
    * changeCase.upperCase('test string') // => 'TEST STRING'
    */
-  upperCase: (value: string) => string,
+  upperCase: (value: string) => string
   /**
    * @example
    * changeCase.upperCaseFirst('test') // => 'Test'
    */
-  upperCaseFirst: (value: string) => string,
+  upperCaseFirst: (value: string) => string
 }
 
 /** 请求方式 */
@@ -144,80 +144,80 @@ export enum ResponseBodyType {
 /** 接口定义 */
 export interface Interface {
   /** 接口 ID */
-  _id: number,
+  _id: number
   /** 所属分类信息（由 YTT 自行实现） */
-  _category: Omit<Category, 'list'>,
+  _category: OmitStrict<Category, 'list'>
   /** 接口名称 */
-  title: string,
+  title: string
   /** 状态 */
-  status: LiteralUnion<'done' | 'undone', string>,
+  status: LiteralUnion<'done' | 'undone', string>
   /** 接口备注 */
-  markdown: string,
+  markdown: string
   /** 请求路径 */
-  path: string,
+  path: string
   /** 请求方式，HEAD、OPTIONS 处理与 GET 相似，其余处理与 POST 相似 */
-  method: Method,
+  method: Method
   /** 所属项目 id */
-  project_id: number,
+  project_id: number
   /** 所属分类 id */
-  catid: number,
+  catid: number
   /** 标签列表 */
-  tag: string[],
+  tag: string[]
   /** 路径参数 */
   req_params: Array<{
     /** 名称 */
-    name: string,
+    name: string
     /** 备注 */
-    desc: string,
+    desc: string
     /** 示例 */
-    example: string,
-  }>,
+    example: string
+  }>
   /** 仅 GET：请求串 */
   req_query: Array<{
     /** 名称 */
-    name: string,
+    name: string
     /** 备注 */
-    desc: string,
+    desc: string
     /** 示例 */
-    example: string,
+    example: string
     /** 是否必需 */
-    required: Required,
-  }>,
+    required: Required
+  }>
   /** 仅 POST：请求内容类型。为 text, file, raw 时不必特殊处理。 */
-  req_body_type: RequestBodyType,
+  req_body_type: RequestBodyType
   /** `req_body_type = json` 时是否为 json schema */
-  req_body_is_json_schema: boolean,
+  req_body_is_json_schema: boolean
   /** `req_body_type = form` 时的请求内容 */
   req_body_form: Array<{
     /** 名称 */
-    name: string,
+    name: string
     /** 类型 */
-    type: RequestFormItemType,
+    type: RequestFormItemType
     /** 备注 */
-    desc: string,
+    desc: string
     /** 示例 */
-    example: string,
+    example: string
     /** 是否必需 */
-    required: Required,
-  }>,
+    required: Required
+  }>
   /** `req_body_type = json` 时的请求内容 */
-  req_body_other: string,
+  req_body_other: string
   /** 返回数据类型 */
-  res_body_type: ResponseBodyType,
+  res_body_type: ResponseBodyType
   /** `res_body_type = json` 时是否为 json schema */
-  res_body_is_json_schema: boolean,
+  res_body_is_json_schema: boolean
   /** 返回数据 */
-  res_body: string,
+  res_body: string
   /** 创建时间（unix时间戳） */
-  add_time: number,
+  add_time: number
   /** 更新时间（unix时间戳） */
-  up_time: number,
-  [key: string]: any,
+  up_time: number
+  [key: string]: any
 }
 
 /** 扩展接口定义 */
 export interface ExtendedInterface extends Interface {
-  parsedPath: ParsedPath,
+  parsedPath: ParsedPath
 }
 
 /** 接口列表 */
@@ -226,15 +226,15 @@ export type InterfaceList = Interface[]
 /** 分类信息 */
 export interface Category {
   /** 分类名称 */
-  name: string,
+  name: string
   /** 分类备注 */
-  desc: string,
+  desc: string
   /** 分类接口列表 */
-  list: InterfaceList,
+  list: InterfaceList
   /** 创建时间（unix时间戳） */
-  add_time: number,
+  add_time: number
   /** 更新时间（unix时间戳） */
-  up_time: number,
+  up_time: number
 }
 
 /** 分类列表，对应数据导出的 json 内容 */
@@ -245,7 +245,7 @@ export interface ReactHooksConfig {
   /**
    * 是否开启该项功能。
    */
-  enabled: boolean,
+  enabled: boolean
 
   /**
    * 请求 Hook 函数制造者文件路径。
@@ -253,7 +253,7 @@ export interface ReactHooksConfig {
    * @default 与 `outputFilePath` 同级目录下的 `makeRequestHook.ts` 文件
    * @example 'src/api/makeRequestHook.ts'
    */
-  requestHookMakerFilePath?: string,
+  requestHookMakerFilePath?: string
 
   /**
    * 获取请求 Hook 的名称。
@@ -263,7 +263,10 @@ export interface ReactHooksConfig {
    * @param changeCase 常用的大小写转换函数集合对象
    * @returns 请求 Hook 的名称
    */
-  getRequestHookName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+  getRequestHookName?(
+    interfaceInfo: ExtendedInterface,
+    changeCase: ChangeCase,
+  ): string
 }
 
 /**
@@ -276,14 +279,14 @@ export interface SharedConfig {
    *
    * @default 'typescript'
    */
-  target?: 'typescript' | 'javascript',
+  target?: 'typescript' | 'javascript'
 
   /**
    * 是否只生成接口请求内容和返回内容的 TypeSript 类型，是则请求文件和请求函数都不会生成。
    *
    * @default false
    */
-  typesOnly?: boolean,
+  typesOnly?: boolean
 
   /**
    * 测试环境名称。
@@ -294,7 +297,7 @@ export interface SharedConfig {
    *
    * @example 'dev'
    */
-  devEnvName?: string,
+  devEnvName?: string
 
   /**
    * 生产环境名称。
@@ -305,7 +308,7 @@ export interface SharedConfig {
    *
    * @example 'prod'
    */
-  prodEnvName?: string,
+  prodEnvName?: string
 
   /**
    * 输出文件路径。
@@ -314,7 +317,7 @@ export interface SharedConfig {
    *
    * @example 'src/api/index.ts'
    */
-  outputFilePath?: string,
+  outputFilePath?: string
 
   /**
    * 请求函数文件路径。
@@ -322,7 +325,7 @@ export interface SharedConfig {
    * @default 与 `outputFilePath` 同级目录下的 `request.ts` 文件
    * @example 'src/api/request.ts'
    */
-  requestFunctionFilePath?: string,
+  requestFunctionFilePath?: string
 
   /**
    * 如果接口响应的结果是 `JSON` 对象，
@@ -335,12 +338,12 @@ export interface SharedConfig {
    *
    * @example 'data'
    */
-  dataKey?: string,
+  dataKey?: string
 
   /**
    * 支持生成 React Hooks 代码的相关配置。
    */
-  reactHooks?: ReactHooksConfig,
+  reactHooks?: ReactHooksConfig
 
   /**
    * 预处理接口信息，返回新的接口信息。
@@ -356,7 +359,10 @@ export interface SharedConfig {
    * }
    * ```
    */
-  preproccessInterface?(interfaceInfo: Interface, changeCase: ChangeCase): Interface,
+  preproccessInterface?(
+    interfaceInfo: Interface,
+    changeCase: ChangeCase,
+  ): Interface
 
   /**
    * 获取请求函数的名称。
@@ -366,7 +372,10 @@ export interface SharedConfig {
    * @param changeCase 常用的大小写转换函数集合对象
    * @returns 请求函数的名称
    */
-  getRequestFunctionName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+  getRequestFunctionName?(
+    interfaceInfo: ExtendedInterface,
+    changeCase: ChangeCase,
+  ): string
 
   /**
    * 获取请求数据类型的名称。
@@ -376,7 +385,10 @@ export interface SharedConfig {
    * @param changeCase 常用的大小写转换函数集合对象
    * @returns 请求数据类型的名称
    */
-  getRequestDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+  getRequestDataTypeName?(
+    interfaceInfo: ExtendedInterface,
+    changeCase: ChangeCase,
+  ): string
 
   /**
    * 获取响应数据类型的名称。
@@ -386,7 +398,10 @@ export interface SharedConfig {
    * @param changeCase 常用的大小写转换函数集合对象
    * @returns 响应数据类型的名称
    */
-  getResponseDataTypeName?(interfaceInfo: ExtendedInterface, changeCase: ChangeCase): string,
+  getResponseDataTypeName?(
+    interfaceInfo: ExtendedInterface,
+    changeCase: ChangeCase,
+  ): string
 }
 
 /**
@@ -402,7 +417,7 @@ export interface CategoryConfig extends SharedConfig {
    *
    * @example 20
    */
-  id: number | number[],
+  id: number | number[]
 }
 
 /**
@@ -416,12 +431,12 @@ export interface ProjectConfig extends SharedConfig {
    *
    * @example 'e02a47122259d0c1973a9ff81cabb30685d64abc72f39edaa1ac6b6a792a647d'
    */
-  token: string,
+  token: string
 
   /**
    * 分类列表。
    */
-  categories: CategoryConfig[],
+  categories: CategoryConfig[]
 }
 
 /**
@@ -433,25 +448,24 @@ export interface ServerConfig extends SharedConfig {
    *
    * @example 'http://yapi.foo.bar'
    */
-  serverUrl: string,
+  serverUrl: string
 
   /**
    * 项目列表。
    */
-  projects: ProjectConfig[],
+  projects: ProjectConfig[]
 }
 
 /** 混合的配置。 */
-export type SyntheticalConfig = Partial<(
-  ServerConfig
-  & ServerConfig['projects'][0]
-  & ServerConfig['projects'][0]['categories'][0]
-  & {
-    mockUrl: string,
-    devUrl: string,
-    prodUrl: string,
-  }
-)>
+export type SyntheticalConfig = Partial<
+  ServerConfig &
+    ServerConfig['projects'][0] &
+    ServerConfig['projects'][0]['categories'][0] & {
+      mockUrl: string
+      devUrl: string
+      prodUrl: string
+    }
+>
 
 /** 配置。 */
 export type Config = ServerConfig | ServerConfig[]
@@ -467,30 +481,30 @@ export interface RequestConfig<
   DataKey extends string | undefined = any,
   ParamName extends string = any,
   QueryName extends string = any,
-  RequestDataOptional extends boolean = any,
+  RequestDataOptional extends boolean = any
 > {
   /** 接口 Mock 地址，结尾无 `/` */
-  mockUrl: MockUrl,
+  mockUrl: MockUrl
   /** 接口测试环境地质，结尾无 `/` */
-  devUrl: DevUrl,
+  devUrl: DevUrl
   /** 接口生产环境地址，结尾无 `/` */
-  prodUrl: ProdUrl,
+  prodUrl: ProdUrl
   /** 接口路径，以 `/` 开头 */
-  path: Path,
+  path: Path
   /** 请求方法 */
-  method: Method,
+  method: Method
   /** 请求数据类型 */
-  requestBodyType: RequestBodyType,
+  requestBodyType: RequestBodyType
   /** 返回数据类型 */
-  responseBodyType: ResponseBodyType,
+  responseBodyType: ResponseBodyType
   /** 数据所在键 */
-  dataKey: DataKey,
+  dataKey: DataKey
   /** 路径参数的名称列表 */
-  paramNames: ParamName[],
+  paramNames: ParamName[]
   /** 查询参数的名称列表 */
-  queryNames: QueryName[],
+  queryNames: QueryName[]
   /** 请求数据是否可选 */
-  requestDataOptional: RequestDataOptional,
+  requestDataOptional: RequestDataOptional
 }
 
 /**
@@ -498,26 +512,31 @@ export interface RequestConfig<
  */
 export interface RequestFunctionParams extends RequestConfig {
   /** 请求数据，不含文件数据 */
-  data: any,
+  data: any
   /** 是否有文件数据 */
-  hasFileData: boolean,
+  hasFileData: boolean
   /** 请求文件数据 */
-  fileData: Record<string, any>,
+  fileData: Record<string, any>
 }
 
 /** 请求函数的额外参数 */
-export type RequestFunctionRestArgs<T extends Function> = T extends (payload: any, ...args: infer R) => any ? R : never
+export type RequestFunctionRestArgs<T extends Function> = T extends (
+  payload: any,
+  ...args: infer R
+) => any
+  ? R
+  : never
 
 /** 属性定义 */
 export interface PropDefinition {
   /** 属性名称 */
-  name: string,
+  name: string
   /** 是否必需 */
-  required: boolean,
+  required: boolean
   /** 类型 */
-  type: JSONSchema4['type'],
+  type: JSONSchema4['type']
   /** 注释 */
-  comment: string,
+  comment: string
 }
 
 /** 属性定义列表 */
