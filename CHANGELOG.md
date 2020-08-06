@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.1-beta.3"></a>
+
+## [3.3.1-beta.3](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1-beta.2...v3.3.1-beta.3) (2020-08-06)
+
+### Bug Fixes
+
+- **cli:** 不再支持 version 指令 ([e9b5f4f](https://github.com/fjc0k/yapi-to-typescript/commit/e9b5f4f))
+
 <a name="3.3.1-beta.2"></a>
 
 ## [3.3.1-beta.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1-beta.1...v3.3.1-beta.2) (2020-08-06)
