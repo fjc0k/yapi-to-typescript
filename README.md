@@ -78,7 +78,7 @@ npx ytt init
 
 ### 生成代码
 
-直接执行命令 `ytt` 即可抓取 `YApi` 的接口定义并生成相应的 `TypeScript` 代码：
+直接执行命令 `ytt` 即可抓取 `YApi` 的接口定义并生成相应的 `TypeScript`/`JavaScript` 代码：
 
 ```bash
 # yarn
