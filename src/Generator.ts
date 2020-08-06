@@ -1,10 +1,10 @@
 import * as changeCase from 'change-case'
 import dayjs from 'dayjs'
 import fs from 'fs-extra'
+import got from 'got'
 import JSON5 from 'json5'
 import path from 'path'
 import prettier from 'prettier'
-import request from 'request-promise-native'
 import {
   castArray,
   dedent,
@@ -579,7 +579,14 @@ export class Generator {
     url: string,
     query: Record<string, any>,
   ): Promise<T> {
-    const res = await request.get(url, { qs: query, json: true })
+    const { body: res } = await got.get<{
+      errcode: any
+      errmsg: any
+      data: any
+    }>(url, {
+      searchParams: query,
+      responseType: 'json',
+    })
     /* istanbul ignore next */
     if (res && res.errcode) {
       throwError(res.errmsg)

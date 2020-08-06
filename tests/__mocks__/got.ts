@@ -1,4 +1,4 @@
-let exportCount: number = 0
+let exportCount = 0
 
 const mockData: Record<string, any> = {
   '/api/plugin/export': [
@@ -44,7 +44,8 @@ const mockData: Record<string, any> = {
           desc: '',
           res_body: '{"type":"object","title":"empty object","properties":{}}',
           req_body_type: 'json',
-          req_body_other: '{"type":"object","title":"empty object","properties":{"id":{"type":"string","description":"ID"}},"required":["id"]}',
+          req_body_other:
+            '{"type":"object","title":"empty object","properties":{"id":{"type":"string","description":"ID"}},"required":["id"]}',
           uid: 11,
           add_time: 1568765163,
           up_time: 1568765163,
@@ -91,7 +92,8 @@ const mockData: Record<string, any> = {
           ],
           markdown: '',
           desc: '',
-          res_body: '{"type":"object","title":"empty object","properties":{"result":{"type":"number","description":"结果"}},"required":["result"]}',
+          res_body:
+            '{"type":"object","title":"empty object","properties":{"result":{"type":"number","description":"结果"}},"required":["result"]}',
           uid: 11,
           add_time: 1568765164,
           up_time: 1568765164,
@@ -123,7 +125,8 @@ const mockData: Record<string, any> = {
           req_body_form: [],
           markdown: '',
           desc: '',
-          res_body: '{\n    /** 注释 */\n    "id": 1,\n    "age": "@float",\n    "name": "@name"\n}',
+          res_body:
+            '{\n    /** 注释 */\n    "id": 1,\n    "age": "@float",\n    "name": "@name"\n}',
           uid: 11,
           add_time: 1568765164,
           up_time: 1568765164,
@@ -160,7 +163,8 @@ const mockData: Record<string, any> = {
             },
           ],
           req_body_form: [],
-          req_body_other: '{\n   "id": 1,\n   "name": "方剑成",\n   "likes": [\n      "photo",\n      2\n   ]\n}',
+          req_body_other:
+            '{\n   "id": 1,\n   "name": "方剑成",\n   "likes": [\n      "photo",\n      2\n   ]\n}',
           markdown: '',
           desc: '',
           res_body: '',
@@ -201,10 +205,13 @@ const mockData: Record<string, any> = {
             },
           ],
           req_query: [],
-          req_body_other: '{"type":"object","title":"empty object","properties":{"page":{"type":"number","description":"页码"},"limit":{"type":"number","description":"每页数量"},"keyword":{"type":"string","description":"关键词"}},"required":["page","limit"]}',
+          req_body_other:
+            '{"type":"object","title":"empty object","properties":{"page":{"type":"number","description":"页码"},"limit":{"type":"number","description":"每页数量"},"keyword":{"type":"string","description":"关键词"}},"required":["page","limit"]}',
           markdown: '**备注。。。**\n\n`额鹅鹅鹅`',
-          desc: '<p><strong>备注。。。</strong></p>\n<p><code data-backticks="1">额鹅鹅鹅</code></p>\n',
-          res_body: '{"type":"object","title":"empty object","properties":{"list":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","description":"姓名"}},"required":["name"]},"description":"列表"}},"required":["list"]}',
+          desc:
+            '<p><strong>备注。。。</strong></p>\n<p><code data-backticks="1">额鹅鹅鹅</code></p>\n',
+          res_body:
+            '{"type":"object","title":"empty object","properties":{"list":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","description":"姓名"}},"required":["name"]},"description":"列表"}},"required":["list"]}',
           req_body_type: 'json',
           uid: 11,
           add_time: 1568765164,
@@ -267,7 +274,8 @@ const mockData: Record<string, any> = {
           ],
           markdown: '',
           desc: '',
-          res_body: '{"type":"object","title":"empty object","properties":{"err":{"type":"number","description":"错误"},"msg":{"type":"string","description":"错误详情"},"data":{"type":"object","properties":{},"description":"数据"}},"required":["err","msg"]}',
+          res_body:
+            '{"type":"object","title":"empty object","properties":{"err":{"type":"number","description":"错误"},"msg":{"type":"string","description":"错误详情"},"data":{"type":"object","properties":{},"description":"数据"}},"required":["err","msg"]}',
           req_body_type: 'form',
           uid: 11,
           add_time: 1568765164,
@@ -330,7 +338,8 @@ const mockData: Record<string, any> = {
           ],
           markdown: '',
           desc: '',
-          res_body: '{"type":"object","title":"empty object","properties":{"err":{"type":"number","description":"错误"},"msg":{"type":"string","description":"错误详情"},"data":{"type":"object","properties":{"success":{"type":"boolean","description":"成功啦"}},"description":"数据","required":["success"]}},"required":["err","msg"]}',
+          res_body:
+            '{"type":"object","title":"empty object","properties":{"err":{"type":"number","description":"错误"},"msg":{"type":"string","description":"错误详情"},"data":{"type":"object","properties":{"success":{"type":"boolean","description":"成功啦"}},"description":"数据","required":["success"]}},"required":["err","msg"]}',
           req_body_type: 'form',
           uid: 11,
           add_time: 1568765165,
@@ -573,7 +582,8 @@ const mockData: Record<string, any> = {
             },
           ],
           req_body_form: [],
-          req_body_other: '{"type":"object","title":"empty object","properties":{"K1":{"type":"string","description":"键1"},"K2":{"type":"number","description":"键2"}},"required":["K1"]}',
+          req_body_other:
+            '{"type":"object","title":"empty object","properties":{"K1":{"type":"string","description":"键1"},"K2":{"type":"number","description":"键2"}},"required":["K1"]}',
           markdown: '',
           desc: '',
           res_body: '',
@@ -636,10 +646,7 @@ const mockData: Record<string, any> = {
           res_body_is_json_schema: true,
           api_opened: false,
           index: 0,
-          tag: [
-            '2期',
-            '梦想城',
-          ],
+          tag: ['2期', '梦想城'],
           _id: 445,
           method: 'GET',
           catid: 87,
@@ -653,7 +660,8 @@ const mockData: Record<string, any> = {
           req_body_form: [],
           markdown: '',
           desc: '',
-          res_body: '{"type":"object","title":"empty object","properties":{"msg":{"type":"string"}},"required":["msg"]}',
+          res_body:
+            '{"type":"object","title":"empty object","properties":{"msg":{"type":"string"}},"required":["msg"]}',
           uid: 11,
           add_time: 1568765166,
           up_time: 1575945946,
@@ -696,8 +704,10 @@ const mockData: Record<string, any> = {
           req_headers: [],
           req_body_form: [],
           __v: 0,
-          desc: '<p><a href="https://github.com/fjc0k/yapi-to-typescript/issues/17">https://github.com/fjc0k/yapi-to-typescript/issues/17</a></p>\n',
-          markdown: '[https://github.com/fjc0k/yapi-to-typescript/issues/17](https://github.com/fjc0k/yapi-to-typescript/issues/17)',
+          desc:
+            '<p><a href="https://github.com/fjc0k/yapi-to-typescript/issues/17">https://github.com/fjc0k/yapi-to-typescript/issues/17</a></p>\n',
+          markdown:
+            '[https://github.com/fjc0k/yapi-to-typescript/issues/17](https://github.com/fjc0k/yapi-to-typescript/issues/17)',
           res_body: '{"type":"object","title":"empty object","properties":{}}',
         },
         {
@@ -920,13 +930,15 @@ const mockData: Record<string, any> = {
           req_body_form: [],
           desc: '',
           markdown: '',
-          res_body: '{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{" a":{"type":"number"},"b  ":{"type":"string"},"c":{"type":"object","properties":{"d  ":{"type":"string"}}}}}',
+          res_body:
+            '{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{" a":{"type":"number"},"b  ":{"type":"string"},"c":{"type":"object","properties":{"d  ":{"type":"string"}}}}}',
           req_body_type: 'json',
           uid: 11,
           add_time: 1589249698,
           up_time: 1589249798,
           __v: 0,
-          req_body_other: '{"type":"object","title":"title","properties":{"  a":{"type":"string"},"b  ":{"type":"string"},"c   d ":{"type":"string"},"e":{"type":"object","properties":{"f ":{"type":"string"}},"required":["f "]}},"required":["  a","b  ","c   d ","e"]}',
+          req_body_other:
+            '{"type":"object","title":"title","properties":{"  a":{"type":"string"},"b  ":{"type":"string"},"c   d ":{"type":"string"},"e":{"type":"object","properties":{"f ":{"type":"string"}},"required":["f "]}},"required":["  a","b  ","c   d ","e"]}',
         },
       ],
     },
@@ -1024,13 +1036,13 @@ const mockData: Record<string, any> = {
   },
 }
 
-const request = {
+const got = {
   get: (url: string) => {
     const path = Object.keys(mockData).find(path => url.endsWith(path))
     if (path!.endsWith('/api/plugin/export')) {
       exportCount++
     }
-    return path && mockData[path]
+    return path && { body: mockData[path] }
   },
   resetExportCount() {
     exportCount = 0
@@ -1040,4 +1052,4 @@ const request = {
   },
 }
 
-module.exports = request
+module.exports = got

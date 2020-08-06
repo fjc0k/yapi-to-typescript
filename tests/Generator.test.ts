@@ -7,7 +7,7 @@ import { OneOrMany } from 'vtils/types'
 import { ServerConfig } from '../src'
 
 afterEach(() => {
-  require('request-promise-native').resetExportCount()
+  require('got').resetExportCount()
 })
 
 const generatorFactory = (
@@ -172,7 +172,7 @@ describe('Generator', () => {
   test('同一个项目导出接口列表 API 应只请求一次', async () => {
     const generator = generatorFactory(0, false)
     await generator.generate()
-    expect(require('request-promise-native').getExportCount()).toEqual(1)
+    expect(require('got').getExportCount()).toEqual(1)
   })
 
   test('生成 JavaScript 代码', async () => {
