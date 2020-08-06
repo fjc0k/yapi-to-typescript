@@ -208,5 +208,5 @@ describe('Generator', () => {
         fs.readFileSync(requestFunctionFilePath).toString(),
       ).toMatchSnapshot('请求文件')
     })
-  })
+  }, 30000)
 })
