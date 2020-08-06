@@ -92,5 +92,8 @@
     "standard-version": "^4.4.0",
     "tempy": "^0.3.0",
     "typedoc": "^0.14.2"
+  },
+  "engines": {
+    "node": ">=10.19.0"
   }
 }
