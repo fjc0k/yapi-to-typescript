@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.1-beta.5"></a>
+
+## [3.3.1-beta.5](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1-beta.4...v3.3.1-beta.5) (2020-08-10)
+
+### Bug Fixes
+
+- 解决生成 JavaScript 代码时覆盖问题 ([56f9e27](https://github.com/fjc0k/yapi-to-typescript/commit/56f9e27))
+
 <a name="3.3.1-beta.4"></a>
 
 ## [3.3.1-beta.4](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1-beta.3...v3.3.1-beta.4) (2020-08-06)
