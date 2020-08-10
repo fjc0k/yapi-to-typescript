@@ -103,7 +103,7 @@ export interface Json5RequestTestTestTestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[]
+  likes?: string[]
   nest?: {
     /**
      * 1
@@ -492,7 +492,7 @@ export interface Json5RequestTestTestTestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[];
+  likes?: string[];
   nest?: {
     /**
      * 1
@@ -1093,7 +1093,7 @@ export interface Json5RequestTestTestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[]
+  likes?: string[]
   nest?: {
     /**
      * 1
@@ -2585,7 +2585,7 @@ export interface Json5RequestTestTestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[];
+  likes?: string[];
   nest?: {
     /**
      * 1
@@ -4032,7 +4032,7 @@ export interface Json5RequestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[]
+  likes?: string[]
   nest?: {
     /**
      * 1
@@ -5107,7 +5107,7 @@ export interface Json5RequestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[];
+  likes?: string[];
   nest?: {
     /**
      * 1
@@ -6188,7 +6188,7 @@ export interface Json5RequestTestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[]
+  likes?: string[]
   nest?: {
     /**
      * 1
@@ -7358,7 +7358,7 @@ export interface Json5RequestTestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[];
+  likes?: string[];
   nest?: {
     /**
      * 1
@@ -9731,7 +9731,7 @@ export interface Json5RequestTestTestTestTestTestTestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[];
+  likes?: string[];
   nest?: {
     /**
      * 1
@@ -10884,7 +10884,7 @@ export interface Json5RequestTestTestTestTestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[]
+  likes?: string[]
   nest?: {
     /**
      * 1
@@ -12155,7 +12155,7 @@ export interface Json5RequestTestTestTestTestTestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[];
+  likes?: string[];
   nest?: {
     /**
      * 1

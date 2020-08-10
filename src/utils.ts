@@ -116,7 +116,7 @@ export function jsonToJsonSchema(json: object): JSONSchema4 {
   const schema = toJsonSchema(json, {
     required: false,
     arrays: {
-      mode: 'all',
+      mode: 'first',
     },
     objects: {
       additionalProperties: false,

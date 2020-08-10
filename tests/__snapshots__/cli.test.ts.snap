@@ -401,7 +401,7 @@ export interface Json5RequestRequest {
   /**
    * [\\"photo\\",2]
    */
-  likes?: any[]
+  likes?: string[]
   nest?: {
     /**
      * 1
