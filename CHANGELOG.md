@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.1"></a>
+
+## [3.3.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1-beta.7...v3.3.1) (2020-08-10)
+
 <a name="3.3.1-beta.7"></a>
 
 ## [3.3.1-beta.7](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1-beta.6...v3.3.1-beta.7) (2020-08-10)
