@@ -987,7 +987,7 @@ img { max-width: 100%; }
 				<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/logo.png" width="150" />
 			</p>
 			<h1 id="yapi-to-typescript-test-codecov">YApi to TypeScript <img src="https://github.com/fjc0k/yapi-to-typescript/workflows/Test/badge.svg" alt="Test"> <a href="https://codecov.io/gh/fjc0k/yapi-to-typescript"><img src="https://codecov.io/gh/fjc0k/yapi-to-typescript/branch/master/graph/badge.svg" alt="codecov"></a></h1>
-			<p>根据 <a href="https://github.com/YMFE/yapi">YApi</a> 的接口定义生成 <a href="https://github.com/Microsoft/TypeScript">TypeScript</a> 的接口类型及其请求函数代码。</p>
+			<p>根据 <a href="https://github.com/YMFE/yapi">YApi</a> 的接口定义生成 TypeScript/JavaScript 的接口类型及其请求函数代码。</p>
 			<!-- TOC depthFrom:2 -->
 			<ul>
 				<li><a href="#%E9%A2%84%E8%A7%88">预览</a></li>
@@ -1021,10 +1021,11 @@ img { max-width: 100%; }
 				<li>支持生成 React Hooks 的请求代码</li>
 				<li>支持参数路径</li>
 				<li>支持上传文件</li>
+				<li>支持生成 JavaScript 代码</li>
 			</ul>
 			<h2 id="-">环境要求</h2>
 			<ul>
-				<li><code>Node &gt;= 8</code></li>
+				<li><code>Node &gt;= 10.19.0</code></li>
 				<li><code>YApi &gt;= 1.5.12</code></li>
 			</ul>
 			<h2 id="-">安装</h2>
@@ -1034,18 +1035,18 @@ yarn add yapi-to-typescript
 <span class="hljs-comment"># 或者，npm</span>
 npm i yapi-to-typescript --save</code></pre>
 			<h2 id="-">使用</h2>
-			<p><code>yapi-to-typescript</code> 基于当前目录下的 <code>ytt.config.ts</code> 配置文件进行相关操作。</p>
+			<p><code>yapi-to-typescript</code> 基于当前目录下的 <code>ytt.config.{ts,js}</code> 配置文件进行相关操作。</p>
 			<h3 id="-">生成配置文件</h3>
-			<p>使用命令 <code>ytt init</code> 可在当前目录自动创建配置文件 <code>ytt.config.ts</code>，如果配置文件已存在，将会询问你是否覆盖：</p>
+			<p>使用命令 <code>ytt init</code> 可在当前目录自动创建配置文件 <code>ytt.config.{ts,js}</code>，如果配置文件已存在，将会询问你是否覆盖：</p>
 			<pre><code class="language-bash"><span class="hljs-comment"># yarn</span>
 yarn ytt init
 
 <span class="hljs-comment"># 或者，npm</span>
 npx ytt init</code></pre>
 			<h3 id="-">修改配置文件</h3>
-			<p>打开当前目录下的 <code>ytt.config.ts</code> 配置文件，直接修改即可。<a href="http://fjc0k.github.io/yapi-to-typescript/interfaces/serverconfig.html">查看配置说明</a></p>
+			<p>打开当前目录下的 <code>ytt.config.{ts,js}</code> 配置文件，直接修改即可。<a href="http://fjc0k.github.io/yapi-to-typescript/interfaces/serverconfig.html">查看配置说明</a></p>
 			<h3 id="-">生成代码</h3>
-			<p>直接执行命令 <code>ytt</code> 即可抓取 <code>YApi</code> 的接口定义并生成相应的 <code>TypeScript</code> 代码：</p>
+			<p>直接执行命令 <code>ytt</code> 即可抓取 <code>YApi</code> 的接口定义并生成相应的 <code>TypeScript</code>/<code>JavaScript</code> 代码：</p>
 			<pre><code class="language-bash"><span class="hljs-comment"># yarn</span>
 yarn ytt
 
@@ -1134,14 +1135,9 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Category<wbr>List<span class="tsd-signature-symbol">:</span> <a href="interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/25e6f75/src/types.ts#L241">types.ts:241</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/f9c352e/src/types.ts#L241">types.ts:241</a></li>
 					</ul>
 				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>分类列表，对应数据导出的 json 内容</p>
-					</div>
-				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="config" class="tsd-anchor"></a>
@@ -1149,14 +1145,9 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Config<span class="tsd-signature-symbol">:</span> <a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/25e6f75/src/types.ts#L457">types.ts:457</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/f9c352e/src/types.ts#L471">types.ts:471</a></li>
 					</ul>
 				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>配置。</p>
-					</div>
-				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="interfacelist" class="tsd-anchor"></a>
@@ -1164,14 +1155,9 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Interface<wbr>List<span class="tsd-signature-symbol">:</span> <a href="interfaces/interface.html" class="tsd-signature-type">Interface</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/25e6f75/src/types.ts#L224">types.ts:224</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/f9c352e/src/types.ts#L224">types.ts:224</a></li>
 					</ul>
 				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>接口列表</p>
-					</div>
-				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="propdefinitions" class="tsd-anchor"></a>
@@ -1179,14 +1165,9 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Prop<wbr>Definitions<span class="tsd-signature-symbol">:</span> <a href="interfaces/propdefinition.html" class="tsd-signature-type">PropDefinition</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/25e6f75/src/types.ts#L524">types.ts:524</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/f9c352e/src/types.ts#L543">types.ts:543</a></li>
 					</ul>
 				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>属性定义列表</p>
-					</div>
-				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="requestfunctionrestargs" class="tsd-anchor"></a>
@@ -1194,14 +1175,9 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Request<wbr>Function<wbr>Rest<wbr>Args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RequestFunctionRestArgs&lt;T&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/25e6f75/src/types.ts#L509">types.ts:509</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/f9c352e/src/types.ts#L523">types.ts:523</a></li>
 					</ul>
 				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>请求函数的额外参数</p>
-					</div>
-				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="syntheticalconfig" class="tsd-anchor"></a>
@@ -1209,14 +1185,9 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Synthetical<wbr>Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/projectconfig.html" class="tsd-signature-type">ProjectConfig</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/categoryconfig.html" class="tsd-signature-type">CategoryConfig</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/25e6f75/src/types.ts#L445">types.ts:445</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/f9c352e/src/types.ts#L460">types.ts:460</a></li>
 					</ul>
 				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>混合的配置。</p>
-					</div>
-				</div>
 			</section>
 		</section>
 		<footer class="with-border-bottom">
