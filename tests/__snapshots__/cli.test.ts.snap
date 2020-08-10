@@ -387,12 +387,33 @@ export const json5Response = makeRequest<Json5ResponseRequest, Json5ResponseResp
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
  * @请求头 \`POST /json5Request\`
- * @更新时间 1568765164
+ * @更新时间 1597035132
  */
 export interface Json5RequestRequest {
-  id: number
-  name: string
-  likes: {}[]
+  /**
+   * 1
+   */
+  id?: number
+  /**
+   * \\"方剑成\\"
+   */
+  name?: string
+  /**
+   * [\\"photo\\",2]
+   */
+  likes?: any[]
+  nest?: {
+    /**
+     * 1
+     */
+    x?: number
+    y?: {
+      /**
+       * \\"2\\"
+       */
+      z?: string
+    }
+  }
 }
 
 /**
@@ -400,7 +421,7 @@ export interface Json5RequestRequest {
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
  * @请求头 \`POST /json5Request\`
- * @更新时间 1568765164
+ * @更新时间 1597035132
  */
 export interface Json5RequestResponse {}
 
@@ -409,7 +430,7 @@ export interface Json5RequestResponse {}
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
  * @请求头 \`POST /json5Request\`
- * @更新时间 1568765164
+ * @更新时间 1597035132
  */
 type Json5RequestRequestConfig = Readonly<
   RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request', undefined, string, string, false>
@@ -420,7 +441,7 @@ type Json5RequestRequestConfig = Readonly<
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
  * @请求头 \`POST /json5Request\`
- * @更新时间 1568765164
+ * @更新时间 1597035132
  */
 const json5RequestRequestConfig: Json5RequestRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
@@ -441,7 +462,7 @@ const json5RequestRequestConfig: Json5RequestRequestConfig = {
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
  * @请求头 \`POST /json5Request\`
- * @更新时间 1568765164
+ * @更新时间 1597035132
  */
 export const json5Request = makeRequest<Json5RequestRequest, Json5RequestResponse, Json5RequestRequestConfig>(
   json5RequestRequestConfig,

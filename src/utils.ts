@@ -1,6 +1,6 @@
-import jsonSchemaGenerator from 'json-schema-generator'
 import Mock from 'mockjs'
 import path from 'path'
+import toJsonSchema from 'to-json-schema'
 import { castArray, forOwn, isArray, isEmpty, isObject } from 'vtils'
 import { compile, Options } from 'json-schema-to-typescript'
 import { Defined } from 'vtils/types'
@@ -113,7 +113,26 @@ export function jsonSchemaStringToJsonSchema(str: string): JSONSchema4 {
  * @returns JSONSchema 对象
  */
 export function jsonToJsonSchema(json: object): JSONSchema4 {
-  return processJsonSchema(jsonSchemaGenerator(json))
+  const schema = toJsonSchema(json, {
+    required: false,
+    arrays: {
+      mode: 'all',
+    },
+    objects: {
+      additionalProperties: false,
+    },
+    strings: {
+      detectFormat: false,
+    },
+    postProcessFnc: (type, schema, value) => {
+      if (!schema.description && !!value && type !== 'object') {
+        schema.description = JSON.stringify(value)
+      }
+      return schema
+    },
+  })
+  delete schema.description
+  return processJsonSchema(schema as any)
 }
 
 /**

@@ -4,5 +4,5 @@
     "module": "ESNext",
     "outDir": "lib/esm"
   },
-  "include": ["./src", "./declarations.d.ts"]
+  "include": ["./src"]
 }

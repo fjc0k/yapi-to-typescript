@@ -157,21 +157,21 @@ const mockData: Record<string, any> = {
           req_headers: [
             {
               required: '1',
-              _id: '5cbdd32f93bc6574a2de33e6',
+              _id: '5f30d27c836a360dd0cfa97b',
               name: 'Content-Type',
               value: 'application/json',
             },
           ],
           req_body_form: [],
           req_body_other:
-            '{\n   "id": 1,\n   "name": "方剑成",\n   "likes": [\n      "photo",\n      2\n   ]\n}',
+            '{\n  "id": 1,\n  "name": "方剑成",\n  "likes": [\n    "photo",\n    2\n  ],\n  // 嵌套的\n  "nest": {\n      "x": 1,\n      "y": {"z":"2"}\n  }\n}',
           markdown: '',
           desc: '',
           res_body: '',
           req_body_type: 'json',
           uid: 11,
           add_time: 1568765164,
-          up_time: 1568765164,
+          up_time: 1597035132,
           __v: 0,
         },
         {
