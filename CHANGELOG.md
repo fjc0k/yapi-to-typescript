@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.1-beta.7"></a>
+
+## [3.3.1-beta.7](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1-beta.6...v3.3.1-beta.7) (2020-08-10)
+
+### Features
+
+- JSON 转 JSONSchema 时，取 JSON 数组的第一个作为参考对象 ([ddf9be1](https://github.com/fjc0k/yapi-to-typescript/commit/ddf9be1))
+
 <a name="3.3.1-beta.6"></a>
 
 ## [3.3.1-beta.6](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1-beta.5...v3.3.1-beta.6) (2020-08-10)
