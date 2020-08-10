@@ -229,6 +229,9 @@ export class Generator {
           syntheticalConfig,
         } = outputFileList[outputFilePath]
 
+        const rawRequestFunctionFilePath = requestFunctionFilePath
+        const rawRequestHookMakerFilePath = requestHookMakerFilePath
+
         // 支持 .jsx? 后缀
         outputFilePath = outputFilePath.replace(/\.js(x)?$/, '.ts$1')
         requestFunctionFilePath = requestFunctionFilePath.replace(
@@ -241,7 +244,7 @@ export class Generator {
         )
 
         if (!syntheticalConfig.typesOnly) {
-          if (!(await fs.pathExists(requestFunctionFilePath))) {
+          if (!(await fs.pathExists(rawRequestFunctionFilePath))) {
             await fs.outputFile(
               requestFunctionFilePath,
               dedent`
@@ -286,7 +289,7 @@ export class Generator {
           if (
             syntheticalConfig.reactHooks &&
             syntheticalConfig.reactHooks.enabled &&
-            !(await fs.pathExists(requestHookMakerFilePath))
+            !(await fs.pathExists(rawRequestHookMakerFilePath))
           ) {
             await fs.outputFile(
               requestHookMakerFilePath,
