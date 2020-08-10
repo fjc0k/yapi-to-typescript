@@ -225,6 +225,8 @@ export type InterfaceList = Interface[]
 
 /** 分类信息 */
 export interface Category {
+  /** ID */
+  _id: number
   /** 分类名称 */
   name: string
   /** 分类备注 */
@@ -239,6 +241,27 @@ export interface Category {
 
 /** 分类列表，对应数据导出的 json 内容 */
 export type CategoryList = Category[]
+
+/** 项目信息 */
+export interface Project {
+  /** ID */
+  _id: number
+  /** 名称 */
+  name: string
+  /** 描述 */
+  desc: string
+  /** 基本路径 */
+  basepath: string
+  /** 标签 */
+  tag: string[]
+  /** 环境配置 */
+  env: Array<{
+    /** 环境名称 */
+    name: string
+    /** 环境域名 */
+    domain: string
+  }>
+}
 
 /** 支持生成 React Hooks 代码的相关配置 */
 export interface ReactHooksConfig {

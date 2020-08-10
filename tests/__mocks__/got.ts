@@ -1,7 +1,7 @@
 let exportCount = 0
 
-const mockData: Record<string, any> = {
-  '/api/plugin/export': [
+const mockData: Record<string, () => any> = {
+  '/api/plugin/export': () => [
     {
       index: 0,
       name: 'test',
@@ -943,7 +943,7 @@ const mockData: Record<string, any> = {
       ],
     },
   ],
-  '/api/interface/getCatMenu': {
+  '/api/interface/getCatMenu': () => ({
     errcode: 0,
     errmsg: '成功！',
     data: [
@@ -992,8 +992,8 @@ const mockData: Record<string, any> = {
         __v: 0,
       },
     ],
-  },
-  '/api/project/get': {
+  }),
+  '/api/project/get': () => ({
     errcode: 0,
     errmsg: '成功！',
     data: {
@@ -1033,16 +1033,26 @@ const mockData: Record<string, any> = {
       cat: [],
       role: 'admin',
     },
-  },
+  }),
 }
 
 const got = {
-  get: (url: string) => {
+  get: (
+    url: string,
+    { searchParams: { token } }: { searchParams: { token?: string } } = {
+      searchParams: {},
+    },
+  ) => {
     const path = Object.keys(mockData).find(path => url.endsWith(path))
+    const mockRes = { body: (path && mockData[path]()) || {} }
     if (path!.endsWith('/api/plugin/export')) {
       exportCount++
     }
-    return path && { body: mockData[path] }
+    if (path!.endsWith('/api/project/get') && token === 'with-basepath') {
+      mockRes.body.data.basepath = '/i-am-basepath'
+      console.log(mockRes.body.data)
+    }
+    return mockRes
   },
   resetExportCount() {
     exportCount = 0

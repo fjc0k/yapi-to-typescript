@@ -10,12 +10,19 @@ afterEach(() => {
   require('got').resetExportCount()
 })
 
-const generatorFactory = (
-  id: OneOrMany<0 | 82 | 87 | 151 | -82 | -87 | -151>,
-  typesOnly: boolean,
+const generatorFactory = ({
+  id,
+  typesOnly = false,
   enableReactHooks = false,
-  target: ServerConfig['target'] = 'typescript',
-) => {
+  target = 'typescript',
+  token = 'hello',
+}: {
+  id: OneOrMany<0 | 82 | 87 | 151 | -82 | -87 | -151>
+  typesOnly?: boolean
+  enableReactHooks?: boolean
+  target?: ServerConfig['target']
+  token?: string
+}) => {
   const apiDir = tempy.directory()
   return new Generator({
     serverUrl: 'http://foo.bar',
@@ -29,7 +36,7 @@ const generatorFactory = (
     },
     projects: [
       {
-        token: 'hello',
+        token: token,
         categories: [
           {
             id: id,
@@ -55,7 +62,9 @@ const generatorFactory = (
 
 describe('Generator', () => {
   test('正确生成代码并写入文件 - 单分类', async () => {
-    const generator = generatorFactory(82, false)
+    const generator = generatorFactory({
+      id: 82,
+    })
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -73,7 +82,9 @@ describe('Generator', () => {
   })
 
   test('正确生成代码并写入文件 - 多分类', async () => {
-    const generator = generatorFactory([82, 87], false)
+    const generator = generatorFactory({
+      id: [82, 87],
+    })
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -91,7 +102,9 @@ describe('Generator', () => {
   })
 
   test('正确生成代码并写入文件 - 全部分类', async () => {
-    const generator = generatorFactory(0, false)
+    const generator = generatorFactory({
+      id: 0,
+    })
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -109,7 +122,9 @@ describe('Generator', () => {
   })
 
   test('正确生成代码并写入文件 - 排除分类', async () => {
-    const generator = generatorFactory([0, -82], false)
+    const generator = generatorFactory({
+      id: [0, -82],
+    })
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -127,7 +142,10 @@ describe('Generator', () => {
   })
 
   test('只生成类型代码并写入文件', async () => {
-    const generator = generatorFactory(82, true)
+    const generator = generatorFactory({
+      id: 82,
+      typesOnly: true,
+    })
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -143,7 +161,10 @@ describe('Generator', () => {
   })
 
   test('生成 React Hooks 代码', async () => {
-    const generator = generatorFactory(82, false, true)
+    const generator = generatorFactory({
+      id: 82,
+      enableReactHooks: true,
+    })
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -170,13 +191,18 @@ describe('Generator', () => {
   })
 
   test('同一个项目导出接口列表 API 应只请求一次', async () => {
-    const generator = generatorFactory(0, false)
+    const generator = generatorFactory({
+      id: 0,
+    })
     await generator.generate()
     expect(require('got').getExportCount()).toEqual(1)
   })
 
   test('生成 JavaScript 代码', async () => {
-    const generator = generatorFactory(82, false, false, 'javascript')
+    const generator = generatorFactory({
+      id: 0,
+      target: 'javascript',
+    })
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -209,4 +235,25 @@ describe('Generator', () => {
       ).toMatchSnapshot('请求文件')
     })
   }, 30000)
+
+  test('支持项目设置里的接口基本路径', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      token: 'with-basepath',
+    })
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, ({ requestFunctionFilePath }, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+      expect(
+        fs.readFileSync(requestFunctionFilePath).toString(),
+      ).toMatchSnapshot('请求文件')
+    })
+  })
 })

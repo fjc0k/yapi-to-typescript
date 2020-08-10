@@ -23,6 +23,7 @@ import {
   Interface,
   InterfaceList,
   Method,
+  Project,
   PropDefinition,
   RequestBodyType,
   RequestFormItemType,
@@ -79,7 +80,7 @@ export class Generator {
       this.config.map(async (serverConfig, serverIndex) =>
         Promise.all(
           serverConfig.projects.map(async (projectConfig, projectIndex) => {
-            const projectInfo = await Generator.fetchProjectInfo({
+            const projectInfo = await this.fetchProjectInfo({
               ...serverConfig,
               ...projectConfig,
             })
@@ -165,7 +166,7 @@ export class Generator {
                                         changeCase,
                                       )
                                     : interfaceInfo
-                                  return Generator.generateInterfaceCode(
+                                  return this.generateInterfaceCode(
                                     syntheticalConfig,
                                     interfaceInfo,
                                     categoryUID,
@@ -464,7 +465,7 @@ export class Generator {
   }
 
   /** 生成请求数据类型 */
-  static async generateRequestDataType({
+  async generateRequestDataType({
     interfaceInfo,
     typeName,
   }: {
@@ -542,7 +543,7 @@ export class Generator {
   }
 
   /** 生成响应数据类型 */
-  static async generateResponseDataType({
+  async generateResponseDataType({
     interfaceInfo,
     typeName,
     dataKey,
@@ -578,10 +579,7 @@ export class Generator {
     return jsonSchemaToType(jsonSchema, typeName)
   }
 
-  static async fetchApi<T = any>(
-    url: string,
-    query: Record<string, any>,
-  ): Promise<T> {
+  async fetchApi<T = any>(url: string, query: Record<string, any>): Promise<T> {
     const { body: res } = await got.get<{
       errcode: any
       errmsg: any
@@ -597,9 +595,27 @@ export class Generator {
     return res.data || res
   }
 
+  fetchProject = memoize(
+    async ({ serverUrl, token }: SyntheticalConfig) => {
+      const projectInfo = await this.fetchApi<Project>(
+        `${serverUrl}/api/project/get`,
+        {
+          token: token!,
+        },
+      )
+      const basePath = `/${projectInfo.basepath || '/'}`
+        .replace(/\/+$/, '')
+        .replace(/^\/+/, '/')
+      projectInfo.basepath = basePath
+      return projectInfo
+    },
+    ({ serverUrl, token }: SyntheticalConfig) => `${serverUrl}|${token}`,
+  )
+
   fetchExport = memoize(
-    ({ serverUrl, token }: SyntheticalConfig) => {
-      return Generator.fetchApi<CategoryList>(
+    async ({ serverUrl, token }: SyntheticalConfig) => {
+      const projectInfo = await this.fetchProject({ serverUrl, token })
+      const categoryList = await this.fetchApi<CategoryList>(
         `${serverUrl}/api/plugin/export`,
         {
           type: 'json',
@@ -608,6 +624,13 @@ export class Generator {
           token: token!,
         },
       )
+      return categoryList.map(cat => {
+        cat.list = (cat.list || []).map(item => {
+          item.path = `${projectInfo.basepath}${item.path}`
+          return item
+        })
+        return cat
+      })
     },
     ({ serverUrl, token }: SyntheticalConfig) => `${serverUrl}|${token}`,
   )
@@ -635,28 +658,15 @@ export class Generator {
   }
 
   /** 获取项目信息 */
-  static async fetchProjectInfo(syntheticalConfig: SyntheticalConfig) {
-    const projectInfo = await this.fetchApi<{
-      _id: number
-      name: string
-      basepath: string
-      env: Array<{
-        name: string
-        domain: string
-      }>
-    }>(`${syntheticalConfig.serverUrl}/api/project/get`, {
-      token: syntheticalConfig.token!,
-    })
-    const projectCats = await this.fetchApi<
-      Array<{
-        _id: number
-        name: string
-        desc: string
-      }>
-    >(`${syntheticalConfig.serverUrl}/api/interface/getCatMenu`, {
-      token: syntheticalConfig.token!,
-      project_id: projectInfo._id,
-    })
+  async fetchProjectInfo(syntheticalConfig: SyntheticalConfig) {
+    const projectInfo = await this.fetchProject(syntheticalConfig)
+    const projectCats = await this.fetchApi<CategoryList>(
+      `${syntheticalConfig.serverUrl}/api/interface/getCatMenu`,
+      {
+        token: syntheticalConfig.token!,
+        project_id: projectInfo._id,
+      },
+    )
     return {
       ...projectInfo,
       cats: projectCats,
@@ -674,7 +684,7 @@ export class Generator {
   }
 
   /** 生成接口代码 */
-  static async generateInterfaceCode(
+  async generateInterfaceCode(
     syntheticalConfig: SyntheticalConfig,
     interfaceInfo: Interface,
     categoryUID: string,
@@ -711,11 +721,11 @@ export class Generator {
           changeCase,
         )
       : changeCase.pascalCase(`${requestFunctionName}Response`)
-    const requestDataType = await Generator.generateRequestDataType({
+    const requestDataType = await this.generateRequestDataType({
       interfaceInfo: interfaceInfo,
       typeName: requestDataTypeName,
     })
-    const responseDataType = await Generator.generateResponseDataType({
+    const responseDataType = await this.generateResponseDataType({
       interfaceInfo: interfaceInfo,
       typeName: responseDataTypeName,
       dataKey: syntheticalConfig.dataKey,
