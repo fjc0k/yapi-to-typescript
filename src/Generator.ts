@@ -8,6 +8,7 @@ import prettier from 'prettier'
 import {
   castArray,
   dedent,
+  groupBy,
   isArray,
   isEmpty,
   isFunction,
@@ -15,6 +16,7 @@ import {
   noop,
   omit,
   uniq,
+  values,
 } from 'vtils'
 import {
   CategoryList,
@@ -107,9 +109,17 @@ export class Generator {
                   categoryIds = categoryIds.filter(
                     id => !!projectInfo.cats.find(cat => cat._id === id),
                   )
+                  // 顺序化
+                  categoryIds = categoryIds.sort()
 
-                  await Promise.all(
-                    categoryIds.map(async (id, categoryIndex2) => {
+                  const codes = await Promise.all(
+                    categoryIds.map<
+                      Promise<{
+                        outputFilePath: string
+                        code: string
+                        weights: number[]
+                      }>
+                    >(async (id, categoryIndex2) => {
                       categoryConfig = {
                         ...categoryConfig,
                         id: id,
@@ -128,9 +138,9 @@ export class Generator {
                       syntheticalConfig.prodUrl = projectInfo.getProdUrl(
                         syntheticalConfig.prodEnvName!,
                       )
-                      const interfaceList = await this.fetchInterfaceList(
-                        syntheticalConfig,
-                      )
+                      const interfaceList = (
+                        await this.fetchInterfaceList(syntheticalConfig)
+                      ).sort((a, b) => a._id - b._id)
                       const outputFilePath = path.resolve(
                         this.options.cwd,
                         syntheticalConfig.outputFilePath!,
@@ -204,9 +214,44 @@ export class Generator {
                               : '',
                         }
                       }
-                      outputFileList[outputFilePath].content.push(categoryCode)
+                      return {
+                        outputFilePath: outputFilePath,
+                        code: categoryCode,
+                        weights: [
+                          serverIndex,
+                          projectIndex,
+                          categoryIndex,
+                          categoryIndex2,
+                        ],
+                      }
                     }),
                   )
+                  for (const groupedCodes of values(
+                    groupBy(codes, item => item.outputFilePath),
+                  )) {
+                    groupedCodes.sort((a, b) => {
+                      const x = a.weights.length > b.weights.length ? b : a
+                      const minLen = Math.min(
+                        a.weights.length,
+                        b.weights.length,
+                      )
+                      const maxLen = Math.max(
+                        a.weights.length,
+                        b.weights.length,
+                      )
+                      x.weights.push(...new Array(maxLen - minLen).fill(0))
+                      const w = a.weights.reduce((w, _, i) => {
+                        if (w === 0) {
+                          w = a.weights[i] - b.weights[i]
+                        }
+                        return w
+                      }, 0)
+                      return w
+                    })
+                    outputFileList[groupedCodes[0].outputFilePath].content.push(
+                      ...groupedCodes.map(item => item.code),
+                    )
+                  }
                 },
               ),
             )
