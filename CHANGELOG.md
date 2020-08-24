@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.4.1"></a>
+
+## [3.4.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.4.0...v3.4.1) (2020-08-24)
+
+### Bug Fixes
+
+- 删除通过 swagger 导入时未剔除的 ref (close: [#42](https://github.com/fjc0k/yapi-to-typescript/issues/42)) ([82a5cbd](https://github.com/fjc0k/yapi-to-typescript/commit/82a5cbd))
+
 <a name="3.4.0"></a>
 
 # [3.4.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.3.1...v3.4.0) (2020-08-10)
