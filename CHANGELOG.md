@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.0"></a>
+
+# [3.5.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.4.1...v3.5.0) (2020-08-24)
+
+### Features
+
+- 生成代码时按一定规则排序, 保证相同配置多次生成结果的一致性 ([91c5705](https://github.com/fjc0k/yapi-to-typescript/commit/91c5705))
+
 <a name="3.4.1"></a>
 
 ## [3.4.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.4.0...v3.4.1) (2020-08-24)
