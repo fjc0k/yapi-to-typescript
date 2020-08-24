@@ -62,6 +62,10 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
   // 将 additionalProperties 设为 false
   jsonSchema.additionalProperties = false
 
+  // 删除通过 swagger 导入时未剔除的 ref
+  delete jsonSchema.$ref
+  delete jsonSchema.$$ref
+
   // Mock.toJSONSchema 产生的 properties 为数组，然而 JSONSchema4 的 properties 为对象
   if (isArray(jsonSchema.properties)) {
     jsonSchema.properties = (jsonSchema.properties as JSONSchema4[]).reduce<
