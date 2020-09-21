@@ -21,7 +21,7 @@ const generatorFactory = ({
   typesOnly?: boolean
   enableReactHooks?: boolean
   target?: ServerConfig['target']
-  token?: string
+  token?: string | string[]
 }) => {
   const apiDir = tempy.directory()
   return new Generator({
@@ -240,6 +240,27 @@ describe('Generator', () => {
     const generator = generatorFactory({
       id: 82,
       token: 'with-basepath',
+    })
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, ({ requestFunctionFilePath }, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+      expect(
+        fs.readFileSync(requestFunctionFilePath).toString(),
+      ).toMatchSnapshot('请求文件')
+    })
+  })
+
+  test('支持将 token 设为数组', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      token: ['projectA', 'projectB'],
     })
     const output = await generator.generate()
     forOwn(output, ({ content }) => {

@@ -448,13 +448,13 @@ export interface CategoryConfig extends SharedConfig {
  */
 export interface ProjectConfig extends SharedConfig {
   /**
-   * 项目的唯一标识。
+   * 项目的唯一标识。支持多个项目。
    *
    * 获取方式：打开项目 --> `设置` --> `token配置` --> 复制 token。
    *
    * @example 'e02a47122259d0c1973a9ff81cabb30685d64abc72f39edaa1ac6b6a792a647d'
    */
-  token: string
+  token: string | string[]
 
   /**
    * 分类列表。

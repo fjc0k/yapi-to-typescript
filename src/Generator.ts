@@ -26,6 +26,7 @@ import {
   InterfaceList,
   Method,
   Project,
+  ProjectConfig,
   PropDefinition,
   RequestBodyType,
   RequestFormItemType,
@@ -79,9 +80,21 @@ export class Generator {
     const outputFileList: OutputFileList = Object.create(null)
 
     await Promise.all(
-      this.config.map(async (serverConfig, serverIndex) =>
-        Promise.all(
-          serverConfig.projects.map(async (projectConfig, projectIndex) => {
+      this.config.map(async (serverConfig, serverIndex) => {
+        const projects = serverConfig.projects.reduce<ProjectConfig[]>(
+          (projects, project) => {
+            projects.push(
+              ...castArray(project.token).map(token => ({
+                ...project,
+                token: token,
+              })),
+            )
+            return projects
+          },
+          [],
+        )
+        return Promise.all(
+          projects.map(async (projectConfig, projectIndex) => {
             const projectInfo = await this.fetchProjectInfo({
               ...serverConfig,
               ...projectConfig,
@@ -256,8 +269,8 @@ export class Generator {
               ),
             )
           }),
-        ),
-      ),
+        )
+      }),
     )
 
     return outputFileList
