@@ -180,7 +180,7 @@ const dataKey_0_0_0_0 = undefined as any
  * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`GET /issue-17/picture_3d_detail\`
+ * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1575455147
  */
 export interface Picture_3dDetailRequest {}
@@ -189,7 +189,7 @@ export interface Picture_3dDetailRequest {}
  * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **返回类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`GET /issue-17/picture_3d_detail\`
+ * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1575455147
  */
 export interface Picture_3dDetailResponse {}
@@ -198,7 +198,7 @@ export interface Picture_3dDetailResponse {}
  * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求配置的类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`GET /issue-17/picture_3d_detail\`
+ * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1575455147
  */
 type Picture_3dDetailRequestConfig = Readonly<
@@ -206,7 +206,7 @@ type Picture_3dDetailRequestConfig = Readonly<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/issue-17/picture_3d_detail',
+    '/__hello__/issue-17/picture_3d_detail',
     undefined,
     string,
     string,
@@ -218,14 +218,14 @@ type Picture_3dDetailRequestConfig = Readonly<
  * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求配置**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`GET /issue-17/picture_3d_detail\`
+ * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1575455147
  */
 const picture_3dDetailRequestConfig: Picture_3dDetailRequestConfig = {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: '/issue-17/picture_3d_detail',
+  path: '/__hello__/issue-17/picture_3d_detail',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
@@ -239,7 +239,7 @@ const picture_3dDetailRequestConfig: Picture_3dDetailRequestConfig = {
  * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/27/interface/api/870) 的 **请求函数**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`GET /issue-17/picture_3d_detail\`
+ * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1575455147
  */
 export const picture_3dDetail = makeRequest<
@@ -252,7 +252,7 @@ export const picture_3dDetail = makeRequest<
  * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`GET /28/get\`
+ * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1589249547
  */
 export interface GetRequest {
@@ -266,7 +266,7 @@ export interface GetRequest {
  * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **返回类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`GET /28/get\`
+ * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1589249547
  */
 export interface GetResponse {}
@@ -275,7 +275,7 @@ export interface GetResponse {}
  * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置的类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`GET /28/get\`
+ * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1589249547
  */
 type GetRequestConfig = Readonly<
@@ -283,7 +283,7 @@ type GetRequestConfig = Readonly<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/28/get',
+    '/__hello__/28/get',
     undefined,
     string,
     '   a' | ' b' | 'c ' | '    d    e   ',
@@ -295,14 +295,14 @@ type GetRequestConfig = Readonly<
  * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求配置**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`GET /28/get\`
+ * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1589249547
  */
 const getRequestConfig: GetRequestConfig = {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: '/28/get',
+  path: '/__hello__/28/get',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
@@ -316,7 +316,7 @@ const getRequestConfig: GetRequestConfig = {
  * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/27/interface/api/972) 的 **请求函数**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`GET /28/get\`
+ * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1589249547
  */
 export const get = makeRequest<GetRequest, GetResponse, GetRequestConfig>(getRequestConfig)
@@ -325,7 +325,7 @@ export const get = makeRequest<GetRequest, GetResponse, GetRequestConfig>(getReq
  * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`POST /28/post/form\`
+ * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1589249694
  */
 export interface FormRequest {
@@ -339,7 +339,7 @@ export interface FormRequest {
  * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **返回类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`POST /28/post/form\`
+ * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1589249694
  */
 export interface FormResponse {}
@@ -348,7 +348,7 @@ export interface FormResponse {}
  * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置的类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`POST /28/post/form\`
+ * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1589249694
  */
 type FormRequestConfig = Readonly<
@@ -356,7 +356,7 @@ type FormRequestConfig = Readonly<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/28/post/form',
+    '/__hello__/28/post/form',
     undefined,
     string,
     '   a' | ' b' | 'c ' | '    d    e   ',
@@ -368,14 +368,14 @@ type FormRequestConfig = Readonly<
  * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求配置**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`POST /28/post/form\`
+ * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1589249694
  */
 const formRequestConfig: FormRequestConfig = {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: '/28/post/form',
+  path: '/__hello__/28/post/form',
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
@@ -389,7 +389,7 @@ const formRequestConfig: FormRequestConfig = {
  * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/27/interface/api/978) 的 **请求函数**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`POST /28/post/form\`
+ * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1589249694
  */
 export const form = makeRequest<FormRequest, FormResponse, FormRequestConfig>(formRequestConfig)
@@ -398,7 +398,7 @@ export const form = makeRequest<FormRequest, FormResponse, FormRequestConfig>(fo
  * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`POST /28/post/json\`
+ * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1589249798
  */
 export interface JsonRequest {
@@ -414,7 +414,7 @@ export interface JsonRequest {
  * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **返回类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`POST /28/post/json\`
+ * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1589249798
  */
 export interface JsonResponse {
@@ -429,7 +429,7 @@ export interface JsonResponse {
  * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置的类型**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`POST /28/post/json\`
+ * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1589249798
  */
 type JsonRequestConfig = Readonly<
@@ -437,7 +437,7 @@ type JsonRequestConfig = Readonly<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/28/post/json',
+    '/__hello__/28/post/json',
     undefined,
     string,
     '   a' | ' b' | 'c ' | '    d    e   ',
@@ -449,14 +449,14 @@ type JsonRequestConfig = Readonly<
  * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求配置**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`POST /28/post/json\`
+ * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1589249798
  */
 const jsonRequestConfig: JsonRequestConfig = {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: '/28/post/json',
+  path: '/__hello__/28/post/json',
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
@@ -470,7 +470,7 @@ const jsonRequestConfig: JsonRequestConfig = {
  * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/27/interface/api/984) 的 **请求函数**
  *
  * @分类 [issues↗](http://foo.bar/project/27/interface/api/cat_151)
- * @请求头 \`POST /28/post/json\`
+ * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1589249798
  */
 export const json = makeRequest<JsonRequest, JsonResponse, JsonRequestConfig>(jsonRequestConfig)
@@ -484,7 +484,7 @@ const dataKey_0_0_0_2 = undefined as any
  * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`DELETE /deleteMethod\`
+ * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1568765163
  */
 export interface DeleteMethodRequest {
@@ -498,7 +498,7 @@ export interface DeleteMethodRequest {
  * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`DELETE /deleteMethod\`
+ * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1568765163
  */
 export interface DeleteMethodResponse {}
@@ -507,25 +507,34 @@ export interface DeleteMethodResponse {}
  * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`DELETE /deleteMethod\`
+ * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1568765163
  */
 type DeleteMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/deleteMethod', undefined, string, string, false>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/deleteMethod',
+    undefined,
+    string,
+    string,
+    false
+  >
 >
 
 /**
  * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`DELETE /deleteMethod\`
+ * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1568765163
  */
 const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/deleteMethod',
+  path: '/__hello__/deleteMethod',
   method: Method.DELETE,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
@@ -539,7 +548,7 @@ const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
  * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`DELETE /deleteMethod\`
+ * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1568765163
  */
 export const deleteMethod = makeRequest<DeleteMethodRequest, DeleteMethodResponse, DeleteMethodRequestConfig>(
@@ -550,7 +559,7 @@ export const deleteMethod = makeRequest<DeleteMethodRequest, DeleteMethodRespons
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /getMethod\`
+ * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1568765164
  */
 export interface GetMethodRequest {
@@ -568,7 +577,7 @@ export interface GetMethodRequest {
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /getMethod\`
+ * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1568765164
  */
 export interface GetMethodResponse {
@@ -582,25 +591,34 @@ export interface GetMethodResponse {
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /getMethod\`
+ * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1568765164
  */
 type GetMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/getMethod', undefined, string, 'x' | 'y', false>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/getMethod',
+    undefined,
+    string,
+    'x' | 'y',
+    false
+  >
 >
 
 /**
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /getMethod\`
+ * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1568765164
  */
 const getMethodRequestConfig: GetMethodRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/getMethod',
+  path: '/__hello__/getMethod',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
@@ -614,7 +632,7 @@ const getMethodRequestConfig: GetMethodRequestConfig = {
  * 接口 [GET 方法↗](http://foo.bar/project/27/interface/api/434) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /getMethod\`
+ * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1568765164
  */
 export const getMethod = makeRequest<GetMethodRequest, GetMethodResponse, GetMethodRequestConfig>(
@@ -625,7 +643,7 @@ export const getMethod = makeRequest<GetMethodRequest, GetMethodResponse, GetMet
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /json5Response\`
+ * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1568765164
  */
 export interface Json5ResponseRequest {}
@@ -634,7 +652,7 @@ export interface Json5ResponseRequest {}
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /json5Response\`
+ * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1568765164
  */
 export interface Json5ResponseResponse {
@@ -647,25 +665,34 @@ export interface Json5ResponseResponse {
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /json5Response\`
+ * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1568765164
  */
 type Json5ResponseRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Response', undefined, string, string, true>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/json5Response',
+    undefined,
+    string,
+    string,
+    true
+  >
 >
 
 /**
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /json5Response\`
+ * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1568765164
  */
 const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/json5Response',
+  path: '/__hello__/json5Response',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
@@ -679,7 +706,7 @@ const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
  * 接口 [JSON5 响应↗](http://foo.bar/project/27/interface/api/435) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /json5Response\`
+ * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1568765164
  */
 export const json5Response = makeRequest<Json5ResponseRequest, Json5ResponseResponse, Json5ResponseRequestConfig>(
@@ -690,7 +717,7 @@ export const json5Response = makeRequest<Json5ResponseRequest, Json5ResponseResp
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /json5Request\`
+ * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1597035132
  */
 export interface Json5RequestRequest {
@@ -724,7 +751,7 @@ export interface Json5RequestRequest {
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /json5Request\`
+ * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1597035132
  */
 export interface Json5RequestResponse {}
@@ -733,25 +760,34 @@ export interface Json5RequestResponse {}
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /json5Request\`
+ * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1597035132
  */
 type Json5RequestRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/json5Request', undefined, string, string, false>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/json5Request',
+    undefined,
+    string,
+    string,
+    false
+  >
 >
 
 /**
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /json5Request\`
+ * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1597035132
  */
 const json5RequestRequestConfig: Json5RequestRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/json5Request',
+  path: '/__hello__/json5Request',
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
@@ -765,7 +801,7 @@ const json5RequestRequestConfig: Json5RequestRequestConfig = {
  * 接口 [JSON5 请求↗](http://foo.bar/project/27/interface/api/436) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /json5Request\`
+ * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1597035132
  */
 export const json5Request = makeRequest<Json5RequestRequest, Json5RequestResponse, Json5RequestRequestConfig>(
@@ -776,7 +812,7 @@ export const json5Request = makeRequest<Json5RequestRequest, Json5RequestRespons
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /postMethod\`
+ * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1568765164
  */
 export interface PostMethodRequest {
@@ -798,7 +834,7 @@ export interface PostMethodRequest {
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /postMethod\`
+ * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1568765164
  */
 export interface PostMethodResponse {
@@ -817,25 +853,34 @@ export interface PostMethodResponse {
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /postMethod\`
+ * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1568765164
  */
 type PostMethodRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/postMethod', undefined, string, string, false>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/postMethod',
+    undefined,
+    string,
+    string,
+    false
+  >
 >
 
 /**
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /postMethod\`
+ * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1568765164
  */
 const postMethodRequestConfig: PostMethodRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/postMethod',
+  path: '/__hello__/postMethod',
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
@@ -849,7 +894,7 @@ const postMethodRequestConfig: PostMethodRequestConfig = {
  * 接口 [POST 方法↗](http://foo.bar/project/27/interface/api/437) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /postMethod\`
+ * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1568765164
  */
 export const postMethod = makeRequest<PostMethodRequest, PostMethodResponse, PostMethodRequestConfig>(
@@ -860,7 +905,7 @@ export const postMethod = makeRequest<PostMethodRequest, PostMethodResponse, Pos
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`PUT /putMethod\`
+ * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1568765164
  */
 export interface PutMethodRequest {
@@ -874,7 +919,7 @@ export interface PutMethodRequest {
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`PUT /putMethod\`
+ * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1568765164
  */
 export interface PutMethodResponse {
@@ -896,7 +941,7 @@ export interface PutMethodResponse {
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`PUT /putMethod\`
+ * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1568765164
  */
 type PutMethodRequestConfig = Readonly<
@@ -904,7 +949,7 @@ type PutMethodRequestConfig = Readonly<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/putMethod',
+    '/__hello__/putMethod',
     undefined,
     string,
     'id' | 'namre',
@@ -916,14 +961,14 @@ type PutMethodRequestConfig = Readonly<
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`PUT /putMethod\`
+ * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1568765164
  */
 const putMethodRequestConfig: PutMethodRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/putMethod',
+  path: '/__hello__/putMethod',
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
@@ -937,7 +982,7 @@ const putMethodRequestConfig: PutMethodRequestConfig = {
  * 接口 [PUT 方法↗](http://foo.bar/project/27/interface/api/438) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`PUT /putMethod\`
+ * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1568765164
  */
 export const putMethod = makeRequest<PutMethodRequest, PutMethodResponse, PutMethodRequestConfig>(
@@ -948,7 +993,7 @@ export const putMethod = makeRequest<PutMethodRequest, PutMethodResponse, PutMet
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`PUT /dataKeyExample\`
+ * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1568765165
  */
 export interface DataKeyExampleRequest {
@@ -962,7 +1007,7 @@ export interface DataKeyExampleRequest {
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`PUT /dataKeyExample\`
+ * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1568765165
  */
 export interface DataKeyExampleResponse {
@@ -989,7 +1034,7 @@ export interface DataKeyExampleResponse {
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`PUT /dataKeyExample\`
+ * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1568765165
  */
 type DataKeyExampleRequestConfig = Readonly<
@@ -997,7 +1042,7 @@ type DataKeyExampleRequestConfig = Readonly<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/dataKeyExample',
+    '/__hello__/dataKeyExample',
     undefined,
     string,
     'id' | 'namre',
@@ -1009,14 +1054,14 @@ type DataKeyExampleRequestConfig = Readonly<
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`PUT /dataKeyExample\`
+ * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1568765165
  */
 const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/dataKeyExample',
+  path: '/__hello__/dataKeyExample',
   method: Method.PUT,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
@@ -1030,7 +1075,7 @@ const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
  * 接口 [dataKey 例子↗](http://foo.bar/project/27/interface/api/439) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`PUT /dataKeyExample\`
+ * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1568765165
  */
 export const dataKeyExample = makeRequest<DataKeyExampleRequest, DataKeyExampleResponse, DataKeyExampleRequestConfig>(
@@ -1041,7 +1086,7 @@ export const dataKeyExample = makeRequest<DataKeyExampleRequest, DataKeyExampleR
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /noResponseData\`
+ * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1568765165
  */
 export interface NoResponseDataRequest {}
@@ -1050,7 +1095,7 @@ export interface NoResponseDataRequest {}
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /noResponseData\`
+ * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1568765165
  */
 export interface NoResponseDataResponse {}
@@ -1059,25 +1104,34 @@ export interface NoResponseDataResponse {}
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /noResponseData\`
+ * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1568765165
  */
 type NoResponseDataRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/noResponseData', undefined, string, string, true>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/noResponseData',
+    undefined,
+    string,
+    string,
+    true
+  >
 >
 
 /**
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /noResponseData\`
+ * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1568765165
  */
 const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/noResponseData',
+  path: '/__hello__/noResponseData',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
@@ -1091,7 +1145,7 @@ const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
  * 接口 [没返回数据↗](http://foo.bar/project/27/interface/api/440) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /noResponseData\`
+ * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1568765165
  */
 export const noResponseData = makeRequest<NoResponseDataRequest, NoResponseDataResponse, NoResponseDataRequestConfig>(
@@ -1102,7 +1156,7 @@ export const noResponseData = makeRequest<NoResponseDataRequest, NoResponseDataR
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /emptyResponse\`
+ * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1568765165
  */
 export interface EmptyResponseRequest {}
@@ -1111,7 +1165,7 @@ export interface EmptyResponseRequest {}
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /emptyResponse\`
+ * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1568765165
  */
 export interface EmptyResponseResponse {}
@@ -1120,25 +1174,34 @@ export interface EmptyResponseResponse {}
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /emptyResponse\`
+ * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1568765165
  */
 type EmptyResponseRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/emptyResponse', undefined, string, string, true>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/emptyResponse',
+    undefined,
+    string,
+    string,
+    true
+  >
 >
 
 /**
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /emptyResponse\`
+ * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1568765165
  */
 const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/emptyResponse',
+  path: '/__hello__/emptyResponse',
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
@@ -1152,7 +1215,7 @@ const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
  * 接口 [空返回数据↗](http://foo.bar/project/27/interface/api/441) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /emptyResponse\`
+ * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1568765165
  */
 export const emptyResponse = makeRequest<EmptyResponseRequest, EmptyResponseResponse, EmptyResponseRequestConfig>(
@@ -1163,7 +1226,7 @@ export const emptyResponse = makeRequest<EmptyResponseRequest, EmptyResponseResp
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test\`
+ * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1568765165
  */
 export interface TestRequest {
@@ -1181,7 +1244,7 @@ export interface TestRequest {
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test\`
+ * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1568765165
  */
 export interface TestResponse {}
@@ -1190,7 +1253,7 @@ export interface TestResponse {}
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test\`
+ * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1568765165
  */
 type TestRequestConfig = Readonly<
@@ -1198,7 +1261,7 @@ type TestRequestConfig = Readonly<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/path/:id/hello/:name/:pass/{avatar}/:test',
+    '/__hello__/path/:id/hello/:name/:pass/{avatar}/:test',
     undefined,
     'id' | 'name' | 'pass' | 'test' | 'avatar',
     string,
@@ -1210,14 +1273,14 @@ type TestRequestConfig = Readonly<
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test\`
+ * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1568765165
  */
 const testRequestConfig: TestRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/path/:id/hello/:name/:pass/{avatar}/:test',
+  path: '/__hello__/path/:id/hello/:name/:pass/{avatar}/:test',
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
@@ -1231,7 +1294,7 @@ const testRequestConfig: TestRequestConfig = {
  * 接口 [路径参数↗](http://foo.bar/project/27/interface/api/442) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /path/:id/hello/:name/:pass/{avatar}/:test\`
+ * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1568765165
  */
 export const test = makeRequest<TestRequest, TestResponse, TestRequestConfig>(testRequestConfig)
@@ -1240,7 +1303,7 @@ export const test = makeRequest<TestRequest, TestResponse, TestRequestConfig>(te
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /test/{id}/:hihihi\`
+ * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1568765165
  */
 export interface HihihiRequest {
@@ -1266,7 +1329,7 @@ export interface HihihiRequest {
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /test/{id}/:hihihi\`
+ * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1568765165
  */
 export interface HihihiResponse {}
@@ -1275,7 +1338,7 @@ export interface HihihiResponse {}
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /test/{id}/:hihihi\`
+ * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1568765165
  */
 type HihihiRequestConfig = Readonly<
@@ -1283,7 +1346,7 @@ type HihihiRequestConfig = Readonly<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/test/{id}/:hihihi',
+    '/__hello__/test/{id}/:hihihi',
     undefined,
     'hihihi' | 'id',
     string,
@@ -1295,14 +1358,14 @@ type HihihiRequestConfig = Readonly<
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /test/{id}/:hihihi\`
+ * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1568765165
  */
 const hihihiRequestConfig: HihihiRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/test/{id}/:hihihi',
+  path: '/__hello__/test/{id}/:hihihi',
   method: Method.POST,
   requestBodyType: RequestBodyType.json,
   responseBodyType: ResponseBodyType.json,
@@ -1316,7 +1379,7 @@ const hihihiRequestConfig: HihihiRequestConfig = {
  * 接口 [路径参数+对象↗](http://foo.bar/project/27/interface/api/443) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /test/{id}/:hihihi\`
+ * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1568765165
  */
 export const hihihi = makeRequest<HihihiRequest, HihihiResponse, HihihiRequestConfig>(hihihiRequestConfig)
@@ -1325,7 +1388,7 @@ export const hihihi = makeRequest<HihihiRequest, HihihiResponse, HihihiRequestCo
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /rawResponse\`
+ * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1568765166
  */
 export interface RawResponseRequest {}
@@ -1334,7 +1397,7 @@ export interface RawResponseRequest {}
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /rawResponse\`
+ * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1568765166
  */
 export type RawResponseResponse = any
@@ -1343,25 +1406,34 @@ export type RawResponseResponse = any
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /rawResponse\`
+ * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1568765166
  */
 type RawResponseRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/rawResponse', undefined, string, string, true>
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/rawResponse',
+    undefined,
+    string,
+    string,
+    true
+  >
 >
 
 /**
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /rawResponse\`
+ * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1568765166
  */
 const rawResponseRequestConfig: RawResponseRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/rawResponse',
+  path: '/__hello__/rawResponse',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.raw,
@@ -1375,7 +1447,7 @@ const rawResponseRequestConfig: RawResponseRequestConfig = {
  * 接口 [返回 raw↗](http://foo.bar/project/27/interface/api/444) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`GET /rawResponse\`
+ * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1568765166
  */
 export const rawResponse = makeRequest<RawResponseRequest, RawResponseResponse, RawResponseRequestConfig>(
@@ -1386,7 +1458,7 @@ export const rawResponse = makeRequest<RawResponseRequest, RawResponseResponse, 
  * 接口 [文件↗](http://foo.bar/project/27/interface/api/887) 的 **请求类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /upload\`
+ * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1582161261
  */
 export interface UploadRequest {
@@ -1404,7 +1476,7 @@ export interface UploadRequest {
  * 接口 [文件↗](http://foo.bar/project/27/interface/api/887) 的 **返回类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /upload\`
+ * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1582161261
  */
 export interface UploadResponse {}
@@ -1413,25 +1485,25 @@ export interface UploadResponse {}
  * 接口 [文件↗](http://foo.bar/project/27/interface/api/887) 的 **请求配置的类型**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /upload\`
+ * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1582161261
  */
 type UploadRequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/upload', undefined, string, string, false>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/__hello__/upload', undefined, string, string, false>
 >
 
 /**
  * 接口 [文件↗](http://foo.bar/project/27/interface/api/887) 的 **请求配置**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /upload\`
+ * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1582161261
  */
 const uploadRequestConfig: UploadRequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/upload',
+  path: '/__hello__/upload',
   method: Method.POST,
   requestBodyType: RequestBodyType.form,
   responseBodyType: ResponseBodyType.json,
@@ -1445,7 +1517,7 @@ const uploadRequestConfig: UploadRequestConfig = {
  * 接口 [文件↗](http://foo.bar/project/27/interface/api/887) 的 **请求函数**
  *
  * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
- * @请求头 \`POST /upload\`
+ * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1582161261
  */
 export const upload = makeRequest<UploadRequest, UploadResponse, UploadRequestConfig>(uploadRequestConfig)
@@ -1460,7 +1532,7 @@ const dataKey_0_0_0_3 = undefined as any
  *
  * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
  * @标签 \`2期\`, \`梦想城\`
- * @请求头 \`GET /get2\`
+ * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1575945946
  */
 export interface Get2Request {}
@@ -1470,7 +1542,7 @@ export interface Get2Request {}
  *
  * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
  * @标签 \`2期\`, \`梦想城\`
- * @请求头 \`GET /get2\`
+ * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1575945946
  */
 export interface Get2Response {
@@ -1482,11 +1554,11 @@ export interface Get2Response {
  *
  * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
  * @标签 \`2期\`, \`梦想城\`
- * @请求头 \`GET /get2\`
+ * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1575945946
  */
 type Get2RequestConfig = Readonly<
-  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/get2', undefined, string, string, true>
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/__hello__/get2', undefined, string, string, true>
 >
 
 /**
@@ -1494,14 +1566,14 @@ type Get2RequestConfig = Readonly<
  *
  * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
  * @标签 \`2期\`, \`梦想城\`
- * @请求头 \`GET /get2\`
+ * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1575945946
  */
 const get2RequestConfig: Get2RequestConfig = {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
-  path: '/get2',
+  path: '/__hello__/get2',
   method: Method.GET,
   requestBodyType: RequestBodyType.query,
   responseBodyType: ResponseBodyType.json,
@@ -1516,7 +1588,7 @@ const get2RequestConfig: Get2RequestConfig = {
  *
  * @分类 [test2↗](http://foo.bar/project/27/interface/api/cat_87)
  * @标签 \`2期\`, \`梦想城\`
- * @请求头 \`GET /get2\`
+ * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1575945946
  */
 export const get2 = makeRequest<Get2Request, Get2Response, Get2RequestConfig>(get2RequestConfig)

@@ -1047,10 +1047,14 @@ const got = {
     const mockRes = { body: (path && mockData[path]()) || {} }
     if (path!.endsWith('/api/plugin/export')) {
       exportCount++
+      ;(mockRes.body as any[]).forEach(group => {
+        ;(group.list as any[]).forEach(item => {
+          item.path = `/__${token}__${item.path}`
+        })
+      })
     }
     if (path!.endsWith('/api/project/get') && token === 'with-basepath') {
       mockRes.body.data.basepath = '/i-am-basepath'
-      console.log(mockRes.body.data)
     }
     return mockRes
   },
