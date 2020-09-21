@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.6.0"></a>
+
+# [3.6.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.5.0...v3.6.0) (2020-09-21)
+
+### Features
+
+- 支持将 token 设为数组 ([6d51d83](https://github.com/fjc0k/yapi-to-typescript/commit/6d51d83))
+
 <a name="3.5.0"></a>
 
 # [3.5.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.4.1...v3.5.0) (2020-08-24)
