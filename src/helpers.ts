@@ -75,7 +75,9 @@ export function prepare(
 ): RequestFunctionParams {
   let requestPath: string = requestConfig.path
   const { data, fileData } = parseRequestData(requestData)
-  if (data != null && typeof data === 'object' && !Array.isArray(data)) {
+  const dataIsObject =
+    data != null && typeof data === 'object' && !Array.isArray(data)
+  if (dataIsObject) {
     // 替换路径参数
     if (
       Array.isArray(requestConfig.paramNames) &&
@@ -121,5 +123,9 @@ export function prepare(
     data: data,
     hasFileData: fileData && Object.keys(fileData).length > 0,
     fileData: fileData,
+    allData: {
+      ...(dataIsObject ? data : {}),
+      ...fileData,
+    },
   }
 }

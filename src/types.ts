@@ -535,11 +535,13 @@ export interface RequestConfig<
  */
 export interface RequestFunctionParams extends RequestConfig {
   /** 请求数据，不含文件数据 */
-  data: any
+  data: Record<string, any>
   /** 是否有文件数据 */
   hasFileData: boolean
   /** 请求文件数据 */
   fileData: Record<string, any>
+  /** 所有请求数据，包括 data、fileData */
+  allData: Record<string, any>
 }
 
 /** 请求函数的额外参数 */
