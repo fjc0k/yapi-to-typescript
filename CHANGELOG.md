@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.7.0"></a>
+
+# [3.7.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.6.0...v3.7.0) (2020-09-24)
+
+### Features
+
+- 请求载荷新增 allData 表示所有数据 ([d881969](https://github.com/fjc0k/yapi-to-typescript/commit/d881969))
+
 <a name="3.6.0"></a>
 
 # [3.6.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.5.0...v3.6.0) (2020-09-21)
