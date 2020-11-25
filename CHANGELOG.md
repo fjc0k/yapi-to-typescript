@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.8.1"></a>
+
+## [3.8.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.8.0...v3.8.1) (2020-11-25)
+
+### Bug Fixes
+
+- Swagger 转 YApi 服务的端口优先使用 50505 ([63af417](https://github.com/fjc0k/yapi-to-typescript/commit/63af417))
+
 <a name="3.8.0"></a>
 
 # [3.8.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.7.0...v3.8.0) (2020-11-25)
