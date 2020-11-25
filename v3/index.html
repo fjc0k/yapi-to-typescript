@@ -990,7 +990,7 @@ img { max-width: 100%; }
 				<img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/logo.png" width="150" />
 			</p>
 			<h1 id="yapi-to-typescript-test-codecov">YApi to TypeScript <img src="https://github.com/fjc0k/yapi-to-typescript/workflows/Test/badge.svg" alt="Test"> <a href="https://codecov.io/gh/fjc0k/yapi-to-typescript"><img src="https://codecov.io/gh/fjc0k/yapi-to-typescript/branch/master/graph/badge.svg" alt="codecov"></a></h1>
-			<p>根据 <a href="https://github.com/YMFE/yapi">YApi</a> 的接口定义生成 TypeScript/JavaScript 的接口类型及其请求函数代码。</p>
+			<p>根据 <a href="https://github.com/YMFE/yapi">YApi</a> 或 <a href="https://swagger.io/">Swagger</a> 的接口定义生成 TypeScript/JavaScript 的接口类型及其请求函数代码。</p>
 			<!-- TOC depthFrom:2 -->
 			<ul>
 				<li><a href="#%E9%A2%84%E8%A7%88">预览</a></li>
@@ -1025,6 +1025,7 @@ img { max-width: 100%; }
 				<li>支持参数路径</li>
 				<li>支持上传文件</li>
 				<li>支持生成 JavaScript 代码</li>
+				<li>支持 Swagger</li>
 			</ul>
 			<h2 id="-">环境要求</h2>
 			<ul>
@@ -1139,7 +1140,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Category<wbr>List<span class="tsd-signature-symbol">:</span> <a href="interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/57f6b26/src/types.ts#L243">types.ts:243</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/bacd1a2/src/types.ts#L243">types.ts:243</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1149,7 +1150,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Config<span class="tsd-signature-symbol">:</span> <a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/57f6b26/src/types.ts#L494">types.ts:494</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/bacd1a2/src/types.ts#L501">types.ts:501</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1159,7 +1160,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Interface<wbr>List<span class="tsd-signature-symbol">:</span> <a href="interfaces/interface.html" class="tsd-signature-type">Interface</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/57f6b26/src/types.ts#L224">types.ts:224</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/bacd1a2/src/types.ts#L224">types.ts:224</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1169,7 +1170,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Prop<wbr>Definitions<span class="tsd-signature-symbol">:</span> <a href="interfaces/propdefinition.html" class="tsd-signature-type">PropDefinition</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/57f6b26/src/types.ts#L568">types.ts:568</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/bacd1a2/src/types.ts#L575">types.ts:575</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1179,7 +1180,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Request<wbr>Function<wbr>Rest<wbr>Args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RequestFunctionRestArgs&lt;T&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/57f6b26/src/types.ts#L548">types.ts:548</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/bacd1a2/src/types.ts#L555">types.ts:555</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1189,7 +1190,7 @@ npx ytt</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Synthetical<wbr>Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/serverconfig.html" class="tsd-signature-type">ServerConfig</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/projectconfig.html" class="tsd-signature-type">ProjectConfig</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/categoryconfig.html" class="tsd-signature-type">CategoryConfig</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/57f6b26/src/types.ts#L483">types.ts:483</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/bacd1a2/src/types.ts#L490">types.ts:490</a></li>
 					</ul>
 				</aside>
 			</section>
