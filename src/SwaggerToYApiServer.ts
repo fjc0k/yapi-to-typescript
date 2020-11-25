@@ -25,7 +25,9 @@ export class SwaggerToYApiServer {
 
   async getPort(): Promise<number> {
     if (this.port === 0) {
-      this.port = await getAvailablePort()
+      this.port = await getAvailablePort({
+        port: 50505,
+      })
     }
     return this.port
   }
