@@ -65,6 +65,7 @@ describe('Generator', () => {
     const generator = generatorFactory({
       id: 82,
     })
+    await generator.prepare()
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -85,6 +86,7 @@ describe('Generator', () => {
     const generator = generatorFactory({
       id: [82, 87],
     })
+    await generator.prepare()
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -105,6 +107,7 @@ describe('Generator', () => {
     const generator = generatorFactory({
       id: 0,
     })
+    await generator.prepare()
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -125,6 +128,7 @@ describe('Generator', () => {
     const generator = generatorFactory({
       id: [0, -82],
     })
+    await generator.prepare()
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -146,6 +150,7 @@ describe('Generator', () => {
       id: 82,
       typesOnly: true,
     })
+    await generator.prepare()
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -165,6 +170,7 @@ describe('Generator', () => {
       id: 82,
       enableReactHooks: true,
     })
+    await generator.prepare()
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -194,6 +200,7 @@ describe('Generator', () => {
     const generator = generatorFactory({
       id: 0,
     })
+    await generator.prepare()
     await generator.generate()
     expect(require('got').getExportCount()).toEqual(1)
   })
@@ -203,6 +210,7 @@ describe('Generator', () => {
       id: 0,
       target: 'javascript',
     })
+    await generator.prepare()
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -241,6 +249,7 @@ describe('Generator', () => {
       id: 82,
       token: 'with-basepath',
     })
+    await generator.prepare()
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')
@@ -262,6 +271,7 @@ describe('Generator', () => {
       id: 82,
       token: ['projectA', 'projectB'],
     })
+    await generator.prepare()
     const output = await generator.generate()
     forOwn(output, ({ content }) => {
       expect(content).toMatchSnapshot('输出内容')

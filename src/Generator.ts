@@ -46,6 +46,7 @@ import {
   throwError,
 } from './utils'
 import { JSONSchema4 } from 'json-schema'
+import { SwaggerToYApiServer } from './SwaggerToYApiServer'
 
 interface OutputFileList {
   [outputFilePath: string]: {
@@ -60,20 +61,35 @@ export class Generator {
   /** 配置 */
   private config: ServerConfig[] = []
 
+  private disposes: Array<() => any> = []
+
   constructor(
     config: Config,
     private options: { cwd: string } = { cwd: process.cwd() },
   ) {
-    this.config =
+    // config 可能是对象或数组，统一为数组
+    this.config = castArray(config)
+  }
+
+  async prepare(): Promise<void> {
+    this.config = await Promise.all(
       // config 可能是对象或数组，统一为数组
-      castArray(config).map(item => {
+      this.config.map(async item => {
+        if (item.serverType === 'swagger') {
+          const swaggerToYApiServer = new SwaggerToYApiServer({
+            swaggerJsonUrl: item.serverUrl,
+          })
+          item.serverUrl = await swaggerToYApiServer.start()
+          this.disposes.push(() => swaggerToYApiServer.stop())
+        }
         if (item.serverUrl) {
           // 去除地址后面的 /
           // fix: https://github.com/fjc0k/yapi-to-typescript/issues/22
           item.serverUrl = item.serverUrl.replace(/\/+$/, '')
         }
         return item
-      })
+      }),
+    )
   }
 
   async generate(): Promise<OutputFileList> {
@@ -758,7 +774,7 @@ export class Generator {
           extendedInterfaceInfo,
           changeCase,
         )
-      : changeCase.camelCase(interfaceInfo.parsedPath.name)
+      : changeCase.camelCase(extendedInterfaceInfo.parsedPath.name)
     const requestConfigName = changeCase.camelCase(
       `${requestFunctionName}RequestConfig`,
     )
@@ -780,11 +796,11 @@ export class Generator {
         )
       : changeCase.pascalCase(`${requestFunctionName}Response`)
     const requestDataType = await this.generateRequestDataType({
-      interfaceInfo: interfaceInfo,
+      interfaceInfo: extendedInterfaceInfo,
       typeName: requestDataTypeName,
     })
     const responseDataType = await this.generateResponseDataType({
-      interfaceInfo: interfaceInfo,
+      interfaceInfo: extendedInterfaceInfo,
       typeName: responseDataTypeName,
       dataKey: syntheticalConfig.dataKey,
     })
@@ -802,7 +818,7 @@ export class Generator {
 
     // 支持路径参数
     const paramNames = (
-      interfaceInfo.req_params /* istanbul ignore next */ || []
+      extendedInterfaceInfo.req_params /* istanbul ignore next */ || []
     ).map(item => item.name)
     const paramNamesLiteral = JSON.stringify(paramNames)
     const paramNameType =
@@ -810,17 +826,20 @@ export class Generator {
 
     // 支持查询参数
     const queryNames = (
-      interfaceInfo.req_query /* istanbul ignore next */ || []
+      extendedInterfaceInfo.req_query /* istanbul ignore next */ || []
     ).map(item => item.name)
     const queryNamesLiteral = JSON.stringify(queryNames)
     const queryNameType =
       queryNames.length === 0 ? 'string' : `'${queryNames.join("' | '")}'`
 
     // 转义标题中的 /
-    const escapedTitle = String(interfaceInfo.title).replace(/\//g, '\\/')
+    const escapedTitle = String(extendedInterfaceInfo.title).replace(
+      /\//g,
+      '\\/',
+    )
 
     // 接口标题
-    const interfaceTitle = `[${escapedTitle}↗](${syntheticalConfig.serverUrl}/project/${interfaceInfo.project_id}/interface/api/${interfaceInfo._id})`
+    const interfaceTitle = `[${escapedTitle}↗](${syntheticalConfig.serverUrl}/project/${extendedInterfaceInfo.project_id}/interface/api/${extendedInterfaceInfo._id})`
 
     // 接口摘要
     const interfaceSummary: Array<{
@@ -829,24 +848,24 @@ export class Generator {
     }> = [
       {
         label: '分类',
-        value: `[${interfaceInfo._category.name}↗](${syntheticalConfig.serverUrl}/project/${interfaceInfo.project_id}/interface/api/cat_${interfaceInfo.catid})`,
+        value: `[${extendedInterfaceInfo._category.name}↗](${syntheticalConfig.serverUrl}/project/${extendedInterfaceInfo.project_id}/interface/api/cat_${extendedInterfaceInfo.catid})`,
       },
       {
         label: '标签',
-        value: interfaceInfo.tag.map(tag => `\`${tag}\``),
+        value: extendedInterfaceInfo.tag.map(tag => `\`${tag}\``),
       },
       {
         label: '请求头',
-        value: `\`${interfaceInfo.method.toUpperCase()} ${
-          interfaceInfo.path
+        value: `\`${extendedInterfaceInfo.method.toUpperCase()} ${
+          extendedInterfaceInfo.path
         }\``,
       },
       {
         label: '更新时间',
         value: process.env.JEST_WORKER_ID // 测试时使用 unix 时间戳
-          ? String(interfaceInfo.up_time)
+          ? String(extendedInterfaceInfo.up_time)
           : /* istanbul ignore next */
-            `\`${dayjs(interfaceInfo.up_time * 1000).format(
+            `\`${dayjs(extendedInterfaceInfo.up_time * 1000).format(
               'YYYY-MM-DD HH:mm:ss',
             )}\``,
       },
@@ -884,7 +903,7 @@ export class Generator {
               ${JSON.stringify(syntheticalConfig.mockUrl)},
               ${JSON.stringify(syntheticalConfig.devUrl)},
               ${JSON.stringify(syntheticalConfig.prodUrl)},
-              ${JSON.stringify(interfaceInfo.path)},
+              ${JSON.stringify(extendedInterfaceInfo.path)},
               ${JSON.stringify(syntheticalConfig.dataKey) || 'undefined'},
               ${paramNameType},
               ${queryNameType},
@@ -900,15 +919,17 @@ export class Generator {
               mockUrl: mockUrl${categoryUID},
               devUrl: devUrl${categoryUID},
               prodUrl: prodUrl${categoryUID},
-              path: ${JSON.stringify(interfaceInfo.path)},
-              method: Method.${interfaceInfo.method},
+              path: ${JSON.stringify(extendedInterfaceInfo.path)},
+              method: Method.${extendedInterfaceInfo.method},
               requestBodyType: RequestBodyType.${
-                interfaceInfo.method === Method.GET
+                extendedInterfaceInfo.method === Method.GET
                   ? RequestBodyType.query
-                  : interfaceInfo.req_body_type /* istanbul ignore next */ ||
+                  : extendedInterfaceInfo.req_body_type /* istanbul ignore next */ ||
                     RequestBodyType.none
               },
-              responseBodyType: ResponseBodyType.${interfaceInfo.res_body_type},
+              responseBodyType: ResponseBodyType.${
+                extendedInterfaceInfo.res_body_type
+              },
               dataKey: dataKey${categoryUID},
               paramNames: ${paramNamesLiteral},
               queryNames: ${queryNamesLiteral},
@@ -938,5 +959,9 @@ export class Generator {
           `
       }
     `
+  }
+
+  async destroy() {
+    return Promise.all(this.disposes.map(async dispose => dispose()))
   }
 }

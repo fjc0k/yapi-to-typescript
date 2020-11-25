@@ -128,12 +128,14 @@ export async function run(
       const generator = new Generator(config, { cwd })
 
       const spinner = ora('正在获取数据并生成代码...').start()
+      await generator.prepare()
       const output = await generator.generate()
       spinner.stop()
       consola.success('获取数据并生成代码完毕')
 
       await generator.write(output)
       consola.success('写入文件完毕')
+      await generator.destroy()
     } catch (err) {
       /* istanbul ignore next */
       return consola.error(err)

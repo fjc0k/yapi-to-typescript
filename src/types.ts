@@ -467,11 +467,18 @@ export interface ProjectConfig extends SharedConfig {
  */
 export interface ServerConfig extends SharedConfig {
   /**
-   * YApi 服务地址。
+   * 服务地址。若服务类型为 `yapi`，此处填其首页地址；若服务类型为 `swagger`，此处填其 json 地址。
    *
    * @example 'http://yapi.foo.bar'
    */
   serverUrl: string
+
+  /**
+   * 服务类型。
+   *
+   * @default 'yapi'
+   */
+  serverType?: 'yapi' | 'swagger'
 
   /**
    * 项目列表。
