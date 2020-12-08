@@ -16,12 +16,14 @@ const generatorFactory = ({
   enableReactHooks = false,
   target = 'typescript',
   token = 'hello',
+  jsonSchema,
 }: {
   id: OneOrMany<0 | 82 | 87 | 151 | -82 | -87 | -151>
   typesOnly?: boolean
   enableReactHooks?: boolean
   target?: ServerConfig['target']
   token?: string | string[]
+  jsonSchema?: ServerConfig['jsonSchema']
 }) => {
   const apiDir = tempy.directory()
   return new Generator({
@@ -34,6 +36,7 @@ const generatorFactory = ({
     reactHooks: {
       enabled: enableReactHooks,
     },
+    jsonSchema: jsonSchema,
     projects: [
       {
         token: token,
@@ -285,6 +288,71 @@ describe('Generator', () => {
       expect(
         fs.readFileSync(requestFunctionFilePath).toString(),
       ).toMatchSnapshot('请求文件')
+    })
+  })
+
+  test('生成请求数据和返回数据的 JSON Schema', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      jsonSchema: {
+        enabled: true,
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
+
+  test('只生成请求数据的 JSON Schema', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      jsonSchema: {
+        enabled: true,
+        responseData: false,
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
+
+  test('只生成返回数据的 JSON Schema', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      jsonSchema: {
+        enabled: true,
+        requestData: false,
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
     })
   })
 })

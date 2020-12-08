@@ -2,14 +2,12 @@ import * as changeCase from 'change-case'
 import dayjs from 'dayjs'
 import fs from 'fs-extra'
 import got from 'got'
-import JSON5 from 'json5'
 import path from 'path'
 import prettier from 'prettier'
 import {
   castArray,
   dedent,
   groupBy,
-  isArray,
   isEmpty,
   isFunction,
   memoize,
@@ -27,25 +25,18 @@ import {
   Method,
   Project,
   ProjectConfig,
-  PropDefinition,
   RequestBodyType,
-  RequestFormItemType,
-  Required,
-  ResponseBodyType,
   ServerConfig,
   SyntheticalConfig,
 } from './types'
 import { exec } from 'child_process'
 import {
   getNormalizedRelativePath,
-  jsonSchemaStringToJsonSchema,
+  getRequestDataJsonSchema,
+  getResponseDataJsonSchema,
   jsonSchemaToType,
-  jsonToJsonSchema,
-  mockjsTemplateToJsonSchema,
-  propDefinitionsToJsonSchema,
   throwError,
 } from './utils'
-import { JSONSchema4 } from 'json-schema'
 import { SwaggerToYApiServer } from './SwaggerToYApiServer'
 
 interface OutputFileList {
@@ -538,121 +529,6 @@ export class Generator {
     })
   }
 
-  /** 生成请求数据类型 */
-  async generateRequestDataType({
-    interfaceInfo,
-    typeName,
-  }: {
-    interfaceInfo: Interface
-    typeName: string
-  }): Promise<string> {
-    let jsonSchema!: JSONSchema4
-
-    switch (interfaceInfo.method) {
-      case Method.GET:
-      case Method.HEAD:
-      case Method.OPTIONS:
-        jsonSchema = propDefinitionsToJsonSchema(
-          interfaceInfo.req_query.map<PropDefinition>(item => ({
-            name: item.name,
-            required: item.required === Required.true,
-            type: 'string',
-            comment: item.desc,
-          })),
-        )
-        break
-      default:
-        switch (interfaceInfo.req_body_type) {
-          case RequestBodyType.form:
-            jsonSchema = propDefinitionsToJsonSchema(
-              interfaceInfo.req_body_form.map<PropDefinition>(item => ({
-                name: item.name,
-                required: item.required === Required.true,
-                type: (item.type === RequestFormItemType.file
-                  ? 'file'
-                  : 'string') as any,
-                comment: item.desc,
-              })),
-            )
-            break
-          case RequestBodyType.json:
-            if (interfaceInfo.req_body_other) {
-              jsonSchema = interfaceInfo.req_body_is_json_schema
-                ? jsonSchemaStringToJsonSchema(interfaceInfo.req_body_other)
-                : jsonToJsonSchema(JSON5.parse(interfaceInfo.req_body_other))
-            }
-            break
-          default:
-            /* istanbul ignore next */
-            break
-        }
-        break
-    }
-
-    if (isArray(interfaceInfo.req_params) && interfaceInfo.req_params.length) {
-      const paramsJsonSchema = propDefinitionsToJsonSchema(
-        interfaceInfo.req_params.map<PropDefinition>(item => ({
-          name: item.name,
-          required: true,
-          type: 'string',
-          comment: item.desc,
-        })),
-      )
-      /* istanbul ignore else */
-      if (jsonSchema) {
-        jsonSchema.properties = {
-          ...jsonSchema.properties,
-          ...paramsJsonSchema.properties,
-        }
-        jsonSchema.required = [
-          ...(jsonSchema.required || []),
-          ...(paramsJsonSchema.required || []),
-        ]
-      } else {
-        jsonSchema = paramsJsonSchema
-      }
-    }
-
-    return jsonSchemaToType(jsonSchema, typeName)
-  }
-
-  /** 生成响应数据类型 */
-  async generateResponseDataType({
-    interfaceInfo,
-    typeName,
-    dataKey,
-  }: {
-    interfaceInfo: Interface
-    typeName: string
-    dataKey?: string
-  }): Promise<string> {
-    let jsonSchema: JSONSchema4 = {}
-
-    switch (interfaceInfo.res_body_type) {
-      case ResponseBodyType.json:
-        if (interfaceInfo.res_body) {
-          jsonSchema = interfaceInfo.res_body_is_json_schema
-            ? jsonSchemaStringToJsonSchema(interfaceInfo.res_body)
-            : mockjsTemplateToJsonSchema(JSON5.parse(interfaceInfo.res_body))
-        }
-        break
-      default:
-        return `export type ${typeName} = any`
-    }
-
-    /* istanbul ignore if */
-    if (
-      dataKey &&
-      jsonSchema &&
-      jsonSchema.properties &&
-      jsonSchema.properties[dataKey]
-    ) {
-      jsonSchema = jsonSchema.properties[dataKey]
-    }
-
-    return jsonSchemaToType(jsonSchema, typeName)
-  }
-
   async fetchApi<T = any>(url: string, query: Record<string, any>): Promise<T> {
     const { body: res } = await got.get<{
       errcode: any
@@ -795,15 +671,21 @@ export class Generator {
           changeCase,
         )
       : changeCase.pascalCase(`${requestFunctionName}Response`)
-    const requestDataType = await this.generateRequestDataType({
-      interfaceInfo: extendedInterfaceInfo,
-      typeName: requestDataTypeName,
-    })
-    const responseDataType = await this.generateResponseDataType({
-      interfaceInfo: extendedInterfaceInfo,
-      typeName: responseDataTypeName,
-      dataKey: syntheticalConfig.dataKey,
-    })
+    const requestDataJsonSchema = getRequestDataJsonSchema(
+      extendedInterfaceInfo,
+    )
+    const requestDataType = await jsonSchemaToType(
+      requestDataJsonSchema,
+      requestDataTypeName,
+    )
+    const responseDataJsonSchema = getResponseDataJsonSchema(
+      extendedInterfaceInfo,
+      syntheticalConfig.dataKey,
+    )
+    const responseDataType = await jsonSchemaToType(
+      responseDataJsonSchema,
+      responseDataTypeName,
+    )
     const isRequestDataOptional = /(\{\}|any)$/s.test(requestDataType)
     const requestHookName =
       syntheticalConfig.reactHooks && syntheticalConfig.reactHooks.enabled
@@ -934,6 +816,18 @@ export class Generator {
               paramNames: ${paramNamesLiteral},
               queryNames: ${queryNamesLiteral},
               requestDataOptional: ${JSON.stringify(isRequestDataOptional)},
+              requestDataJsonSchema: ${JSON.stringify(
+                syntheticalConfig.jsonSchema?.enabled &&
+                  syntheticalConfig.jsonSchema?.requestData !== false
+                  ? requestDataJsonSchema
+                  : {},
+              )},
+              responseDataJsonSchema: ${JSON.stringify(
+                syntheticalConfig.jsonSchema?.enabled &&
+                  syntheticalConfig.jsonSchema?.responseData !== false
+                  ? responseDataJsonSchema
+                  : {},
+              )},
             }
 
             /**

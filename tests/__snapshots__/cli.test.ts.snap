@@ -233,6 +233,8 @@ const picture_3dDetailRequestConfig: Picture_3dDetailRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -310,6 +312,8 @@ const getRequestConfig: GetRequestConfig = {
   paramNames: [],
   queryNames: ['   a', ' b', 'c ', '    d    e   '],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -383,6 +387,8 @@ const formRequestConfig: FormRequestConfig = {
   paramNames: [],
   queryNames: ['   a', ' b', 'c ', '    d    e   '],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -464,6 +470,8 @@ const jsonRequestConfig: JsonRequestConfig = {
   paramNames: [],
   queryNames: ['   a', ' b', 'c ', '    d    e   '],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -542,6 +550,8 @@ const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -626,6 +636,8 @@ const getMethodRequestConfig: GetMethodRequestConfig = {
   paramNames: [],
   queryNames: ['x', 'y'],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -700,6 +712,8 @@ const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -795,6 +809,8 @@ const json5RequestRequestConfig: Json5RequestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -888,6 +904,8 @@ const postMethodRequestConfig: PostMethodRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -976,6 +994,8 @@ const putMethodRequestConfig: PutMethodRequestConfig = {
   paramNames: [],
   queryNames: ['id', 'namre'],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -1069,6 +1089,8 @@ const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
   paramNames: [],
   queryNames: ['id', 'namre'],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -1139,6 +1161,8 @@ const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -1209,6 +1233,8 @@ const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -1288,6 +1314,8 @@ const testRequestConfig: TestRequestConfig = {
   paramNames: ['id', 'name', 'pass', 'test', 'avatar'],
   queryNames: [],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -1373,6 +1401,8 @@ const hihihiRequestConfig: HihihiRequestConfig = {
   paramNames: ['hihihi', 'id'],
   queryNames: [],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -1441,6 +1471,8 @@ const rawResponseRequestConfig: RawResponseRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -1511,6 +1543,8 @@ const uploadRequestConfig: UploadRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**
@@ -1581,6 +1615,8 @@ const get2RequestConfig: Get2RequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
 }
 
 /**

@@ -1,3 +1,4 @@
+import JSON5 from 'json5'
 import Mock from 'mockjs'
 import path from 'path'
 import toJsonSchema from 'to-json-schema'
@@ -5,8 +6,17 @@ import { castArray, forOwn, isArray, isEmpty, isObject } from 'vtils'
 import { compile, Options } from 'json-schema-to-typescript'
 import { Defined } from 'vtils/types'
 import { FileData } from './helpers'
+import {
+  Interface,
+  Method,
+  PropDefinition,
+  PropDefinitions,
+  RequestBodyType,
+  RequestFormItemType,
+  Required,
+  ResponseBodyType,
+} from './types'
 import { JSONSchema4 } from 'json-schema'
-import { PropDefinitions } from './types'
 
 /**
  * 抛出错误。
@@ -206,8 +216,117 @@ export async function jsonSchemaToType(
   if (isEmpty(jsonSchema)) {
     return `export interface ${typeName} {}`
   }
+  if (jsonSchema.__is_any__) {
+    delete jsonSchema.__is_any__
+    return `export type ${typeName} = any`
+  }
   // JSTT 会转换 typeName，因此传入一个全大写的假 typeName，生成代码后再替换回真正的 typeName
   const fakeTypeName = 'THISISAFAKETYPENAME'
   const code = await compile(jsonSchema, fakeTypeName, JSTTOptions)
   return code.replace(fakeTypeName, typeName).trim()
+}
+
+export function getRequestDataJsonSchema(
+  interfaceInfo: Interface,
+): JSONSchema4 {
+  let jsonSchema!: JSONSchema4
+
+  switch (interfaceInfo.method) {
+    case Method.GET:
+    case Method.HEAD:
+    case Method.OPTIONS:
+      jsonSchema = propDefinitionsToJsonSchema(
+        interfaceInfo.req_query.map<PropDefinition>(item => ({
+          name: item.name,
+          required: item.required === Required.true,
+          type: 'string',
+          comment: item.desc,
+        })),
+      )
+      break
+    default:
+      switch (interfaceInfo.req_body_type) {
+        case RequestBodyType.form:
+          jsonSchema = propDefinitionsToJsonSchema(
+            interfaceInfo.req_body_form.map<PropDefinition>(item => ({
+              name: item.name,
+              required: item.required === Required.true,
+              type: (item.type === RequestFormItemType.file
+                ? 'file'
+                : 'string') as any,
+              comment: item.desc,
+            })),
+          )
+          break
+        case RequestBodyType.json:
+          if (interfaceInfo.req_body_other) {
+            jsonSchema = interfaceInfo.req_body_is_json_schema
+              ? jsonSchemaStringToJsonSchema(interfaceInfo.req_body_other)
+              : jsonToJsonSchema(JSON5.parse(interfaceInfo.req_body_other))
+          }
+          break
+        default:
+          /* istanbul ignore next */
+          break
+      }
+      break
+  }
+
+  if (isArray(interfaceInfo.req_params) && interfaceInfo.req_params.length) {
+    const paramsJsonSchema = propDefinitionsToJsonSchema(
+      interfaceInfo.req_params.map<PropDefinition>(item => ({
+        name: item.name,
+        required: true,
+        type: 'string',
+        comment: item.desc,
+      })),
+    )
+    /* istanbul ignore else */
+    if (jsonSchema) {
+      jsonSchema.properties = {
+        ...jsonSchema.properties,
+        ...paramsJsonSchema.properties,
+      }
+      jsonSchema.required = [
+        ...(jsonSchema.required || []),
+        ...(paramsJsonSchema.required || []),
+      ]
+    } else {
+      jsonSchema = paramsJsonSchema
+    }
+  }
+
+  return jsonSchema
+}
+
+export function getResponseDataJsonSchema(
+  interfaceInfo: Interface,
+  dataKey?: string,
+): JSONSchema4 {
+  let jsonSchema: JSONSchema4 = {}
+
+  switch (interfaceInfo.res_body_type) {
+    case ResponseBodyType.json:
+      if (interfaceInfo.res_body) {
+        jsonSchema = interfaceInfo.res_body_is_json_schema
+          ? jsonSchemaStringToJsonSchema(interfaceInfo.res_body)
+          : mockjsTemplateToJsonSchema(JSON5.parse(interfaceInfo.res_body))
+      }
+      break
+    default:
+      jsonSchema = { __is_any__: true }
+      break
+  }
+
+  /* istanbul ignore if */
+  if (
+    dataKey &&
+    jsonSchema &&
+    jsonSchema.properties &&
+    jsonSchema.properties[dataKey]
+  ) {
+    jsonSchema = jsonSchema.properties[dataKey]
+  }
+
+  return jsonSchema
 }

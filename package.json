@@ -55,6 +55,7 @@
     ]
   },
   "dependencies": {
+    "@types/json-schema": "^7.0.1",
     "change-case": "^3.0.2",
     "consola": "^2.3.0",
     "dayjs": "^1.8.32",
@@ -78,7 +79,6 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^5.0.4",
-    "@types/json-schema": "^7.0.1",
     "@types/json5": "^0.0.30",
     "@types/mockjs": "^1.0.2",
     "@types/node": "^10.12.10",

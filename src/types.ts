@@ -292,6 +292,28 @@ export interface ReactHooksConfig {
   ): string
 }
 
+/** 支持生成 JSON Schema 的相关配置 */
+export interface JsonSchemaConfig {
+  /**
+   * 是否开启该项功能。
+   */
+  enabled: boolean
+
+  /**
+   * 是否生成请求数据的 JSON Schema。
+   *
+   * @default true
+   */
+  requestData?: boolean
+
+  /**
+   * 是否生成返回数据的 JSON Schema。
+   *
+   * @default true
+   */
+  responseData?: boolean
+}
+
 /**
  * 共享的配置。
  */
@@ -367,6 +389,11 @@ export interface SharedConfig {
    * 支持生成 React Hooks 代码的相关配置。
    */
   reactHooks?: ReactHooksConfig
+
+  /**
+   * 支持生成 JSON Schema 的相关配置。
+   */
+  jsonSchema?: JsonSchemaConfig
 
   /**
    * 预处理接口信息，返回新的接口信息。
@@ -535,6 +562,10 @@ export interface RequestConfig<
   queryNames: QueryName[]
   /** 请求数据是否可选 */
   requestDataOptional: RequestDataOptional
+  /** 请求数据的 JSON Schema (仅开启了 JSON Schema 生成时生效) */
+  requestDataJsonSchema: JSONSchema4
+  /** 返回数据的 JSON Schema (仅开启了 JSON Schema 生成时生效) */
+  responseDataJsonSchema: JSONSchema4
 }
 
 /**
