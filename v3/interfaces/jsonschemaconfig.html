@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Project | yapi-to-typescript</title>
+	<title>JsonSchemaConfig | yapi-to-typescript</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -939,31 +939,22 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-interface">
 			<a href="interface.html" class="tsd-kind-icon">Interface</a>
 		</li>
-		<li class=" tsd-kind-interface">
-			<a href="jsonschemaconfig.html" class="tsd-kind-icon">Json<wbr>Schema<wbr>Config</a>
-		</li>
 		<li class="current tsd-kind-interface">
-			<a href="project.html" class="tsd-kind-icon">Project</a>
+			<a href="jsonschemaconfig.html" class="tsd-kind-icon">Json<wbr>Schema<wbr>Config</a>
 			<ul>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="project.html#_id" class="tsd-kind-icon">_id</a>
+					<a href="jsonschemaconfig.html#enabled" class="tsd-kind-icon">enabled</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="project.html#basepath" class="tsd-kind-icon">basepath</a>
+					<a href="jsonschemaconfig.html#requestdata" class="tsd-kind-icon">request<wbr>Data</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="project.html#desc" class="tsd-kind-icon">desc</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="project.html#env" class="tsd-kind-icon">env</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="project.html#name" class="tsd-kind-icon">name</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="project.html#tag" class="tsd-kind-icon">tag</a>
+					<a href="jsonschemaconfig.html#responsedata" class="tsd-kind-icon">response<wbr>Data</a>
 				</li>
 			</ul>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="project.html" class="tsd-kind-icon">Project</a>
 		</li>
 		<li class=" tsd-kind-interface">
 			<a href="projectconfig.html" class="tsd-kind-icon">Project<wbr>Config</a>
@@ -1012,7 +1003,7 @@ img { max-width: 100%; }
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="target">Project</span>
+					<span class="target">JsonSchemaConfig</span>
 				</li>
 			</ul>
 		</section>
@@ -1023,12 +1014,9 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#_id" class="tsd-kind-icon">_id</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#basepath" class="tsd-kind-icon">basepath</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#desc" class="tsd-kind-icon">desc</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#env" class="tsd-kind-icon">env</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#name" class="tsd-kind-icon">name</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#tag" class="tsd-kind-icon">tag</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="jsonschemaconfig.html#enabled" class="tsd-kind-icon">enabled</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="jsonschemaconfig.html#requestdata" class="tsd-kind-icon">request<wbr>Data</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="jsonschemaconfig.html#responsedata" class="tsd-kind-icon">response<wbr>Data</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1037,62 +1025,32 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Properties</h2>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="_id" class="tsd-anchor"></a>
-				<h3>_id</h3>
-				<div class="tsd-signature tsd-kind-icon">_id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<a name="enabled" class="tsd-anchor"></a>
+				<h3>enabled</h3>
+				<div class="tsd-signature tsd-kind-icon">enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/53474cf/src/types.ts#L248">types.ts:248</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/53474cf/src/types.ts#L300">types.ts:300</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="basepath" class="tsd-anchor"></a>
-				<h3>basepath</h3>
-				<div class="tsd-signature tsd-kind-icon">basepath<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<a name="requestdata" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> request<wbr>Data</h3>
+				<div class="tsd-signature tsd-kind-icon">request<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/53474cf/src/types.ts#L254">types.ts:254</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/53474cf/src/types.ts#L307">types.ts:307</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="desc" class="tsd-anchor"></a>
-				<h3>desc</h3>
-				<div class="tsd-signature tsd-kind-icon">desc<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<a name="responsedata" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> response<wbr>Data</h3>
+				<div class="tsd-signature tsd-kind-icon">response<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/53474cf/src/types.ts#L252">types.ts:252</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="env" class="tsd-anchor"></a>
-				<h3>env</h3>
-				<div class="tsd-signature tsd-kind-icon">env<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/53474cf/src/types.ts#L258">types.ts:258</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="name" class="tsd-anchor"></a>
-				<h3>name</h3>
-				<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/53474cf/src/types.ts#L250">types.ts:250</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="tag" class="tsd-anchor"></a>
-				<h3>tag</h3>
-				<div class="tsd-signature tsd-kind-icon">tag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/53474cf/src/types.ts#L256">types.ts:256</a></li>
+						<li>Defined in <a href="https://github.com/fjc0k/yapi-to-typescript/blob/53474cf/src/types.ts#L314">types.ts:314</a></li>
 					</ul>
 				</aside>
 			</section>
