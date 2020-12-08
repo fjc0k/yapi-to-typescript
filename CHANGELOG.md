@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.10.0"></a>
+
+# [3.10.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.9.0...v3.10.0) (2020-12-08)
+
+### Features
+
+- 支持生成请求数据和返回数据的 JSON Schema (close: [#49](https://github.com/fjc0k/yapi-to-typescript/issues/49)) ([6efd726](https://github.com/fjc0k/yapi-to-typescript/commit/6efd726))
+
 <a name="3.9.0"></a>
 
 # [3.9.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.8.1...v3.9.0) (2020-12-08)
