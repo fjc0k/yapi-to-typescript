@@ -12,7 +12,7 @@
     "newLine": "LF",
     "preserveSymlinks": true,
     "skipLibCheck": true,
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
     "plugins": [
       {
         "name": "typescript-snapshots-plugin",

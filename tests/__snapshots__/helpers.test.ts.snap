@@ -11,6 +11,7 @@ Object {
     "b": "2",
   },
   "fileData": Object {},
+  "getFormData": [Function getFormData],
   "hasFileData": false,
   "path": "/test",
 }
@@ -25,6 +26,7 @@ Object {
     "b": "2",
   },
   "fileData": Object {},
+  "getFormData": [Function getFormData],
   "hasFileData": false,
   "paramNames": Array [
     "a",
@@ -43,6 +45,7 @@ Object {
     "b": "2",
   },
   "fileData": Object {},
+  "getFormData": [Function getFormData],
   "hasFileData": false,
   "paramNames": Array [
     "a",
@@ -61,6 +64,7 @@ Object {
     "b": "2",
   },
   "fileData": Object {},
+  "getFormData": [Function getFormData],
   "hasFileData": false,
   "paramNames": Array [
     "a",
@@ -75,6 +79,7 @@ Object {
   "allData": Object {},
   "data": true,
   "fileData": Object {},
+  "getFormData": [Function getFormData],
   "hasFileData": false,
   "path": "/test",
 }
@@ -92,6 +97,7 @@ Object {
     },
   ],
   "fileData": Object {},
+  "getFormData": [Function getFormData],
   "hasFileData": false,
   "path": "/test",
 }
@@ -106,6 +112,7 @@ Object {
     "b": "2",
   },
   "fileData": Object {},
+  "getFormData": [Function getFormData],
   "hasFileData": false,
   "path": "/search?a=1&id=110",
   "queryNames": Array [

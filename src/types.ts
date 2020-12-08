@@ -549,6 +549,8 @@ export interface RequestFunctionParams extends RequestConfig {
   fileData: Record<string, any>
   /** 所有请求数据，包括 data、fileData */
   allData: Record<string, any>
+  /** 获取全部请求数据（包含文件）的 FormData 实例 */
+  getFormData: () => FormData
 }
 
 /** 请求函数的额外参数 */

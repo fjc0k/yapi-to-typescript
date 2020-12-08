@@ -58,6 +58,7 @@
     "change-case": "^3.0.2",
     "consola": "^2.3.0",
     "dayjs": "^1.8.32",
+    "form-data": "^3.0.0",
     "fs-extra": "^7.0.1",
     "get-port": "^5.1.1",
     "got": "^11.5.1",

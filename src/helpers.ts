@@ -1,3 +1,4 @@
+import UniFormData from 'form-data'
 import { Config, RequestConfig, RequestFunctionParams } from './types'
 
 /**
@@ -117,15 +118,29 @@ export function prepare(
       }${queryString}`
     }
   }
+
+  // 全部数据
+  const allData = {
+    ...(dataIsObject ? data : {}),
+    ...fileData,
+  }
+
+  // 获取表单数据
+  const getFormData = () => {
+    const formData = new UniFormData()
+    Object.keys(allData).forEach((value, key) => {
+      formData.append(key as any, value)
+    })
+    return formData as any
+  }
+
   return {
     ...requestConfig,
     path: requestPath,
     data: data,
     hasFileData: fileData && Object.keys(fileData).length > 0,
     fileData: fileData,
-    allData: {
-      ...(dataIsObject ? data : {}),
-      ...fileData,
-    },
+    allData: allData,
+    getFormData: getFormData,
   }
 }
