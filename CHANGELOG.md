@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.9.0"></a>
+
+# [3.9.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.8.1...v3.9.0) (2020-12-08)
+
+### Features
+
+- 请求函数入参新增属性 getFormData 以获取全部请求数据（包含文件）的 FormData 实例 ([c48368c](https://github.com/fjc0k/yapi-to-typescript/commit/c48368c))
+
 <a name="3.8.1"></a>
 
 ## [3.8.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.8.0...v3.8.1) (2020-11-25)
