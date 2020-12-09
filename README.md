@@ -6,6 +6,10 @@
 
 根据 [YApi](https://github.com/YMFE/yapi) 或 [Swagger](https://swagger.io/) 的接口定义生成 TypeScript/JavaScript 的接口类型及其请求函数代码。
 
+> 钉钉扫码加入交流群：
+>
+> <img src="https://raw.githubusercontent.com/fjc0k/yapi-to-typescript/master/assets/dingtalk.jpg" width="400" />
+
 <!-- TOC depthFrom:2 -->
 
 - [预览](#预览)
