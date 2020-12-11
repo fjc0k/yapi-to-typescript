@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.11.1"></a>
+
+## [3.11.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.11.0...v3.11.1) (2020-12-11)
+
+### Bug Fixes
+
+- 修复 getFormData 错误 ([44df2ad](https://github.com/fjc0k/yapi-to-typescript/commit/44df2ad))
+
 <a name="3.11.0"></a>
 
 # [3.11.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.10.0...v3.11.0) (2020-12-11)
