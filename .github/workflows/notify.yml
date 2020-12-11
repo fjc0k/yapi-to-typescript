@@ -1,0 +1,29 @@
+name: Notify
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  notify:
+    if: ${{ startsWith(github.event.head_commit.message, 'chore(release):') }}
+    name: Notify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ hashFiles('yarn.lock') }}
+      - if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+        run: npx yarn
+      - run: |
+          npm test
+          npx ts-node -T ./scripts/notifyDingtalk.ts
+        env:
+          D_ACCESS_TOKEN: ${{ secrets.D_ACCESS_TOKEN }}
+          D_SECRET: ${{ secrets.D_SECRET }}

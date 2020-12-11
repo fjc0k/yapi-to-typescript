@@ -147,6 +147,8 @@ export interface Interface {
   _id: number
   /** 所属分类信息（由 YTT 自行实现） */
   _category: OmitStrict<Category, 'list'>
+  /** 所属项目信息（由 YTT 自行实现） */
+  _project: Project
   /** 接口名称 */
   title: string
   /** 状态 */

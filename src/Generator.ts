@@ -160,7 +160,18 @@ export class Generator {
                       )
                       const interfaceList = (
                         await this.fetchInterfaceList(syntheticalConfig)
-                      ).sort((a, b) => a._id - b._id)
+                      )
+                        .map(interfaceInfo => {
+                          // 实现 _project 字段
+                          interfaceInfo._project = omit(projectInfo, [
+                            'cats',
+                            'getMockUrl',
+                            'getDevUrl',
+                            'getProdUrl',
+                          ])
+                          return interfaceInfo
+                        })
+                        .sort((a, b) => a._id - b._id)
                       const outputFilePath = path.resolve(
                         this.options.cwd,
                         syntheticalConfig.outputFilePath!,
