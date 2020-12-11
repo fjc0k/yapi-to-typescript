@@ -128,8 +128,8 @@ export function prepare(
   // 获取表单数据
   const getFormData = () => {
     const formData = new UniFormData()
-    Object.keys(allData).forEach((value, key) => {
-      formData.append(key as any, value)
+    Object.keys(allData).forEach(key => {
+      formData.append(key, allData[key])
     })
     return formData as any
   }
