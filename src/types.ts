@@ -574,6 +574,8 @@ export interface RequestConfig<
  * 请求参数。
  */
 export interface RequestFunctionParams extends RequestConfig {
+  /** 原始数据 */
+  rawData: Record<string, any>
   /** 请求数据，不含文件数据 */
   data: Record<string, any>
   /** 是否有文件数据 */

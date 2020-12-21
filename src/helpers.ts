@@ -17,12 +17,19 @@ export class FileData<T = any> {
   private originalFileData: T
 
   /**
+   * 选项。
+   */
+  private options: UniFormData.AppendOptions | undefined
+
+  /**
    * 文件数据辅助类，统一网页、小程序等平台的文件上传。
    *
    * @param originalFileData 原始文件数据
+   * @param options 若使用内部的 getFormData，则选项会被其使用
    */
-  public constructor(originalFileData: T) {
+  public constructor(originalFileData: T, options?: UniFormData.AppendOptions) {
     this.originalFileData = originalFileData
+    this.options = options
   }
 
   /**
@@ -32,6 +39,13 @@ export class FileData<T = any> {
    */
   public getOriginalFileData(): T {
     return this.originalFileData
+  }
+
+  /**
+   * 获取选项。
+   */
+  public getOptions(): UniFormData.AppendOptions | undefined {
+    return this.options
   }
 }
 
@@ -128,8 +142,15 @@ export function prepare(
   // 获取表单数据
   const getFormData = () => {
     const formData = new UniFormData()
-    Object.keys(allData).forEach(key => {
-      formData.append(key, allData[key])
+    Object.keys(data).forEach(key => {
+      formData.append(key, data[key])
+    })
+    Object.keys(fileData).forEach(key => {
+      formData.append(
+        key,
+        fileData[key],
+        (requestData[key] as FileData).getOptions(),
+      )
     })
     return formData as any
   }
@@ -137,6 +158,7 @@ export function prepare(
   return {
     ...requestConfig,
     path: requestPath,
+    rawData: requestData,
     data: data,
     hasFileData: fileData && Object.keys(fileData).length > 0,
     fileData: fileData,

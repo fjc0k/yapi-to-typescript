@@ -14,6 +14,10 @@ Object {
   "getFormData": [Function getFormData],
   "hasFileData": false,
   "path": "/test",
+  "rawData": Object {
+    "a": 1,
+    "b": "2",
+  },
 }
 `;
 
@@ -33,6 +37,11 @@ Object {
     "id",
   ],
   "path": "/test/1/110",
+  "rawData": Object {
+    "a": 1,
+    "b": "2",
+    "id": 110,
+  },
 }
 `;
 
@@ -52,6 +61,11 @@ Object {
     "id",
   ],
   "path": "/test/a_1/id_110",
+  "rawData": Object {
+    "a": 1,
+    "b": "2",
+    "id": 110,
+  },
 }
 `;
 
@@ -71,6 +85,11 @@ Object {
     "id",
   ],
   "path": "/test/a_1/id_110/id_110",
+  "rawData": Object {
+    "a": 1,
+    "b": "2",
+    "id": 110,
+  },
 }
 `;
 
@@ -82,6 +101,7 @@ Object {
   "getFormData": [Function getFormData],
   "hasFileData": false,
   "path": "/test",
+  "rawData": true,
 }
 `;
 
@@ -100,6 +120,14 @@ Object {
   "getFormData": [Function getFormData],
   "hasFileData": false,
   "path": "/test",
+  "rawData": Array [
+    1,
+    2,
+    3,
+    Object {
+      "x": false,
+    },
+  ],
 }
 `;
 
@@ -119,5 +147,10 @@ Object {
     "a",
     "id",
   ],
+  "rawData": Object {
+    "a": 1,
+    "b": "2",
+    "id": 110,
+  },
 }
 `;
