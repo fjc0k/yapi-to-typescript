@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.12.0"></a>
+
+# [3.12.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.11.2...v3.12.0) (2020-12-21)
+
+### Features
+
+- 请求函数参数增加 rawData 以获取原始请求数据；FileData 支持设置选项 ([9b12f39](https://github.com/fjc0k/yapi-to-typescript/commit/9b12f39))
+
 <a name="3.11.2"></a>
 
 ## [3.11.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.11.1...v3.11.2) (2020-12-20)
