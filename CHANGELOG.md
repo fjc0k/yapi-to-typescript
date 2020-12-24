@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.13.0"></a>
+
+# [3.13.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.12.0...v3.13.0) (2020-12-24)
+
+### Features
+
+- 优化对 Swagger 各版本的支持 ([6d8ff12](https://github.com/fjc0k/yapi-to-typescript/commit/6d8ff12))
+- 升级 json-schema-to-typescript ([df31d0a](https://github.com/fjc0k/yapi-to-typescript/commit/df31d0a))
+
 <a name="3.12.0"></a>
 
 # [3.12.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.11.2...v3.12.0) (2020-12-21)
