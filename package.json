@@ -63,7 +63,7 @@
     "fs-extra": "^7.0.1",
     "get-port": "^5.1.1",
     "got": "^11.5.1",
-    "json-schema-to-typescript": "^8.0.0",
+    "json-schema-to-typescript": "^10.0.2",
     "json5": "^2.1.0",
     "mockjs": "^1.0.1-beta3",
     "ora": "^3.4.0",
