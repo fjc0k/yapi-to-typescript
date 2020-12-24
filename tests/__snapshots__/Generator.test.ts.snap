@@ -1333,6 +1333,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
         items: {type: 'string', description: '\\"photo\\"', additionalProperties: false},
         description: '[\\"photo\\",2]',
         additionalProperties: false,
+        minItems: 0,
       },
       nest: {
         type: 'object',
@@ -2696,7 +2697,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\",\\"additionalProperties\\":false},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\",\\"additionalProperties\\":false},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"additionalProperties\\":false},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\",\\"additionalProperties\\":false},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\",\\"additionalProperties\\":false},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"additionalProperties\\":false,\\"minItems\\":0},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
 }
 
@@ -4119,6 +4120,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
         },
         description: '列表',
         additionalProperties: false,
+        minItems: 0,
       },
     },
     required: ['list'],
@@ -5412,7 +5414,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   queryNames: [],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\",\\"additionalProperties\\":false}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"additionalProperties\\":false}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\",\\"additionalProperties\\":false}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"additionalProperties\\":false,\\"minItems\\":0}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
 }
 
 /**
@@ -29130,6 +29132,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
         items: {type: 'string', description: '\\"photo\\"', additionalProperties: false},
         description: '[\\"photo\\",2]',
         additionalProperties: false,
+        minItems: 0,
       },
       nest: {
         type: 'object',
@@ -29265,6 +29268,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
         },
         description: '列表',
         additionalProperties: false,
+        minItems: 0,
       },
     },
     required: ['list'],
@@ -30534,7 +30538,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\",\\"additionalProperties\\":false},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\",\\"additionalProperties\\":false},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"additionalProperties\\":false},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\",\\"additionalProperties\\":false},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\",\\"additionalProperties\\":false},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"additionalProperties\\":false,\\"minItems\\":0},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
 }
 
@@ -30626,7 +30630,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   queryNames: [],
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\",\\"additionalProperties\\":false},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\",\\"additionalProperties\\":false},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\",\\"additionalProperties\\":false}},\\"required\\":[\\"page\\",\\"limit\\"],\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\",\\"additionalProperties\\":false}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"additionalProperties\\":false}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\",\\"additionalProperties\\":false}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"additionalProperties\\":false,\\"minItems\\":0}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
 }
 
 /**
