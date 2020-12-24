@@ -106,6 +106,21 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
     castArray(jsonSchema.items).forEach(processJsonSchema)
   }
 
+  // 处理 oneOf
+  if (jsonSchema.oneOf) {
+    jsonSchema.oneOf.forEach(processJsonSchema)
+  }
+
+  // 处理 anyOf
+  if (jsonSchema.anyOf) {
+    jsonSchema.anyOf.forEach(processJsonSchema)
+  }
+
+  // 处理 allOf
+  if (jsonSchema.allOf) {
+    jsonSchema.allOf.forEach(processJsonSchema)
+  }
+
   return jsonSchema
 }
 
@@ -222,6 +237,7 @@ export async function jsonSchemaToType(
   // JSTT 会转换 typeName，因此传入一个全大写的假 typeName，生成代码后再替换回真正的 typeName
   const fakeTypeName = 'THISISAFAKETYPENAME'
   const code = await compile(jsonSchema, fakeTypeName, JSTTOptions)
+  delete jsonSchema.id
   return code.replace(fakeTypeName, typeName).trim()
 }
 

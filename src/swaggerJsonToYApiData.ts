@@ -350,6 +350,20 @@ export async function swaggerJsonToYApiData(
   interfaces: Interface[]
 }> {
   const yapiData = await run(data)
+
+  // 兼容没有分类的情况
+  if (!yapiData.cats.length) {
+    yapiData.cats = [
+      {
+        name: 'default',
+        desc: 'default',
+      },
+    ]
+    yapiData.apis.forEach(api => {
+      api.catname = 'default'
+    })
+  }
+
   const currentTime = dayjs().unix()
   const project: Project = {
     _id: 0,
@@ -377,8 +391,10 @@ export async function swaggerJsonToYApiData(
     _id: index + 1,
     project_id: 0,
     catid: cats.find(cat => cat.name === api.catname)?._id || -1,
+    tag: api.tag || [],
     add_time: currentTime,
     up_time: currentTime,
   }))
+
   return { project, cats, interfaces }
 }

@@ -123,11 +123,13 @@ export async function run(
       return consola.error(`找不到配置文件: ${configTSFile} 或 ${configJSFile}`)
     }
     consola.success(`找到配置文件: ${configFile}`)
+    let generator: Generator | undefined
+    let spinner: ora.Ora | undefined
     try {
       const config: Config = require(configFile).default
-      const generator = new Generator(config, { cwd })
+      generator = new Generator(config, { cwd })
 
-      const spinner = ora('正在获取数据并生成代码...').start()
+      spinner = ora('正在获取数据并生成代码...').start()
       await generator.prepare()
       const output = await generator.generate()
       spinner.stop()
@@ -137,6 +139,8 @@ export async function run(
       consola.success('写入文件完毕')
       await generator.destroy()
     } catch (err) {
+      spinner?.stop()
+      await generator?.destroy()
       /* istanbul ignore next */
       return consola.error(err)
     }
