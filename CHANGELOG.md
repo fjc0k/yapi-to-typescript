@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.14.0"></a>
+
+# [3.14.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.13.0...v3.14.0) (2021-01-13)
+
+### Features
+
+- preproccessInterface 可返回 false 排除当前接口 ([379d253](https://github.com/fjc0k/yapi-to-typescript/commit/379d253))
+
 <a name="3.13.0"></a>
 
 # [3.13.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.12.0...v3.13.0) (2020-12-24)
