@@ -17,6 +17,7 @@ const generatorFactory = ({
   target = 'typescript',
   token = 'hello',
   jsonSchema,
+  onlyMatchPath,
 }: {
   id: OneOrMany<0 | 82 | 87 | 151 | -82 | -87 | -151>
   typesOnly?: boolean
@@ -24,6 +25,7 @@ const generatorFactory = ({
   target?: ServerConfig['target']
   token?: string | string[]
   jsonSchema?: ServerConfig['jsonSchema']
+  onlyMatchPath?: RegExp
 }) => {
   const apiDir = tempy.directory()
   return new Generator({
@@ -45,7 +47,11 @@ const generatorFactory = ({
             id: id,
             preproccessInterface(ii) {
               ii.path += '_test'
-              return ii
+              return onlyMatchPath
+                ? onlyMatchPath.test(ii.path)
+                  ? ii
+                  : false
+                : ii
             },
             getRequestFunctionName(ii, cc) {
               return cc.camelCase(ii.parsedPath.name)
@@ -341,6 +347,25 @@ describe('Generator', () => {
         enabled: true,
         requestData: false,
       },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
+
+  test('排除接口', async () => {
+    const generator = generatorFactory({
+      id: 0,
+      onlyMatchPath: /delete/,
     })
     await generator.prepare()
     const output = await generator.generate()

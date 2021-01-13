@@ -6223,6 +6223,246 @@ export const hihihi_1608478638207Test = makeRequest<Hihihi_1608478638207TestRequ
 ]
 `;
 
+exports[`Generator 排除接口: 接口文件 1`] = `
+"/* prettier-ignore-start */
+/* tslint:disable */
+/* eslint-disable */
+
+/* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
+
+// @ts-ignore
+// prettier-ignore
+import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+import request from './request'
+
+// makeRequest
+function makeRequestRequired<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(
+  requestConfig: TRequestConfig,
+) {
+  const req = function(requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
+    return request<TResponseData>(prepare(requestConfig, requestData), ...args)
+  }
+  req.requestConfig = requestConfig
+  return req
+}
+function makeRequestOptional<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(
+  requestConfig: TRequestConfig,
+) {
+  const req = function(requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
+    return request<TResponseData>(prepare(requestConfig, requestData), ...args)
+  }
+  req.requestConfig = requestConfig
+  return req
+}
+function makeRequest<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(requestConfig: TRequestConfig) {
+  const optional = makeRequestOptional<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
+  const required = makeRequestRequired<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
+  return (requestConfig.requestDataOptional ? optional : required) as TRequestConfig['requestDataOptional'] extends true
+    ? typeof optional
+    : typeof required
+}
+
+// Request
+export type Request<
+  TReqeustData,
+  TRequestConfig extends RequestConfig,
+  TRequestResult
+> = (TRequestConfig['requestDataOptional'] extends true
+  ? (requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
+  : (requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult) & {
+  requestConfig: TRequestConfig
+}
+
+const mockUrl_0_0_0_0 = 'http://foo.bar/mock/32' as any
+const devUrl_0_0_0_0 = '' as any
+const prodUrl_0_0_0_0 = 'http://prod.com/' as any
+const dataKey_0_0_0_0 = undefined as any
+
+const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
+const devUrl_0_0_0_2 = '' as any
+const prodUrl_0_0_0_2 = 'http://prod.com/' as any
+const dataKey_0_0_0_2 = undefined as any
+
+/**
+ * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /__hello__/deleteMethod_test\`
+ * @更新时间 1568765163
+ */
+export interface DeleteMethodTestRequest {
+  /**
+   * ID
+   */
+  id: string
+}
+
+/**
+ * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /__hello__/deleteMethod_test\`
+ * @更新时间 1568765163
+ */
+export interface DeleteMethodTestResponse {}
+
+/**
+ * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /__hello__/deleteMethod_test\`
+ * @更新时间 1568765163
+ */
+type DeleteMethodTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/deleteMethod_test',
+    undefined,
+    string,
+    string,
+    false
+  >
+>
+
+/**
+ * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /__hello__/deleteMethod_test\`
+ * @更新时间 1568765163
+ */
+const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/__hello__/deleteMethod_test',
+  method: Method.DELETE,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+}
+
+/**
+ * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /__hello__/deleteMethod_test\`
+ * @更新时间 1568765163
+ */
+export const deleteMethodTest = makeRequest<
+  DeleteMethodTestRequest,
+  DeleteMethodTestResponse,
+  DeleteMethodTestRequestConfig
+>(deleteMethodTestRequestConfig)
+
+const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
+const devUrl_0_0_0_3 = '' as any
+const prodUrl_0_0_0_3 = 'http://prod.com/' as any
+const dataKey_0_0_0_3 = undefined as any
+
+/* prettier-ignore-end */
+"
+`;
+
+exports[`Generator 排除接口: 输出内容 1`] = `
+Array [
+  "const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_0 = \\"\\" as any
+const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_0 = undefined as any",
+  "",
+  "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_2 = \\"\\" as any
+const prodUrl_0_0_0_2 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_2 = undefined as any
+
+/**
+ * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /__hello__/deleteMethod_test\`
+ * @更新时间 1568765163
+ */
+export interface DeleteMethodTestRequest {
+  /**
+   * ID
+   */
+  id: string;
+}
+
+/**
+ * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /__hello__/deleteMethod_test\`
+ * @更新时间 1568765163
+ */
+export interface DeleteMethodTestResponse {}
+
+/**
+ * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /__hello__/deleteMethod_test\`
+ * @更新时间 1568765163
+ */
+type DeleteMethodTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/deleteMethod_test\\",
+  undefined,
+  string,
+  string,
+  false
+>>
+
+/**
+ * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /__hello__/deleteMethod_test\`
+ * @更新时间 1568765163
+ */
+const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: \\"/__hello__/deleteMethod_test\\",
+  method: Method.DELETE,
+  requestBodyType: RequestBodyType.json,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+}
+
+/**
+ * 接口 [DELETE 方法↗](http://foo.bar/project/27/interface/api/433) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/27/interface/api/cat_82)
+ * @请求头 \`DELETE /__hello__/deleteMethod_test\`
+ * @更新时间 1568765163
+ */
+export const deleteMethodTest = makeRequest<DeleteMethodTestRequest, DeleteMethodTestResponse, DeleteMethodTestRequestConfig>(deleteMethodTestRequestConfig)",
+  "const mockUrl_0_0_0_3 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_3 = \\"\\" as any
+const prodUrl_0_0_0_3 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_3 = undefined as any",
+]
+`;
+
 exports[`Generator 支持将 token 设为数组: 接口文件 1`] = `
 "/* prettier-ignore-start */
 /* tslint:disable */

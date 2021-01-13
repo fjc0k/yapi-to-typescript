@@ -198,21 +198,26 @@ export class Generator {
                                   )} as any
                                 `,
                               ...(await Promise.all(
-                                interfaceList.map(async interfaceInfo => {
-                                  interfaceInfo = isFunction(
-                                    syntheticalConfig.preproccessInterface,
-                                  )
-                                    ? syntheticalConfig.preproccessInterface(
-                                        interfaceInfo,
-                                        changeCase,
-                                      )
-                                    : interfaceInfo
-                                  return this.generateInterfaceCode(
-                                    syntheticalConfig,
-                                    interfaceInfo,
-                                    categoryUID,
-                                  )
-                                }),
+                                interfaceList
+                                  .map(interfaceInfo => {
+                                    const _interfaceInfo = isFunction(
+                                      syntheticalConfig.preproccessInterface,
+                                    )
+                                      ? syntheticalConfig.preproccessInterface(
+                                          interfaceInfo,
+                                          changeCase,
+                                        )
+                                      : interfaceInfo
+                                    return _interfaceInfo
+                                  })
+                                  .filter(Boolean)
+                                  .map((interfaceInfo: any) =>
+                                    this.generateInterfaceCode(
+                                      syntheticalConfig,
+                                      interfaceInfo,
+                                      categoryUID,
+                                    ),
+                                  ),
                               )),
                             ].join('\n\n')
                       if (!outputFileList[outputFilePath]) {
