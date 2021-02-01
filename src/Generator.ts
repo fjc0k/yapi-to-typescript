@@ -740,10 +740,13 @@ export class Generator {
     const interfaceTitle = `[${escapedTitle}↗](${syntheticalConfig.serverUrl}/project/${extendedInterfaceInfo.project_id}/interface/api/${extendedInterfaceInfo._id})`
 
     // 接口摘要
-    const interfaceSummary: Array<{
-      label: string
-      value: string | string[]
-    }> = [
+    const interfaceSummary: Array<
+      | false
+      | {
+          label: string
+          value: string | string[]
+        }
+    > = [
       {
         label: '分类',
         value: `[${extendedInterfaceInfo._category.name}↗](${syntheticalConfig.serverUrl}/project/${extendedInterfaceInfo.project_id}/interface/api/cat_${extendedInterfaceInfo.catid})`,
@@ -758,7 +761,7 @@ export class Generator {
           extendedInterfaceInfo.path
         }\``,
       },
-      {
+      !syntheticalConfig.noUpdateTimeComment && {
         label: '更新时间',
         value: process.env.JEST_WORKER_ID // 测试时使用 unix 时间戳
           ? String(extendedInterfaceInfo.up_time)
@@ -769,8 +772,11 @@ export class Generator {
       },
     ]
     const interfaceExtraComments: string = interfaceSummary
-      .filter(item => !isEmpty(item.value))
-      .map(item => `* @${item.label} ${castArray(item.value).join(', ')}`)
+      .filter(item => typeof item !== 'boolean' && !isEmpty(item.value))
+      .map(item => {
+        const _item: Exclude<typeof interfaceSummary[0], boolean> = item as any
+        return `* @${_item.label} ${castArray(_item.value).join(', ')}`
+      })
       .join('\n')
 
     return dedent`

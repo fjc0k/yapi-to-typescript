@@ -18,6 +18,7 @@ const generatorFactory = ({
   token = 'hello',
   jsonSchema,
   onlyMatchPath,
+  noUpdateTimeComment,
 }: {
   id: OneOrMany<0 | 82 | 87 | 151 | -82 | -87 | -151>
   typesOnly?: boolean
@@ -26,6 +27,7 @@ const generatorFactory = ({
   token?: string | string[]
   jsonSchema?: ServerConfig['jsonSchema']
   onlyMatchPath?: RegExp
+  noUpdateTimeComment?: ServerConfig['noUpdateTimeComment']
 }) => {
   const apiDir = tempy.directory()
   return new Generator({
@@ -39,6 +41,7 @@ const generatorFactory = ({
       enabled: enableReactHooks,
     },
     jsonSchema: jsonSchema,
+    noUpdateTimeComment: noUpdateTimeComment,
     projects: [
       {
         token: token,
@@ -366,6 +369,25 @@ describe('Generator', () => {
     const generator = generatorFactory({
       id: 0,
       onlyMatchPath: /delete/,
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
+
+  test('无更新时间注释', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      noUpdateTimeComment: true,
     })
     await generator.prepare()
     const output = await generator.generate()

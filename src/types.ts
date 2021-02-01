@@ -398,6 +398,11 @@ export interface SharedConfig {
   jsonSchema?: JsonSchemaConfig
 
   /**
+   * 是否不生成接口的更新时间注释。
+   */
+  noUpdateTimeComment?: boolean
+
+  /**
    * 预处理接口信息，返回新的接口信息。可返回 false 排除当前接口。
    *
    * 譬如你想对接口的 `path` 进行某些处理或者想排除某些接口，就可使用该方法。
