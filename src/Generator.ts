@@ -532,10 +532,11 @@ export class Generator {
 
   async tsc(file: string) {
     return new Promise(resolve => {
+      // add this to fix bug that not-generator-file-on-window  
+      const command =  `${require('os').platform() === 'win32' ? 'node ' : ''}${require.resolve(`typescript/bin/tsc`)}`;
+
       exec(
-        `${require.resolve(
-          'typescript/bin/tsc',
-        )} --target ES2019 --module ESNext --jsx preserve --declaration --esModuleInterop ${file}`,
+        `${command} --target ES2019 --module ESNext --jsx preserve --declaration --esModuleInterop ${file}`,
         {
           cwd: this.options.cwd,
           env: process.env,
