@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.15.1"></a>
+
+## [3.15.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.15.0...v3.15.1) (2021-02-03)
+
+### Bug Fixes
+
+- 修复 Windows 下生成不了 js 代码的问题 ([#51](https://github.com/fjc0k/yapi-to-typescript/issues/51)) ([0181fb2](https://github.com/fjc0k/yapi-to-typescript/commit/0181fb2))
+
 <a name="3.15.0"></a>
 
 # [3.15.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.14.0...v3.15.0) (2021-02-01)
