@@ -6,6 +6,7 @@ import path from 'path'
 import prettier from 'prettier'
 import {
   castArray,
+  cloneDeepFast,
   dedent,
   groupBy,
   isEmpty,
@@ -204,7 +205,7 @@ export class Generator {
                                       syntheticalConfig.preproccessInterface,
                                     )
                                       ? syntheticalConfig.preproccessInterface(
-                                          interfaceInfo,
+                                          cloneDeepFast(interfaceInfo),
                                           changeCase,
                                         )
                                       : interfaceInfo
@@ -531,9 +532,11 @@ export class Generator {
   }
 
   async tsc(file: string) {
-    return new Promise(resolve => {
-      // add this to fix bug that not-generator-file-on-window  
-      const command =  `${require('os').platform() === 'win32' ? 'node ' : ''}${require.resolve(`typescript/bin/tsc`)}`;
+    return new Promise<void>(resolve => {
+      // add this to fix bug that not-generator-file-on-window
+      const command = `${
+        require('os').platform() === 'win32' ? 'node ' : ''
+      }${require.resolve(`typescript/bin/tsc`)}`
 
       exec(
         `${command} --target ES2019 --module ESNext --jsx preserve --declaration --esModuleInterop ${file}`,
