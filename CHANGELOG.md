@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.16.0"></a>
+
+# [3.16.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.15.1...v3.16.0) (2021-03-16)
+
+### Bug Fixes
+
+- 传给 preproccessInterface 的接口信息应做深克隆以防止多人合作时都改变同一接口时互相冲突 ([5b9d127](https://github.com/fjc0k/yapi-to-typescript/commit/5b9d127))
+
+### Features
+
+- 使用 haoma compile 构建 ([41cb7c6](https://github.com/fjc0k/yapi-to-typescript/commit/41cb7c6))
+
 <a name="3.15.1"></a>
 
 ## [3.15.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.15.0...v3.15.1) (2021-02-03)
