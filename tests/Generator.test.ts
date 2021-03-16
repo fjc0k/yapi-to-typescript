@@ -3,7 +3,7 @@ import path from 'path'
 import tempy from 'tempy'
 import { forOwn } from 'vtils'
 import { Generator } from '../src/Generator'
-import { OneOrMany } from 'vtils/types'
+import { OneOrMore } from 'vtils/types'
 import { ServerConfig } from '../src'
 
 afterEach(() => {
@@ -20,7 +20,7 @@ const generatorFactory = ({
   onlyMatchPath,
   noUpdateTimeComment,
 }: {
-  id: OneOrMany<0 | 82 | 87 | 151 | -82 | -87 | -151>
+  id: OneOrMore<0 | 82 | 87 | 151 | -82 | -87 | -151>
   typesOnly?: boolean
   enableReactHooks?: boolean
   target?: ServerConfig['target']

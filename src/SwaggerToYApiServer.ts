@@ -59,7 +59,7 @@ export class SwaggerToYApiServer {
   async start(): Promise<string> {
     const yapiData = await this.getYApiData()
     // eslint-disable-next-line no-async-promise-executor
-    await new Promise(async resolve => {
+    await new Promise<void>(async resolve => {
       this.httpServer = http
         .createServer(async (req, res) => {
           const { pathname } = url.parse(req.url || '')

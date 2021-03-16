@@ -32,7 +32,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "shx rm -rf ./lib && tsc -P tsconfig.esm.json && tsc -P tsconfig.cjs.json",
+    "build": "haoma compile",
     "docs": "typedoc --out docs --theme minimal --mode file src/types.ts && gh-pages --dist docs --dest v3",
     "release": "yarn testOnly && standard-version -a && yarn build && git push --follow-tags origin master && yarn docs && npm publish",
     "releaseBeta": "yarn testOnly && standard-version -a --release-as patch --prerelease beta && yarn build && git push --follow-tags origin master && npm publish --tag next",
@@ -55,6 +55,7 @@
     ]
   },
   "dependencies": {
+    "@babel/runtime": "^7.13.10",
     "@types/json-schema": "^7.0.1",
     "change-case": "^3.0.2",
     "consola": "^2.3.0",
@@ -73,9 +74,8 @@
     "swagger-client": "^3.12.0",
     "to-json-schema": "^0.2.5",
     "ts-node": "^8.0.2",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.7",
-    "vtils": "^3.32.1"
+    "typescript": "^4.2.3",
+    "vtils": "^4.33.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^5.0.4",
@@ -90,7 +90,7 @@
     "codecov": "^3",
     "eslint": "^7",
     "gh-pages": "^2.0.1",
-    "haoma": "^2.3.0",
+    "haoma": "^2.28.0",
     "husky": "^4",
     "jest": "^26",
     "lint-staged": "^10",
