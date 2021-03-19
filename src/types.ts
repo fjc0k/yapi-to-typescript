@@ -316,6 +316,58 @@ export interface JsonSchemaConfig {
   responseData?: boolean
 }
 
+/** 支持生成注释的相关配置 */
+export interface CommentConfig {
+  /**
+   * 是否开启该项功能。
+   *
+   * @default true
+   */
+  enabled?: boolean
+
+  /**
+   * 是否有标题。
+   *
+   * @default true
+   */
+  title?: boolean
+
+  /**
+   * 是否有分类。
+   *
+   * @default true
+   */
+  category?: boolean
+
+  /**
+   * 是否有标签。
+   *
+   * @default true
+   */
+  tag?: boolean
+
+  /**
+   * 是否有请求头。
+   *
+   * @default true
+   */
+  requestHeader?: boolean
+
+  /**
+   * 是否有更新时间。
+   *
+   * @default true
+   */
+  updateTime?: boolean
+
+  /**
+   * 是否为标题、分类添加链接。
+   *
+   * @default true
+   */
+  link?: boolean
+}
+
 /**
  * 共享的配置。
  */
@@ -398,9 +450,9 @@ export interface SharedConfig {
   jsonSchema?: JsonSchemaConfig
 
   /**
-   * 是否不生成接口的更新时间注释。
+   * 支持生成注释的相关配置。
    */
-  noUpdateTimeComment?: boolean
+  comment?: CommentConfig
 
   /**
    * 预处理接口信息，返回新的接口信息。可返回 false 排除当前接口。

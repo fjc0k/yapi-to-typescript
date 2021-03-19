@@ -19,6 +19,7 @@ import {
 } from 'vtils'
 import {
   CategoryList,
+  CommentConfig,
   Config,
   ExtendedInterface,
   Interface,
@@ -734,79 +735,103 @@ export class Generator {
     const queryNameType =
       queryNames.length === 0 ? 'string' : `'${queryNames.join("' | '")}'`
 
-    // 转义标题中的 /
-    const escapedTitle = String(extendedInterfaceInfo.title).replace(
-      /\//g,
-      '\\/',
-    )
-
-    // 接口标题
-    const interfaceTitle = `[${escapedTitle}↗](${syntheticalConfig.serverUrl}/project/${extendedInterfaceInfo.project_id}/interface/api/${extendedInterfaceInfo._id})`
-
-    // 接口摘要
-    const interfaceSummary: Array<
-      | false
-      | {
-          label: string
-          value: string | string[]
-        }
-    > = [
-      {
-        label: '分类',
-        value: `[${extendedInterfaceInfo._category.name}↗](${syntheticalConfig.serverUrl}/project/${extendedInterfaceInfo.project_id}/interface/api/cat_${extendedInterfaceInfo.catid})`,
-      },
-      {
-        label: '标签',
-        value: extendedInterfaceInfo.tag.map(tag => `\`${tag}\``),
-      },
-      {
-        label: '请求头',
-        value: `\`${extendedInterfaceInfo.method.toUpperCase()} ${
-          extendedInterfaceInfo.path
-        }\``,
-      },
-      !syntheticalConfig.noUpdateTimeComment && {
-        label: '更新时间',
-        value: process.env.JEST_WORKER_ID // 测试时使用 unix 时间戳
-          ? String(extendedInterfaceInfo.up_time)
-          : /* istanbul ignore next */
-            `\`${dayjs(extendedInterfaceInfo.up_time * 1000).format(
-              'YYYY-MM-DD HH:mm:ss',
-            )}\``,
-      },
-    ]
-    const interfaceExtraComments: string = interfaceSummary
-      .filter(item => typeof item !== 'boolean' && !isEmpty(item.value))
-      .map(item => {
-        const _item: Exclude<typeof interfaceSummary[0], boolean> = item as any
-        return `* @${_item.label} ${castArray(_item.value).join(', ')}`
-      })
-      .join('\n')
+    // 接口注释
+    const genComment = (genTitle: (title: string) => string) => {
+      const {
+        enabled: isEnabled = true,
+        title: hasTitle = true,
+        category: hasCategory = true,
+        tag: hasTag = true,
+        requestHeader: hasRequestHeader = true,
+        updateTime: hasUpdateTime = true,
+        link: hasLink = true,
+      } = {
+        ...syntheticalConfig.comment,
+        // Swagger 时总是禁用标签、更新时间、链接
+        ...(syntheticalConfig.serverType === 'swagger'
+          ? {
+              tag: false,
+              updateTime: false,
+              link: false,
+            }
+          : {}),
+      } as CommentConfig
+      if (!isEnabled) {
+        return ''
+      }
+      // 转义标题中的 /
+      const escapedTitle = String(extendedInterfaceInfo.title).replace(
+        /\//g,
+        '\\/',
+      )
+      const description = hasLink
+        ? `[${escapedTitle}↗](${syntheticalConfig.serverUrl}/project/${extendedInterfaceInfo.project_id}/interface/api/${extendedInterfaceInfo._id})`
+        : escapedTitle
+      const summary: Array<
+        | false
+        | {
+            label: string
+            value: string | string[]
+          }
+      > = [
+        hasCategory && {
+          label: '分类',
+          value: hasLink
+            ? `[${extendedInterfaceInfo._category.name}↗](${syntheticalConfig.serverUrl}/project/${extendedInterfaceInfo.project_id}/interface/api/cat_${extendedInterfaceInfo.catid})`
+            : extendedInterfaceInfo._category.name,
+        },
+        hasTag && {
+          label: '标签',
+          value: extendedInterfaceInfo.tag.map(tag => `\`${tag}\``),
+        },
+        hasRequestHeader && {
+          label: '请求头',
+          value: `\`${extendedInterfaceInfo.method.toUpperCase()} ${
+            extendedInterfaceInfo.path
+          }\``,
+        },
+        hasUpdateTime && {
+          label: '更新时间',
+          value: process.env.JEST_WORKER_ID // 测试时使用 unix 时间戳
+            ? String(extendedInterfaceInfo.up_time)
+            : /* istanbul ignore next */
+              `\`${dayjs(extendedInterfaceInfo.up_time * 1000).format(
+                'YYYY-MM-DD HH:mm:ss',
+              )}\``,
+        },
+      ]
+      const titleComment = hasTitle
+        ? dedent`
+            * ${genTitle(description)}
+            *
+          `
+        : ''
+      const extraComment: string = summary
+        .filter(item => typeof item !== 'boolean' && !isEmpty(item.value))
+        .map(item => {
+          const _item: Exclude<typeof summary[0], boolean> = item as any
+          return `* @${_item.label} ${castArray(_item.value).join(', ')}`
+        })
+        .join('\n')
+      return dedent`
+        /**
+         ${[titleComment, extraComment].filter(Boolean).join('\n')}
+         */
+      `
+    }
 
     return dedent`
-      /**
-       * 接口 ${interfaceTitle} 的 **请求类型**
-       *
-       ${interfaceExtraComments}
-       */
+      ${genComment(title => `接口 ${title} 的 **请求类型**`)}
       ${requestDataType.trim()}
 
-      /**
-       * 接口 ${interfaceTitle} 的 **返回类型**
-       *
-       ${interfaceExtraComments}
-       */
+      ${genComment(title => `接口 ${title} 的 **返回类型**`)}
       ${responseDataType.trim()}
 
       ${
         syntheticalConfig.typesOnly
           ? ''
           : dedent`
-            /**
-             * 接口 ${interfaceTitle} 的 **请求配置的类型**
-             *
-             ${interfaceExtraComments}
-             */
+            ${genComment(title => `接口 ${title} 的 **请求配置的类型**`)}
             type ${requestConfigTypeName} = Readonly<RequestConfig<
               ${JSON.stringify(syntheticalConfig.mockUrl)},
               ${JSON.stringify(syntheticalConfig.devUrl)},
@@ -818,11 +843,7 @@ export class Generator {
               ${JSON.stringify(isRequestDataOptional)}
             >>
 
-            /**
-             * 接口 ${interfaceTitle} 的 **请求配置**
-             *
-             ${interfaceExtraComments}
-             */
+            ${genComment(title => `接口 ${title} 的 **请求配置**`)}
             const ${requestConfigName}: ${requestConfigTypeName} = {
               mockUrl: mockUrl${categoryUID},
               devUrl: devUrl${categoryUID},
@@ -856,11 +877,7 @@ export class Generator {
               )},
             }
 
-            /**
-             * 接口 ${interfaceTitle} 的 **请求函数**
-             *
-             ${interfaceExtraComments}
-             */
+            ${genComment(title => `接口 ${title} 的 **请求函数**`)}
             export const ${requestFunctionName} = makeRequest<${requestDataTypeName}, ${responseDataTypeName}, ${requestConfigTypeName}>(${requestConfigName})
 
             ${
@@ -868,11 +885,7 @@ export class Generator {
               !syntheticalConfig.reactHooks.enabled
                 ? ''
                 : dedent`
-                  /**
-                   * 接口 ${interfaceTitle} 的 **React Hook**
-                   *
-                   ${interfaceExtraComments}
-                   */
+                  ${genComment(title => `接口 ${title} 的 **React Hook**`)}
                   export const ${requestHookName} = makeRequestHook<${requestDataTypeName}, ${requestConfigTypeName}, ReturnType<typeof ${requestFunctionName}>>(${requestFunctionName})
                 `
             }

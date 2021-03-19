@@ -18,7 +18,7 @@ const generatorFactory = ({
   token = 'hello',
   jsonSchema,
   onlyMatchPath,
-  noUpdateTimeComment,
+  comment,
 }: {
   id: OneOrMore<0 | 82 | 87 | 151 | -82 | -87 | -151>
   typesOnly?: boolean
@@ -27,7 +27,7 @@ const generatorFactory = ({
   token?: string | string[]
   jsonSchema?: ServerConfig['jsonSchema']
   onlyMatchPath?: RegExp
-  noUpdateTimeComment?: ServerConfig['noUpdateTimeComment']
+  comment?: ServerConfig['comment']
 }) => {
   const apiDir = tempy.directory()
   return new Generator({
@@ -41,7 +41,7 @@ const generatorFactory = ({
       enabled: enableReactHooks,
     },
     jsonSchema: jsonSchema,
-    noUpdateTimeComment: noUpdateTimeComment,
+    comment: comment,
     projects: [
       {
         token: token,
@@ -384,10 +384,138 @@ describe('Generator', () => {
     })
   })
 
+  test('无注释', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      comment: {
+        enabled: false,
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
+
   test('无更新时间注释', async () => {
     const generator = generatorFactory({
       id: 82,
-      noUpdateTimeComment: true,
+      comment: {
+        updateTime: false,
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
+
+  test('无标题注释', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      comment: {
+        title: false,
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
+
+  test('无分类注释', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      comment: {
+        category: false,
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
+
+  test('无标签注释', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      comment: {
+        tag: false,
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
+
+  test('无请求头注释', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      comment: {
+        requestHeader: false,
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
+
+  test('无链接注释', async () => {
+    const generator = generatorFactory({
+      id: 82,
+      comment: {
+        link: false,
+      },
     })
     await generator.prepare()
     const output = await generator.generate()
