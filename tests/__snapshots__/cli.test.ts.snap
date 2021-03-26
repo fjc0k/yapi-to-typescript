@@ -137,7 +137,7 @@ import request from './request'
 function makeRequestRequired<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(
   requestConfig: TRequestConfig,
 ) {
-  const req = function(requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
+  const req = function (requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
     return request<TResponseData>(prepare(requestConfig, requestData), ...args)
   }
   req.requestConfig = requestConfig
@@ -146,7 +146,7 @@ function makeRequestRequired<TReqeustData, TResponseData, TRequestConfig extends
 function makeRequestOptional<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(
   requestConfig: TRequestConfig,
 ) {
-  const req = function(requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
+  const req = function (requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
     return request<TResponseData>(prepare(requestConfig, requestData), ...args)
   }
   req.requestConfig = requestConfig

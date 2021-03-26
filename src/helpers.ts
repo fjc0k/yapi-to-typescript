@@ -1,5 +1,5 @@
-import UniFormData from 'form-data'
-import { Config, RequestConfig, RequestFunctionParams } from './types'
+import type { AppendOptions } from 'form-data'
+import type { Config, RequestConfig, RequestFunctionParams } from './types'
 
 /**
  * 定义配置。
@@ -19,7 +19,7 @@ export class FileData<T = any> {
   /**
    * 选项。
    */
-  private options: UniFormData.AppendOptions | undefined
+  private options: AppendOptions | undefined
 
   /**
    * 文件数据辅助类，统一网页、小程序等平台的文件上传。
@@ -27,7 +27,7 @@ export class FileData<T = any> {
    * @param originalFileData 原始文件数据
    * @param options 若使用内部的 getFormData，则选项会被其使用
    */
-  public constructor(originalFileData: T, options?: UniFormData.AppendOptions) {
+  public constructor(originalFileData: T, options?: AppendOptions) {
     this.originalFileData = originalFileData
     this.options = options
   }
@@ -44,7 +44,7 @@ export class FileData<T = any> {
   /**
    * 获取选项。
    */
-  public getOptions(): UniFormData.AppendOptions | undefined {
+  public getOptions(): AppendOptions | undefined {
     return this.options
   }
 }
@@ -141,15 +141,32 @@ export function prepare(
 
   // 获取表单数据
   const getFormData = () => {
+    const useNativeFormData = typeof FormData !== 'undefined'
+    const useNodeFormData =
+      !useNativeFormData &&
+      // https://github.com/fjc0k/vtils/blob/master/src/utils/inNodeJS.ts
+      typeof global === 'object' &&
+      typeof global['process'] === 'object' &&
+      typeof global['process']['versions'] === 'object' &&
+      global['process']['versions']['node'] != null
+    const UniFormData: typeof FormData | undefined = useNativeFormData
+      ? FormData
+      : useNodeFormData
+      ? eval(`require('form-data')`)
+      : undefined
+    if (!UniFormData) {
+      throw new Error('当前环境不支持 FormData')
+    }
     const formData = new UniFormData()
     Object.keys(data).forEach(key => {
       formData.append(key, data[key])
     })
     Object.keys(fileData).forEach(key => {
+      const options = (requestData[key] as FileData).getOptions()
       formData.append(
         key,
         fileData[key],
-        (requestData[key] as FileData).getOptions(),
+        useNativeFormData ? options?.filename : (options as any),
       )
     })
     return formData as any
