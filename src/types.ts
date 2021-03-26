@@ -333,7 +333,7 @@ export interface CommentConfig {
   title?: boolean
 
   /**
-   * 是否有分类。
+   * 是否有分类名称。
    *
    * @default true
    */
@@ -361,7 +361,7 @@ export interface CommentConfig {
   updateTime?: boolean
 
   /**
-   * 是否为标题、分类添加链接。
+   * 是否为标题、分类名称添加链接。
    *
    * @default true
    */
@@ -590,18 +590,18 @@ export type Config = ServerConfig | ServerConfig[]
  * 请求配置。
  */
 export interface RequestConfig<
-  MockUrl extends string = any,
-  DevUrl extends string = any,
-  ProdUrl extends string = any,
-  Path extends string = any,
-  DataKey extends string | undefined = any,
-  ParamName extends string = any,
-  QueryName extends string = any,
-  RequestDataOptional extends boolean = any
+  MockUrl extends string = string,
+  DevUrl extends string = string,
+  ProdUrl extends string = string,
+  Path extends string = string,
+  DataKey extends string | undefined = string | undefined,
+  ParamName extends string = string,
+  QueryName extends string = string,
+  RequestDataOptional extends boolean = boolean
 > {
   /** 接口 Mock 地址，结尾无 `/` */
   mockUrl: MockUrl
-  /** 接口测试环境地质，结尾无 `/` */
+  /** 接口测试环境地址，结尾无 `/` */
   devUrl: DevUrl
   /** 接口生产环境地址，结尾无 `/` */
   prodUrl: ProdUrl

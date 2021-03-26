@@ -8,7 +8,6 @@
     "removeComments": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "importHelpers": true,
     "newLine": "LF",
     "preserveSymlinks": true,
     "skipLibCheck": true,
@@ -23,5 +22,6 @@
         ]
       }
     ]
-  }
+  },
+  "include": ["src", "scripts", "tests", ".umirc.ts"]
 }

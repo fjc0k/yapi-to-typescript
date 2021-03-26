@@ -33,7 +33,9 @@
   ],
   "scripts": {
     "build": "haoma compile",
-    "docs": "typedoc --out docs --theme minimal --mode file src/types.ts && gh-pages --dist docs --dest v3",
+    "docs:dev": "dumi dev",
+    "docs:build": "dumi build",
+    "docs": "npm run docs:build && gh-pages --dist docs/dist --dest handbook",
     "release": "yarn testOnly && standard-version -a && yarn build && git push --follow-tags origin master && yarn docs && npm publish",
     "releaseBeta": "yarn testOnly && standard-version -a --release-as patch --prerelease beta && yarn build && git push --follow-tags origin master && npm publish --tag next",
     "test": "jest --coverage",
@@ -88,6 +90,7 @@
     "@types/swagger-schema-official": "^2.0.21",
     "@types/to-json-schema": "^0.2.0",
     "codecov": "^3",
+    "dumi": "^1.1.9",
     "eslint": "^7",
     "gh-pages": "^2.0.1",
     "haoma": "^2.28.0",
