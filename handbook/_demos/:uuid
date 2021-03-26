@@ -6,9 +6,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="/yapi-to-typescript/handbook/umi.css" />
+    <link rel="stylesheet" href="./umi.css" />
     <script>
-      window.routerBase = "/";
+      window.routerBase = "/yapi-to-typescript/handbook/";
     </script>
     <script>
       //! umi version: 3.3.11
@@ -29,6 +29,6 @@
   <body>
     <div id="root"></div>
 
-    <script src="/yapi-to-typescript/handbook/umi.js"></script>
+    <script src="./umi.js"></script>
   </body>
 </html>
