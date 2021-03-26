@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.17.0"></a>
+
+# [3.17.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.16.0...v3.17.0) (2021-03-26)
+
+### Bug Fixes
+
+- **getFormData:** 动态引入 FormData 以解决小程序下报错问题 ([6c20bf2](https://github.com/fjc0k/yapi-to-typescript/commit/6c20bf2))
+
+### Features
+
+- 全新的文档 ([63f03d5](https://github.com/fjc0k/yapi-to-typescript/commit/63f03d5))
+- 支持生成注释的相关配置 ([bc58378](https://github.com/fjc0k/yapi-to-typescript/commit/bc58378))
+
 <a name="3.16.0"></a>
 
 # [3.16.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.15.1...v3.16.0) (2021-03-16)
