@@ -4,7 +4,9 @@
 
 ## 文档
 
-[点击进入查看文档 👉](https://fjc0k.github.io/yapi-to-typescript/handbook/)
+- 官方文档：[点击进入查看文档 👉](https://fjc0k.github.io/yapi-to-typescript/handbook/)
+
+- 国内镜像：[点击进入查看文档 👉](https://fjc0k.gitee.io/yapi-to-typescript/handbook/)
 
 ## 许可
 
