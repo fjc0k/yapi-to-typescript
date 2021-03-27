@@ -1,12 +1,13 @@
 ---
 toc: menu
+order: 4
 ---
 
 # 统一请求函数
 
 统一请求函数统一接收各个接口的配置，并返回具体接口的响应结果。
 
-统一请求函数文件路径可通过 [requestFunctionFilePath](/config.html#requestfunctionfilepath) 配置，该文件必须导出一个统一请求函数。
+统一请求函数文件路径可通过 [requestFunctionFilePath](./config.html#requestfunctionfilepath) 配置，该文件必须导出一个统一请求函数。
 
 ## 如何编写
 
@@ -44,14 +45,14 @@ export default async function request<TResponseData>(
 - 类型：`string`
 - 说明：
 
-接口测试环境地址，该地址根据配置 [devEnvName](/config.html#devenvname) 拉取，如：`https://my.dev.server/api/v2`。
+接口测试环境地址，该地址根据配置 [devEnvName](./config.html#devenvname) 拉取，如：`https://my.dev.server/api/v2`。
 
 ### prodUrl
 
 - 类型：`string`
 - 说明：
 
-接口生产环境地址，该地址根据配置 [prodEnvName](/config.html#prodenvname) 拉取，如：`https://my.prod.server/api/v2`。
+接口生产环境地址，该地址根据配置 [prodEnvName](./config.html#prodenvname) 拉取，如：`https://my.prod.server/api/v2`。
 
 ### path
 
@@ -117,14 +118,14 @@ export default async function request<TResponseData>(
 - 类型：`string`
 - 说明：
 
-数据所在键，来自配置 [dataKey](/config.html#datakey)。
+数据所在键，来自配置 [dataKey](./config.html#datakey)。
 
 ### dataKey
 
 - 类型：`string`
 - 说明：
 
-数据所在键，来自配置 [dataKey](/config.html#datakey)。
+数据所在键，来自配置 [dataKey](./config.html#datakey)。
 
 ### paramNames
 
@@ -145,14 +146,14 @@ export default async function request<TResponseData>(
 - 类型：`JSONSchema4`
 - 说明：
 
-请求数据的 JSON Schema，由配置 [jsonSchema](/config.html#jsonschema) 开启。
+请求数据的 JSON Schema，由配置 [jsonSchema](./config.html#jsonschema) 开启。
 
 ### responseDataJsonSchema
 
 - 类型：`JSONSchema4`
 - 说明：
 
-返回数据的 JSON Schema，由配置 [jsonSchema](/config.html#jsonschema) 开启。
+返回数据的 JSON Schema，由配置 [jsonSchema](./config.html#jsonschema) 开启。
 
 ### data
 
