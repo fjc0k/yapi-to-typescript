@@ -5,6 +5,7 @@ import fs from 'fs-extra'
 import ora from 'ora'
 import path from 'path'
 import prompt from 'prompts'
+import yargs from 'yargs'
 import { Config, ServerConfig } from './types'
 import { dedent } from 'vtils'
 import { Defined } from 'vtils/types'
@@ -33,18 +34,33 @@ TSNode.register({
 })
 
 export async function run(
-  /* istanbul ignore next */
-  cwd: string = process.cwd(),
+  cmd: string | undefined,
+  options?: {
+    configFile?: string
+  },
 ) {
-  const configTSFile = path.join(cwd, 'ytt.config.ts')
-  const configJSFile = path.join(cwd, 'ytt.config.js')
-  const configTSFileExist = await fs.pathExists(configTSFile)
-  const configJSFileExist =
-    !configTSFileExist && (await fs.pathExists(configJSFile))
-  const configFileExist = configTSFileExist || configJSFileExist
-  const configFile = configTSFileExist ? configTSFile : configJSFile
+  let useCustomConfigFile = false
+  let cwd!: string
+  let configTSFile!: string
+  let configJSFile!: string
+  let configFile!: string
+  let configFileExist!: boolean
 
-  const cmd = process.argv[2]
+  if (!options?.configFile) {
+    cwd = process.cwd()
+    configTSFile = path.join(cwd, 'ytt.config.ts')
+    configJSFile = path.join(cwd, 'ytt.config.js')
+    const configTSFileExist = await fs.pathExists(configTSFile)
+    const configJSFileExist =
+      !configTSFileExist && (await fs.pathExists(configJSFile))
+    configFileExist = configTSFileExist || configJSFileExist
+    configFile = configTSFileExist ? configTSFile : configJSFile
+  } else {
+    useCustomConfigFile = true
+    configFile = options.configFile
+    cwd = path.dirname(configFile)
+    configFileExist = await fs.pathExists(configFile)
+  }
 
   if (cmd === 'help') {
     console.log(
@@ -68,17 +84,27 @@ export async function run(
       })
       if (!answers.override) return
     }
-    const answers = await prompt({
-      message: '选择配置文件类型?',
-      name: 'configFileType',
-      type: 'select',
-      choices: [
-        { title: 'TypeScript(ytt.config.ts)', value: 'ts' },
-        { title: 'JavaScript(ytt.config.js)', value: 'js' },
-      ],
-    })
+    let outputConfigFile!: string
+    let outputConfigFileType!: 'ts' | 'js'
+    if (useCustomConfigFile) {
+      outputConfigFile = configFile
+      outputConfigFileType = configFile.endsWith('.js') ? 'js' : 'ts'
+    } else {
+      const answers = await prompt({
+        message: '选择配置文件类型?',
+        name: 'configFileType',
+        type: 'select',
+        choices: [
+          { title: 'TypeScript(ytt.config.ts)', value: 'ts' },
+          { title: 'JavaScript(ytt.config.js)', value: 'js' },
+        ],
+      })
+      outputConfigFile =
+        answers.configFileType === 'js' ? configJSFile : configTSFile
+      outputConfigFileType = answers.configFileType
+    }
     await fs.outputFile(
-      answers.configFileType === 'js' ? configJSFile : configTSFile,
+      outputConfigFile,
       dedent`
         import { defineConfig } from 'yapi-to-typescript'
 
@@ -86,17 +112,17 @@ export async function run(
           {
             serverUrl: 'http://foo.bar',
             typesOnly: false,
-            target: '${(answers.configFileType === 'js'
-              ? 'javascript'
-              : 'typescript') as Defined<ServerConfig['target']>}',
+            target: '${
+              (outputConfigFileType === 'js'
+                ? 'javascript'
+                : 'typescript') as Defined<ServerConfig['target']>
+            }',
             reactHooks: {
               enabled: false,
             },
             prodEnvName: 'production',
-            outputFilePath: 'src/api/index.${answers.configFileType}',
-            requestFunctionFilePath: 'src/api/request.${
-              answers.configFileType
-            }',
+            outputFilePath: 'src/api/index.${outputConfigFileType}',
+            requestFunctionFilePath: 'src/api/request.${outputConfigFileType}',
             dataKey: 'data',
             projects: [
               {
@@ -120,7 +146,13 @@ export async function run(
     consola.success('写入配置文件完毕')
   } else {
     if (!configFileExist) {
-      return consola.error(`找不到配置文件: ${configTSFile} 或 ${configJSFile}`)
+      return consola.error(
+        `找不到配置文件: ${
+          useCustomConfigFile
+            ? configFile
+            : `${configTSFile} 或 ${configJSFile}`
+        }`,
+      )
     }
     consola.success(`找到配置文件: ${configFile}`)
     let generator: Generator | undefined
@@ -149,5 +181,10 @@ export async function run(
 
 /* istanbul ignore next */
 if (require.main === module) {
-  run()
+  const argv = yargs(process.argv).alias('c', 'config').argv
+  run(argv._[2] as any, {
+    configFile: argv.config
+      ? path.resolve(process.cwd(), argv.config as string)
+      : undefined,
+  })
 }

@@ -23,9 +23,10 @@ function getTempPaths() {
   }
 }
 
-async function runCli(cwd: string, cmd = '') {
-  process.argv[2] = cmd
-  await run(cwd)
+async function runCli(cmd: string, configFile: string) {
+  await run(cmd, {
+    configFile,
+  })
   await wait(100)
 }
 
@@ -43,7 +44,7 @@ describe('cli', () => {
     })
     jest.spyOn(console, 'log').mockImplementationOnce(log)
 
-    await runCli(tempPaths.targetDir, 'help')
+    await runCli('help', tempPaths.generatedConfigFile)
 
     expect(text).toMatchSnapshot('help')
   })
@@ -54,7 +55,7 @@ describe('cli', () => {
 
     jest.spyOn(consola, 'error').mockImplementationOnce(errorHandler)
 
-    await runCli(tempPaths.targetDir)
+    await runCli('', tempPaths.generatedConfigFile)
 
     expect(errorHandler).toBeCalledTimes(1)
   })
@@ -63,7 +64,7 @@ describe('cli', () => {
     const tempPaths = getTempPaths()
 
     // 初始化配置文件
-    await runCli(tempPaths.targetDir, 'init')
+    await runCli('init', tempPaths.generatedConfigFile)
     expect(
       fs.readFileSync(tempPaths.generatedConfigFile).toString(),
     ).toMatchSnapshot('配置文件')
@@ -78,7 +79,7 @@ describe('cli', () => {
         .replace(`dataKey: 'data',`, '')
         .replace(`id: 50,`, `id: 82,`),
     )
-    await runCli(tempPaths.targetDir)
+    await runCli('', tempPaths.generatedConfigFile)
     expect(
       fs.readFileSync(tempPaths.generatedApiFile).toString(),
     ).toMatchSnapshot('接口文件')
@@ -91,7 +92,7 @@ describe('cli', () => {
     const tempPaths = getTempPaths()
 
     // 初始化配置文件
-    await runCli(tempPaths.targetDir, 'init')
+    await runCli('init', tempPaths.generatedConfigFile)
     expect(
       fs.readFileSync(tempPaths.generatedConfigFile).toString(),
     ).toMatchSnapshot('配置文件')
@@ -104,7 +105,7 @@ describe('cli', () => {
 
     // 覆盖配置文件
     require('prompts').setAnswer('override', true)
-    await runCli(tempPaths.targetDir, 'init')
+    await runCli('init', tempPaths.generatedConfigFile)
     expect(
       fs.readFileSync(tempPaths.generatedConfigFile).toString(),
     ).toMatchSnapshot('覆盖后的配置文件')
@@ -114,7 +115,7 @@ describe('cli', () => {
     const tempPaths = getTempPaths()
 
     // 初始化配置文件
-    await runCli(tempPaths.targetDir, 'init')
+    await runCli('init', tempPaths.generatedConfigFile)
     expect(
       fs.readFileSync(tempPaths.generatedConfigFile).toString(),
     ).toMatchSnapshot('配置文件')
@@ -127,7 +128,7 @@ describe('cli', () => {
 
     // 不覆盖配置文件
     require('prompts').setAnswer('override', false)
-    await runCli(tempPaths.targetDir, 'init')
+    await runCli('init', tempPaths.generatedConfigFile)
     await wait(1000)
     expect(
       fs.readFileSync(tempPaths.generatedConfigFile).toString(),

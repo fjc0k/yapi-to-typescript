@@ -3036,6 +3036,13 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@types/yargs@^16.0.1":
+  version "16.0.1"
+  resolved "https://registry.npm.taobao.org/@types/yargs/download/@types/yargs-16.0.1.tgz#5fc5d41f69762e00fbecbc8d4bf9dea47d8726f4"
+  integrity sha1-X8XUH2l2LgD77LyNS/nepH2HJvQ=
+  dependencies:
+    "@types/yargs-parser" "*"
+
 "@typescript-eslint/eslint-plugin@^4.14.2":
   version "4.18.0"
   resolved "https://registry.npm.taobao.org/@typescript-eslint/eslint-plugin/download/@typescript-eslint/eslint-plugin-4.18.0.tgz#50fbce93211b5b690895d20ebec6fe8db48af1f6"
@@ -6806,6 +6813,19 @@ es6-weak-map@^2.0.2:
     es6-iterator "^2.0.3"
     es6-symbol "^3.1.1"
 
+esbuild-register@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npm.taobao.org/esbuild-register/download/esbuild-register-2.3.0.tgz#c7c6e2cabdce0e7aa5f30be774302d3fc1ebd02e"
+  integrity sha1-x8biyr3ODnql8wvndDAtP8Hr0C4=
+  dependencies:
+    esbuild "^0.9.2"
+    jsonc-parser "^3.0.0"
+
+esbuild@^0.9.2:
+  version "0.9.7"
+  resolved "https://registry.npm.taobao.org/esbuild/download/esbuild-0.9.7.tgz#ea0d639cbe4b88ec25fbed4d6ff00c8d788ef70b"
+  integrity sha1-6g1jnL5LiOwl++1Nb/AMjXiO9ws=
+
 escalade@^3.1.1:
   version "3.1.1"
   resolved "https://registry.npm.taobao.org/escalade/download/escalade-3.1.1.tgz?cache=0&sync_timestamp=1602567269862&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fescalade%2Fdownload%2Fescalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
@@ -8157,10 +8177,10 @@ handlebars@*, handlebars@^4.0.2, handlebars@^4.0.6:
   optionalDependencies:
     uglify-js "^3.1.4"
 
-haoma@^2.28.0:
-  version "2.28.0"
-  resolved "https://registry.npm.taobao.org/haoma/download/haoma-2.28.0.tgz#f11fe5a173ef48e7dbd2577ed4049b22ebea71d0"
-  integrity sha1-8R/loXPvSOfb0ld+1ASbIuvqcdA=
+haoma@^2.31.0:
+  version "2.31.0"
+  resolved "https://registry.npm.taobao.org/haoma/download/haoma-2.31.0.tgz#53972d7918da2e98c31e5bf729f417b75ce8515f"
+  integrity sha1-U5cteRjaLpjDHlv3KfQXt1zoUV8=
   dependencies:
     "@babel/core" "^7.12.13"
     "@babel/eslint-parser" "^7.12.13"
@@ -8198,6 +8218,8 @@ haoma@^2.28.0:
     deepmerge "^4.2.2"
     delete-empty "^3.0.0"
     dotenv "^8.2.0"
+    esbuild "^0.9.2"
+    esbuild-register "^2.3.0"
     eslint-config-prettier "^7.2.0"
     eslint-formatter-friendly "^7.0.0"
     eslint-plugin-react "^7.22.0"
@@ -10275,6 +10297,11 @@ json5@^2.2.0:
   integrity sha1-Lf7+cgxrpSXZ69kJlQ8FFTFsiaM=
   dependencies:
     minimist "^1.2.5"
+
+jsonc-parser@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/jsonc-parser/download/jsonc-parser-3.0.0.tgz#abdd785701c7e7eaca8a9ec8cf070ca51a745a22"
+  integrity sha1-q914VwHH5+rKip7IzwcMpRp0WiI=
 
 jsonfile@^4.0.0:
   version "4.0.0"
@@ -17044,7 +17071,7 @@ yargs@15.4.1, yargs@^15.3.1:
 
 yargs@^16.2.0:
   version "16.2.0"
-  resolved "https://registry.npm.taobao.org/yargs/download/yargs-16.2.0.tgz?cache=0&sync_timestamp=1615763094562&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fyargs%2Fdownload%2Fyargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
+  resolved "https://registry.npm.taobao.org/yargs/download/yargs-16.2.0.tgz?cache=0&sync_timestamp=1616791025977&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fyargs%2Fdownload%2Fyargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
   integrity sha1-HIK/D2tqZur85+8w43b0mhJHf2Y=
   dependencies:
     cliui "^7.0.2"

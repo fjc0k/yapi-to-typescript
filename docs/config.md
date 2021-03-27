@@ -1,5 +1,6 @@
 ---
 toc: menu
+order: 2
 ---
 
 # 配置
@@ -11,6 +12,12 @@ npx ytt init
 ```
 
 然后，打开 `ytt.config.ts` 或 `ytt.config.js` 文件进行配置。
+
+你还可以自定义配置文件的路径：
+
+```bash
+npx ytt init -c config/ytt.ts
+```
 
 ## 公共配置
 
@@ -180,7 +187,7 @@ export default async function request<TResponseData>(
 
 是否生成返回数据的 JSON Schema。
 
-### comment
+### comment <Badge>3.17.0+</Badge>
 
 - 类型：`object`
 - 默认值：`(无)`
@@ -188,7 +195,7 @@ export default async function request<TResponseData>(
 
 支持生成注释的相关配置。
 
-#### comment.enabled
+#### comment.enabled <Badge>3.17.0+</Badge>
 
 - 类型：`boolean`
 - 默认值：`true`
@@ -196,7 +203,7 @@ export default async function request<TResponseData>(
 
 是否开启该项功能。
 
-#### comment.title
+#### comment.title <Badge>3.17.0+</Badge>
 
 - 类型：`boolean`
 - 默认值：`true`
@@ -204,7 +211,7 @@ export default async function request<TResponseData>(
 
 是否有标题。
 
-#### comment.category
+#### comment.category <Badge>3.17.0+</Badge>
 
 - 类型：`boolean`
 - 默认值：`true`
@@ -212,7 +219,7 @@ export default async function request<TResponseData>(
 
 是否有分类名称。
 
-#### comment.tag
+#### comment.tag <Badge>3.17.0+</Badge>
 
 - 类型：`boolean`
 - 默认值：`true`
@@ -220,7 +227,7 @@ export default async function request<TResponseData>(
 
 是否有标签。
 
-#### comment.requestHeader
+#### comment.requestHeader <Badge>3.17.0+</Badge>
 
 - 类型：`boolean`
 - 默认值：`true`
@@ -228,7 +235,7 @@ export default async function request<TResponseData>(
 
 是否有请求头。
 
-#### comment.updateTime
+#### comment.updateTime <Badge>3.17.0+</Badge>
 
 - 类型：`boolean`
 - 默认值：`true`
@@ -236,7 +243,7 @@ export default async function request<TResponseData>(
 
 是否有更新时间。
 
-#### comment.link
+#### comment.link <Badge>3.17.0+</Badge>
 
 - 类型：`boolean`
 - 默认值：`true`
