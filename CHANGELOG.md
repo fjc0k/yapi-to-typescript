@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.18.0"></a>
+
+# [3.18.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.17.0...v3.18.0) (2021-03-27)
+
+### Features
+
+- **cli:** 支持通过 -c, --config 自定义配置文件 ([3e8dc50](https://github.com/fjc0k/yapi-to-typescript/commit/3e8dc50))
+- **文档:** 添加使用、更新日志 ([56fb932](https://github.com/fjc0k/yapi-to-typescript/commit/56fb932))
+
 <a name="3.17.0"></a>
 
 # [3.17.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.16.0...v3.17.0) (2021-03-26)
