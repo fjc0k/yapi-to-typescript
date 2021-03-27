@@ -18,3 +18,10 @@ jobs:
         with:
           target_repo_url: git@gitee.com:fjc0k/yapi-to-typescript.git
           ssh_private_key: ${{ secrets.GITEE_SSH_KEY }}
+      - uses: yanglbme/gitee-pages-action@main
+        with:
+          gitee-username: fjc0k
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          gitee-repo: fjc0k/yapi-to-typescript
+          branch: gh-pages
+          https: true
