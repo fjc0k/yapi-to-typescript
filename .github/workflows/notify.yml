@@ -21,9 +21,7 @@ jobs:
           key: ${{ hashFiles('yarn.lock') }}
       - if: ${{ steps.cache.outputs.cache-hit != 'true' }}
         run: npx yarn
-      - run: |
-          npm test
-          npx ts-node -T ./scripts/notifyDingtalk.ts
+      - run: npx notify-dingtalk
         env:
           D_ACCESS_TOKEN: ${{ secrets.D_ACCESS_TOKEN }}
           D_SECRET: ${{ secrets.D_SECRET }}

@@ -99,6 +99,7 @@
     "husky": "^4",
     "jest": "^26",
     "lint-staged": "^10",
+    "notify-dingtalk": "^1.2.0",
     "openapi-types": "^7.0.1",
     "shx": "^0.3.2",
     "standard-version": "^4.4.0",
