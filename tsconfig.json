@@ -11,7 +11,11 @@
     "newLine": "LF",
     "preserveSymlinks": true,
     "skipLibCheck": true,
+    "jsx": "preserve",
     "lib": ["ESNext", "DOM"],
+    "paths": {
+      "yapi-to-typescript": ["./src/index.ts"]
+    },
     "plugins": [
       {
         "name": "typescript-snapshots-plugin",
@@ -22,6 +26,5 @@
         ]
       }
     ]
-  },
-  "include": ["src", "scripts", "tests", ".umirc.ts"]
+  }
 }
