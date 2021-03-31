@@ -558,6 +558,9 @@ export class Generator {
     }>(url, {
       searchParams: query,
       responseType: 'json',
+      https: {
+        rejectUnauthorized: false,
+      },
     })
     /* istanbul ignore next */
     if (res && res.errcode) {
