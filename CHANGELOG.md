@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.18.1"></a>
+
+## [3.18.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.18.0...v3.18.1) (2021-03-31)
+
+### Bug Fixes
+
+- 将 https.rejectUnauthorized 设为 false, 以忽略 SSL 证书检查 ([f9003b0](https://github.com/fjc0k/yapi-to-typescript/commit/f9003b0))
+
 <a name="3.18.0"></a>
 
 # [3.18.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.17.0...v3.18.0) (2021-03-27)
