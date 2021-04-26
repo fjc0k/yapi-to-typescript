@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.19.0"></a>
+
+# [3.19.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.18.1...v3.19.0) (2021-04-26)
+
+### Features
+
+- 将接口请求头加入请求配置 ([67f6ce0](https://github.com/fjc0k/yapi-to-typescript/commit/67f6ce0))
+
 <a name="3.18.1"></a>
 
 ## [3.18.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.18.0...v3.18.1) (2021-03-31)
