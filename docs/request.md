@@ -81,6 +81,18 @@ export default async function request<TResponseData>(
 
 请求方法。
 
+### requestHeaders
+
+- 类型：`Record<string, string>`
+
+- 说明：
+
+接口请求头，来自这里：
+
+<img src="./images/requestHeaders.png" width="600" />
+
+其中 `Content-Type` 会被去除。
+
 ### requestBodyType
 
 - 类型：`'query' | 'form' | 'json' | 'text' | 'file' | 'raw' | 'none'`
