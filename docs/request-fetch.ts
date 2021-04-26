@@ -8,9 +8,15 @@ export interface RequestOptions {
   returnBlob?: boolean
 }
 
+export enum RequestErrorType {
+  NetworkError = 'NetworkError',
+  StatusError = 'StatusError',
+  BusinessError = 'BusinessError',
+}
+
 export class RequestError extends Error {
   constructor(
-    public type: 'NetworkError' | 'StatusError' | 'BusinessError',
+    public type: RequestErrorType,
     public message: any,
     public httpStatusOrBusinessCode: number = 0,
   ) {
@@ -33,7 +39,9 @@ export default async function request<TResponseData>(
     const fetchOptions: RequestInit = {
       method: payload.method,
       headers: {
-        ...(payload.requestBodyType === RequestBodyType.json
+        ...(payload.hasFileData
+          ? {}
+          : payload.requestBodyType === RequestBodyType.json
           ? { 'Content-Type': 'application/json; charset=UTF-8' }
           : payload.requestBodyType === RequestBodyType.form
           ? {
@@ -73,13 +81,13 @@ export default async function request<TResponseData>(
 
     // 网络错误
     if (fetchErr) {
-      throw new RequestError('NetworkError', fetchErr)
+      throw new RequestError(RequestErrorType.NetworkError, fetchErr)
     }
 
     // 状态错误
     if (fetchRes.status < 200 || fetchRes.status >= 300) {
       throw new RequestError(
-        'StatusError',
+        RequestErrorType.StatusError,
         `${fetchRes.status}: ${fetchRes.statusText}`,
         fetchRes.status,
       )
@@ -105,7 +113,7 @@ export default async function request<TResponseData>(
       res.code != null &&
       res.code !== 0
     ) {
-      throw new RequestError('BusinessError', res.msg, res.code)
+      throw new RequestError(RequestErrorType.BusinessError, res.msg, res.code)
     }
 
     // 适配 dataKey，取出 data
@@ -123,7 +131,7 @@ export default async function request<TResponseData>(
     const retry = () => request<TResponseData>(payload, options)
     if (err instanceof RequestError) {
       // 网络错误处理
-      if (err.type === 'NetworkError') {
+      if (err.type === RequestErrorType.NetworkError) {
         // 此处可弹窗说明原因：err.message，最好也提供重试操作，下面以原生 confirm 为例，建议替换为项目中使用到的弹窗组件
         const isRetry = confirm(`网络错误：${err.message}，是否重试？`)
         if (isRetry) {
@@ -131,16 +139,19 @@ export default async function request<TResponseData>(
         }
         throw err
       }
+
       // 状态错误处理
-      else if (err.type === 'StatusError') {
+      else if (err.type === RequestErrorType.StatusError) {
         // 用户未登录处理
         if (err.httpStatusOrBusinessCode === 401) {
           // 推荐在此处发起登录逻辑
         }
       }
+
       // 业务错误处理
-      else if (err.type === 'BusinessError') {
+      else if (err.type === RequestErrorType.BusinessError) {
         // 推荐弹个轻提示说明错误原因：err.message
+        throw err
       }
     } else {
       throw err
