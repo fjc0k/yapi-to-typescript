@@ -1,6 +1,7 @@
 import fs from 'fs-extra'
 import path from 'path'
 import tempy from 'tempy'
+import { CatId } from './consts'
 import { forOwn } from 'vtils'
 import { Generator } from '../src/Generator'
 import { OneOrMore } from 'vtils/types'
@@ -20,7 +21,15 @@ const generatorFactory = ({
   onlyMatchPath,
   comment,
 }: {
-  id: OneOrMore<0 | 82 | 87 | 151 | -82 | -87 | -151>
+  id: OneOrMore<
+    | 0
+    | CatId.test
+    | CatId.test2
+    | CatId.issues
+    | CatId._test
+    | CatId._test2
+    | CatId._issues
+  >
   typesOnly?: boolean
   enableReactHooks?: boolean
   target?: ServerConfig['target']
@@ -75,7 +84,7 @@ const generatorFactory = ({
 describe('Generator', () => {
   test('正确生成代码并写入文件 - 单分类', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
     })
     await generator.prepare()
     const output = await generator.generate()
@@ -96,7 +105,7 @@ describe('Generator', () => {
 
   test('正确生成代码并写入文件 - 多分类', async () => {
     const generator = generatorFactory({
-      id: [82, 87],
+      id: [CatId.test, CatId.test2],
     })
     await generator.prepare()
     const output = await generator.generate()
@@ -138,7 +147,7 @@ describe('Generator', () => {
 
   test('正确生成代码并写入文件 - 排除分类', async () => {
     const generator = generatorFactory({
-      id: [0, -82],
+      id: [0, CatId._test],
     })
     await generator.prepare()
     const output = await generator.generate()
@@ -159,7 +168,7 @@ describe('Generator', () => {
 
   test('只生成类型代码并写入文件', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       typesOnly: true,
     })
     await generator.prepare()
@@ -179,7 +188,7 @@ describe('Generator', () => {
 
   test('生成 React Hooks 代码', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       enableReactHooks: true,
     })
     await generator.prepare()
@@ -258,7 +267,7 @@ describe('Generator', () => {
 
   test('支持项目设置里的接口基本路径', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       token: 'with-basepath',
     })
     await generator.prepare()
@@ -280,7 +289,7 @@ describe('Generator', () => {
 
   test('支持将 token 设为数组', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       token: ['projectA', 'projectB'],
     })
     await generator.prepare()
@@ -302,7 +311,7 @@ describe('Generator', () => {
 
   test('生成请求数据和返回数据的 JSON Schema', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       jsonSchema: {
         enabled: true,
       },
@@ -323,7 +332,7 @@ describe('Generator', () => {
 
   test('只生成请求数据的 JSON Schema', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       jsonSchema: {
         enabled: true,
         responseData: false,
@@ -345,7 +354,7 @@ describe('Generator', () => {
 
   test('只生成返回数据的 JSON Schema', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       jsonSchema: {
         enabled: true,
         requestData: false,
@@ -386,7 +395,7 @@ describe('Generator', () => {
 
   test('无注释', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       comment: {
         enabled: false,
       },
@@ -407,7 +416,7 @@ describe('Generator', () => {
 
   test('无更新时间注释', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       comment: {
         updateTime: false,
       },
@@ -428,7 +437,7 @@ describe('Generator', () => {
 
   test('无标题注释', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       comment: {
         title: false,
       },
@@ -449,7 +458,7 @@ describe('Generator', () => {
 
   test('无分类注释', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       comment: {
         category: false,
       },
@@ -470,7 +479,7 @@ describe('Generator', () => {
 
   test('无标签注释', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       comment: {
         tag: false,
       },
@@ -491,7 +500,7 @@ describe('Generator', () => {
 
   test('无请求头注释', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       comment: {
         requestHeader: false,
       },
@@ -512,7 +521,7 @@ describe('Generator', () => {
 
   test('无链接注释', async () => {
     const generator = generatorFactory({
-      id: 82,
+      id: CatId.test,
       comment: {
         link: false,
       },

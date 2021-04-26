@@ -165,6 +165,19 @@ export interface Interface {
   catid: number
   /** 标签列表 */
   tag: string[]
+  /** 请求头 */
+  req_headers: Array<{
+    /** 名称 */
+    name: string
+    /** 值 */
+    value: string
+    /** 备注 */
+    desc: string
+    /** 示例 */
+    example: string
+    /** 是否必需 */
+    required: Required
+  }>
   /** 路径参数 */
   req_params: Array<{
     /** 名称 */
@@ -609,6 +622,8 @@ export interface RequestConfig<
   path: Path
   /** 请求方法 */
   method: Method
+  /** 请求头，除了 Content-Type 的所有头 */
+  requestHeaders: Record<string, string>
   /** 请求数据类型 */
   requestBodyType: RequestBodyType
   /** 返回数据类型 */

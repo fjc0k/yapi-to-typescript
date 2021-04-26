@@ -2,6 +2,7 @@ import consola from 'consola'
 import fs from 'fs-extra'
 import path from 'path'
 import tempy from 'tempy'
+import { CatId } from './consts'
 import { run } from '../src/cli'
 import { wait } from 'vtils'
 
@@ -77,7 +78,7 @@ describe('cli', () => {
         .toString()
         .replace('yapi-to-typescript', path.join(__dirname, '../src'))
         .replace(`dataKey: 'data',`, '')
-        .replace(`id: 50,`, `id: 82,`),
+        .replace(`id: 50,`, `id: ${CatId.test},`),
     )
     await runCli('', tempPaths.generatedConfigFile)
     expect(

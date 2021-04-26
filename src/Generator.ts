@@ -853,6 +853,14 @@ export class Generator {
               prodUrl: prodUrl${categoryUID},
               path: ${JSON.stringify(extendedInterfaceInfo.path)},
               method: Method.${extendedInterfaceInfo.method},
+              requestHeaders: ${JSON.stringify(
+                (extendedInterfaceInfo.req_headers || [])
+                  .filter(item => item.name.toLowerCase() !== 'content-type')
+                  .reduce<Record<string, string>>((res, item) => {
+                    res[item.name] = item.value
+                    return res
+                  }, {}),
+              )},
               requestBodyType: RequestBodyType.${
                 extendedInterfaceInfo.method === Method.GET
                   ? RequestBodyType.query
