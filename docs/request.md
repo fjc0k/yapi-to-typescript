@@ -81,7 +81,7 @@ export default async function request<TResponseData>(
 
 请求方法。
 
-### requestHeaders
+### requestHeaders <Badge>3.19.0+</Badge>
 
 - 类型：`Record<string, string>`
 
