@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.20.0"></a>
+
+# [3.20.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.19.0...v3.20.0) (2021-05-13)
+
+### Features
+
+- 将 requestFunctionName 请求函数的名称加入请求配置 ([749f7b5](https://github.com/fjc0k/yapi-to-typescript/commit/749f7b5))
+
 <a name="3.19.0"></a>
 
 # [3.19.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.18.1...v3.19.0) (2021-04-26)
