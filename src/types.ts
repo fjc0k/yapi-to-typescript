@@ -640,6 +640,8 @@ export interface RequestConfig<
   requestDataJsonSchema: JSONSchema4
   /** 返回数据的 JSON Schema (仅开启了 JSON Schema 生成时生效) */
   responseDataJsonSchema: JSONSchema4
+  /** 请求函数名称 */
+  requestFunctionName: string
 }
 
 /**

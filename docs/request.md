@@ -167,6 +167,13 @@ export default async function request<TResponseData>(
 
 返回数据的 JSON Schema，由配置 [jsonSchema](./config.html#jsonschema) 开启。
 
+### requestFunctionName <Badge>3.20.0+</Badge>
+
+- 类型：`string`
+- 说明：
+
+请求函数的名称。
+
 ### data
 
 - 类型：`object`

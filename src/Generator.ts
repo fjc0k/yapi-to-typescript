@@ -886,6 +886,7 @@ export class Generator {
                   ? responseDataJsonSchema
                   : {},
               )},
+              requestFunctionName: ${JSON.stringify(requestFunctionName)},
             }
 
             ${genComment(title => `接口 ${title} 的 **请求函数**`)}

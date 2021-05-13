@@ -241,6 +241,7 @@ const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethod',
 }
 
 /**
@@ -328,6 +329,7 @@ const getMethodRequestConfig: GetMethodRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethod',
 }
 
 /**
@@ -405,6 +407,7 @@ const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5Response',
 }
 
 /**
@@ -503,6 +506,7 @@ const json5RequestRequestConfig: Json5RequestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5Request',
 }
 
 /**
@@ -599,6 +603,7 @@ const postMethodRequestConfig: PostMethodRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethod',
 }
 
 /**
@@ -692,6 +697,7 @@ const putMethodRequestConfig: PutMethodRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethod',
 }
 
 /**
@@ -790,6 +796,7 @@ const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExample',
 }
 
 /**
@@ -863,6 +870,7 @@ const uploadRequestConfig: UploadRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'upload',
 }
 
 /**
@@ -938,6 +946,7 @@ const testRequestConfig: TestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'test',
 }
 
 /**
@@ -1009,6 +1018,7 @@ const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseData',
 }
 
 /**
@@ -1082,6 +1092,7 @@ const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponse',
 }
 
 /**
@@ -1164,6 +1175,7 @@ const testRequestConfig: TestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'test',
 }
 
 /**
@@ -1252,6 +1264,7 @@ const hihihiRequestConfig: HihihiRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi',
 }
 
 /**
@@ -1345,6 +1358,7 @@ const hihihi_1608478638207RequestConfig: Hihihi_1608478638207RequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207',
 }
 
 /**
@@ -1420,6 +1434,7 @@ const rawResponseRequestConfig: RawResponseRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponse',
 }
 
 /**
@@ -1484,6 +1499,7 @@ const headersRequestConfig: HeadersRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headers',
 }
 
 /**
@@ -1557,6 +1573,7 @@ const get2RequestConfig: Get2RequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'get2',
 }
 
 /**
@@ -1634,6 +1651,7 @@ const picture_3dDetailRequestConfig: Picture_3dDetailRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'picture_3dDetail',
 }
 
 /**
@@ -1714,6 +1732,7 @@ const getRequestConfig: GetRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'get',
 }
 
 /**
@@ -1791,6 +1810,7 @@ const formRequestConfig: FormRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'form',
 }
 
 /**
@@ -1877,6 +1897,7 @@ const jsonRequestConfig: JsonRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json',
 }
 
 /**

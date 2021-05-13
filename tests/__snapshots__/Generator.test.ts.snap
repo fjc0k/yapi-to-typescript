@@ -1091,6 +1091,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -1188,6 +1189,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -1265,6 +1267,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -1391,6 +1394,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -1498,6 +1502,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -1600,6 +1605,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -1707,6 +1713,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -1799,6 +1806,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -1894,6 +1902,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -1965,6 +1974,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -2040,6 +2050,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {type: 'object', required: [], properties: {}, additionalProperties: false},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -2135,6 +2146,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -2233,6 +2245,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -2340,6 +2353,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -2415,6 +2429,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -2490,6 +2505,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -2577,6 +2593,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"required\\":[\\"id\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -2660,6 +2677,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"string\\",\\"description\\":\\"Y 值\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -2733,6 +2751,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -2827,6 +2846,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\",\\"additionalProperties\\":false},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\",\\"additionalProperties\\":false},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"additionalProperties\\":false,\\"minItems\\":0},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -2919,6 +2939,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\",\\"additionalProperties\\":false},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\",\\"additionalProperties\\":false},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\",\\"additionalProperties\\":false}},\\"required\\":[\\"page\\",\\"limit\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -3008,6 +3029,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -3102,6 +3124,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -3180,6 +3203,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"file\\",\\"name\\"],\\"properties\\":{\\"file\\":{\\"type\\":\\"file\\",\\"description\\":\\"文件\\",\\"tsType\\":\\"FileData\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"名称\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -3262,6 +3286,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"cid\\":{\\"type\\":\\"string\\",\\"description\\":\\"cid\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"cid\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -3331,6 +3356,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -3400,6 +3426,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[],\\"properties\\":{},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -3478,6 +3505,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"23\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"pass\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"test\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"avatar\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -3564,6 +3592,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -3655,6 +3684,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"query\\":{\\"type\\":\\"string\\",\\"description\\":\\"22222\\",\\"additionalProperties\\":false},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false},\\"hihihi_1608478638207\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -3724,6 +3754,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -3793,6 +3824,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -3927,6 +3959,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -4021,6 +4054,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
     required: ['result'],
     additionalProperties: false,
   },
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -4123,6 +4157,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
     },
     additionalProperties: false,
   },
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -4223,6 +4258,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -4339,6 +4375,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
     required: ['list'],
     additionalProperties: false,
   },
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -4441,6 +4478,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
     required: ['err', 'msg'],
     additionalProperties: false,
   },
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -4554,6 +4592,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
     required: ['err', 'msg'],
     additionalProperties: false,
   },
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -4638,6 +4677,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -4724,6 +4764,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -4795,6 +4836,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -4870,6 +4912,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -4954,6 +4997,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -5042,6 +5086,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -5137,6 +5182,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -5212,6 +5258,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -5287,6 +5334,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -5374,6 +5422,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -5457,6 +5506,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"result\\":{\\"type\\":\\"number\\",\\"description\\":\\"结果\\",\\"additionalProperties\\":false}},\\"required\\":[\\"result\\"],\\"additionalProperties\\":false},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -5530,6 +5580,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"],\\"additionalProperties\\":false},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"],\\"additionalProperties\\":false},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"],\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -5624,6 +5675,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -5716,6 +5768,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\",\\"additionalProperties\\":false}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"additionalProperties\\":false,\\"minItems\\":0}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -5805,6 +5858,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\",\\"additionalProperties\\":false},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\",\\"additionalProperties\\":false},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{},\\"description\\":\\"数据\\",\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -5899,6 +5953,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\",\\"additionalProperties\\":false},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\",\\"additionalProperties\\":false},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"success\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"成功啦\\",\\"additionalProperties\\":false}},\\"description\\":\\"数据\\",\\"required\\":[\\"success\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -5977,6 +6032,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -6059,6 +6115,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -6128,6 +6185,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -6197,6 +6255,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -6275,6 +6334,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -6361,6 +6421,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -6452,6 +6513,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -6521,6 +6583,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -6590,6 +6653,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -6724,6 +6788,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -6824,6 +6889,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -6966,6 +7032,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -7055,6 +7122,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -7132,6 +7200,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -7232,6 +7301,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -7330,6 +7400,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -7423,6 +7494,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -7521,6 +7593,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -7605,6 +7678,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -7691,6 +7765,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -7762,6 +7837,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -7837,6 +7913,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -7921,6 +7998,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -8009,6 +8087,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -8104,6 +8183,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -8179,6 +8259,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -8254,6 +8335,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -8337,6 +8419,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -8426,6 +8509,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -8503,6 +8587,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -8603,6 +8688,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -8701,6 +8787,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -8794,6 +8881,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -8892,6 +8980,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -8976,6 +9065,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -9062,6 +9152,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -9133,6 +9224,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -9208,6 +9300,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -9292,6 +9385,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -9380,6 +9474,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -9475,6 +9570,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -9550,6 +9646,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -9625,6 +9722,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -9750,6 +9848,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -9833,6 +9932,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -9906,6 +10006,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -10000,6 +10101,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -10092,6 +10194,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -10181,6 +10284,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -10275,6 +10379,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -10353,6 +10458,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -10435,6 +10541,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -10504,6 +10611,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -10573,6 +10681,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -10651,6 +10760,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -10737,6 +10847,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -10828,6 +10939,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -10897,6 +11009,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -10966,6 +11079,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -11044,6 +11158,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -11127,6 +11242,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -11200,6 +11316,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -11294,6 +11411,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -11386,6 +11504,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -11475,6 +11594,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -11569,6 +11689,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -11647,6 +11768,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -11729,6 +11851,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -11798,6 +11921,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -11867,6 +11991,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -11945,6 +12070,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -12031,6 +12157,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -12122,6 +12249,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -12191,6 +12319,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -12260,6 +12389,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -12394,6 +12524,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -12483,6 +12614,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -12560,6 +12692,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -12660,6 +12793,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -12758,6 +12892,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -12851,6 +12986,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -12949,6 +13085,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -13033,6 +13170,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -13119,6 +13257,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -13190,6 +13329,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -13265,6 +13405,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -13349,6 +13490,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -13437,6 +13579,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -13532,6 +13675,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -13607,6 +13751,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -13682,6 +13827,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -13807,6 +13953,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -13890,6 +14037,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -13963,6 +14111,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -14057,6 +14206,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -14149,6 +14299,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -14238,6 +14389,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -14332,6 +14484,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -14410,6 +14563,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -14492,6 +14646,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -14561,6 +14716,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -14630,6 +14786,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -14708,6 +14865,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -14794,6 +14952,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -14885,6 +15044,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -14954,6 +15114,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -15023,6 +15184,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -15153,6 +15315,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -15237,6 +15400,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -15309,6 +15473,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -15404,6 +15569,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -15497,6 +15663,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -15585,6 +15752,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -15678,6 +15846,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -15757,6 +15926,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -15838,6 +16008,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -15904,6 +16075,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -15974,6 +16146,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -16053,6 +16226,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -16136,6 +16310,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -16226,6 +16401,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -16296,6 +16472,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -16366,6 +16543,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -16448,6 +16626,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -16526,6 +16705,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -16594,6 +16774,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -16683,6 +16864,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -16770,6 +16952,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -16854,6 +17037,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -16943,6 +17127,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -17016,6 +17201,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -17093,6 +17279,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -17157,6 +17344,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -17221,6 +17409,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -17294,6 +17483,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -17375,6 +17565,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -17461,6 +17652,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -17525,6 +17717,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -17589,6 +17782,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -17718,6 +17912,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -17802,6 +17997,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -17874,6 +18070,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -17969,6 +18166,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -18062,6 +18260,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -18150,6 +18349,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -18243,6 +18443,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -18322,6 +18523,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -18403,6 +18605,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -18469,6 +18672,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -18539,6 +18743,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -18618,6 +18823,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -18701,6 +18907,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -18791,6 +18998,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -18861,6 +19069,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -18931,6 +19140,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -19013,6 +19223,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -19091,6 +19302,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -19159,6 +19371,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -19248,6 +19461,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -19335,6 +19549,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -19419,6 +19634,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -19508,6 +19724,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -19581,6 +19798,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -19658,6 +19876,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -19722,6 +19941,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -19786,6 +20006,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -19859,6 +20080,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -19940,6 +20162,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -20026,6 +20249,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -20090,6 +20314,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -20154,6 +20379,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -20287,6 +20513,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -20376,6 +20603,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -20453,6 +20681,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -20553,6 +20782,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -20651,6 +20881,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -20744,6 +20975,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -20842,6 +21074,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -20926,6 +21159,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -21012,6 +21246,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -21083,6 +21318,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -21158,6 +21394,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -21242,6 +21479,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -21330,6 +21568,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -21425,6 +21664,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -21500,6 +21740,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -21575,6 +21816,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -21662,6 +21904,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -21745,6 +21988,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -21818,6 +22062,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -21912,6 +22157,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -22004,6 +22250,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -22093,6 +22340,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -22187,6 +22435,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -22265,6 +22514,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -22347,6 +22597,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -22416,6 +22667,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -22485,6 +22737,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -22563,6 +22816,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -22649,6 +22903,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -22740,6 +22995,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -22809,6 +23065,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -22878,6 +23135,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -23004,6 +23262,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -23083,6 +23342,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -23150,6 +23410,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -23240,6 +23501,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -23328,6 +23590,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -23411,6 +23674,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -23499,6 +23763,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -23573,6 +23838,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -23649,6 +23915,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -23710,6 +23977,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -23775,6 +24043,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -23849,6 +24118,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -23927,6 +24197,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -24012,6 +24283,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -24077,6 +24349,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -24142,6 +24415,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -24219,6 +24493,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -24292,6 +24567,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -24355,6 +24631,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -24439,6 +24716,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -24521,6 +24799,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -24600,6 +24879,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -24684,6 +24964,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -24752,6 +25033,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -24824,6 +25106,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -24883,6 +25166,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -24942,6 +25226,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -25010,6 +25295,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -25086,6 +25372,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -25167,6 +25454,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -25226,6 +25514,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -25285,6 +25574,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -25389,6 +25679,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 export const deleteMethodTest = makeRequest<
@@ -25443,6 +25734,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 export const getMethodTest = makeRequest<GetMethodTestRequest, GetMethodTestResponse, GetMethodTestRequestConfig>(
@@ -25485,6 +25777,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 export const json5ResponseTest = makeRequest<
@@ -25550,6 +25843,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 export const json5RequestTest = makeRequest<
@@ -25613,6 +25907,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 export const postMethodTest = makeRequest<PostMethodTestRequest, PostMethodTestResponse, PostMethodTestRequestConfig>(
@@ -25671,6 +25966,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 export const putMethodTest = makeRequest<PutMethodTestRequest, PutMethodTestResponse, PutMethodTestRequestConfig>(
@@ -25734,6 +26030,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 export const dataKeyExampleTest = makeRequest<
@@ -25783,6 +26080,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 export const uploadTest = makeRequest<UploadTestRequest, UploadTestResponse, UploadTestRequestConfig>(
@@ -25834,6 +26132,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 export const testTest = makeRequest<TestTestRequest, TestTestResponse, TestTestRequestConfig>(testTestRequestConfig)
@@ -25870,6 +26169,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 export const noResponseDataTest = makeRequest<
@@ -25910,6 +26210,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 export const emptyResponseTest = makeRequest<
@@ -25959,6 +26260,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 export const testTest = makeRequest<TestTestRequest, TestTestResponse, TestTestRequestConfig>(testTestRequestConfig)
@@ -26012,6 +26314,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 export const hihihiTest = makeRequest<HihihiTestRequest, HihihiTestResponse, HihihiTestRequestConfig>(
@@ -26072,6 +26375,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 export const hihihi_1608478638207Test = makeRequest<
@@ -26112,6 +26416,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 export const rawResponseTest = makeRequest<
@@ -26152,6 +26457,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(
@@ -26206,6 +26512,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 
@@ -26257,6 +26564,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 
@@ -26298,6 +26606,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 
@@ -26360,6 +26669,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 
@@ -26420,6 +26730,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 
@@ -26477,6 +26788,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 
@@ -26539,6 +26851,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 
@@ -26585,6 +26898,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 
@@ -26635,6 +26949,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 
@@ -26672,6 +26987,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 
@@ -26709,6 +27025,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 
@@ -26755,6 +27072,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 
@@ -26809,6 +27127,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 
@@ -26868,6 +27187,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 
@@ -26905,6 +27225,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 
@@ -26942,6 +27263,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 
@@ -27066,6 +27388,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -27150,6 +27473,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -27222,6 +27546,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -27317,6 +27642,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -27410,6 +27736,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -27498,6 +27825,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -27591,6 +27919,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -27670,6 +27999,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -27751,6 +28081,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -27817,6 +28148,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -27887,6 +28219,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -27966,6 +28299,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -28049,6 +28383,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -28139,6 +28474,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -28209,6 +28545,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -28279,6 +28616,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -28361,6 +28699,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -28439,6 +28778,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -28507,6 +28847,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -28596,6 +28937,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -28683,6 +29025,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -28767,6 +29110,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -28856,6 +29200,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -28929,6 +29274,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -29006,6 +29352,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -29070,6 +29417,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -29134,6 +29482,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -29207,6 +29556,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -29288,6 +29638,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -29374,6 +29725,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -29438,6 +29790,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -29502,6 +29855,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -29635,6 +29989,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -29724,6 +30079,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -29801,6 +30157,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -29901,6 +30258,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -29999,6 +30357,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -30092,6 +30451,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -30190,6 +30550,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -30274,6 +30635,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -30360,6 +30722,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -30431,6 +30794,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -30506,6 +30870,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -30590,6 +30955,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -30678,6 +31044,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -30773,6 +31140,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -30848,6 +31216,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -30923,6 +31292,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -31010,6 +31380,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -31093,6 +31464,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -31166,6 +31538,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -31260,6 +31633,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -31352,6 +31726,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -31441,6 +31816,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -31535,6 +31911,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -31613,6 +31990,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -31695,6 +32073,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -31764,6 +32143,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -31833,6 +32213,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -31911,6 +32292,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -31997,6 +32379,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -32088,6 +32471,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -32157,6 +32541,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -32226,6 +32611,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -32360,6 +32746,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -32449,6 +32836,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -32526,6 +32914,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -32626,6 +33015,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -32724,6 +33114,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -32817,6 +33208,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -32915,6 +33307,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -32999,6 +33392,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -33085,6 +33479,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -33156,6 +33551,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -33231,6 +33627,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -33315,6 +33712,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -33403,6 +33801,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -33498,6 +33897,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -33573,6 +33973,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -33648,6 +34049,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -33732,6 +34134,7 @@ const get2TestRequestConfig: Get2TestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'get2Test',
 }
 
 /**
@@ -33809,6 +34212,7 @@ const picture_3dDetailTestRequestConfig: Picture_3dDetailTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'picture_3dDetailTest',
 }
 
 /**
@@ -33889,6 +34293,7 @@ const getTestRequestConfig: GetTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getTest',
 }
 
 /**
@@ -33966,6 +34371,7 @@ const formTestRequestConfig: FormTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'formTest',
 }
 
 /**
@@ -34052,6 +34458,7 @@ const jsonTestRequestConfig: JsonTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'jsonTest',
 }
 
 /**
@@ -34176,6 +34583,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -34259,6 +34667,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -34332,6 +34741,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -34426,6 +34836,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -34518,6 +34929,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -34607,6 +35019,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -34701,6 +35114,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -34779,6 +35193,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -34861,6 +35276,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -34930,6 +35346,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -34999,6 +35416,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -35077,6 +35495,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -35163,6 +35582,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -35254,6 +35674,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -35323,6 +35744,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -35392,6 +35814,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -35471,6 +35894,7 @@ const get2TestRequestConfig: Get2TestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"get2Test\\",
 }
 
 /**
@@ -35545,6 +35969,7 @@ const picture_3dDetailTestRequestConfig: Picture_3dDetailTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"picture_3dDetailTest\\",
 }
 
 /**
@@ -35619,6 +36044,7 @@ const getTestRequestConfig: GetTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getTest\\",
 }
 
 /**
@@ -35694,6 +36120,7 @@ const formTestRequestConfig: FormTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"formTest\\",
 }
 
 /**
@@ -35778,6 +36205,7 @@ const jsonTestRequestConfig: JsonTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"jsonTest\\",
 }
 
 /**
@@ -35912,6 +36340,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -36001,6 +36430,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -36078,6 +36508,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -36178,6 +36609,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -36276,6 +36708,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -36369,6 +36802,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -36467,6 +36901,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -36551,6 +36986,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -36637,6 +37073,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -36708,6 +37145,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -36783,6 +37221,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -36867,6 +37306,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -36955,6 +37395,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -37050,6 +37491,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -37125,6 +37567,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -37200,6 +37643,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -37325,6 +37769,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -37408,6 +37853,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -37481,6 +37927,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -37575,6 +38022,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -37667,6 +38115,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -37756,6 +38205,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -37850,6 +38300,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -37928,6 +38379,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -38010,6 +38462,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -38079,6 +38532,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -38148,6 +38602,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -38226,6 +38681,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -38312,6 +38768,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -38403,6 +38860,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -38472,6 +38930,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -38541,6 +39000,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -38675,6 +39135,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -38764,6 +39225,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -38841,6 +39303,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -38941,6 +39404,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -39039,6 +39503,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -39132,6 +39597,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -39230,6 +39696,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -39314,6 +39781,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -39400,6 +39868,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -39471,6 +39940,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -39546,6 +40016,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -39630,6 +40101,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -39718,6 +40190,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -39813,6 +40286,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -39888,6 +40362,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -39963,6 +40438,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -40047,6 +40523,7 @@ const get2TestRequestConfig: Get2TestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'get2Test',
 }
 
 /**
@@ -40171,6 +40648,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -40254,6 +40732,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -40327,6 +40806,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -40421,6 +40901,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -40513,6 +40994,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -40602,6 +41084,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -40696,6 +41179,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -40774,6 +41258,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -40856,6 +41341,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -40925,6 +41411,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -40994,6 +41481,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -41072,6 +41560,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -41158,6 +41647,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -41249,6 +41739,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -41318,6 +41809,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -41387,6 +41879,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -41466,6 +41959,7 @@ const get2TestRequestConfig: Get2TestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"get2Test\\",
 }
 
 /**
@@ -41602,6 +42096,7 @@ const get2TestRequestConfig: Get2TestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'get2Test',
 }
 
 /**
@@ -41679,6 +42174,7 @@ const picture_3dDetailTestRequestConfig: Picture_3dDetailTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'picture_3dDetailTest',
 }
 
 /**
@@ -41759,6 +42255,7 @@ const getTestRequestConfig: GetTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getTest',
 }
 
 /**
@@ -41836,6 +42333,7 @@ const formTestRequestConfig: FormTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'formTest',
 }
 
 /**
@@ -41922,6 +42420,7 @@ const jsonTestRequestConfig: JsonTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'jsonTest',
 }
 
 /**
@@ -42047,6 +42546,7 @@ const get2TestRequestConfig: Get2TestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"get2Test\\",
 }
 
 /**
@@ -42121,6 +42621,7 @@ const picture_3dDetailTestRequestConfig: Picture_3dDetailTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"picture_3dDetailTest\\",
 }
 
 /**
@@ -42195,6 +42696,7 @@ const getTestRequestConfig: GetTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getTest\\",
 }
 
 /**
@@ -42270,6 +42772,7 @@ const formTestRequestConfig: FormTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"formTest\\",
 }
 
 /**
@@ -42354,6 +42857,7 @@ const jsonTestRequestConfig: JsonTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"jsonTest\\",
 }
 
 /**
@@ -42423,6 +42927,7 @@ const deleteMethodTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'deleteMethodTest',
 };
 /**
  * 接口 [DELETE 方法↗](http://foo.bar/project/11/interface/api/45) 的 **请求函数**
@@ -42454,6 +42959,7 @@ const getMethodTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'getMethodTest',
 };
 /**
  * 接口 [GET 方法↗](http://foo.bar/project/11/interface/api/51) 的 **请求函数**
@@ -42485,6 +42991,7 @@ const json5ResponseTestRequestConfig = {
     requestDataOptional: true,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'json5ResponseTest',
 };
 /**
  * 接口 [JSON5 响应↗](http://foo.bar/project/11/interface/api/57) 的 **请求函数**
@@ -42516,6 +43023,7 @@ const json5RequestTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'json5RequestTest',
 };
 /**
  * 接口 [JSON5 请求↗](http://foo.bar/project/11/interface/api/63) 的 **请求函数**
@@ -42547,6 +43055,7 @@ const postMethodTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'postMethodTest',
 };
 /**
  * 接口 [POST 方法↗](http://foo.bar/project/11/interface/api/69) 的 **请求函数**
@@ -42578,6 +43087,7 @@ const putMethodTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'putMethodTest',
 };
 /**
  * 接口 [PUT 方法↗](http://foo.bar/project/11/interface/api/75) 的 **请求函数**
@@ -42609,6 +43119,7 @@ const dataKeyExampleTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'dataKeyExampleTest',
 };
 /**
  * 接口 [dataKey 例子↗](http://foo.bar/project/11/interface/api/81) 的 **请求函数**
@@ -42640,6 +43151,7 @@ const uploadTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'uploadTest',
 };
 /**
  * 接口 [文件↗](http://foo.bar/project/11/interface/api/87) 的 **请求函数**
@@ -42671,6 +43183,7 @@ const testTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'testTest',
 };
 /**
  * 接口 [查询参数+对象↗](http://foo.bar/project/11/interface/api/93) 的 **请求函数**
@@ -42702,6 +43215,7 @@ const noResponseDataTestRequestConfig = {
     requestDataOptional: true,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'noResponseDataTest',
 };
 /**
  * 接口 [没返回数据↗](http://foo.bar/project/11/interface/api/99) 的 **请求函数**
@@ -42733,6 +43247,7 @@ const emptyResponseTestRequestConfig = {
     requestDataOptional: true,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'emptyResponseTest',
 };
 /**
  * 接口 [空返回数据↗](http://foo.bar/project/11/interface/api/105) 的 **请求函数**
@@ -42764,6 +43279,7 @@ const testTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'testTest',
 };
 /**
  * 接口 [路径参数↗](http://foo.bar/project/11/interface/api/111) 的 **请求函数**
@@ -42795,6 +43311,7 @@ const hihihiTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'hihihiTest',
 };
 /**
  * 接口 [路径参数+对象↗](http://foo.bar/project/11/interface/api/117) 的 **请求函数**
@@ -42826,6 +43343,7 @@ const hihihi_1608478638207TestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'hihihi_1608478638207Test',
 };
 /**
  * 接口 [路径参数+查询参数+对象↗](http://foo.bar/project/11/interface/api/123) 的 **请求函数**
@@ -42857,6 +43375,7 @@ const rawResponseTestRequestConfig = {
     requestDataOptional: true,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'rawResponseTest',
 };
 /**
  * 接口 [返回 raw↗](http://foo.bar/project/11/interface/api/129) 的 **请求函数**
@@ -42888,6 +43407,7 @@ const headersTestRequestConfig = {
     requestDataOptional: true,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'headersTest',
 };
 /**
  * 接口 [请求头↗](http://foo.bar/project/11/interface/api/1087) 的 **请求函数**
@@ -42924,6 +43444,7 @@ const get2TestRequestConfig = {
     requestDataOptional: true,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'get2Test',
 };
 /**
  * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求函数**
@@ -42960,6 +43481,7 @@ const picture_3dDetailTestRequestConfig = {
     requestDataOptional: true,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'picture_3dDetailTest',
 };
 /**
  * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/11/interface/api/141) 的 **请求函数**
@@ -42991,6 +43513,7 @@ const getTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'getTest',
 };
 /**
  * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/11/interface/api/147) 的 **请求函数**
@@ -43022,6 +43545,7 @@ const formTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'formTest',
 };
 /**
  * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/11/interface/api/153) 的 **请求函数**
@@ -43053,6 +43577,7 @@ const jsonTestRequestConfig = {
     requestDataOptional: false,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
+    requestFunctionName: 'jsonTest',
 };
 /**
  * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/11/interface/api/159) 的 **请求函数**
@@ -43156,6 +43681,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -43239,6 +43765,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -43312,6 +43839,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -43406,6 +43934,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -43498,6 +44027,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -43587,6 +44117,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -43681,6 +44212,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -43759,6 +44291,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -43841,6 +44374,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -43910,6 +44444,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -43979,6 +44514,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -44057,6 +44593,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -44143,6 +44680,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -44234,6 +44772,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -44303,6 +44842,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -44372,6 +44912,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -44451,6 +44992,7 @@ const get2TestRequestConfig: Get2TestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"get2Test\\",
 }
 
 /**
@@ -44525,6 +45067,7 @@ const picture_3dDetailTestRequestConfig: Picture_3dDetailTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"picture_3dDetailTest\\",
 }
 
 /**
@@ -44599,6 +45142,7 @@ const getTestRequestConfig: GetTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getTest\\",
 }
 
 /**
@@ -44674,6 +45218,7 @@ const formTestRequestConfig: FormTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"formTest\\",
 }
 
 /**
@@ -44758,6 +45303,7 @@ const jsonTestRequestConfig: JsonTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"jsonTest\\",
 }
 
 /**
@@ -44925,6 +45471,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -45027,6 +45574,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -45117,6 +45665,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -45230,6 +45779,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -45341,6 +45891,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -45447,6 +45998,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -45558,6 +46110,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -45655,6 +46208,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -45752,6 +46306,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -45834,6 +46389,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -45922,6 +46478,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -46019,6 +46576,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -46118,6 +46676,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -46224,6 +46783,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -46312,6 +46872,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -46400,6 +46961,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -46538,6 +47100,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -46630,6 +47193,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -46712,6 +47276,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -46815,6 +47380,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -46916,6 +47482,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -47014,6 +47581,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -47117,6 +47685,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -47204,6 +47773,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -47295,6 +47865,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -47373,6 +47944,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -47451,6 +48023,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -47538,6 +48111,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -47633,6 +48207,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -47733,6 +48308,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -47811,6 +48387,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -47889,6 +48466,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
@@ -48037,6 +48615,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  requestFunctionName: 'deleteMethodTest',
 }
 
 /**
@@ -48139,6 +48718,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
     required: ['result'],
     additionalProperties: false,
   },
+  requestFunctionName: 'getMethodTest',
 }
 
 /**
@@ -48241,6 +48821,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
     },
     additionalProperties: false,
   },
+  requestFunctionName: 'json5ResponseTest',
 }
 
 /**
@@ -48367,6 +48948,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'json5RequestTest',
 }
 
 /**
@@ -48492,6 +49074,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
     required: ['list'],
     additionalProperties: false,
   },
+  requestFunctionName: 'postMethodTest',
 }
 
 /**
@@ -48603,6 +49186,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
     required: ['err', 'msg'],
     additionalProperties: false,
   },
+  requestFunctionName: 'putMethodTest',
 }
 
 /**
@@ -48725,6 +49309,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
     required: ['err', 'msg'],
     additionalProperties: false,
   },
+  requestFunctionName: 'dataKeyExampleTest',
 }
 
 /**
@@ -48817,6 +49402,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  requestFunctionName: 'uploadTest',
 }
 
 /**
@@ -48912,6 +49498,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -48983,6 +49570,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: 'noResponseDataTest',
 }
 
 /**
@@ -49058,6 +49646,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {type: 'object', required: [], properties: {}, additionalProperties: false},
   responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  requestFunctionName: 'emptyResponseTest',
 }
 
 /**
@@ -49153,6 +49742,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'testTest',
 }
 
 /**
@@ -49251,6 +49841,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihiTest',
 }
 
 /**
@@ -49358,6 +49949,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
+  requestFunctionName: 'hihihi_1608478638207Test',
 }
 
 /**
@@ -49433,6 +50025,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: 'rawResponseTest',
 }
 
 /**
@@ -49508,6 +50101,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  requestFunctionName: 'headersTest',
 }
 
 /**
@@ -49595,6 +50189,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"required\\":[\\"id\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestFunctionName: \\"deleteMethodTest\\",
 }
 
 /**
@@ -49678,6 +50273,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"string\\",\\"description\\":\\"Y 值\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"result\\":{\\"type\\":\\"number\\",\\"description\\":\\"结果\\",\\"additionalProperties\\":false}},\\"required\\":[\\"result\\"],\\"additionalProperties\\":false},
+  requestFunctionName: \\"getMethodTest\\",
 }
 
 /**
@@ -49751,6 +50347,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"],\\"additionalProperties\\":false},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"],\\"additionalProperties\\":false},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"],\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestFunctionName: \\"json5ResponseTest\\",
 }
 
 /**
@@ -49845,6 +50442,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\",\\"additionalProperties\\":false},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\",\\"additionalProperties\\":false},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"additionalProperties\\":false,\\"minItems\\":0},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"json5RequestTest\\",
 }
 
 /**
@@ -49937,6 +50535,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\",\\"additionalProperties\\":false},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\",\\"additionalProperties\\":false},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\",\\"additionalProperties\\":false}},\\"required\\":[\\"page\\",\\"limit\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\",\\"additionalProperties\\":false}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"additionalProperties\\":false,\\"minItems\\":0}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
+  requestFunctionName: \\"postMethodTest\\",
 }
 
 /**
@@ -50026,6 +50625,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\",\\"additionalProperties\\":false},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\",\\"additionalProperties\\":false},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{},\\"description\\":\\"数据\\",\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  requestFunctionName: \\"putMethodTest\\",
 }
 
 /**
@@ -50120,6 +50720,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\",\\"additionalProperties\\":false},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\",\\"additionalProperties\\":false},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"success\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"成功啦\\",\\"additionalProperties\\":false}},\\"description\\":\\"数据\\",\\"required\\":[\\"success\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
 /**
@@ -50198,6 +50799,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"file\\",\\"name\\"],\\"properties\\":{\\"file\\":{\\"type\\":\\"file\\",\\"description\\":\\"文件\\",\\"tsType\\":\\"FileData\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"名称\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestFunctionName: \\"uploadTest\\",
 }
 
 /**
@@ -50280,6 +50882,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"cid\\":{\\"type\\":\\"string\\",\\"description\\":\\"cid\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"cid\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -50349,6 +50952,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: \\"noResponseDataTest\\",
 }
 
 /**
@@ -50418,6 +51022,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[],\\"properties\\":{},\\"additionalProperties\\":false},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestFunctionName: \\"emptyResponseTest\\",
 }
 
 /**
@@ -50496,6 +51101,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"23\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"pass\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"test\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"avatar\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"testTest\\",
 }
 
 /**
@@ -50582,6 +51188,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihiTest\\",
 }
 
 /**
@@ -50673,6 +51280,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"query\\":{\\"type\\":\\"string\\",\\"description\\":\\"22222\\",\\"additionalProperties\\":false},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false},\\"hihihi_1608478638207\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
+  requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
 
 /**
@@ -50742,6 +51350,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {},
+  requestFunctionName: \\"rawResponseTest\\",
 }
 
 /**
@@ -50811,6 +51420,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestFunctionName: \\"headersTest\\",
 }
 
 /**
