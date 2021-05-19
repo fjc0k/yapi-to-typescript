@@ -1,12 +1,28 @@
-<svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 250" color-interpolation-filters="sRGB">
-  <linearGradient id="a" x1="0%" y1="0%" y2="0%">
-    <stop offset="0%" stop-color="#d51007"/>
-    <stop offset="100%" stop-color="#ff8177"/>
-  </linearGradient>
-  <g fill="url(#a)" transform="translate(90.85 72)">
-    <path stroke="url(#a)" stroke-width="3" fill="none" d="M31.15 20V10h96v10M31.15 96v10h96V96"/>
-    <path stroke="url(#a)" stroke-width="3" fill="none" d="M41.15 10V0h96v20M127.15 101h10v-5"/>
-    <path fill="none" d="M0 20h158.3v76H0z"/>
-    <path d="M12.5 26v-3H53L28 63v30h-3V63L0 23h3.5l23 36.7L47.6 26H12.5zm42.8-3h50v3H81.8v67h-3V26H55.3v-3zm53 0h50v3h-23.5v67h-3V26h-23.5v-3z"/>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>yapi</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#F2F2F2" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="yapi">
+            <circle id="Oval-1" fill="url(#linearGradient-1)" fill-rule="nonzero" cx="50" cy="50" r="50"></circle>
+            <g id="编组" transform="translate(13.000000, 32.000000)">
+                <path d="M57.4300428,-7.76315079 C57.4300428,-7.76315079 57.9099084,18.7208287 57.3924178,23.344222 C56.8749271,27.9676153 54.177074,30.618237 50.1647357,30.618237 C46.1523973,30.618237 42.9024906,27.0259036 42.9024906,23.4691511 L42.9024906,-7.76198548 C42.9024906,-11.3210514 46.1539284,-14.9303358 50.1662667,-14.9122943 C54.1786051,-14.894117 57.4300428,-11.3210514 57.4300428,-7.76315079 Z" id="green" fill="#57CF27" fill-rule="nonzero" transform="translate(50.267541, 7.852971) rotate(90.000000) translate(-50.267541, -7.852971) "></path>
+                <path d="M44.0694041,15.2099118 L44.0694041,46.3124171 C44.0694041,50.3333529 40.8163768,53.5912995 36.803966,53.5912995 C32.7915554,53.5912995 29.5415899,49.998966 29.5415899,46.4422137 L29.5415899,15.2110771 C29.5415899,11.6520112 32.7930863,8.04272681 36.8054971,8.06076832 C40.8179077,8.07894556 44.0694041,11.6520112 44.0694041,15.2099118 Z" id="blue" fill="#2359F1" fill-rule="nonzero"></path>
+                <path d="M30.5275522,-7.85085636 L30.5275522,23.251649 C30.5275522,27.2725846 27.2745834,30.5305313 23.2622452,30.5305313 C19.2499067,30.5305313 16,26.9381979 16,23.3814455 L16,-7.8496912 C16,-11.408757 19.2514378,-15.0180414 23.2637761,-15 C27.2761144,-14.9818228 30.5275522,-11.408757 30.5275522,-7.85085636 Z" id="red" fill="#FF561B" fill-rule="nonzero" transform="translate(23.263776, 7.765266) rotate(90.000000) translate(-23.263776, -7.765266) "></path>
+                <g id="inner-round" transform="translate(32.025965, 2.826394)">
+                    <g id="path-2-link" fill="#000000" fill-rule="nonzero">
+                        <circle id="path-2" cx="4.68571906" cy="4.68571906" r="4.5763445"></circle>
+                    </g>
+                    <g id="path-2-link" fill="#F7F7F7">
+                        <circle id="path-2" cx="4.68571906" cy="4.68571906" r="4.5763445"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>
