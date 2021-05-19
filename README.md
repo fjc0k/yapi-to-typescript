@@ -4,9 +4,18 @@
 
 ## 文档
 
-- 官方文档：[点击进入查看文档 👉](https://fjc0k.github.io/yapi-to-typescript/handbook/)
+- [介绍](https://fjc0k.github.io/yapi-to-typescript/handbook/)
+- [配置](https://fjc0k.github.io/yapi-to-typescript/handbook/config.html)
+- [使用](https://fjc0k.github.io/yapi-to-typescript/handbook/usage.html)
+- [统一请求函数](https://fjc0k.github.io/yapi-to-typescript/handbook/request.html)
+- [更新日志](https://fjc0k.github.io/yapi-to-typescript/handbook/changelog.html)
+- [国内镜像 🇨🇳](https://fjc0k.gitee.io/yapi-to-typescript/handbook/)
 
-- 国内镜像：[点击进入查看文档 👉](https://fjc0k.gitee.io/yapi-to-typescript/handbook/)
+## 交流群
+
+钉钉扫码加入交流群：
+
+<img src="https://cdn.jsdelivr.net/gh/fjc0k/yapi-to-typescript/assets/dingtalk.jpg" width="300" />
 
 ## 许可
 
