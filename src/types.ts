@@ -117,6 +117,22 @@ export enum RequestBodyType {
   none = 'none',
 }
 
+/** 请求路径参数类型 */
+export enum RequestParamType {
+  /** 字符串 */
+  string = 'string',
+  /** 数字 */
+  number = 'number',
+}
+
+/** 请求查询参数类型 */
+export enum RequestQueryType {
+  /** 字符串 */
+  string = 'string',
+  /** 数字 */
+  number = 'number',
+}
+
 /** 请求表单条目类型 */
 export enum RequestFormItemType {
   /** 纯文本 */
@@ -186,6 +202,8 @@ export interface Interface {
     desc: string
     /** 示例 */
     example: string
+    /** 类型（YApi-X） */
+    type?: RequestParamType
   }>
   /** 仅 GET：请求串 */
   req_query: Array<{
@@ -197,6 +215,8 @@ export interface Interface {
     example: string
     /** 是否必需 */
     required: Required
+    /** 类型（YApi-X） */
+    type?: RequestQueryType
   }>
   /** 仅 POST：请求内容类型。为 text, file, raw 时不必特殊处理。 */
   req_body_type: RequestBodyType

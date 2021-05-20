@@ -481,6 +481,37 @@ export interface HeadersTestRequest {}
  */
 export interface HeadersTestResponse {}
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
 /* prettier-ignore-end */
 "
 `;
@@ -961,7 +992,38 @@ export interface HeadersTestRequest {}
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export interface HeadersTestResponse {}",
+export interface HeadersTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}",
 ]
 `;
 
@@ -2519,6 +2581,102 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {
+    type: 'object',
+    required: ['size', 'format', 'id'],
+    properties: {
+      size: {type: 'number', description: '大小', additionalProperties: false},
+      format: {type: 'string', description: '格式', additionalProperties: false},
+      id: {type: 'number', description: 'ID', additionalProperties: false},
+    },
+    additionalProperties: false,
+  },
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -3834,7 +3992,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"size\\",\\"format\\",\\"id\\"],\\"properties\\":{\\"size\\":{\\"type\\":\\"number\\",\\"description\\":\\"大小\\",\\"additionalProperties\\":false},\\"format\\":{\\"type\\":\\"string\\",\\"description\\":\\"格式\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"number\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -5348,6 +5589,93 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -6663,7 +6991,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -8349,6 +8760,93 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__projectA__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__projectA__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 const mockUrl_0_1_0_0 = 'http://foo.bar/mock/32' as any
 const devUrl_0_1_0_0 = '' as any
 const prodUrl_0_1_0_0 = 'http://prod.com/' as any
@@ -9736,6 +10234,93 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__projectB__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_1_0_0,
+  devUrl: devUrl_0_1_0_0,
+  prodUrl: prodUrl_0_1_0_0,
+  path: '/__projectB__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_1_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -11089,7 +11674,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__projectA__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__projectA__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__projectA__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
   "const mockUrl_0_1_0_0 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_1_0_0 = \\"\\" as any
 const prodUrl_0_1_0_0 = \\"http://prod.com/\\" as any
@@ -12399,7 +13067,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__projectB__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__projectB__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_1_0_0,
+  devUrl: devUrl_0_1_0_0,
+  prodUrl: prodUrl_0_1_0_0,
+  path: \\"/__projectB__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_1_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -13841,6 +14592,93 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/i-am-basepath/__with-basepath__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/i-am-basepath/__with-basepath__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -15194,7 +16032,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /i-am-basepath/__with-basepath__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/i-am-basepath/__with-basepath__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/i-am-basepath/__with-basepath__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -16556,6 +17477,88 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -17791,7 +18794,85 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -19153,6 +20234,88 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -20388,7 +21551,85 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
  * @请求头 \`GET /__hello__/headers_test\`
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -21830,6 +23071,93 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -23145,7 +24473,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -24427,6 +25838,83 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -25582,7 +27070,80 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -26464,6 +28025,58 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+export interface AvatarTestResponse {}
+
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -27267,7 +28880,58 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
 }
 
 
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+
+export interface AvatarTestResponse {}
+
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -28629,6 +30293,88 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -29864,7 +31610,85 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -31306,6 +33130,93 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 路径参数、查询参数类型 的 **请求类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 路径参数、查询参数类型 的 **返回类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 路径参数、查询参数类型 的 **请求配置的类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 路径参数、查询参数类型 的 **请求配置**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 路径参数、查询参数类型 的 **请求函数**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -32621,7 +34532,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 路径参数、查询参数类型 的 **请求类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 路径参数、查询参数类型 的 **返回类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 路径参数、查询参数类型 的 **请求配置的类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 路径参数、查询参数类型 的 **请求配置**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 路径参数、查询参数类型 的 **请求函数**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -34061,6 +36055,93 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  */
 export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(
   headersTestRequestConfig,
+)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
 )
 
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
@@ -35824,7 +37905,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
   "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_2 = \\"\\" as any
 const prodUrl_0_0_0_2 = \\"http://prod.com/\\" as any
@@ -37657,6 +39821,93 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -39010,7 +41261,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;
 
@@ -40452,6 +42786,93 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 const mockUrl_0_0_0_1 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_1 = '' as any
 const prodUrl_0_0_0_1 = 'http://prod.com/' as any
@@ -41889,7 +44310,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
   "const mockUrl_0_0_0_1 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_1 = \\"\\" as any
 const prodUrl_0_0_0_1 = \\"http://prod.com/\\" as any
@@ -43417,6 +45921,38 @@ const headersTestRequestConfig = {
  * @更新时间 1619432971
  */
 export const headersTest = makeRequest(headersTestRequestConfig);
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig = {
+    mockUrl: mockUrl_0_0_0_1,
+    devUrl: devUrl_0_0_0_1,
+    prodUrl: prodUrl_0_0_0_1,
+    path: '/__hello__/user/:id/avatar_test',
+    method: Method.GET,
+    requestHeaders: {},
+    requestBodyType: RequestBodyType.query,
+    responseBodyType: ResponseBodyType.json,
+    dataKey: dataKey_0_0_0_1,
+    paramNames: ['id'],
+    queryNames: ['size', 'format'],
+    requestDataOptional: false,
+    requestDataJsonSchema: {},
+    responseDataJsonSchema: {},
+    requestFunctionName: 'avatarTest',
+};
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest(avatarTestRequestConfig);
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32';
 const devUrl_0_0_0_2 = '';
 const prodUrl_0_0_0_2 = 'http://prod.com/';
@@ -44922,7 +47458,90 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
   "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_2 = \\"\\" as any
 const prodUrl_0_0_0_2 = \\"http://prod.com/\\" as any
@@ -46988,6 +49607,104 @@ export const useHeadersTest = makeRequestHook<
   ReturnType<typeof headersTest>
 >(headersTest)
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **React Hook**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const useAvatarTest = makeRequestHook<AvatarTestRequest, AvatarTestRequestConfig, ReturnType<typeof avatarTest>>(
+  avatarTest,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -48485,7 +51202,99 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const useHeadersTest = makeRequestHook<HeadersTestRequest, HeadersTestRequestConfig, ReturnType<typeof headersTest>>(headersTest)",
+export const useHeadersTest = makeRequestHook<HeadersTestRequest, HeadersTestRequestConfig, ReturnType<typeof headersTest>>(headersTest)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **React Hook**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const useAvatarTest = makeRequestHook<AvatarTestRequest, AvatarTestRequestConfig, ReturnType<typeof avatarTest>>(avatarTest)",
 ]
 `;
 
@@ -50115,6 +52924,102 @@ export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, 
   headersTestRequestConfig,
 )
 
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number
+  /**
+   * 格式
+   */
+  format: string
+  /**
+   * ID
+   */
+  id: number
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/user/:id/avatar_test',
+    undefined,
+    'id',
+    'size' | 'format',
+    false
+  >
+>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/user/:id/avatar_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: ['id'],
+  queryNames: ['size', 'format'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {
+    type: 'object',
+    required: ['size', 'format', 'id'],
+    properties: {
+      size: {type: 'number', description: '大小', additionalProperties: false},
+      format: {type: 'string', description: '格式', additionalProperties: false},
+      id: {type: 'number', description: 'ID', additionalProperties: false},
+    },
+    additionalProperties: false,
+  },
+  responseDataJsonSchema: {},
+  requestFunctionName: 'avatarTest',
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
+  avatarTestRequestConfig,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -51430,6 +54335,89 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
  * @请求头 \`GET /__hello__/headers_test\`
  * @更新时间 1619432971
  */
-export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)",
+export const headersTest = makeRequest<HeadersTestRequest, HeadersTestResponse, HeadersTestRequestConfig>(headersTestRequestConfig)
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestRequest {
+  /**
+   * 大小
+   */
+  size: number;
+  /**
+   * 格式
+   */
+  format: string;
+  /**
+   * ID
+   */
+  id: number;
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+type AvatarTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/user/:id/avatar_test\\",
+  undefined,
+  'id',
+  'size' | 'format',
+  false
+>>
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+const avatarTestRequestConfig: AvatarTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/user/:id/avatar_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [\\"id\\"],
+  queryNames: [\\"size\\",\\"format\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"size\\",\\"format\\",\\"id\\"],\\"properties\\":{\\"size\\":{\\"type\\":\\"number\\",\\"description\\":\\"大小\\",\\"additionalProperties\\":false},\\"format\\":{\\"type\\":\\"string\\",\\"description\\":\\"格式\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"number\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"avatarTest\\",
+}
+
+/**
+ * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/user/:id/avatar_test\`
+ * @更新时间 1621501310
+ */
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
 ]
 `;

@@ -77,6 +77,7 @@ const mockData: Record<string, () => any> = {
           req_query: [
             {
               required: '1',
+              type: 'string',
               _id: '5cbdd1c293bc6574a2de33db',
               name: 'x',
               example: '100',
@@ -84,6 +85,7 @@ const mockData: Record<string, () => any> = {
             },
             {
               required: '0',
+              type: 'string',
               _id: '5cbdd1c293bc6574a2de33da',
               name: 'y',
               example: '2',
@@ -242,12 +244,14 @@ const mockData: Record<string, () => any> = {
           req_query: [
             {
               required: '1',
+              type: 'string',
               _id: '5cbdd2b793bc6574a2de33e2',
               name: 'id',
               desc: '',
             },
             {
               required: '0',
+              type: 'string',
               _id: '5cbdd2b793bc6574a2de33e1',
               name: 'namre',
               example: '',
@@ -306,12 +310,14 @@ const mockData: Record<string, () => any> = {
           req_query: [
             {
               required: '1',
+              type: 'string',
               _id: '5cbdd3e093bc6574a2de33ec',
               name: 'id',
               desc: '',
             },
             {
               required: '0',
+              type: 'string',
               _id: '5cbdd3e093bc6574a2de33eb',
               name: 'namre',
               example: '',
@@ -426,6 +432,7 @@ const mockData: Record<string, () => any> = {
           req_query: [
             {
               required: '1',
+              type: 'string',
               _id: '5fdf6bed71df65ad10036c29',
               name: 'cid',
               desc: 'cid',
@@ -595,27 +602,32 @@ const mockData: Record<string, () => any> = {
           project_id: 11,
           req_params: [
             {
+              type: 'string',
               _id: '5d80d7103667dc0844b411d7',
               name: 'id',
               example: 'ID',
               desc: '23',
             },
             {
+              type: 'string',
               _id: '5d80d7103667dc0844b411d6',
               name: 'name',
               desc: '',
             },
             {
+              type: 'string',
               _id: '5d80d7103667dc0844b411d5',
               name: 'pass',
               desc: '',
             },
             {
+              type: 'string',
               _id: '5d80d7103667dc0844b411d4',
               name: 'test',
               desc: '',
             },
             {
+              type: 'string',
               _id: '5d80d7103667dc0844b411d3',
               name: 'avatar',
               desc: '',
@@ -662,12 +674,14 @@ const mockData: Record<string, () => any> = {
           project_id: 11,
           req_params: [
             {
+              type: 'string',
               _id: '5d80e91e3667dc0844b411df',
               name: 'hihihi',
               example: 'demo',
               desc: '嗨咯',
             },
             {
+              type: 'string',
               _id: '5d80e91e3667dc0844b411de',
               name: 'id',
               example: '110',
@@ -717,18 +731,21 @@ const mockData: Record<string, () => any> = {
           project_id: 11,
           req_params: [
             {
+              type: 'string',
               _id: '5fdf6fcb71df657be3036c36',
               name: 'hihihi',
               example: 'demo',
               desc: '嗨咯',
             },
             {
+              type: 'string',
               _id: '5fdf6fcb71df65b48f036c35',
               name: 'id',
               example: '110',
               desc: 'ID',
             },
             {
+              type: 'string',
               _id: '5fdf6fcb71df652a3b036c34',
               name: 'hihihi_1608478638207',
               desc: '',
@@ -738,6 +755,7 @@ const mockData: Record<string, () => any> = {
           req_query: [
             {
               required: '0',
+              type: 'string',
               _id: '5fdf6fcb71df655a14036c37',
               name: 'query',
               desc: '22222',
@@ -762,6 +780,61 @@ const mockData: Record<string, () => any> = {
           add_time: 1610557430,
           up_time: 1610557430,
           __v: 0,
+        },
+        {
+          query_path: {
+            path: '/user/:id/avatar',
+            params: [],
+          },
+          edit_uid: 0,
+          status: 'undone',
+          type: 'var',
+          req_body_is_json_schema: true,
+          res_body_is_json_schema: true,
+          api_opened: false,
+          index: 0,
+          tag: [],
+          _id: 1137,
+          method: 'GET',
+          catid: 18,
+          title: '路径参数、查询参数类型',
+          path: '/user/:id/avatar',
+          project_id: 11,
+          req_params: [
+            {
+              type: 'number',
+              _id: '60a6257ef009d420d84d4341',
+              name: 'id',
+              desc: 'ID',
+            },
+          ],
+          res_body_type: 'json',
+          uid: 11,
+          add_time: 1621501275,
+          up_time: 1621501310,
+          req_query: [
+            {
+              required: '1',
+              type: 'number',
+              _id: '60a6257ef009d449004d4343',
+              name: 'size',
+              desc: '大小',
+            },
+            {
+              required: '1',
+              type: 'string',
+              _id: '60a6257ef009d4e63a4d4342',
+              name: 'format',
+              example: '',
+              desc: '格式',
+            },
+          ],
+          req_headers: [],
+          req_body_form: [],
+          __v: 0,
+          desc: '',
+          markdown: '',
+          res_body: '',
         },
         {
           query_path: {
@@ -904,12 +977,14 @@ const mockData: Record<string, () => any> = {
           req_query: [
             {
               required: '1',
+              type: 'string',
               _id: '5eba060b3a90e2c457f435a8',
               name: '   a',
               desc: '',
             },
             {
               required: '1',
+              type: 'string',
               _id: '5eba060b3a90e2a675f435a7',
               name: ' b',
               example: '',
@@ -917,6 +992,7 @@ const mockData: Record<string, () => any> = {
             },
             {
               required: '1',
+              type: 'string',
               _id: '5eba060b3a90e23035f435a6',
               name: 'c ',
               example: '',
@@ -924,6 +1000,7 @@ const mockData: Record<string, () => any> = {
             },
             {
               required: '1',
+              type: 'string',
               _id: '5eba060b3a90e24fc3f435a5',
               name: '    d    e   ',
               example: '',
@@ -964,12 +1041,14 @@ const mockData: Record<string, () => any> = {
           req_query: [
             {
               required: '1',
+              type: 'string',
               _id: '5eba069e3a90e203f9f435b9',
               name: '   a',
               desc: '',
             },
             {
               required: '1',
+              type: 'string',
               _id: '5eba069e3a90e2235af435b8',
               name: ' b',
               example: '',
@@ -977,6 +1056,7 @@ const mockData: Record<string, () => any> = {
             },
             {
               required: '1',
+              type: 'string',
               _id: '5eba069e3a90e24aabf435b7',
               name: 'c ',
               example: '',
@@ -984,6 +1064,7 @@ const mockData: Record<string, () => any> = {
             },
             {
               required: '1',
+              type: 'string',
               _id: '5eba069e3a90e2c36ef435b6',
               name: '    d    e   ',
               example: '',
@@ -1063,12 +1144,14 @@ const mockData: Record<string, () => any> = {
           req_query: [
             {
               required: '1',
+              type: 'string',
               _id: '5eba07063a90e2a0aff435cb',
               name: '   a',
               desc: '',
             },
             {
               required: '1',
+              type: 'string',
               _id: '5eba07063a90e25183f435ca',
               name: ' b',
               example: '',
@@ -1076,6 +1159,7 @@ const mockData: Record<string, () => any> = {
             },
             {
               required: '1',
+              type: 'string',
               _id: '5eba07063a90e22770f435c9',
               name: 'c ',
               example: '',
@@ -1083,6 +1167,7 @@ const mockData: Record<string, () => any> = {
             },
             {
               required: '1',
+              type: 'string',
               _id: '5eba07063a90e2377cf435c8',
               name: '    d    e   ',
               example: '',

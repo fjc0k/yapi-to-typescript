@@ -276,7 +276,7 @@ export function getRequestDataJsonSchema(
       interfaceInfo.req_query.map<PropDefinition>(item => ({
         name: item.name,
         required: item.required === Required.true,
-        type: 'string',
+        type: item.type || 'string',
         comment: item.desc,
       })),
     )
@@ -300,7 +300,7 @@ export function getRequestDataJsonSchema(
       interfaceInfo.req_params.map<PropDefinition>(item => ({
         name: item.name,
         required: true,
-        type: 'string',
+        type: item.type || 'string',
         comment: item.desc,
       })),
     )
