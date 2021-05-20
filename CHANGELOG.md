@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.21.0"></a>
+
+# [3.21.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.20.0...v3.21.0) (2021-05-20)
+
+### Features
+
+- 支持解析路径参数、查询参数的类型（YApi-X 已支持为路径参数、查询参数设置类型） ([6a37735](https://github.com/fjc0k/yapi-to-typescript/commit/6a37735))
+
 <a name="3.20.0"></a>
 
 # [3.20.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.19.0...v3.20.0) (2021-05-13)
