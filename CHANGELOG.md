@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.21.1"></a>
+
+## [3.21.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.21.0...v3.21.1) (2021-05-21)
+
+### Bug Fixes
+
+- 删除 default，防止 json-schema-to-typescript 根据它推测类型 (close: [#52](https://github.com/fjc0k/yapi-to-typescript/issues/52)) ([1c16ccb](https://github.com/fjc0k/yapi-to-typescript/commit/1c16ccb))
+- 处理类型名称为标准的 JSONSchema 类型名称 (close: [#53](https://github.com/fjc0k/yapi-to-typescript/issues/53)) ([3e0408b](https://github.com/fjc0k/yapi-to-typescript/commit/3e0408b))
+
 <a name="3.21.0"></a>
 
 # [3.21.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.20.0...v3.21.0) (2021-05-20)

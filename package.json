@@ -1,6 +1,6 @@
 {
   "name": "yapi-to-typescript",
-  "version": "3.21.0",
+  "version": "3.21.1",
   "description": "根据 YApi 的接口定义生成 TypeScript/JavaScript 的接口类型及其请求函数代码。",
   "keywords": [
     "yapi",
