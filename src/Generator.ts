@@ -11,6 +11,7 @@ import {
   groupBy,
   isEmpty,
   isFunction,
+  last,
   memoize,
   noop,
   omit,
@@ -37,6 +38,7 @@ import {
   getRequestDataJsonSchema,
   getResponseDataJsonSchema,
   jsonSchemaToType,
+  sortByWeights,
   throwError,
 } from './utils'
 import { SwaggerToYApiServer } from './SwaggerToYApiServer'
@@ -134,158 +136,188 @@ export class Generator {
                   // 顺序化
                   categoryIds = categoryIds.sort()
 
-                  const codes = await Promise.all(
-                    categoryIds.map<
-                      Promise<{
-                        outputFilePath: string
-                        code: string
-                        weights: number[]
-                      }>
-                    >(async (id, categoryIndex2) => {
-                      categoryConfig = {
-                        ...categoryConfig,
-                        id: id,
-                      }
-                      const syntheticalConfig: SyntheticalConfig = {
-                        ...serverConfig,
-                        ...projectConfig,
-                        ...categoryConfig,
-                        mockUrl: projectInfo.getMockUrl(),
-                      }
-                      syntheticalConfig.target =
-                        syntheticalConfig.target || 'typescript'
-                      syntheticalConfig.devUrl = projectInfo.getDevUrl(
-                        syntheticalConfig.devEnvName!,
-                      )
-                      syntheticalConfig.prodUrl = projectInfo.getProdUrl(
-                        syntheticalConfig.prodEnvName!,
-                      )
-                      const interfaceList = (
-                        await this.fetchInterfaceList(syntheticalConfig)
-                      )
-                        .map(interfaceInfo => {
-                          // 实现 _project 字段
-                          interfaceInfo._project = omit(projectInfo, [
-                            'cats',
-                            'getMockUrl',
-                            'getDevUrl',
-                            'getProdUrl',
-                          ])
-                          return interfaceInfo
-                        })
-                        .sort((a, b) => a._id - b._id)
-                      const outputFilePath = path.resolve(
-                        this.options.cwd,
-                        syntheticalConfig.outputFilePath!,
-                      )
-                      const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}_${categoryIndex2}`
-                      const categoryCode =
-                        interfaceList.length === 0
-                          ? ''
-                          : [
-                              syntheticalConfig.typesOnly
-                                ? ''
-                                : dedent`
-                                  const mockUrl${categoryUID} = ${JSON.stringify(
-                                    syntheticalConfig.mockUrl,
-                                  )} as any
-                                  const devUrl${categoryUID} = ${JSON.stringify(
-                                    syntheticalConfig.devUrl,
-                                  )} as any
-                                  const prodUrl${categoryUID} = ${JSON.stringify(
-                                    syntheticalConfig.prodUrl,
-                                  )} as any
-                                  const dataKey${categoryUID} = ${JSON.stringify(
-                                    syntheticalConfig.dataKey,
-                                  )} as any
-                                `,
-                              ...(await Promise.all(
-                                interfaceList
-                                  .map(interfaceInfo => {
-                                    const _interfaceInfo = isFunction(
-                                      syntheticalConfig.preproccessInterface,
-                                    )
-                                      ? syntheticalConfig.preproccessInterface(
-                                          cloneDeepFast(interfaceInfo),
-                                          changeCase,
-                                        )
-                                      : interfaceInfo
-                                    return _interfaceInfo
-                                  })
-                                  .filter(Boolean)
-                                  .map((interfaceInfo: any) =>
-                                    this.generateInterfaceCode(
-                                      syntheticalConfig,
-                                      interfaceInfo,
-                                      categoryUID,
-                                    ),
-                                  ),
-                              )),
-                            ].join('\n\n')
-                      if (!outputFileList[outputFilePath]) {
-                        outputFileList[outputFilePath] = {
-                          syntheticalConfig,
-                          content: [],
-                          requestFunctionFilePath: syntheticalConfig.requestFunctionFilePath
-                            ? path.resolve(
-                                this.options.cwd,
-                                syntheticalConfig.requestFunctionFilePath,
-                              )
-                            : path.join(
-                                path.dirname(outputFilePath),
-                                'request.ts',
-                              ),
-                          requestHookMakerFilePath:
-                            syntheticalConfig.reactHooks &&
-                            syntheticalConfig.reactHooks.enabled
-                              ? syntheticalConfig.reactHooks
-                                  .requestHookMakerFilePath
-                                ? path.resolve(
-                                    this.options.cwd,
-                                    syntheticalConfig.reactHooks
-                                      .requestHookMakerFilePath,
-                                  )
-                                : path.join(
-                                    path.dirname(outputFilePath),
-                                    'makeRequestHook.ts',
-                                  )
-                              : '',
+                  const codes = (
+                    await Promise.all(
+                      categoryIds.map<
+                        Promise<
+                          Array<{
+                            outputFilePath: string
+                            code: string
+                            weights: number[]
+                          }>
+                        >
+                      >(async (id, categoryIndex2) => {
+                        categoryConfig = {
+                          ...categoryConfig,
+                          id: id,
                         }
-                      }
-                      return {
-                        outputFilePath: outputFilePath,
-                        code: categoryCode,
-                        weights: [
-                          serverIndex,
-                          projectIndex,
-                          categoryIndex,
-                          categoryIndex2,
-                        ],
-                      }
-                    }),
-                  )
+                        const syntheticalConfig: SyntheticalConfig = {
+                          ...serverConfig,
+                          ...projectConfig,
+                          ...categoryConfig,
+                          mockUrl: projectInfo.getMockUrl(),
+                        }
+                        syntheticalConfig.target =
+                          syntheticalConfig.target || 'typescript'
+                        syntheticalConfig.devUrl = projectInfo.getDevUrl(
+                          syntheticalConfig.devEnvName!,
+                        )
+                        syntheticalConfig.prodUrl = projectInfo.getProdUrl(
+                          syntheticalConfig.prodEnvName!,
+                        )
+
+                        // 接口列表
+                        let interfaceList = await this.fetchInterfaceList(
+                          syntheticalConfig,
+                        )
+                        interfaceList = interfaceList
+                          .map(interfaceInfo => {
+                            // 实现 _project 字段
+                            interfaceInfo._project = omit(projectInfo, [
+                              'cats',
+                              'getMockUrl',
+                              'getDevUrl',
+                              'getProdUrl',
+                            ])
+                            // 预处理
+                            const _interfaceInfo = isFunction(
+                              syntheticalConfig.preproccessInterface,
+                            )
+                              ? syntheticalConfig.preproccessInterface(
+                                  cloneDeepFast(interfaceInfo),
+                                  changeCase,
+                                )
+                              : interfaceInfo
+
+                            return _interfaceInfo
+                          })
+                          .filter(Boolean) as any
+                        interfaceList.sort((a, b) => a._id - b._id)
+
+                        const interfaceCodes = await Promise.all(
+                          interfaceList.map<
+                            Promise<{
+                              categoryUID: string
+                              outputFilePath: string
+                              weights: number[]
+                              code: string
+                            }>
+                          >(async interfaceInfo => {
+                            const outputFilePath = path.resolve(
+                              this.options.cwd,
+                              typeof syntheticalConfig.outputFilePath ===
+                                'function'
+                                ? syntheticalConfig.outputFilePath(
+                                    interfaceInfo,
+                                    changeCase,
+                                  )
+                                : syntheticalConfig.outputFilePath!,
+                            )
+                            const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}_${categoryIndex2}`
+                            const code = await this.generateInterfaceCode(
+                              syntheticalConfig,
+                              interfaceInfo,
+                              categoryUID,
+                            )
+                            const weights: number[] = [
+                              serverIndex,
+                              projectIndex,
+                              categoryIndex,
+                              categoryIndex2,
+                            ]
+                            return {
+                              categoryUID,
+                              outputFilePath,
+                              weights,
+                              code,
+                            }
+                          }),
+                        )
+
+                        const groupedInterfaceCodes = groupBy(
+                          interfaceCodes,
+                          item => item.outputFilePath,
+                        )
+                        return Object.keys(groupedInterfaceCodes).map(
+                          outputFilePath => {
+                            const categoryCode = [
+                              ...uniq(
+                                sortByWeights(
+                                  groupedInterfaceCodes[outputFilePath],
+                                ).map(item => item.categoryUID),
+                              ).map(categoryUID =>
+                                syntheticalConfig.typesOnly
+                                  ? ''
+                                  : dedent`
+                                      const mockUrl${categoryUID} = ${JSON.stringify(
+                                      syntheticalConfig.mockUrl,
+                                    )} as any
+                                      const devUrl${categoryUID} = ${JSON.stringify(
+                                      syntheticalConfig.devUrl,
+                                    )} as any
+                                      const prodUrl${categoryUID} = ${JSON.stringify(
+                                      syntheticalConfig.prodUrl,
+                                    )} as any
+                                      const dataKey${categoryUID} = ${JSON.stringify(
+                                      syntheticalConfig.dataKey,
+                                    )} as any
+                                    `,
+                              ),
+                              ...sortByWeights(
+                                groupedInterfaceCodes[outputFilePath],
+                              ).map(item => item.code),
+                            ]
+                              .filter(Boolean)
+                              .join('\n\n')
+                            if (!outputFileList[outputFilePath]) {
+                              outputFileList[outputFilePath] = {
+                                syntheticalConfig,
+                                content: [],
+                                requestFunctionFilePath: syntheticalConfig.requestFunctionFilePath
+                                  ? path.resolve(
+                                      this.options.cwd,
+                                      syntheticalConfig.requestFunctionFilePath,
+                                    )
+                                  : path.join(
+                                      path.dirname(outputFilePath),
+                                      'request.ts',
+                                    ),
+                                requestHookMakerFilePath:
+                                  syntheticalConfig.reactHooks &&
+                                  syntheticalConfig.reactHooks.enabled
+                                    ? syntheticalConfig.reactHooks
+                                        .requestHookMakerFilePath
+                                      ? path.resolve(
+                                          this.options.cwd,
+                                          syntheticalConfig.reactHooks
+                                            .requestHookMakerFilePath,
+                                        )
+                                      : path.join(
+                                          path.dirname(outputFilePath),
+                                          'makeRequestHook.ts',
+                                        )
+                                    : '',
+                              }
+                            }
+                            return {
+                              outputFilePath: outputFilePath,
+                              code: categoryCode,
+                              weights: last(
+                                sortByWeights(
+                                  groupedInterfaceCodes[outputFilePath],
+                                ),
+                              )!.weights,
+                            }
+                          },
+                        )
+                      }),
+                    )
+                  ).flat()
+
                   for (const groupedCodes of values(
                     groupBy(codes, item => item.outputFilePath),
                   )) {
-                    groupedCodes.sort((a, b) => {
-                      const x = a.weights.length > b.weights.length ? b : a
-                      const minLen = Math.min(
-                        a.weights.length,
-                        b.weights.length,
-                      )
-                      const maxLen = Math.max(
-                        a.weights.length,
-                        b.weights.length,
-                      )
-                      x.weights.push(...new Array(maxLen - minLen).fill(0))
-                      const w = a.weights.reduce((w, _, i) => {
-                        if (w === 0) {
-                          w = a.weights[i] - b.weights[i]
-                        }
-                        return w
-                      }, 0)
-                      return w
-                    })
+                    sortByWeights(groupedCodes)
                     outputFileList[groupedCodes[0].outputFilePath].content.push(
                       ...groupedCodes.map(item => item.code),
                     )

@@ -449,7 +449,9 @@ export interface SharedConfig {
    *
    * @example 'src/api/index.ts'
    */
-  outputFilePath?: string
+  outputFilePath?:
+    | string
+    | ((interfaceInfo: Interface, changeCase: ChangeCase) => string)
 
   /**
    * 请求函数文件路径。

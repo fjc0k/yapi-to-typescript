@@ -20,6 +20,7 @@ const generatorFactory = ({
   jsonSchema,
   onlyMatchPath,
   comment,
+  outputFilePath,
 }: {
   id: OneOrMore<
     | 0
@@ -37,6 +38,7 @@ const generatorFactory = ({
   jsonSchema?: ServerConfig['jsonSchema']
   onlyMatchPath?: RegExp
   comment?: ServerConfig['comment']
+  outputFilePath?: (apiDir: string) => ServerConfig['outputFilePath']
 }) => {
   const apiDir = tempy.directory()
   return new Generator({
@@ -44,7 +46,9 @@ const generatorFactory = ({
     typesOnly: typesOnly,
     target: target,
     prodEnvName: 'production',
-    outputFilePath: path.join(apiDir, 'index.ts'),
+    outputFilePath: outputFilePath
+      ? outputFilePath(apiDir)
+      : path.join(apiDir, 'index.ts'),
     requestFunctionFilePath: path.join(apiDir, 'request.ts'),
     reactHooks: {
       enabled: enableReactHooks,
@@ -537,6 +541,20 @@ describe('Generator', () => {
       expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
         '接口文件',
       )
+    })
+  })
+
+  test('outputFilePath 可以是函数', async () => {
+    const generator = generatorFactory({
+      id: [CatId.test2, CatId.issues],
+      outputFilePath: apiDir => interfaceInfo =>
+        path.join(apiDir, `${interfaceInfo._category.name}.ts`),
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }, outputFilePath) => {
+      expect(path.basename(outputFilePath)).toMatchSnapshot('输出路径')
+      expect(content).toMatchSnapshot('输出内容')
     })
   })
 })

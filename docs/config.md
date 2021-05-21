@@ -65,11 +65,21 @@ npx ytt init -c config/ytt.ts
 
 ### outputFilePath
 
-- 类型：`string`
+- 类型：`string | ((interfaceInfo: Interface, changeCase: ChangeCase) => string)`
 - 默认值：`(必填)`
 - 说明：
 
 输出文件路径。可以是 `相对路径` 或 `绝对路径`。如 `'src/api/index.ts'`。
+
+你可以将之设置为函数实现类似接口分模块的需求<Badge>3.22.0+</Badge>：
+
+```javascript
+import { defineConfig } from 'yapi-to-typescript'
+
+export default defineConfig({
+  outputFilePath: interfaceInfo => `src/api/${interfaceInfo._category.name}.ts`,
+})
+```
 
 ### requestFunctionFilePath
 
