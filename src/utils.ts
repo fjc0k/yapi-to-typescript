@@ -75,6 +75,9 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
   delete jsonSchema.$ref
   delete jsonSchema.$$ref
 
+  // 删除 default，防止 json-schema-to-typescript 根据它推测类型
+  delete jsonSchema.default
+
   // Mock.toJSONSchema 产生的 properties 为数组，然而 JSONSchema4 的 properties 为对象
   if (isArray(jsonSchema.properties)) {
     jsonSchema.properties = (jsonSchema.properties as JSONSchema4[]).reduce<
