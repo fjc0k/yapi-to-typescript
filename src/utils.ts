@@ -15,7 +15,7 @@ import {
   Required,
   ResponseBodyType,
 } from './types'
-import { JSONSchema4 } from 'json-schema'
+import { JSONSchema4, JSONSchema4TypeName } from 'json-schema'
 
 /**
  * 抛出错误。
@@ -77,6 +77,22 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
 
   // 删除 default，防止 json-schema-to-typescript 根据它推测类型
   delete jsonSchema.default
+
+  // 处理类型名称为标准的 JSONSchema 类型名称
+  if (jsonSchema.type) {
+    const isMultiple = Array.isArray(jsonSchema.type)
+    const types = castArray(jsonSchema.type).map(type => {
+      // 所有类型转成小写，如：String -> string
+      type = type.toLowerCase() as any
+      // 映射为标准的 JSONSchema 类型
+      type =
+        ({
+          int: 'integer',
+        } as Record<string, JSONSchema4TypeName>)[type] || type
+      return type
+    })
+    jsonSchema.type = isMultiple ? types : types[0]
+  }
 
   // Mock.toJSONSchema 产生的 properties 为数组，然而 JSONSchema4 的 properties 为对象
   if (isArray(jsonSchema.properties)) {
