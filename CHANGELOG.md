@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.22.0"></a>
+
+# [3.22.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.21.1...v3.22.0) (2021-05-21)
+
+### Features
+
+- outputFilePath 支持函数 ([f3489fa](https://github.com/fjc0k/yapi-to-typescript/commit/f3489fa))
+
 <a name="3.21.1"></a>
 
 ## [3.21.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.21.0...v3.21.1) (2021-05-21)
