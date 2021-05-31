@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.22.1"></a>
+
+## [3.22.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.22.0...v3.22.1) (2021-05-31)
+
+### Bug Fixes
+
+- 将更多的 Java 基本类型处理为 JSONSchema 类型 ([46eb622](https://github.com/fjc0k/yapi-to-typescript/commit/46eb622))
+
 <a name="3.22.0"></a>
 
 # [3.22.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.21.1...v3.22.0) (2021-05-21)
