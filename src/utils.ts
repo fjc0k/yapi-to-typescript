@@ -87,7 +87,14 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
       // 映射为标准的 JSONSchema 类型
       type =
         ({
+          byte: 'integer',
+          short: 'integer',
           int: 'integer',
+          long: 'integer',
+          float: 'number',
+          double: 'number',
+          char: 'string',
+          void: 'null',
         } as Record<string, JSONSchema4TypeName>)[type] || type
       return type
     })
