@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.22.3"></a>
+
+## [3.22.3](https://github.com/fjc0k/yapi-to-typescript/compare/v3.22.2...v3.22.3) (2021-06-04)
+
+### Bug Fixes
+
+- **cli:** 当长时间处于获取数据状态时, 予以提示 ([c632ee0](https://github.com/fjc0k/yapi-to-typescript/commit/c632ee0))
+
 <a name="3.22.2"></a>
 
 ## [3.22.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.22.1...v3.22.2) (2021-06-04)
