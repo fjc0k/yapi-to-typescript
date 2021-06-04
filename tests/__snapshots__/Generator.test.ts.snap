@@ -1551,7 +1551,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
-    properties: {id: {type: 'string', description: 'ID', additionalProperties: false}},
+    properties: {id: {type: 'string', description: 'ID'}},
     required: ['id'],
     additionalProperties: false,
   },
@@ -1647,10 +1647,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataJsonSchema: {
     type: 'object',
     required: ['x'],
-    properties: {
-      x: {type: 'string', description: 'X 值', additionalProperties: false},
-      y: {type: 'string', description: 'Y 值', additionalProperties: false},
-    },
+    properties: {x: {type: 'string', description: 'X 值'}, y: {type: 'string', description: 'Y 值'}},
     additionalProperties: false,
   },
   responseDataJsonSchema: {},
@@ -1834,24 +1831,14 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataJsonSchema: {
     type: 'object',
     properties: {
-      id: {type: 'integer', description: '1', additionalProperties: false},
-      name: {type: 'string', description: '\\"方剑成\\"', additionalProperties: false},
-      likes: {
-        type: 'array',
-        items: {type: 'string', description: '\\"photo\\"', additionalProperties: false},
-        description: '[\\"photo\\",2]',
-        additionalProperties: false,
-        minItems: 0,
-      },
+      id: {type: 'integer', description: '1'},
+      name: {type: 'string', description: '\\"方剑成\\"'},
+      likes: {type: 'array', items: {type: 'string', description: '\\"photo\\"'}, description: '[\\"photo\\",2]', minItems: 0},
       nest: {
         type: 'object',
         properties: {
-          x: {type: 'integer', description: '1', additionalProperties: false},
-          y: {
-            type: 'object',
-            properties: {z: {type: 'string', description: '\\"2\\"', additionalProperties: false}},
-            additionalProperties: false,
-          },
+          x: {type: 'integer', description: '1'},
+          y: {type: 'object', properties: {z: {type: 'string', description: '\\"2\\"'}}, additionalProperties: false},
         },
         additionalProperties: false,
       },
@@ -1959,9 +1946,9 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataJsonSchema: {
     type: 'object',
     properties: {
-      page: {type: 'number', description: '页码', additionalProperties: false},
-      limit: {type: 'number', description: '每页数量', additionalProperties: false},
-      keyword: {type: 'string', description: '关键词', additionalProperties: false},
+      page: {type: 'number', description: '页码'},
+      limit: {type: 'number', description: '每页数量'},
+      keyword: {type: 'string', description: '关键词'},
     },
     required: ['page', 'limit'],
     additionalProperties: false,
@@ -2063,9 +2050,9 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
     type: 'object',
     required: ['x', 'id'],
     properties: {
-      x: {type: 'string', description: 'X 值', additionalProperties: false},
-      id: {type: 'string', description: '', additionalProperties: false},
-      namre: {type: 'string', description: '', additionalProperties: false},
+      x: {type: 'string', description: 'X 值'},
+      id: {type: 'string', description: ''},
+      namre: {type: 'string', description: ''},
     },
     additionalProperties: false,
   },
@@ -2171,9 +2158,9 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
     type: 'object',
     required: ['x', 'id'],
     properties: {
-      x: {type: 'string', description: 'X 值', additionalProperties: false},
-      id: {type: 'string', description: '', additionalProperties: false},
-      namre: {type: 'string', description: '', additionalProperties: false},
+      x: {type: 'string', description: 'X 值'},
+      id: {type: 'string', description: ''},
+      namre: {type: 'string', description: ''},
     },
     additionalProperties: false,
   },
@@ -2265,8 +2252,8 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
     type: 'object',
     required: ['file', 'name'],
     properties: {
-      file: {type: 'file', description: '文件', tsType: 'FileData', additionalProperties: false},
-      name: {type: 'string', description: '名称', additionalProperties: false},
+      file: {type: 'file', description: '文件', tsType: 'FileData'},
+      name: {type: 'string', description: '名称'},
     },
     additionalProperties: false,
   },
@@ -2359,9 +2346,9 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataJsonSchema: {
     type: 'object',
     properties: {
-      K1: {type: 'string', description: '键1', additionalProperties: false},
-      K2: {type: 'number', description: '键2', additionalProperties: false},
-      cid: {type: 'string', description: 'cid', additionalProperties: false},
+      K1: {type: 'string', description: '键1'},
+      K2: {type: 'number', description: '键2'},
+      cid: {type: 'string', description: 'cid'},
     },
     required: ['K1', 'cid'],
     additionalProperties: false,
@@ -2602,11 +2589,11 @@ const testTestRequestConfig: TestTestRequestConfig = {
     type: 'object',
     required: ['id', 'name', 'pass', 'test', 'avatar'],
     properties: {
-      id: {type: 'string', description: '23', additionalProperties: false},
-      name: {type: 'string', description: '', additionalProperties: false},
-      pass: {type: 'string', description: '', additionalProperties: false},
-      test: {type: 'string', description: '', additionalProperties: false},
-      avatar: {type: 'string', description: '', additionalProperties: false},
+      id: {type: 'string', description: '23'},
+      name: {type: 'string', description: ''},
+      pass: {type: 'string', description: ''},
+      test: {type: 'string', description: ''},
+      avatar: {type: 'string', description: ''},
     },
     additionalProperties: false,
   },
@@ -2701,10 +2688,10 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataJsonSchema: {
     type: 'object',
     properties: {
-      K1: {type: 'string', description: '键1', additionalProperties: false},
-      K2: {type: 'number', description: '键2', additionalProperties: false},
-      hihihi: {type: 'string', description: '嗨咯', additionalProperties: false},
-      id: {type: 'string', description: 'ID', additionalProperties: false},
+      K1: {type: 'string', description: '键1'},
+      K2: {type: 'number', description: '键2'},
+      hihihi: {type: 'string', description: '嗨咯'},
+      id: {type: 'string', description: 'ID'},
     },
     required: ['K1', 'hihihi', 'id'],
     additionalProperties: false,
@@ -2807,12 +2794,12 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataJsonSchema: {
     type: 'object',
     properties: {
-      K1: {type: 'string', description: '键1', additionalProperties: false},
-      K2: {type: 'number', description: '键2', additionalProperties: false},
-      query: {type: 'string', description: '22222', additionalProperties: false},
-      hihihi: {type: 'string', description: '嗨咯', additionalProperties: false},
-      id: {type: 'string', description: 'ID', additionalProperties: false},
-      hihihi_1608478638207: {type: 'string', description: '', additionalProperties: false},
+      K1: {type: 'string', description: '键1'},
+      K2: {type: 'number', description: '键2'},
+      query: {type: 'string', description: '22222'},
+      hihihi: {type: 'string', description: '嗨咯'},
+      id: {type: 'string', description: 'ID'},
+      hihihi_1608478638207: {type: 'string', description: ''},
     },
     required: ['K1', 'hihihi', 'id', 'hihihi_1608478638207'],
     additionalProperties: false,
@@ -3059,9 +3046,9 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
     type: 'object',
     required: ['size', 'format', 'id'],
     properties: {
-      size: {type: 'number', description: '大小', additionalProperties: false},
-      format: {type: 'string', description: '格式', additionalProperties: false},
-      id: {type: 'number', description: 'ID', additionalProperties: false},
+      size: {type: 'number', description: '大小'},
+      format: {type: 'string', description: '格式'},
+      id: {type: 'number', description: 'ID'},
     },
     additionalProperties: false,
   },
@@ -3152,7 +3139,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"required\\":[\\"id\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"id\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"deleteMethodTest\\",
 }
@@ -3236,7 +3223,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   paramNames: [],
   queryNames: [\\"x\\",\\"y\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"string\\",\\"description\\":\\"Y 值\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"y\\":{\\"type\\":\\"string\\",\\"description\\":\\"Y 值\\"}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"getMethodTest\\",
 }
@@ -3405,7 +3392,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\",\\"additionalProperties\\":false},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\",\\"additionalProperties\\":false},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"additionalProperties\\":false,\\"minItems\\":0},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\"},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\"},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"minItems\\":0},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\"}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"json5RequestTest\\",
 }
@@ -3498,7 +3485,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\",\\"additionalProperties\\":false},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\",\\"additionalProperties\\":false},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\",\\"additionalProperties\\":false}},\\"required\\":[\\"page\\",\\"limit\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\"},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\"},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\"}},\\"required\\":[\\"page\\",\\"limit\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"postMethodTest\\",
 }
@@ -3588,7 +3575,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   paramNames: [],
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"putMethodTest\\",
 }
@@ -3683,7 +3670,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   paramNames: [],
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"dataKeyExampleTest\\",
 }
@@ -3762,7 +3749,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"file\\",\\"name\\"],\\"properties\\":{\\"file\\":{\\"type\\":\\"file\\",\\"description\\":\\"文件\\",\\"tsType\\":\\"FileData\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"名称\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"file\\",\\"name\\"],\\"properties\\":{\\"file\\":{\\"type\\":\\"file\\",\\"description\\":\\"文件\\",\\"tsType\\":\\"FileData\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"名称\\"}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"uploadTest\\",
 }
@@ -3845,7 +3832,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   paramNames: [],
   queryNames: [\\"cid\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"cid\\":{\\"type\\":\\"string\\",\\"description\\":\\"cid\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"cid\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"cid\\":{\\"type\\":\\"string\\",\\"description\\":\\"cid\\"}},\\"required\\":[\\"K1\\",\\"cid\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"testTest\\",
 }
@@ -4064,7 +4051,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"23\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"pass\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"test\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"avatar\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"23\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"pass\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"test\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"avatar\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"testTest\\",
 }
@@ -4151,7 +4138,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   paramNames: [\\"hihihi\\",\\"id\\"],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"hihihiTest\\",
 }
@@ -4243,7 +4230,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   paramNames: [\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],
   queryNames: [\\"query\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"query\\":{\\"type\\":\\"string\\",\\"description\\":\\"22222\\",\\"additionalProperties\\":false},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false},\\"hihihi_1608478638207\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"query\\":{\\"type\\":\\"string\\",\\"description\\":\\"22222\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"},\\"hihihi_1608478638207\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
@@ -4466,7 +4453,7 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
   paramNames: [\\"id\\"],
   queryNames: [\\"size\\",\\"format\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"size\\",\\"format\\",\\"id\\"],\\"properties\\":{\\"size\\":{\\"type\\":\\"number\\",\\"description\\":\\"大小\\",\\"additionalProperties\\":false},\\"format\\":{\\"type\\":\\"string\\",\\"description\\":\\"格式\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"number\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"size\\",\\"format\\",\\"id\\"],\\"properties\\":{\\"size\\":{\\"type\\":\\"number\\",\\"description\\":\\"大小\\"},\\"format\\":{\\"type\\":\\"string\\",\\"description\\":\\"格式\\"},\\"id\\":{\\"type\\":\\"number\\",\\"description\\":\\"ID\\"}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"avatarTest\\",
 }
@@ -4694,7 +4681,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {
     type: 'object',
-    properties: {result: {type: 'number', description: '结果', additionalProperties: false}},
+    properties: {result: {type: 'number', description: '结果'}},
     required: ['result'],
     additionalProperties: false,
   },
@@ -4781,23 +4768,9 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
     rule: {},
     path: ['ROOT'],
     properties: {
-      id: {name: 'id', template: 1, type: 'number', rule: {}, path: ['ROOT', 'id'], additionalProperties: false},
-      age: {
-        name: 'age',
-        template: '@float',
-        type: 'string',
-        rule: {},
-        path: ['ROOT', 'age'],
-        additionalProperties: false,
-      },
-      name: {
-        name: 'name',
-        template: '@name',
-        type: 'string',
-        rule: {},
-        path: ['ROOT', 'name'],
-        additionalProperties: false,
-      },
+      id: {name: 'id', template: 1, type: 'number', rule: {}, path: ['ROOT', 'id']},
+      age: {name: 'age', template: '@float', type: 'string', rule: {}, path: ['ROOT', 'age']},
+      name: {name: 'name', template: '@name', type: 'string', rule: {}, path: ['ROOT', 'name']},
     },
     additionalProperties: false,
   },
@@ -5007,12 +4980,11 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
         type: 'array',
         items: {
           type: 'object',
-          properties: {name: {type: 'string', description: '姓名', additionalProperties: false}},
+          properties: {name: {type: 'string', description: '姓名'}},
           required: ['name'],
           additionalProperties: false,
         },
         description: '列表',
-        additionalProperties: false,
         minItems: 0,
       },
     },
@@ -5115,8 +5087,8 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   responseDataJsonSchema: {
     type: 'object',
     properties: {
-      err: {type: 'number', description: '错误', additionalProperties: false},
-      msg: {type: 'string', description: '错误详情', additionalProperties: false},
+      err: {type: 'number', description: '错误'},
+      msg: {type: 'string', description: '错误详情'},
       data: {type: 'object', properties: {}, description: '数据', additionalProperties: false},
     },
     required: ['err', 'msg'],
@@ -5223,11 +5195,11 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   responseDataJsonSchema: {
     type: 'object',
     properties: {
-      err: {type: 'number', description: '错误', additionalProperties: false},
-      msg: {type: 'string', description: '错误详情', additionalProperties: false},
+      err: {type: 'number', description: '错误'},
+      msg: {type: 'string', description: '错误详情'},
       data: {
         type: 'object',
-        properties: {success: {type: 'boolean', description: '成功啦', additionalProperties: false}},
+        properties: {success: {type: 'boolean', description: '成功啦'}},
         description: '数据',
         required: ['success'],
         additionalProperties: false,
@@ -6236,7 +6208,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   queryNames: [\\"x\\",\\"y\\"],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"result\\":{\\"type\\":\\"number\\",\\"description\\":\\"结果\\",\\"additionalProperties\\":false}},\\"required\\":[\\"result\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"result\\":{\\"type\\":\\"number\\",\\"description\\":\\"结果\\"}},\\"required\\":[\\"result\\"],\\"additionalProperties\\":false},
   requestFunctionName: \\"getMethodTest\\",
 }
 
@@ -6310,7 +6282,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"],\\"additionalProperties\\":false},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"],\\"additionalProperties\\":false},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"],\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"]},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"]},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"]}},\\"additionalProperties\\":false},
   requestFunctionName: \\"json5ResponseTest\\",
 }
 
@@ -6498,7 +6470,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   queryNames: [],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\",\\"additionalProperties\\":false}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"additionalProperties\\":false,\\"minItems\\":0}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\"}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"minItems\\":0}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
   requestFunctionName: \\"postMethodTest\\",
 }
 
@@ -6588,7 +6560,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\",\\"additionalProperties\\":false},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\",\\"additionalProperties\\":false},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{},\\"description\\":\\"数据\\",\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{},\\"description\\":\\"数据\\",\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
   requestFunctionName: \\"putMethodTest\\",
 }
 
@@ -6683,7 +6655,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\",\\"additionalProperties\\":false},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\",\\"additionalProperties\\":false},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"success\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"成功啦\\",\\"additionalProperties\\":false}},\\"description\\":\\"数据\\",\\"required\\":[\\"success\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"success\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"成功啦\\"}},\\"description\\":\\"数据\\",\\"required\\":[\\"success\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
   requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
@@ -51800,7 +51772,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
-    properties: {id: {type: 'string', description: 'ID', additionalProperties: false}},
+    properties: {id: {type: 'string', description: 'ID'}},
     required: ['id'],
     additionalProperties: false,
   },
@@ -51896,15 +51868,12 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   requestDataJsonSchema: {
     type: 'object',
     required: ['x'],
-    properties: {
-      x: {type: 'string', description: 'X 值', additionalProperties: false},
-      y: {type: 'string', description: 'Y 值', additionalProperties: false},
-    },
+    properties: {x: {type: 'string', description: 'X 值'}, y: {type: 'string', description: 'Y 值'}},
     additionalProperties: false,
   },
   responseDataJsonSchema: {
     type: 'object',
-    properties: {result: {type: 'number', description: '结果', additionalProperties: false}},
+    properties: {result: {type: 'number', description: '结果'}},
     required: ['result'],
     additionalProperties: false,
   },
@@ -51991,23 +51960,9 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
     rule: {},
     path: ['ROOT'],
     properties: {
-      id: {name: 'id', template: 1, type: 'number', rule: {}, path: ['ROOT', 'id'], additionalProperties: false},
-      age: {
-        name: 'age',
-        template: '@float',
-        type: 'string',
-        rule: {},
-        path: ['ROOT', 'age'],
-        additionalProperties: false,
-      },
-      name: {
-        name: 'name',
-        template: '@name',
-        type: 'string',
-        rule: {},
-        path: ['ROOT', 'name'],
-        additionalProperties: false,
-      },
+      id: {name: 'id', template: 1, type: 'number', rule: {}, path: ['ROOT', 'id']},
+      age: {name: 'age', template: '@float', type: 'string', rule: {}, path: ['ROOT', 'age']},
+      name: {name: 'name', template: '@name', type: 'string', rule: {}, path: ['ROOT', 'name']},
     },
     additionalProperties: false,
   },
@@ -52113,24 +52068,14 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   requestDataJsonSchema: {
     type: 'object',
     properties: {
-      id: {type: 'integer', description: '1', additionalProperties: false},
-      name: {type: 'string', description: '\\"方剑成\\"', additionalProperties: false},
-      likes: {
-        type: 'array',
-        items: {type: 'string', description: '\\"photo\\"', additionalProperties: false},
-        description: '[\\"photo\\",2]',
-        additionalProperties: false,
-        minItems: 0,
-      },
+      id: {type: 'integer', description: '1'},
+      name: {type: 'string', description: '\\"方剑成\\"'},
+      likes: {type: 'array', items: {type: 'string', description: '\\"photo\\"'}, description: '[\\"photo\\",2]', minItems: 0},
       nest: {
         type: 'object',
         properties: {
-          x: {type: 'integer', description: '1', additionalProperties: false},
-          y: {
-            type: 'object',
-            properties: {z: {type: 'string', description: '\\"2\\"', additionalProperties: false}},
-            additionalProperties: false,
-          },
+          x: {type: 'integer', description: '1'},
+          y: {type: 'object', properties: {z: {type: 'string', description: '\\"2\\"'}}, additionalProperties: false},
         },
         additionalProperties: false,
       },
@@ -52238,9 +52183,9 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   requestDataJsonSchema: {
     type: 'object',
     properties: {
-      page: {type: 'number', description: '页码', additionalProperties: false},
-      limit: {type: 'number', description: '每页数量', additionalProperties: false},
-      keyword: {type: 'string', description: '关键词', additionalProperties: false},
+      page: {type: 'number', description: '页码'},
+      limit: {type: 'number', description: '每页数量'},
+      keyword: {type: 'string', description: '关键词'},
     },
     required: ['page', 'limit'],
     additionalProperties: false,
@@ -52252,12 +52197,11 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
         type: 'array',
         items: {
           type: 'object',
-          properties: {name: {type: 'string', description: '姓名', additionalProperties: false}},
+          properties: {name: {type: 'string', description: '姓名'}},
           required: ['name'],
           additionalProperties: false,
         },
         description: '列表',
-        additionalProperties: false,
         minItems: 0,
       },
     },
@@ -52360,17 +52304,17 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
     type: 'object',
     required: ['x', 'id'],
     properties: {
-      x: {type: 'string', description: 'X 值', additionalProperties: false},
-      id: {type: 'string', description: '', additionalProperties: false},
-      namre: {type: 'string', description: '', additionalProperties: false},
+      x: {type: 'string', description: 'X 值'},
+      id: {type: 'string', description: ''},
+      namre: {type: 'string', description: ''},
     },
     additionalProperties: false,
   },
   responseDataJsonSchema: {
     type: 'object',
     properties: {
-      err: {type: 'number', description: '错误', additionalProperties: false},
-      msg: {type: 'string', description: '错误详情', additionalProperties: false},
+      err: {type: 'number', description: '错误'},
+      msg: {type: 'string', description: '错误详情'},
       data: {type: 'object', properties: {}, description: '数据', additionalProperties: false},
     },
     required: ['err', 'msg'],
@@ -52477,20 +52421,20 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
     type: 'object',
     required: ['x', 'id'],
     properties: {
-      x: {type: 'string', description: 'X 值', additionalProperties: false},
-      id: {type: 'string', description: '', additionalProperties: false},
-      namre: {type: 'string', description: '', additionalProperties: false},
+      x: {type: 'string', description: 'X 值'},
+      id: {type: 'string', description: ''},
+      namre: {type: 'string', description: ''},
     },
     additionalProperties: false,
   },
   responseDataJsonSchema: {
     type: 'object',
     properties: {
-      err: {type: 'number', description: '错误', additionalProperties: false},
-      msg: {type: 'string', description: '错误详情', additionalProperties: false},
+      err: {type: 'number', description: '错误'},
+      msg: {type: 'string', description: '错误详情'},
       data: {
         type: 'object',
-        properties: {success: {type: 'boolean', description: '成功啦', additionalProperties: false}},
+        properties: {success: {type: 'boolean', description: '成功啦'}},
         description: '数据',
         required: ['success'],
         additionalProperties: false,
@@ -52586,8 +52530,8 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
     type: 'object',
     required: ['file', 'name'],
     properties: {
-      file: {type: 'file', description: '文件', tsType: 'FileData', additionalProperties: false},
-      name: {type: 'string', description: '名称', additionalProperties: false},
+      file: {type: 'file', description: '文件', tsType: 'FileData'},
+      name: {type: 'string', description: '名称'},
     },
     additionalProperties: false,
   },
@@ -52680,9 +52624,9 @@ const testTestRequestConfig: TestTestRequestConfig = {
   requestDataJsonSchema: {
     type: 'object',
     properties: {
-      K1: {type: 'string', description: '键1', additionalProperties: false},
-      K2: {type: 'number', description: '键2', additionalProperties: false},
-      cid: {type: 'string', description: 'cid', additionalProperties: false},
+      K1: {type: 'string', description: '键1'},
+      K2: {type: 'number', description: '键2'},
+      cid: {type: 'string', description: 'cid'},
     },
     required: ['K1', 'cid'],
     additionalProperties: false,
@@ -52923,11 +52867,11 @@ const testTestRequestConfig: TestTestRequestConfig = {
     type: 'object',
     required: ['id', 'name', 'pass', 'test', 'avatar'],
     properties: {
-      id: {type: 'string', description: '23', additionalProperties: false},
-      name: {type: 'string', description: '', additionalProperties: false},
-      pass: {type: 'string', description: '', additionalProperties: false},
-      test: {type: 'string', description: '', additionalProperties: false},
-      avatar: {type: 'string', description: '', additionalProperties: false},
+      id: {type: 'string', description: '23'},
+      name: {type: 'string', description: ''},
+      pass: {type: 'string', description: ''},
+      test: {type: 'string', description: ''},
+      avatar: {type: 'string', description: ''},
     },
     additionalProperties: false,
   },
@@ -53022,10 +52966,10 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   requestDataJsonSchema: {
     type: 'object',
     properties: {
-      K1: {type: 'string', description: '键1', additionalProperties: false},
-      K2: {type: 'number', description: '键2', additionalProperties: false},
-      hihihi: {type: 'string', description: '嗨咯', additionalProperties: false},
-      id: {type: 'string', description: 'ID', additionalProperties: false},
+      K1: {type: 'string', description: '键1'},
+      K2: {type: 'number', description: '键2'},
+      hihihi: {type: 'string', description: '嗨咯'},
+      id: {type: 'string', description: 'ID'},
     },
     required: ['K1', 'hihihi', 'id'],
     additionalProperties: false,
@@ -53128,12 +53072,12 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataJsonSchema: {
     type: 'object',
     properties: {
-      K1: {type: 'string', description: '键1', additionalProperties: false},
-      K2: {type: 'number', description: '键2', additionalProperties: false},
-      query: {type: 'string', description: '22222', additionalProperties: false},
-      hihihi: {type: 'string', description: '嗨咯', additionalProperties: false},
-      id: {type: 'string', description: 'ID', additionalProperties: false},
-      hihihi_1608478638207: {type: 'string', description: '', additionalProperties: false},
+      K1: {type: 'string', description: '键1'},
+      K2: {type: 'number', description: '键2'},
+      query: {type: 'string', description: '22222'},
+      hihihi: {type: 'string', description: '嗨咯'},
+      id: {type: 'string', description: 'ID'},
+      hihihi_1608478638207: {type: 'string', description: ''},
     },
     required: ['K1', 'hihihi', 'id', 'hihihi_1608478638207'],
     additionalProperties: false,
@@ -53380,9 +53324,9 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
     type: 'object',
     required: ['size', 'format', 'id'],
     properties: {
-      size: {type: 'number', description: '大小', additionalProperties: false},
-      format: {type: 'string', description: '格式', additionalProperties: false},
-      id: {type: 'number', description: 'ID', additionalProperties: false},
+      size: {type: 'number', description: '大小'},
+      format: {type: 'string', description: '格式'},
+      id: {type: 'number', description: 'ID'},
     },
     additionalProperties: false,
   },
@@ -53473,7 +53417,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"required\\":[\\"id\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"id\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
   requestFunctionName: \\"deleteMethodTest\\",
 }
@@ -53557,8 +53501,8 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = {
   paramNames: [],
   queryNames: [\\"x\\",\\"y\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"string\\",\\"description\\":\\"Y 值\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"result\\":{\\"type\\":\\"number\\",\\"description\\":\\"结果\\",\\"additionalProperties\\":false}},\\"required\\":[\\"result\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"y\\":{\\"type\\":\\"string\\",\\"description\\":\\"Y 值\\"}},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"result\\":{\\"type\\":\\"number\\",\\"description\\":\\"结果\\"}},\\"required\\":[\\"result\\"],\\"additionalProperties\\":false},
   requestFunctionName: \\"getMethodTest\\",
 }
 
@@ -53632,7 +53576,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: undefined,
-  responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"],\\"additionalProperties\\":false},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"],\\"additionalProperties\\":false},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"],\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"]},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"]},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"]}},\\"additionalProperties\\":false},
   requestFunctionName: \\"json5ResponseTest\\",
 }
 
@@ -53726,7 +53670,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\",\\"additionalProperties\\":false},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\",\\"additionalProperties\\":false},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"additionalProperties\\":false,\\"minItems\\":0},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\",\\"additionalProperties\\":false},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\"},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\"},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"minItems\\":0},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\"}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"json5RequestTest\\",
 }
@@ -53819,8 +53763,8 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\",\\"additionalProperties\\":false},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\",\\"additionalProperties\\":false},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\",\\"additionalProperties\\":false}},\\"required\\":[\\"page\\",\\"limit\\"],\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\",\\"additionalProperties\\":false}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"additionalProperties\\":false,\\"minItems\\":0}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\"},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\"},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\"}},\\"required\\":[\\"page\\",\\"limit\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\"}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"minItems\\":0}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
   requestFunctionName: \\"postMethodTest\\",
 }
 
@@ -53909,8 +53853,8 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = {
   paramNames: [],
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\",\\"additionalProperties\\":false},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\",\\"additionalProperties\\":false},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{},\\"description\\":\\"数据\\",\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{},\\"description\\":\\"数据\\",\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
   requestFunctionName: \\"putMethodTest\\",
 }
 
@@ -54004,8 +53948,8 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
   paramNames: [],
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\",\\"additionalProperties\\":false},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\",\\"additionalProperties\\":false},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"success\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"成功啦\\",\\"additionalProperties\\":false}},\\"description\\":\\"数据\\",\\"required\\":[\\"success\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"success\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"成功啦\\"}},\\"description\\":\\"数据\\",\\"required\\":[\\"success\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
   requestFunctionName: \\"dataKeyExampleTest\\",
 }
 
@@ -54083,7 +54027,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"file\\",\\"name\\"],\\"properties\\":{\\"file\\":{\\"type\\":\\"file\\",\\"description\\":\\"文件\\",\\"tsType\\":\\"FileData\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"名称\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"file\\",\\"name\\"],\\"properties\\":{\\"file\\":{\\"type\\":\\"file\\",\\"description\\":\\"文件\\",\\"tsType\\":\\"FileData\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"名称\\"}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
   requestFunctionName: \\"uploadTest\\",
 }
@@ -54166,7 +54110,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   paramNames: [],
   queryNames: [\\"cid\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"cid\\":{\\"type\\":\\"string\\",\\"description\\":\\"cid\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"cid\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"cid\\":{\\"type\\":\\"string\\",\\"description\\":\\"cid\\"}},\\"required\\":[\\"K1\\",\\"cid\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"testTest\\",
 }
@@ -54385,7 +54329,7 @@ const testTestRequestConfig: TestTestRequestConfig = {
   paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"23\\",\\"additionalProperties\\":false},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"pass\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"test\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false},\\"avatar\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"23\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"pass\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"test\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"avatar\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"testTest\\",
 }
@@ -54472,7 +54416,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = {
   paramNames: [\\"hihihi\\",\\"id\\"],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"hihihiTest\\",
 }
@@ -54564,7 +54508,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   paramNames: [\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],
   queryNames: [\\"query\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\",\\"additionalProperties\\":false},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\",\\"additionalProperties\\":false},\\"query\\":{\\"type\\":\\"string\\",\\"description\\":\\"22222\\",\\"additionalProperties\\":false},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false},\\"hihihi_1608478638207\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\",\\"additionalProperties\\":false}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"query\\":{\\"type\\":\\"string\\",\\"description\\":\\"22222\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"},\\"hihihi_1608478638207\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"hihihi_1608478638207Test\\",
 }
@@ -54787,7 +54731,7 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
   paramNames: [\\"id\\"],
   queryNames: [\\"size\\",\\"format\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"size\\",\\"format\\",\\"id\\"],\\"properties\\":{\\"size\\":{\\"type\\":\\"number\\",\\"description\\":\\"大小\\",\\"additionalProperties\\":false},\\"format\\":{\\"type\\":\\"string\\",\\"description\\":\\"格式\\",\\"additionalProperties\\":false},\\"id\\":{\\"type\\":\\"number\\",\\"description\\":\\"ID\\",\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"size\\",\\"format\\",\\"id\\"],\\"properties\\":{\\"size\\":{\\"type\\":\\"number\\",\\"description\\":\\"大小\\"},\\"format\\":{\\"type\\":\\"string\\",\\"description\\":\\"格式\\"},\\"id\\":{\\"type\\":\\"number\\",\\"description\\":\\"ID\\"}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"avatarTest\\",
 }

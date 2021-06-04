@@ -68,8 +68,10 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
   delete jsonSchema.minItems
   delete jsonSchema.maxItems
 
-  // 将 additionalProperties 设为 false
-  jsonSchema.additionalProperties = false
+  if (jsonSchema.type === 'object') {
+    // 将 additionalProperties 设为 false
+    jsonSchema.additionalProperties = false
+  }
 
   // 删除通过 swagger 导入时未剔除的 ref
   delete jsonSchema.$ref
