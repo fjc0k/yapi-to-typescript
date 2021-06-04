@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.22.2"></a>
+
+## [3.22.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.22.1...v3.22.2) (2021-06-04)
+
+### Bug Fixes
+
+- 预处理 JSONSchema 时仅将 object 的 additionalProperties 属性设置为 false ([2b5e25a](https://github.com/fjc0k/yapi-to-typescript/commit/2b5e25a))
+
 <a name="3.22.1"></a>
 
 ## [3.22.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.22.0...v3.22.1) (2021-05-31)
