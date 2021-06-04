@@ -7,7 +7,7 @@ import path from 'path'
 import prompt from 'prompts'
 import yargs from 'yargs'
 import { Config, ServerConfig } from './types'
-import { dedent } from 'vtils'
+import { dedent, wait } from 'vtils'
 import { Defined } from 'vtils/types'
 import { Generator } from './Generator'
 
@@ -162,7 +162,13 @@ export async function run(
       generator = new Generator(config, { cwd })
 
       spinner = ora('正在获取数据并生成代码...').start()
+      const delayNotice = wait(5000)
+      delayNotice.then(() => {
+        spinner!.text = `正在获取数据并生成代码... (若长时间处于此状态，请检查是否有接口定义的数据过大导致拉取或解析缓慢)`
+      })
       await generator.prepare()
+      delayNotice.cancel()
+
       const output = await generator.generate()
       spinner.stop()
       consola.success('获取数据并生成代码完毕')
