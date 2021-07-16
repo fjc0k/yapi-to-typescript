@@ -21,6 +21,8 @@ const generatorFactory = ({
   onlyMatchPath,
   comment,
   outputFilePath,
+  dataKey,
+  preproccessInterface,
 }: {
   id: OneOrMore<
     | 0
@@ -39,6 +41,8 @@ const generatorFactory = ({
   onlyMatchPath?: RegExp
   comment?: ServerConfig['comment']
   outputFilePath?: (apiDir: string) => ServerConfig['outputFilePath']
+  dataKey?: string
+  preproccessInterface?: ServerConfig['preproccessInterface']
 }) => {
   const apiDir = tempy.directory()
   return new Generator({
@@ -55,13 +59,21 @@ const generatorFactory = ({
     },
     jsonSchema: jsonSchema,
     comment: comment,
+    dataKey: dataKey,
     projects: [
       {
         token: token,
         categories: [
           {
             id: id,
-            preproccessInterface(ii) {
+            preproccessInterface(_ii, cc) {
+              let ii = _ii
+              if (preproccessInterface) {
+                ii = preproccessInterface(ii, cc) as any
+                if ((ii as any) === false) {
+                  return false
+                }
+              }
               ii.path += '_test'
               return onlyMatchPath
                 ? onlyMatchPath.test(ii.path)
@@ -549,6 +561,25 @@ describe('Generator', () => {
       id: [CatId.test2, CatId.issues],
       outputFilePath: apiDir => interfaceInfo =>
         path.join(apiDir, `${interfaceInfo._category.name}.ts`),
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }, outputFilePath) => {
+      expect(path.basename(outputFilePath)).toMatchSnapshot('输出路径')
+      expect(content).toMatchSnapshot('输出内容')
+    })
+  })
+
+  test('dataKey 使用正常', async () => {
+    const generator = generatorFactory({
+      id: [CatId.test],
+      dataKey: 'data',
+      preproccessInterface: ii => {
+        if (ii.title.includes('dataKey')) {
+          return ii
+        }
+        return false
+      },
     })
     await generator.prepare()
     const output = await generator.generate()

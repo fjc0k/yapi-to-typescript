@@ -1,5 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Generator dataKey 使用正常: 输出内容 1`] = `
+Array [
+  "const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_0 = \\"\\" as any
+const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_0 = \\"data\\" as any
+
+/**
+ * 接口 [dataKey 例子↗](http://foo.bar/project/11/interface/api/81) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`PUT /__hello__/dataKeyExample_test\`
+ * @更新时间 1610557430
+ */
+export interface DataKeyExampleTestRequest {
+  /**
+   * X 值
+   */
+  x: string;
+  id: string;
+  namre?: string;
+}
+
+/**
+ * 接口 [dataKey 例子↗](http://foo.bar/project/11/interface/api/81) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`PUT /__hello__/dataKeyExample_test\`
+ * @更新时间 1610557430
+ */
+export interface DataKeyExampleTestResponse {
+  /**
+   * 成功啦
+   */
+  success: boolean;
+}
+
+/**
+ * 接口 [dataKey 例子↗](http://foo.bar/project/11/interface/api/81) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`PUT /__hello__/dataKeyExample_test\`
+ * @更新时间 1610557430
+ */
+type DataKeyExampleTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKeyExample_test\\",
+  \\"data\\",
+  string,
+  'id' | 'namre',
+  false
+>>
+
+/**
+ * 接口 [dataKey 例子↗](http://foo.bar/project/11/interface/api/81) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`PUT /__hello__/dataKeyExample_test\`
+ * @更新时间 1610557430
+ */
+const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKeyExample_test\\",
+  method: Method.PUT,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.form,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [\\"id\\",\\"namre\\"],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"dataKeyExampleTest\\",
+}
+
+/**
+ * 接口 [dataKey 例子↗](http://foo.bar/project/11/interface/api/81) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`PUT /__hello__/dataKeyExample_test\`
+ * @更新时间 1610557430
+ */
+export const dataKeyExampleTest = makeRequest<DataKeyExampleTestRequest, DataKeyExampleTestResponse, DataKeyExampleTestRequestConfig>(dataKeyExampleTestRequestConfig)",
+]
+`;
+
+exports[`Generator dataKey 使用正常: 输出路径 1`] = `"index.ts"`;
+
 exports[`Generator outputFilePath 可以是函数: 输出内容 1`] = `
 Array [
   "const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any

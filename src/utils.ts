@@ -2,7 +2,7 @@ import JSON5 from 'json5'
 import Mock from 'mockjs'
 import path from 'path'
 import toJsonSchema from 'to-json-schema'
-import { castArray, forOwn, isArray, isEmpty, isObject } from 'vtils'
+import { castArray, forOwn, isArray, isEmpty, isObject, omit } from 'vtils'
 import { compile, Options } from 'json-schema-to-typescript'
 import { Defined } from 'vtils/types'
 import { FileData } from './helpers'
@@ -264,7 +264,12 @@ export async function jsonSchemaToType(
   }
   // JSTT 会转换 typeName，因此传入一个全大写的假 typeName，生成代码后再替换回真正的 typeName
   const fakeTypeName = 'THISISAFAKETYPENAME'
-  const code = await compile(jsonSchema, fakeTypeName, JSTTOptions)
+  const code = await compile(
+    // 去除最外层的 description 以防止 JSTT 提取它作为类型的注释
+    omit(jsonSchema, ['description']),
+    fakeTypeName,
+    JSTTOptions,
+  )
   delete jsonSchema.id
   return code.replace(fakeTypeName, typeName).trim()
 }
