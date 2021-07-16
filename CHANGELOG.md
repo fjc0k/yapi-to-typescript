@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.22.4"></a>
+
+## [3.22.4](https://github.com/fjc0k/yapi-to-typescript/compare/v3.22.3...v3.22.4) (2021-07-16)
+
+### Bug Fixes
+
+- 通过 JSON Schema 生成类型时去除最外层的 description 以防止 JSTT 提取它作为类型的注释 ([97f1d24](https://github.com/fjc0k/yapi-to-typescript/commit/97f1d24))
+
 <a name="3.22.3"></a>
 
 ## [3.22.3](https://github.com/fjc0k/yapi-to-typescript/compare/v3.22.2...v3.22.3) (2021-06-04)
