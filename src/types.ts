@@ -1,5 +1,5 @@
 import { JSONSchema4 } from 'json-schema'
-import { LiteralUnion, OmitStrict } from 'vtils/types'
+import { LiteralUnion, OmitStrict, OneOrMore } from 'vtils/types'
 import { ParsedPath } from 'path'
 
 export interface ChangeCase {
@@ -472,7 +472,7 @@ export interface SharedConfig {
    *
    * @example 'data'
    */
-  dataKey?: string
+  dataKey?: OneOrMore<string>
 
   /**
    * 支持生成 React Hooks 代码的相关配置。
@@ -629,7 +629,7 @@ export interface RequestConfig<
   DevUrl extends string = string,
   ProdUrl extends string = string,
   Path extends string = string,
-  DataKey extends string | undefined = string | undefined,
+  DataKey extends OneOrMore<string> | undefined = OneOrMore<string> | undefined,
   ParamName extends string = string,
   QueryName extends string = string,
   RequestDataOptional extends boolean = boolean

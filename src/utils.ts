@@ -4,7 +4,7 @@ import path from 'path'
 import toJsonSchema from 'to-json-schema'
 import { castArray, forOwn, isArray, isEmpty, isObject, omit } from 'vtils'
 import { compile, Options } from 'json-schema-to-typescript'
-import { Defined } from 'vtils/types'
+import { Defined, OneOrMore } from 'vtils/types'
 import { FileData } from './helpers'
 import {
   Interface,
@@ -357,7 +357,7 @@ export function getRequestDataJsonSchema(
 
 export function getResponseDataJsonSchema(
   interfaceInfo: Interface,
-  dataKey?: string,
+  dataKey?: OneOrMore<string>,
 ): JSONSchema4 {
   let jsonSchema: JSONSchema4 = {}
 
@@ -374,17 +374,26 @@ export function getResponseDataJsonSchema(
       break
   }
 
-  /* istanbul ignore if */
-  if (
-    dataKey &&
-    jsonSchema &&
-    jsonSchema.properties &&
-    jsonSchema.properties[dataKey]
-  ) {
-    jsonSchema = jsonSchema.properties[dataKey]
+  if (dataKey && jsonSchema) {
+    jsonSchema = reachJsonSchema(jsonSchema, dataKey)
   }
 
   return jsonSchema
+}
+
+export function reachJsonSchema(
+  jsonSchema: JSONSchema4,
+  path: OneOrMore<string>,
+) {
+  let last = jsonSchema
+  for (const segment of castArray(path)) {
+    const _last = last.properties?.[segment]
+    if (!_last) {
+      return jsonSchema
+    }
+    last = _last
+  }
+  return last
 }
 
 export function sortByWeights<T extends { weights: number[] }>(list: T[]): T[] {

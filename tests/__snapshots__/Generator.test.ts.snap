@@ -93,6 +93,87 @@ export const dataKeyExampleTest = makeRequest<DataKeyExampleTestRequest, DataKey
 
 exports[`Generator dataKey 使用正常: 输出路径 1`] = `"index.ts"`;
 
+exports[`Generator dataKey 深度使用正常: 输出内容 1`] = `
+Array [
+  "const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_0 = \\"\\" as any
+const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_0 = [\\"container\\",\\"data\\",\\"realData\\"] as any
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export type DeepTestResponse = string;
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  [\\"container\\",\\"data\\",\\"realData\\"],
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
+]
+`;
+
+exports[`Generator dataKey 深度使用正常: 输出路径 1`] = `"index.ts"`;
+
 exports[`Generator outputFilePath 可以是函数: 输出内容 1`] = `
 Array [
   "const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
@@ -1010,6 +1091,34 @@ export interface AvatarTestRequest {
  */
 export interface AvatarTestResponse {}
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
 /* prettier-ignore-end */
 "
 `;
@@ -1519,7 +1628,35 @@ export interface AvatarTestRequest {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export interface AvatarTestResponse {}",
+export interface AvatarTestResponse {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}",
 ]
 `;
 
@@ -3160,6 +3297,88 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: undefined,
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -4558,7 +4777,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: undefined,
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -6144,6 +6443,109 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {
+    $schema: 'http://json-schema.org/draft-04/schema#',
+    type: 'object',
+    properties: {
+      err: {type: 'number'},
+      container: {
+        type: 'object',
+        properties: {
+          data: {
+            type: 'object',
+            properties: {realData: {type: 'string', description: '真数据'}},
+            required: ['realData'],
+            additionalProperties: false,
+          },
+        },
+        required: ['data'],
+        additionalProperties: false,
+      },
+    },
+    required: ['err', 'container'],
+    additionalProperties: false,
+  },
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -7542,7 +7944,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {\\"$schema\\":\\"http://json-schema.org/draft-04/schema#\\",\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\"},\\"container\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"realData\\":{\\"type\\":\\"string\\",\\"description\\":\\"真数据\\"}},\\"required\\":[\\"realData\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"data\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"container\\"],\\"additionalProperties\\":false},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -9296,6 +9778,88 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__projectA__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__projectA__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 const mockUrl_0_1_0_0 = 'http://foo.bar/mock/32' as any
 const devUrl_0_1_0_0 = '' as any
 const prodUrl_0_1_0_0 = 'http://prod.com/' as any
@@ -10770,6 +11334,88 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__projectB__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_1_0_0,
+  devUrl: devUrl_0_1_0_0,
+  prodUrl: prodUrl_0_1_0_0,
+  path: '/__projectB__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_1_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -12206,7 +12852,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__projectA__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__projectA__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__projectA__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectA__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
   "const mockUrl_0_1_0_0 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_1_0_0 = \\"\\" as any
 const prodUrl_0_1_0_0 = \\"http://prod.com/\\" as any
@@ -13599,7 +14325,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__projectB__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__projectB__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_1_0_0,
+  devUrl: devUrl_0_1_0_0,
+  prodUrl: prodUrl_0_1_0_0,
+  path: \\"/__projectB__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_1_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__projectB__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -15128,6 +15934,88 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/i-am-basepath/__with-basepath__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/i-am-basepath/__with-basepath__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -16564,7 +17452,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /i-am-basepath/__with-basepath__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/i-am-basepath/__with-basepath__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/i-am-basepath/__with-basepath__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /i-am-basepath/__with-basepath__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -18008,6 +18976,83 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -19321,7 +20366,82 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -20765,6 +21885,83 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -22078,7 +23275,82 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -23607,6 +24879,88 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -25005,7 +26359,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -26364,6 +27798,78 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -27592,7 +29098,77 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -28526,6 +30102,53 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+export interface DeepTestRequest {}
+
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -29380,7 +31003,55 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
 }
 
 
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+export interface DeepTestRequest {}
+
+
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -30824,6 +32495,83 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -32137,7 +33885,82 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -33666,6 +35489,88 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 dataKey 深度路径 的 **请求类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 dataKey 深度路径 的 **返回类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 dataKey 深度路径 的 **请求配置的类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 dataKey 深度路径 的 **请求配置**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 dataKey 深度路径 的 **请求函数**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -35064,7 +36969,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 dataKey 深度路径 的 **请求类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 dataKey 深度路径 的 **返回类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 dataKey 深度路径 的 **请求配置的类型**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 dataKey 深度路径 的 **请求配置**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 dataKey 深度路径 的 **请求函数**
+ *
+ * @分类 test
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -36592,6 +38577,88 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
 export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(
   avatarTestRequestConfig,
 )
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
 
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_2 = '' as any
@@ -38436,7 +40503,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
   "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_2 = \\"\\" as any
 const prodUrl_0_0_0_2 = \\"http://prod.com/\\" as any
@@ -40356,6 +42503,88 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -41792,7 +44021,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;
 
@@ -43321,6 +45630,88 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 const mockUrl_0_0_0_1 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_1 = '' as any
 const prodUrl_0_0_0_1 = 'http://prod.com/' as any
@@ -44841,7 +47232,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
   "const mockUrl_0_0_0_1 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_1 = \\"\\" as any
 const prodUrl_0_0_0_1 = \\"http://prod.com/\\" as any
@@ -46400,6 +48871,38 @@ const avatarTestRequestConfig = {
  * @更新时间 1621501310
  */
 export const avatarTest = makeRequest(avatarTestRequestConfig);
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig = {
+    mockUrl: mockUrl_0_0_0_1,
+    devUrl: devUrl_0_0_0_1,
+    prodUrl: prodUrl_0_0_0_1,
+    path: '/__hello__/dataKey/deep_test',
+    method: Method.GET,
+    requestHeaders: {},
+    requestBodyType: RequestBodyType.query,
+    responseBodyType: ResponseBodyType.json,
+    dataKey: dataKey_0_0_0_1,
+    paramNames: [],
+    queryNames: [],
+    requestDataOptional: true,
+    requestDataJsonSchema: {},
+    responseDataJsonSchema: {},
+    requestFunctionName: 'deepTest',
+};
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest(deepTestRequestConfig);
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32';
 const devUrl_0_0_0_2 = '';
 const prodUrl_0_0_0_2 = 'http://prod.com/';
@@ -47987,7 +50490,87 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
   "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_2 = \\"\\" as any
 const prodUrl_0_0_0_2 = \\"http://prod.com/\\" as any
@@ -50151,6 +52734,99 @@ export const useAvatarTest = makeRequestHook<AvatarTestRequest, AvatarTestReques
   avatarTest,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **React Hook**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const useDeepTest = makeRequestHook<DeepTestRequest, DeepTestRequestConfig, ReturnType<typeof deepTest>>(
+  deepTest,
+)
+
 /* prettier-ignore-end */
 "
 `;
@@ -51740,7 +54416,96 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const useAvatarTest = makeRequestHook<AvatarTestRequest, AvatarTestRequestConfig, ReturnType<typeof avatarTest>>(avatarTest)",
+export const useAvatarTest = makeRequestHook<AvatarTestRequest, AvatarTestRequestConfig, ReturnType<typeof avatarTest>>(avatarTest)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **React Hook**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const useDeepTest = makeRequestHook<DeepTestRequest, DeepTestRequestConfig, ReturnType<typeof deepTest>>(deepTest)",
 ]
 `;
 
@@ -53438,6 +56203,109 @@ export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, Ava
   avatarTestRequestConfig,
 )
 
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string
+    }
+  }
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/dataKey/deep_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/dataKey/deep_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: undefined,
+  responseDataJsonSchema: {
+    $schema: 'http://json-schema.org/draft-04/schema#',
+    type: 'object',
+    properties: {
+      err: {type: 'number'},
+      container: {
+        type: 'object',
+        properties: {
+          data: {
+            type: 'object',
+            properties: {realData: {type: 'string', description: '真数据'}},
+            required: ['realData'],
+            additionalProperties: false,
+          },
+        },
+        required: ['data'],
+        additionalProperties: false,
+      },
+    },
+    required: ['err', 'container'],
+    additionalProperties: false,
+  },
+  requestFunctionName: 'deepTest',
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)
+
 /* prettier-ignore-end */
 "
 `;
@@ -54836,6 +57704,86 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar_test\`
  * @更新时间 1621501310
  */
-export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)",
+export const avatarTest = makeRequest<AvatarTestRequest, AvatarTestResponse, AvatarTestRequestConfig>(avatarTestRequestConfig)
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestRequest {}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export interface DeepTestResponse {
+  err: number;
+  container: {
+    data: {
+      /**
+       * 真数据
+       */
+      realData: string;
+    };
+  };
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+type DeepTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/dataKey/deep_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+const deepTestRequestConfig: DeepTestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/dataKey/deep_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: undefined,
+  responseDataJsonSchema: {\\"$schema\\":\\"http://json-schema.org/draft-04/schema#\\",\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\"},\\"container\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"realData\\":{\\"type\\":\\"string\\",\\"description\\":\\"真数据\\"}},\\"required\\":[\\"realData\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"data\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"container\\"],\\"additionalProperties\\":false},
+  requestFunctionName: \\"deepTest\\",
+}
+
+/**
+ * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/dataKey/deep_test\`
+ * @更新时间 1626489548
+ */
+export const deepTest = makeRequest<DeepTestRequest, DeepTestResponse, DeepTestRequestConfig>(deepTestRequestConfig)",
 ]
 `;

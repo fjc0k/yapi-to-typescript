@@ -71,7 +71,7 @@ npx ytt init -c config/ytt.ts
 
 输出文件路径。可以是 `相对路径` 或 `绝对路径`。如 `'src/api/index.ts'`。
 
-你可以将之设置为函数实现类似接口分模块的需求<Badge>3.22.0+</Badge>：
+<Badge>3.22.0+</Badge> 你可以将之设置为函数实现类似接口分模块的需求：
 
 ```javascript
 import { defineConfig } from 'yapi-to-typescript'
@@ -91,7 +91,7 @@ export default defineConfig({
 
 ### dataKey
 
-- 类型：`string`
+- 类型：`string | string[]`
 - 默认值：`(无)`
 - 说明：
 
@@ -127,6 +127,27 @@ export default async function request<TResponseData>(
     payload.dataKey != null &&
     res[payload.dataKey] != null
     ? res[payload.dataKey]
+    : res
+}
+```
+
+<Badge>3.23.0+</Badge> 如果接口返回结果嵌套多层，你也可以将 `dataKey` 设为一个到达真正结果的路径数组，如：`['data', 'realData']`，相应地请求函数内也需要对数组的情况做处理：
+
+```typescript
+import { RequestFunctionParams } from 'yapi-to-typescript'
+import { get } from 'lodash'
+
+export default async function request<TResponseData>(
+  payload: RequestFunctionParams,
+): Promise<TResponseData> {
+  let res!: any
+
+  // ...
+  // 具体请求逻辑取得响应结果 res
+  // ...
+
+  return res != null && typeof res === 'object' && payload.dataKey != null
+    ? get(res, payload.dataKey) ?? res
     : res
 }
 ```

@@ -41,7 +41,7 @@ const generatorFactory = ({
   onlyMatchPath?: RegExp
   comment?: ServerConfig['comment']
   outputFilePath?: (apiDir: string) => ServerConfig['outputFilePath']
-  dataKey?: string
+  dataKey?: ServerConfig['dataKey']
   preproccessInterface?: ServerConfig['preproccessInterface']
 }) => {
   const apiDir = tempy.directory()
@@ -575,7 +575,26 @@ describe('Generator', () => {
       id: [CatId.test],
       dataKey: 'data',
       preproccessInterface: ii => {
-        if (ii.title.includes('dataKey')) {
+        if (ii.title === 'dataKey 例子') {
+          return ii
+        }
+        return false
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }, outputFilePath) => {
+      expect(path.basename(outputFilePath)).toMatchSnapshot('输出路径')
+      expect(content).toMatchSnapshot('输出内容')
+    })
+  })
+
+  test('dataKey 深度使用正常', async () => {
+    const generator = generatorFactory({
+      id: [CatId.test],
+      dataKey: ['container', 'data', 'realData'],
+      preproccessInterface: ii => {
+        if (ii.title === 'dataKey 深度路径') {
           return ii
         }
         return false

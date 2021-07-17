@@ -14,4 +14,5 @@ export default defineConfig({
   },
   base: '/yapi-to-typescript/handbook/',
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+  styles: [`.__dumi-default-badge:first-child { margin-left: 0; }`],
 })
