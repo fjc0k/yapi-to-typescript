@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.23.0"></a>
+
+# [3.23.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.22.4...v3.23.0) (2021-07-17)
+
+### Features
+
+- **dataKey:** 支持路径数组适配多层嵌套的情况 ([684905e](https://github.com/fjc0k/yapi-to-typescript/commit/684905e))
+
 <a name="3.22.4"></a>
 
 ## [3.22.4](https://github.com/fjc0k/yapi-to-typescript/compare/v3.22.3...v3.22.4) (2021-07-16)
