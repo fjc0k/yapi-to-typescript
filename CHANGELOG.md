@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.23.1"></a>
+
+## [3.23.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.23.0...v3.23.1) (2021-07-26)
+
+### Bug Fixes
+
+- typesOnly 模式下令 FileData 作为 File 的别名 ([3fa3975](https://github.com/fjc0k/yapi-to-typescript/commit/3fa3975))
+
 <a name="3.23.0"></a>
 
 # [3.23.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.22.4...v3.23.0) (2021-07-17)
