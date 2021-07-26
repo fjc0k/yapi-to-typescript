@@ -586,6 +586,8 @@ exports[`Generator 只生成类型代码并写入文件: 接口文件 1`] = `
 
 /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
+type FileData = File
+
 /**
  * 接口 [DELETE 方法↗](http://foo.bar/project/11/interface/api/45) 的 **请求类型**
  *
