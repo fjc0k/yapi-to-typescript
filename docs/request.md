@@ -132,13 +132,6 @@ export default async function request<TResponseData>(
 
 数据所在键，来自配置 [dataKey](./config.html#datakey)。
 
-### dataKey
-
-- 类型：`string`
-- 说明：
-
-数据所在键，来自配置 [dataKey](./config.html#datakey)。
-
 ### paramNames
 
 - 类型：`string[]`
