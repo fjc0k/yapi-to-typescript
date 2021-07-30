@@ -399,6 +399,30 @@ export interface CommentConfig {
    * @default true
    */
   link?: boolean
+
+  /**
+   * 额外的注释标签。生成的内容形如：`@{name} {value}`。
+   */
+  extraTags?: (
+    interfaceInfo: ExtendedInterface,
+  ) => Array<{
+    /**
+     * 标签名。
+     */
+    name: string
+
+    /**
+     * 标签值。
+     */
+    value: string
+
+    /**
+     * 标签位置，即将新标签插在标签列表的开头还是末尾。
+     *
+     * @default 'end'
+     */
+    position?: 'start' | 'end'
+  }>
 }
 
 /**

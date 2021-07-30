@@ -784,6 +784,7 @@ export class Generator {
         requestHeader: hasRequestHeader = true,
         updateTime: hasUpdateTime = true,
         link: hasLink = true,
+        extraTags,
       } = {
         ...syntheticalConfig.comment,
         // Swagger 时总是禁用标签、更新时间、链接
@@ -839,6 +840,18 @@ export class Generator {
               )}\``,
         },
       ]
+      if (typeof extraTags === 'function') {
+        const tags = extraTags(extendedInterfaceInfo)
+        for (const tag of tags) {
+          ;(tag.position === 'start' ? summary.unshift : summary.push).call(
+            summary,
+            {
+              label: tag.name,
+              value: tag.value,
+            },
+          )
+        }
+      }
       const titleComment = hasTitle
         ? dedent`
             * ${genTitle(description)}

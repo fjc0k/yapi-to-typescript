@@ -607,4 +607,29 @@ describe('Generator', () => {
       expect(content).toMatchSnapshot('输出内容')
     })
   })
+
+  test('comment.extraTags 使用正常', async () => {
+    const generator = generatorFactory({
+      id: [CatId.test2],
+      comment: {
+        extraTags: ii => [
+          {
+            name: '状态',
+            value: ii.status === 'done' ? '已完成' : '未完成',
+            position: 'start',
+          },
+          {
+            name: '项目ID',
+            value: ii.project_id.toString(),
+          },
+        ],
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }, outputFilePath) => {
+      expect(path.basename(outputFilePath)).toMatchSnapshot('输出路径')
+      expect(content).toMatchSnapshot('输出内容')
+    })
+  })
 })

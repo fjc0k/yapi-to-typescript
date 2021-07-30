@@ -282,6 +282,34 @@ export default async function request<TResponseData>(
 
 是否为标题、分类名称添加链接。
 
+### comment.extraTags <Badge>3.24.0+</Badge>
+
+- 类型：`(interfaceInfo: ExtendedInterface) => Array<{ name: string; value: string; position?: 'start' | 'end'; }>`
+- 默认值：`(无)`
+- 说明：
+
+额外的注释标签。生成的内容形如：`@{name} {value}`。举例：
+
+```javascript
+import { defineConfig } from 'yapi-to-typescript'
+
+export default defineConfig({
+  comment: {
+    extraTags: ii => [
+      {
+        name: '状态',
+        value: ii.status === 'done' ? '已完成' : '未完成',
+        position: 'start',
+      },
+      {
+        name: '项目ID',
+        value: ii.project_id.toString(),
+      },
+    ],
+  },
+})
+```
+
 ### preproccessInterface
 
 - 类型：`(interfaceInfo: Interface, changeCase: ChangeCase): Interface | false`
