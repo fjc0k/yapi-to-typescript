@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+      - gh-pages
+      - v*
 
 jobs:
   to_gitee:
