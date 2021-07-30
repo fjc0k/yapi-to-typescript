@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.24.0"></a>
+
+# [3.24.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.23.1...v3.24.0) (2021-07-30)
+
+### Features
+
+- 新增 comment.extraTags 添加额外的注释标签 ([dde64e2](https://github.com/fjc0k/yapi-to-typescript/commit/dde64e2))
+
 <a name="3.23.1"></a>
 
 ## [3.23.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.23.0...v3.23.1) (2021-07-26)
