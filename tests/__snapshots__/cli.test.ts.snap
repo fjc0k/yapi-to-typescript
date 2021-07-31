@@ -133,34 +133,9 @@ import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFuncti
 // @ts-ignore
 import request from './request'
 
-// makeRequest
-function makeRequestRequired<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(
-  requestConfig: TRequestConfig,
-) {
-  const req = function (requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
-    return request<TResponseData>(prepare(requestConfig, requestData), ...args)
-  }
-  req.requestConfig = requestConfig
-  return req
-}
-function makeRequestOptional<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(
-  requestConfig: TRequestConfig,
-) {
-  const req = function (requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
-    return request<TResponseData>(prepare(requestConfig, requestData), ...args)
-  }
-  req.requestConfig = requestConfig
-  return req
-}
-function makeRequest<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(requestConfig: TRequestConfig) {
-  const optional = makeRequestOptional<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
-  const required = makeRequestRequired<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
-  return (requestConfig.requestDataOptional ? optional : required) as TRequestConfig['requestDataOptional'] extends true
-    ? typeof optional
-    : typeof required
-}
+type UserRequestRestArgs = RequestFunctionRestArgs<typeof request>
 
-// Request
+// Request: 目前 React Hooks 功能有用到
 export type Request<
   TReqeustData,
   TRequestConfig extends RequestConfig,
@@ -251,9 +226,11 @@ const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
  * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1610557429
  */
-export const deleteMethod = makeRequest<DeleteMethodRequest, DeleteMethodResponse, DeleteMethodRequestConfig>(
-  deleteMethodRequestConfig,
-)
+export const deleteMethod = (requestData: DeleteMethodRequest, ...args: UserRequestRestArgs) => {
+  return request<DeleteMethodResponse>(prepare(deleteMethodRequestConfig, requestData), ...args)
+}
+
+deleteMethod.requestConfig = deleteMethodRequestConfig
 
 /**
  * 接口 [GET 方法↗](http://foo.bar/project/11/interface/api/51) 的 **请求类型**
@@ -339,9 +316,11 @@ const getMethodRequestConfig: GetMethodRequestConfig = {
  * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1610557429
  */
-export const getMethod = makeRequest<GetMethodRequest, GetMethodResponse, GetMethodRequestConfig>(
-  getMethodRequestConfig,
-)
+export const getMethod = (requestData: GetMethodRequest, ...args: UserRequestRestArgs) => {
+  return request<GetMethodResponse>(prepare(getMethodRequestConfig, requestData), ...args)
+}
+
+getMethod.requestConfig = getMethodRequestConfig
 
 /**
  * 接口 [JSON5 响应↗](http://foo.bar/project/11/interface/api/57) 的 **请求类型**
@@ -417,9 +396,11 @@ const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
  * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1610557429
  */
-export const json5Response = makeRequest<Json5ResponseRequest, Json5ResponseResponse, Json5ResponseRequestConfig>(
-  json5ResponseRequestConfig,
-)
+export const json5Response = (requestData?: Json5ResponseRequest, ...args: UserRequestRestArgs) => {
+  return request<Json5ResponseResponse>(prepare(json5ResponseRequestConfig, requestData), ...args)
+}
+
+json5Response.requestConfig = json5ResponseRequestConfig
 
 /**
  * 接口 [JSON5 请求↗](http://foo.bar/project/11/interface/api/63) 的 **请求类型**
@@ -516,9 +497,11 @@ const json5RequestRequestConfig: Json5RequestRequestConfig = {
  * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1610557429
  */
-export const json5Request = makeRequest<Json5RequestRequest, Json5RequestResponse, Json5RequestRequestConfig>(
-  json5RequestRequestConfig,
-)
+export const json5Request = (requestData: Json5RequestRequest, ...args: UserRequestRestArgs) => {
+  return request<Json5RequestResponse>(prepare(json5RequestRequestConfig, requestData), ...args)
+}
+
+json5Request.requestConfig = json5RequestRequestConfig
 
 /**
  * 接口 [POST 方法↗](http://foo.bar/project/11/interface/api/69) 的 **请求类型**
@@ -613,9 +596,11 @@ const postMethodRequestConfig: PostMethodRequestConfig = {
  * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1610557429
  */
-export const postMethod = makeRequest<PostMethodRequest, PostMethodResponse, PostMethodRequestConfig>(
-  postMethodRequestConfig,
-)
+export const postMethod = (requestData: PostMethodRequest, ...args: UserRequestRestArgs) => {
+  return request<PostMethodResponse>(prepare(postMethodRequestConfig, requestData), ...args)
+}
+
+postMethod.requestConfig = postMethodRequestConfig
 
 /**
  * 接口 [PUT 方法↗](http://foo.bar/project/11/interface/api/75) 的 **请求类型**
@@ -707,9 +692,11 @@ const putMethodRequestConfig: PutMethodRequestConfig = {
  * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1610557429
  */
-export const putMethod = makeRequest<PutMethodRequest, PutMethodResponse, PutMethodRequestConfig>(
-  putMethodRequestConfig,
-)
+export const putMethod = (requestData: PutMethodRequest, ...args: UserRequestRestArgs) => {
+  return request<PutMethodResponse>(prepare(putMethodRequestConfig, requestData), ...args)
+}
+
+putMethod.requestConfig = putMethodRequestConfig
 
 /**
  * 接口 [dataKey 例子↗](http://foo.bar/project/11/interface/api/81) 的 **请求类型**
@@ -806,9 +793,11 @@ const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
  * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1610557430
  */
-export const dataKeyExample = makeRequest<DataKeyExampleRequest, DataKeyExampleResponse, DataKeyExampleRequestConfig>(
-  dataKeyExampleRequestConfig,
-)
+export const dataKeyExample = (requestData: DataKeyExampleRequest, ...args: UserRequestRestArgs) => {
+  return request<DataKeyExampleResponse>(prepare(dataKeyExampleRequestConfig, requestData), ...args)
+}
+
+dataKeyExample.requestConfig = dataKeyExampleRequestConfig
 
 /**
  * 接口 [文件↗](http://foo.bar/project/11/interface/api/87) 的 **请求类型**
@@ -880,7 +869,11 @@ const uploadRequestConfig: UploadRequestConfig = {
  * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1610557430
  */
-export const upload = makeRequest<UploadRequest, UploadResponse, UploadRequestConfig>(uploadRequestConfig)
+export const upload = (requestData: UploadRequest, ...args: UserRequestRestArgs) => {
+  return request<UploadResponse>(prepare(uploadRequestConfig, requestData), ...args)
+}
+
+upload.requestConfig = uploadRequestConfig
 
 /**
  * 接口 [查询参数+对象↗](http://foo.bar/project/11/interface/api/93) 的 **请求类型**
@@ -956,7 +949,11 @@ const testRequestConfig: TestRequestConfig = {
  * @请求头 \`POST /__hello__/test\`
  * @更新时间 1610557430
  */
-export const test = makeRequest<TestRequest, TestResponse, TestRequestConfig>(testRequestConfig)
+export const test = (requestData: TestRequest, ...args: UserRequestRestArgs) => {
+  return request<TestResponse>(prepare(testRequestConfig, requestData), ...args)
+}
+
+test.requestConfig = testRequestConfig
 
 /**
  * 接口 [没返回数据↗](http://foo.bar/project/11/interface/api/99) 的 **请求类型**
@@ -1028,9 +1025,11 @@ const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
  * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1610557430
  */
-export const noResponseData = makeRequest<NoResponseDataRequest, NoResponseDataResponse, NoResponseDataRequestConfig>(
-  noResponseDataRequestConfig,
-)
+export const noResponseData = (requestData?: NoResponseDataRequest, ...args: UserRequestRestArgs) => {
+  return request<NoResponseDataResponse>(prepare(noResponseDataRequestConfig, requestData), ...args)
+}
+
+noResponseData.requestConfig = noResponseDataRequestConfig
 
 /**
  * 接口 [空返回数据↗](http://foo.bar/project/11/interface/api/105) 的 **请求类型**
@@ -1102,9 +1101,11 @@ const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
  * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1610557430
  */
-export const emptyResponse = makeRequest<EmptyResponseRequest, EmptyResponseResponse, EmptyResponseRequestConfig>(
-  emptyResponseRequestConfig,
-)
+export const emptyResponse = (requestData?: EmptyResponseRequest, ...args: UserRequestRestArgs) => {
+  return request<EmptyResponseResponse>(prepare(emptyResponseRequestConfig, requestData), ...args)
+}
+
+emptyResponse.requestConfig = emptyResponseRequestConfig
 
 /**
  * 接口 [路径参数↗](http://foo.bar/project/11/interface/api/111) 的 **请求类型**
@@ -1185,7 +1186,11 @@ const testRequestConfig: TestRequestConfig = {
  * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1610557430
  */
-export const test = makeRequest<TestRequest, TestResponse, TestRequestConfig>(testRequestConfig)
+export const test = (requestData: TestRequest, ...args: UserRequestRestArgs) => {
+  return request<TestResponse>(prepare(testRequestConfig, requestData), ...args)
+}
+
+test.requestConfig = testRequestConfig
 
 /**
  * 接口 [路径参数+对象↗](http://foo.bar/project/11/interface/api/117) 的 **请求类型**
@@ -1274,7 +1279,11 @@ const hihihiRequestConfig: HihihiRequestConfig = {
  * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1610557430
  */
-export const hihihi = makeRequest<HihihiRequest, HihihiResponse, HihihiRequestConfig>(hihihiRequestConfig)
+export const hihihi = (requestData: HihihiRequest, ...args: UserRequestRestArgs) => {
+  return request<HihihiResponse>(prepare(hihihiRequestConfig, requestData), ...args)
+}
+
+hihihi.requestConfig = hihihiRequestConfig
 
 /**
  * 接口 [路径参数+查询参数+对象↗](http://foo.bar/project/11/interface/api/123) 的 **请求类型**
@@ -1368,11 +1377,11 @@ const hihihi_1608478638207RequestConfig: Hihihi_1608478638207RequestConfig = {
  * @请求头 \`POST /__hello__/test/{id}/:hihihi_1608478638207\`
  * @更新时间 1610557430
  */
-export const hihihi_1608478638207 = makeRequest<
-  Hihihi_1608478638207Request,
-  Hihihi_1608478638207Response,
-  Hihihi_1608478638207RequestConfig
->(hihihi_1608478638207RequestConfig)
+export const hihihi_1608478638207 = (requestData: Hihihi_1608478638207Request, ...args: UserRequestRestArgs) => {
+  return request<Hihihi_1608478638207Response>(prepare(hihihi_1608478638207RequestConfig, requestData), ...args)
+}
+
+hihihi_1608478638207.requestConfig = hihihi_1608478638207RequestConfig
 
 /**
  * 接口 [返回 raw↗](http://foo.bar/project/11/interface/api/129) 的 **请求类型**
@@ -1444,9 +1453,11 @@ const rawResponseRequestConfig: RawResponseRequestConfig = {
  * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1610557430
  */
-export const rawResponse = makeRequest<RawResponseRequest, RawResponseResponse, RawResponseRequestConfig>(
-  rawResponseRequestConfig,
-)
+export const rawResponse = (requestData?: RawResponseRequest, ...args: UserRequestRestArgs) => {
+  return request<RawResponseResponse>(prepare(rawResponseRequestConfig, requestData), ...args)
+}
+
+rawResponse.requestConfig = rawResponseRequestConfig
 
 /**
  * 接口 [请求头↗](http://foo.bar/project/11/interface/api/1087) 的 **请求类型**
@@ -1509,7 +1520,11 @@ const headersRequestConfig: HeadersRequestConfig = {
  * @请求头 \`GET /__hello__/headers\`
  * @更新时间 1619432971
  */
-export const headers = makeRequest<HeadersRequest, HeadersResponse, HeadersRequestConfig>(headersRequestConfig)
+export const headers = (requestData?: HeadersRequest, ...args: UserRequestRestArgs) => {
+  return request<HeadersResponse>(prepare(headersRequestConfig, requestData), ...args)
+}
+
+headers.requestConfig = headersRequestConfig
 
 /**
  * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
@@ -1594,7 +1609,11 @@ const avatarRequestConfig: AvatarRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar\`
  * @更新时间 1621501310
  */
-export const avatar = makeRequest<AvatarRequest, AvatarResponse, AvatarRequestConfig>(avatarRequestConfig)
+export const avatar = (requestData: AvatarRequest, ...args: UserRequestRestArgs) => {
+  return request<AvatarResponse>(prepare(avatarRequestConfig, requestData), ...args)
+}
+
+avatar.requestConfig = avatarRequestConfig
 
 /**
  * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
@@ -1676,7 +1695,11 @@ const deepRequestConfig: DeepRequestConfig = {
  * @请求头 \`GET /__hello__/dataKey/deep\`
  * @更新时间 1626489548
  */
-export const deep = makeRequest<DeepRequest, DeepResponse, DeepRequestConfig>(deepRequestConfig)
+export const deep = (requestData?: DeepRequest, ...args: UserRequestRestArgs) => {
+  return request<DeepResponse>(prepare(deepRequestConfig, requestData), ...args)
+}
+
+deep.requestConfig = deepRequestConfig
 
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_2 = '' as any
@@ -1751,7 +1774,11 @@ const get2RequestConfig: Get2RequestConfig = {
  * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1610557430
  */
-export const get2 = makeRequest<Get2Request, Get2Response, Get2RequestConfig>(get2RequestConfig)
+export const get2 = (requestData?: Get2Request, ...args: UserRequestRestArgs) => {
+  return request<Get2Response>(prepare(get2RequestConfig, requestData), ...args)
+}
+
+get2.requestConfig = get2RequestConfig
 
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_3 = '' as any
@@ -1828,11 +1855,11 @@ const picture_3dDetailRequestConfig: Picture_3dDetailRequestConfig = {
  * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1610557430
  */
-export const picture_3dDetail = makeRequest<
-  Picture_3dDetailRequest,
-  Picture_3dDetailResponse,
-  Picture_3dDetailRequestConfig
->(picture_3dDetailRequestConfig)
+export const picture_3dDetail = (requestData?: Picture_3dDetailRequest, ...args: UserRequestRestArgs) => {
+  return request<Picture_3dDetailResponse>(prepare(picture_3dDetailRequestConfig, requestData), ...args)
+}
+
+picture_3dDetail.requestConfig = picture_3dDetailRequestConfig
 
 /**
  * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/11/interface/api/147) 的 **请求类型**
@@ -1909,7 +1936,11 @@ const getRequestConfig: GetRequestConfig = {
  * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1610557430
  */
-export const get = makeRequest<GetRequest, GetResponse, GetRequestConfig>(getRequestConfig)
+export const get = (requestData: GetRequest, ...args: UserRequestRestArgs) => {
+  return request<GetResponse>(prepare(getRequestConfig, requestData), ...args)
+}
+
+get.requestConfig = getRequestConfig
 
 /**
  * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/11/interface/api/153) 的 **请求类型**
@@ -1987,7 +2018,11 @@ const formRequestConfig: FormRequestConfig = {
  * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1610557431
  */
-export const form = makeRequest<FormRequest, FormResponse, FormRequestConfig>(formRequestConfig)
+export const form = (requestData: FormRequest, ...args: UserRequestRestArgs) => {
+  return request<FormResponse>(prepare(formRequestConfig, requestData), ...args)
+}
+
+form.requestConfig = formRequestConfig
 
 /**
  * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/11/interface/api/159) 的 **请求类型**
@@ -2074,7 +2109,11 @@ const jsonRequestConfig: JsonRequestConfig = {
  * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1610557431
  */
-export const json = makeRequest<JsonRequest, JsonResponse, JsonRequestConfig>(jsonRequestConfig)
+export const json = (requestData: JsonRequest, ...args: UserRequestRestArgs) => {
+  return request<JsonResponse>(prepare(jsonRequestConfig, requestData), ...args)
+}
+
+json.requestConfig = jsonRequestConfig
 
 /* prettier-ignore-end */
 "

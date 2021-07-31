@@ -39,6 +39,7 @@
     "release": "yarn testOnly && standard-version -a && yarn build && yarn docs && git push --follow-tags origin master && npm publish",
     "releaseBeta": "yarn testOnly && standard-version -a --release-as patch --prerelease beta && yarn build && git push --follow-tags origin master && npm publish --tag next",
     "test": "jest --coverage",
+    "testUpdateSnapshot": "jest --coverage -u",
     "testApi": "ts-node -T src/cli.ts",
     "testOnly": "jest"
   },

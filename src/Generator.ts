@@ -493,36 +493,9 @@ export class Generator {
                     `
                 }
 
-                // makeRequest
-                function makeRequestRequired<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(requestConfig: TRequestConfig) {
-                  const req = function (requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
-                    return request<TResponseData>(prepare(requestConfig, requestData), ...args)
-                  }
-                  req.requestConfig = requestConfig
-                  return req
-                }
-                function makeRequestOptional<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(requestConfig: TRequestConfig) {
-                  const req = function (requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) {
-                    return request<TResponseData>(prepare(requestConfig, requestData), ...args)
-                  }
-                  req.requestConfig = requestConfig
-                  return req
-                }
-                function makeRequest<TReqeustData, TResponseData, TRequestConfig extends RequestConfig>(requestConfig: TRequestConfig) {
-                  const optional = makeRequestOptional<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
-                  const required = makeRequestRequired<TReqeustData, TResponseData, TRequestConfig>(requestConfig)
-                  return (
-                      requestConfig.requestDataOptional
-                        ? optional
-                        : required
-                    ) as (
-                      TRequestConfig['requestDataOptional'] extends true
-                        ? typeof optional
-                        : typeof required
-                    )
-                }
+                type UserRequestRestArgs = RequestFunctionRestArgs<typeof request>
 
-                // Request
+                // Request: 目前 React Hooks 功能有用到
                 export type Request<TReqeustData, TRequestConfig extends RequestConfig, TRequestResult> = (
                   TRequestConfig['requestDataOptional'] extends true
                     ? (requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
@@ -939,7 +912,19 @@ export class Generator {
             }
 
             ${genComment(title => `接口 ${title} 的 **请求函数**`)}
-            export const ${requestFunctionName} = makeRequest<${requestDataTypeName}, ${responseDataTypeName}, ${requestConfigTypeName}>(${requestConfigName})
+            export const ${requestFunctionName} = (
+              requestData${
+                isRequestDataOptional ? '?' : ''
+              }: ${requestDataTypeName},
+              ...args: UserRequestRestArgs
+            ) => {
+              return request<${responseDataTypeName}>(
+                prepare(${requestConfigName}, requestData),
+                ...args,
+              )
+            }
+
+            ${requestFunctionName}.requestConfig = ${requestConfigName}
 
             ${
               !syntheticalConfig.reactHooks ||
