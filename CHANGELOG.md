@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.24.1"></a>
+
+## [3.24.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.24.0...v3.24.1) (2021-07-31)
+
+### Bug Fixes
+
+- 直接构造请求函数而不是通过 makeRequest 构造请求函数，如此在 VSCode 中使用请求函数时可鼠标悬停显示注释 ([887298b](https://github.com/fjc0k/yapi-to-typescript/commit/887298b))
+
 <a name="3.24.0"></a>
 
 # [3.24.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.23.1...v3.24.0) (2021-07-30)
