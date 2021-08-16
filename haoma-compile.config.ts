@@ -8,6 +8,7 @@ export default [
     target: file => (/helpers/.test(file) ? 'browser' : 'node'),
     outDir: 'lib/esm',
     rollupDts: true,
+    rollupDtsIncludedPackages: ['vtils'],
     rollupDtsFiles: ['**/index.d.ts'],
   }),
   getCompileConfig({
