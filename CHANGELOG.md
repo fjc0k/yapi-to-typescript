@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.24.3"></a>
+
+## [3.24.3](https://github.com/fjc0k/yapi-to-typescript/compare/v3.24.2...v3.24.3) (2021-08-16)
+
+### Bug Fixes
+
+- 将使用到的来自 vtils/types 的辅助类型打包到类型文件以避免项目本身 ts 版本过低导致的类型错误 ([06e7166](https://github.com/fjc0k/yapi-to-typescript/commit/06e7166))
+
 <a name="3.24.2"></a>
 
 ## [3.24.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.24.1...v3.24.2) (2021-08-16)
