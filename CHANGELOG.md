@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.24.2"></a>
+
+## [3.24.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.24.1...v3.24.2) (2021-08-16)
+
+### Bug Fixes
+
+- typesOnly 模式下对于 FileData 的声明加上 ts-ignore 防止未使用到时报红 ([da2b084](https://github.com/fjc0k/yapi-to-typescript/commit/da2b084))
+
 <a name="3.24.1"></a>
 
 ## [3.24.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.24.0...v3.24.1) (2021-07-31)
