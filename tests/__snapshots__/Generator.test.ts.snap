@@ -764,6 +764,7 @@ exports[`Generator 只生成类型代码并写入文件: 接口文件 1`] = `
 
 /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
+// @ts-ignore
 type FileData = File
 
 /**

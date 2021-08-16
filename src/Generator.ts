@@ -463,6 +463,7 @@ export class Generator {
           ${
             syntheticalConfig.typesOnly
               ? dedent`
+                // @ts-ignore
                 type FileData = File
 
                 ${content.join('\n\n').trim()}
