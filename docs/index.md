@@ -41,7 +41,7 @@ yarn add yapi-to-typescript
 pnpm add yapi-to-typescript
 ```
 
-如果你在国内且没有任何科学上网措施，上述安装过程可能会非常慢，推荐你使用 [tbify](https://github.com/fjc0k/tbify)，这个工具可以自动将 npm、yarn 等包管理工具连上国内的淘宝镜像，加速安装。
+如果你在国内且没有任何科学<span style="font-size: 0;">习</span>上网措施，上述安装过程可能会非常慢，推荐你使用 [tbify](https://github.com/fjc0k/tbify)，这个工具可以自动将 npm、yarn 等包管理工具连上国内的淘宝镜像，加速安装。
 
 ## 交流群
 
