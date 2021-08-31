@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.24.4"></a>
+
+## [3.24.4](https://github.com/fjc0k/yapi-to-typescript/compare/v3.24.3...v3.24.4) (2021-08-31)
+
+### Bug Fixes
+
+- 修复 TRequestData 拼写错误 ([#55](https://github.com/fjc0k/yapi-to-typescript/issues/55)) ([36aaae4](https://github.com/fjc0k/yapi-to-typescript/commit/36aaae4))
+
 <a name="3.24.3"></a>
 
 ## [3.24.3](https://github.com/fjc0k/yapi-to-typescript/compare/v3.24.2...v3.24.3) (2021-08-16)
