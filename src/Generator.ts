@@ -497,10 +497,10 @@ export class Generator {
                 type UserRequestRestArgs = RequestFunctionRestArgs<typeof request>
 
                 // Request: 目前 React Hooks 功能有用到
-                export type Request<TReqeustData, TRequestConfig extends RequestConfig, TRequestResult> = (
+                export type Request<TRequestData, TRequestConfig extends RequestConfig, TRequestResult> = (
                   TRequestConfig['requestDataOptional'] extends true
-                    ? (requestData?: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
-                    : (requestData: TReqeustData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
+                    ? (requestData?: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
+                    : (requestData: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
                 ) & {
                   requestConfig: TRequestConfig
                 }
