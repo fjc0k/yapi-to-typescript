@@ -23,6 +23,7 @@ const generatorFactory = ({
   outputFilePath,
   dataKey,
   preproccessInterface,
+  customTypeMapping,
 }: {
   id: OneOrMore<
     | 0
@@ -43,6 +44,7 @@ const generatorFactory = ({
   outputFilePath?: (apiDir: string) => ServerConfig['outputFilePath']
   dataKey?: ServerConfig['dataKey']
   preproccessInterface?: ServerConfig['preproccessInterface']
+  customTypeMapping?: ServerConfig['customTypeMapping']
 }) => {
   const apiDir = tempy.directory()
   return new Generator({
@@ -60,6 +62,7 @@ const generatorFactory = ({
     jsonSchema: jsonSchema,
     comment: comment,
     dataKey: dataKey,
+    customTypeMapping: customTypeMapping,
     projects: [
       {
         token: token,
@@ -623,6 +626,21 @@ describe('Generator', () => {
             value: ii.project_id.toString(),
           },
         ],
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }, outputFilePath) => {
+      expect(path.basename(outputFilePath)).toMatchSnapshot('输出路径')
+      expect(content).toMatchSnapshot('输出内容')
+    })
+  })
+
+  test('customTypeMapping 使用正常', async () => {
+    const generator = generatorFactory({
+      id: [CatId.test2],
+      customTypeMapping: {
+        string: 'boolean',
       },
     })
     await generator.prepare()

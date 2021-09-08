@@ -2,7 +2,15 @@ import JSON5 from 'json5'
 import Mock from 'mockjs'
 import path from 'path'
 import toJsonSchema from 'to-json-schema'
-import { castArray, forOwn, isArray, isEmpty, isObject, omit } from 'vtils'
+import {
+  castArray,
+  forOwn,
+  isArray,
+  isEmpty,
+  isObject,
+  mapKeys,
+  omit,
+} from 'vtils'
 import { compile, Options } from 'json-schema-to-typescript'
 import { Defined, OneOrMore } from 'vtils/types'
 import { FileData } from './helpers'
@@ -56,7 +64,10 @@ export function getNormalizedRelativePath(from: string, to: string) {
  * @param jsonSchema 待处理的 JSONSchema
  * @returns 处理后的 JSONSchema
  */
-export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
+export function processJsonSchema<T extends JSONSchema4>(
+  jsonSchema: T,
+  customTypeMapping: Record<string, JSONSchema4TypeName>,
+): T {
   /* istanbul ignore if */
   if (!isObject(jsonSchema)) return jsonSchema
 
@@ -82,22 +93,25 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
 
   // 处理类型名称为标准的 JSONSchema 类型名称
   if (jsonSchema.type) {
+    // 类型映射表，键都为小写
+    const typeMapping: Record<string, JSONSchema4TypeName> = {
+      byte: 'integer',
+      short: 'integer',
+      int: 'integer',
+      long: 'integer',
+      float: 'number',
+      double: 'number',
+      bigdecimal: 'number',
+      char: 'string',
+      void: 'null',
+      ...mapKeys(customTypeMapping, (_, key) => key.toLowerCase()),
+    }
     const isMultiple = Array.isArray(jsonSchema.type)
     const types = castArray(jsonSchema.type).map(type => {
       // 所有类型转成小写，如：String -> string
       type = type.toLowerCase() as any
       // 映射为标准的 JSONSchema 类型
-      type =
-        ({
-          byte: 'integer',
-          short: 'integer',
-          int: 'integer',
-          long: 'integer',
-          float: 'number',
-          double: 'number',
-          char: 'string',
-          void: 'null',
-        } as Record<string, JSONSchema4TypeName>)[type] || type
+      type = typeMapping[type] || type
       return type
     })
     jsonSchema.type = isMultiple ? types : types[0]
@@ -126,27 +140,31 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
 
   // 继续处理对象的子元素
   if (jsonSchema.properties) {
-    forOwn(jsonSchema.properties, processJsonSchema)
+    forOwn(jsonSchema.properties, item =>
+      processJsonSchema(item, customTypeMapping),
+    )
   }
 
   // 继续处理数组的子元素
   if (jsonSchema.items) {
-    castArray(jsonSchema.items).forEach(processJsonSchema)
+    castArray(jsonSchema.items).forEach(item =>
+      processJsonSchema(item, customTypeMapping),
+    )
   }
 
   // 处理 oneOf
   if (jsonSchema.oneOf) {
-    jsonSchema.oneOf.forEach(processJsonSchema)
+    jsonSchema.oneOf.forEach(item => processJsonSchema(item, customTypeMapping))
   }
 
   // 处理 anyOf
   if (jsonSchema.anyOf) {
-    jsonSchema.anyOf.forEach(processJsonSchema)
+    jsonSchema.anyOf.forEach(item => processJsonSchema(item, customTypeMapping))
   }
 
   // 处理 allOf
   if (jsonSchema.allOf) {
-    jsonSchema.allOf.forEach(processJsonSchema)
+    jsonSchema.allOf.forEach(item => processJsonSchema(item, customTypeMapping))
   }
 
   return jsonSchema
@@ -158,8 +176,11 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
  * @param str 要转换的 JSONSchema 字符串
  * @returns 转换后的 JSONSchema 对象
  */
-export function jsonSchemaStringToJsonSchema(str: string): JSONSchema4 {
-  return processJsonSchema(JSON.parse(str))
+export function jsonSchemaStringToJsonSchema(
+  str: string,
+  customTypeMapping: Record<string, JSONSchema4TypeName>,
+): JSONSchema4 {
+  return processJsonSchema(JSON.parse(str), customTypeMapping)
 }
 
 /**
@@ -168,7 +189,10 @@ export function jsonSchemaStringToJsonSchema(str: string): JSONSchema4 {
  * @param json JSON 数据
  * @returns JSONSchema 对象
  */
-export function jsonToJsonSchema(json: object): JSONSchema4 {
+export function jsonToJsonSchema(
+  json: object,
+  customTypeMapping: Record<string, JSONSchema4TypeName>,
+): JSONSchema4 {
   const schema = toJsonSchema(json, {
     required: false,
     arrays: {
@@ -188,7 +212,7 @@ export function jsonToJsonSchema(json: object): JSONSchema4 {
     },
   })
   delete schema.description
-  return processJsonSchema(schema as any)
+  return processJsonSchema(schema as any, customTypeMapping)
 }
 
 /**
@@ -197,8 +221,14 @@ export function jsonToJsonSchema(json: object): JSONSchema4 {
  * @param template mockjs 模板
  * @returns JSONSchema 对象
  */
-export function mockjsTemplateToJsonSchema(template: object): JSONSchema4 {
-  return processJsonSchema(Mock.toJSONSchema(template) as any)
+export function mockjsTemplateToJsonSchema(
+  template: object,
+  customTypeMapping: Record<string, JSONSchema4TypeName>,
+): JSONSchema4 {
+  return processJsonSchema(
+    Mock.toJSONSchema(template) as any,
+    customTypeMapping,
+  )
 }
 
 /**
@@ -209,26 +239,30 @@ export function mockjsTemplateToJsonSchema(template: object): JSONSchema4 {
  */
 export function propDefinitionsToJsonSchema(
   propDefinitions: PropDefinitions,
+  customTypeMapping: Record<string, JSONSchema4TypeName>,
 ): JSONSchema4 {
-  return processJsonSchema({
-    type: 'object',
-    required: propDefinitions.reduce<string[]>((res, prop) => {
-      if (prop.required) {
-        res.push(prop.name)
-      }
-      return res
-    }, []),
-    properties: propDefinitions.reduce<
-      Exclude<JSONSchema4['properties'], undefined>
-    >((res, prop) => {
-      res[prop.name] = {
-        type: prop.type,
-        description: prop.comment,
-        ...(prop.type === ('file' as any) ? { tsType: FileData.name } : {}),
-      }
-      return res
-    }, {}),
-  })
+  return processJsonSchema(
+    {
+      type: 'object',
+      required: propDefinitions.reduce<string[]>((res, prop) => {
+        if (prop.required) {
+          res.push(prop.name)
+        }
+        return res
+      }, []),
+      properties: propDefinitions.reduce<
+        Exclude<JSONSchema4['properties'], undefined>
+      >((res, prop) => {
+        res[prop.name] = {
+          type: prop.type,
+          description: prop.comment,
+          ...(prop.type === ('file' as any) ? { tsType: FileData.name } : {}),
+        }
+        return res
+      }, {}),
+    },
+    customTypeMapping,
+  )
 }
 
 const JSTTOptions: Partial<Options> = {
@@ -276,6 +310,7 @@ export async function jsonSchemaToType(
 
 export function getRequestDataJsonSchema(
   interfaceInfo: Interface,
+  customTypeMapping: Record<string, JSONSchema4TypeName>,
 ): JSONSchema4 {
   let jsonSchema!: JSONSchema4
 
@@ -290,13 +325,20 @@ export function getRequestDataJsonSchema(
             : 'string') as any,
           comment: item.desc,
         })),
+        customTypeMapping,
       )
       break
     case RequestBodyType.json:
       if (interfaceInfo.req_body_other) {
         jsonSchema = interfaceInfo.req_body_is_json_schema
-          ? jsonSchemaStringToJsonSchema(interfaceInfo.req_body_other)
-          : jsonToJsonSchema(JSON5.parse(interfaceInfo.req_body_other))
+          ? jsonSchemaStringToJsonSchema(
+              interfaceInfo.req_body_other,
+              customTypeMapping,
+            )
+          : jsonToJsonSchema(
+              JSON5.parse(interfaceInfo.req_body_other),
+              customTypeMapping,
+            )
       }
       break
     default:
@@ -312,6 +354,7 @@ export function getRequestDataJsonSchema(
         type: item.type || 'string',
         comment: item.desc,
       })),
+      customTypeMapping,
     )
     /* istanbul ignore else */
     if (jsonSchema) {
@@ -336,6 +379,7 @@ export function getRequestDataJsonSchema(
         type: item.type || 'string',
         comment: item.desc,
       })),
+      customTypeMapping,
     )
     /* istanbul ignore else */
     if (jsonSchema) {
@@ -357,6 +401,7 @@ export function getRequestDataJsonSchema(
 
 export function getResponseDataJsonSchema(
   interfaceInfo: Interface,
+  customTypeMapping: Record<string, JSONSchema4TypeName>,
   dataKey?: OneOrMore<string>,
 ): JSONSchema4 {
   let jsonSchema: JSONSchema4 = {}
@@ -365,8 +410,14 @@ export function getResponseDataJsonSchema(
     case ResponseBodyType.json:
       if (interfaceInfo.res_body) {
         jsonSchema = interfaceInfo.res_body_is_json_schema
-          ? jsonSchemaStringToJsonSchema(interfaceInfo.res_body)
-          : mockjsTemplateToJsonSchema(JSON5.parse(interfaceInfo.res_body))
+          ? jsonSchemaStringToJsonSchema(
+              interfaceInfo.res_body,
+              customTypeMapping,
+            )
+          : mockjsTemplateToJsonSchema(
+              JSON5.parse(interfaceInfo.res_body),
+              customTypeMapping,
+            )
       }
       break
     default:
