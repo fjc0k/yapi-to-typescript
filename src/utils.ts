@@ -95,6 +95,7 @@ export function processJsonSchema<T extends JSONSchema4>(jsonSchema: T): T {
           long: 'integer',
           float: 'number',
           double: 'number',
+          bigdecimal: 'number',
           char: 'string',
           void: 'null',
         } as Record<string, JSONSchema4TypeName>)[type] || type
