@@ -1,4 +1,4 @@
-import { JSONSchema4 } from 'json-schema'
+import { JSONSchema4, JSONSchema4TypeName } from 'json-schema'
 import { LiteralUnion, OmitStrict, OneOrMore } from 'vtils/types'
 import { ParsedPath } from 'path'
 
@@ -512,6 +512,11 @@ export interface SharedConfig {
    * 支持生成注释的相关配置。
    */
   comment?: CommentConfig
+
+  /**
+   * 将自定义类型转为 JSONSchema 类型的映射表，自定义类型名称大小写不敏感。
+   */
+  customTypeMapping?: Record<string, JSONSchema4TypeName>
 
   /**
    * 预处理接口信息，返回新的接口信息。可返回 false 排除当前接口。

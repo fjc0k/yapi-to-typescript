@@ -282,7 +282,7 @@ export default async function request<TResponseData>(
 
 是否为标题、分类名称添加链接。
 
-### comment.extraTags <Badge>3.24.0+</Badge>
+#### comment.extraTags <Badge>3.24.0+</Badge>
 
 - 类型：`(interfaceInfo: ExtendedInterface) => Array<{ name: string; value: string; position?: 'start' | 'end'; }>`
 - 默认值：`(无)`
@@ -308,6 +308,32 @@ export default defineConfig({
     ],
   },
 })
+```
+
+### customTypeMapping <Badge>3.25.0+</Badge>
+
+- 类型: `Record<string, 'string' | 'number' | 'boolean' | 'object' | 'integer' | 'array' | 'null' | 'any'>`
+- 默认值: `(无)`
+- 说明:
+
+将自定义类型转为 JSONSchema 类型的映射表，自定义类型名称大小写不敏感。
+
+使用场景：通过 Swagger 等导入的 YApi 定义可能掺杂了一些 JSONSchema 不支持的类型，我们可以通过这个配置将他们转为 JSONSchema 支持的类型。
+
+ytt 内置了一个映射表，此配置会进行追加（相同覆盖）：
+
+```json
+{
+  "byte": "integer",
+  "short": "integer",
+  "int": "integer",
+  "long": "integer",
+  "float": "number",
+  "double": "number",
+  "bigdecimal": "number",
+  "char": "string",
+  "void": "null"
+}
 ```
 
 ### preproccessInterface

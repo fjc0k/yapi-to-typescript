@@ -707,6 +707,7 @@ export class Generator {
       : changeCase.pascalCase(`${requestFunctionName}Response`)
     const requestDataJsonSchema = getRequestDataJsonSchema(
       extendedInterfaceInfo,
+      syntheticalConfig.customTypeMapping || {},
     )
     const requestDataType = await jsonSchemaToType(
       requestDataJsonSchema,
@@ -714,6 +715,7 @@ export class Generator {
     )
     const responseDataJsonSchema = getResponseDataJsonSchema(
       extendedInterfaceInfo,
+      syntheticalConfig.customTypeMapping || {},
       syntheticalConfig.dataKey,
     )
     const responseDataType = await jsonSchemaToType(
