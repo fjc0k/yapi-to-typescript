@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.25.0"></a>
+
+# [3.25.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.24.4...v3.25.0) (2021-09-08)
+
+### Features
+
+- 新增 customTypeMapping 将自定义类型转为 JSONSchema 类型 ([#57](https://github.com/fjc0k/yapi-to-typescript/issues/57)) ([6908c6d](https://github.com/fjc0k/yapi-to-typescript/commit/6908c6d))
+
 <a name="3.24.4"></a>
 
 ## [3.24.4](https://github.com/fjc0k/yapi-to-typescript/compare/v3.24.3...v3.24.4) (2021-08-31)
