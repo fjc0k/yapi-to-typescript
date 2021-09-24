@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.25.1"></a>
+
+## [3.25.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.25.0...v3.25.1) (2021-09-24)
+
+### Bug Fixes
+
+- 仅 POST 类接口处理表单数据 ([#59](https://github.com/fjc0k/yapi-to-typescript/issues/59)) ([122e68d](https://github.com/fjc0k/yapi-to-typescript/commit/122e68d))
+
 <a name="3.25.0"></a>
 
 # [3.25.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.24.4...v3.25.0) (2021-09-08)
