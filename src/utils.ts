@@ -329,6 +329,10 @@ export function getRequestDataJsonSchema(
       )
       break
     case RequestBodyType.json:
+      // get 请求时入参不需要合并 req body 参数
+      if (interfaceInfo.method === 'GET') {
+        break
+      }
       if (interfaceInfo.req_body_other) {
         jsonSchema = interfaceInfo.req_body_is_json_schema
           ? jsonSchemaStringToJsonSchema(
