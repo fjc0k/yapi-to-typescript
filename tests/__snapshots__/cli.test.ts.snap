@@ -1701,6 +1701,87 @@ export const deep = (requestData?: DeepRequest, ...args: UserRequestRestArgs) =>
 
 deep.requestConfig = deepRequestConfig
 
+/**
+ * 接口 [fix: 仅 POST 类接口处理表单数据↗](http://foo.bar/project/11/interface/api/1345) 的 **请求类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/get/only_post_form_data\`
+ * @更新时间 1632493928
+ */
+export interface OnlyPostFormDataRequest {
+  /**
+   * id
+   */
+  query_id: string
+}
+
+/**
+ * 接口 [fix: 仅 POST 类接口处理表单数据↗](http://foo.bar/project/11/interface/api/1345) 的 **返回类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/get/only_post_form_data\`
+ * @更新时间 1632493928
+ */
+export interface OnlyPostFormDataResponse {}
+
+/**
+ * 接口 [fix: 仅 POST 类接口处理表单数据↗](http://foo.bar/project/11/interface/api/1345) 的 **请求配置的类型**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/get/only_post_form_data\`
+ * @更新时间 1632493928
+ */
+type OnlyPostFormDataRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/get/only_post_form_data',
+    undefined,
+    string,
+    'query_id',
+    false
+  >
+>
+
+/**
+ * 接口 [fix: 仅 POST 类接口处理表单数据↗](http://foo.bar/project/11/interface/api/1345) 的 **请求配置**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/get/only_post_form_data\`
+ * @更新时间 1632493928
+ */
+const onlyPostFormDataRequestConfig: OnlyPostFormDataRequestConfig = {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: '/__hello__/get/only_post_form_data',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: ['query_id'],
+  requestDataOptional: false,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'onlyPostFormData',
+}
+
+/**
+ * 接口 [fix: 仅 POST 类接口处理表单数据↗](http://foo.bar/project/11/interface/api/1345) 的 **请求函数**
+ *
+ * @分类 [test↗](http://foo.bar/project/11/interface/api/cat_18)
+ * @请求头 \`GET /__hello__/get/only_post_form_data\`
+ * @更新时间 1632493928
+ */
+export const onlyPostFormData = (requestData: OnlyPostFormDataRequest, ...args: UserRequestRestArgs) => {
+  return request<OnlyPostFormDataResponse>(prepare(onlyPostFormDataRequestConfig, requestData), ...args)
+}
+
+onlyPostFormData.requestConfig = onlyPostFormDataRequestConfig
+
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_2 = '' as any
 const prodUrl_0_0_0_2 = 'http://prod.com/' as any
