@@ -16,6 +16,7 @@ import { Defined, OneOrMore } from 'vtils/types'
 import { FileData } from './helpers'
 import {
   Interface,
+  Method,
   PropDefinition,
   PropDefinitions,
   RequestBodyType,
@@ -314,38 +315,42 @@ export function getRequestDataJsonSchema(
 ): JSONSchema4 {
   let jsonSchema!: JSONSchema4
 
-  switch (interfaceInfo.req_body_type) {
-    case RequestBodyType.form:
-      jsonSchema = propDefinitionsToJsonSchema(
-        interfaceInfo.req_body_form.map<PropDefinition>(item => ({
-          name: item.name,
-          required: item.required === Required.true,
-          type: (item.type === RequestFormItemType.file
-            ? 'file'
-            : 'string') as any,
-          comment: item.desc,
-        })),
-        customTypeMapping,
-      )
-      break
-    case RequestBodyType.json:
-      if (interfaceInfo.req_body_other) {
-        jsonSchema = interfaceInfo.req_body_is_json_schema
-          ? jsonSchemaStringToJsonSchema(
-              interfaceInfo.req_body_other,
-              customTypeMapping,
-            )
-          : jsonToJsonSchema(
-              JSON5.parse(interfaceInfo.req_body_other),
-              customTypeMapping,
-            )
-      }
-      break
-    default:
-      /* istanbul ignore next */
-      break
+  // 处理表单数据（仅 POST 类接口）
+  if (isPostLikeMethod(interfaceInfo.method)) {
+    switch (interfaceInfo.req_body_type) {
+      case RequestBodyType.form:
+        jsonSchema = propDefinitionsToJsonSchema(
+          interfaceInfo.req_body_form.map<PropDefinition>(item => ({
+            name: item.name,
+            required: item.required === Required.true,
+            type: (item.type === RequestFormItemType.file
+              ? 'file'
+              : 'string') as any,
+            comment: item.desc,
+          })),
+          customTypeMapping,
+        )
+        break
+      case RequestBodyType.json:
+        if (interfaceInfo.req_body_other) {
+          jsonSchema = interfaceInfo.req_body_is_json_schema
+            ? jsonSchemaStringToJsonSchema(
+                interfaceInfo.req_body_other,
+                customTypeMapping,
+              )
+            : jsonToJsonSchema(
+                JSON5.parse(interfaceInfo.req_body_other),
+                customTypeMapping,
+              )
+        }
+        break
+      default:
+        /* istanbul ignore next */
+        break
+    }
   }
 
+  // 处理查询数据
   if (isArray(interfaceInfo.req_query) && interfaceInfo.req_query.length) {
     const queryJsonSchema = propDefinitionsToJsonSchema(
       interfaceInfo.req_query.map<PropDefinition>(item => ({
@@ -371,6 +376,7 @@ export function getRequestDataJsonSchema(
     }
   }
 
+  // 处理路径参数
   if (isArray(interfaceInfo.req_params) && interfaceInfo.req_params.length) {
     const paramsJsonSchema = propDefinitionsToJsonSchema(
       interfaceInfo.req_params.map<PropDefinition>(item => ({
@@ -462,4 +468,14 @@ export function sortByWeights<T extends { weights: number[] }>(list: T[]): T[] {
     return w
   })
   return list
+}
+
+export function isGetLikeMethod(method: Method): boolean {
+  return (
+    method === Method.GET || method === Method.OPTIONS || method === Method.HEAD
+  )
+}
+
+export function isPostLikeMethod(method: Method): boolean {
+  return !isGetLikeMethod(method)
 }
