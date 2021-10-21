@@ -1,6 +1,7 @@
 import JSON5 from 'json5'
 import Mock from 'mockjs'
 import path from 'path'
+import prettier from 'prettier'
 import toJsonSchema from 'to-json-schema'
 import {
   castArray,
@@ -9,7 +10,9 @@ import {
   isEmpty,
   isObject,
   mapKeys,
+  memoize,
   omit,
+  run,
 } from 'vtils'
 import { compile, Options } from 'json-schema-to-typescript'
 import { Defined, OneOrMore } from 'vtils/types'
@@ -479,3 +482,41 @@ export function isGetLikeMethod(method: Method): boolean {
 export function isPostLikeMethod(method: Method): boolean {
   return !isGetLikeMethod(method)
 }
+
+export async function getPrettierOptions(): Promise<prettier.Options> {
+  const prettierOptions: prettier.Options = {
+    parser: 'typescript',
+    printWidth: 120,
+    tabWidth: 2,
+    singleQuote: true,
+    semi: false,
+    trailingComma: 'all',
+    bracketSpacing: false,
+    endOfLine: 'lf',
+  }
+
+  // 测试时跳过本地配置的解析
+  if (process.env.JEST_WORKER_ID) {
+    return prettierOptions
+  }
+
+  const [prettierConfigPathErr, prettierConfigPath] = await run(() =>
+    prettier.resolveConfigFile(),
+  )
+  if (prettierConfigPathErr || !prettierConfigPath) {
+    return prettierOptions
+  }
+
+  const [prettierConfigErr, prettierConfig] = await run(() =>
+    prettier.resolveConfig(prettierConfigPath),
+  )
+  if (prettierConfigErr || !prettierConfig) {
+    return prettierOptions
+  }
+
+  Object.assign(prettierOptions, prettierConfig)
+
+  return prettierOptions
+}
+
+export const getCachedPrettierOptions = memoize(getPrettierOptions)

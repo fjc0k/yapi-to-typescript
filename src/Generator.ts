@@ -34,6 +34,7 @@ import {
 } from './types'
 import { exec } from 'child_process'
 import {
+  getCachedPrettierOptions,
   getNormalizedRelativePath,
   getRequestDataJsonSchema,
   getResponseDataJsonSchema,
@@ -50,24 +51,6 @@ interface OutputFileList {
     requestFunctionFilePath: string
     requestHookMakerFilePath: string
   }
-}
-
-// https://github.com/prettier/prettier/blob/e91a0f4706533c2bd11a1f84f1994cbc0082ed77/src/config/resolve-config.js#L134
-const prettierConfigPath = await prettier.resolveConfigFile()
-const prettierConfig = await prettier.resolveConfig(prettierConfigPath)
-const defaultPrettierOptions = {
-  parser: 'typescript',
-  printWidth: 120,
-  tabWidth: 2,
-  singleQuote: true,
-  semi: false,
-  trailingComma: 'all',
-  bracketSpacing: false,
-  endOfLine: 'lf',
-}
-const prettierOptions = {
-  ...defaultPrettierOptions,
-  ...prettierConfig,
 }
 
 export class Generator {
@@ -528,7 +511,10 @@ export class Generator {
           }
         `
         // ref: https://prettier.io/docs/en/options.html
-        const prettyOutputContent = prettier.format(rawOutputContent, prettierOptions)
+        const prettyOutputContent = prettier.format(
+          rawOutputContent,
+          await getCachedPrettierOptions(),
+        )
         const outputContent = `${dedent`
           /* prettier-ignore-start */
           ${prettyOutputContent}
