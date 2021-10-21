@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.26.0"></a>
+
+# [3.26.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.25.1...v3.26.0) (2021-10-21)
+
+### Bug Fixes
+
+- 复用本地 prettier 配置 ([2e583de](https://github.com/fjc0k/yapi-to-typescript/commit/2e583de))
+
+### Features
+
+- 支持复用本地的 prettier 配置格式化生成的代码 ([#60](https://github.com/fjc0k/yapi-to-typescript/issues/60)) ([8382e66](https://github.com/fjc0k/yapi-to-typescript/commit/8382e66))
+
 <a name="3.25.1"></a>
 
 ## [3.25.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.25.0...v3.25.1) (2021-09-24)
