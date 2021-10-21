@@ -52,6 +52,23 @@ interface OutputFileList {
   }
 }
 
+const prettierConfigPath = await prettier.resolveConfigFile()
+const prettierConfig = await prettier.resolveConfig(configPath)
+const defaultPrettierOptions = {
+  parser: 'typescript',
+  printWidth: 120,
+  tabWidth: 2,
+  singleQuote: true,
+  semi: false,
+  trailingComma: 'all',
+  bracketSpacing: false,
+  endOfLine: 'lf',
+}
+const prettierOptions = {
+  ...defaultPrettierOptions,
+  ...prettierConfig,
+}
+
 export class Generator {
   /** 配置 */
   private config: ServerConfig[] = []
@@ -510,16 +527,7 @@ export class Generator {
           }
         `
         // ref: https://prettier.io/docs/en/options.html
-        const prettyOutputContent = prettier.format(rawOutputContent, {
-          parser: 'typescript',
-          printWidth: 120,
-          tabWidth: 2,
-          singleQuote: true,
-          semi: false,
-          trailingComma: 'all',
-          bracketSpacing: false,
-          endOfLine: 'lf',
-        })
+        const prettyOutputContent = prettier.format(rawOutputContent, prettierOptions)
         const outputContent = `${dedent`
           /* prettier-ignore-start */
           ${prettyOutputContent}
