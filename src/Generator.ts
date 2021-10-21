@@ -54,7 +54,7 @@ interface OutputFileList {
 
 // https://github.com/prettier/prettier/blob/e91a0f4706533c2bd11a1f84f1994cbc0082ed77/src/config/resolve-config.js#L134
 const prettierConfigPath = await prettier.resolveConfigFile()
-const prettierConfig = await prettier.resolveConfig(configPath)
+const prettierConfig = await prettier.resolveConfig(prettierConfigPath)
 const defaultPrettierOptions = {
   parser: 'typescript',
   printWidth: 120,
