@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.26.1-beta.0"></a>
+
+## [3.26.1-beta.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.26.0...v3.26.1-beta.0) (2021-10-22)
+
+### Bug Fixes
+
+- 尝试为 prettier 传入 filepath 选项解决格式化报错问题 ([c62c41e](https://github.com/fjc0k/yapi-to-typescript/commit/c62c41e))
+
 <a name="3.26.0"></a>
 
 # [3.26.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.25.1...v3.26.0) (2021-10-21)
