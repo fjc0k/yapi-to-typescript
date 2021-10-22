@@ -514,9 +514,11 @@ export async function getPrettierOptions(): Promise<prettier.Options> {
     return prettierOptions
   }
 
-  Object.assign(prettierOptions, prettierConfig)
-
-  return prettierOptions
+  return {
+    ...prettierOptions,
+    ...prettierConfig,
+    parser: 'typescript',
+  }
 }
 
 export const getCachedPrettierOptions = memoize(getPrettierOptions)
