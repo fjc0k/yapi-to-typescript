@@ -511,10 +511,10 @@ export class Generator {
           }
         `
         // ref: https://prettier.io/docs/en/options.html
-        const prettyOutputContent = prettier.format(
-          rawOutputContent,
-          await getCachedPrettierOptions(),
-        )
+        const prettyOutputContent = prettier.format(rawOutputContent, {
+          ...(await getCachedPrettierOptions()),
+          filepath: outputFilePath,
+        })
         const outputContent = `${dedent`
           /* prettier-ignore-start */
           ${prettyOutputContent}
