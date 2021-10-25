@@ -2259,7 +2259,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'json5ResponseTest',
 }
@@ -2966,7 +2966,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'noResponseDataTest',
 }
@@ -3430,7 +3430,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'rawResponseTest',
 }
@@ -3506,7 +3506,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'headersTest',
 }
@@ -3690,7 +3690,7 @@ const deepTestRequestConfig: DeepTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'deepTest',
 }
@@ -4044,7 +4044,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: \\"json5ResponseTest\\",
 }
@@ -4719,7 +4719,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: \\"noResponseDataTest\\",
 }
@@ -5167,7 +5167,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: \\"rawResponseTest\\",
 }
@@ -5247,7 +5247,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: \\"headersTest\\",
 }
@@ -5430,7 +5430,7 @@ const deepTestRequestConfig: DeepTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: \\"deepTest\\",
 }
@@ -61153,7 +61153,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {
     template: {id: 1, age: '@float', name: '@name'},
     type: 'object',
@@ -61912,7 +61912,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'noResponseDataTest',
 }
@@ -62376,7 +62376,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'rawResponseTest',
 }
@@ -62452,7 +62452,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
   requestFunctionName: 'headersTest',
 }
@@ -62636,7 +62636,7 @@ const deepTestRequestConfig: DeepTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {
     $schema: 'http://json-schema.org/draft-04/schema#',
     type: 'object',
@@ -63011,7 +63011,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"]},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"]},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"]}},\\"additionalProperties\\":false},
   requestFunctionName: \\"json5ResponseTest\\",
 }
@@ -63686,7 +63686,7 @@ const noResponseDataTestRequestConfig: NoResponseDataTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: \\"noResponseDataTest\\",
 }
@@ -64134,7 +64134,7 @@ const rawResponseTestRequestConfig: RawResponseTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: \\"rawResponseTest\\",
 }
@@ -64214,7 +64214,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
   requestFunctionName: \\"headersTest\\",
 }
@@ -64397,7 +64397,7 @@ const deepTestRequestConfig: DeepTestRequestConfig = {
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: undefined,
+  requestDataJsonSchema: {},
   responseDataJsonSchema: {\\"$schema\\":\\"http://json-schema.org/draft-04/schema#\\",\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\"},\\"container\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"realData\\":{\\"type\\":\\"string\\",\\"description\\":\\"真数据\\"}},\\"required\\":[\\"realData\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"data\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"container\\"],\\"additionalProperties\\":false},
   requestFunctionName: \\"deepTest\\",
 }

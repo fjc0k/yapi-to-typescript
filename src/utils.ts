@@ -316,7 +316,7 @@ export function getRequestDataJsonSchema(
   interfaceInfo: Interface,
   customTypeMapping: Record<string, JSONSchema4TypeName>,
 ): JSONSchema4 {
-  let jsonSchema!: JSONSchema4
+  let jsonSchema: JSONSchema4 | undefined
 
   // 处理表单数据（仅 POST 类接口）
   if (isPostLikeMethod(interfaceInfo.method)) {
@@ -405,7 +405,7 @@ export function getRequestDataJsonSchema(
     }
   }
 
-  return jsonSchema
+  return jsonSchema || {}
 }
 
 export function getResponseDataJsonSchema(
