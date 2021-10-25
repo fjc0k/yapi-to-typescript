@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.26.2"></a>
+
+## [3.26.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.26.1...v3.26.2) (2021-10-25)
+
+### Bug Fixes
+
+- 生成的请求数据的 JSONSchema 可能为 undefined，给一个默认值保证是一个合法的 JSONSchema 空值 ([271f7fe](https://github.com/fjc0k/yapi-to-typescript/commit/271f7fe))
+
 <a name="3.26.1"></a>
 
 ## [3.26.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.26.1-beta.1...v3.26.1) (2021-10-22)
