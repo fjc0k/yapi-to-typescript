@@ -887,7 +887,7 @@ export class Generator {
                   : extendedInterfaceInfo.req_body_type /* istanbul ignore next */ ||
                     RequestBodyType.none
               },
-              responseBodyType: ResponseBodyType.${
+              responseBodyType2: ResponseBodyType.${
                 extendedInterfaceInfo.res_body_type
               },
               dataKey: dataKey${categoryUID},
