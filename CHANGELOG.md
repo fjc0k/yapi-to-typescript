@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.27.0"></a>
+
+# [3.27.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.26.2...v3.27.0) (2021-11-22)
+
+### Features
+
+- 新增配置 setRequestFunctionExtraInfo 设置传给请求函数的参数中的 extraInfo 的值 ([a942cc1](https://github.com/fjc0k/yapi-to-typescript/commit/a942cc1))
+
 <a name="3.26.2"></a>
 
 ## [3.26.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.26.1...v3.26.2) (2021-10-25)
