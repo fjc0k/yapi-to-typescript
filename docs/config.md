@@ -336,6 +336,32 @@ ytt 内置了一个映射表，此配置会进行追加（相同覆盖）：
 }
 ```
 
+### setRequestFunctionExtraInfo <Badge>3.27.0+</Badge>
+
+- 类型: `(interfaceInfo: Interface, changeCase: ChangeCase): Record<string, any>`
+- 默认值: `(无)`
+- 说明:
+
+设置传给请求函数的参数中的 [extraInfo](./request.html#extrainfo) 的值。
+
+- 应用场景：请求函数需获得接口名称、接口所属分类名称、接口所属项目名称以在出错时提示友好
+
+  ```javascript
+  import { defineConfig } from 'yapi-to-typescript'
+
+  export default defineConfig({
+    setRequestFunctionExtraInfo(ii) {
+      return {
+        name: ii.title,
+        category: ii._category.name,
+        project: ii._project.name,
+      }
+    },
+  })
+  ```
+
+  然后在请求函数中就可通过 `payload.extraInfo.{name,category,project}` 分别获取接口名称、分类名称、项目名称。
+
 ### preproccessInterface
 
 - 类型：`(interfaceInfo: Interface, changeCase: ChangeCase): Interface | false`

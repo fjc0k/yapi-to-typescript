@@ -24,6 +24,7 @@ const generatorFactory = ({
   dataKey,
   preproccessInterface,
   customTypeMapping,
+  setRequestFunctionExtraInfo,
 }: {
   id: OneOrMore<
     | 0
@@ -45,6 +46,7 @@ const generatorFactory = ({
   dataKey?: ServerConfig['dataKey']
   preproccessInterface?: ServerConfig['preproccessInterface']
   customTypeMapping?: ServerConfig['customTypeMapping']
+  setRequestFunctionExtraInfo?: ServerConfig['setRequestFunctionExtraInfo']
 }) => {
   const apiDir = tempy.directory()
   return new Generator({
@@ -63,6 +65,7 @@ const generatorFactory = ({
     comment: comment,
     dataKey: dataKey,
     customTypeMapping: customTypeMapping,
+    setRequestFunctionExtraInfo: setRequestFunctionExtraInfo,
     projects: [
       {
         token: token,
@@ -642,6 +645,23 @@ describe('Generator', () => {
       customTypeMapping: {
         string: 'boolean',
       },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }, outputFilePath) => {
+      expect(path.basename(outputFilePath)).toMatchSnapshot('输出路径')
+      expect(content).toMatchSnapshot('输出内容')
+    })
+  })
+
+  test('setRequestFunctionExtraInfo 使用正常', async () => {
+    const generator = generatorFactory({
+      id: [CatId.test2],
+      setRequestFunctionExtraInfo: ii => ({
+        name: ii.title,
+        category: ii._category.name,
+        project: ii._project.name,
+      }),
     })
     await generator.prepare()
     const output = await generator.generate()

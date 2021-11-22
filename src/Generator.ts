@@ -843,6 +843,15 @@ export class Generator {
       `
     }
 
+    // 请求参数额外信息
+    const requestFunctionExtraInfo =
+      typeof syntheticalConfig.setRequestFunctionExtraInfo === 'function'
+        ? await syntheticalConfig.setRequestFunctionExtraInfo(
+            extendedInterfaceInfo,
+            changeCase,
+          )
+        : {}
+
     return dedent`
       ${genComment(title => `接口 ${title} 的 **请求类型**`)}
       ${requestDataType.trim()}
@@ -907,6 +916,7 @@ export class Generator {
                   : {},
               )},
               requestFunctionName: ${JSON.stringify(requestFunctionName)},
+              extraInfo: ${JSON.stringify(requestFunctionExtraInfo)},
             }
 
             ${genComment(title => `接口 ${title} 的 **请求函数**`)}

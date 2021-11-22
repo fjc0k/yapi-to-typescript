@@ -195,6 +195,13 @@ export default async function request<TResponseData>(
 
 如果这是一个涉及文件上传的接口，可通过 `getFormData()` 获取到 `FormData` 直接上传，该 `FormData` 内已经添加了 `data`、`fileData`。
 
+### extraInfo <Badge>3.27.0+</Badge>
+
+- 类型：`Record<string, any>`
+- 说明：
+
+额外信息，由配置 [setRequestFunctionExtraInfo](./config.html#setrequestfunctionextrainfo) 定义。
+
 ## 基于浏览器 fetch 的示例
 
 下面是一个基于浏览器原生 [fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API) 的示例，通过 [cross-fetch](https://www.npmjs.com/package/cross-fetch)，你也可以让它运行在一些未实现 fetch 接口的老旧浏览器、Node.js、React Native 上。

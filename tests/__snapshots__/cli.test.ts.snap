@@ -217,6 +217,7 @@ const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'deleteMethod',
+  extraInfo: {},
 }
 
 /**
@@ -307,6 +308,7 @@ const getMethodRequestConfig: GetMethodRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'getMethod',
+  extraInfo: {},
 }
 
 /**
@@ -387,6 +389,7 @@ const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'json5Response',
+  extraInfo: {},
 }
 
 /**
@@ -488,6 +491,7 @@ const json5RequestRequestConfig: Json5RequestRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'json5Request',
+  extraInfo: {},
 }
 
 /**
@@ -587,6 +591,7 @@ const postMethodRequestConfig: PostMethodRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'postMethod',
+  extraInfo: {},
 }
 
 /**
@@ -683,6 +688,7 @@ const putMethodRequestConfig: PutMethodRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'putMethod',
+  extraInfo: {},
 }
 
 /**
@@ -784,6 +790,7 @@ const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'dataKeyExample',
+  extraInfo: {},
 }
 
 /**
@@ -860,6 +867,7 @@ const uploadRequestConfig: UploadRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'upload',
+  extraInfo: {},
 }
 
 /**
@@ -940,6 +948,7 @@ const testRequestConfig: TestRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'test',
+  extraInfo: {},
 }
 
 /**
@@ -1016,6 +1025,7 @@ const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'noResponseData',
+  extraInfo: {},
 }
 
 /**
@@ -1092,6 +1102,7 @@ const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'emptyResponse',
+  extraInfo: {},
 }
 
 /**
@@ -1177,6 +1188,7 @@ const testRequestConfig: TestRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'test',
+  extraInfo: {},
 }
 
 /**
@@ -1270,6 +1282,7 @@ const hihihiRequestConfig: HihihiRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'hihihi',
+  extraInfo: {},
 }
 
 /**
@@ -1368,6 +1381,7 @@ const hihihi_1608478638207RequestConfig: Hihihi_1608478638207RequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'hihihi_1608478638207',
+  extraInfo: {},
 }
 
 /**
@@ -1444,6 +1458,7 @@ const rawResponseRequestConfig: RawResponseRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'rawResponse',
+  extraInfo: {},
 }
 
 /**
@@ -1511,6 +1526,7 @@ const headersRequestConfig: HeadersRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'headers',
+  extraInfo: {},
 }
 
 /**
@@ -1600,6 +1616,7 @@ const avatarRequestConfig: AvatarRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'avatar',
+  extraInfo: {},
 }
 
 /**
@@ -1686,6 +1703,7 @@ const deepRequestConfig: DeepRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'deep',
+  extraInfo: {},
 }
 
 /**
@@ -1767,6 +1785,7 @@ const onlyPostFormDataRequestConfig: OnlyPostFormDataRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'onlyPostFormData',
+  extraInfo: {},
 }
 
 /**
@@ -1845,6 +1864,7 @@ const get2RequestConfig: Get2RequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'get2',
+  extraInfo: {},
 }
 
 /**
@@ -1927,6 +1947,7 @@ const picture_3dDetailRequestConfig: Picture_3dDetailRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'picture_3dDetail',
+  extraInfo: {},
 }
 
 /**
@@ -2008,6 +2029,7 @@ const getRequestConfig: GetRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'get',
+  extraInfo: {},
 }
 
 /**
@@ -2090,6 +2112,7 @@ const formRequestConfig: FormRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'form',
+  extraInfo: {},
 }
 
 /**
@@ -2181,6 +2204,7 @@ const jsonRequestConfig: JsonRequestConfig = {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'json',
+  extraInfo: {},
 }
 
 /**

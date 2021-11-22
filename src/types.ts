@@ -519,6 +519,18 @@ export interface SharedConfig {
   customTypeMapping?: Record<string, JSONSchema4TypeName>
 
   /**
+   * 设置传给请求函数的参数中的 extraInfo 的值。
+   *
+   * @param interfaceInfo 接口信息
+   * @param changeCase 常用的大小写转换函数集合对象
+   * @returns 返回要赋给 extraInfo 的值
+   */
+  setRequestFunctionExtraInfo?(
+    interfaceInfo: Interface,
+    changeCase: ChangeCase,
+  ): Record<string, any>
+
+  /**
    * 预处理接口信息，返回新的接口信息。可返回 false 排除当前接口。
    *
    * 譬如你想对接口的 `path` 进行某些处理或者想排除某些接口，就可使用该方法。
@@ -693,6 +705,8 @@ export interface RequestConfig<
   responseDataJsonSchema: JSONSchema4
   /** 请求函数名称 */
   requestFunctionName: string
+  /** 额外信息 */
+  extraInfo: Record<string, any>
 }
 
 /**
