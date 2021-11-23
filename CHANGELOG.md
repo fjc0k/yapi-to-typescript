@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.28.0"></a>
+
+# [3.28.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.27.0...v3.28.0) (2021-11-23)
+
+### Features
+
+- 支持通过 \_url 获取项目、分类、接口的 YApi 地址 ([bb1383b](https://github.com/fjc0k/yapi-to-typescript/commit/bb1383b))
+
 <a name="3.27.0"></a>
 
 # [3.27.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.26.2...v3.27.0) (2021-11-22)
