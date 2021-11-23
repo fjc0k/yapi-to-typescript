@@ -670,4 +670,21 @@ describe('Generator', () => {
       expect(content).toMatchSnapshot('输出内容')
     })
   })
+
+  test('可获取接口、分类、项目在 YApi 上的地址', async () => {
+    const generator = generatorFactory({
+      id: [CatId.test2],
+      setRequestFunctionExtraInfo: ii => ({
+        url: ii._url,
+        categoryUrl: ii._category._url,
+        projectUrl: ii._project._url,
+      }),
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }, outputFilePath) => {
+      expect(path.basename(outputFilePath)).toMatchSnapshot('输出路径')
+      expect(content).toMatchSnapshot('输出内容')
+    })
+  })
 })

@@ -586,6 +586,8 @@ export class Generator {
         .replace(/\/+$/, '')
         .replace(/^\/+/, '/')
       projectInfo.basepath = basePath
+      // 实现项目在 YApi 上的地址
+      projectInfo._url = `${serverUrl}/project/${projectInfo._id}/interface/api`
       return projectInfo
     },
     ({ serverUrl, token }: SyntheticalConfig) => `${serverUrl}|${token}`,
@@ -604,7 +606,14 @@ export class Generator {
         },
       )
       return categoryList.map(cat => {
+        const projectId = cat.list?.[0]?.project_id || 0
+        const catId = cat.list?.[0]?.catid || 0
+        // 实现分类在 YApi 上的地址
+        cat._url = `${serverUrl}/project/${projectId}/interface/api/cat_${catId}`
         cat.list = (cat.list || []).map(item => {
+          const interfaceId = item._id
+          // 实现接口在 YApi 上的地址
+          item._url = `${serverUrl}/project/${projectId}/interface/api/${interfaceId}`
           item.path = `${projectInfo.basepath}${item.path}`
           return item
         })
@@ -776,7 +785,7 @@ export class Generator {
         '\\/',
       )
       const description = hasLink
-        ? `[${escapedTitle}↗](${syntheticalConfig.serverUrl}/project/${extendedInterfaceInfo.project_id}/interface/api/${extendedInterfaceInfo._id})`
+        ? `[${escapedTitle}↗](${extendedInterfaceInfo._url})`
         : escapedTitle
       const summary: Array<
         | false
@@ -788,7 +797,7 @@ export class Generator {
         hasCategory && {
           label: '分类',
           value: hasLink
-            ? `[${extendedInterfaceInfo._category.name}↗](${syntheticalConfig.serverUrl}/project/${extendedInterfaceInfo.project_id}/interface/api/cat_${extendedInterfaceInfo.catid})`
+            ? `[${extendedInterfaceInfo._category.name}↗](${extendedInterfaceInfo._category._url})`
             : extendedInterfaceInfo._category.name,
         },
         hasTag && {

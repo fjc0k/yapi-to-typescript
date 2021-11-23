@@ -9242,6 +9242,105 @@ onlyPostFormDataTest.requestConfig = onlyPostFormDataTestRequestConfig",
 ]
 `;
 
+exports[`Generator 可获取接口、分类、项目在 YApi 上的地址: 输出内容 1`] = `
+Array [
+  "const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_0 = \\"\\" as any
+const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_0 = undefined as any
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+export interface Get2TestRequest {}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+export interface Get2TestResponse {
+  msg: string;
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+type Get2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/get2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+const get2TestRequestConfig: Get2TestRequestConfig = {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/get2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"get2Test\\",
+  extraInfo: {\\"url\\":\\"http://foo.bar/project/11/interface/api/135\\",\\"categoryUrl\\":\\"http://foo.bar/project/11/interface/api/cat_20\\",\\"projectUrl\\":\\"http://foo.bar/project/32/interface/api\\"},
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+export const get2Test = (
+  requestData?: Get2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Get2TestResponse>(
+    prepare(get2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+get2Test.requestConfig = get2TestRequestConfig",
+]
+`;
+
+exports[`Generator 可获取接口、分类、项目在 YApi 上的地址: 输出路径 1`] = `"index.ts"`;
+
 exports[`Generator 排除接口: 接口文件 1`] = `
 "/* prettier-ignore-start */
 /* tslint:disable */

@@ -165,6 +165,8 @@ export interface Interface {
   _category: OmitStrict<Category, 'list'>
   /** 所属项目信息（由 YTT 自行实现） */
   _project: Project
+  /** 接口在 YApi 上的地址（由 YTT 自行实现） */
+  _url: string
   /** 接口名称 */
   title: string
   /** 状态 */
@@ -262,6 +264,8 @@ export type InterfaceList = Interface[]
 export interface Category {
   /** ID */
   _id: number
+  /** 分类在 YApi 上的地址（由 YTT 自行实现） */
+  _url: string
   /** 分类名称 */
   name: string
   /** 分类备注 */
@@ -281,6 +285,8 @@ export type CategoryList = Category[]
 export interface Project {
   /** ID */
   _id: number
+  /** 项目在 YApi 上的地址（由 YTT 自行实现） */
+  _url: string
   /** 名称 */
   name: string
   /** 描述 */
