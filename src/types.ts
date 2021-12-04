@@ -249,6 +249,8 @@ export interface Interface {
   add_time: number
   /** 更新时间（unix时间戳） */
   up_time: number
+  /** 创建人 ID */
+  uid: number
   [key: string]: any
 }
 
