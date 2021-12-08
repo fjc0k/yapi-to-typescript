@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.29.1"></a>
+
+## [3.29.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.29.0...v3.29.1) (2021-12-08)
+
+### Bug Fixes
+
+- 修复 Windows 环境下，tsc 编译的文件路径存在空格报错问题 ([#65](https://github.com/fjc0k/yapi-to-typescript/issues/65)) ([5ba8184](https://github.com/fjc0k/yapi-to-typescript/commit/5ba8184))
+
 <a name="3.29.0"></a>
 
 # [3.29.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.28.0...v3.29.0) (2021-12-04)
