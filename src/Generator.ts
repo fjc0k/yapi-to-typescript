@@ -542,10 +542,12 @@ export class Generator {
       // add this to fix bug that not-generator-file-on-window
       const command = `${
         require('os').platform() === 'win32' ? 'node ' : ''
-      }${require.resolve(`typescript/bin/tsc`)}`
+      }${JSON.stringify(require.resolve(`typescript/bin/tsc`))}`
 
       exec(
-        `${command} --target ES2019 --module ESNext --jsx preserve --declaration --esModuleInterop ${file}`,
+        `${command} --target ES2019 --module ESNext --jsx preserve --declaration --esModuleInterop ${JSON.stringify(
+          file,
+        )}`,
         {
           cwd: this.options.cwd,
           env: process.env,
