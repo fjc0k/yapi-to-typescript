@@ -38,9 +38,14 @@ export default defineConfig([
           {
             id: 0,
             getRequestFunctionName(interfaceInfo, changeCase) {
-              return changeCase.camelCase(
-                interfaceInfo.parsedPath.name,
-              )
+              // 以接口全路径生成请求函数名
+              return changeCase.camelCase(interfaceInfo.path)
+
+              // 若生成的请求函数名存在语法关键词报错、或想通过某个关键词触发 IDE 自动引入提示，可考虑加前缀，如:
+              // return changeCase.camelCase(\`api_\${interfaceInfo.path}\`)
+
+              // 若生成的请求函数名有重复报错，可考虑将接口请求方式纳入生成条件，如:
+              // return changeCase.camelCase(\`\${interfaceInfo.method}_\${interfaceInfo.path}\`)
             },
           },
         ],
@@ -74,9 +79,14 @@ export default defineConfig([
           {
             id: 0,
             getRequestFunctionName(interfaceInfo, changeCase) {
-              return changeCase.camelCase(
-                interfaceInfo.parsedPath.name,
-              )
+              // 以接口全路径生成请求函数名
+              return changeCase.camelCase(interfaceInfo.path)
+
+              // 若生成的请求函数名存在语法关键词报错、或想通过某个关键词触发 IDE 自动引入提示，可考虑加前缀，如:
+              // return changeCase.camelCase(\`api_\${interfaceInfo.path}\`)
+
+              // 若生成的请求函数名有重复报错，可考虑将接口请求方式纳入生成条件，如:
+              // return changeCase.camelCase(\`\${interfaceInfo.method}_\${interfaceInfo.path}\`)
             },
           },
         ],
@@ -108,9 +118,14 @@ export default defineConfig([
           {
             id: 0,
             getRequestFunctionName(interfaceInfo, changeCase) {
-              return changeCase.camelCase(
-                interfaceInfo.parsedPath.name,
-              )
+              // 以接口全路径生成请求函数名
+              return changeCase.camelCase(interfaceInfo.path)
+
+              // 若生成的请求函数名存在语法关键词报错、或想通过某个关键词触发 IDE 自动引入提示，可考虑加前缀，如:
+              // return changeCase.camelCase(\`api_\${interfaceInfo.path}\`)
+
+              // 若生成的请求函数名有重复报错，可考虑将接口请求方式纳入生成条件，如:
+              // return changeCase.camelCase(\`\${interfaceInfo.method}_\${interfaceInfo.path}\`)
             },
           },
         ],
@@ -158,7 +173,7 @@ const dataKey_0_0_0_1 = undefined as any
  * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1610557429
  */
-export interface DeleteMethodRequest {
+export interface HelloDeleteMethodRequest {
   /**
    * ID
    */
@@ -172,7 +187,7 @@ export interface DeleteMethodRequest {
  * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1610557429
  */
-export interface DeleteMethodResponse {}
+export interface HelloDeleteMethodResponse {}
 
 /**
  * 接口 [DELETE 方法↗](http://foo.bar/project/11/interface/api/45) 的 **请求配置的类型**
@@ -181,7 +196,7 @@ export interface DeleteMethodResponse {}
  * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1610557429
  */
-type DeleteMethodRequestConfig = Readonly<
+type HelloDeleteMethodRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -201,7 +216,7 @@ type DeleteMethodRequestConfig = Readonly<
  * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1610557429
  */
-const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
+const helloDeleteMethodRequestConfig: HelloDeleteMethodRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -216,7 +231,7 @@ const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'deleteMethod',
+  requestFunctionName: 'helloDeleteMethod',
   extraInfo: {},
 }
 
@@ -227,11 +242,11 @@ const deleteMethodRequestConfig: DeleteMethodRequestConfig = {
  * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1610557429
  */
-export const deleteMethod = (requestData: DeleteMethodRequest, ...args: UserRequestRestArgs) => {
-  return request<DeleteMethodResponse>(prepare(deleteMethodRequestConfig, requestData), ...args)
+export const helloDeleteMethod = (requestData: HelloDeleteMethodRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloDeleteMethodResponse>(prepare(helloDeleteMethodRequestConfig, requestData), ...args)
 }
 
-deleteMethod.requestConfig = deleteMethodRequestConfig
+helloDeleteMethod.requestConfig = helloDeleteMethodRequestConfig
 
 /**
  * 接口 [GET 方法↗](http://foo.bar/project/11/interface/api/51) 的 **请求类型**
@@ -240,7 +255,7 @@ deleteMethod.requestConfig = deleteMethodRequestConfig
  * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1610557429
  */
-export interface GetMethodRequest {
+export interface HelloGetMethodRequest {
   /**
    * X 值
    */
@@ -258,7 +273,7 @@ export interface GetMethodRequest {
  * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1610557429
  */
-export interface GetMethodResponse {
+export interface HelloGetMethodResponse {
   /**
    * 结果
    */
@@ -272,7 +287,7 @@ export interface GetMethodResponse {
  * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1610557429
  */
-type GetMethodRequestConfig = Readonly<
+type HelloGetMethodRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -292,7 +307,7 @@ type GetMethodRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1610557429
  */
-const getMethodRequestConfig: GetMethodRequestConfig = {
+const helloGetMethodRequestConfig: HelloGetMethodRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -307,7 +322,7 @@ const getMethodRequestConfig: GetMethodRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'getMethod',
+  requestFunctionName: 'helloGetMethod',
   extraInfo: {},
 }
 
@@ -318,11 +333,11 @@ const getMethodRequestConfig: GetMethodRequestConfig = {
  * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1610557429
  */
-export const getMethod = (requestData: GetMethodRequest, ...args: UserRequestRestArgs) => {
-  return request<GetMethodResponse>(prepare(getMethodRequestConfig, requestData), ...args)
+export const helloGetMethod = (requestData: HelloGetMethodRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloGetMethodResponse>(prepare(helloGetMethodRequestConfig, requestData), ...args)
 }
 
-getMethod.requestConfig = getMethodRequestConfig
+helloGetMethod.requestConfig = helloGetMethodRequestConfig
 
 /**
  * 接口 [JSON5 响应↗](http://foo.bar/project/11/interface/api/57) 的 **请求类型**
@@ -331,7 +346,7 @@ getMethod.requestConfig = getMethodRequestConfig
  * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1610557429
  */
-export interface Json5ResponseRequest {}
+export interface HelloJson5ResponseRequest {}
 
 /**
  * 接口 [JSON5 响应↗](http://foo.bar/project/11/interface/api/57) 的 **返回类型**
@@ -340,7 +355,7 @@ export interface Json5ResponseRequest {}
  * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1610557429
  */
-export interface Json5ResponseResponse {
+export interface HelloJson5ResponseResponse {
   id?: number
   age?: string
   name?: string
@@ -353,7 +368,7 @@ export interface Json5ResponseResponse {
  * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1610557429
  */
-type Json5ResponseRequestConfig = Readonly<
+type HelloJson5ResponseRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -373,7 +388,7 @@ type Json5ResponseRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1610557429
  */
-const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
+const helloJson5ResponseRequestConfig: HelloJson5ResponseRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -388,7 +403,7 @@ const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'json5Response',
+  requestFunctionName: 'helloJson5Response',
   extraInfo: {},
 }
 
@@ -399,11 +414,11 @@ const json5ResponseRequestConfig: Json5ResponseRequestConfig = {
  * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1610557429
  */
-export const json5Response = (requestData?: Json5ResponseRequest, ...args: UserRequestRestArgs) => {
-  return request<Json5ResponseResponse>(prepare(json5ResponseRequestConfig, requestData), ...args)
+export const helloJson5Response = (requestData?: HelloJson5ResponseRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloJson5ResponseResponse>(prepare(helloJson5ResponseRequestConfig, requestData), ...args)
 }
 
-json5Response.requestConfig = json5ResponseRequestConfig
+helloJson5Response.requestConfig = helloJson5ResponseRequestConfig
 
 /**
  * 接口 [JSON5 请求↗](http://foo.bar/project/11/interface/api/63) 的 **请求类型**
@@ -412,7 +427,7 @@ json5Response.requestConfig = json5ResponseRequestConfig
  * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1610557429
  */
-export interface Json5RequestRequest {
+export interface HelloJson5RequestRequest {
   /**
    * 1
    */
@@ -446,7 +461,7 @@ export interface Json5RequestRequest {
  * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1610557429
  */
-export interface Json5RequestResponse {}
+export interface HelloJson5RequestResponse {}
 
 /**
  * 接口 [JSON5 请求↗](http://foo.bar/project/11/interface/api/63) 的 **请求配置的类型**
@@ -455,7 +470,7 @@ export interface Json5RequestResponse {}
  * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1610557429
  */
-type Json5RequestRequestConfig = Readonly<
+type HelloJson5RequestRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -475,7 +490,7 @@ type Json5RequestRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1610557429
  */
-const json5RequestRequestConfig: Json5RequestRequestConfig = {
+const helloJson5RequestRequestConfig: HelloJson5RequestRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -490,7 +505,7 @@ const json5RequestRequestConfig: Json5RequestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'json5Request',
+  requestFunctionName: 'helloJson5Request',
   extraInfo: {},
 }
 
@@ -501,11 +516,11 @@ const json5RequestRequestConfig: Json5RequestRequestConfig = {
  * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1610557429
  */
-export const json5Request = (requestData: Json5RequestRequest, ...args: UserRequestRestArgs) => {
-  return request<Json5RequestResponse>(prepare(json5RequestRequestConfig, requestData), ...args)
+export const helloJson5Request = (requestData: HelloJson5RequestRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloJson5RequestResponse>(prepare(helloJson5RequestRequestConfig, requestData), ...args)
 }
 
-json5Request.requestConfig = json5RequestRequestConfig
+helloJson5Request.requestConfig = helloJson5RequestRequestConfig
 
 /**
  * 接口 [POST 方法↗](http://foo.bar/project/11/interface/api/69) 的 **请求类型**
@@ -514,7 +529,7 @@ json5Request.requestConfig = json5RequestRequestConfig
  * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1610557429
  */
-export interface PostMethodRequest {
+export interface HelloPostMethodRequest {
   /**
    * 页码
    */
@@ -536,7 +551,7 @@ export interface PostMethodRequest {
  * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1610557429
  */
-export interface PostMethodResponse {
+export interface HelloPostMethodResponse {
   /**
    * 列表
    */
@@ -555,7 +570,7 @@ export interface PostMethodResponse {
  * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1610557429
  */
-type PostMethodRequestConfig = Readonly<
+type HelloPostMethodRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -575,7 +590,7 @@ type PostMethodRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1610557429
  */
-const postMethodRequestConfig: PostMethodRequestConfig = {
+const helloPostMethodRequestConfig: HelloPostMethodRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -590,7 +605,7 @@ const postMethodRequestConfig: PostMethodRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'postMethod',
+  requestFunctionName: 'helloPostMethod',
   extraInfo: {},
 }
 
@@ -601,11 +616,11 @@ const postMethodRequestConfig: PostMethodRequestConfig = {
  * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1610557429
  */
-export const postMethod = (requestData: PostMethodRequest, ...args: UserRequestRestArgs) => {
-  return request<PostMethodResponse>(prepare(postMethodRequestConfig, requestData), ...args)
+export const helloPostMethod = (requestData: HelloPostMethodRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloPostMethodResponse>(prepare(helloPostMethodRequestConfig, requestData), ...args)
 }
 
-postMethod.requestConfig = postMethodRequestConfig
+helloPostMethod.requestConfig = helloPostMethodRequestConfig
 
 /**
  * 接口 [PUT 方法↗](http://foo.bar/project/11/interface/api/75) 的 **请求类型**
@@ -614,7 +629,7 @@ postMethod.requestConfig = postMethodRequestConfig
  * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1610557429
  */
-export interface PutMethodRequest {
+export interface HelloPutMethodRequest {
   /**
    * X 值
    */
@@ -630,7 +645,7 @@ export interface PutMethodRequest {
  * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1610557429
  */
-export interface PutMethodResponse {
+export interface HelloPutMethodResponse {
   /**
    * 错误
    */
@@ -652,7 +667,7 @@ export interface PutMethodResponse {
  * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1610557429
  */
-type PutMethodRequestConfig = Readonly<
+type HelloPutMethodRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -672,7 +687,7 @@ type PutMethodRequestConfig = Readonly<
  * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1610557429
  */
-const putMethodRequestConfig: PutMethodRequestConfig = {
+const helloPutMethodRequestConfig: HelloPutMethodRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -687,7 +702,7 @@ const putMethodRequestConfig: PutMethodRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'putMethod',
+  requestFunctionName: 'helloPutMethod',
   extraInfo: {},
 }
 
@@ -698,11 +713,11 @@ const putMethodRequestConfig: PutMethodRequestConfig = {
  * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1610557429
  */
-export const putMethod = (requestData: PutMethodRequest, ...args: UserRequestRestArgs) => {
-  return request<PutMethodResponse>(prepare(putMethodRequestConfig, requestData), ...args)
+export const helloPutMethod = (requestData: HelloPutMethodRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloPutMethodResponse>(prepare(helloPutMethodRequestConfig, requestData), ...args)
 }
 
-putMethod.requestConfig = putMethodRequestConfig
+helloPutMethod.requestConfig = helloPutMethodRequestConfig
 
 /**
  * 接口 [dataKey 例子↗](http://foo.bar/project/11/interface/api/81) 的 **请求类型**
@@ -711,7 +726,7 @@ putMethod.requestConfig = putMethodRequestConfig
  * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1610557430
  */
-export interface DataKeyExampleRequest {
+export interface HelloDataKeyExampleRequest {
   /**
    * X 值
    */
@@ -727,7 +742,7 @@ export interface DataKeyExampleRequest {
  * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1610557430
  */
-export interface DataKeyExampleResponse {
+export interface HelloDataKeyExampleResponse {
   /**
    * 错误
    */
@@ -754,7 +769,7 @@ export interface DataKeyExampleResponse {
  * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1610557430
  */
-type DataKeyExampleRequestConfig = Readonly<
+type HelloDataKeyExampleRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -774,7 +789,7 @@ type DataKeyExampleRequestConfig = Readonly<
  * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1610557430
  */
-const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
+const helloDataKeyExampleRequestConfig: HelloDataKeyExampleRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -789,7 +804,7 @@ const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'dataKeyExample',
+  requestFunctionName: 'helloDataKeyExample',
   extraInfo: {},
 }
 
@@ -800,11 +815,11 @@ const dataKeyExampleRequestConfig: DataKeyExampleRequestConfig = {
  * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1610557430
  */
-export const dataKeyExample = (requestData: DataKeyExampleRequest, ...args: UserRequestRestArgs) => {
-  return request<DataKeyExampleResponse>(prepare(dataKeyExampleRequestConfig, requestData), ...args)
+export const helloDataKeyExample = (requestData: HelloDataKeyExampleRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloDataKeyExampleResponse>(prepare(helloDataKeyExampleRequestConfig, requestData), ...args)
 }
 
-dataKeyExample.requestConfig = dataKeyExampleRequestConfig
+helloDataKeyExample.requestConfig = helloDataKeyExampleRequestConfig
 
 /**
  * 接口 [文件↗](http://foo.bar/project/11/interface/api/87) 的 **请求类型**
@@ -813,7 +828,7 @@ dataKeyExample.requestConfig = dataKeyExampleRequestConfig
  * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1610557430
  */
-export interface UploadRequest {
+export interface HelloUploadRequest {
   /**
    * 文件
    */
@@ -831,7 +846,7 @@ export interface UploadRequest {
  * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1610557430
  */
-export interface UploadResponse {}
+export interface HelloUploadResponse {}
 
 /**
  * 接口 [文件↗](http://foo.bar/project/11/interface/api/87) 的 **请求配置的类型**
@@ -840,7 +855,7 @@ export interface UploadResponse {}
  * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1610557430
  */
-type UploadRequestConfig = Readonly<
+type HelloUploadRequestConfig = Readonly<
   RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/__hello__/upload', undefined, string, string, false>
 >
 
@@ -851,7 +866,7 @@ type UploadRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1610557430
  */
-const uploadRequestConfig: UploadRequestConfig = {
+const helloUploadRequestConfig: HelloUploadRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -866,7 +881,7 @@ const uploadRequestConfig: UploadRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'upload',
+  requestFunctionName: 'helloUpload',
   extraInfo: {},
 }
 
@@ -877,11 +892,11 @@ const uploadRequestConfig: UploadRequestConfig = {
  * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1610557430
  */
-export const upload = (requestData: UploadRequest, ...args: UserRequestRestArgs) => {
-  return request<UploadResponse>(prepare(uploadRequestConfig, requestData), ...args)
+export const helloUpload = (requestData: HelloUploadRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloUploadResponse>(prepare(helloUploadRequestConfig, requestData), ...args)
 }
 
-upload.requestConfig = uploadRequestConfig
+helloUpload.requestConfig = helloUploadRequestConfig
 
 /**
  * 接口 [查询参数+对象↗](http://foo.bar/project/11/interface/api/93) 的 **请求类型**
@@ -890,7 +905,7 @@ upload.requestConfig = uploadRequestConfig
  * @请求头 \`POST /__hello__/test\`
  * @更新时间 1610557430
  */
-export interface TestRequest {
+export interface HelloTestRequest {
   /**
    * 键1
    */
@@ -912,7 +927,7 @@ export interface TestRequest {
  * @请求头 \`POST /__hello__/test\`
  * @更新时间 1610557430
  */
-export interface TestResponse {}
+export interface HelloTestResponse {}
 
 /**
  * 接口 [查询参数+对象↗](http://foo.bar/project/11/interface/api/93) 的 **请求配置的类型**
@@ -921,7 +936,7 @@ export interface TestResponse {}
  * @请求头 \`POST /__hello__/test\`
  * @更新时间 1610557430
  */
-type TestRequestConfig = Readonly<
+type HelloTestRequestConfig = Readonly<
   RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/__hello__/test', undefined, string, 'cid', false>
 >
 
@@ -932,7 +947,7 @@ type TestRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/test\`
  * @更新时间 1610557430
  */
-const testRequestConfig: TestRequestConfig = {
+const helloTestRequestConfig: HelloTestRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -947,7 +962,7 @@ const testRequestConfig: TestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'test',
+  requestFunctionName: 'helloTest',
   extraInfo: {},
 }
 
@@ -958,11 +973,11 @@ const testRequestConfig: TestRequestConfig = {
  * @请求头 \`POST /__hello__/test\`
  * @更新时间 1610557430
  */
-export const test = (requestData: TestRequest, ...args: UserRequestRestArgs) => {
-  return request<TestResponse>(prepare(testRequestConfig, requestData), ...args)
+export const helloTest = (requestData: HelloTestRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloTestResponse>(prepare(helloTestRequestConfig, requestData), ...args)
 }
 
-test.requestConfig = testRequestConfig
+helloTest.requestConfig = helloTestRequestConfig
 
 /**
  * 接口 [没返回数据↗](http://foo.bar/project/11/interface/api/99) 的 **请求类型**
@@ -971,7 +986,7 @@ test.requestConfig = testRequestConfig
  * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1610557430
  */
-export interface NoResponseDataRequest {}
+export interface HelloNoResponseDataRequest {}
 
 /**
  * 接口 [没返回数据↗](http://foo.bar/project/11/interface/api/99) 的 **返回类型**
@@ -980,7 +995,7 @@ export interface NoResponseDataRequest {}
  * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1610557430
  */
-export interface NoResponseDataResponse {}
+export interface HelloNoResponseDataResponse {}
 
 /**
  * 接口 [没返回数据↗](http://foo.bar/project/11/interface/api/99) 的 **请求配置的类型**
@@ -989,7 +1004,7 @@ export interface NoResponseDataResponse {}
  * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1610557430
  */
-type NoResponseDataRequestConfig = Readonly<
+type HelloNoResponseDataRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -1009,7 +1024,7 @@ type NoResponseDataRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1610557430
  */
-const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
+const helloNoResponseDataRequestConfig: HelloNoResponseDataRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1024,7 +1039,7 @@ const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'noResponseData',
+  requestFunctionName: 'helloNoResponseData',
   extraInfo: {},
 }
 
@@ -1035,11 +1050,11 @@ const noResponseDataRequestConfig: NoResponseDataRequestConfig = {
  * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1610557430
  */
-export const noResponseData = (requestData?: NoResponseDataRequest, ...args: UserRequestRestArgs) => {
-  return request<NoResponseDataResponse>(prepare(noResponseDataRequestConfig, requestData), ...args)
+export const helloNoResponseData = (requestData?: HelloNoResponseDataRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloNoResponseDataResponse>(prepare(helloNoResponseDataRequestConfig, requestData), ...args)
 }
 
-noResponseData.requestConfig = noResponseDataRequestConfig
+helloNoResponseData.requestConfig = helloNoResponseDataRequestConfig
 
 /**
  * 接口 [空返回数据↗](http://foo.bar/project/11/interface/api/105) 的 **请求类型**
@@ -1048,7 +1063,7 @@ noResponseData.requestConfig = noResponseDataRequestConfig
  * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1610557430
  */
-export interface EmptyResponseRequest {}
+export interface HelloEmptyResponseRequest {}
 
 /**
  * 接口 [空返回数据↗](http://foo.bar/project/11/interface/api/105) 的 **返回类型**
@@ -1057,7 +1072,7 @@ export interface EmptyResponseRequest {}
  * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1610557430
  */
-export interface EmptyResponseResponse {}
+export interface HelloEmptyResponseResponse {}
 
 /**
  * 接口 [空返回数据↗](http://foo.bar/project/11/interface/api/105) 的 **请求配置的类型**
@@ -1066,7 +1081,7 @@ export interface EmptyResponseResponse {}
  * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1610557430
  */
-type EmptyResponseRequestConfig = Readonly<
+type HelloEmptyResponseRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -1086,7 +1101,7 @@ type EmptyResponseRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1610557430
  */
-const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
+const helloEmptyResponseRequestConfig: HelloEmptyResponseRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1101,7 +1116,7 @@ const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'emptyResponse',
+  requestFunctionName: 'helloEmptyResponse',
   extraInfo: {},
 }
 
@@ -1112,11 +1127,11 @@ const emptyResponseRequestConfig: EmptyResponseRequestConfig = {
  * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1610557430
  */
-export const emptyResponse = (requestData?: EmptyResponseRequest, ...args: UserRequestRestArgs) => {
-  return request<EmptyResponseResponse>(prepare(emptyResponseRequestConfig, requestData), ...args)
+export const helloEmptyResponse = (requestData?: HelloEmptyResponseRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloEmptyResponseResponse>(prepare(helloEmptyResponseRequestConfig, requestData), ...args)
 }
 
-emptyResponse.requestConfig = emptyResponseRequestConfig
+helloEmptyResponse.requestConfig = helloEmptyResponseRequestConfig
 
 /**
  * 接口 [路径参数↗](http://foo.bar/project/11/interface/api/111) 的 **请求类型**
@@ -1125,7 +1140,7 @@ emptyResponse.requestConfig = emptyResponseRequestConfig
  * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1610557430
  */
-export interface TestRequest {
+export interface HelloPathIdHelloNamePassAvatarTestRequest {
   /**
    * 23
    */
@@ -1143,7 +1158,7 @@ export interface TestRequest {
  * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1610557430
  */
-export interface TestResponse {}
+export interface HelloPathIdHelloNamePassAvatarTestResponse {}
 
 /**
  * 接口 [路径参数↗](http://foo.bar/project/11/interface/api/111) 的 **请求配置的类型**
@@ -1152,7 +1167,7 @@ export interface TestResponse {}
  * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1610557430
  */
-type TestRequestConfig = Readonly<
+type HelloPathIdHelloNamePassAvatarTestRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -1172,7 +1187,7 @@ type TestRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1610557430
  */
-const testRequestConfig: TestRequestConfig = {
+const helloPathIdHelloNamePassAvatarTestRequestConfig: HelloPathIdHelloNamePassAvatarTestRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1187,7 +1202,7 @@ const testRequestConfig: TestRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'test',
+  requestFunctionName: 'helloPathIdHelloNamePassAvatarTest',
   extraInfo: {},
 }
 
@@ -1198,11 +1213,17 @@ const testRequestConfig: TestRequestConfig = {
  * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1610557430
  */
-export const test = (requestData: TestRequest, ...args: UserRequestRestArgs) => {
-  return request<TestResponse>(prepare(testRequestConfig, requestData), ...args)
+export const helloPathIdHelloNamePassAvatarTest = (
+  requestData: HelloPathIdHelloNamePassAvatarTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<HelloPathIdHelloNamePassAvatarTestResponse>(
+    prepare(helloPathIdHelloNamePassAvatarTestRequestConfig, requestData),
+    ...args,
+  )
 }
 
-test.requestConfig = testRequestConfig
+helloPathIdHelloNamePassAvatarTest.requestConfig = helloPathIdHelloNamePassAvatarTestRequestConfig
 
 /**
  * 接口 [路径参数+对象↗](http://foo.bar/project/11/interface/api/117) 的 **请求类型**
@@ -1211,7 +1232,7 @@ test.requestConfig = testRequestConfig
  * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1610557430
  */
-export interface HihihiRequest {
+export interface HelloTestIdHihihiRequest {
   /**
    * 键1
    */
@@ -1237,7 +1258,7 @@ export interface HihihiRequest {
  * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1610557430
  */
-export interface HihihiResponse {}
+export interface HelloTestIdHihihiResponse {}
 
 /**
  * 接口 [路径参数+对象↗](http://foo.bar/project/11/interface/api/117) 的 **请求配置的类型**
@@ -1246,7 +1267,7 @@ export interface HihihiResponse {}
  * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1610557430
  */
-type HihihiRequestConfig = Readonly<
+type HelloTestIdHihihiRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -1266,7 +1287,7 @@ type HihihiRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1610557430
  */
-const hihihiRequestConfig: HihihiRequestConfig = {
+const helloTestIdHihihiRequestConfig: HelloTestIdHihihiRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1281,7 +1302,7 @@ const hihihiRequestConfig: HihihiRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'hihihi',
+  requestFunctionName: 'helloTestIdHihihi',
   extraInfo: {},
 }
 
@@ -1292,11 +1313,11 @@ const hihihiRequestConfig: HihihiRequestConfig = {
  * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1610557430
  */
-export const hihihi = (requestData: HihihiRequest, ...args: UserRequestRestArgs) => {
-  return request<HihihiResponse>(prepare(hihihiRequestConfig, requestData), ...args)
+export const helloTestIdHihihi = (requestData: HelloTestIdHihihiRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloTestIdHihihiResponse>(prepare(helloTestIdHihihiRequestConfig, requestData), ...args)
 }
 
-hihihi.requestConfig = hihihiRequestConfig
+helloTestIdHihihi.requestConfig = helloTestIdHihihiRequestConfig
 
 /**
  * 接口 [路径参数+查询参数+对象↗](http://foo.bar/project/11/interface/api/123) 的 **请求类型**
@@ -1305,7 +1326,7 @@ hihihi.requestConfig = hihihiRequestConfig
  * @请求头 \`POST /__hello__/test/{id}/:hihihi_1608478638207\`
  * @更新时间 1610557430
  */
-export interface Hihihi_1608478638207Request {
+export interface HelloTestIdHihihi_1608478638207Request {
   /**
    * 键1
    */
@@ -1336,7 +1357,7 @@ export interface Hihihi_1608478638207Request {
  * @请求头 \`POST /__hello__/test/{id}/:hihihi_1608478638207\`
  * @更新时间 1610557430
  */
-export interface Hihihi_1608478638207Response {}
+export interface HelloTestIdHihihi_1608478638207Response {}
 
 /**
  * 接口 [路径参数+查询参数+对象↗](http://foo.bar/project/11/interface/api/123) 的 **请求配置的类型**
@@ -1345,7 +1366,7 @@ export interface Hihihi_1608478638207Response {}
  * @请求头 \`POST /__hello__/test/{id}/:hihihi_1608478638207\`
  * @更新时间 1610557430
  */
-type Hihihi_1608478638207RequestConfig = Readonly<
+type HelloTestIdHihihi_1608478638207RequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -1365,7 +1386,7 @@ type Hihihi_1608478638207RequestConfig = Readonly<
  * @请求头 \`POST /__hello__/test/{id}/:hihihi_1608478638207\`
  * @更新时间 1610557430
  */
-const hihihi_1608478638207RequestConfig: Hihihi_1608478638207RequestConfig = {
+const helloTestIdHihihi_1608478638207RequestConfig: HelloTestIdHihihi_1608478638207RequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1380,7 +1401,7 @@ const hihihi_1608478638207RequestConfig: Hihihi_1608478638207RequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'hihihi_1608478638207',
+  requestFunctionName: 'helloTestIdHihihi_1608478638207',
   extraInfo: {},
 }
 
@@ -1391,11 +1412,17 @@ const hihihi_1608478638207RequestConfig: Hihihi_1608478638207RequestConfig = {
  * @请求头 \`POST /__hello__/test/{id}/:hihihi_1608478638207\`
  * @更新时间 1610557430
  */
-export const hihihi_1608478638207 = (requestData: Hihihi_1608478638207Request, ...args: UserRequestRestArgs) => {
-  return request<Hihihi_1608478638207Response>(prepare(hihihi_1608478638207RequestConfig, requestData), ...args)
+export const helloTestIdHihihi_1608478638207 = (
+  requestData: HelloTestIdHihihi_1608478638207Request,
+  ...args: UserRequestRestArgs
+) => {
+  return request<HelloTestIdHihihi_1608478638207Response>(
+    prepare(helloTestIdHihihi_1608478638207RequestConfig, requestData),
+    ...args,
+  )
 }
 
-hihihi_1608478638207.requestConfig = hihihi_1608478638207RequestConfig
+helloTestIdHihihi_1608478638207.requestConfig = helloTestIdHihihi_1608478638207RequestConfig
 
 /**
  * 接口 [返回 raw↗](http://foo.bar/project/11/interface/api/129) 的 **请求类型**
@@ -1404,7 +1431,7 @@ hihihi_1608478638207.requestConfig = hihihi_1608478638207RequestConfig
  * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1610557430
  */
-export interface RawResponseRequest {}
+export interface HelloRawResponseRequest {}
 
 /**
  * 接口 [返回 raw↗](http://foo.bar/project/11/interface/api/129) 的 **返回类型**
@@ -1413,7 +1440,7 @@ export interface RawResponseRequest {}
  * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1610557430
  */
-export type RawResponseResponse = any
+export type HelloRawResponseResponse = any
 
 /**
  * 接口 [返回 raw↗](http://foo.bar/project/11/interface/api/129) 的 **请求配置的类型**
@@ -1422,7 +1449,7 @@ export type RawResponseResponse = any
  * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1610557430
  */
-type RawResponseRequestConfig = Readonly<
+type HelloRawResponseRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -1442,7 +1469,7 @@ type RawResponseRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1610557430
  */
-const rawResponseRequestConfig: RawResponseRequestConfig = {
+const helloRawResponseRequestConfig: HelloRawResponseRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1457,7 +1484,7 @@ const rawResponseRequestConfig: RawResponseRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'rawResponse',
+  requestFunctionName: 'helloRawResponse',
   extraInfo: {},
 }
 
@@ -1468,11 +1495,11 @@ const rawResponseRequestConfig: RawResponseRequestConfig = {
  * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1610557430
  */
-export const rawResponse = (requestData?: RawResponseRequest, ...args: UserRequestRestArgs) => {
-  return request<RawResponseResponse>(prepare(rawResponseRequestConfig, requestData), ...args)
+export const helloRawResponse = (requestData?: HelloRawResponseRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloRawResponseResponse>(prepare(helloRawResponseRequestConfig, requestData), ...args)
 }
 
-rawResponse.requestConfig = rawResponseRequestConfig
+helloRawResponse.requestConfig = helloRawResponseRequestConfig
 
 /**
  * 接口 [请求头↗](http://foo.bar/project/11/interface/api/1087) 的 **请求类型**
@@ -1481,7 +1508,7 @@ rawResponse.requestConfig = rawResponseRequestConfig
  * @请求头 \`GET /__hello__/headers\`
  * @更新时间 1619432971
  */
-export interface HeadersRequest {}
+export interface HelloHeadersRequest {}
 
 /**
  * 接口 [请求头↗](http://foo.bar/project/11/interface/api/1087) 的 **返回类型**
@@ -1490,7 +1517,7 @@ export interface HeadersRequest {}
  * @请求头 \`GET /__hello__/headers\`
  * @更新时间 1619432971
  */
-export interface HeadersResponse {}
+export interface HelloHeadersResponse {}
 
 /**
  * 接口 [请求头↗](http://foo.bar/project/11/interface/api/1087) 的 **请求配置的类型**
@@ -1499,7 +1526,7 @@ export interface HeadersResponse {}
  * @请求头 \`GET /__hello__/headers\`
  * @更新时间 1619432971
  */
-type HeadersRequestConfig = Readonly<
+type HelloHeadersRequestConfig = Readonly<
   RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/__hello__/headers', undefined, string, string, true>
 >
 
@@ -1510,7 +1537,7 @@ type HeadersRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/headers\`
  * @更新时间 1619432971
  */
-const headersRequestConfig: HeadersRequestConfig = {
+const helloHeadersRequestConfig: HelloHeadersRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1525,7 +1552,7 @@ const headersRequestConfig: HeadersRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'headers',
+  requestFunctionName: 'helloHeaders',
   extraInfo: {},
 }
 
@@ -1536,11 +1563,11 @@ const headersRequestConfig: HeadersRequestConfig = {
  * @请求头 \`GET /__hello__/headers\`
  * @更新时间 1619432971
  */
-export const headers = (requestData?: HeadersRequest, ...args: UserRequestRestArgs) => {
-  return request<HeadersResponse>(prepare(headersRequestConfig, requestData), ...args)
+export const helloHeaders = (requestData?: HelloHeadersRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloHeadersResponse>(prepare(helloHeadersRequestConfig, requestData), ...args)
 }
 
-headers.requestConfig = headersRequestConfig
+helloHeaders.requestConfig = helloHeadersRequestConfig
 
 /**
  * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求类型**
@@ -1549,7 +1576,7 @@ headers.requestConfig = headersRequestConfig
  * @请求头 \`GET /__hello__/user/:id/avatar\`
  * @更新时间 1621501310
  */
-export interface AvatarRequest {
+export interface HelloUserIdAvatarRequest {
   /**
    * 大小
    */
@@ -1571,7 +1598,7 @@ export interface AvatarRequest {
  * @请求头 \`GET /__hello__/user/:id/avatar\`
  * @更新时间 1621501310
  */
-export interface AvatarResponse {}
+export interface HelloUserIdAvatarResponse {}
 
 /**
  * 接口 [路径参数、查询参数类型↗](http://foo.bar/project/11/interface/api/1137) 的 **请求配置的类型**
@@ -1580,7 +1607,7 @@ export interface AvatarResponse {}
  * @请求头 \`GET /__hello__/user/:id/avatar\`
  * @更新时间 1621501310
  */
-type AvatarRequestConfig = Readonly<
+type HelloUserIdAvatarRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -1600,7 +1627,7 @@ type AvatarRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/user/:id/avatar\`
  * @更新时间 1621501310
  */
-const avatarRequestConfig: AvatarRequestConfig = {
+const helloUserIdAvatarRequestConfig: HelloUserIdAvatarRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1615,7 +1642,7 @@ const avatarRequestConfig: AvatarRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'avatar',
+  requestFunctionName: 'helloUserIdAvatar',
   extraInfo: {},
 }
 
@@ -1626,11 +1653,11 @@ const avatarRequestConfig: AvatarRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar\`
  * @更新时间 1621501310
  */
-export const avatar = (requestData: AvatarRequest, ...args: UserRequestRestArgs) => {
-  return request<AvatarResponse>(prepare(avatarRequestConfig, requestData), ...args)
+export const helloUserIdAvatar = (requestData: HelloUserIdAvatarRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloUserIdAvatarResponse>(prepare(helloUserIdAvatarRequestConfig, requestData), ...args)
 }
 
-avatar.requestConfig = avatarRequestConfig
+helloUserIdAvatar.requestConfig = helloUserIdAvatarRequestConfig
 
 /**
  * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **请求类型**
@@ -1639,7 +1666,7 @@ avatar.requestConfig = avatarRequestConfig
  * @请求头 \`GET /__hello__/dataKey/deep\`
  * @更新时间 1626489548
  */
-export interface DeepRequest {}
+export interface HelloDataKeyDeepRequest {}
 
 /**
  * 接口 [dataKey 深度路径↗](http://foo.bar/project/11/interface/api/1167) 的 **返回类型**
@@ -1648,7 +1675,7 @@ export interface DeepRequest {}
  * @请求头 \`GET /__hello__/dataKey/deep\`
  * @更新时间 1626489548
  */
-export interface DeepResponse {
+export interface HelloDataKeyDeepResponse {
   err: number
   container: {
     data: {
@@ -1667,7 +1694,7 @@ export interface DeepResponse {
  * @请求头 \`GET /__hello__/dataKey/deep\`
  * @更新时间 1626489548
  */
-type DeepRequestConfig = Readonly<
+type HelloDataKeyDeepRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -1687,7 +1714,7 @@ type DeepRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/dataKey/deep\`
  * @更新时间 1626489548
  */
-const deepRequestConfig: DeepRequestConfig = {
+const helloDataKeyDeepRequestConfig: HelloDataKeyDeepRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1702,7 +1729,7 @@ const deepRequestConfig: DeepRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'deep',
+  requestFunctionName: 'helloDataKeyDeep',
   extraInfo: {},
 }
 
@@ -1713,11 +1740,11 @@ const deepRequestConfig: DeepRequestConfig = {
  * @请求头 \`GET /__hello__/dataKey/deep\`
  * @更新时间 1626489548
  */
-export const deep = (requestData?: DeepRequest, ...args: UserRequestRestArgs) => {
-  return request<DeepResponse>(prepare(deepRequestConfig, requestData), ...args)
+export const helloDataKeyDeep = (requestData?: HelloDataKeyDeepRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloDataKeyDeepResponse>(prepare(helloDataKeyDeepRequestConfig, requestData), ...args)
 }
 
-deep.requestConfig = deepRequestConfig
+helloDataKeyDeep.requestConfig = helloDataKeyDeepRequestConfig
 
 /**
  * 接口 [fix: 仅 POST 类接口处理表单数据↗](http://foo.bar/project/11/interface/api/1345) 的 **请求类型**
@@ -1726,7 +1753,7 @@ deep.requestConfig = deepRequestConfig
  * @请求头 \`GET /__hello__/get/only_post_form_data\`
  * @更新时间 1632493928
  */
-export interface OnlyPostFormDataRequest {
+export interface HelloGetOnlyPostFormDataRequest {
   /**
    * id
    */
@@ -1740,7 +1767,7 @@ export interface OnlyPostFormDataRequest {
  * @请求头 \`GET /__hello__/get/only_post_form_data\`
  * @更新时间 1632493928
  */
-export interface OnlyPostFormDataResponse {}
+export interface HelloGetOnlyPostFormDataResponse {}
 
 /**
  * 接口 [fix: 仅 POST 类接口处理表单数据↗](http://foo.bar/project/11/interface/api/1345) 的 **请求配置的类型**
@@ -1749,7 +1776,7 @@ export interface OnlyPostFormDataResponse {}
  * @请求头 \`GET /__hello__/get/only_post_form_data\`
  * @更新时间 1632493928
  */
-type OnlyPostFormDataRequestConfig = Readonly<
+type HelloGetOnlyPostFormDataRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -1769,7 +1796,7 @@ type OnlyPostFormDataRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/get/only_post_form_data\`
  * @更新时间 1632493928
  */
-const onlyPostFormDataRequestConfig: OnlyPostFormDataRequestConfig = {
+const helloGetOnlyPostFormDataRequestConfig: HelloGetOnlyPostFormDataRequestConfig = {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1784,7 +1811,7 @@ const onlyPostFormDataRequestConfig: OnlyPostFormDataRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'onlyPostFormData',
+  requestFunctionName: 'helloGetOnlyPostFormData',
   extraInfo: {},
 }
 
@@ -1795,11 +1822,14 @@ const onlyPostFormDataRequestConfig: OnlyPostFormDataRequestConfig = {
  * @请求头 \`GET /__hello__/get/only_post_form_data\`
  * @更新时间 1632493928
  */
-export const onlyPostFormData = (requestData: OnlyPostFormDataRequest, ...args: UserRequestRestArgs) => {
-  return request<OnlyPostFormDataResponse>(prepare(onlyPostFormDataRequestConfig, requestData), ...args)
+export const helloGetOnlyPostFormData = (
+  requestData: HelloGetOnlyPostFormDataRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<HelloGetOnlyPostFormDataResponse>(prepare(helloGetOnlyPostFormDataRequestConfig, requestData), ...args)
 }
 
-onlyPostFormData.requestConfig = onlyPostFormDataRequestConfig
+helloGetOnlyPostFormData.requestConfig = helloGetOnlyPostFormDataRequestConfig
 
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_2 = '' as any
@@ -1814,7 +1844,7 @@ const dataKey_0_0_0_2 = undefined as any
  * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1610557430
  */
-export interface Get2Request {}
+export interface HelloGet2Request {}
 
 /**
  * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **返回类型**
@@ -1824,7 +1854,7 @@ export interface Get2Request {}
  * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1610557430
  */
-export interface Get2Response {
+export interface HelloGet2Response {
   msg: string
 }
 
@@ -1836,7 +1866,7 @@ export interface Get2Response {
  * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1610557430
  */
-type Get2RequestConfig = Readonly<
+type HelloGet2RequestConfig = Readonly<
   RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/__hello__/get2', undefined, string, string, true>
 >
 
@@ -1848,7 +1878,7 @@ type Get2RequestConfig = Readonly<
  * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1610557430
  */
-const get2RequestConfig: Get2RequestConfig = {
+const helloGet2RequestConfig: HelloGet2RequestConfig = {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
@@ -1863,7 +1893,7 @@ const get2RequestConfig: Get2RequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'get2',
+  requestFunctionName: 'helloGet2',
   extraInfo: {},
 }
 
@@ -1875,11 +1905,11 @@ const get2RequestConfig: Get2RequestConfig = {
  * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1610557430
  */
-export const get2 = (requestData?: Get2Request, ...args: UserRequestRestArgs) => {
-  return request<Get2Response>(prepare(get2RequestConfig, requestData), ...args)
+export const helloGet2 = (requestData?: HelloGet2Request, ...args: UserRequestRestArgs) => {
+  return request<HelloGet2Response>(prepare(helloGet2RequestConfig, requestData), ...args)
 }
 
-get2.requestConfig = get2RequestConfig
+helloGet2.requestConfig = helloGet2RequestConfig
 
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_3 = '' as any
@@ -1893,7 +1923,7 @@ const dataKey_0_0_0_3 = undefined as any
  * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1610557430
  */
-export interface Picture_3dDetailRequest {}
+export interface HelloIssue_17Picture_3dDetailRequest {}
 
 /**
  * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/11/interface/api/141) 的 **返回类型**
@@ -1902,7 +1932,7 @@ export interface Picture_3dDetailRequest {}
  * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1610557430
  */
-export interface Picture_3dDetailResponse {}
+export interface HelloIssue_17Picture_3dDetailResponse {}
 
 /**
  * 接口 [17: path 含有数字时，大小写出现错误↗](http://foo.bar/project/11/interface/api/141) 的 **请求配置的类型**
@@ -1911,7 +1941,7 @@ export interface Picture_3dDetailResponse {}
  * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1610557430
  */
-type Picture_3dDetailRequestConfig = Readonly<
+type HelloIssue_17Picture_3dDetailRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -1931,7 +1961,7 @@ type Picture_3dDetailRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1610557430
  */
-const picture_3dDetailRequestConfig: Picture_3dDetailRequestConfig = {
+const helloIssue_17Picture_3dDetailRequestConfig: HelloIssue_17Picture_3dDetailRequestConfig = {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
@@ -1946,7 +1976,7 @@ const picture_3dDetailRequestConfig: Picture_3dDetailRequestConfig = {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'picture_3dDetail',
+  requestFunctionName: 'helloIssue_17Picture_3dDetail',
   extraInfo: {},
 }
 
@@ -1957,11 +1987,17 @@ const picture_3dDetailRequestConfig: Picture_3dDetailRequestConfig = {
  * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1610557430
  */
-export const picture_3dDetail = (requestData?: Picture_3dDetailRequest, ...args: UserRequestRestArgs) => {
-  return request<Picture_3dDetailResponse>(prepare(picture_3dDetailRequestConfig, requestData), ...args)
+export const helloIssue_17Picture_3dDetail = (
+  requestData?: HelloIssue_17Picture_3dDetailRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<HelloIssue_17Picture_3dDetailResponse>(
+    prepare(helloIssue_17Picture_3dDetailRequestConfig, requestData),
+    ...args,
+  )
 }
 
-picture_3dDetail.requestConfig = picture_3dDetailRequestConfig
+helloIssue_17Picture_3dDetail.requestConfig = helloIssue_17Picture_3dDetailRequestConfig
 
 /**
  * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/11/interface/api/147) 的 **请求类型**
@@ -1970,7 +2006,7 @@ picture_3dDetail.requestConfig = picture_3dDetailRequestConfig
  * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1610557430
  */
-export interface GetRequest {
+export interface Hello_28GetRequest {
   a: string
   b: string
   c: string
@@ -1984,7 +2020,7 @@ export interface GetRequest {
  * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1610557430
  */
-export interface GetResponse {}
+export interface Hello_28GetResponse {}
 
 /**
  * 接口 [28: 字段名称含空格 GET↗](http://foo.bar/project/11/interface/api/147) 的 **请求配置的类型**
@@ -1993,7 +2029,7 @@ export interface GetResponse {}
  * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1610557430
  */
-type GetRequestConfig = Readonly<
+type Hello_28GetRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -2013,7 +2049,7 @@ type GetRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1610557430
  */
-const getRequestConfig: GetRequestConfig = {
+const hello_28GetRequestConfig: Hello_28GetRequestConfig = {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
@@ -2028,7 +2064,7 @@ const getRequestConfig: GetRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'get',
+  requestFunctionName: 'hello_28Get',
   extraInfo: {},
 }
 
@@ -2039,11 +2075,11 @@ const getRequestConfig: GetRequestConfig = {
  * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1610557430
  */
-export const get = (requestData: GetRequest, ...args: UserRequestRestArgs) => {
-  return request<GetResponse>(prepare(getRequestConfig, requestData), ...args)
+export const hello_28Get = (requestData: Hello_28GetRequest, ...args: UserRequestRestArgs) => {
+  return request<Hello_28GetResponse>(prepare(hello_28GetRequestConfig, requestData), ...args)
 }
 
-get.requestConfig = getRequestConfig
+hello_28Get.requestConfig = hello_28GetRequestConfig
 
 /**
  * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/11/interface/api/153) 的 **请求类型**
@@ -2052,7 +2088,7 @@ get.requestConfig = getRequestConfig
  * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1610557431
  */
-export interface FormRequest {
+export interface Hello_28PostFormRequest {
   a: string
   b: string
   c: string
@@ -2067,7 +2103,7 @@ export interface FormRequest {
  * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1610557431
  */
-export interface FormResponse {}
+export interface Hello_28PostFormResponse {}
 
 /**
  * 接口 [28: 字段名称含空格 POST form↗](http://foo.bar/project/11/interface/api/153) 的 **请求配置的类型**
@@ -2076,7 +2112,7 @@ export interface FormResponse {}
  * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1610557431
  */
-type FormRequestConfig = Readonly<
+type Hello_28PostFormRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -2096,7 +2132,7 @@ type FormRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1610557431
  */
-const formRequestConfig: FormRequestConfig = {
+const hello_28PostFormRequestConfig: Hello_28PostFormRequestConfig = {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
@@ -2111,7 +2147,7 @@ const formRequestConfig: FormRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'form',
+  requestFunctionName: 'hello_28PostForm',
   extraInfo: {},
 }
 
@@ -2122,11 +2158,11 @@ const formRequestConfig: FormRequestConfig = {
  * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1610557431
  */
-export const form = (requestData: FormRequest, ...args: UserRequestRestArgs) => {
-  return request<FormResponse>(prepare(formRequestConfig, requestData), ...args)
+export const hello_28PostForm = (requestData: Hello_28PostFormRequest, ...args: UserRequestRestArgs) => {
+  return request<Hello_28PostFormResponse>(prepare(hello_28PostFormRequestConfig, requestData), ...args)
 }
 
-form.requestConfig = formRequestConfig
+hello_28PostForm.requestConfig = hello_28PostFormRequestConfig
 
 /**
  * 接口 [28: 字段名称含空格 POST json↗](http://foo.bar/project/11/interface/api/159) 的 **请求类型**
@@ -2135,7 +2171,7 @@ form.requestConfig = formRequestConfig
  * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1610557431
  */
-export interface JsonRequest {
+export interface Hello_28PostJsonRequest {
   a: string
   b: string
   'c   d': string
@@ -2153,7 +2189,7 @@ export interface JsonRequest {
  * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1610557431
  */
-export interface JsonResponse {
+export interface Hello_28PostJsonResponse {
   a?: number
   b?: string
   c?: {
@@ -2168,7 +2204,7 @@ export interface JsonResponse {
  * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1610557431
  */
-type JsonRequestConfig = Readonly<
+type Hello_28PostJsonRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
@@ -2188,7 +2224,7 @@ type JsonRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1610557431
  */
-const jsonRequestConfig: JsonRequestConfig = {
+const hello_28PostJsonRequestConfig: Hello_28PostJsonRequestConfig = {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
@@ -2203,7 +2239,7 @@ const jsonRequestConfig: JsonRequestConfig = {
   requestDataOptional: false,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'json',
+  requestFunctionName: 'hello_28PostJson',
   extraInfo: {},
 }
 
@@ -2214,11 +2250,11 @@ const jsonRequestConfig: JsonRequestConfig = {
  * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1610557431
  */
-export const json = (requestData: JsonRequest, ...args: UserRequestRestArgs) => {
-  return request<JsonResponse>(prepare(jsonRequestConfig, requestData), ...args)
+export const hello_28PostJson = (requestData: Hello_28PostJsonRequest, ...args: UserRequestRestArgs) => {
+  return request<Hello_28PostJsonResponse>(prepare(hello_28PostJsonRequestConfig, requestData), ...args)
 }
 
-json.requestConfig = jsonRequestConfig
+hello_28PostJson.requestConfig = hello_28PostJsonRequestConfig
 
 /* prettier-ignore-end */
 "
@@ -2284,9 +2320,14 @@ export default defineConfig([
           {
             id: 0,
             getRequestFunctionName(interfaceInfo, changeCase) {
-              return changeCase.camelCase(
-                interfaceInfo.parsedPath.name,
-              )
+              // 以接口全路径生成请求函数名
+              return changeCase.camelCase(interfaceInfo.path)
+
+              // 若生成的请求函数名存在语法关键词报错、或想通过某个关键词触发 IDE 自动引入提示，可考虑加前缀，如:
+              // return changeCase.camelCase(\`api_\${interfaceInfo.path}\`)
+
+              // 若生成的请求函数名有重复报错，可考虑将接口请求方式纳入生成条件，如:
+              // return changeCase.camelCase(\`\${interfaceInfo.method}_\${interfaceInfo.path}\`)
             },
           },
         ],
