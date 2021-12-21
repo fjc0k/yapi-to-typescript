@@ -52,7 +52,8 @@ export default defineConfig([
       },
     ],
   },
-])"
+])
+"
 `;
 
 exports[`cli 检查到已有配置，可以选择覆盖: 修改过的配置文件 1`] = `"hello"`;
@@ -93,7 +94,8 @@ export default defineConfig([
       },
     ],
   },
-])"
+])
+"
 `;
 
 exports[`cli 检查到已有配置，可以选择覆盖: 配置文件 1`] = `
@@ -132,7 +134,8 @@ export default defineConfig([
       },
     ],
   },
-])"
+])
+"
 `;
 
 exports[`cli 正确初始化配置文件 & 生成结果: 接口文件 1`] = `
@@ -2334,5 +2337,6 @@ export default defineConfig([
       },
     ],
   },
-])"
+])
+"
 `;

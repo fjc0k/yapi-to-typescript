@@ -8,7 +8,7 @@ Thumbs.db
 /api
 /lib
 /coverage
-ytt.config.*
+/ytt.config.*
 package-lock.json
 .umi*
 docs/dist

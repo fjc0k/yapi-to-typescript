@@ -4,8 +4,9 @@ export default [
   getCompileConfig({
     name: 'esm',
     inputFiles: ['src/**/*.ts'],
+    copyOnly: file => file.includes('templates'),
     module: 'esm',
-    target: file => (/helpers/.test(file) ? 'browser' : 'node'),
+    target: file => (file.includes('helpers') ? 'browser' : 'node'),
     outDir: 'lib/esm',
     rollupDts: true,
     rollupDtsIncludedPackages: ['vtils'],
@@ -14,8 +15,9 @@ export default [
   getCompileConfig({
     name: 'cjs',
     inputFiles: ['src/**/*.ts'],
+    copyOnly: file => file.includes('templates'),
     module: 'cjs',
-    target: file => (/helpers/.test(file) ? 'browser' : 'node'),
+    target: file => (file.includes('helpers') ? 'browser' : 'node'),
     outDir: 'lib/cjs',
     emitDts: false,
   }),

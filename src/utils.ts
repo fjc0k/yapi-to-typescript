@@ -1,3 +1,5 @@
+import changeCase from 'change-case'
+import fs from 'fs-extra'
 import JSON5 from 'json5'
 import Mock from 'mockjs'
 import path from 'path'
@@ -522,3 +524,20 @@ export async function getPrettierOptions(): Promise<prettier.Options> {
 }
 
 export const getCachedPrettierOptions = memoize(getPrettierOptions)
+
+export async function renderTemplate<T extends Record<string, string>>(
+  file: string,
+  vars?: T,
+): Promise<string> {
+  let content = await fs.readFile(file, 'utf8')
+  content = content.replace(/\s*\/\/ @ts-ignore remove(?=\r\n|\n)/gs, '')
+  if (vars) {
+    Object.keys(vars).forEach(varName => {
+      content = content.replace(
+        new RegExp(`__${changeCase.constantCase(varName)}__`, 'g'),
+        vars[varName],
+      )
+    })
+  }
+  return content
+}

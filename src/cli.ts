@@ -10,6 +10,7 @@ import { Config, ServerConfig } from './types'
 import { dedent, wait } from 'vtils'
 import { Defined } from 'vtils/types'
 import { Generator } from './Generator'
+import { renderTemplate } from './utils'
 
 TSNode.register({
   // 不加载本地的 tsconfig.json
@@ -103,51 +104,14 @@ export async function run(
         answers.configFileType === 'js' ? configJSFile : configTSFile
       outputConfigFileType = answers.configFileType
     }
-    await fs.outputFile(
-      outputConfigFile,
-      dedent`
-        import { defineConfig } from 'yapi-to-typescript'
-
-        export default defineConfig([
-          {
-            serverUrl: 'http://foo.bar',
-            typesOnly: false,
-            target: '${
-              (outputConfigFileType === 'js'
-                ? 'javascript'
-                : 'typescript') as Defined<ServerConfig['target']>
-            }',
-            reactHooks: {
-              enabled: false,
-            },
-            prodEnvName: 'production',
-            outputFilePath: 'src/api/index.${outputConfigFileType}',
-            requestFunctionFilePath: 'src/api/request.${outputConfigFileType}',
-            dataKey: 'data',
-            projects: [
-              {
-                token: 'hello',
-                categories: [
-                  {
-                    id: 0,
-                    getRequestFunctionName(interfaceInfo, changeCase) {
-                      // 以接口全路径生成请求函数名
-                      return changeCase.camelCase(interfaceInfo.path)
-
-                      // 若生成的请求函数名存在语法关键词报错、或想通过某个关键词触发 IDE 自动引入提示，可考虑加前缀，如:
-                      // return changeCase.camelCase(\`api_\${interfaceInfo.path}\`)
-
-                      // 若生成的请求函数名有重复报错，可考虑将接口请求方式纳入生成条件，如:
-                      // return changeCase.camelCase(\`\${interfaceInfo.method}_\${interfaceInfo.path}\`)
-                    },
-                  },
-                ],
-              },
-            ],
-          },
-        ])
-      `,
-    )
+    const configFileContent = await renderTemplate<{
+      target: Defined<ServerConfig['target']>
+      ext: string
+    }>(path.join(__dirname, './templates/ytt.config.ts'), {
+      target: outputConfigFileType === 'ts' ? 'typescript' : 'javascript',
+      ext: outputConfigFileType,
+    })
+    await fs.outputFile(outputConfigFile, configFileContent)
     consola.success('写入配置文件完毕')
   } else {
     if (!configFileExist) {
