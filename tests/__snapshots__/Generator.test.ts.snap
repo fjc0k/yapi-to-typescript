@@ -12956,39 +12956,13 @@ onlyPostFormDataTest.requestConfig = onlyPostFormDataTestRequestConfig
 exports[`Generator 支持将 token 设为数组: 请求文件 1`] = `
 "import { RequestFunctionParams } from 'yapi-to-typescript'
 
-export interface RequestOptions {
-  /**
-   * 使用的服务器。
-   *
-   * - \`prod\`: 生产服务器
-   * - \`dev\`: 测试服务器
-   * - \`mock\`: 模拟服务器
-   *
-   * @default prod
-   */
-  server?: 'prod' | 'dev' | 'mock',
-}
-
-export default function request<TResponseData>(
+export default async function request<TResponseData>(
   payload: RequestFunctionParams,
-  options: RequestOptions = {
-    server: 'prod',
-  },
 ): Promise<TResponseData> {
-  return new Promise<TResponseData>((resolve, reject) => {
-    // 基本地址
-    const baseUrl = options.server === 'mock'
-      ? payload.mockUrl
-      : options.server === 'dev'
-        ? payload.devUrl
-        : payload.prodUrl
-
-    // 请求地址
-    const url = \`\${baseUrl}\${payload.path}\`
-
-    // 具体请求逻辑
-  })
-}"
+  // 请参照：
+  // https://fjc0k.gitee.io/yapi-to-typescript/handbook/request.html#%E5%9F%BA%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8-fetch-%E7%9A%84%E7%A4%BA%E4%BE%8B
+}
+"
 `;
 
 exports[`Generator 支持将 token 设为数组: 输出内容 1`] = `
@@ -18228,39 +18202,13 @@ onlyPostFormDataTest.requestConfig = onlyPostFormDataTestRequestConfig
 exports[`Generator 支持项目设置里的接口基本路径: 请求文件 1`] = `
 "import { RequestFunctionParams } from 'yapi-to-typescript'
 
-export interface RequestOptions {
-  /**
-   * 使用的服务器。
-   *
-   * - \`prod\`: 生产服务器
-   * - \`dev\`: 测试服务器
-   * - \`mock\`: 模拟服务器
-   *
-   * @default prod
-   */
-  server?: 'prod' | 'dev' | 'mock',
-}
-
-export default function request<TResponseData>(
+export default async function request<TResponseData>(
   payload: RequestFunctionParams,
-  options: RequestOptions = {
-    server: 'prod',
-  },
 ): Promise<TResponseData> {
-  return new Promise<TResponseData>((resolve, reject) => {
-    // 基本地址
-    const baseUrl = options.server === 'mock'
-      ? payload.mockUrl
-      : options.server === 'dev'
-        ? payload.devUrl
-        : payload.prodUrl
-
-    // 请求地址
-    const url = \`\${baseUrl}\${payload.path}\`
-
-    // 具体请求逻辑
-  })
-}"
+  // 请参照：
+  // https://fjc0k.gitee.io/yapi-to-typescript/handbook/request.html#%E5%9F%BA%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8-fetch-%E7%9A%84%E7%A4%BA%E4%BE%8B
+}
+"
 `;
 
 exports[`Generator 支持项目设置里的接口基本路径: 输出内容 1`] = `
@@ -44287,39 +44235,13 @@ jsonTest.requestConfig = jsonTestRequestConfig
 exports[`Generator 正确生成代码并写入文件 - 全部分类: 请求文件 1`] = `
 "import { RequestFunctionParams } from 'yapi-to-typescript'
 
-export interface RequestOptions {
-  /**
-   * 使用的服务器。
-   *
-   * - \`prod\`: 生产服务器
-   * - \`dev\`: 测试服务器
-   * - \`mock\`: 模拟服务器
-   *
-   * @default prod
-   */
-  server?: 'prod' | 'dev' | 'mock',
-}
-
-export default function request<TResponseData>(
+export default async function request<TResponseData>(
   payload: RequestFunctionParams,
-  options: RequestOptions = {
-    server: 'prod',
-  },
 ): Promise<TResponseData> {
-  return new Promise<TResponseData>((resolve, reject) => {
-    // 基本地址
-    const baseUrl = options.server === 'mock'
-      ? payload.mockUrl
-      : options.server === 'dev'
-        ? payload.devUrl
-        : payload.prodUrl
-
-    // 请求地址
-    const url = \`\${baseUrl}\${payload.path}\`
-
-    // 具体请求逻辑
-  })
-}"
+  // 请参照：
+  // https://fjc0k.gitee.io/yapi-to-typescript/handbook/request.html#%E5%9F%BA%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8-fetch-%E7%9A%84%E7%A4%BA%E4%BE%8B
+}
+"
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 全部分类: 输出内容 1`] = `
@@ -48248,39 +48170,13 @@ onlyPostFormDataTest.requestConfig = onlyPostFormDataTestRequestConfig
 exports[`Generator 正确生成代码并写入文件 - 单分类: 请求文件 1`] = `
 "import { RequestFunctionParams } from 'yapi-to-typescript'
 
-export interface RequestOptions {
-  /**
-   * 使用的服务器。
-   *
-   * - \`prod\`: 生产服务器
-   * - \`dev\`: 测试服务器
-   * - \`mock\`: 模拟服务器
-   *
-   * @default prod
-   */
-  server?: 'prod' | 'dev' | 'mock',
-}
-
-export default function request<TResponseData>(
+export default async function request<TResponseData>(
   payload: RequestFunctionParams,
-  options: RequestOptions = {
-    server: 'prod',
-  },
 ): Promise<TResponseData> {
-  return new Promise<TResponseData>((resolve, reject) => {
-    // 基本地址
-    const baseUrl = options.server === 'mock'
-      ? payload.mockUrl
-      : options.server === 'dev'
-        ? payload.devUrl
-        : payload.prodUrl
-
-    // 请求地址
-    const url = \`\${baseUrl}\${payload.path}\`
-
-    // 具体请求逻辑
-  })
-}"
+  // 请参照：
+  // https://fjc0k.gitee.io/yapi-to-typescript/handbook/request.html#%E5%9F%BA%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8-fetch-%E7%9A%84%E7%A4%BA%E4%BE%8B
+}
+"
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 单分类: 输出内容 1`] = `
@@ -51852,39 +51748,13 @@ get2Test.requestConfig = get2TestRequestConfig
 exports[`Generator 正确生成代码并写入文件 - 多分类: 请求文件 1`] = `
 "import { RequestFunctionParams } from 'yapi-to-typescript'
 
-export interface RequestOptions {
-  /**
-   * 使用的服务器。
-   *
-   * - \`prod\`: 生产服务器
-   * - \`dev\`: 测试服务器
-   * - \`mock\`: 模拟服务器
-   *
-   * @default prod
-   */
-  server?: 'prod' | 'dev' | 'mock',
-}
-
-export default function request<TResponseData>(
+export default async function request<TResponseData>(
   payload: RequestFunctionParams,
-  options: RequestOptions = {
-    server: 'prod',
-  },
 ): Promise<TResponseData> {
-  return new Promise<TResponseData>((resolve, reject) => {
-    // 基本地址
-    const baseUrl = options.server === 'mock'
-      ? payload.mockUrl
-      : options.server === 'dev'
-        ? payload.devUrl
-        : payload.prodUrl
-
-    // 请求地址
-    const url = \`\${baseUrl}\${payload.path}\`
-
-    // 具体请求逻辑
-  })
-}"
+  // 请参照：
+  // https://fjc0k.gitee.io/yapi-to-typescript/handbook/request.html#%E5%9F%BA%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8-fetch-%E7%9A%84%E7%A4%BA%E4%BE%8B
+}
+"
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 多分类: 输出内容 1`] = `
@@ -54202,39 +54072,13 @@ jsonTest.requestConfig = jsonTestRequestConfig
 exports[`Generator 正确生成代码并写入文件 - 排除分类: 请求文件 1`] = `
 "import { RequestFunctionParams } from 'yapi-to-typescript'
 
-export interface RequestOptions {
-  /**
-   * 使用的服务器。
-   *
-   * - \`prod\`: 生产服务器
-   * - \`dev\`: 测试服务器
-   * - \`mock\`: 模拟服务器
-   *
-   * @default prod
-   */
-  server?: 'prod' | 'dev' | 'mock',
-}
-
-export default function request<TResponseData>(
+export default async function request<TResponseData>(
   payload: RequestFunctionParams,
-  options: RequestOptions = {
-    server: 'prod',
-  },
 ): Promise<TResponseData> {
-  return new Promise<TResponseData>((resolve, reject) => {
-    // 基本地址
-    const baseUrl = options.server === 'mock'
-      ? payload.mockUrl
-      : options.server === 'dev'
-        ? payload.devUrl
-        : payload.prodUrl
-
-    // 请求地址
-    const url = \`\${baseUrl}\${payload.path}\`
-
-    // 具体请求逻辑
-  })
-}"
+  // 请参照：
+  // https://fjc0k.gitee.io/yapi-to-typescript/handbook/request.html#%E5%9F%BA%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8-fetch-%E7%9A%84%E7%A4%BA%E4%BE%8B
+}
+"
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 排除分类: 输出内容 1`] = `
@@ -55581,20 +55425,9 @@ jsonTest.requestConfig = jsonTestRequestConfig;
 `;
 
 exports[`Generator 生成 JavaScript 代码: 请求文件 1`] = `
-"export default function request(payload, options = {
-    server: 'prod',
-}) {
-    return new Promise((resolve, reject) => {
-        // 基本地址
-        const baseUrl = options.server === 'mock'
-            ? payload.mockUrl
-            : options.server === 'dev'
-                ? payload.devUrl
-                : payload.prodUrl;
-        // 请求地址
-        const url = \`\${baseUrl}\${payload.path}\`;
-        // 具体请求逻辑
-    });
+"export default async function request(payload) {
+    // 请参照：
+    // https://fjc0k.gitee.io/yapi-to-typescript/handbook/request.html#%E5%9F%BA%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8-fetch-%E7%9A%84%E7%A4%BA%E4%BE%8B
 }
 "
 `;
@@ -59793,39 +59626,13 @@ export const useOnlyPostFormDataTest = makeRequestHook<
 exports[`Generator 生成 React Hooks 代码: 请求文件 1`] = `
 "import { RequestFunctionParams } from 'yapi-to-typescript'
 
-export interface RequestOptions {
-  /**
-   * 使用的服务器。
-   *
-   * - \`prod\`: 生产服务器
-   * - \`dev\`: 测试服务器
-   * - \`mock\`: 模拟服务器
-   *
-   * @default prod
-   */
-  server?: 'prod' | 'dev' | 'mock',
-}
-
-export default function request<TResponseData>(
+export default async function request<TResponseData>(
   payload: RequestFunctionParams,
-  options: RequestOptions = {
-    server: 'prod',
-  },
 ): Promise<TResponseData> {
-  return new Promise<TResponseData>((resolve, reject) => {
-    // 基本地址
-    const baseUrl = options.server === 'mock'
-      ? payload.mockUrl
-      : options.server === 'dev'
-        ? payload.devUrl
-        : payload.prodUrl
-
-    // 请求地址
-    const url = \`\${baseUrl}\${payload.path}\`
-
-    // 具体请求逻辑
-  })
-}"
+  // 请参照：
+  // https://fjc0k.gitee.io/yapi-to-typescript/handbook/request.html#%E5%9F%BA%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8-fetch-%E7%9A%84%E7%A4%BA%E4%BE%8B
+}
+"
 `;
 
 exports[`Generator 生成 React Hooks 代码: 输出内容 1`] = `
