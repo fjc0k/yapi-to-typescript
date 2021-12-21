@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.29.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.29.1...v3.29.2) (2021-12-21)
+
+### 文档
+
+- 更新入群二维码 ([98610b3](https://github.com/fjc0k/yapi-to-typescript/commit/98610b3f759bfe551da8ba526dd72354605b9efe))
+
 <a name="3.29.1"></a>
 
 ## [3.29.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.29.0...v3.29.1) (2021-12-08)
