@@ -376,48 +376,26 @@ export class Generator {
             syntheticalConfig.reactHooks.enabled &&
             !(await fs.pathExists(rawRequestHookMakerFilePath))
           ) {
+            const requestHookMakerFileContent = await renderTemplate<{
+              outputFilePath: string
+              requestFunctionFilePath: string
+            }>(path.join(__dirname, './templates/makeRequestHook.ts'), {
+              outputFilePath: JSON.stringify(
+                getNormalizedRelativePath(
+                  requestHookMakerFilePath,
+                  outputFilePath,
+                ),
+              ),
+              requestFunctionFilePath: JSON.stringify(
+                getNormalizedRelativePath(
+                  requestHookMakerFilePath,
+                  requestFunctionFilePath,
+                ),
+              ),
+            })
             await fs.outputFile(
               requestHookMakerFilePath,
-              dedent`
-                import { useState, useEffect } from 'react'
-                import { RequestConfig } from 'yapi-to-typescript'
-                import { Request } from ${JSON.stringify(
-                  getNormalizedRelativePath(
-                    requestHookMakerFilePath,
-                    outputFilePath,
-                  ),
-                )}
-                import baseRequest from ${JSON.stringify(
-                  getNormalizedRelativePath(
-                    requestHookMakerFilePath,
-                    requestFunctionFilePath,
-                  ),
-                )}
-
-                export default function makeRequestHook<TRequestData, TRequestConfig extends RequestConfig, TRequestResult extends ReturnType<typeof baseRequest>>(request: Request<TRequestData, TRequestConfig, TRequestResult>) {
-                  type Data = TRequestResult extends Promise<infer R> ? R : TRequestResult
-                  return function useRequest(requestData: TRequestData) {
-                    // 一个简单的 Hook 实现，实际项目可结合其他库使用，比如：
-                    // @umijs/hooks 的 useRequest (https://github.com/umijs/hooks)
-                    // swr (https://github.com/zeit/swr)
-
-                    const [loading, setLoading] = useState(true)
-                    const [data, setData] = useState<Data>()
-
-                    useEffect(() => {
-                      request(requestData).then(data => {
-                        setLoading(false)
-                        setData(data as any)
-                      })
-                    }, [JSON.stringify(requestData)])
-
-                    return {
-                      loading,
-                      data,
-                    }
-                  }
-                }
-              `,
+              requestHookMakerFileContent,
             )
           }
         }

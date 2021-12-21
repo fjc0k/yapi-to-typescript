@@ -57641,12 +57641,16 @@ jsonTest.requestConfig = jsonTestRequestConfig",
 `;
 
 exports[`Generator 生成 React Hooks 代码: Hook 生成文件 1`] = `
-"import { useState, useEffect } from 'react'
-import { RequestConfig } from 'yapi-to-typescript'
+"import baseRequest from \\"./request\\"
 import { Request } from \\"./index\\"
-import baseRequest from \\"./request\\"
+import { RequestConfig } from 'yapi-to-typescript'
+import { useEffect, useState } from 'react'
 
-export default function makeRequestHook<TRequestData, TRequestConfig extends RequestConfig, TRequestResult extends ReturnType<typeof baseRequest>>(request: Request<TRequestData, TRequestConfig, TRequestResult>) {
+export default function makeRequestHook<
+  TRequestData,
+  TRequestConfig extends RequestConfig,
+  TRequestResult extends ReturnType<typeof baseRequest>
+>(request: Request<TRequestData, TRequestConfig, TRequestResult>) {
   type Data = TRequestResult extends Promise<infer R> ? R : TRequestResult
   return function useRequest(requestData: TRequestData) {
     // 一个简单的 Hook 实现，实际项目可结合其他库使用，比如：
@@ -57668,7 +57672,8 @@ export default function makeRequestHook<TRequestData, TRequestConfig extends Req
       data,
     }
   }
-}"
+}
+"
 `;
 
 exports[`Generator 生成 React Hooks 代码: 接口文件 1`] = `
