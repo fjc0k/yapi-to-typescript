@@ -1,5 +1,12 @@
 # 更新日志
 
+## [3.30.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.29.2...v3.30.0) (2021-12-27)
+
+### 特性
+
+- 通过 ytt init 初始化的配置文件中的 getRequestFunctionName 默认改为「以接口全路径生成请求函数名」并备注遇到请求函数名是语法关键词报错、重复时的解决方案 ([1aefd41](https://github.com/fjc0k/yapi-to-typescript/commit/1aefd417e4a235a23569510beb419efb32f2b2b3))
+- 增加 Tree Shaking 标记使摇树优化生效 ([#66](https://github.com/fjc0k/yapi-to-typescript/issues/66)) ([badd33d](https://github.com/fjc0k/yapi-to-typescript/commit/badd33da15ddf4b62d02a2a79fe8d66d14e825ab))
+
 ### [3.29.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.29.1...v3.29.2) (2021-12-21)
 
 ### 文档
