@@ -53,6 +53,12 @@ interface OutputFileList {
   }
 }
 
+/**
+ * @see https://webpack.js.org/guides/tree-shaking/#mark-a-function-call-as-side-effect-free
+ * @see https://terser.org/docs/api-reference.html#annotations
+ */
+const COMPRESSOR_TREE_SHAKING_ANNOTATION = '/*#__PURE__*/'
+
 export class Generator {
   /** 配置 */
   private config: ServerConfig[] = []
@@ -887,7 +893,7 @@ export class Generator {
             >>
 
             ${genComment(title => `接口 ${title} 的 **请求配置**`)}
-            const ${requestConfigName}: ${requestConfigTypeName} = {
+            const ${requestConfigName}: ${requestConfigTypeName} = ${COMPRESSOR_TREE_SHAKING_ANNOTATION} {
               mockUrl: mockUrl${categoryUID},
               devUrl: devUrl${categoryUID},
               prodUrl: prodUrl${categoryUID},
@@ -931,7 +937,7 @@ export class Generator {
             }
 
             ${genComment(title => `接口 ${title} 的 **请求函数**`)}
-            export const ${requestFunctionName} = (
+            export const ${requestFunctionName} = ${COMPRESSOR_TREE_SHAKING_ANNOTATION} (
               requestData${
                 isRequestDataOptional ? '?' : ''
               }: ${requestDataTypeName},
@@ -951,7 +957,7 @@ export class Generator {
                 ? ''
                 : dedent`
                   ${genComment(title => `接口 ${title} 的 **React Hook**`)}
-                  export const ${requestHookName} = makeRequestHook<${requestDataTypeName}, ${requestConfigTypeName}, ReturnType<typeof ${requestFunctionName}>>(${requestFunctionName})
+                  export const ${requestHookName} = ${COMPRESSOR_TREE_SHAKING_ANNOTATION} makeRequestHook<${requestDataTypeName}, ${requestConfigTypeName}, ReturnType<typeof ${requestFunctionName}>>(${requestFunctionName})
                 `
             }
           `
