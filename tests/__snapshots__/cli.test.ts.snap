@@ -216,7 +216,7 @@ type HelloDeleteMethodRequestConfig = Readonly<
  * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1610557429
  */
-const helloDeleteMethodRequestConfig: HelloDeleteMethodRequestConfig = {
+const helloDeleteMethodRequestConfig: HelloDeleteMethodRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -242,7 +242,10 @@ const helloDeleteMethodRequestConfig: HelloDeleteMethodRequestConfig = {
  * @请求头 \`DELETE /__hello__/deleteMethod\`
  * @更新时间 1610557429
  */
-export const helloDeleteMethod = (requestData: HelloDeleteMethodRequest, ...args: UserRequestRestArgs) => {
+export const helloDeleteMethod = /*#__PURE__*/ (
+  requestData: HelloDeleteMethodRequest,
+  ...args: UserRequestRestArgs
+) => {
   return request<HelloDeleteMethodResponse>(prepare(helloDeleteMethodRequestConfig, requestData), ...args)
 }
 
@@ -307,7 +310,7 @@ type HelloGetMethodRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1610557429
  */
-const helloGetMethodRequestConfig: HelloGetMethodRequestConfig = {
+const helloGetMethodRequestConfig: HelloGetMethodRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -333,7 +336,7 @@ const helloGetMethodRequestConfig: HelloGetMethodRequestConfig = {
  * @请求头 \`GET /__hello__/getMethod\`
  * @更新时间 1610557429
  */
-export const helloGetMethod = (requestData: HelloGetMethodRequest, ...args: UserRequestRestArgs) => {
+export const helloGetMethod = /*#__PURE__*/ (requestData: HelloGetMethodRequest, ...args: UserRequestRestArgs) => {
   return request<HelloGetMethodResponse>(prepare(helloGetMethodRequestConfig, requestData), ...args)
 }
 
@@ -388,7 +391,7 @@ type HelloJson5ResponseRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1610557429
  */
-const helloJson5ResponseRequestConfig: HelloJson5ResponseRequestConfig = {
+const helloJson5ResponseRequestConfig: HelloJson5ResponseRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -414,7 +417,10 @@ const helloJson5ResponseRequestConfig: HelloJson5ResponseRequestConfig = {
  * @请求头 \`GET /__hello__/json5Response\`
  * @更新时间 1610557429
  */
-export const helloJson5Response = (requestData?: HelloJson5ResponseRequest, ...args: UserRequestRestArgs) => {
+export const helloJson5Response = /*#__PURE__*/ (
+  requestData?: HelloJson5ResponseRequest,
+  ...args: UserRequestRestArgs
+) => {
   return request<HelloJson5ResponseResponse>(prepare(helloJson5ResponseRequestConfig, requestData), ...args)
 }
 
@@ -490,7 +496,7 @@ type HelloJson5RequestRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1610557429
  */
-const helloJson5RequestRequestConfig: HelloJson5RequestRequestConfig = {
+const helloJson5RequestRequestConfig: HelloJson5RequestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -516,7 +522,10 @@ const helloJson5RequestRequestConfig: HelloJson5RequestRequestConfig = {
  * @请求头 \`POST /__hello__/json5Request\`
  * @更新时间 1610557429
  */
-export const helloJson5Request = (requestData: HelloJson5RequestRequest, ...args: UserRequestRestArgs) => {
+export const helloJson5Request = /*#__PURE__*/ (
+  requestData: HelloJson5RequestRequest,
+  ...args: UserRequestRestArgs
+) => {
   return request<HelloJson5RequestResponse>(prepare(helloJson5RequestRequestConfig, requestData), ...args)
 }
 
@@ -590,7 +599,7 @@ type HelloPostMethodRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1610557429
  */
-const helloPostMethodRequestConfig: HelloPostMethodRequestConfig = {
+const helloPostMethodRequestConfig: HelloPostMethodRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -616,7 +625,7 @@ const helloPostMethodRequestConfig: HelloPostMethodRequestConfig = {
  * @请求头 \`POST /__hello__/postMethod\`
  * @更新时间 1610557429
  */
-export const helloPostMethod = (requestData: HelloPostMethodRequest, ...args: UserRequestRestArgs) => {
+export const helloPostMethod = /*#__PURE__*/ (requestData: HelloPostMethodRequest, ...args: UserRequestRestArgs) => {
   return request<HelloPostMethodResponse>(prepare(helloPostMethodRequestConfig, requestData), ...args)
 }
 
@@ -687,7 +696,7 @@ type HelloPutMethodRequestConfig = Readonly<
  * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1610557429
  */
-const helloPutMethodRequestConfig: HelloPutMethodRequestConfig = {
+const helloPutMethodRequestConfig: HelloPutMethodRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -713,7 +722,7 @@ const helloPutMethodRequestConfig: HelloPutMethodRequestConfig = {
  * @请求头 \`PUT /__hello__/putMethod\`
  * @更新时间 1610557429
  */
-export const helloPutMethod = (requestData: HelloPutMethodRequest, ...args: UserRequestRestArgs) => {
+export const helloPutMethod = /*#__PURE__*/ (requestData: HelloPutMethodRequest, ...args: UserRequestRestArgs) => {
   return request<HelloPutMethodResponse>(prepare(helloPutMethodRequestConfig, requestData), ...args)
 }
 
@@ -789,7 +798,7 @@ type HelloDataKeyExampleRequestConfig = Readonly<
  * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1610557430
  */
-const helloDataKeyExampleRequestConfig: HelloDataKeyExampleRequestConfig = {
+const helloDataKeyExampleRequestConfig: HelloDataKeyExampleRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -815,7 +824,10 @@ const helloDataKeyExampleRequestConfig: HelloDataKeyExampleRequestConfig = {
  * @请求头 \`PUT /__hello__/dataKeyExample\`
  * @更新时间 1610557430
  */
-export const helloDataKeyExample = (requestData: HelloDataKeyExampleRequest, ...args: UserRequestRestArgs) => {
+export const helloDataKeyExample = /*#__PURE__*/ (
+  requestData: HelloDataKeyExampleRequest,
+  ...args: UserRequestRestArgs
+) => {
   return request<HelloDataKeyExampleResponse>(prepare(helloDataKeyExampleRequestConfig, requestData), ...args)
 }
 
@@ -866,7 +878,7 @@ type HelloUploadRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1610557430
  */
-const helloUploadRequestConfig: HelloUploadRequestConfig = {
+const helloUploadRequestConfig: HelloUploadRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -892,7 +904,7 @@ const helloUploadRequestConfig: HelloUploadRequestConfig = {
  * @请求头 \`POST /__hello__/upload\`
  * @更新时间 1610557430
  */
-export const helloUpload = (requestData: HelloUploadRequest, ...args: UserRequestRestArgs) => {
+export const helloUpload = /*#__PURE__*/ (requestData: HelloUploadRequest, ...args: UserRequestRestArgs) => {
   return request<HelloUploadResponse>(prepare(helloUploadRequestConfig, requestData), ...args)
 }
 
@@ -947,7 +959,7 @@ type HelloTestRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/test\`
  * @更新时间 1610557430
  */
-const helloTestRequestConfig: HelloTestRequestConfig = {
+const helloTestRequestConfig: HelloTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -973,7 +985,7 @@ const helloTestRequestConfig: HelloTestRequestConfig = {
  * @请求头 \`POST /__hello__/test\`
  * @更新时间 1610557430
  */
-export const helloTest = (requestData: HelloTestRequest, ...args: UserRequestRestArgs) => {
+export const helloTest = /*#__PURE__*/ (requestData: HelloTestRequest, ...args: UserRequestRestArgs) => {
   return request<HelloTestResponse>(prepare(helloTestRequestConfig, requestData), ...args)
 }
 
@@ -1024,7 +1036,7 @@ type HelloNoResponseDataRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1610557430
  */
-const helloNoResponseDataRequestConfig: HelloNoResponseDataRequestConfig = {
+const helloNoResponseDataRequestConfig: HelloNoResponseDataRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1050,7 +1062,10 @@ const helloNoResponseDataRequestConfig: HelloNoResponseDataRequestConfig = {
  * @请求头 \`GET /__hello__/noResponseData\`
  * @更新时间 1610557430
  */
-export const helloNoResponseData = (requestData?: HelloNoResponseDataRequest, ...args: UserRequestRestArgs) => {
+export const helloNoResponseData = /*#__PURE__*/ (
+  requestData?: HelloNoResponseDataRequest,
+  ...args: UserRequestRestArgs
+) => {
   return request<HelloNoResponseDataResponse>(prepare(helloNoResponseDataRequestConfig, requestData), ...args)
 }
 
@@ -1101,7 +1116,7 @@ type HelloEmptyResponseRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1610557430
  */
-const helloEmptyResponseRequestConfig: HelloEmptyResponseRequestConfig = {
+const helloEmptyResponseRequestConfig: HelloEmptyResponseRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1127,7 +1142,10 @@ const helloEmptyResponseRequestConfig: HelloEmptyResponseRequestConfig = {
  * @请求头 \`POST /__hello__/emptyResponse\`
  * @更新时间 1610557430
  */
-export const helloEmptyResponse = (requestData?: HelloEmptyResponseRequest, ...args: UserRequestRestArgs) => {
+export const helloEmptyResponse = /*#__PURE__*/ (
+  requestData?: HelloEmptyResponseRequest,
+  ...args: UserRequestRestArgs
+) => {
   return request<HelloEmptyResponseResponse>(prepare(helloEmptyResponseRequestConfig, requestData), ...args)
 }
 
@@ -1187,7 +1205,7 @@ type HelloPathIdHelloNamePassAvatarTestRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1610557430
  */
-const helloPathIdHelloNamePassAvatarTestRequestConfig: HelloPathIdHelloNamePassAvatarTestRequestConfig = {
+const helloPathIdHelloNamePassAvatarTestRequestConfig: HelloPathIdHelloNamePassAvatarTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1213,7 +1231,7 @@ const helloPathIdHelloNamePassAvatarTestRequestConfig: HelloPathIdHelloNamePassA
  * @请求头 \`POST /__hello__/path/:id/hello/:name/:pass/{avatar}/:test\`
  * @更新时间 1610557430
  */
-export const helloPathIdHelloNamePassAvatarTest = (
+export const helloPathIdHelloNamePassAvatarTest = /*#__PURE__*/ (
   requestData: HelloPathIdHelloNamePassAvatarTestRequest,
   ...args: UserRequestRestArgs
 ) => {
@@ -1287,7 +1305,7 @@ type HelloTestIdHihihiRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1610557430
  */
-const helloTestIdHihihiRequestConfig: HelloTestIdHihihiRequestConfig = {
+const helloTestIdHihihiRequestConfig: HelloTestIdHihihiRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1313,7 +1331,10 @@ const helloTestIdHihihiRequestConfig: HelloTestIdHihihiRequestConfig = {
  * @请求头 \`POST /__hello__/test/{id}/:hihihi\`
  * @更新时间 1610557430
  */
-export const helloTestIdHihihi = (requestData: HelloTestIdHihihiRequest, ...args: UserRequestRestArgs) => {
+export const helloTestIdHihihi = /*#__PURE__*/ (
+  requestData: HelloTestIdHihihiRequest,
+  ...args: UserRequestRestArgs
+) => {
   return request<HelloTestIdHihihiResponse>(prepare(helloTestIdHihihiRequestConfig, requestData), ...args)
 }
 
@@ -1386,7 +1407,7 @@ type HelloTestIdHihihi_1608478638207RequestConfig = Readonly<
  * @请求头 \`POST /__hello__/test/{id}/:hihihi_1608478638207\`
  * @更新时间 1610557430
  */
-const helloTestIdHihihi_1608478638207RequestConfig: HelloTestIdHihihi_1608478638207RequestConfig = {
+const helloTestIdHihihi_1608478638207RequestConfig: HelloTestIdHihihi_1608478638207RequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1412,7 +1433,7 @@ const helloTestIdHihihi_1608478638207RequestConfig: HelloTestIdHihihi_1608478638
  * @请求头 \`POST /__hello__/test/{id}/:hihihi_1608478638207\`
  * @更新时间 1610557430
  */
-export const helloTestIdHihihi_1608478638207 = (
+export const helloTestIdHihihi_1608478638207 = /*#__PURE__*/ (
   requestData: HelloTestIdHihihi_1608478638207Request,
   ...args: UserRequestRestArgs
 ) => {
@@ -1469,7 +1490,7 @@ type HelloRawResponseRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1610557430
  */
-const helloRawResponseRequestConfig: HelloRawResponseRequestConfig = {
+const helloRawResponseRequestConfig: HelloRawResponseRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1495,7 +1516,7 @@ const helloRawResponseRequestConfig: HelloRawResponseRequestConfig = {
  * @请求头 \`GET /__hello__/rawResponse\`
  * @更新时间 1610557430
  */
-export const helloRawResponse = (requestData?: HelloRawResponseRequest, ...args: UserRequestRestArgs) => {
+export const helloRawResponse = /*#__PURE__*/ (requestData?: HelloRawResponseRequest, ...args: UserRequestRestArgs) => {
   return request<HelloRawResponseResponse>(prepare(helloRawResponseRequestConfig, requestData), ...args)
 }
 
@@ -1537,7 +1558,7 @@ type HelloHeadersRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/headers\`
  * @更新时间 1619432971
  */
-const helloHeadersRequestConfig: HelloHeadersRequestConfig = {
+const helloHeadersRequestConfig: HelloHeadersRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1563,7 +1584,7 @@ const helloHeadersRequestConfig: HelloHeadersRequestConfig = {
  * @请求头 \`GET /__hello__/headers\`
  * @更新时间 1619432971
  */
-export const helloHeaders = (requestData?: HelloHeadersRequest, ...args: UserRequestRestArgs) => {
+export const helloHeaders = /*#__PURE__*/ (requestData?: HelloHeadersRequest, ...args: UserRequestRestArgs) => {
   return request<HelloHeadersResponse>(prepare(helloHeadersRequestConfig, requestData), ...args)
 }
 
@@ -1627,7 +1648,7 @@ type HelloUserIdAvatarRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/user/:id/avatar\`
  * @更新时间 1621501310
  */
-const helloUserIdAvatarRequestConfig: HelloUserIdAvatarRequestConfig = {
+const helloUserIdAvatarRequestConfig: HelloUserIdAvatarRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1653,7 +1674,10 @@ const helloUserIdAvatarRequestConfig: HelloUserIdAvatarRequestConfig = {
  * @请求头 \`GET /__hello__/user/:id/avatar\`
  * @更新时间 1621501310
  */
-export const helloUserIdAvatar = (requestData: HelloUserIdAvatarRequest, ...args: UserRequestRestArgs) => {
+export const helloUserIdAvatar = /*#__PURE__*/ (
+  requestData: HelloUserIdAvatarRequest,
+  ...args: UserRequestRestArgs
+) => {
   return request<HelloUserIdAvatarResponse>(prepare(helloUserIdAvatarRequestConfig, requestData), ...args)
 }
 
@@ -1714,7 +1738,7 @@ type HelloDataKeyDeepRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/dataKey/deep\`
  * @更新时间 1626489548
  */
-const helloDataKeyDeepRequestConfig: HelloDataKeyDeepRequestConfig = {
+const helloDataKeyDeepRequestConfig: HelloDataKeyDeepRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1740,7 +1764,7 @@ const helloDataKeyDeepRequestConfig: HelloDataKeyDeepRequestConfig = {
  * @请求头 \`GET /__hello__/dataKey/deep\`
  * @更新时间 1626489548
  */
-export const helloDataKeyDeep = (requestData?: HelloDataKeyDeepRequest, ...args: UserRequestRestArgs) => {
+export const helloDataKeyDeep = /*#__PURE__*/ (requestData?: HelloDataKeyDeepRequest, ...args: UserRequestRestArgs) => {
   return request<HelloDataKeyDeepResponse>(prepare(helloDataKeyDeepRequestConfig, requestData), ...args)
 }
 
@@ -1796,7 +1820,7 @@ type HelloGetOnlyPostFormDataRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/get/only_post_form_data\`
  * @更新时间 1632493928
  */
-const helloGetOnlyPostFormDataRequestConfig: HelloGetOnlyPostFormDataRequestConfig = {
+const helloGetOnlyPostFormDataRequestConfig: HelloGetOnlyPostFormDataRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
@@ -1822,7 +1846,7 @@ const helloGetOnlyPostFormDataRequestConfig: HelloGetOnlyPostFormDataRequestConf
  * @请求头 \`GET /__hello__/get/only_post_form_data\`
  * @更新时间 1632493928
  */
-export const helloGetOnlyPostFormData = (
+export const helloGetOnlyPostFormData = /*#__PURE__*/ (
   requestData: HelloGetOnlyPostFormDataRequest,
   ...args: UserRequestRestArgs
 ) => {
@@ -1878,7 +1902,7 @@ type HelloGet2RequestConfig = Readonly<
  * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1610557430
  */
-const helloGet2RequestConfig: HelloGet2RequestConfig = {
+const helloGet2RequestConfig: HelloGet2RequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
@@ -1905,7 +1929,7 @@ const helloGet2RequestConfig: HelloGet2RequestConfig = {
  * @请求头 \`GET /__hello__/get2\`
  * @更新时间 1610557430
  */
-export const helloGet2 = (requestData?: HelloGet2Request, ...args: UserRequestRestArgs) => {
+export const helloGet2 = /*#__PURE__*/ (requestData?: HelloGet2Request, ...args: UserRequestRestArgs) => {
   return request<HelloGet2Response>(prepare(helloGet2RequestConfig, requestData), ...args)
 }
 
@@ -1961,7 +1985,7 @@ type HelloIssue_17Picture_3dDetailRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1610557430
  */
-const helloIssue_17Picture_3dDetailRequestConfig: HelloIssue_17Picture_3dDetailRequestConfig = {
+const helloIssue_17Picture_3dDetailRequestConfig: HelloIssue_17Picture_3dDetailRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
@@ -1987,7 +2011,7 @@ const helloIssue_17Picture_3dDetailRequestConfig: HelloIssue_17Picture_3dDetailR
  * @请求头 \`GET /__hello__/issue-17/picture_3d_detail\`
  * @更新时间 1610557430
  */
-export const helloIssue_17Picture_3dDetail = (
+export const helloIssue_17Picture_3dDetail = /*#__PURE__*/ (
   requestData?: HelloIssue_17Picture_3dDetailRequest,
   ...args: UserRequestRestArgs
 ) => {
@@ -2049,7 +2073,7 @@ type Hello_28GetRequestConfig = Readonly<
  * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1610557430
  */
-const hello_28GetRequestConfig: Hello_28GetRequestConfig = {
+const hello_28GetRequestConfig: Hello_28GetRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
@@ -2075,7 +2099,7 @@ const hello_28GetRequestConfig: Hello_28GetRequestConfig = {
  * @请求头 \`GET /__hello__/28/get\`
  * @更新时间 1610557430
  */
-export const hello_28Get = (requestData: Hello_28GetRequest, ...args: UserRequestRestArgs) => {
+export const hello_28Get = /*#__PURE__*/ (requestData: Hello_28GetRequest, ...args: UserRequestRestArgs) => {
   return request<Hello_28GetResponse>(prepare(hello_28GetRequestConfig, requestData), ...args)
 }
 
@@ -2132,7 +2156,7 @@ type Hello_28PostFormRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1610557431
  */
-const hello_28PostFormRequestConfig: Hello_28PostFormRequestConfig = {
+const hello_28PostFormRequestConfig: Hello_28PostFormRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
@@ -2158,7 +2182,7 @@ const hello_28PostFormRequestConfig: Hello_28PostFormRequestConfig = {
  * @请求头 \`POST /__hello__/28/post/form\`
  * @更新时间 1610557431
  */
-export const hello_28PostForm = (requestData: Hello_28PostFormRequest, ...args: UserRequestRestArgs) => {
+export const hello_28PostForm = /*#__PURE__*/ (requestData: Hello_28PostFormRequest, ...args: UserRequestRestArgs) => {
   return request<Hello_28PostFormResponse>(prepare(hello_28PostFormRequestConfig, requestData), ...args)
 }
 
@@ -2224,7 +2248,7 @@ type Hello_28PostJsonRequestConfig = Readonly<
  * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1610557431
  */
-const hello_28PostJsonRequestConfig: Hello_28PostJsonRequestConfig = {
+const hello_28PostJsonRequestConfig: Hello_28PostJsonRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_3,
   devUrl: devUrl_0_0_0_3,
   prodUrl: prodUrl_0_0_0_3,
@@ -2250,7 +2274,7 @@ const hello_28PostJsonRequestConfig: Hello_28PostJsonRequestConfig = {
  * @请求头 \`POST /__hello__/28/post/json\`
  * @更新时间 1610557431
  */
-export const hello_28PostJson = (requestData: Hello_28PostJsonRequest, ...args: UserRequestRestArgs) => {
+export const hello_28PostJson = /*#__PURE__*/ (requestData: Hello_28PostJsonRequest, ...args: UserRequestRestArgs) => {
   return request<Hello_28PostJsonResponse>(prepare(hello_28PostJsonRequestConfig, requestData), ...args)
 }
 
