@@ -27,6 +27,7 @@ import {
   Required,
   ResponseBodyType,
 } from './types'
+import { isPlainObject } from 'lodash'
 import { JSONSchema4, JSONSchema4TypeName } from 'json-schema'
 
 /**
@@ -93,7 +94,30 @@ export function processJsonSchema<T extends JSONSchema4>(
   delete jsonSchema.$$ref
 
   // 删除 default，防止 json-schema-to-typescript 根据它推测类型
-  delete jsonSchema.default
+  // 删除错误类型的 default
+  switch (jsonSchema.type) {
+    case 'array':
+      if (Array.isArray(jsonSchema.default)) break
+    // fall through
+    case 'boolean':
+      if (typeof jsonSchema.default === 'boolean') break
+    // fall through
+    case 'integer':
+    case 'number':
+      if (typeof jsonSchema.default === 'number') break
+    // fall through
+    case 'string':
+      if (typeof jsonSchema.default === 'string') break
+    // fall through
+    case 'null':
+      if (jsonSchema.default === null) break
+    // fall through
+    case 'object':
+      if (isPlainObject(jsonSchema.default)) break
+    // fall through
+    default:
+      delete jsonSchema.default
+  }
 
   // 处理类型名称为标准的 JSONSchema 类型名称
   if (jsonSchema.type) {
