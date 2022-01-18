@@ -687,4 +687,25 @@ describe('Generator', () => {
       expect(content).toMatchSnapshot('输出内容')
     })
   })
+
+  test('生成的 JSON Schema 应包含默认值', async () => {
+    const generator = generatorFactory({
+      id: CatId.test2,
+      jsonSchema: {
+        enabled: true,
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
+    })
+
+    await generator.write(output)
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
+        '接口文件',
+      )
+    })
+  })
 })

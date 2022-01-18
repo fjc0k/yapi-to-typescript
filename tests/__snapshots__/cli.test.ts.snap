@@ -1935,6 +1935,88 @@ export const helloGet2 = /*#__PURE__*/ (requestData?: HelloGet2Request, ...args:
 
 helloGet2.requestConfig = helloGet2RequestConfig
 
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value\`
+ * @更新时间 1642140816
+ */
+export interface HelloDefaultValueRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value\`
+ * @更新时间 1642140816
+ */
+export interface HelloDefaultValueResponse {
+  id: number
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value\`
+ * @更新时间 1642140816
+ */
+type HelloDefaultValueRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/default_value',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value\`
+ * @更新时间 1642140816
+ */
+const helloDefaultValueRequestConfig: HelloDefaultValueRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/__hello__/default_value',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'helloDefaultValue',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value\`
+ * @更新时间 1642140816
+ */
+export const helloDefaultValue = /*#__PURE__*/ (
+  requestData?: HelloDefaultValueRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<HelloDefaultValueResponse>(prepare(helloDefaultValueRequestConfig, requestData), ...args)
+}
+
+helloDefaultValue.requestConfig = helloDefaultValueRequestConfig
+
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_3 = '' as any
 const prodUrl_0_0_0_3 = 'http://prod.com/' as any

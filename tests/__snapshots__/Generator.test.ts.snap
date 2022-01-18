@@ -103,7 +103,100 @@ export const get2Test = /*#__PURE__*/ (
   )
 }
 
-get2Test.requestConfig = get2TestRequestConfig",
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @状态 未完成
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ * @项目ID 11
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @状态 未完成
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ * @项目ID 11
+ */
+export interface DefaultValueTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @状态 未完成
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ * @项目ID 11
+ */
+type DefaultValueTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @状态 未完成
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ * @项目ID 11
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/default_value_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"defaultValueTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @状态 未完成
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ * @项目ID 11
+ */
+export const defaultValueTest = /*#__PURE__*/ (
+  requestData?: DefaultValueTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DefaultValueTestResponse>(
+    prepare(defaultValueTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig",
 ]
 `;
 
@@ -202,7 +295,90 @@ export const get2Test = /*#__PURE__*/ (
   )
 }
 
-get2Test.requestConfig = get2TestRequestConfig",
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/default_value_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"defaultValueTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (
+  requestData?: DefaultValueTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DefaultValueTestResponse>(
+    prepare(defaultValueTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig",
 ]
 `;
 
@@ -497,7 +673,90 @@ export const get2Test = /*#__PURE__*/ (
   )
 }
 
-get2Test.requestConfig = get2TestRequestConfig",
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/default_value_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"defaultValueTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (
+  requestData?: DefaultValueTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DefaultValueTestResponse>(
+    prepare(defaultValueTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig",
 ]
 `;
 
@@ -957,7 +1216,90 @@ export const get2Test = /*#__PURE__*/ (
   )
 }
 
-get2Test.requestConfig = get2TestRequestConfig",
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/default_value_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"defaultValueTest\\",
+  extraInfo: {\\"name\\":\\"默认值\\",\\"category\\":\\"test2\\",\\"project\\":\\"test\\"},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (
+  requestData?: DefaultValueTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DefaultValueTestResponse>(
+    prepare(defaultValueTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig",
 ]
 `;
 
@@ -2189,9 +2531,9 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = /*#__PURE__
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {id: {type: 'string', description: 'ID'}},
     required: ['id'],
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'deleteMethodTest',
@@ -2287,7 +2629,6 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = /*#__PURE__*/ {
     type: 'object',
     required: ['x'],
     properties: {x: {type: 'string', description: 'X 值'}, y: {type: 'string', description: 'Y 值'}},
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'getMethodTest',
@@ -2479,7 +2820,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = /*#__PURE__
     properties: {
       id: {type: 'integer', description: '1'},
       name: {type: 'string', description: '\\"方剑成\\"'},
-      likes: {type: 'array', items: {type: 'string', description: '\\"photo\\"'}, description: '[\\"photo\\",2]', minItems: 0},
+      likes: {type: 'array', items: {type: 'string', description: '\\"photo\\"'}, description: '[\\"photo\\",2]'},
       nest: {
         type: 'object',
         properties: {
@@ -2592,13 +2933,13 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       page: {type: 'number', description: '页码'},
       limit: {type: 'number', description: '每页数量'},
       keyword: {type: 'string', description: '关键词'},
     },
     required: ['page', 'limit'],
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'postMethodTest',
@@ -2704,7 +3045,6 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = /*#__PURE__*/ {
       id: {type: 'string', description: ''},
       namre: {type: 'string', description: ''},
     },
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'putMethodTest',
@@ -2815,7 +3155,6 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = /*#__PU
       id: {type: 'string', description: ''},
       namre: {type: 'string', description: ''},
     },
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'dataKeyExampleTest',
@@ -2912,7 +3251,6 @@ const uploadTestRequestConfig: UploadTestRequestConfig = /*#__PURE__*/ {
       file: {type: 'file', description: '文件', tsType: 'FileData'},
       name: {type: 'string', description: '名称'},
     },
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'uploadTest',
@@ -3005,13 +3343,13 @@ const testTestRequestConfig: TestTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       K1: {type: 'string', description: '键1'},
       K2: {type: 'number', description: '键2'},
       cid: {type: 'string', description: 'cid'},
     },
     required: ['K1', 'cid'],
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'testTest',
@@ -3169,7 +3507,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = /*#__PURE
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: {type: 'object', required: [], properties: {}, additionalProperties: false},
+  requestDataJsonSchema: {type: 'object', required: [], properties: {}},
   responseDataJsonSchema: {},
   requestFunctionName: 'emptyResponseTest',
   extraInfo: {},
@@ -3268,7 +3606,6 @@ const testTestRequestConfig: TestTestRequestConfig = /*#__PURE__*/ {
       test: {type: 'string', description: ''},
       avatar: {type: 'string', description: ''},
     },
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'testTest',
@@ -3365,6 +3702,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       K1: {type: 'string', description: '键1'},
       K2: {type: 'number', description: '键2'},
@@ -3372,7 +3710,6 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = /*#__PURE__*/ {
       id: {type: 'string', description: 'ID'},
     },
     required: ['K1', 'hihihi', 'id'],
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'hihihiTest',
@@ -3474,6 +3811,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       K1: {type: 'string', description: '键1'},
       K2: {type: 'number', description: '键2'},
@@ -3483,7 +3821,6 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
       hihihi_1608478638207: {type: 'string', description: ''},
     },
     required: ['K1', 'hihihi', 'id', 'hihihi_1608478638207'],
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'hihihi_1608478638207Test',
@@ -3739,7 +4076,6 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = /*#__PURE__*/ {
       format: {type: 'string', description: '格式'},
       id: {type: 'number', description: 'ID'},
     },
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'avatarTest',
@@ -3913,7 +4249,6 @@ const onlyPostFormDataTestRequestConfig: OnlyPostFormDataTestRequestConfig = /*#
     type: 'object',
     required: ['query_id'],
     properties: {query_id: {type: 'string', description: 'id'}},
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'onlyPostFormDataTest',
@@ -4008,7 +4343,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = /*#__PURE__
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"id\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"id\\"]},
   responseDataJsonSchema: {},
   requestFunctionName: \\"deleteMethodTest\\",
   extraInfo: {},
@@ -4103,7 +4438,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = /*#__PURE__*/ {
   paramNames: [],
   queryNames: [\\"x\\",\\"y\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"y\\":{\\"type\\":\\"string\\",\\"description\\":\\"Y 值\\"}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"y\\":{\\"type\\":\\"string\\",\\"description\\":\\"Y 值\\"}}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"getMethodTest\\",
   extraInfo: {},
@@ -4294,7 +4629,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = /*#__PURE__
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\"},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\"},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"minItems\\":0},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\"}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\"},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\"},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\"},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\"}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"json5RequestTest\\",
   extraInfo: {},
@@ -4398,7 +4733,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = /*#__PURE__*/ {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\"},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\"},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\"}},\\"required\\":[\\"page\\",\\"limit\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\"},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\"},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\"}},\\"required\\":[\\"page\\",\\"limit\\"]},
   responseDataJsonSchema: {},
   requestFunctionName: \\"postMethodTest\\",
   extraInfo: {},
@@ -4499,7 +4834,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = /*#__PURE__*/ {
   paramNames: [],
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"putMethodTest\\",
   extraInfo: {},
@@ -4605,7 +4940,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = /*#__PU
   paramNames: [],
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"dataKeyExampleTest\\",
   extraInfo: {},
@@ -4695,7 +5030,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = /*#__PURE__*/ {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"file\\",\\"name\\"],\\"properties\\":{\\"file\\":{\\"type\\":\\"file\\",\\"description\\":\\"文件\\",\\"tsType\\":\\"FileData\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"名称\\"}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"file\\",\\"name\\"],\\"properties\\":{\\"file\\":{\\"type\\":\\"file\\",\\"description\\":\\"文件\\",\\"tsType\\":\\"FileData\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"名称\\"}}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"uploadTest\\",
   extraInfo: {},
@@ -4789,7 +5124,7 @@ const testTestRequestConfig: TestTestRequestConfig = /*#__PURE__*/ {
   paramNames: [],
   queryNames: [\\"cid\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"cid\\":{\\"type\\":\\"string\\",\\"description\\":\\"cid\\"}},\\"required\\":[\\"K1\\",\\"cid\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"cid\\":{\\"type\\":\\"string\\",\\"description\\":\\"cid\\"}},\\"required\\":[\\"K1\\",\\"cid\\"]},
   responseDataJsonSchema: {},
   requestFunctionName: \\"testTest\\",
   extraInfo: {},
@@ -4951,7 +5286,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = /*#__PURE
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[],\\"properties\\":{},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[],\\"properties\\":{}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"emptyResponseTest\\",
   extraInfo: {},
@@ -5041,7 +5376,7 @@ const testTestRequestConfig: TestTestRequestConfig = /*#__PURE__*/ {
   paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"23\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"pass\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"test\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"avatar\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"23\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"pass\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"test\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"avatar\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"testTest\\",
   extraInfo: {},
@@ -5139,7 +5474,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = /*#__PURE__*/ {
   paramNames: [\\"hihihi\\",\\"id\\"],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\"]},
   responseDataJsonSchema: {},
   requestFunctionName: \\"hihihiTest\\",
   extraInfo: {},
@@ -5242,7 +5577,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   paramNames: [\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],
   queryNames: [\\"query\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"query\\":{\\"type\\":\\"string\\",\\"description\\":\\"22222\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"},\\"hihihi_1608478638207\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"query\\":{\\"type\\":\\"string\\",\\"description\\":\\"22222\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"},\\"hihihi_1608478638207\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"]},
   responseDataJsonSchema: {},
   requestFunctionName: \\"hihihi_1608478638207Test\\",
   extraInfo: {},
@@ -5498,7 +5833,7 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = /*#__PURE__*/ {
   paramNames: [\\"id\\"],
   queryNames: [\\"size\\",\\"format\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"size\\",\\"format\\",\\"id\\"],\\"properties\\":{\\"size\\":{\\"type\\":\\"number\\",\\"description\\":\\"大小\\"},\\"format\\":{\\"type\\":\\"string\\",\\"description\\":\\"格式\\"},\\"id\\":{\\"type\\":\\"number\\",\\"description\\":\\"ID\\"}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"size\\",\\"format\\",\\"id\\"],\\"properties\\":{\\"size\\":{\\"type\\":\\"number\\",\\"description\\":\\"大小\\"},\\"format\\":{\\"type\\":\\"string\\",\\"description\\":\\"格式\\"},\\"id\\":{\\"type\\":\\"number\\",\\"description\\":\\"ID\\"}}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"avatarTest\\",
   extraInfo: {},
@@ -5675,7 +6010,7 @@ const onlyPostFormDataTestRequestConfig: OnlyPostFormDataTestRequestConfig = /*#
   paramNames: [],
   queryNames: [\\"query_id\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"query_id\\"],\\"properties\\":{\\"query_id\\":{\\"type\\":\\"string\\",\\"description\\":\\"id\\"}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"query_id\\"],\\"properties\\":{\\"query_id\\":{\\"type\\":\\"string\\",\\"description\\":\\"id\\"}}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"onlyPostFormDataTest\\",
   extraInfo: {},
@@ -5797,7 +6132,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = /*#__PURE__
   queryNames: [],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  responseDataJsonSchema: {type: 'object', title: 'empty object', properties: {}},
   requestFunctionName: 'deleteMethodTest',
   extraInfo: {},
 }
@@ -5890,9 +6225,9 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {result: {type: 'number', description: '结果'}},
     required: ['result'],
-    additionalProperties: false,
   },
   requestFunctionName: 'getMethodTest',
   extraInfo: {},
@@ -5984,7 +6319,6 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = /*#__PURE
       age: {name: 'age', template: '@float', type: 'string', rule: {}, path: ['ROOT', 'age']},
       name: {name: 'name', template: '@name', type: 'string', rule: {}, path: ['ROOT', 'name']},
     },
-    additionalProperties: false,
   },
   requestFunctionName: 'json5ResponseTest',
   extraInfo: {},
@@ -6192,21 +6526,15 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       list: {
         type: 'array',
-        items: {
-          type: 'object',
-          properties: {name: {type: 'string', description: '姓名'}},
-          required: ['name'],
-          additionalProperties: false,
-        },
+        items: {type: 'object', properties: {name: {type: 'string', description: '姓名'}}, required: ['name']},
         description: '列表',
-        minItems: 0,
       },
     },
     required: ['list'],
-    additionalProperties: false,
   },
   requestFunctionName: 'postMethodTest',
   extraInfo: {},
@@ -6306,13 +6634,13 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       err: {type: 'number', description: '错误'},
       msg: {type: 'string', description: '错误详情'},
-      data: {type: 'object', properties: {}, description: '数据', additionalProperties: false},
+      data: {type: 'object', properties: {}, description: '数据'},
     },
     required: ['err', 'msg'],
-    additionalProperties: false,
   },
   requestFunctionName: 'putMethodTest',
   extraInfo: {},
@@ -6417,6 +6745,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = /*#__PU
   requestDataJsonSchema: {},
   responseDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       err: {type: 'number', description: '错误'},
       msg: {type: 'string', description: '错误详情'},
@@ -6425,11 +6754,9 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = /*#__PU
         properties: {success: {type: 'boolean', description: '成功啦'}},
         description: '数据',
         required: ['success'],
-        additionalProperties: false,
       },
     },
     required: ['err', 'msg'],
-    additionalProperties: false,
   },
   requestFunctionName: 'dataKeyExampleTest',
   extraInfo: {},
@@ -6519,7 +6846,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = /*#__PURE__*/ {
   queryNames: [],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  responseDataJsonSchema: {type: 'object', title: 'empty object', properties: {}},
   requestFunctionName: 'uploadTest',
   extraInfo: {},
 }
@@ -6766,7 +7093,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = /*#__PURE
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  responseDataJsonSchema: {type: 'object', title: 'empty object', properties: {}},
   requestFunctionName: 'emptyResponseTest',
   extraInfo: {},
 }
@@ -7205,7 +7532,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = /*#__PURE__*/ {
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  responseDataJsonSchema: {type: 'object', title: 'title', properties: {}},
   requestFunctionName: 'headersTest',
   extraInfo: {},
 }
@@ -7394,15 +7721,12 @@ const deepTestRequestConfig: DeepTestRequestConfig = /*#__PURE__*/ {
             type: 'object',
             properties: {realData: {type: 'string', description: '真数据'}},
             required: ['realData'],
-            additionalProperties: false,
           },
         },
         required: ['data'],
-        additionalProperties: false,
       },
     },
     required: ['err', 'container'],
-    additionalProperties: false,
   },
   requestFunctionName: 'deepTest',
   extraInfo: {},
@@ -7579,7 +7903,7 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = /*#__PURE__
   queryNames: [],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{}},
   requestFunctionName: \\"deleteMethodTest\\",
   extraInfo: {},
 }
@@ -7674,7 +7998,7 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = /*#__PURE__*/ {
   queryNames: [\\"x\\",\\"y\\"],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"result\\":{\\"type\\":\\"number\\",\\"description\\":\\"结果\\"}},\\"required\\":[\\"result\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"result\\":{\\"type\\":\\"number\\",\\"description\\":\\"结果\\"}},\\"required\\":[\\"result\\"]},
   requestFunctionName: \\"getMethodTest\\",
   extraInfo: {},
 }
@@ -7759,7 +8083,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = /*#__PURE
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"]},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"]},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"]}},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"]},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"]},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"]}}},
   requestFunctionName: \\"json5ResponseTest\\",
   extraInfo: {},
 }
@@ -7969,7 +8293,7 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = /*#__PURE__*/ {
   queryNames: [],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\"}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"minItems\\":0}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\"}},\\"required\\":[\\"name\\"]},\\"description\\":\\"列表\\"}},\\"required\\":[\\"list\\"]},
   requestFunctionName: \\"postMethodTest\\",
   extraInfo: {},
 }
@@ -8070,7 +8394,7 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = /*#__PURE__*/ {
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{},\\"description\\":\\"数据\\",\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{},\\"description\\":\\"数据\\"}},\\"required\\":[\\"err\\",\\"msg\\"]},
   requestFunctionName: \\"putMethodTest\\",
   extraInfo: {},
 }
@@ -8176,7 +8500,7 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = /*#__PU
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"success\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"成功啦\\"}},\\"description\\":\\"数据\\",\\"required\\":[\\"success\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"success\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"成功啦\\"}},\\"description\\":\\"数据\\",\\"required\\":[\\"success\\"]}},\\"required\\":[\\"err\\",\\"msg\\"]},
   requestFunctionName: \\"dataKeyExampleTest\\",
   extraInfo: {},
 }
@@ -8266,7 +8590,7 @@ const uploadTestRequestConfig: UploadTestRequestConfig = /*#__PURE__*/ {
   queryNames: [],
   requestDataOptional: false,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{}},
   requestFunctionName: \\"uploadTest\\",
   extraInfo: {},
 }
@@ -8522,7 +8846,7 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = /*#__PURE
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{}},
   requestFunctionName: \\"emptyResponseTest\\",
   extraInfo: {},
 }
@@ -8975,7 +9299,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = /*#__PURE__*/ {
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"title\\",\\"properties\\":{}},
   requestFunctionName: \\"headersTest\\",
   extraInfo: {},
 }
@@ -9160,7 +9484,7 @@ const deepTestRequestConfig: DeepTestRequestConfig = /*#__PURE__*/ {
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"$schema\\":\\"http://json-schema.org/draft-04/schema#\\",\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\"},\\"container\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"realData\\":{\\"type\\":\\"string\\",\\"description\\":\\"真数据\\"}},\\"required\\":[\\"realData\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"data\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"container\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"$schema\\":\\"http://json-schema.org/draft-04/schema#\\",\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\"},\\"container\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"realData\\":{\\"type\\":\\"string\\",\\"description\\":\\"真数据\\"}},\\"required\\":[\\"realData\\"]}},\\"required\\":[\\"data\\"]}},\\"required\\":[\\"err\\",\\"container\\"]},
   requestFunctionName: \\"deepTest\\",
   extraInfo: {},
 }
@@ -9365,7 +9689,90 @@ export const get2Test = /*#__PURE__*/ (
   )
 }
 
-get2Test.requestConfig = get2TestRequestConfig",
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/default_value_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"defaultValueTest\\",
+  extraInfo: {\\"url\\":\\"http://foo.bar/project/11/interface/api/1829\\",\\"categoryUrl\\":\\"http://foo.bar/project/11/interface/api/cat_20\\",\\"projectUrl\\":\\"http://foo.bar/project/32/interface/api\\"},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (
+  requestData?: DefaultValueTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DefaultValueTestResponse>(
+    prepare(defaultValueTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig",
 ]
 `;
 
@@ -44136,6 +44543,85 @@ export const get2Test = /*#__PURE__*/ (requestData?: Get2TestRequest, ...args: U
 
 get2Test.requestConfig = get2TestRequestConfig
 
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/default_value_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/__hello__/default_value_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'defaultValueTest',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (requestData?: DefaultValueTestRequest, ...args: UserRequestRestArgs) => {
+  return request<DefaultValueTestResponse>(prepare(defaultValueTestRequestConfig, requestData), ...args)
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig
+
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_3 = '' as any
 const prodUrl_0_0_0_3 = 'http://prod.com/' as any
@@ -46370,7 +46856,90 @@ export const get2Test = /*#__PURE__*/ (
   )
 }
 
-get2Test.requestConfig = get2TestRequestConfig",
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: \\"/__hello__/default_value_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"defaultValueTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (
+  requestData?: DefaultValueTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DefaultValueTestResponse>(
+    prepare(defaultValueTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig",
   "const mockUrl_0_0_0_3 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_3 = \\"\\" as any
 const prodUrl_0_0_0_3 = \\"http://prod.com/\\" as any
@@ -52073,6 +52642,85 @@ export const get2Test = /*#__PURE__*/ (requestData?: Get2TestRequest, ...args: U
 
 get2Test.requestConfig = get2TestRequestConfig
 
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/default_value_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: '/__hello__/default_value_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'defaultValueTest',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (requestData?: DefaultValueTestRequest, ...args: UserRequestRestArgs) => {
+  return request<DefaultValueTestResponse>(prepare(defaultValueTestRequestConfig, requestData), ...args)
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig
+
 /* prettier-ignore-end */
 "
 `;
@@ -53965,7 +54613,90 @@ export const get2Test = /*#__PURE__*/ (
   )
 }
 
-get2Test.requestConfig = get2TestRequestConfig",
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/__hello__/default_value_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"defaultValueTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (
+  requestData?: DefaultValueTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DefaultValueTestResponse>(
+    prepare(defaultValueTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig",
 ]
 `;
 
@@ -54083,6 +54814,85 @@ export const get2Test = /*#__PURE__*/ (requestData?: Get2TestRequest, ...args: U
 }
 
 get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/default_value_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: '/__hello__/default_value_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'defaultValueTest',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (requestData?: DefaultValueTestRequest, ...args: UserRequestRestArgs) => {
+  return request<DefaultValueTestResponse>(prepare(defaultValueTestRequestConfig, requestData), ...args)
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig
 
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_2 = '' as any
@@ -54561,7 +55371,90 @@ export const get2Test = /*#__PURE__*/ (
   )
 }
 
-get2Test.requestConfig = get2TestRequestConfig",
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/__hello__/default_value_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"defaultValueTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (
+  requestData?: DefaultValueTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DefaultValueTestResponse>(
+    prepare(defaultValueTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig",
   "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_2 = \\"\\" as any
 const prodUrl_0_0_0_2 = \\"http://prod.com/\\" as any
@@ -55659,6 +56552,42 @@ export const get2Test = /*#__PURE__*/ (requestData, ...args) => {
     return request(prepare(get2TestRequestConfig, requestData), ...args);
 };
 get2Test.requestConfig = get2TestRequestConfig;
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig = {
+    mockUrl: mockUrl_0_0_0_2,
+    devUrl: devUrl_0_0_0_2,
+    prodUrl: prodUrl_0_0_0_2,
+    path: '/__hello__/default_value_test',
+    method: Method.GET,
+    requestHeaders: {},
+    requestBodyType: RequestBodyType.query,
+    responseBodyType: ResponseBodyType.json,
+    dataKey: dataKey_0_0_0_2,
+    paramNames: [],
+    queryNames: [],
+    requestDataOptional: true,
+    requestDataJsonSchema: {},
+    responseDataJsonSchema: {},
+    requestFunctionName: 'defaultValueTest',
+    extraInfo: {},
+};
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (requestData, ...args) => {
+    return request(prepare(defaultValueTestRequestConfig, requestData), ...args);
+};
+defaultValueTest.requestConfig = defaultValueTestRequestConfig;
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32';
 const devUrl_0_0_0_3 = '';
 const prodUrl_0_0_0_3 = 'http://prod.com/';
@@ -57680,7 +58609,90 @@ export const get2Test = /*#__PURE__*/ (
   )
 }
 
-get2Test.requestConfig = get2TestRequestConfig",
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: \\"/__hello__/default_value_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"defaultValueTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (
+  requestData?: DefaultValueTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DefaultValueTestResponse>(
+    prepare(defaultValueTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig",
   "const mockUrl_0_0_0_3 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_3 = \\"\\" as any
 const prodUrl_0_0_0_3 = \\"http://prod.com/\\" as any
@@ -62019,6 +63031,394 @@ export const useOnlyPostFormDataTest = /*#__PURE__*/ makeRequestHook<OnlyPostFor
 ]
 `;
 
+exports[`Generator 生成的 JSON Schema 应包含默认值: 接口文件 1`] = `
+"/* prettier-ignore-start */
+/* tslint:disable */
+/* eslint-disable */
+
+/* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
+
+// @ts-ignore
+// prettier-ignore
+import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+import request from './request'
+
+type UserRequestRestArgs = RequestFunctionRestArgs<typeof request>
+
+// Request: 目前 React Hooks 功能有用到
+export type Request<
+  TRequestData,
+  TRequestConfig extends RequestConfig,
+  TRequestResult
+> = (TRequestConfig['requestDataOptional'] extends true
+  ? (requestData?: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
+  : (requestData: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult) & {
+  requestConfig: TRequestConfig
+}
+
+const mockUrl_0_0_0_0 = 'http://foo.bar/mock/32' as any
+const devUrl_0_0_0_0 = '' as any
+const prodUrl_0_0_0_0 = 'http://prod.com/' as any
+const dataKey_0_0_0_0 = undefined as any
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+export interface Get2TestRequest {}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+export interface Get2TestResponse {
+  msg: string
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+type Get2TestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/get2_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+const get2TestRequestConfig: Get2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/get2_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {
+    type: 'object',
+    title: 'empty object',
+    properties: {msg: {type: 'string'}},
+    required: ['msg'],
+  },
+  requestFunctionName: 'get2Test',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+export const get2Test = /*#__PURE__*/ (requestData?: Get2TestRequest, ...args: UserRequestRestArgs) => {
+  return request<Get2TestResponse>(prepare(get2TestRequestConfig, requestData), ...args)
+}
+
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/default_value_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/default_value_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {
+    type: 'object',
+    title: 'title',
+    properties: {id: {type: 'number', default: '67'}},
+    required: ['id'],
+  },
+  requestFunctionName: 'defaultValueTest',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (requestData?: DefaultValueTestRequest, ...args: UserRequestRestArgs) => {
+  return request<DefaultValueTestResponse>(prepare(defaultValueTestRequestConfig, requestData), ...args)
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig
+
+/* prettier-ignore-end */
+"
+`;
+
+exports[`Generator 生成的 JSON Schema 应包含默认值: 输出内容 1`] = `
+Array [
+  "const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_0 = \\"\\" as any
+const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_0 = undefined as any
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+export interface Get2TestRequest {}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+export interface Get2TestResponse {
+  msg: string;
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+type Get2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/get2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+const get2TestRequestConfig: Get2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/get2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"msg\\":{\\"type\\":\\"string\\"}},\\"required\\":[\\"msg\\"]},
+  requestFunctionName: \\"get2Test\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2_test\`
+ * @更新时间 1610557430
+ */
+export const get2Test = /*#__PURE__*/ (
+  requestData?: Get2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Get2TestResponse>(
+    prepare(get2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+get2Test.requestConfig = get2TestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export interface DefaultValueTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+type DefaultValueTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+const defaultValueTestRequestConfig: DefaultValueTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/default_value_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"title\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"number\\",\\"default\\":\\"67\\"}},\\"required\\":[\\"id\\"]},
+  requestFunctionName: \\"defaultValueTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value_test\`
+ * @更新时间 1642140816
+ */
+export const defaultValueTest = /*#__PURE__*/ (
+  requestData?: DefaultValueTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DefaultValueTestResponse>(
+    prepare(defaultValueTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+defaultValueTest.requestConfig = defaultValueTestRequestConfig",
+]
+`;
+
 exports[`Generator 生成请求数据和返回数据的 JSON Schema: 接口文件 1`] = `
 "/* prettier-ignore-start */
 /* tslint:disable */
@@ -62115,11 +63515,11 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = /*#__PURE__
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {id: {type: 'string', description: 'ID'}},
     required: ['id'],
-    additionalProperties: false,
   },
-  responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  responseDataJsonSchema: {type: 'object', title: 'empty object', properties: {}},
   requestFunctionName: 'deleteMethodTest',
   extraInfo: {},
 }
@@ -62213,13 +63613,12 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = /*#__PURE__*/ {
     type: 'object',
     required: ['x'],
     properties: {x: {type: 'string', description: 'X 值'}, y: {type: 'string', description: 'Y 值'}},
-    additionalProperties: false,
   },
   responseDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {result: {type: 'number', description: '结果'}},
     required: ['result'],
-    additionalProperties: false,
   },
   requestFunctionName: 'getMethodTest',
   extraInfo: {},
@@ -62311,7 +63710,6 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = /*#__PURE
       age: {name: 'age', template: '@float', type: 'string', rule: {}, path: ['ROOT', 'age']},
       name: {name: 'name', template: '@name', type: 'string', rule: {}, path: ['ROOT', 'name']},
     },
-    additionalProperties: false,
   },
   requestFunctionName: 'json5ResponseTest',
   extraInfo: {},
@@ -62421,7 +63819,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = /*#__PURE__
     properties: {
       id: {type: 'integer', description: '1'},
       name: {type: 'string', description: '\\"方剑成\\"'},
-      likes: {type: 'array', items: {type: 'string', description: '\\"photo\\"'}, description: '[\\"photo\\",2]', minItems: 0},
+      likes: {type: 'array', items: {type: 'string', description: '\\"photo\\"'}, description: '[\\"photo\\",2]'},
       nest: {
         type: 'object',
         properties: {
@@ -62534,31 +63932,25 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       page: {type: 'number', description: '页码'},
       limit: {type: 'number', description: '每页数量'},
       keyword: {type: 'string', description: '关键词'},
     },
     required: ['page', 'limit'],
-    additionalProperties: false,
   },
   responseDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       list: {
         type: 'array',
-        items: {
-          type: 'object',
-          properties: {name: {type: 'string', description: '姓名'}},
-          required: ['name'],
-          additionalProperties: false,
-        },
+        items: {type: 'object', properties: {name: {type: 'string', description: '姓名'}}, required: ['name']},
         description: '列表',
-        minItems: 0,
       },
     },
     required: ['list'],
-    additionalProperties: false,
   },
   requestFunctionName: 'postMethodTest',
   extraInfo: {},
@@ -62663,17 +64055,16 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = /*#__PURE__*/ {
       id: {type: 'string', description: ''},
       namre: {type: 'string', description: ''},
     },
-    additionalProperties: false,
   },
   responseDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       err: {type: 'number', description: '错误'},
       msg: {type: 'string', description: '错误详情'},
-      data: {type: 'object', properties: {}, description: '数据', additionalProperties: false},
+      data: {type: 'object', properties: {}, description: '数据'},
     },
     required: ['err', 'msg'],
-    additionalProperties: false,
   },
   requestFunctionName: 'putMethodTest',
   extraInfo: {},
@@ -62783,10 +64174,10 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = /*#__PU
       id: {type: 'string', description: ''},
       namre: {type: 'string', description: ''},
     },
-    additionalProperties: false,
   },
   responseDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       err: {type: 'number', description: '错误'},
       msg: {type: 'string', description: '错误详情'},
@@ -62795,11 +64186,9 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = /*#__PU
         properties: {success: {type: 'boolean', description: '成功啦'}},
         description: '数据',
         required: ['success'],
-        additionalProperties: false,
       },
     },
     required: ['err', 'msg'],
-    additionalProperties: false,
   },
   requestFunctionName: 'dataKeyExampleTest',
   extraInfo: {},
@@ -62895,9 +64284,8 @@ const uploadTestRequestConfig: UploadTestRequestConfig = /*#__PURE__*/ {
       file: {type: 'file', description: '文件', tsType: 'FileData'},
       name: {type: 'string', description: '名称'},
     },
-    additionalProperties: false,
   },
-  responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  responseDataJsonSchema: {type: 'object', title: 'empty object', properties: {}},
   requestFunctionName: 'uploadTest',
   extraInfo: {},
 }
@@ -62988,13 +64376,13 @@ const testTestRequestConfig: TestTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       K1: {type: 'string', description: '键1'},
       K2: {type: 'number', description: '键2'},
       cid: {type: 'string', description: 'cid'},
     },
     required: ['K1', 'cid'],
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'testTest',
@@ -63152,8 +64540,8 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = /*#__PURE
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: {type: 'object', required: [], properties: {}, additionalProperties: false},
-  responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  requestDataJsonSchema: {type: 'object', required: [], properties: {}},
+  responseDataJsonSchema: {type: 'object', title: 'empty object', properties: {}},
   requestFunctionName: 'emptyResponseTest',
   extraInfo: {},
 }
@@ -63251,7 +64639,6 @@ const testTestRequestConfig: TestTestRequestConfig = /*#__PURE__*/ {
       test: {type: 'string', description: ''},
       avatar: {type: 'string', description: ''},
     },
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'testTest',
@@ -63348,6 +64735,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       K1: {type: 'string', description: '键1'},
       K2: {type: 'number', description: '键2'},
@@ -63355,7 +64743,6 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = /*#__PURE__*/ {
       id: {type: 'string', description: 'ID'},
     },
     required: ['K1', 'hihihi', 'id'],
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'hihihiTest',
@@ -63457,6 +64844,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   requestDataOptional: false,
   requestDataJsonSchema: {
     type: 'object',
+    title: 'empty object',
     properties: {
       K1: {type: 'string', description: '键1'},
       K2: {type: 'number', description: '键2'},
@@ -63466,7 +64854,6 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
       hihihi_1608478638207: {type: 'string', description: ''},
     },
     required: ['K1', 'hihihi', 'id', 'hihihi_1608478638207'],
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'hihihi_1608478638207Test',
@@ -63625,7 +65012,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = /*#__PURE__*/ {
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {type: 'object', properties: {}, additionalProperties: false},
+  responseDataJsonSchema: {type: 'object', title: 'title', properties: {}},
   requestFunctionName: 'headersTest',
   extraInfo: {},
 }
@@ -63722,7 +65109,6 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = /*#__PURE__*/ {
       format: {type: 'string', description: '格式'},
       id: {type: 'number', description: 'ID'},
     },
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'avatarTest',
@@ -63823,15 +65209,12 @@ const deepTestRequestConfig: DeepTestRequestConfig = /*#__PURE__*/ {
             type: 'object',
             properties: {realData: {type: 'string', description: '真数据'}},
             required: ['realData'],
-            additionalProperties: false,
           },
         },
         required: ['data'],
-        additionalProperties: false,
       },
     },
     required: ['err', 'container'],
-    additionalProperties: false,
   },
   requestFunctionName: 'deepTest',
   extraInfo: {},
@@ -63917,7 +65300,6 @@ const onlyPostFormDataTestRequestConfig: OnlyPostFormDataTestRequestConfig = /*#
     type: 'object',
     required: ['query_id'],
     properties: {query_id: {type: 'string', description: 'id'}},
-    additionalProperties: false,
   },
   responseDataJsonSchema: {},
   requestFunctionName: 'onlyPostFormDataTest',
@@ -64012,8 +65394,8 @@ const deleteMethodTestRequestConfig: DeleteMethodTestRequestConfig = /*#__PURE__
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"id\\"],\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"id\\"]},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{}},
   requestFunctionName: \\"deleteMethodTest\\",
   extraInfo: {},
 }
@@ -64107,8 +65489,8 @@ const getMethodTestRequestConfig: GetMethodTestRequestConfig = /*#__PURE__*/ {
   paramNames: [],
   queryNames: [\\"x\\",\\"y\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"y\\":{\\"type\\":\\"string\\",\\"description\\":\\"Y 值\\"}},\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"result\\":{\\"type\\":\\"number\\",\\"description\\":\\"结果\\"}},\\"required\\":[\\"result\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"y\\":{\\"type\\":\\"string\\",\\"description\\":\\"Y 值\\"}}},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"result\\":{\\"type\\":\\"number\\",\\"description\\":\\"结果\\"}},\\"required\\":[\\"result\\"]},
   requestFunctionName: \\"getMethodTest\\",
   extraInfo: {},
 }
@@ -64193,7 +65575,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = /*#__PURE
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"]},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"]},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"]}},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"template\\":{\\"id\\":1,\\"age\\":\\"@float\\",\\"name\\":\\"@name\\"},\\"type\\":\\"object\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\"],\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"template\\":1,\\"type\\":\\"number\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"id\\"]},\\"age\\":{\\"name\\":\\"age\\",\\"template\\":\\"@float\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"age\\"]},\\"name\\":{\\"name\\":\\"name\\",\\"template\\":\\"@name\\",\\"type\\":\\"string\\",\\"rule\\":{},\\"path\\":[\\"ROOT\\",\\"name\\"]}}},
   requestFunctionName: \\"json5ResponseTest\\",
   extraInfo: {},
 }
@@ -64298,7 +65680,7 @@ const json5RequestTestRequestConfig: Json5RequestTestRequestConfig = /*#__PURE__
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\"},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\"},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\",\\"minItems\\":0},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\"}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"方剑成\\\\\\"\\"},\\"likes\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"photo\\\\\\"\\"},\\"description\\":\\"[\\\\\\"photo\\\\\\",2]\\"},\\"nest\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"x\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"y\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"z\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"2\\\\\\"\\"}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false}},\\"additionalProperties\\":false},
   responseDataJsonSchema: {},
   requestFunctionName: \\"json5RequestTest\\",
   extraInfo: {},
@@ -64402,8 +65784,8 @@ const postMethodTestRequestConfig: PostMethodTestRequestConfig = /*#__PURE__*/ {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\"},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\"},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\"}},\\"required\\":[\\"page\\",\\"limit\\"],\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\"}},\\"required\\":[\\"name\\"],\\"additionalProperties\\":false},\\"description\\":\\"列表\\",\\"minItems\\":0}},\\"required\\":[\\"list\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"page\\":{\\"type\\":\\"number\\",\\"description\\":\\"页码\\"},\\"limit\\":{\\"type\\":\\"number\\",\\"description\\":\\"每页数量\\"},\\"keyword\\":{\\"type\\":\\"string\\",\\"description\\":\\"关键词\\"}},\\"required\\":[\\"page\\",\\"limit\\"]},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"姓名\\"}},\\"required\\":[\\"name\\"]},\\"description\\":\\"列表\\"}},\\"required\\":[\\"list\\"]},
   requestFunctionName: \\"postMethodTest\\",
   extraInfo: {},
 }
@@ -64503,8 +65885,8 @@ const putMethodTestRequestConfig: PutMethodTestRequestConfig = /*#__PURE__*/ {
   paramNames: [],
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{},\\"description\\":\\"数据\\",\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}}},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{},\\"description\\":\\"数据\\"}},\\"required\\":[\\"err\\",\\"msg\\"]},
   requestFunctionName: \\"putMethodTest\\",
   extraInfo: {},
 }
@@ -64609,8 +65991,8 @@ const dataKeyExampleTestRequestConfig: DataKeyExampleTestRequestConfig = /*#__PU
   paramNames: [],
   queryNames: [\\"id\\",\\"namre\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"success\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"成功啦\\"}},\\"description\\":\\"数据\\",\\"required\\":[\\"success\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"msg\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"x\\",\\"id\\"],\\"properties\\":{\\"x\\":{\\"type\\":\\"string\\",\\"description\\":\\"X 值\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"namre\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}}},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\",\\"description\\":\\"错误\\"},\\"msg\\":{\\"type\\":\\"string\\",\\"description\\":\\"错误详情\\"},\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"success\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"成功啦\\"}},\\"description\\":\\"数据\\",\\"required\\":[\\"success\\"]}},\\"required\\":[\\"err\\",\\"msg\\"]},
   requestFunctionName: \\"dataKeyExampleTest\\",
   extraInfo: {},
 }
@@ -64699,8 +66081,8 @@ const uploadTestRequestConfig: UploadTestRequestConfig = /*#__PURE__*/ {
   paramNames: [],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"file\\",\\"name\\"],\\"properties\\":{\\"file\\":{\\"type\\":\\"file\\",\\"description\\":\\"文件\\",\\"tsType\\":\\"FileData\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"名称\\"}},\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"file\\",\\"name\\"],\\"properties\\":{\\"file\\":{\\"type\\":\\"file\\",\\"description\\":\\"文件\\",\\"tsType\\":\\"FileData\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"名称\\"}}},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{}},
   requestFunctionName: \\"uploadTest\\",
   extraInfo: {},
 }
@@ -64793,7 +66175,7 @@ const testTestRequestConfig: TestTestRequestConfig = /*#__PURE__*/ {
   paramNames: [],
   queryNames: [\\"cid\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"cid\\":{\\"type\\":\\"string\\",\\"description\\":\\"cid\\"}},\\"required\\":[\\"K1\\",\\"cid\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"cid\\":{\\"type\\":\\"string\\",\\"description\\":\\"cid\\"}},\\"required\\":[\\"K1\\",\\"cid\\"]},
   responseDataJsonSchema: {},
   requestFunctionName: \\"testTest\\",
   extraInfo: {},
@@ -64955,8 +66337,8 @@ const emptyResponseTestRequestConfig: EmptyResponseTestRequestConfig = /*#__PURE
   paramNames: [],
   queryNames: [],
   requestDataOptional: true,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[],\\"properties\\":{},\\"additionalProperties\\":false},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[],\\"properties\\":{}},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{}},
   requestFunctionName: \\"emptyResponseTest\\",
   extraInfo: {},
 }
@@ -65045,7 +66427,7 @@ const testTestRequestConfig: TestTestRequestConfig = /*#__PURE__*/ {
   paramNames: [\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"23\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"pass\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"test\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"avatar\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"id\\",\\"name\\",\\"pass\\",\\"test\\",\\"avatar\\"],\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"23\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"pass\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"test\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"},\\"avatar\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"testTest\\",
   extraInfo: {},
@@ -65143,7 +66525,7 @@ const hihihiTestRequestConfig: HihihiTestRequestConfig = /*#__PURE__*/ {
   paramNames: [\\"hihihi\\",\\"id\\"],
   queryNames: [],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\"]},
   responseDataJsonSchema: {},
   requestFunctionName: \\"hihihiTest\\",
   extraInfo: {},
@@ -65246,7 +66628,7 @@ const hihihi_1608478638207TestRequestConfig: Hihihi_1608478638207TestRequestConf
   paramNames: [\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],
   queryNames: [\\"query\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"query\\":{\\"type\\":\\"string\\",\\"description\\":\\"22222\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"},\\"hihihi_1608478638207\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"],\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"empty object\\",\\"properties\\":{\\"K1\\":{\\"type\\":\\"string\\",\\"description\\":\\"键1\\"},\\"K2\\":{\\"type\\":\\"number\\",\\"description\\":\\"键2\\"},\\"query\\":{\\"type\\":\\"string\\",\\"description\\":\\"22222\\"},\\"hihihi\\":{\\"type\\":\\"string\\",\\"description\\":\\"嗨咯\\"},\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"ID\\"},\\"hihihi_1608478638207\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\"}},\\"required\\":[\\"K1\\",\\"hihihi\\",\\"id\\",\\"hihihi_1608478638207\\"]},
   responseDataJsonSchema: {},
   requestFunctionName: \\"hihihi_1608478638207Test\\",
   extraInfo: {},
@@ -65409,7 +66791,7 @@ const headersTestRequestConfig: HeadersTestRequestConfig = /*#__PURE__*/ {
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{},\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"title\\",\\"properties\\":{}},
   requestFunctionName: \\"headersTest\\",
   extraInfo: {},
 }
@@ -65502,7 +66884,7 @@ const avatarTestRequestConfig: AvatarTestRequestConfig = /*#__PURE__*/ {
   paramNames: [\\"id\\"],
   queryNames: [\\"size\\",\\"format\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"size\\",\\"format\\",\\"id\\"],\\"properties\\":{\\"size\\":{\\"type\\":\\"number\\",\\"description\\":\\"大小\\"},\\"format\\":{\\"type\\":\\"string\\",\\"description\\":\\"格式\\"},\\"id\\":{\\"type\\":\\"number\\",\\"description\\":\\"ID\\"}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"size\\",\\"format\\",\\"id\\"],\\"properties\\":{\\"size\\":{\\"type\\":\\"number\\",\\"description\\":\\"大小\\"},\\"format\\":{\\"type\\":\\"string\\",\\"description\\":\\"格式\\"},\\"id\\":{\\"type\\":\\"number\\",\\"description\\":\\"ID\\"}}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"avatarTest\\",
   extraInfo: {},
@@ -65594,7 +66976,7 @@ const deepTestRequestConfig: DeepTestRequestConfig = /*#__PURE__*/ {
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"$schema\\":\\"http://json-schema.org/draft-04/schema#\\",\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\"},\\"container\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"realData\\":{\\"type\\":\\"string\\",\\"description\\":\\"真数据\\"}},\\"required\\":[\\"realData\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"data\\"],\\"additionalProperties\\":false}},\\"required\\":[\\"err\\",\\"container\\"],\\"additionalProperties\\":false},
+  responseDataJsonSchema: {\\"$schema\\":\\"http://json-schema.org/draft-04/schema#\\",\\"type\\":\\"object\\",\\"properties\\":{\\"err\\":{\\"type\\":\\"number\\"},\\"container\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"data\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"realData\\":{\\"type\\":\\"string\\",\\"description\\":\\"真数据\\"}},\\"required\\":[\\"realData\\"]}},\\"required\\":[\\"data\\"]}},\\"required\\":[\\"err\\",\\"container\\"]},
   requestFunctionName: \\"deepTest\\",
   extraInfo: {},
 }
@@ -65679,7 +67061,7 @@ const onlyPostFormDataTestRequestConfig: OnlyPostFormDataTestRequestConfig = /*#
   paramNames: [],
   queryNames: [\\"query_id\\"],
   requestDataOptional: false,
-  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"query_id\\"],\\"properties\\":{\\"query_id\\":{\\"type\\":\\"string\\",\\"description\\":\\"id\\"}},\\"additionalProperties\\":false},
+  requestDataJsonSchema: {\\"type\\":\\"object\\",\\"required\\":[\\"query_id\\"],\\"properties\\":{\\"query_id\\":{\\"type\\":\\"string\\",\\"description\\":\\"id\\"}}},
   responseDataJsonSchema: {},
   requestFunctionName: \\"onlyPostFormDataTest\\",
   extraInfo: {},
