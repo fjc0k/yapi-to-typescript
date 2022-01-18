@@ -1,5 +1,11 @@
 # 更新日志
 
+### [3.30.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.30.0...v3.30.1) (2022-01-18)
+
+### 修复
+
+- 返回给业务的 JSONSchema 应不做处理 ([c1f8d8d](https://github.com/fjc0k/yapi-to-typescript/commit/c1f8d8d10f2061d8f30559b65a23e3a09c386940))
+
 ## [3.30.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.29.2...v3.30.0) (2021-12-27)
 
 ### 特性
