@@ -1,5 +1,11 @@
 # 更新日志
 
+### [3.30.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.30.1...v3.30.2) (2022-01-26)
+
+### 修复
+
+- types.ts 应该按 browser 打包为 es5 ([41f0cc3](https://github.com/fjc0k/yapi-to-typescript/commit/41f0cc36946b7ec2a0830786793e2e394ee92a04))
+
 ### [3.30.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.30.0...v3.30.1) (2022-01-18)
 
 ### 修复
