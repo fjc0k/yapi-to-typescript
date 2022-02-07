@@ -162,7 +162,8 @@ export function processJsonSchema(
         jsonSchema.properties![(prop as string).trim()] = propDef
       })
       jsonSchema.required =
-        jsonSchema.required && jsonSchema.required.map(prop => prop.trim())
+        Array.isArray(jsonSchema.required) &&
+        jsonSchema.required.map(prop => prop.trim())
     }
 
     return jsonSchema
@@ -398,8 +399,10 @@ export function getRequestDataJsonSchema(
         ...queryJsonSchema.properties,
       }
       jsonSchema.required = [
-        ...(jsonSchema.required || []),
-        ...(queryJsonSchema.required || []),
+        ...(Array.isArray(jsonSchema.required) ? jsonSchema.required : []),
+        ...(Array.isArray(queryJsonSchema.required)
+          ? queryJsonSchema.required
+          : []),
       ]
     } else {
       jsonSchema = queryJsonSchema
@@ -424,8 +427,10 @@ export function getRequestDataJsonSchema(
         ...paramsJsonSchema.properties,
       }
       jsonSchema.required = [
-        ...(jsonSchema.required || []),
-        ...(paramsJsonSchema.required || []),
+        ...(Array.isArray(jsonSchema.required) ? jsonSchema.required : []),
+        ...(Array.isArray(paramsJsonSchema.required)
+          ? paramsJsonSchema.required
+          : []),
       ]
     } else {
       jsonSchema = paramsJsonSchema
