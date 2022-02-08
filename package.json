@@ -33,15 +33,15 @@
   ],
   "scripts": {
     "build": "haoma compile",
-    "docs:dev": "dumi dev",
-    "docs:build": "dumi build",
     "docs": "npm run docs:build && gh-pages --dist docs/dist --dest handbook",
+    "docs:build": "dumi build",
+    "docs:dev": "dumi dev",
     "release": "yarn testOnly && standard-version -a && yarn build && yarn docs && git push --follow-tags origin master && npm publish",
     "releaseBeta": "yarn testOnly && standard-version -a --release-as patch --prerelease beta && yarn build && git push --follow-tags origin master && npm publish --tag next",
     "test": "jest --coverage",
-    "testUpdateSnapshot": "jest --coverage -u",
     "testApi": "ts-node -T src/cli.ts",
-    "testOnly": "jest"
+    "testOnly": "jest",
+    "testUpdateSnapshot": "jest --coverage -u"
   },
   "husky": {
     "hooks": {
@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
-    "@types/json-schema": "^7.0.1",
+    "@types/json-schema": "^7.0.9",
     "change-case": "^3.0.2",
     "consola": "^2.3.0",
     "dayjs": "^1.8.32",

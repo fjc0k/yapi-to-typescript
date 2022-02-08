@@ -91,8 +91,9 @@ export class SwaggerToYApiServer {
                 data: yapiData.project,
               }),
             )
+          } else {
+            res.end('404')
           }
-          res.end('404')
         })
         .listen(await this.getPort(), '127.0.0.1', () => {
           onExit(() => this.stop())
