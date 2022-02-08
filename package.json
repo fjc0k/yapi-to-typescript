@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
-    "@types/json-schema": "^7.0.1",
+    "@types/json-schema": "^7.0.9",
     "change-case": "^3.0.2",
     "consola": "^2.3.0",
     "dayjs": "^1.8.32",

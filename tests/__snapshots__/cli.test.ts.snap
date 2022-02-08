@@ -154,7 +154,7 @@ type UserRequestRestArgs = RequestFunctionRestArgs<typeof request>
 export type Request<
   TRequestData,
   TRequestConfig extends RequestConfig,
-  TRequestResult
+  TRequestResult,
 > = (TRequestConfig['requestDataOptional'] extends true
   ? (requestData?: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
   : (requestData: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult) & {

@@ -161,9 +161,9 @@ export function processJsonSchema(
         delete jsonSchema.properties![prop]
         jsonSchema.properties![(prop as string).trim()] = propDef
       })
-      jsonSchema.required =
-        Array.isArray(jsonSchema.required) &&
-        jsonSchema.required.map(prop => prop.trim())
+      if (Array.isArray(jsonSchema.required)) {
+        jsonSchema.required = jsonSchema.required.map(prop => prop.trim())
+      }
     }
 
     return jsonSchema
