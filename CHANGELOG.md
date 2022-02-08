@@ -1,5 +1,11 @@
 # 更新日志
 
+### [3.30.3](https://github.com/fjc0k/yapi-to-typescript/compare/v3.30.2...v3.30.3) (2022-02-08)
+
+### 修复
+
+- 修复 Swagger 导出报错；对 JSONSchema.required 的处理应考虑其为 true 的情况 ([#68](https://github.com/fjc0k/yapi-to-typescript/issues/68)) ([fba38c8](https://github.com/fjc0k/yapi-to-typescript/commit/fba38c84fa48f773b40885c286eb408d86f1b1bd))
+
 ### [3.30.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.30.1...v3.30.2) (2022-01-26)
 
 ### 修复
