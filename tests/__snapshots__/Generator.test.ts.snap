@@ -1123,6 +1123,186 @@ exports[`Generator outputFilePath 可以是函数: 输出路径 1`] = `"test2.ts
 
 exports[`Generator outputFilePath 可以是函数: 输出路径 2`] = `"issues.ts"`;
 
+exports[`Generator preproccessInterface 里可获取作用于当前接口的配置: 输出内容 1`] = `
+Array [
+  "const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any
+const devUrl_0_0_0_0 = \\"\\" as any
+const prodUrl_0_0_0_0 = \\"http://prod.com/\\" as any
+const dataKey_0_0_0_0 = \\"__data__\\" as any
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2/__data___test\`
+ * @更新时间 1610557430
+ */
+export interface DataTestRequest {}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2/__data___test\`
+ * @更新时间 1610557430
+ */
+export interface DataTestResponse {
+  msg: string;
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2/__data___test\`
+ * @更新时间 1610557430
+ */
+type DataTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/get2/__data___test\\",
+  \\"__data__\\",
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2/__data___test\`
+ * @更新时间 1610557430
+ */
+const dataTestRequestConfig: DataTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/get2/__data___test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"dataTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [hello↗](http://foo.bar/project/11/interface/api/135) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @标签 \`2期\`, \`梦想城\`
+ * @请求头 \`GET /__hello__/get2/__data___test\`
+ * @更新时间 1610557430
+ */
+export const dataTest = /*#__PURE__*/ (
+  requestData?: DataTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DataTestResponse>(
+    prepare(dataTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+dataTest.requestConfig = dataTestRequestConfig
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value/__data___test\`
+ * @更新时间 1642140816
+ */
+export interface DataTestRequest {}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value/__data___test\`
+ * @更新时间 1642140816
+ */
+export interface DataTestResponse {
+  id: number;
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value/__data___test\`
+ * @更新时间 1642140816
+ */
+type DataTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/default_value/__data___test\\",
+  \\"__data__\\",
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value/__data___test\`
+ * @更新时间 1642140816
+ */
+const dataTestRequestConfig: DataTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/default_value/__data___test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"dataTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [默认值↗](http://foo.bar/project/11/interface/api/1829) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/default_value/__data___test\`
+ * @更新时间 1642140816
+ */
+export const dataTest = /*#__PURE__*/ (
+  requestData?: DataTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DataTestResponse>(
+    prepare(dataTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+dataTest.requestConfig = dataTestRequestConfig",
+]
+`;
+
 exports[`Generator setRequestFunctionExtraInfo 使用正常: 输出内容 1`] = `
 Array [
   "const mockUrl_0_0_0_0 = \\"http://foo.bar/mock/32\\" as any

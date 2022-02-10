@@ -193,6 +193,7 @@ export class Generator {
                               ? syntheticalConfig.preproccessInterface(
                                   cloneDeepFast(interfaceInfo),
                                   changeCase,
+                                  syntheticalConfig,
                                 )
                               : interfaceInfo
 
@@ -280,15 +281,16 @@ export class Generator {
                               outputFileList[outputFilePath] = {
                                 syntheticalConfig,
                                 content: [],
-                                requestFunctionFilePath: syntheticalConfig.requestFunctionFilePath
-                                  ? path.resolve(
-                                      this.options.cwd,
-                                      syntheticalConfig.requestFunctionFilePath,
-                                    )
-                                  : path.join(
-                                      path.dirname(outputFilePath),
-                                      'request.ts',
-                                    ),
+                                requestFunctionFilePath:
+                                  syntheticalConfig.requestFunctionFilePath
+                                    ? path.resolve(
+                                        this.options.cwd,
+                                        syntheticalConfig.requestFunctionFilePath,
+                                      )
+                                    : path.join(
+                                        path.dirname(outputFilePath),
+                                        'request.ts',
+                                      ),
                                 requestHookMakerFilePath:
                                   syntheticalConfig.reactHooks &&
                                   syntheticalConfig.reactHooks.enabled

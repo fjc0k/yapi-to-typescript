@@ -366,7 +366,7 @@ ytt 内置了一个映射表，此配置会进行追加（相同覆盖）：
 
 ### preproccessInterface
 
-- 类型：`(interfaceInfo: Interface, changeCase: ChangeCase): Interface | false`
+- 类型：`(interfaceInfo: Interface, changeCase: ChangeCase, syntheticalConfig: SyntheticalConfig): Interface | false`
 - 默认值：`(无)`
 - 说明：
 

@@ -72,10 +72,10 @@ const generatorFactory = ({
         categories: [
           {
             id: id,
-            preproccessInterface(_ii, cc) {
+            preproccessInterface(_ii, cc, config) {
               let ii = _ii
               if (preproccessInterface) {
-                ii = preproccessInterface(ii, cc) as any
+                ii = preproccessInterface(ii, cc, config) as any
                 if ((ii as any) === false) {
                   return false
                 }
@@ -706,6 +706,22 @@ describe('Generator', () => {
       expect(fs.readFileSync(outputFilePath).toString()).toMatchSnapshot(
         '接口文件',
       )
+    })
+  })
+
+  test('preproccessInterface 里可获取作用于当前接口的配置', async () => {
+    const generator = generatorFactory({
+      id: CatId.test2,
+      dataKey: '__data__',
+      preproccessInterface(ii, cc, config) {
+        ii.path += `/${config.dataKey}`
+        return ii
+      },
+    })
+    await generator.prepare()
+    const output = await generator.generate()
+    forOwn(output, ({ content }) => {
+      expect(content).toMatchSnapshot('输出内容')
     })
   })
 })

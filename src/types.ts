@@ -411,9 +411,7 @@ export interface CommentConfig {
   /**
    * 额外的注释标签。生成的内容形如：`@{name} {value}`。
    */
-  extraTags?: (
-    interfaceInfo: ExtendedInterface,
-  ) => Array<{
+  extraTags?: (interfaceInfo: ExtendedInterface) => Array<{
     /**
      * 标签名。
      */
@@ -543,6 +541,9 @@ export interface SharedConfig {
    *
    * 譬如你想对接口的 `path` 进行某些处理或者想排除某些接口，就可使用该方法。
    *
+   * @param interfaceInfo 接口信息
+   * @param changeCase 常用的大小写转换函数集合对象
+   * @param syntheticalConfig 作用到当前接口的最终配置
    * @example
    *
    * ```js
@@ -555,6 +556,7 @@ export interface SharedConfig {
   preproccessInterface?(
     interfaceInfo: Interface,
     changeCase: ChangeCase,
+    syntheticalConfig: SyntheticalConfig,
   ): Interface | false
 
   /**
@@ -681,7 +683,7 @@ export interface RequestConfig<
   DataKey extends OneOrMore<string> | undefined = OneOrMore<string> | undefined,
   ParamName extends string = string,
   QueryName extends string = string,
-  RequestDataOptional extends boolean = boolean
+  RequestDataOptional extends boolean = boolean,
 > {
   /** 接口 Mock 地址，结尾无 `/` */
   mockUrl: MockUrl
