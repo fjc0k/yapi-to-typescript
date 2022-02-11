@@ -1,5 +1,12 @@
 # 更新日志
 
+## [3.31.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.30.3...v3.31.0) (2022-02-11)
+
+### 特性
+
+- 新增命令行钩子，可在生成成功、失败、完毕时进行相关操作 (close: [#70](https://github.com/fjc0k/yapi-to-typescript/issues/70)) ([c7a6b6f](https://github.com/fjc0k/yapi-to-typescript/commit/c7a6b6f6d6d95055c3ba58e7822a9a1d82c73d1a))
+- 支持在 preproccessInterface 里获取作用于当前接口的配置（通过第 3 个传参）(close: [#69](https://github.com/fjc0k/yapi-to-typescript/issues/69)) ([cf20043](https://github.com/fjc0k/yapi-to-typescript/commit/cf20043a6dc34537598e6b5bfbd63d2fc7901fc2))
+
 ### [3.30.3](https://github.com/fjc0k/yapi-to-typescript/compare/v3.30.2...v3.30.3) (2022-02-08)
 
 ### 修复
