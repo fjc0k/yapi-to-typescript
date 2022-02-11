@@ -1,5 +1,5 @@
+import { AsyncOrSync, LiteralUnion, OmitStrict, OneOrMore } from 'vtils/types'
 import { JSONSchema4, JSONSchema4TypeName } from 'json-schema'
-import { LiteralUnion, OmitStrict, OneOrMore } from 'vtils/types'
 import { ParsedPath } from 'path'
 
 export interface ChangeCase {
@@ -759,3 +759,17 @@ export interface PropDefinition {
 
 /** 属性定义列表 */
 export type PropDefinitions = PropDefinition[]
+
+/** 命令行钩子 */
+export interface CliHooks {
+  /** 生成成功时触发 */
+  success?: () => AsyncOrSync<void>
+  /** 生成失败时触发 */
+  fail?: () => AsyncOrSync<void>
+  /** 生成完毕时触发（无论成功、失败） */
+  complete?: () => AsyncOrSync<void>
+}
+
+export type ConfigWithHooks = Config & {
+  hooks?: CliHooks
+}

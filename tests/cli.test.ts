@@ -135,4 +135,41 @@ describe('cli', () => {
       fs.readFileSync(tempPaths.generatedConfigFile).toString(),
     ).toMatchSnapshot('不覆盖后的配置文件')
   })
+
+  test('支持钩子', async () => {
+    const tempPaths = getTempPaths()
+
+    // 初始化配置文件
+    await runCli('init', tempPaths.generatedConfigFile)
+
+    // 更新配置文件
+    const successFile = path.join(tempPaths.targetDir, 'success.txt')
+    const failFile = path.join(tempPaths.targetDir, 'fail.txt')
+    const completeFile = path.join(tempPaths.targetDir, 'complete.txt')
+    fs.writeFileSync(
+      tempPaths.generatedConfigFile,
+      fs
+        .readFileSync(tempPaths.generatedConfigFile)
+        .toString()
+        .replace('yapi-to-typescript', path.join(__dirname, '../src'))
+        .replace(`dataKey: 'data',`, '')
+        .replace(`id: 50,`, `id: ${CatId.test},`)
+        .replace(
+          /(?=\)\s*$)/s,
+          `, {
+            success: () => require('fs').writeFileSync('${successFile}', 'success'),
+            fail: () => require('fs').writeFileSync('${failFile}', 'fail'),
+            complete: () => require('fs').writeFileSync('${completeFile}', 'complete'),
+          }`,
+        ),
+    )
+
+    // 执行
+    await runCli('', tempPaths.generatedConfigFile)
+    expect(fs.existsSync(successFile)).toBe(true)
+    expect(fs.readFileSync(successFile).toString()).toBe('success')
+    expect(fs.existsSync(failFile)).toBe(false)
+    expect(fs.existsSync(completeFile)).toBe(true)
+    expect(fs.readFileSync(completeFile).toString()).toBe('complete')
+  })
 })

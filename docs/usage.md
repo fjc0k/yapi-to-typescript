@@ -85,3 +85,30 @@ import { GetUserInfoResponse } from '../api'
 
 type UserRole = GetUserInfoResponse['role']
 ```
+
+## 命令行钩子 <Badge>3.31.0+</Badge>
+
+可使用钩子在生成成功、失败、完毕时进行相关操作。
+
+```typescript
+import { defineConfig } from 'yapi-to-typescript'
+
+export default defineConfig(
+  {
+    // 生成配置
+  },
+
+  // 钩子
+  {
+    success() {
+      // 生成成功时触发
+    },
+    fail() {
+      // 生成失败时触发
+    },
+    complete() {
+      // 生成完毕时触发（无论成功、失败）
+    },
+  },
+)
+```

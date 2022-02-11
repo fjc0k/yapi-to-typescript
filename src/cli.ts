@@ -6,7 +6,7 @@ import ora from 'ora'
 import path from 'path'
 import prompt from 'prompts'
 import yargs from 'yargs'
-import { Config, ServerConfig } from './types'
+import { ConfigWithHooks, ServerConfig } from './types'
 import { dedent, wait } from 'vtils'
 import { Defined } from 'vtils/types'
 import { Generator } from './Generator'
@@ -160,11 +160,12 @@ export async function run(
       )
     }
     consola.success(`找到配置文件: ${configFile}`)
+    let config: ConfigWithHooks | undefined
     let generator: Generator | undefined
     let spinner: ora.Ora | undefined
     try {
-      const config: Config = require(configFile).default
-      generator = new Generator(config, { cwd })
+      config = require(configFile).default
+      generator = new Generator(config!, { cwd })
 
       spinner = ora('正在获取数据并生成代码...').start()
       const delayNotice = wait(5000)
@@ -181,12 +182,15 @@ export async function run(
       await generator.write(output)
       consola.success('写入文件完毕')
       await generator.destroy()
+      await config!.hooks?.success?.()
     } catch (err) {
       spinner?.stop()
       await generator?.destroy()
+      await config?.hooks?.fail?.()
       /* istanbul ignore next */
-      return consola.error(err)
+      consola.error(err)
     }
+    await config?.hooks?.complete?.()
   }
 }
 

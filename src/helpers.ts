@@ -1,12 +1,29 @@
 import type { AppendOptions } from 'form-data'
-import type { Config, RequestConfig, RequestFunctionParams } from './types'
+import type {
+  CliHooks,
+  Config,
+  ConfigWithHooks,
+  RequestConfig,
+  RequestFunctionParams,
+} from './types'
 
 /**
  * 定义配置。
  *
  * @param config 配置
  */
-export function defineConfig(config: Config) {
+export function defineConfig(
+  config: Config,
+  hooks?: CliHooks,
+): ConfigWithHooks {
+  if (hooks) {
+    Object.defineProperty(config, 'hooks', {
+      value: hooks,
+      configurable: false,
+      enumerable: false,
+      writable: false,
+    })
+  }
   return config
 }
 
@@ -52,12 +69,13 @@ export class FileData<T = any> {
 /**
  * 解析请求数据，从请求数据中分离出普通数据和文件数据。
  *
- * @param [requestData] 要解析的请求数据
+ * @param requestData 要解析的请求数据
  * @returns 包含普通数据(data)和文件数据(fileData)的对象，data、fileData 为空对象时，表示没有此类数据
  */
-export function parseRequestData(
-  requestData?: any,
-): { data: any; fileData: any } {
+export function parseRequestData(requestData?: any): {
+  data: any
+  fileData: any
+} {
   const result = {
     data: {} as any,
     fileData: {} as any,
@@ -67,9 +85,9 @@ export function parseRequestData(
     if (typeof requestData === 'object' && !Array.isArray(requestData)) {
       Object.keys(requestData).forEach(key => {
         if (requestData[key] && requestData[key] instanceof FileData) {
-          result.fileData[key] = (requestData[
-            key
-          ] as FileData).getOriginalFileData()
+          result.fileData[key] = (
+            requestData[key] as FileData
+          ).getOriginalFileData()
         } else {
           result.data[key] = requestData[key]
         }
