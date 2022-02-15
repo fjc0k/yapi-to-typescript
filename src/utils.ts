@@ -128,6 +128,20 @@ export function processJsonSchema(
     delete jsonSchema.$ref
     delete jsonSchema.$$ref
 
+    // 删除 Mockjs.toJSONSchema 引入的键
+    delete jsonSchema.template
+    delete jsonSchema.rule
+    delete jsonSchema.path
+
+    // 数组只取第一个判断类型
+    if (
+      jsonSchema.type === 'array' &&
+      Array.isArray(jsonSchema.items) &&
+      jsonSchema.items.length
+    ) {
+      jsonSchema.items = jsonSchema.items[0]
+    }
+
     // 处理类型名称为标准的 JSONSchema 类型名称
     if (jsonSchema.type) {
       // 类型映射表，键都为小写

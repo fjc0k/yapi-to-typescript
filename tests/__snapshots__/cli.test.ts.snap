@@ -2017,6 +2017,94 @@ export const helloDefaultValue = /*#__PURE__*/ (
 
 helloDefaultValue.requestConfig = helloDefaultValueRequestConfig
 
+/**
+ * 接口 [mockjs+json5↗](http://foo.bar/project/11/interface/api/1830) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs_json5\`
+ * @更新时间 1644917600
+ */
+export interface HelloMockjsJson5Request {}
+
+/**
+ * 接口 [mockjs+json5↗](http://foo.bar/project/11/interface/api/1830) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs_json5\`
+ * @更新时间 1644917600
+ */
+export interface HelloMockjsJson5Response {
+  code?: number
+  data?: {
+    id?: string
+    name?: string
+    template?: string
+    string?: string
+    number?: number
+    boolean?: string
+    image?: string
+  }[]
+}
+
+/**
+ * 接口 [mockjs+json5↗](http://foo.bar/project/11/interface/api/1830) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs_json5\`
+ * @更新时间 1644917600
+ */
+type HelloMockjsJson5RequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/mockjs_json5',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [mockjs+json5↗](http://foo.bar/project/11/interface/api/1830) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs_json5\`
+ * @更新时间 1644917600
+ */
+const helloMockjsJson5RequestConfig: HelloMockjsJson5RequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/__hello__/mockjs_json5',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'helloMockjsJson5',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs+json5↗](http://foo.bar/project/11/interface/api/1830) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs_json5\`
+ * @更新时间 1644917600
+ */
+export const helloMockjsJson5 = /*#__PURE__*/ (requestData?: HelloMockjsJson5Request, ...args: UserRequestRestArgs) => {
+  return request<HelloMockjsJson5Response>(prepare(helloMockjsJson5RequestConfig, requestData), ...args)
+}
+
+helloMockjsJson5.requestConfig = helloMockjsJson5RequestConfig
+
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_3 = '' as any
 const prodUrl_0_0_0_3 = 'http://prod.com/' as any

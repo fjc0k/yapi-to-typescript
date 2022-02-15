@@ -210,8 +210,7 @@ const mockData: Record<string, () => any> = {
           req_body_other:
             '{"type":"object","title":"empty object","properties":{"page":{"type":"number","description":"页码"},"limit":{"type":"number","description":"每页数量"},"keyword":{"type":"string","description":"关键词"}},"required":["page","limit"]}',
           markdown: '**备注。。。**\n\n`额鹅鹅鹅`',
-          desc:
-            '<p><strong>备注。。。</strong></p>\n<p><code data-backticks="1">额鹅鹅鹅</code></p>\n',
+          desc: '<p><strong>备注。。。</strong></p>\n<p><code data-backticks="1">额鹅鹅鹅</code></p>\n',
           res_body:
             '{"type":"object","title":"empty object","properties":{"list":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","description":"姓名"}},"required":["name"]},"description":"列表"}},"required":["list"]}',
           req_body_type: 'json',
@@ -995,6 +994,39 @@ const mockData: Record<string, () => any> = {
         },
         {
           query_path: {
+            path: '/mockjs_json5',
+            params: [],
+          },
+          edit_uid: 0,
+          status: 'undone',
+          type: 'static',
+          req_body_is_json_schema: false,
+          res_body_is_json_schema: false,
+          api_opened: false,
+          index: 0,
+          tag: [],
+          _id: 1830,
+          method: 'GET',
+          catid: 20,
+          title: 'mockjs+json5',
+          path: '/mockjs_json5',
+          project_id: 11,
+          req_params: [],
+          res_body_type: 'json',
+          uid: 11,
+          add_time: 1644917567,
+          up_time: 1644917600,
+          req_query: [],
+          req_headers: [],
+          req_body_form: [],
+          __v: 0,
+          desc: '',
+          markdown: '',
+          res_body:
+            '{\n    "code": 200,\n    "data|1-10": [\n        {\n            "id": "@id", // id\n            "name": "@cname", // 名字\n            "template|1-10": "*", // 模板\n            "string|3": "***", // 遍历三次\n            "number|1-100": 200,\n            "boolean": "@boolean",\n            "image": "@image"\n        }\n    ]\n}',
+        },
+        {
+          query_path: {
             path: '/default_value',
             params: [],
           },
@@ -1059,8 +1091,7 @@ const mockData: Record<string, () => any> = {
           req_query: [],
           req_headers: [],
           req_body_form: [],
-          desc:
-            '<p><a href="https://github.com/fjc0k/yapi-to-typescript/issues/17">https://github.com/fjc0k/yapi-to-typescript/issues/17</a></p>\n',
+          desc: '<p><a href="https://github.com/fjc0k/yapi-to-typescript/issues/17">https://github.com/fjc0k/yapi-to-typescript/issues/17</a></p>\n',
           markdown:
             '[https://github.com/fjc0k/yapi-to-typescript/issues/17](https://github.com/fjc0k/yapi-to-typescript/issues/17)',
           res_body: '{"type":"object","title":"empty object","properties":{}}',
