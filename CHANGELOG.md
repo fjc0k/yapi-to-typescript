@@ -1,5 +1,11 @@
 # 更新日志
 
+### [3.31.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.31.0...v3.31.1) (2022-02-15)
+
+### 修复
+
+- 对于数组类型的值, 应始终取其第一个条目的类型作为该数组的类型 ([e84d523](https://github.com/fjc0k/yapi-to-typescript/commit/e84d5239fdd474b30635055184b680bcb3e06875))
+
 ## [3.31.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.30.3...v3.31.0) (2022-02-11)
 
 ### 特性
