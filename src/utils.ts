@@ -1,5 +1,4 @@
 import JSON5 from 'json5'
-import Mock from 'mockjs'
 import path from 'path'
 import prettier from 'prettier'
 import toJsonSchema from 'to-json-schema'
@@ -13,6 +12,7 @@ import {
   mapKeys,
   memoize,
   run,
+  traverse,
 } from 'vtils'
 import { compile, Options } from 'json-schema-to-typescript'
 import { Defined, OneOrMore } from 'vtils/types'
@@ -273,10 +273,43 @@ export function mockjsTemplateToJsonSchema(
   template: object,
   customTypeMapping: Record<string, JSONSchema4TypeName>,
 ): JSONSchema4 {
-  return processJsonSchema(
-    Mock.toJSONSchema(template) as any,
-    customTypeMapping,
-  )
+  const actions: Array<() => void> = []
+  // https://github.com/nuysoft/Mock/blob/refactoring/src/mock/constant.js#L27
+  const keyRe = /(.+)\|(?:\+(\d+)|([+-]?\d+-?[+-]?\d*)?(?:\.(\d+-?\d*))?)/
+  // https://github.com/nuysoft/Mock/wiki/Mock.Random
+  const numberPatterns: string[] = [
+    'natural',
+    'integer',
+    'float',
+    'range',
+    'increment',
+  ]
+  const boolPatterns: string[] = ['boolean', 'bool']
+  const normalizeValue = (value: any): any => {
+    if (typeof value === 'string' && value.startsWith('@')) {
+      const pattern = value.slice(1)
+      if (numberPatterns.some(p => pattern.startsWith(p))) {
+        return 1
+      }
+      if (boolPatterns.some(p => pattern.startsWith(p))) {
+        return true
+      }
+    }
+    return value
+  }
+  traverse(template, (value, key, parent) => {
+    if (typeof key === 'string') {
+      actions.push(() => {
+        delete parent[key]
+        parent[
+          // https://github.com/nuysoft/Mock/blob/refactoring/src/mock/schema/schema.js#L16
+          key.replace(keyRe, '$1')
+        ] = normalizeValue(value)
+      })
+    }
+  })
+  actions.forEach(action => action())
+  return jsonToJsonSchema(template, customTypeMapping)
 }
 
 /**

@@ -359,8 +359,17 @@ export interface HelloJson5ResponseRequest {}
  * @更新时间 1610557429
  */
 export interface HelloJson5ResponseResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -2034,14 +2043,41 @@ export interface HelloMockjsJson5Request {}
  * @更新时间 1644917600
  */
 export interface HelloMockjsJson5Response {
+  /**
+   * 200
+   */
   code?: number
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string
+    /**
+     * \\"@cname\\"
+     */
     name?: string
+    /**
+     * \\"*\\"
+     */
     template?: string
+    /**
+     * \\"***\\"
+     */
     string?: string
+    /**
+     * 200
+     */
     number?: number
-    boolean?: string
+    /**
+     * true
+     */
+    boolean?: boolean
+    /**
+     * \\"@image\\"
+     */
     image?: string
   }[]
 }
@@ -2104,6 +2140,138 @@ export const helloMockjsJson5 = /*#__PURE__*/ (requestData?: HelloMockjsJson5Req
 }
 
 helloMockjsJson5.requestConfig = helloMockjsJson5RequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2\`
+ * @更新时间 1645001866
+ */
+export interface HelloMockjs2Request {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2\`
+ * @更新时间 1645001866
+ */
+export interface HelloMockjs2Response {
+  /**
+   * 1
+   */
+  pageNo?: number
+  /**
+   * 5
+   */
+  pageSize?: number
+  /**
+   * 16
+   */
+  count?: number
+  /**
+   * 1
+   */
+  first?: number
+  /**
+   * 1
+   */
+  last?: number
+  /**
+   * 1
+   */
+  prev?: number
+  /**
+   * 1
+   */
+  next?: number
+  /**
+   * true
+   */
+  firstPage?: boolean
+  /**
+   * true
+   */
+  lastPage?: boolean
+  /**
+   * 8
+   */
+  length?: number
+  /**
+   * 1
+   */
+  slider?: number
+  orderBy?: string
+  /**
+   * \\"page\\"
+   */
+  funcName?: string
+  funcParam?: string
+  message?: string
+  html?: string
+  /**
+   * 1
+   */
+  totalPage?: number
+  notCount?: boolean
+  /**
+   * 5
+   */
+  maxResults?: number
+  disabled?: boolean
+  firstResult?: number
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2\`
+ * @更新时间 1645001866
+ */
+type HelloMockjs2RequestConfig = Readonly<
+  RequestConfig<'http://foo.bar/mock/32', '', 'http://prod.com/', '/__hello__/mockjs2', undefined, string, string, true>
+>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2\`
+ * @更新时间 1645001866
+ */
+const helloMockjs2RequestConfig: HelloMockjs2RequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/__hello__/mockjs2',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'helloMockjs2',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2\`
+ * @更新时间 1645001866
+ */
+export const helloMockjs2 = /*#__PURE__*/ (requestData?: HelloMockjs2Request, ...args: UserRequestRestArgs) => {
+  return request<HelloMockjs2Response>(prepare(helloMockjs2RequestConfig, requestData), ...args)
+}
+
+helloMockjs2.requestConfig = helloMockjs2RequestConfig
 
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_3 = '' as any

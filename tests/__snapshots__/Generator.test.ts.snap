@@ -219,14 +219,41 @@ export interface MockjsJson5TestRequest {}
  * @项目ID 11
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string;
+    /**
+     * \\"@cname\\"
+     */
     name?: string;
+    /**
+     * \\"*\\"
+     */
     template?: string;
+    /**
+     * \\"***\\"
+     */
     string?: string;
+    /**
+     * 200
+     */
     number?: number;
-    boolean?: string;
+    /**
+     * true
+     */
+    boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: string;
   }[];
 }
@@ -298,7 +325,162 @@ export const mockjsJson5Test = /*#__PURE__*/ (
   )
 }
 
-mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig",
+mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @状态 未完成
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ * @项目ID 11
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @状态 未完成
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ * @项目ID 11
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: string;
+  /**
+   * \\"page\\"
+   */
+  funcName?: string;
+  funcParam?: string;
+  message?: string;
+  html?: string;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @状态 未完成
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ * @项目ID 11
+ */
+type Mockjs2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @状态 未完成
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ * @项目ID 11
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/mockjs2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"mockjs2Test\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @状态 未完成
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ * @项目ID 11
+ */
+export const mockjs2Test = /*#__PURE__*/ (
+  requestData?: Mockjs2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Mockjs2TestResponse>(
+    prepare(mockjs2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig",
 ]
 `;
 
@@ -499,14 +681,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: boolean;
+    /**
+     * \\"@cname\\"
+     */
     name?: boolean;
+    /**
+     * \\"*\\"
+     */
     template?: boolean;
+    /**
+     * \\"***\\"
+     */
     string?: boolean;
+    /**
+     * 200
+     */
     number?: number;
+    /**
+     * true
+     */
     boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: boolean;
   }[];
 }
@@ -572,7 +781,152 @@ export const mockjsJson5Test = /*#__PURE__*/ (
   )
 }
 
-mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig",
+mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: boolean;
+  /**
+   * \\"page\\"
+   */
+  funcName?: boolean;
+  funcParam?: boolean;
+  message?: boolean;
+  html?: boolean;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/mockjs2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"mockjs2Test\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (
+  requestData?: Mockjs2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Mockjs2TestResponse>(
+    prepare(mockjs2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig",
 ]
 `;
 
@@ -969,14 +1323,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string;
+    /**
+     * \\"@cname\\"
+     */
     name?: string;
+    /**
+     * \\"*\\"
+     */
     template?: string;
+    /**
+     * \\"***\\"
+     */
     string?: string;
+    /**
+     * 200
+     */
     number?: number;
-    boolean?: string;
+    /**
+     * true
+     */
+    boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: string;
   }[];
 }
@@ -1042,7 +1423,152 @@ export const mockjsJson5Test = /*#__PURE__*/ (
   )
 }
 
-mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig",
+mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: string;
+  /**
+   * \\"page\\"
+   */
+  funcName?: string;
+  funcParam?: string;
+  message?: string;
+  html?: string;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/mockjs2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"mockjs2Test\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (
+  requestData?: Mockjs2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Mockjs2TestResponse>(
+    prepare(mockjs2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig",
 ]
 `;
 
@@ -1604,14 +2130,41 @@ export interface DataTestRequest {}
  * @更新时间 1644917600
  */
 export interface DataTestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string;
+    /**
+     * \\"@cname\\"
+     */
     name?: string;
+    /**
+     * \\"*\\"
+     */
     template?: string;
+    /**
+     * \\"***\\"
+     */
     string?: string;
+    /**
+     * 200
+     */
     number?: number;
-    boolean?: string;
+    /**
+     * true
+     */
+    boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: string;
   }[];
 }
@@ -1666,6 +2219,151 @@ const dataTestRequestConfig: DataTestRequestConfig = /*#__PURE__*/ {
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
  * @请求头 \`GET /__hello__/mockjs_json5/__data___test\`
  * @更新时间 1644917600
+ */
+export const dataTest = /*#__PURE__*/ (
+  requestData?: DataTestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<DataTestResponse>(
+    prepare(dataTestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+dataTest.requestConfig = dataTestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2/__data___test\`
+ * @更新时间 1645001866
+ */
+export interface DataTestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2/__data___test\`
+ * @更新时间 1645001866
+ */
+export interface DataTestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: string;
+  /**
+   * \\"page\\"
+   */
+  funcName?: string;
+  funcParam?: string;
+  message?: string;
+  html?: string;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2/__data___test\`
+ * @更新时间 1645001866
+ */
+type DataTestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2/__data___test\\",
+  \\"__data__\\",
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2/__data___test\`
+ * @更新时间 1645001866
+ */
+const dataTestRequestConfig: DataTestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/mockjs2/__data___test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"dataTest\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2/__data___test\`
+ * @更新时间 1645001866
  */
 export const dataTest = /*#__PURE__*/ (
   requestData?: DataTestRequest,
@@ -1876,14 +2574,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string;
+    /**
+     * \\"@cname\\"
+     */
     name?: string;
+    /**
+     * \\"*\\"
+     */
     template?: string;
+    /**
+     * \\"***\\"
+     */
     string?: string;
+    /**
+     * 200
+     */
     number?: number;
-    boolean?: string;
+    /**
+     * true
+     */
+    boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: string;
   }[];
 }
@@ -1949,7 +2674,152 @@ export const mockjsJson5Test = /*#__PURE__*/ (
   )
 }
 
-mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig",
+mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: string;
+  /**
+   * \\"page\\"
+   */
+  funcName?: string;
+  funcParam?: string;
+  message?: string;
+  html?: string;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/mockjs2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"mockjs2Test\\",
+  extraInfo: {\\"name\\":\\"mockjs2\\",\\"category\\":\\"test2\\",\\"project\\":\\"test\\"},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (
+  requestData?: Mockjs2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Mockjs2TestResponse>(
+    prepare(mockjs2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig",
 ]
 `;
 
@@ -2037,8 +2907,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -2599,8 +3478,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -3315,8 +4203,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -5130,8 +6027,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -6913,8 +7819,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -6962,10 +7877,11 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = /*#__PURE
   responseDataJsonSchema: {
     type: 'object',
     properties: {
-      id: {name: 'id', type: 'number'},
-      age: {name: 'age', type: 'string'},
-      name: {name: 'name', type: 'string'},
+      id: {type: 'integer', description: '1'},
+      age: {type: 'integer', description: '1'},
+      name: {type: 'string', description: '\\"@name\\"'},
     },
+    additionalProperties: false,
   },
   requestFunctionName: 'json5ResponseTest',
   extraInfo: {},
@@ -8686,8 +9602,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -8730,7 +9655,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = /*#__PURE
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"type\\":\\"number\\"},\\"age\\":{\\"name\\":\\"age\\",\\"type\\":\\"string\\"},\\"name\\":{\\"name\\":\\"name\\",\\"type\\":\\"string\\"}}},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"age\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"@name\\\\\\"\\"}},\\"additionalProperties\\":false},
   requestFunctionName: \\"json5ResponseTest\\",
   extraInfo: {},
 }
@@ -10438,14 +11363,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string;
+    /**
+     * \\"@cname\\"
+     */
     name?: string;
+    /**
+     * \\"*\\"
+     */
     template?: string;
+    /**
+     * \\"***\\"
+     */
     string?: string;
+    /**
+     * 200
+     */
     number?: number;
-    boolean?: string;
+    /**
+     * true
+     */
+    boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: string;
   }[];
 }
@@ -10511,7 +11463,152 @@ export const mockjsJson5Test = /*#__PURE__*/ (
   )
 }
 
-mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig",
+mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: string;
+  /**
+   * \\"page\\"
+   */
+  funcName?: string;
+  funcParam?: string;
+  message?: string;
+  html?: string;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/mockjs2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"mockjs2Test\\",
+  extraInfo: {\\"url\\":\\"http://foo.bar/project/11/interface/api/1831\\",\\"categoryUrl\\":\\"http://foo.bar/project/11/interface/api/cat_20\\",\\"projectUrl\\":\\"http://foo.bar/project/32/interface/api\\"},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (
+  requestData?: Mockjs2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Mockjs2TestResponse>(
+    prepare(mockjs2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig",
 ]
 `;
 
@@ -10950,8 +12047,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -12650,8 +13756,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -14402,8 +15517,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -16159,8 +17283,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -17937,8 +19070,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -19689,8 +20831,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -21455,8 +22606,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -23074,8 +24234,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -24757,8 +25926,17 @@ export interface Json5ResponseTestRequest {}
  * @请求头 \`GET /__hello__/json5Response_test\`
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -26376,8 +27554,17 @@ export interface Json5ResponseTestRequest {}
  * @请求头 \`GET /__hello__/json5Response_test\`
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -28071,8 +29258,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -29785,8 +30981,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -31539,8 +32744,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -33063,8 +34277,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -34591,8 +35814,17 @@ getMethodTest.requestConfig = getMethodTestRequestConfig
 export interface Json5ResponseTestRequest {}
 
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -35647,8 +36879,17 @@ export interface Json5ResponseTestRequest {}
 
 
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -36882,8 +38123,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -38501,8 +39751,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -40196,8 +41455,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -41910,8 +43178,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -43688,8 +44965,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -45378,14 +46664,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string
+    /**
+     * \\"@cname\\"
+     */
     name?: string
+    /**
+     * \\"*\\"
+     */
     template?: string
+    /**
+     * \\"***\\"
+     */
     string?: string
+    /**
+     * 200
+     */
     number?: number
-    boolean?: string
+    /**
+     * true
+     */
+    boolean?: boolean
+    /**
+     * \\"@image\\"
+     */
     image?: string
   }[]
 }
@@ -45448,6 +46761,147 @@ export const mockjsJson5Test = /*#__PURE__*/ (requestData?: MockjsJson5TestReque
 }
 
 mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number
+  /**
+   * 5
+   */
+  pageSize?: number
+  /**
+   * 16
+   */
+  count?: number
+  /**
+   * 1
+   */
+  first?: number
+  /**
+   * 1
+   */
+  last?: number
+  /**
+   * 1
+   */
+  prev?: number
+  /**
+   * 1
+   */
+  next?: number
+  /**
+   * true
+   */
+  firstPage?: boolean
+  /**
+   * true
+   */
+  lastPage?: boolean
+  /**
+   * 8
+   */
+  length?: number
+  /**
+   * 1
+   */
+  slider?: number
+  orderBy?: string
+  /**
+   * \\"page\\"
+   */
+  funcName?: string
+  funcParam?: string
+  message?: string
+  html?: string
+  /**
+   * 1
+   */
+  totalPage?: number
+  notCount?: boolean
+  /**
+   * 5
+   */
+  maxResults?: number
+  disabled?: boolean
+  firstResult?: number
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/mockjs2_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/__hello__/mockjs2_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'mockjs2Test',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (requestData?: Mockjs2TestRequest, ...args: UserRequestRestArgs) => {
+  return request<Mockjs2TestResponse>(prepare(mockjs2TestRequestConfig, requestData), ...args)
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_3 = '' as any
@@ -46038,8 +47492,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -47785,14 +49248,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string;
+    /**
+     * \\"@cname\\"
+     */
     name?: string;
+    /**
+     * \\"*\\"
+     */
     template?: string;
+    /**
+     * \\"***\\"
+     */
     string?: string;
+    /**
+     * 200
+     */
     number?: number;
-    boolean?: string;
+    /**
+     * true
+     */
+    boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: string;
   }[];
 }
@@ -47858,7 +49348,152 @@ export const mockjsJson5Test = /*#__PURE__*/ (
   )
 }
 
-mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig",
+mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: string;
+  /**
+   * \\"page\\"
+   */
+  funcName?: string;
+  funcParam?: string;
+  message?: string;
+  html?: string;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: \\"/__hello__/mockjs2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"mockjs2Test\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (
+  requestData?: Mockjs2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Mockjs2TestResponse>(
+    prepare(mockjs2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig",
   "const mockUrl_0_0_0_3 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_3 = \\"\\" as any
 const prodUrl_0_0_0_3 = \\"http://prod.com/\\" as any
@@ -48437,8 +50072,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -50189,8 +51833,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -51967,8 +53620,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -53657,14 +55319,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string
+    /**
+     * \\"@cname\\"
+     */
     name?: string
+    /**
+     * \\"*\\"
+     */
     template?: string
+    /**
+     * \\"***\\"
+     */
     string?: string
+    /**
+     * 200
+     */
     number?: number
-    boolean?: string
+    /**
+     * true
+     */
+    boolean?: boolean
+    /**
+     * \\"@image\\"
+     */
     image?: string
   }[]
 }
@@ -53727,6 +55416,147 @@ export const mockjsJson5Test = /*#__PURE__*/ (requestData?: MockjsJson5TestReque
 }
 
 mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number
+  /**
+   * 5
+   */
+  pageSize?: number
+  /**
+   * 16
+   */
+  count?: number
+  /**
+   * 1
+   */
+  first?: number
+  /**
+   * 1
+   */
+  last?: number
+  /**
+   * 1
+   */
+  prev?: number
+  /**
+   * 1
+   */
+  next?: number
+  /**
+   * true
+   */
+  firstPage?: boolean
+  /**
+   * true
+   */
+  lastPage?: boolean
+  /**
+   * 8
+   */
+  length?: number
+  /**
+   * 1
+   */
+  slider?: number
+  orderBy?: string
+  /**
+   * \\"page\\"
+   */
+  funcName?: string
+  funcParam?: string
+  message?: string
+  html?: string
+  /**
+   * 1
+   */
+  totalPage?: number
+  notCount?: boolean
+  /**
+   * 5
+   */
+  maxResults?: number
+  disabled?: boolean
+  firstResult?: number
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/mockjs2_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: '/__hello__/mockjs2_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'mockjs2Test',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (requestData?: Mockjs2TestRequest, ...args: UserRequestRestArgs) => {
+  return request<Mockjs2TestResponse>(prepare(mockjs2TestRequestConfig, requestData), ...args)
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /* prettier-ignore-end */
 "
@@ -53975,8 +55805,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -55722,14 +57561,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string;
+    /**
+     * \\"@cname\\"
+     */
     name?: string;
+    /**
+     * \\"*\\"
+     */
     template?: string;
+    /**
+     * \\"***\\"
+     */
     string?: string;
+    /**
+     * 200
+     */
     number?: number;
-    boolean?: string;
+    /**
+     * true
+     */
+    boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: string;
   }[];
 }
@@ -55795,7 +57661,152 @@ export const mockjsJson5Test = /*#__PURE__*/ (
   )
 }
 
-mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig",
+mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: string;
+  /**
+   * \\"page\\"
+   */
+  funcName?: string;
+  funcParam?: string;
+  message?: string;
+  html?: string;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/__hello__/mockjs2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"mockjs2Test\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (
+  requestData?: Mockjs2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Mockjs2TestResponse>(
+    prepare(mockjs2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig",
 ]
 `;
 
@@ -56010,14 +58021,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string
+    /**
+     * \\"@cname\\"
+     */
     name?: string
+    /**
+     * \\"*\\"
+     */
     template?: string
+    /**
+     * \\"***\\"
+     */
     string?: string
+    /**
+     * 200
+     */
     number?: number
-    boolean?: string
+    /**
+     * true
+     */
+    boolean?: boolean
+    /**
+     * \\"@image\\"
+     */
     image?: string
   }[]
 }
@@ -56080,6 +58118,147 @@ export const mockjsJson5Test = /*#__PURE__*/ (requestData?: MockjsJson5TestReque
 }
 
 mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number
+  /**
+   * 5
+   */
+  pageSize?: number
+  /**
+   * 16
+   */
+  count?: number
+  /**
+   * 1
+   */
+  first?: number
+  /**
+   * 1
+   */
+  last?: number
+  /**
+   * 1
+   */
+  prev?: number
+  /**
+   * 1
+   */
+  next?: number
+  /**
+   * true
+   */
+  firstPage?: boolean
+  /**
+   * true
+   */
+  lastPage?: boolean
+  /**
+   * 8
+   */
+  length?: number
+  /**
+   * 1
+   */
+  slider?: number
+  orderBy?: string
+  /**
+   * \\"page\\"
+   */
+  funcName?: string
+  funcParam?: string
+  message?: string
+  html?: string
+  /**
+   * 1
+   */
+  totalPage?: number
+  notCount?: boolean
+  /**
+   * 5
+   */
+  maxResults?: number
+  disabled?: boolean
+  firstResult?: number
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/mockjs2_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: '/__hello__/mockjs2_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'mockjs2Test',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (requestData?: Mockjs2TestRequest, ...args: UserRequestRestArgs) => {
+  return request<Mockjs2TestResponse>(prepare(mockjs2TestRequestConfig, requestData), ...args)
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_2 = '' as any
@@ -56660,14 +58839,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string;
+    /**
+     * \\"@cname\\"
+     */
     name?: string;
+    /**
+     * \\"*\\"
+     */
     template?: string;
+    /**
+     * \\"***\\"
+     */
     string?: string;
+    /**
+     * 200
+     */
     number?: number;
-    boolean?: string;
+    /**
+     * true
+     */
+    boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: string;
   }[];
 }
@@ -56733,7 +58939,152 @@ export const mockjsJson5Test = /*#__PURE__*/ (
   )
 }
 
-mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig",
+mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: string;
+  /**
+   * \\"page\\"
+   */
+  funcName?: string;
+  funcParam?: string;
+  message?: string;
+  html?: string;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_1,
+  devUrl: devUrl_0_0_0_1,
+  prodUrl: prodUrl_0_0_0_1,
+  path: \\"/__hello__/mockjs2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_1,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"mockjs2Test\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (
+  requestData?: Mockjs2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Mockjs2TestResponse>(
+    prepare(mockjs2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig",
   "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_2 = \\"\\" as any
 const prodUrl_0_0_0_2 = \\"http://prod.com/\\" as any
@@ -57903,6 +60254,42 @@ export const mockjsJson5Test = /*#__PURE__*/ (requestData, ...args) => {
     return request(prepare(mockjsJson5TestRequestConfig, requestData), ...args);
 };
 mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig;
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig = {
+    mockUrl: mockUrl_0_0_0_2,
+    devUrl: devUrl_0_0_0_2,
+    prodUrl: prodUrl_0_0_0_2,
+    path: '/__hello__/mockjs2_test',
+    method: Method.GET,
+    requestHeaders: {},
+    requestBodyType: RequestBodyType.query,
+    responseBodyType: ResponseBodyType.json,
+    dataKey: dataKey_0_0_0_2,
+    paramNames: [],
+    queryNames: [],
+    requestDataOptional: true,
+    requestDataJsonSchema: {},
+    responseDataJsonSchema: {},
+    requestFunctionName: 'mockjs2Test',
+    extraInfo: {},
+};
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (requestData, ...args) => {
+    return request(prepare(mockjs2TestRequestConfig, requestData), ...args);
+};
+mockjs2Test.requestConfig = mockjs2TestRequestConfig;
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32';
 const devUrl_0_0_0_3 = '';
 const prodUrl_0_0_0_3 = 'http://prod.com/';
@@ -58279,8 +60666,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -60026,14 +62422,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string;
+    /**
+     * \\"@cname\\"
+     */
     name?: string;
+    /**
+     * \\"*\\"
+     */
     template?: string;
+    /**
+     * \\"***\\"
+     */
     string?: string;
+    /**
+     * 200
+     */
     number?: number;
-    boolean?: string;
+    /**
+     * true
+     */
+    boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: string;
   }[];
 }
@@ -60099,7 +62522,152 @@ export const mockjsJson5Test = /*#__PURE__*/ (
   )
 }
 
-mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig",
+mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: string;
+  /**
+   * \\"page\\"
+   */
+  funcName?: string;
+  funcParam?: string;
+  message?: string;
+  html?: string;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: \\"/__hello__/mockjs2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: \\"mockjs2Test\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (
+  requestData?: Mockjs2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Mockjs2TestResponse>(
+    prepare(mockjs2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig",
   "const mockUrl_0_0_0_3 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_3 = \\"\\" as any
 const prodUrl_0_0_0_3 = \\"http://prod.com/\\" as any
@@ -60737,8 +63305,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -62728,8 +65305,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -64659,14 +67245,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string
+    /**
+     * \\"@cname\\"
+     */
     name?: string
+    /**
+     * \\"*\\"
+     */
     template?: string
+    /**
+     * \\"***\\"
+     */
     string?: string
+    /**
+     * 200
+     */
     number?: number
-    boolean?: string
+    /**
+     * true
+     */
+    boolean?: boolean
+    /**
+     * \\"@image\\"
+     */
     image?: string
   }[]
 }
@@ -64715,25 +67328,27 @@ const mockjsJson5TestRequestConfig: MockjsJson5TestRequestConfig = /*#__PURE__*/
   responseDataJsonSchema: {
     type: 'object',
     properties: {
-      code: {name: 'code', type: 'number'},
+      code: {type: 'integer', description: '200'},
       data: {
-        name: 'data',
         type: 'array',
         items: {
-          name: 0,
           type: 'object',
           properties: {
-            id: {name: 'id', type: 'string'},
-            name: {name: 'name', type: 'string'},
-            template: {name: 'template', type: 'string'},
-            string: {name: 'string', type: 'string'},
-            number: {name: 'number', type: 'number'},
-            boolean: {name: 'boolean', type: 'string'},
-            image: {name: 'image', type: 'string'},
+            id: {type: 'string', description: '\\"@id\\"'},
+            name: {type: 'string', description: '\\"@cname\\"'},
+            template: {type: 'string', description: '\\"*\\"'},
+            string: {type: 'string', description: '\\"***\\"'},
+            number: {type: 'integer', description: '200'},
+            boolean: {type: 'boolean', description: 'true'},
+            image: {type: 'string', description: '\\"@image\\"'},
           },
+          additionalProperties: false,
         },
+        description:
+          '[{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]',
       },
     },
+    additionalProperties: false,
   },
   requestFunctionName: 'mockjsJson5Test',
   extraInfo: {},
@@ -64751,6 +67366,173 @@ export const mockjsJson5Test = /*#__PURE__*/ (requestData?: MockjsJson5TestReque
 }
 
 mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number
+  /**
+   * 5
+   */
+  pageSize?: number
+  /**
+   * 16
+   */
+  count?: number
+  /**
+   * 1
+   */
+  first?: number
+  /**
+   * 1
+   */
+  last?: number
+  /**
+   * 1
+   */
+  prev?: number
+  /**
+   * 1
+   */
+  next?: number
+  /**
+   * true
+   */
+  firstPage?: boolean
+  /**
+   * true
+   */
+  lastPage?: boolean
+  /**
+   * 8
+   */
+  length?: number
+  /**
+   * 1
+   */
+  slider?: number
+  orderBy?: string
+  /**
+   * \\"page\\"
+   */
+  funcName?: string
+  funcParam?: string
+  message?: string
+  html?: string
+  /**
+   * 1
+   */
+  totalPage?: number
+  notCount?: boolean
+  /**
+   * 5
+   */
+  maxResults?: number
+  disabled?: boolean
+  firstResult?: number
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/mockjs2_test',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: '/__hello__/mockjs2_test',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {
+    type: 'object',
+    properties: {
+      pageNo: {type: 'integer', description: '1'},
+      pageSize: {type: 'integer', description: '5'},
+      count: {type: 'integer', description: '16'},
+      first: {type: 'integer', description: '1'},
+      last: {type: 'integer', description: '1'},
+      prev: {type: 'integer', description: '1'},
+      next: {type: 'integer', description: '1'},
+      firstPage: {type: 'boolean', description: 'true'},
+      lastPage: {type: 'boolean', description: 'true'},
+      length: {type: 'integer', description: '8'},
+      slider: {type: 'integer', description: '1'},
+      orderBy: {type: 'string'},
+      funcName: {type: 'string', description: '\\"page\\"'},
+      funcParam: {type: 'string'},
+      message: {type: 'string'},
+      html: {type: 'string'},
+      totalPage: {type: 'integer', description: '1'},
+      notCount: {type: 'boolean'},
+      maxResults: {type: 'integer', description: '5'},
+      disabled: {type: 'boolean'},
+      firstResult: {type: 'integer'},
+    },
+    additionalProperties: false,
+  },
+  requestFunctionName: 'mockjs2Test',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (requestData?: Mockjs2TestRequest, ...args: UserRequestRestArgs) => {
+  return request<Mockjs2TestResponse>(prepare(mockjs2TestRequestConfig, requestData), ...args)
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /* prettier-ignore-end */
 "
@@ -64951,14 +67733,41 @@ export interface MockjsJson5TestRequest {}
  * @更新时间 1644917600
  */
 export interface MockjsJson5TestResponse {
+  /**
+   * 200
+   */
   code?: number;
+  /**
+   * [{\\"id\\":\\"@id\\",\\"name\\":\\"@cname\\",\\"template\\":\\"*\\",\\"string\\":\\"***\\",\\"number\\":200,\\"boolean\\":true,\\"image\\":\\"@image\\"}]
+   */
   data?: {
+    /**
+     * \\"@id\\"
+     */
     id?: string;
+    /**
+     * \\"@cname\\"
+     */
     name?: string;
+    /**
+     * \\"*\\"
+     */
     template?: string;
+    /**
+     * \\"***\\"
+     */
     string?: string;
+    /**
+     * 200
+     */
     number?: number;
-    boolean?: string;
+    /**
+     * true
+     */
+    boolean?: boolean;
+    /**
+     * \\"@image\\"
+     */
     image?: string;
   }[];
 }
@@ -65002,7 +67811,7 @@ const mockjsJson5TestRequestConfig: MockjsJson5TestRequestConfig = /*#__PURE__*/
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"code\\":{\\"name\\":\\"code\\",\\"type\\":\\"number\\"},\\"data\\":{\\"name\\":\\"data\\",\\"type\\":\\"array\\",\\"items\\":{\\"name\\":0,\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"type\\":\\"string\\"},\\"name\\":{\\"name\\":\\"name\\",\\"type\\":\\"string\\"},\\"template\\":{\\"name\\":\\"template\\",\\"type\\":\\"string\\"},\\"string\\":{\\"name\\":\\"string\\",\\"type\\":\\"string\\"},\\"number\\":{\\"name\\":\\"number\\",\\"type\\":\\"number\\"},\\"boolean\\":{\\"name\\":\\"boolean\\",\\"type\\":\\"string\\"},\\"image\\":{\\"name\\":\\"image\\",\\"type\\":\\"string\\"}}}}}},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"code\\":{\\"type\\":\\"integer\\",\\"description\\":\\"200\\"},\\"data\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"@id\\\\\\"\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"@cname\\\\\\"\\"},\\"template\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"*\\\\\\"\\"},\\"string\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"***\\\\\\"\\"},\\"number\\":{\\"type\\":\\"integer\\",\\"description\\":\\"200\\"},\\"boolean\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"true\\"},\\"image\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"@image\\\\\\"\\"}},\\"additionalProperties\\":false},\\"description\\":\\"[{\\\\\\"id\\\\\\":\\\\\\"@id\\\\\\",\\\\\\"name\\\\\\":\\\\\\"@cname\\\\\\",\\\\\\"template\\\\\\":\\\\\\"*\\\\\\",\\\\\\"string\\\\\\":\\\\\\"***\\\\\\",\\\\\\"number\\\\\\":200,\\\\\\"boolean\\\\\\":true,\\\\\\"image\\\\\\":\\\\\\"@image\\\\\\"}]\\"}},\\"additionalProperties\\":false},
   requestFunctionName: \\"mockjsJson5Test\\",
   extraInfo: {},
 }
@@ -65024,7 +67833,152 @@ export const mockjsJson5Test = /*#__PURE__*/ (
   )
 }
 
-mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig",
+mockjsJson5Test.requestConfig = mockjsJson5TestRequestConfig
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestRequest {}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export interface Mockjs2TestResponse {
+  /**
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * 16
+   */
+  count?: number;
+  /**
+   * 1
+   */
+  first?: number;
+  /**
+   * 1
+   */
+  last?: number;
+  /**
+   * 1
+   */
+  prev?: number;
+  /**
+   * 1
+   */
+  next?: number;
+  /**
+   * true
+   */
+  firstPage?: boolean;
+  /**
+   * true
+   */
+  lastPage?: boolean;
+  /**
+   * 8
+   */
+  length?: number;
+  /**
+   * 1
+   */
+  slider?: number;
+  orderBy?: string;
+  /**
+   * \\"page\\"
+   */
+  funcName?: string;
+  funcParam?: string;
+  message?: string;
+  html?: string;
+  /**
+   * 1
+   */
+  totalPage?: number;
+  notCount?: boolean;
+  /**
+   * 5
+   */
+  maxResults?: number;
+  disabled?: boolean;
+  firstResult?: number;
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+type Mockjs2TestRequestConfig = Readonly<RequestConfig<
+  \\"http://foo.bar/mock/32\\",
+  \\"\\",
+  \\"http://prod.com/\\",
+  \\"/__hello__/mockjs2_test\\",
+  undefined,
+  string,
+  string,
+  true
+>>
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+const mockjs2TestRequestConfig: Mockjs2TestRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_0,
+  devUrl: devUrl_0_0_0_0,
+  prodUrl: prodUrl_0_0_0_0,
+  path: \\"/__hello__/mockjs2_test\\",
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_0,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"pageNo\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"pageSize\\":{\\"type\\":\\"integer\\",\\"description\\":\\"5\\"},\\"count\\":{\\"type\\":\\"integer\\",\\"description\\":\\"16\\"},\\"first\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"last\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"prev\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"next\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"firstPage\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"true\\"},\\"lastPage\\":{\\"type\\":\\"boolean\\",\\"description\\":\\"true\\"},\\"length\\":{\\"type\\":\\"integer\\",\\"description\\":\\"8\\"},\\"slider\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"orderBy\\":{\\"type\\":\\"string\\"},\\"funcName\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"page\\\\\\"\\"},\\"funcParam\\":{\\"type\\":\\"string\\"},\\"message\\":{\\"type\\":\\"string\\"},\\"html\\":{\\"type\\":\\"string\\"},\\"totalPage\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"notCount\\":{\\"type\\":\\"boolean\\"},\\"maxResults\\":{\\"type\\":\\"integer\\",\\"description\\":\\"5\\"},\\"disabled\\":{\\"type\\":\\"boolean\\"},\\"firstResult\\":{\\"type\\":\\"integer\\"}},\\"additionalProperties\\":false},
+  requestFunctionName: \\"mockjs2Test\\",
+  extraInfo: {},
+}
+
+/**
+ * 接口 [mockjs2↗](http://foo.bar/project/11/interface/api/1831) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/mockjs2_test\`
+ * @更新时间 1645001866
+ */
+export const mockjs2Test = /*#__PURE__*/ (
+  requestData?: Mockjs2TestRequest,
+  ...args: UserRequestRestArgs
+) => {
+  return request<Mockjs2TestResponse>(
+    prepare(mockjs2TestRequestConfig, requestData),
+    ...args,
+  )
+}
+
+mockjs2Test.requestConfig = mockjs2TestRequestConfig",
 ]
 `;
 
@@ -65263,8 +68217,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number
-  age?: string
+  /**
+   * 1
+   */
+  age?: number
+  /**
+   * \\"@name\\"
+   */
   name?: string
 }
 
@@ -65312,10 +68275,11 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = /*#__PURE
   responseDataJsonSchema: {
     type: 'object',
     properties: {
-      id: {name: 'id', type: 'number'},
-      age: {name: 'age', type: 'string'},
-      name: {name: 'name', type: 'string'},
+      id: {type: 'integer', description: '1'},
+      age: {type: 'integer', description: '1'},
+      name: {type: 'string', description: '\\"@name\\"'},
     },
+    additionalProperties: false,
   },
   requestFunctionName: 'json5ResponseTest',
   extraInfo: {},
@@ -67137,8 +70101,17 @@ export interface Json5ResponseTestRequest {}
  * @更新时间 1610557429
  */
 export interface Json5ResponseTestResponse {
+  /**
+   * 1
+   */
   id?: number;
-  age?: string;
+  /**
+   * 1
+   */
+  age?: number;
+  /**
+   * \\"@name\\"
+   */
   name?: string;
 }
 
@@ -67181,7 +70154,7 @@ const json5ResponseTestRequestConfig: Json5ResponseTestRequestConfig = /*#__PURE
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"name\\":\\"id\\",\\"type\\":\\"number\\"},\\"age\\":{\\"name\\":\\"age\\",\\"type\\":\\"string\\"},\\"name\\":{\\"name\\":\\"name\\",\\"type\\":\\"string\\"}}},
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"age\\":{\\"type\\":\\"integer\\",\\"description\\":\\"1\\"},\\"name\\":{\\"type\\":\\"string\\",\\"description\\":\\"\\\\\\"@name\\\\\\"\\"}},\\"additionalProperties\\":false},
   requestFunctionName: \\"json5ResponseTest\\",
   extraInfo: {},
 }

@@ -69,7 +69,6 @@
     "got": "^11.5.1",
     "json-schema-to-typescript": "^10.1.4",
     "json5": "^2.1.0",
-    "mockjs": "^1.0.1-beta3",
     "ora": "^3.4.0",
     "prettier": "^2.2.1",
     "prompts": "^2.0.4",
@@ -78,13 +77,12 @@
     "to-json-schema": "^0.2.5",
     "ts-node": "^8.0.2",
     "typescript": "^4.2.3",
-    "vtils": "^4.33.0",
+    "vtils": "^4.57.0",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^5.0.4",
     "@types/json5": "^0.0.30",
-    "@types/mockjs": "^1.0.2",
     "@types/node": "^10.12.10",
     "@types/prompts": "^1.2.0",
     "@types/react": "^16.9.2",
