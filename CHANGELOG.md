@@ -1,5 +1,11 @@
 # 更新日志
 
+### [3.31.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.31.1...v3.31.2) (2022-02-16)
+
+### 修复
+
+- 自写 mockjs 模板解析引擎提升解析精确度 ([254f0e1](https://github.com/fjc0k/yapi-to-typescript/commit/254f0e1d64059cb9f8ea5466ddcbd3f7ea727051))
+
 ### [3.31.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.31.0...v3.31.1) (2022-02-15)
 
 ### 修复
