@@ -112,3 +112,33 @@ export default defineConfig(
   },
 )
 ```
+
+## 定义引用类型 <Badge>3.32.0+</Badge>
+
+该功能适用于定义树等需要复用类型的场景。
+
+YApi 本身是不支持定义引用类型的，本功能仅是在 YApi 自有功能上做了以下约定支持定义引用类型：
+
+- 必须在 **标题** 栏定义；
+- 必须以 **&** 开头；
+- 引用路径规范和文件路径规范一致：`.` 表示当前级，`..` 表示上一级，`/` 在首位时表示根级，在中间时表示分割；
+- 引用数组的条目时必须加上 `/0`；
+- 定义引用类型后原本的类型定义将失效。
+
+举例：
+
+- 定义树
+
+  <img src="./images/refTree.png" width="800" />
+
+- 使用绝对路径引用
+
+  <img src="./images/refAbsolute.png" width="800" />
+
+- 使用相对路径引用
+
+  <img src="./images/refRelative.png" width="800" />
+
+- 引用数组条目
+
+  <img src="./images/refArrayItem.png" width="800" />

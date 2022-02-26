@@ -11,6 +11,7 @@ import {
   isObject,
   mapKeys,
   memoize,
+  repeat,
   run,
   traverse,
 } from 'vtils'
@@ -67,7 +68,11 @@ export function getNormalizedRelativePath(from: string, to: string) {
  */
 export function traverseJsonSchema(
   jsonSchema: JSONSchema4,
-  cb: (jsonSchema: JSONSchema4) => JSONSchema4,
+  cb: (
+    jsonSchema: JSONSchema4,
+    currentPath: Array<string | number>,
+  ) => JSONSchema4,
+  currentPath: Array<string | number> = [],
 ): JSONSchema4 {
   /* istanbul ignore if */
   if (!isObject(jsonSchema)) return jsonSchema
@@ -83,31 +88,35 @@ export function traverseJsonSchema(
   }
 
   // 处理传入的 JSONSchema
-  cb(jsonSchema)
+  cb(jsonSchema, currentPath)
 
   // 继续处理对象的子元素
   if (jsonSchema.properties) {
-    forOwn(jsonSchema.properties, item => traverseJsonSchema(item, cb))
+    forOwn(jsonSchema.properties, (item, key) =>
+      traverseJsonSchema(item, cb, [...currentPath, key]),
+    )
   }
 
   // 继续处理数组的子元素
   if (jsonSchema.items) {
-    castArray(jsonSchema.items).forEach(item => traverseJsonSchema(item, cb))
+    castArray(jsonSchema.items).forEach((item, index) =>
+      traverseJsonSchema(item, cb, [...currentPath, index]),
+    )
   }
 
   // 处理 oneOf
   if (jsonSchema.oneOf) {
-    jsonSchema.oneOf.forEach(item => traverseJsonSchema(item, cb))
+    jsonSchema.oneOf.forEach(item => traverseJsonSchema(item, cb, currentPath))
   }
 
   // 处理 anyOf
   if (jsonSchema.anyOf) {
-    jsonSchema.anyOf.forEach(item => traverseJsonSchema(item, cb))
+    jsonSchema.anyOf.forEach(item => traverseJsonSchema(item, cb, currentPath))
   }
 
   // 处理 allOf
   if (jsonSchema.allOf) {
-    jsonSchema.allOf.forEach(item => traverseJsonSchema(item, cb))
+    jsonSchema.allOf.forEach(item => traverseJsonSchema(item, cb, currentPath))
   }
 
   return jsonSchema
@@ -127,11 +136,6 @@ export function processJsonSchema(
     // 删除通过 swagger 导入时未剔除的 ref
     delete jsonSchema.$ref
     delete jsonSchema.$$ref
-
-    // 删除 Mockjs.toJSONSchema 引入的键
-    delete jsonSchema.template
-    delete jsonSchema.rule
-    delete jsonSchema.path
 
     // 数组只取第一个判断类型
     if (
@@ -192,12 +196,32 @@ export function processJsonSchema(
  */
 export function jsonSchemaToJSTTJsonSchema(
   jsonSchema: JSONSchema4,
+  typeName: string,
 ): JSONSchema4 {
   if (jsonSchema) {
     // 去除最外层的 description 以防止 JSTT 提取它作为类型的注释
     delete jsonSchema.description
   }
-  return traverseJsonSchema(jsonSchema, jsonSchema => {
+  return traverseJsonSchema(jsonSchema, (jsonSchema, currentPath) => {
+    // 支持类型引用
+    if (jsonSchema.title?.startsWith('&')) {
+      const typeRelativePath = jsonSchema.title.substring(1)
+      const typeAbsolutePath = toUnixPath(
+        path.resolve(
+          path.dirname(`/${currentPath.join('/')}`.replace(/\/{2,}/g, '/')),
+          typeRelativePath,
+        ),
+      )
+      const typeAbsolutePathArr = typeAbsolutePath.split('/').filter(Boolean)
+      const tsType = `${repeat(
+        'NonNullable<',
+        typeAbsolutePathArr.length,
+      )}${typeName}[${typeAbsolutePathArr
+        .map(v => JSON.stringify(v))
+        .join(']>[')}]>`
+      jsonSchema.tsType = tsType
+    }
+
     // 去除 title 和 id，防止 json-schema-to-typescript 提取它们作为接口名
     delete jsonSchema.title
     delete jsonSchema.id
@@ -380,7 +404,7 @@ export async function jsonSchemaToType(
   // JSTT 会转换 typeName，因此传入一个全大写的假 typeName，生成代码后再替换回真正的 typeName
   const fakeTypeName = 'THISISAFAKETYPENAME'
   const code = await compile(
-    jsonSchemaToJSTTJsonSchema(cloneDeepFast(jsonSchema)),
+    jsonSchemaToJSTTJsonSchema(cloneDeepFast(jsonSchema), typeName),
     fakeTypeName,
     JSTTOptions,
   )

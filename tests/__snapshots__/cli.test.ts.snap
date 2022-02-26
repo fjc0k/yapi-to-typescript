@@ -2273,6 +2273,98 @@ export const helloMockjs2 = /*#__PURE__*/ (requestData?: HelloMockjs2Request, ..
 
 helloMockjs2.requestConfig = helloMockjs2RequestConfig
 
+/**
+ * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/recursion\`
+ * @更新时间 1645849095
+ */
+export interface HelloRecursionRequest {}
+
+/**
+ * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/recursion\`
+ * @更新时间 1645849095
+ */
+export interface HelloRecursionResponse {
+  list: {
+    label: string
+    value: string
+    children?: NonNullable<HelloRecursionResponse['list']>
+    id: number
+    parent?: NonNullable<NonNullable<HelloRecursionResponse['list']>['0']>
+  }[]
+  list2: NonNullable<HelloRecursionResponse['list']>
+  obj: {
+    list3: NonNullable<HelloRecursionResponse['list']>
+    name: number
+    name2: NonNullable<NonNullable<NonNullable<HelloRecursionResponse['obj']>['0']>['name']>
+    id2: NonNullable<NonNullable<NonNullable<HelloRecursionResponse['list']>['0']>['id']>
+  }[]
+}
+
+/**
+ * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/recursion\`
+ * @更新时间 1645849095
+ */
+type HelloRecursionRequestConfig = Readonly<
+  RequestConfig<
+    'http://foo.bar/mock/32',
+    '',
+    'http://prod.com/',
+    '/__hello__/recursion',
+    undefined,
+    string,
+    string,
+    true
+  >
+>
+
+/**
+ * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/recursion\`
+ * @更新时间 1645849095
+ */
+const helloRecursionRequestConfig: HelloRecursionRequestConfig = /*#__PURE__*/ {
+  mockUrl: mockUrl_0_0_0_2,
+  devUrl: devUrl_0_0_0_2,
+  prodUrl: prodUrl_0_0_0_2,
+  path: '/__hello__/recursion',
+  method: Method.GET,
+  requestHeaders: {},
+  requestBodyType: RequestBodyType.query,
+  responseBodyType: ResponseBodyType.json,
+  dataKey: dataKey_0_0_0_2,
+  paramNames: [],
+  queryNames: [],
+  requestDataOptional: true,
+  requestDataJsonSchema: {},
+  responseDataJsonSchema: {},
+  requestFunctionName: 'helloRecursion',
+  extraInfo: {},
+}
+
+/**
+ * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ *
+ * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
+ * @请求头 \`GET /__hello__/recursion\`
+ * @更新时间 1645849095
+ */
+export const helloRecursion = /*#__PURE__*/ (requestData?: HelloRecursionRequest, ...args: UserRequestRestArgs) => {
+  return request<HelloRecursionResponse>(prepare(helloRecursionRequestConfig, requestData), ...args)
+}
+
+helloRecursion.requestConfig = helloRecursionRequestConfig
+
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_3 = '' as any
 const prodUrl_0_0_0_3 = 'http://prod.com/' as any
