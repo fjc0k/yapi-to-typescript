@@ -1,5 +1,11 @@
 # 更新日志
 
+## [3.32.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.31.2...v3.32.0) (2022-02-26)
+
+### 特性
+
+- 支持定义引用类型以满足需要复用类型的场景 ([d022db1](https://github.com/fjc0k/yapi-to-typescript/commit/d022db1fe09feddcdee563491f1417d99465c5c3))
+
 ### [3.31.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.31.1...v3.31.2) (2022-02-16)
 
 ### 修复
