@@ -1,5 +1,11 @@
 # 更新日志
 
+## [3.33.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.32.1...v3.33.0) (2022-03-12)
+
+### 特性
+
+- 支持在备注栏定义类型引用以兼容没有标题栏的 YApi 低版本 ([25bd32b](https://github.com/fjc0k/yapi-to-typescript/commit/25bd32b2167be446f64abc71429d687df4798234))
+
 ### [3.32.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.32.0...v3.32.1) (2022-03-12)
 
 ### 修复
