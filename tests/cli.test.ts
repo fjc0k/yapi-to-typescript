@@ -1,18 +1,23 @@
 import consola from 'consola'
 import fs from 'fs-extra'
 import path from 'path'
-import tempy from 'tempy'
 import { CatId } from './consts'
 import { run } from '../src/cli'
-import { wait } from 'vtils'
+import { uniqueId, wait } from 'vtils'
+
+const tempDir = path.join(__dirname, '../.tmp-ytt-test')
+
+beforeAll(() => {
+  fs.ensureDirSync(tempDir)
+})
+
+afterAll(() => {
+  fs.removeSync(tempDir)
+})
 
 function getTempPaths() {
-  const targetDir = tempy.directory()
-  fs.symlinkSync(
-    path.join(__dirname, '../node_modules'),
-    path.join(targetDir, 'node_modules'),
-    'dir',
-  )
+  const targetDir = path.join(tempDir, uniqueId('case'))
+  fs.ensureDirSync(targetDir)
   const generatedConfigFile = path.join(targetDir, 'ytt.config.ts')
   const generatedApiFile = path.join(targetDir, 'src/api/index.ts')
   const generatedRequestFile = path.join(targetDir, 'src/api/request.ts')
@@ -76,7 +81,10 @@ describe('cli', () => {
       fs
         .readFileSync(tempPaths.generatedConfigFile)
         .toString()
-        .replace('yapi-to-typescript', path.join(__dirname, '../src'))
+        .replace(
+          "'yapi-to-typescript'",
+          JSON.stringify(path.join(__dirname, '../src')),
+        )
         .replace(`dataKey: 'data',`, '')
         .replace(`id: 50,`, `id: ${CatId.test},`),
     )
@@ -151,15 +159,24 @@ describe('cli', () => {
       fs
         .readFileSync(tempPaths.generatedConfigFile)
         .toString()
-        .replace('yapi-to-typescript', path.join(__dirname, '../src'))
+        .replace(
+          "'yapi-to-typescript'",
+          JSON.stringify(path.join(__dirname, '../src')),
+        )
         .replace(`dataKey: 'data',`, '')
         .replace(`id: 50,`, `id: ${CatId.test},`)
         .replace(
           /(?=\)\s*$)/s,
           `, {
-            success: () => require('fs').writeFileSync('${successFile}', 'success'),
-            fail: () => require('fs').writeFileSync('${failFile}', 'fail'),
-            complete: () => require('fs').writeFileSync('${completeFile}', 'complete'),
+            success: () => require('fs').writeFileSync(${JSON.stringify(
+              successFile,
+            )}, 'success'),
+            fail: () => require('fs').writeFileSync(${JSON.stringify(
+              failFile,
+            )}, 'fail'),
+            complete: () => require('fs').writeFileSync(${JSON.stringify(
+              completeFile,
+            )}, 'complete'),
           }`,
         ),
     )
