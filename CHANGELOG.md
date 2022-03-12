@@ -1,5 +1,12 @@
 # 更新日志
 
+### [3.32.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.32.0...v3.32.1) (2022-03-12)
+
+### 修复
+
+- 解决 Windows 下类型引用错误的问题 ([5eb3644](https://github.com/fjc0k/yapi-to-typescript/commit/5eb3644f0963af25c60e6f1e2828868610a8f066))
+- 修复 cli 测试在 Windows 上无法执行的问题 ([717e936](https://github.com/fjc0k/yapi-to-typescript/commit/717e9366388c8571ec75baabb3115d77120757fa))
+
 ## [3.32.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.31.2...v3.32.0) (2022-02-26)
 
 ### 特性
