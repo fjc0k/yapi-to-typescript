@@ -207,10 +207,12 @@ export function jsonSchemaToJSTTJsonSchema(
     if (jsonSchema.title?.startsWith('&')) {
       const typeRelativePath = jsonSchema.title.substring(1)
       const typeAbsolutePath = toUnixPath(
-        path.resolve(
-          path.dirname(`/${currentPath.join('/')}`.replace(/\/{2,}/g, '/')),
-          typeRelativePath,
-        ),
+        path
+          .resolve(
+            path.dirname(`/${currentPath.join('/')}`.replace(/\/{2,}/g, '/')),
+            typeRelativePath,
+          )
+          .replace(/^[a-z]+:/i, ''),
       )
       const typeAbsolutePathArr = typeAbsolutePath.split('/').filter(Boolean)
       const tsType = `${repeat(
