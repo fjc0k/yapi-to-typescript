@@ -1,5 +1,11 @@
 # 更新日志
 
+### [3.33.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.33.0...v3.33.1) (2022-03-14)
+
+### 修复
+
+- **类型引用:** 修复引用根级类型报错的问题 ([d8e93d4](https://github.com/fjc0k/yapi-to-typescript/commit/d8e93d48fe6a1b4403802d1c5365f89f506a0832))
+
 ## [3.33.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.32.1...v3.33.0) (2022-03-12)
 
 ### 特性
