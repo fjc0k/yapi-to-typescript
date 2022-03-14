@@ -483,56 +483,57 @@ export const mockjs2Test = /*#__PURE__*/ (
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @状态 未完成
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  * @项目ID 11
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @状态 未完成
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  * @项目ID 11
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string;
     value: string;
-    children?: NonNullable<RecursionTestResponse['list']>;
+    children?: NonNullable<RefTypeTestResponse['list']>;
     id: number;
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>;
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>;
   }[];
-  list2: NonNullable<RecursionTestResponse['list']>;
+  list2: NonNullable<RefTypeTestResponse['list']>;
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>;
+    list3: NonNullable<RefTypeTestResponse['list']>;
     name: number;
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>;
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>;
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>;
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>;
   }[];
+  root: RefTypeTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @状态 未完成
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  * @项目ID 11
  */
-type RecursionTestRequestConfig = Readonly<RequestConfig<
+type RefTypeTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion_test\\",
+  \\"/__hello__/ref_type_test\\",
   undefined,
   string,
   string,
@@ -540,19 +541,19 @@ type RecursionTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @状态 未完成
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  * @项目ID 11
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/__hello__/recursion_test\\",
+  path: \\"/__hello__/ref_type_test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -563,30 +564,30 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: \\"recursionTest\\",
+  requestFunctionName: \\"refTypeTest\\",
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @状态 未完成
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  * @项目ID 11
  */
-export const recursionTest = /*#__PURE__*/ (
-  requestData?: RecursionTestRequest,
+export const refTypeTest = /*#__PURE__*/ (
+  requestData?: RefTypeTestRequest,
   ...args: UserRequestRestArgs
 ) => {
-  return request<RecursionTestResponse>(
-    prepare(recursionTestRequestConfig, requestData),
+  return request<RefTypeTestResponse>(
+    prepare(refTypeTestRequestConfig, requestData),
     ...args,
   )
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig",
+refTypeTest.requestConfig = refTypeTestRequestConfig",
 ]
 `;
 
@@ -1035,50 +1036,51 @@ export const mockjs2Test = /*#__PURE__*/ (
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: boolean;
     value: boolean;
-    children?: NonNullable<RecursionTestResponse['list']>;
+    children?: NonNullable<RefTypeTestResponse['list']>;
     id: number;
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>;
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>;
   }[];
-  list2: NonNullable<RecursionTestResponse['list']>;
+  list2: NonNullable<RefTypeTestResponse['list']>;
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>;
+    list3: NonNullable<RefTypeTestResponse['list']>;
     name: number;
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>;
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>;
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>;
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>;
   }[];
+  root: RefTypeTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<RequestConfig<
+type RefTypeTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion_test\\",
+  \\"/__hello__/ref_type_test\\",
   undefined,
   string,
   string,
@@ -1086,17 +1088,17 @@ type RecursionTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/__hello__/recursion_test\\",
+  path: \\"/__hello__/ref_type_test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -1107,28 +1109,28 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: \\"recursionTest\\",
+  requestFunctionName: \\"refTypeTest\\",
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (
-  requestData?: RecursionTestRequest,
+export const refTypeTest = /*#__PURE__*/ (
+  requestData?: RefTypeTestRequest,
   ...args: UserRequestRestArgs
 ) => {
-  return request<RecursionTestResponse>(
-    prepare(recursionTestRequestConfig, requestData),
+  return request<RefTypeTestResponse>(
+    prepare(refTypeTestRequestConfig, requestData),
     ...args,
   )
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig",
+refTypeTest.requestConfig = refTypeTestRequestConfig",
 ]
 `;
 
@@ -1773,50 +1775,51 @@ export const mockjs2Test = /*#__PURE__*/ (
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string;
     value: string;
-    children?: NonNullable<RecursionTestResponse['list']>;
+    children?: NonNullable<RefTypeTestResponse['list']>;
     id: number;
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>;
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>;
   }[];
-  list2: NonNullable<RecursionTestResponse['list']>;
+  list2: NonNullable<RefTypeTestResponse['list']>;
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>;
+    list3: NonNullable<RefTypeTestResponse['list']>;
     name: number;
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>;
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>;
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>;
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>;
   }[];
+  root: RefTypeTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<RequestConfig<
+type RefTypeTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion_test\\",
+  \\"/__hello__/ref_type_test\\",
   undefined,
   string,
   string,
@@ -1824,17 +1827,17 @@ type RecursionTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/__hello__/recursion_test\\",
+  path: \\"/__hello__/ref_type_test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -1845,28 +1848,28 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: \\"recursionTest\\",
+  requestFunctionName: \\"refTypeTest\\",
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (
-  requestData?: RecursionTestRequest,
+export const refTypeTest = /*#__PURE__*/ (
+  requestData?: RefTypeTestRequest,
   ...args: UserRequestRestArgs
 ) => {
-  return request<RecursionTestResponse>(
-    prepare(recursionTestRequestConfig, requestData),
+  return request<RefTypeTestResponse>(
+    prepare(refTypeTestRequestConfig, requestData),
     ...args,
   )
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig",
+refTypeTest.requestConfig = refTypeTestRequestConfig",
 ]
 `;
 
@@ -2676,20 +2679,20 @@ export const dataTest = /*#__PURE__*/ (
 dataTest.requestConfig = dataTestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion/__data___test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type/__data___test\`
+ * @更新时间 1647247632
  */
 export interface DataTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion/__data___test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type/__data___test\`
+ * @更新时间 1647247632
  */
 export interface DataTestResponse {
   list: {
@@ -2706,20 +2709,21 @@ export interface DataTestResponse {
     name2: NonNullable<NonNullable<NonNullable<DataTestResponse['obj']>['0']>['name']>;
     id2: NonNullable<NonNullable<NonNullable<DataTestResponse['list']>['0']>['id']>;
   }[];
+  root: DataTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion/__data___test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type/__data___test\`
+ * @更新时间 1647247632
  */
 type DataTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion/__data___test\\",
+  \\"/__hello__/ref_type/__data___test\\",
   \\"__data__\\",
   string,
   string,
@@ -2727,17 +2731,17 @@ type DataTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion/__data___test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type/__data___test\`
+ * @更新时间 1647247632
  */
 const dataTestRequestConfig: DataTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/__hello__/recursion/__data___test\\",
+  path: \\"/__hello__/ref_type/__data___test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -2753,11 +2757,11 @@ const dataTestRequestConfig: DataTestRequestConfig = /*#__PURE__*/ {
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion/__data___test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type/__data___test\`
+ * @更新时间 1647247632
  */
 export const dataTest = /*#__PURE__*/ (
   requestData?: DataTestRequest,
@@ -3216,50 +3220,51 @@ export const mockjs2Test = /*#__PURE__*/ (
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string;
     value: string;
-    children?: NonNullable<RecursionTestResponse['list']>;
+    children?: NonNullable<RefTypeTestResponse['list']>;
     id: number;
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>;
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>;
   }[];
-  list2: NonNullable<RecursionTestResponse['list']>;
+  list2: NonNullable<RefTypeTestResponse['list']>;
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>;
+    list3: NonNullable<RefTypeTestResponse['list']>;
     name: number;
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>;
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>;
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>;
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>;
   }[];
+  root: RefTypeTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<RequestConfig<
+type RefTypeTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion_test\\",
+  \\"/__hello__/ref_type_test\\",
   undefined,
   string,
   string,
@@ -3267,17 +3272,17 @@ type RecursionTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/__hello__/recursion_test\\",
+  path: \\"/__hello__/ref_type_test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -3288,28 +3293,28 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: \\"recursionTest\\",
-  extraInfo: {\\"name\\":\\"递归\\",\\"category\\":\\"test2\\",\\"project\\":\\"test\\"},
+  requestFunctionName: \\"refTypeTest\\",
+  extraInfo: {\\"name\\":\\"类型引用\\",\\"category\\":\\"test2\\",\\"project\\":\\"test\\"},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (
-  requestData?: RecursionTestRequest,
+export const refTypeTest = /*#__PURE__*/ (
+  requestData?: RefTypeTestRequest,
   ...args: UserRequestRestArgs
 ) => {
-  return request<RecursionTestResponse>(
-    prepare(recursionTestRequestConfig, requestData),
+  return request<RefTypeTestResponse>(
+    prepare(refTypeTestRequestConfig, requestData),
     ...args,
   )
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig",
+refTypeTest.requestConfig = refTypeTestRequestConfig",
 ]
 `;
 
@@ -12101,50 +12106,51 @@ export const mockjs2Test = /*#__PURE__*/ (
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string;
     value: string;
-    children?: NonNullable<RecursionTestResponse['list']>;
+    children?: NonNullable<RefTypeTestResponse['list']>;
     id: number;
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>;
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>;
   }[];
-  list2: NonNullable<RecursionTestResponse['list']>;
+  list2: NonNullable<RefTypeTestResponse['list']>;
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>;
+    list3: NonNullable<RefTypeTestResponse['list']>;
     name: number;
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>;
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>;
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>;
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>;
   }[];
+  root: RefTypeTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<RequestConfig<
+type RefTypeTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion_test\\",
+  \\"/__hello__/ref_type_test\\",
   undefined,
   string,
   string,
@@ -12152,17 +12158,17 @@ type RecursionTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/__hello__/recursion_test\\",
+  path: \\"/__hello__/ref_type_test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -12173,28 +12179,28 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: \\"recursionTest\\",
+  requestFunctionName: \\"refTypeTest\\",
   extraInfo: {\\"url\\":\\"http://foo.bar/project/11/interface/api/1832\\",\\"categoryUrl\\":\\"http://foo.bar/project/11/interface/api/cat_20\\",\\"projectUrl\\":\\"http://foo.bar/project/32/interface/api\\"},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (
-  requestData?: RecursionTestRequest,
+export const refTypeTest = /*#__PURE__*/ (
+  requestData?: RefTypeTestRequest,
   ...args: UserRequestRestArgs
 ) => {
-  return request<RecursionTestResponse>(
-    prepare(recursionTestRequestConfig, requestData),
+  return request<RefTypeTestResponse>(
+    prepare(refTypeTestRequestConfig, requestData),
     ...args,
   )
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig",
+refTypeTest.requestConfig = refTypeTestRequestConfig",
 ]
 `;
 
@@ -47490,51 +47496,52 @@ export const mockjs2Test = /*#__PURE__*/ (requestData?: Mockjs2TestRequest, ...a
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string
     value: string
-    children?: NonNullable<RecursionTestResponse['list']>
+    children?: NonNullable<RefTypeTestResponse['list']>
     id: number
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>
   }[]
-  list2: NonNullable<RecursionTestResponse['list']>
+  list2: NonNullable<RefTypeTestResponse['list']>
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>
+    list3: NonNullable<RefTypeTestResponse['list']>
     name: number
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>
   }[]
+  root: RefTypeTestResponse
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<
+type RefTypeTestRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/__hello__/recursion_test',
+    '/__hello__/ref_type_test',
     undefined,
     string,
     string,
@@ -47543,17 +47550,17 @@ type RecursionTestRequestConfig = Readonly<
 >
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: '/__hello__/recursion_test',
+  path: '/__hello__/ref_type_test',
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -47564,22 +47571,22 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'recursionTest',
+  requestFunctionName: 'refTypeTest',
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (requestData?: RecursionTestRequest, ...args: UserRequestRestArgs) => {
-  return request<RecursionTestResponse>(prepare(recursionTestRequestConfig, requestData), ...args)
+export const refTypeTest = /*#__PURE__*/ (requestData?: RefTypeTestRequest, ...args: UserRequestRestArgs) => {
+  return request<RefTypeTestResponse>(prepare(refTypeTestRequestConfig, requestData), ...args)
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig
+refTypeTest.requestConfig = refTypeTestRequestConfig
 
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_3 = '' as any
@@ -50174,50 +50181,51 @@ export const mockjs2Test = /*#__PURE__*/ (
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string;
     value: string;
-    children?: NonNullable<RecursionTestResponse['list']>;
+    children?: NonNullable<RefTypeTestResponse['list']>;
     id: number;
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>;
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>;
   }[];
-  list2: NonNullable<RecursionTestResponse['list']>;
+  list2: NonNullable<RefTypeTestResponse['list']>;
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>;
+    list3: NonNullable<RefTypeTestResponse['list']>;
     name: number;
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>;
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>;
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>;
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>;
   }[];
+  root: RefTypeTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<RequestConfig<
+type RefTypeTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion_test\\",
+  \\"/__hello__/ref_type_test\\",
   undefined,
   string,
   string,
@@ -50225,17 +50233,17 @@ type RecursionTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: \\"/__hello__/recursion_test\\",
+  path: \\"/__hello__/ref_type_test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -50246,28 +50254,28 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: \\"recursionTest\\",
+  requestFunctionName: \\"refTypeTest\\",
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (
-  requestData?: RecursionTestRequest,
+export const refTypeTest = /*#__PURE__*/ (
+  requestData?: RefTypeTestRequest,
   ...args: UserRequestRestArgs
 ) => {
-  return request<RecursionTestResponse>(
-    prepare(recursionTestRequestConfig, requestData),
+  return request<RefTypeTestResponse>(
+    prepare(refTypeTestRequestConfig, requestData),
     ...args,
   )
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig",
+refTypeTest.requestConfig = refTypeTestRequestConfig",
   "const mockUrl_0_0_0_3 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_3 = \\"\\" as any
 const prodUrl_0_0_0_3 = \\"http://prod.com/\\" as any
@@ -56333,51 +56341,52 @@ export const mockjs2Test = /*#__PURE__*/ (requestData?: Mockjs2TestRequest, ...a
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string
     value: string
-    children?: NonNullable<RecursionTestResponse['list']>
+    children?: NonNullable<RefTypeTestResponse['list']>
     id: number
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>
   }[]
-  list2: NonNullable<RecursionTestResponse['list']>
+  list2: NonNullable<RefTypeTestResponse['list']>
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>
+    list3: NonNullable<RefTypeTestResponse['list']>
     name: number
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>
   }[]
+  root: RefTypeTestResponse
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<
+type RefTypeTestRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/__hello__/recursion_test',
+    '/__hello__/ref_type_test',
     undefined,
     string,
     string,
@@ -56386,17 +56395,17 @@ type RecursionTestRequestConfig = Readonly<
 >
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
-  path: '/__hello__/recursion_test',
+  path: '/__hello__/ref_type_test',
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -56407,22 +56416,22 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'recursionTest',
+  requestFunctionName: 'refTypeTest',
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (requestData?: RecursionTestRequest, ...args: UserRequestRestArgs) => {
-  return request<RecursionTestResponse>(prepare(recursionTestRequestConfig, requestData), ...args)
+export const refTypeTest = /*#__PURE__*/ (requestData?: RefTypeTestRequest, ...args: UserRequestRestArgs) => {
+  return request<RefTypeTestResponse>(prepare(refTypeTestRequestConfig, requestData), ...args)
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig
+refTypeTest.requestConfig = refTypeTestRequestConfig
 
 /* prettier-ignore-end */
 "
@@ -58675,50 +58684,51 @@ export const mockjs2Test = /*#__PURE__*/ (
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string;
     value: string;
-    children?: NonNullable<RecursionTestResponse['list']>;
+    children?: NonNullable<RefTypeTestResponse['list']>;
     id: number;
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>;
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>;
   }[];
-  list2: NonNullable<RecursionTestResponse['list']>;
+  list2: NonNullable<RefTypeTestResponse['list']>;
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>;
+    list3: NonNullable<RefTypeTestResponse['list']>;
     name: number;
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>;
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>;
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>;
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>;
   }[];
+  root: RefTypeTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<RequestConfig<
+type RefTypeTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion_test\\",
+  \\"/__hello__/ref_type_test\\",
   undefined,
   string,
   string,
@@ -58726,17 +58736,17 @@ type RecursionTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
-  path: \\"/__hello__/recursion_test\\",
+  path: \\"/__hello__/ref_type_test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -58747,28 +58757,28 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: \\"recursionTest\\",
+  requestFunctionName: \\"refTypeTest\\",
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (
-  requestData?: RecursionTestRequest,
+export const refTypeTest = /*#__PURE__*/ (
+  requestData?: RefTypeTestRequest,
   ...args: UserRequestRestArgs
 ) => {
-  return request<RecursionTestResponse>(
-    prepare(recursionTestRequestConfig, requestData),
+  return request<RefTypeTestResponse>(
+    prepare(refTypeTestRequestConfig, requestData),
     ...args,
   )
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig",
+refTypeTest.requestConfig = refTypeTestRequestConfig",
 ]
 `;
 
@@ -59223,51 +59233,52 @@ export const mockjs2Test = /*#__PURE__*/ (requestData?: Mockjs2TestRequest, ...a
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string
     value: string
-    children?: NonNullable<RecursionTestResponse['list']>
+    children?: NonNullable<RefTypeTestResponse['list']>
     id: number
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>
   }[]
-  list2: NonNullable<RecursionTestResponse['list']>
+  list2: NonNullable<RefTypeTestResponse['list']>
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>
+    list3: NonNullable<RefTypeTestResponse['list']>
     name: number
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>
   }[]
+  root: RefTypeTestResponse
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<
+type RefTypeTestRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/__hello__/recursion_test',
+    '/__hello__/ref_type_test',
     undefined,
     string,
     string,
@@ -59276,17 +59287,17 @@ type RecursionTestRequestConfig = Readonly<
 >
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
-  path: '/__hello__/recursion_test',
+  path: '/__hello__/ref_type_test',
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -59297,22 +59308,22 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: 'recursionTest',
+  requestFunctionName: 'refTypeTest',
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (requestData?: RecursionTestRequest, ...args: UserRequestRestArgs) => {
-  return request<RecursionTestResponse>(prepare(recursionTestRequestConfig, requestData), ...args)
+export const refTypeTest = /*#__PURE__*/ (requestData?: RefTypeTestRequest, ...args: UserRequestRestArgs) => {
+  return request<RefTypeTestResponse>(prepare(refTypeTestRequestConfig, requestData), ...args)
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig
+refTypeTest.requestConfig = refTypeTestRequestConfig
 
 const mockUrl_0_0_0_2 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_2 = '' as any
@@ -60141,50 +60152,51 @@ export const mockjs2Test = /*#__PURE__*/ (
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string;
     value: string;
-    children?: NonNullable<RecursionTestResponse['list']>;
+    children?: NonNullable<RefTypeTestResponse['list']>;
     id: number;
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>;
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>;
   }[];
-  list2: NonNullable<RecursionTestResponse['list']>;
+  list2: NonNullable<RefTypeTestResponse['list']>;
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>;
+    list3: NonNullable<RefTypeTestResponse['list']>;
     name: number;
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>;
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>;
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>;
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>;
   }[];
+  root: RefTypeTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<RequestConfig<
+type RefTypeTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion_test\\",
+  \\"/__hello__/ref_type_test\\",
   undefined,
   string,
   string,
@@ -60192,17 +60204,17 @@ type RecursionTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_1,
   devUrl: devUrl_0_0_0_1,
   prodUrl: prodUrl_0_0_0_1,
-  path: \\"/__hello__/recursion_test\\",
+  path: \\"/__hello__/ref_type_test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -60213,28 +60225,28 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: \\"recursionTest\\",
+  requestFunctionName: \\"refTypeTest\\",
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (
-  requestData?: RecursionTestRequest,
+export const refTypeTest = /*#__PURE__*/ (
+  requestData?: RefTypeTestRequest,
   ...args: UserRequestRestArgs
 ) => {
-  return request<RecursionTestResponse>(
-    prepare(recursionTestRequestConfig, requestData),
+  return request<RefTypeTestResponse>(
+    prepare(refTypeTestRequestConfig, requestData),
     ...args,
   )
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig",
+refTypeTest.requestConfig = refTypeTestRequestConfig",
   "const mockUrl_0_0_0_2 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_2 = \\"\\" as any
 const prodUrl_0_0_0_2 = \\"http://prod.com/\\" as any
@@ -61441,17 +61453,17 @@ export const mockjs2Test = /*#__PURE__*/ (requestData, ...args) => {
 };
 mockjs2Test.requestConfig = mockjs2TestRequestConfig;
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig = {
+const refTypeTestRequestConfig = {
     mockUrl: mockUrl_0_0_0_2,
     devUrl: devUrl_0_0_0_2,
     prodUrl: prodUrl_0_0_0_2,
-    path: '/__hello__/recursion_test',
+    path: '/__hello__/ref_type_test',
     method: Method.GET,
     requestHeaders: {},
     requestBodyType: RequestBodyType.query,
@@ -61462,20 +61474,20 @@ const recursionTestRequestConfig = {
     requestDataOptional: true,
     requestDataJsonSchema: {},
     responseDataJsonSchema: {},
-    requestFunctionName: 'recursionTest',
+    requestFunctionName: 'refTypeTest',
     extraInfo: {},
 };
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (requestData, ...args) => {
-    return request(prepare(recursionTestRequestConfig, requestData), ...args);
+export const refTypeTest = /*#__PURE__*/ (requestData, ...args) => {
+    return request(prepare(refTypeTestRequestConfig, requestData), ...args);
 };
-recursionTest.requestConfig = recursionTestRequestConfig;
+refTypeTest.requestConfig = refTypeTestRequestConfig;
 const mockUrl_0_0_0_3 = 'http://foo.bar/mock/32';
 const devUrl_0_0_0_3 = '';
 const prodUrl_0_0_0_3 = 'http://prod.com/';
@@ -63856,50 +63868,51 @@ export const mockjs2Test = /*#__PURE__*/ (
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string;
     value: string;
-    children?: NonNullable<RecursionTestResponse['list']>;
+    children?: NonNullable<RefTypeTestResponse['list']>;
     id: number;
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>;
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>;
   }[];
-  list2: NonNullable<RecursionTestResponse['list']>;
+  list2: NonNullable<RefTypeTestResponse['list']>;
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>;
+    list3: NonNullable<RefTypeTestResponse['list']>;
     name: number;
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>;
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>;
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>;
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>;
   }[];
+  root: RefTypeTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<RequestConfig<
+type RefTypeTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion_test\\",
+  \\"/__hello__/ref_type_test\\",
   undefined,
   string,
   string,
@@ -63907,17 +63920,17 @@ type RecursionTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_2,
   devUrl: devUrl_0_0_0_2,
   prodUrl: prodUrl_0_0_0_2,
-  path: \\"/__hello__/recursion_test\\",
+  path: \\"/__hello__/ref_type_test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -63928,28 +63941,28 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   requestDataOptional: true,
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
-  requestFunctionName: \\"recursionTest\\",
+  requestFunctionName: \\"refTypeTest\\",
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (
-  requestData?: RecursionTestRequest,
+export const refTypeTest = /*#__PURE__*/ (
+  requestData?: RefTypeTestRequest,
   ...args: UserRequestRestArgs
 ) => {
-  return request<RecursionTestResponse>(
-    prepare(recursionTestRequestConfig, requestData),
+  return request<RefTypeTestResponse>(
+    prepare(refTypeTestRequestConfig, requestData),
     ...args,
   )
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig",
+refTypeTest.requestConfig = refTypeTestRequestConfig",
   "const mockUrl_0_0_0_3 = \\"http://foo.bar/mock/32\\" as any
 const devUrl_0_0_0_3 = \\"\\" as any
 const prodUrl_0_0_0_3 = \\"http://prod.com/\\" as any
@@ -68817,51 +68830,52 @@ export const mockjs2Test = /*#__PURE__*/ (requestData?: Mockjs2TestRequest, ...a
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string
     value: string
-    children?: NonNullable<RecursionTestResponse['list']>
+    children?: NonNullable<RefTypeTestResponse['list']>
     id: number
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>
   }[]
-  list2: NonNullable<RecursionTestResponse['list']>
+  list2: NonNullable<RefTypeTestResponse['list']>
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>
+    list3: NonNullable<RefTypeTestResponse['list']>
     name: number
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>
   }[]
+  root: RefTypeTestResponse
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<
+type RefTypeTestRequestConfig = Readonly<
   RequestConfig<
     'http://foo.bar/mock/32',
     '',
     'http://prod.com/',
-    '/__hello__/recursion_test',
+    '/__hello__/ref_type_test',
     undefined,
     string,
     string,
@@ -68870,17 +68884,17 @@ type RecursionTestRequestConfig = Readonly<
 >
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: '/__hello__/recursion_test',
+  path: '/__hello__/ref_type_test',
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -68922,25 +68936,26 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
           required: ['list3', 'name', 'name2', 'id2'],
         },
       },
+      root: {type: 'string', title: '&/'},
     },
-    required: ['list', 'list2', 'obj'],
+    required: ['list', 'list2', 'obj', 'root'],
   },
-  requestFunctionName: 'recursionTest',
+  requestFunctionName: 'refTypeTest',
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (requestData?: RecursionTestRequest, ...args: UserRequestRestArgs) => {
-  return request<RecursionTestResponse>(prepare(recursionTestRequestConfig, requestData), ...args)
+export const refTypeTest = /*#__PURE__*/ (requestData?: RefTypeTestRequest, ...args: UserRequestRestArgs) => {
+  return request<RefTypeTestResponse>(prepare(refTypeTestRequestConfig, requestData), ...args)
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig
+refTypeTest.requestConfig = refTypeTestRequestConfig
 
 /* prettier-ignore-end */
 "
@@ -69389,50 +69404,51 @@ export const mockjs2Test = /*#__PURE__*/ (
 mockjs2Test.requestConfig = mockjs2TestRequestConfig
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestRequest {}
+export interface RefTypeTestRequest {}
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **返回类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export interface RecursionTestResponse {
+export interface RefTypeTestResponse {
   list: {
     label: string;
     value: string;
-    children?: NonNullable<RecursionTestResponse['list']>;
+    children?: NonNullable<RefTypeTestResponse['list']>;
     id: number;
-    parent?: NonNullable<NonNullable<RecursionTestResponse['list']>['0']>;
+    parent?: NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>;
   }[];
-  list2: NonNullable<RecursionTestResponse['list']>;
+  list2: NonNullable<RefTypeTestResponse['list']>;
   obj: {
-    list3: NonNullable<RecursionTestResponse['list']>;
+    list3: NonNullable<RefTypeTestResponse['list']>;
     name: number;
-    name2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['obj']>['0']>['name']>;
-    id2: NonNullable<NonNullable<NonNullable<RecursionTestResponse['list']>['0']>['id']>;
+    name2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['obj']>['0']>['name']>;
+    id2: NonNullable<NonNullable<NonNullable<RefTypeTestResponse['list']>['0']>['id']>;
   }[];
+  root: RefTypeTestResponse;
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置的类型**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-type RecursionTestRequestConfig = Readonly<RequestConfig<
+type RefTypeTestRequestConfig = Readonly<RequestConfig<
   \\"http://foo.bar/mock/32\\",
   \\"\\",
   \\"http://prod.com/\\",
-  \\"/__hello__/recursion_test\\",
+  \\"/__hello__/ref_type_test\\",
   undefined,
   string,
   string,
@@ -69440,17 +69456,17 @@ type RecursionTestRequestConfig = Readonly<RequestConfig<
 >>
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求配置**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
+const refTypeTestRequestConfig: RefTypeTestRequestConfig = /*#__PURE__*/ {
   mockUrl: mockUrl_0_0_0_0,
   devUrl: devUrl_0_0_0_0,
   prodUrl: prodUrl_0_0_0_0,
-  path: \\"/__hello__/recursion_test\\",
+  path: \\"/__hello__/ref_type_test\\",
   method: Method.GET,
   requestHeaders: {},
   requestBodyType: RequestBodyType.query,
@@ -69460,29 +69476,29 @@ const recursionTestRequestConfig: RecursionTestRequestConfig = /*#__PURE__*/ {
   queryNames: [],
   requestDataOptional: true,
   requestDataJsonSchema: {},
-  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"title\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"label\\":{\\"type\\":\\"string\\"},\\"value\\":{\\"type\\":\\"string\\"},\\"children\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{}},\\"title\\":\\"&..\\"},\\"id\\":{\\"type\\":\\"number\\"},\\"parent\\":{\\"type\\":\\"string\\",\\"title\\":\\"&.\\"}},\\"required\\":[\\"label\\",\\"value\\",\\"id\\"]}},\\"list2\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{}},\\"title\\":\\"&./list\\"},\\"obj\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"list3\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{}},\\"title\\":\\"&/list\\"},\\"name\\":{\\"type\\":\\"number\\"},\\"name2\\":{\\"type\\":\\"string\\",\\"title\\":\\"&./name\\"},\\"id2\\":{\\"type\\":\\"string\\",\\"title\\":\\"&/list/0/id\\"}},\\"required\\":[\\"list3\\",\\"name\\",\\"name2\\",\\"id2\\"]}}},\\"required\\":[\\"list\\",\\"list2\\",\\"obj\\"]},
-  requestFunctionName: \\"recursionTest\\",
+  responseDataJsonSchema: {\\"type\\":\\"object\\",\\"title\\":\\"title\\",\\"properties\\":{\\"list\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"label\\":{\\"type\\":\\"string\\"},\\"value\\":{\\"type\\":\\"string\\"},\\"children\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{}},\\"title\\":\\"&..\\"},\\"id\\":{\\"type\\":\\"number\\"},\\"parent\\":{\\"type\\":\\"string\\",\\"title\\":\\"&.\\"}},\\"required\\":[\\"label\\",\\"value\\",\\"id\\"]}},\\"list2\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{}},\\"title\\":\\"&./list\\"},\\"obj\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"list3\\":{\\"type\\":\\"array\\",\\"items\\":{\\"type\\":\\"object\\",\\"properties\\":{}},\\"title\\":\\"&/list\\"},\\"name\\":{\\"type\\":\\"number\\"},\\"name2\\":{\\"type\\":\\"string\\",\\"title\\":\\"&./name\\"},\\"id2\\":{\\"type\\":\\"string\\",\\"title\\":\\"&/list/0/id\\"}},\\"required\\":[\\"list3\\",\\"name\\",\\"name2\\",\\"id2\\"]}},\\"root\\":{\\"type\\":\\"string\\",\\"title\\":\\"&/\\"}},\\"required\\":[\\"list\\",\\"list2\\",\\"obj\\",\\"root\\"]},
+  requestFunctionName: \\"refTypeTest\\",
   extraInfo: {},
 }
 
 /**
- * 接口 [递归↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
+ * 接口 [类型引用↗](http://foo.bar/project/11/interface/api/1832) 的 **请求函数**
  *
  * @分类 [test2↗](http://foo.bar/project/11/interface/api/cat_20)
- * @请求头 \`GET /__hello__/recursion_test\`
- * @更新时间 1645849095
+ * @请求头 \`GET /__hello__/ref_type_test\`
+ * @更新时间 1647247632
  */
-export const recursionTest = /*#__PURE__*/ (
-  requestData?: RecursionTestRequest,
+export const refTypeTest = /*#__PURE__*/ (
+  requestData?: RefTypeTestRequest,
   ...args: UserRequestRestArgs
 ) => {
-  return request<RecursionTestResponse>(
-    prepare(recursionTestRequestConfig, requestData),
+  return request<RefTypeTestResponse>(
+    prepare(refTypeTestRequestConfig, requestData),
     ...args,
   )
 }
 
-recursionTest.requestConfig = recursionTestRequestConfig",
+refTypeTest.requestConfig = refTypeTestRequestConfig",
 ]
 `;
 

@@ -218,12 +218,14 @@ export function jsonSchemaToJSTTJsonSchema(
           .replace(/^[a-z]+:/i, ''),
       )
       const typeAbsolutePathArr = typeAbsolutePath.split('/').filter(Boolean)
-      const tsType = `${repeat(
-        'NonNullable<',
-        typeAbsolutePathArr.length,
-      )}${typeName}[${typeAbsolutePathArr
-        .map(v => JSON.stringify(v))
-        .join(']>[')}]>`
+      const tsType = !typeAbsolutePathArr.length
+        ? typeName
+        : `${repeat(
+            'NonNullable<',
+            typeAbsolutePathArr.length,
+          )}${typeName}[${typeAbsolutePathArr
+            .map(v => JSON.stringify(v))
+            .join(']>[')}]>`
       jsonSchema.tsType = tsType
     }
 

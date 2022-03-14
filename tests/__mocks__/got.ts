@@ -1060,7 +1060,7 @@ const mockData: Record<string, () => any> = {
         },
         {
           query_path: {
-            path: '/recursion',
+            path: '/ref_type',
             params: [],
           },
           edit_uid: 0,
@@ -1074,14 +1074,14 @@ const mockData: Record<string, () => any> = {
           _id: 1832,
           method: 'GET',
           catid: 20,
-          title: '递归',
-          path: '/recursion',
+          title: '类型引用',
+          path: '/ref_type',
           project_id: 11,
           req_params: [],
           res_body_type: 'json',
           uid: 11,
           add_time: 1645844560,
-          up_time: 1645849095,
+          up_time: 1647247632,
           req_query: [],
           req_headers: [],
           req_body_form: [],
@@ -1089,7 +1089,7 @@ const mockData: Record<string, () => any> = {
           desc: '',
           markdown: '',
           res_body:
-            '{"type":"object","title":"title","properties":{"list":{"type":"array","items":{"type":"object","properties":{"label":{"type":"string"},"value":{"type":"string"},"children":{"type":"array","items":{"type":"object","properties":{}},"title":"&.."},"id":{"type":"number"},"parent":{"type":"string","title":"&."}},"required":["label","value","id"]}},"list2":{"type":"array","items":{"type":"object","properties":{}},"title":"&./list"},"obj":{"type":"array","items":{"type":"object","properties":{"list3":{"type":"array","items":{"type":"object","properties":{}},"title":"&/list"},"name":{"type":"number"},"name2":{"type":"string","title":"&./name"},"id2":{"type":"string","title":"&/list/0/id"}},"required":["list3","name","name2","id2"]}}},"required":["list","list2","obj"]}',
+            '{"type":"object","title":"title","properties":{"list":{"type":"array","items":{"type":"object","properties":{"label":{"type":"string"},"value":{"type":"string"},"children":{"type":"array","items":{"type":"object","properties":{}},"title":"&.."},"id":{"type":"number"},"parent":{"type":"string","title":"&."}},"required":["label","value","id"]}},"list2":{"type":"array","items":{"type":"object","properties":{}},"title":"&./list"},"obj":{"type":"array","items":{"type":"object","properties":{"list3":{"type":"array","items":{"type":"object","properties":{}},"title":"&/list"},"name":{"type":"number"},"name2":{"type":"string","title":"&./name"},"id2":{"type":"string","title":"&/list/0/id"}},"required":["list3","name","name2","id2"]}},"root":{"type":"string","title":"&/"}},"required":["list","list2","obj","root"]}',
         },
         {
           query_path: {
