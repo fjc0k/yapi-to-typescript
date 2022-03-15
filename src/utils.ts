@@ -11,7 +11,6 @@ import {
   isObject,
   mapKeys,
   memoize,
-  repeat,
   run,
   traverse,
 } from 'vtils'
@@ -218,14 +217,15 @@ export function jsonSchemaToJSTTJsonSchema(
           .replace(/^[a-z]+:/i, ''),
       )
       const typeAbsolutePathArr = typeAbsolutePath.split('/').filter(Boolean)
-      const tsType = !typeAbsolutePathArr.length
-        ? typeName
-        : `${repeat(
-            'NonNullable<',
-            typeAbsolutePathArr.length,
-          )}${typeName}[${typeAbsolutePathArr
-            .map(v => JSON.stringify(v))
-            .join(']>[')}]>`
+
+      let tsTypeLeft = ''
+      let tsTypeRight = typeName
+      for (const key of typeAbsolutePathArr) {
+        tsTypeLeft += 'NonNullable<'
+        tsTypeRight += `[${JSON.stringify(key)}]>`
+      }
+      const tsType = `${tsTypeLeft}${tsTypeRight}`
+
       jsonSchema.tsType = tsType
     }
 
