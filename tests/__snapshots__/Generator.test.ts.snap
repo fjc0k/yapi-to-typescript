@@ -4477,7 +4477,10 @@ exports[`Generator 只生成请求数据的 JSON Schema: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -8097,7 +8100,10 @@ exports[`Generator 只生成返回数据的 JSON Schema: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -12215,7 +12221,10 @@ exports[`Generator 排除接口: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -12427,7 +12436,10 @@ exports[`Generator 支持将 token 设为数组: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -15867,7 +15879,7 @@ onlyPostFormDataTest.requestConfig = onlyPostFormDataTestRequestConfig
 `;
 
 exports[`Generator 支持将 token 设为数组: 请求文件 1`] = `
-"import { RequestFunctionParams } from 'yapi-to-typescript'
+"import type { RequestFunctionParams } from 'yapi-to-typescript'
 
 export interface RequestOptions {
   /**
@@ -19450,7 +19462,10 @@ exports[`Generator 支持项目设置里的接口基本路径: 接口文件 1`] 
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -21181,7 +21196,7 @@ onlyPostFormDataTest.requestConfig = onlyPostFormDataTestRequestConfig
 `;
 
 exports[`Generator 支持项目设置里的接口基本路径: 请求文件 1`] = `
-"import { RequestFunctionParams } from 'yapi-to-typescript'
+"import type { RequestFunctionParams } from 'yapi-to-typescript'
 
 export interface RequestOptions {
   /**
@@ -22998,7 +23013,10 @@ exports[`Generator 无分类注释: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -26318,7 +26336,10 @@ exports[`Generator 无更新时间注释: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -29638,7 +29659,10 @@ exports[`Generator 无标签注释: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -33148,7 +33172,10 @@ exports[`Generator 无标题注释: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -36278,7 +36305,10 @@ exports[`Generator 无注释: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -38515,7 +38545,10 @@ exports[`Generator 无请求头注释: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -41835,7 +41868,10 @@ exports[`Generator 无链接注释: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -45345,7 +45381,10 @@ exports[`Generator 正确生成代码并写入文件 - 全部分类: 接口文�
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -47935,7 +47974,7 @@ jsonTest.requestConfig = jsonTestRequestConfig
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 全部分类: 请求文件 1`] = `
-"import { RequestFunctionParams } from 'yapi-to-typescript'
+"import type { RequestFunctionParams } from 'yapi-to-typescript'
 
 export interface RequestOptions {
   /**
@@ -50642,7 +50681,10 @@ exports[`Generator 正确生成代码并写入文件 - 单分类: 接口文件 1
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -52373,7 +52415,7 @@ onlyPostFormDataTest.requestConfig = onlyPostFormDataTestRequestConfig
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 单分类: 请求文件 1`] = `
-"import { RequestFunctionParams } from 'yapi-to-typescript'
+"import type { RequestFunctionParams } from 'yapi-to-typescript'
 
 export interface RequestOptions {
   /**
@@ -54190,7 +54232,10 @@ exports[`Generator 正确生成代码并写入文件 - 多分类: 接口文件 1
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -56438,7 +56483,7 @@ refTypeTest.requestConfig = refTypeTestRequestConfig
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 多分类: 请求文件 1`] = `
-"import { RequestFunctionParams } from 'yapi-to-typescript'
+"import type { RequestFunctionParams } from 'yapi-to-typescript'
 
 export interface RequestOptions {
   /**
@@ -58791,7 +58836,10 @@ exports[`Generator 正确生成代码并写入文件 - 排除分类: 接口文�
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -59672,7 +59720,7 @@ jsonTest.requestConfig = jsonTestRequestConfig
 `;
 
 exports[`Generator 正确生成代码并写入文件 - 排除分类: 请求文件 1`] = `
-"import { RequestFunctionParams } from 'yapi-to-typescript'
+"import type { RequestFunctionParams } from 'yapi-to-typescript'
 
 export interface RequestOptions {
   /**
@@ -64322,8 +64370,8 @@ jsonTest.requestConfig = jsonTestRequestConfig",
 
 exports[`Generator 生成 React Hooks 代码: Hook 生成文件 1`] = `
 "import { useState, useEffect } from 'react'
-import { RequestConfig } from 'yapi-to-typescript'
-import { Request } from \\"./index\\"
+import type { RequestConfig } from 'yapi-to-typescript'
+import type { Request } from \\"./index\\"
 import baseRequest from \\"./request\\"
 
 export default function makeRequestHook<TRequestData, TRequestConfig extends RequestConfig, TRequestResult extends ReturnType<typeof baseRequest>>(request: Request<TRequestData, TRequestConfig, TRequestResult>) {
@@ -64360,7 +64408,10 @@ exports[`Generator 生成 React Hooks 代码: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 // @ts-ignore
@@ -66340,7 +66391,7 @@ export const useOnlyPostFormDataTest = /*#__PURE__*/ makeRequestHook<
 `;
 
 exports[`Generator 生成 React Hooks 代码: 请求文件 1`] = `
-"import { RequestFunctionParams } from 'yapi-to-typescript'
+"import type { RequestFunctionParams } from 'yapi-to-typescript'
 
 export interface RequestOptions {
   /**
@@ -68328,7 +68379,10 @@ exports[`Generator 生成的 JSON Schema 应包含默认值: 接口文件 1`] = 
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -69511,7 +69565,10 @@ exports[`Generator 生成请求数据和返回数据的 JSON Schema: 接口文�
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 

@@ -144,7 +144,10 @@ exports[`cli 正确初始化配置文件 & 生成结果: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, RequestConfig, RequestFunctionRestArgs, FileData, prepare } from 'yapi-to-typescript'
+import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+// @ts-ignore
+// prettier-ignore
+import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
 // @ts-ignore
 import request from './request'
 
@@ -2716,7 +2719,7 @@ hello_28PostJson.requestConfig = hello_28PostJsonRequestConfig
 `;
 
 exports[`cli 正确初始化配置文件 & 生成结果: 请求文件 1`] = `
-"import { RequestFunctionParams } from 'yapi-to-typescript'
+"import type { RequestFunctionParams } from 'yapi-to-typescript'
 
 export interface RequestOptions {
   /**
