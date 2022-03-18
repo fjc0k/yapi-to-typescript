@@ -1,5 +1,11 @@
 # 更新日志
 
+### [3.33.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.33.1...v3.33.2) (2022-03-18)
+
+### 修复
+
+- 生成的代码使用 import type 引入类型 ([8af92e6](https://github.com/fjc0k/yapi-to-typescript/commit/8af92e64a259413e84b967c6af89de5552ad0643))
+
 ### [3.33.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.33.0...v3.33.1) (2022-03-14)
 
 ### 修复
