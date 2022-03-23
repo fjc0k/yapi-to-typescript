@@ -154,3 +154,113 @@ Object {
   },
 }
 `;
+
+exports[`prepare 查询参数支持数组: brackets 1`] = `
+Object {
+  "allData": Object {},
+  "data": Object {},
+  "fileData": Object {},
+  "getFormData": [Function getFormData],
+  "hasFileData": false,
+  "path": "/search?list%5B%5D=1&list%5B%5D=2&list%5B%5D=3",
+  "queryNames": Array [
+    "list",
+  ],
+  "queryStringArrayFormat": "brackets",
+  "rawData": Object {
+    "list": Array [
+      1,
+      2,
+      3,
+    ],
+  },
+}
+`;
+
+exports[`prepare 查询参数支持数组: comma 1`] = `
+Object {
+  "allData": Object {},
+  "data": Object {},
+  "fileData": Object {},
+  "getFormData": [Function getFormData],
+  "hasFileData": false,
+  "path": "/search?list=1%2C2%2C3",
+  "queryNames": Array [
+    "list",
+  ],
+  "queryStringArrayFormat": "comma",
+  "rawData": Object {
+    "list": Array [
+      1,
+      2,
+      3,
+    ],
+  },
+}
+`;
+
+exports[`prepare 查询参数支持数组: indices 1`] = `
+Object {
+  "allData": Object {},
+  "data": Object {},
+  "fileData": Object {},
+  "getFormData": [Function getFormData],
+  "hasFileData": false,
+  "path": "/search?list%5B0%5D=1&list%5B1%5D=2&list%5B2%5D=3",
+  "queryNames": Array [
+    "list",
+  ],
+  "queryStringArrayFormat": "indices",
+  "rawData": Object {
+    "list": Array [
+      1,
+      2,
+      3,
+    ],
+  },
+}
+`;
+
+exports[`prepare 查询参数支持数组: json 1`] = `
+Object {
+  "allData": Object {},
+  "data": Object {},
+  "fileData": Object {},
+  "getFormData": [Function getFormData],
+  "hasFileData": false,
+  "path": "/search?list=%5B1%2C2%2C3%5D",
+  "queryNames": Array [
+    "list",
+  ],
+  "queryStringArrayFormat": "json",
+  "rawData": Object {
+    "list": Array [
+      1,
+      2,
+      3,
+    ],
+  },
+}
+`;
+
+exports[`prepare 查询参数支持数组: repeat 1`] = `
+Object {
+  "allData": Object {},
+  "data": Object {},
+  "fileData": Object {},
+  "getFormData": [Function getFormData],
+  "hasFileData": false,
+  "path": "/search?list=1&list=2&list=3",
+  "queryNames": Array [
+    "list",
+  ],
+  "queryStringArrayFormat": "repeat",
+  "rawData": Object {
+    "list": Array [
+      1,
+      2,
+      3,
+    ],
+  },
+}
+`;

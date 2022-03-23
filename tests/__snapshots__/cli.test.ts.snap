@@ -144,7 +144,7 @@ exports[`cli 正确初始化配置文件 & 生成结果: 接口文件 1`] = `
 
 // @ts-ignore
 // prettier-ignore
-import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+import { QueryStringArrayFormat, Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
 // @ts-ignore
 // prettier-ignore
 import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
@@ -235,6 +235,7 @@ const helloDeleteMethodRequestConfig: HelloDeleteMethodRequestConfig = /*#__PURE
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloDeleteMethod',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -329,6 +330,7 @@ const helloGetMethodRequestConfig: HelloGetMethodRequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloGetMethod',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -419,6 +421,7 @@ const helloJson5ResponseRequestConfig: HelloJson5ResponseRequestConfig = /*#__PU
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloJson5Response',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -524,6 +527,7 @@ const helloJson5RequestRequestConfig: HelloJson5RequestRequestConfig = /*#__PURE
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloJson5Request',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -627,6 +631,7 @@ const helloPostMethodRequestConfig: HelloPostMethodRequestConfig = /*#__PURE__*/
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloPostMethod',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -724,6 +729,7 @@ const helloPutMethodRequestConfig: HelloPutMethodRequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloPutMethod',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -826,6 +832,7 @@ const helloDataKeyExampleRequestConfig: HelloDataKeyExampleRequestConfig = /*#__
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloDataKeyExample',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -906,6 +913,7 @@ const helloUploadRequestConfig: HelloUploadRequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloUpload',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -987,6 +995,7 @@ const helloTestRequestConfig: HelloTestRequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloTest',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1064,6 +1073,7 @@ const helloNoResponseDataRequestConfig: HelloNoResponseDataRequestConfig = /*#__
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloNoResponseData',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1144,6 +1154,7 @@ const helloEmptyResponseRequestConfig: HelloEmptyResponseRequestConfig = /*#__PU
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloEmptyResponse',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1233,6 +1244,7 @@ const helloPathIdHelloNamePassAvatarTestRequestConfig: HelloPathIdHelloNamePassA
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloPathIdHelloNamePassAvatarTest',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1333,6 +1345,7 @@ const helloTestIdHihihiRequestConfig: HelloTestIdHihihiRequestConfig = /*#__PURE
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloTestIdHihihi',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1435,6 +1448,7 @@ const helloTestIdHihihi_1608478638207RequestConfig: HelloTestIdHihihi_1608478638
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloTestIdHihihi_1608478638207',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1518,6 +1532,7 @@ const helloRawResponseRequestConfig: HelloRawResponseRequestConfig = /*#__PURE__
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloRawResponse',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1586,6 +1601,7 @@ const helloHeadersRequestConfig: HelloHeadersRequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloHeaders',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1676,6 +1692,7 @@ const helloUserIdAvatarRequestConfig: HelloUserIdAvatarRequestConfig = /*#__PURE
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloUserIdAvatar',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1766,6 +1783,7 @@ const helloDataKeyDeepRequestConfig: HelloDataKeyDeepRequestConfig = /*#__PURE__
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloDataKeyDeep',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1848,6 +1866,7 @@ const helloGetOnlyPostFormDataRequestConfig: HelloGetOnlyPostFormDataRequestConf
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloGetOnlyPostFormData',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -1930,6 +1949,7 @@ const helloGet2RequestConfig: HelloGet2RequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloGet2',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -2010,6 +2030,7 @@ const helloDefaultValueRequestConfig: HelloDefaultValueRequestConfig = /*#__PURE
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloDefaultValue',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -2128,6 +2149,7 @@ const helloMockjsJson5RequestConfig: HelloMockjsJson5RequestConfig = /*#__PURE__
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloMockjsJson5',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -2260,6 +2282,7 @@ const helloMockjs2RequestConfig: HelloMockjs2RequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloMockjs2',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -2353,6 +2376,7 @@ const helloRefTypeRequestConfig: HelloRefTypeRequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloRefType',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -2435,6 +2459,7 @@ const helloIssue_17Picture_3dDetailRequestConfig: HelloIssue_17Picture_3dDetailR
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'helloIssue_17Picture_3dDetail',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -2523,6 +2548,7 @@ const hello_28GetRequestConfig: Hello_28GetRequestConfig = /*#__PURE__*/ {
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'hello_28Get',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -2606,6 +2632,7 @@ const hello_28PostFormRequestConfig: Hello_28PostFormRequestConfig = /*#__PURE__
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'hello_28PostForm',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 
@@ -2698,6 +2725,7 @@ const hello_28PostJsonRequestConfig: Hello_28PostJsonRequestConfig = /*#__PURE__
   requestDataJsonSchema: {},
   responseDataJsonSchema: {},
   requestFunctionName: 'hello_28PostJson',
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
   extraInfo: {},
 }
 

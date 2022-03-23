@@ -1,11 +1,12 @@
-import type { AppendOptions } from 'form-data'
-import type {
+import {
   CliHooks,
   Config,
   ConfigWithHooks,
+  QueryStringArrayFormat,
   RequestConfig,
   RequestFunctionParams,
 } from './types'
+import type { AppendOptions } from 'form-data'
 
 /**
  * 定义配置。
@@ -99,6 +100,41 @@ export function parseRequestData(requestData?: any): {
   return result
 }
 
+const queryStringify = (
+  key: string,
+  value: any,
+  arrayFormat: QueryStringArrayFormat,
+): string => {
+  let str = ''
+  if (value != null) {
+    if (!Array.isArray(value)) {
+      str = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+    } else if (arrayFormat === QueryStringArrayFormat.indices) {
+      str = value
+        .map(
+          (v, i) =>
+            `${encodeURIComponent(`${key}[${i}]`)}=${encodeURIComponent(v)}`,
+        )
+        .join('&')
+    } else if (arrayFormat === QueryStringArrayFormat.repeat) {
+      str = value
+        .map(v => `${encodeURIComponent(key)}=${encodeURIComponent(v)}`)
+        .join('&')
+    } else if (arrayFormat === QueryStringArrayFormat.comma) {
+      str = `${encodeURIComponent(key)}=${encodeURIComponent(value.join(','))}`
+    } else if (arrayFormat === QueryStringArrayFormat.json) {
+      str = `${encodeURIComponent(key)}=${encodeURIComponent(
+        JSON.stringify(value),
+      )}`
+    } else {
+      str = value
+        .map(v => `${encodeURIComponent(`${key}[]`)}=${encodeURIComponent(v)}`)
+        .join('&')
+    }
+  }
+  return str
+}
+
 /**
  * 准备要传给请求函数的参数。
  */
@@ -136,9 +172,11 @@ export function prepare(
       Object.keys(data).forEach(key => {
         if (requestConfig.queryNames.indexOf(key) >= 0) {
           if (data[key] != null) {
-            queryString += `${queryString ? '&' : ''}${encodeURIComponent(
+            queryString += `${queryString ? '&' : ''}${queryStringify(
               key,
-            )}=${encodeURIComponent(data[key])}`
+              data[key],
+              requestConfig.queryStringArrayFormat,
+            )}`
           }
           delete data[key]
         }

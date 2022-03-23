@@ -336,6 +336,32 @@ ytt 内置了一个映射表，此配置会进行追加（相同覆盖）：
 }
 ```
 
+### queryStringArrayFormat <Badge>3.34.0+</Badge>
+
+- 类型: `'brackets' | 'indices' | 'repeat' | 'comma' | 'json'`
+- 默认值: `'brackets'`
+- 说明:
+
+查询字符串数组格式化方式。见 [path](./request.html#path) 的说明，查询参数会被序列化进接口路径，可通过此选项配置如何格式化数组值。
+
+| 格式化方式 | 说明           | 示例            |
+| ---------- | -------------- | --------------- |
+| `brackets` | 索引(不带数字) | `a[]=b&a[]=c`   |
+| `indices`  | 索引(带数字)   | `a[0]=b&a[1]=c` |
+| `repeat`   | 重复           | `a=b&a=c`       |
+| `comma`    | 逗号分隔       | `a=b,c`         |
+| `json`     | JSON 字符串    | `a=["b","c"]`   |
+
+用法：
+
+```typescript
+import { QueryStringArrayFormat } from 'yapi-to-typescript'
+
+export default defineConfig({
+  queryStringArrayFormat: QueryStringArrayFormat.brackets,
+})
+```
+
 ### setRequestFunctionExtraInfo <Badge>3.27.0+</Badge>
 
 - 类型: `(interfaceInfo: Interface, changeCase: ChangeCase): Record<string, any>`

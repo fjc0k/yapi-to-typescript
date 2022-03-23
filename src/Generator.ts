@@ -28,6 +28,7 @@ import {
   Method,
   Project,
   ProjectConfig,
+  QueryStringArrayFormat,
   RequestBodyType,
   ServerConfig,
   SyntheticalConfig,
@@ -480,7 +481,7 @@ export class Generator {
               : dedent`
                 // @ts-ignore
                 // prettier-ignore
-                import { Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
+                import { QueryStringArrayFormat, Method, RequestBodyType, ResponseBodyType, FileData, prepare } from 'yapi-to-typescript'
                 // @ts-ignore
                 // prettier-ignore
                 import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
@@ -938,6 +939,10 @@ export class Generator {
                   : {},
               )},
               requestFunctionName: ${JSON.stringify(requestFunctionName)},
+              queryStringArrayFormat: QueryStringArrayFormat.${
+                syntheticalConfig.queryStringArrayFormat ||
+                QueryStringArrayFormat.brackets
+              },
               extraInfo: ${JSON.stringify(requestFunctionExtraInfo)},
             }
 

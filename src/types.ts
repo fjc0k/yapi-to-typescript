@@ -157,6 +157,20 @@ export enum ResponseBodyType {
   // jsonSchema = 'json-schema',
 }
 
+/** 查询字符串数组格式化方式 */
+export enum QueryStringArrayFormat {
+  /** 示例: `a[]=b&a[]=c` */
+  'brackets' = 'brackets',
+  /** 示例: `a[0]=b&a[1]=c` */
+  'indices' = 'indices',
+  /** 示例: `a=b&a=c` */
+  'repeat' = 'repeat',
+  /** 示例: `a=b,c` */
+  'comma' = 'comma',
+  /** 示例: `a=["b","c"]` */
+  'json' = 'json',
+}
+
 /** 接口定义 */
 export interface Interface {
   /** 接口 ID */
@@ -525,6 +539,13 @@ export interface SharedConfig {
   customTypeMapping?: Record<string, JSONSchema4TypeName>
 
   /**
+   * 如何格式化查询字符串中的数组值。
+   *
+   * @default QueryStringArrayFormat.brackets
+   */
+  queryStringArrayFormat?: QueryStringArrayFormat
+
+  /**
    * 设置传给请求函数的参数中的 extraInfo 的值。
    *
    * @param interfaceInfo 接口信息
@@ -715,6 +736,8 @@ export interface RequestConfig<
   responseDataJsonSchema: JSONSchema4
   /** 请求函数名称 */
   requestFunctionName: string
+  /** 如何格式化查询字符串中的数组值 */
+  queryStringArrayFormat: QueryStringArrayFormat
   /** 额外信息 */
   extraInfo: Record<string, any>
 }
