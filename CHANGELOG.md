@@ -1,5 +1,11 @@
 # 更新日志
 
+## [3.34.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.33.2...v3.34.0) (2022-03-23)
+
+### 特性
+
+- 新增 queryStringArrayFormat 配置项支持配置查询字符串数组格式化方式 (close: [#71](https://github.com/fjc0k/yapi-to-typescript/issues/71)) ([485d6ed](https://github.com/fjc0k/yapi-to-typescript/commit/485d6edc50aff7a1ec7bd5d6176fb4c807b1afbc))
+
 ### [3.33.2](https://github.com/fjc0k/yapi-to-typescript/compare/v3.33.1...v3.33.2) (2022-03-18)
 
 ### 修复
