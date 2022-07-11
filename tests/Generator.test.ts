@@ -8,7 +8,7 @@ import { OneOrMore } from 'vtils/types'
 import { ServerConfig } from '../src'
 
 afterEach(() => {
-  require('got').resetExportCount()
+  require('node-fetch').resetExportCount()
 })
 
 const generatorFactory = ({
@@ -245,7 +245,7 @@ describe('Generator', () => {
     })
     await generator.prepare()
     await generator.generate()
-    expect(require('got').getExportCount()).toEqual(1)
+    expect(require('node-fetch').getExportCount()).toEqual(1)
   })
 
   test('生成 JavaScript 代码', async () => {

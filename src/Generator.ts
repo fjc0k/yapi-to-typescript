@@ -1,7 +1,6 @@
 import * as changeCase from 'change-case'
 import dayjs from 'dayjs'
 import fs from 'fs-extra'
-import got from 'got'
 import path from 'path'
 import prettier from 'prettier'
 import {
@@ -39,6 +38,7 @@ import {
   getNormalizedRelativePath,
   getRequestDataJsonSchema,
   getResponseDataJsonSchema,
+  httpGet,
   jsonSchemaToType,
   sortByWeights,
   throwError,
@@ -570,17 +570,11 @@ export class Generator {
   }
 
   async fetchApi<T = any>(url: string, query: Record<string, any>): Promise<T> {
-    const { body: res } = await got.get<{
+    const res = await httpGet<{
       errcode: any
       errmsg: any
       data: any
-    }>(url, {
-      searchParams: query,
-      responseType: 'json',
-      https: {
-        rejectUnauthorized: false,
-      },
-    })
+    }>(url, query)
     /* istanbul ignore next */
     if (res && res.errcode) {
       throwError(res.errmsg)

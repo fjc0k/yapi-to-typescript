@@ -1,4 +1,5 @@
 import JSON5 from 'json5'
+import nodeFetch from 'node-fetch'
 import path from 'path'
 import prettier from 'prettier'
 import toJsonSchema from 'to-json-schema'
@@ -28,6 +29,7 @@ import {
   ResponseBodyType,
 } from './types'
 import { JSONSchema4, JSONSchema4TypeName } from 'json-schema'
+import { URL } from 'url'
 
 /**
  * 抛出错误。
@@ -632,3 +634,22 @@ export async function getPrettierOptions(): Promise<prettier.Options> {
 }
 
 export const getCachedPrettierOptions = memoize(getPrettierOptions)
+
+export async function httpGet<T>(
+  url: string,
+  query?: Record<string, any>,
+): Promise<T> {
+  const _url = new URL(url)
+  if (query) {
+    Object.keys(query).forEach(key => {
+      _url.searchParams.set(key, query[key])
+    })
+  }
+  url = _url.toString()
+
+  const res = await nodeFetch(url, {
+    method: 'GET',
+  })
+
+  return res.json()
+}

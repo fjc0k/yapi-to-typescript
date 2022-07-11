@@ -1,3 +1,5 @@
+import { URLSearchParams } from 'url'
+
 let exportCount = 0
 
 const mockData: Record<string, () => any> = {
@@ -2167,34 +2169,30 @@ const mockData: Record<string, () => any> = {
   }),
 }
 
-const got = {
-  get: (
-    url: string,
-    { searchParams: { token } = {} }: { searchParams: { token?: string } } = {
-      searchParams: {},
-    },
-  ) => {
-    const path = Object.keys(mockData).find(path => url.endsWith(path))
-    const mockRes = { body: (path && mockData[path]()) || {} }
-    if (path!.endsWith('/api/plugin/export')) {
-      exportCount++
-      ;(mockRes.body as any[]).forEach(group => {
-        ;(group.list as any[]).forEach(item => {
-          item.path = `/__${token}__${item.path}`
+const nodeFetch = async (_url: string) => {
+  return {
+    json: async () => {
+      const [url, query] = _url.split('?')
+      const { token } = Object.fromEntries(new URLSearchParams(query).entries())
+      const path = Object.keys(mockData).find(path => url.endsWith(path))
+      const mockRes = (path && mockData[path]()) || {}
+      if (path!.endsWith('/api/plugin/export')) {
+        exportCount++
+        ;(mockRes as any[]).forEach(group => {
+          ;(group.list as any[]).forEach(item => {
+            item.path = `/__${token}__${item.path}`
+          })
         })
-      })
-    }
-    if (path!.endsWith('/api/project/get') && token === 'with-basepath') {
-      mockRes.body.data.basepath = '/i-am-basepath'
-    }
-    return mockRes
-  },
-  resetExportCount() {
-    exportCount = 0
-  },
-  getExportCount() {
-    return exportCount
-  },
+      }
+      if (path!.endsWith('/api/project/get') && token === 'with-basepath') {
+        mockRes.data.basepath = '/i-am-basepath'
+      }
+      return mockRes
+    },
+  }
 }
 
-module.exports = got
+nodeFetch.resetExportCount = () => (exportCount = 0)
+nodeFetch.getExportCount = () => exportCount
+
+module.exports = nodeFetch
