@@ -1,5 +1,11 @@
 # 更新日志
 
+### [3.34.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.34.0...v3.34.1) (2022-07-11)
+
+### 修复
+
+- 替换内部请求库为 node-fetch ([f3e9ea4](https://github.com/fjc0k/yapi-to-typescript/commit/f3e9ea46036523a82da098c3b2260f973905d2ab))
+
 ## [3.34.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.33.2...v3.34.0) (2022-03-23)
 
 ### 特性
