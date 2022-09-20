@@ -2,6 +2,7 @@ import JSON5 from 'json5'
 import nodeFetch from 'node-fetch'
 import path from 'path'
 import prettier from 'prettier'
+import ProxyAgent from 'proxy-agent'
 import toJsonSchema from 'to-json-schema'
 import {
   castArray,
@@ -649,6 +650,7 @@ export async function httpGet<T>(
 
   const res = await nodeFetch(url, {
     method: 'GET',
+    agent: new ProxyAgent()
   })
 
   return res.json()
