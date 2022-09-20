@@ -1,5 +1,13 @@
 # 更新日志
 
+
+## [3.35.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.34.1...v3.35.0) (2022-09-20)
+
+
+### 特性
+
+* 支持通过环境变量(http_proxy等)设置请求代理 ([d0064cc](https://github.com/fjc0k/yapi-to-typescript/commit/d0064cc12d89db06dc2bbc246c4c780eaffc431a))
+
 ### [3.34.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.34.0...v3.34.1) (2022-07-11)
 
 ### 修复
