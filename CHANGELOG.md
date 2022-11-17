@@ -1,12 +1,16 @@
 # 更新日志
 
-
-## [3.35.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.34.1...v3.35.0) (2022-09-20)
-
+## [3.36.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.35.0...v3.36.0) (2022-11-17)
 
 ### 特性
 
-* 支持通过环境变量(http_proxy等)设置请求代理 ([d0064cc](https://github.com/fjc0k/yapi-to-typescript/commit/d0064cc12d89db06dc2bbc246c4c780eaffc431a))
+- 网络请求出错时打印请求地址、请求参数方便排查 ([043a083](https://github.com/fjc0k/yapi-to-typescript/commit/043a083d2b81759320bf9cd53cda2c05978ea91e))
+
+## [3.35.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.34.1...v3.35.0) (2022-09-20)
+
+### 特性
+
+- 支持通过环境变量(http_proxy 等)设置请求代理 ([d0064cc](https://github.com/fjc0k/yapi-to-typescript/commit/d0064cc12d89db06dc2bbc246c4c780eaffc431a))
 
 ### [3.34.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.34.0...v3.34.1) (2022-07-11)
 
