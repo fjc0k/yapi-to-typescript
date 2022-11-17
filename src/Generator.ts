@@ -577,7 +577,11 @@ export class Generator {
     }>(url, query)
     /* istanbul ignore next */
     if (res && res.errcode) {
-      throwError(res.errmsg)
+      throwError(
+        `${res.errmsg} [请求地址: ${url}] [请求参数: ${new URLSearchParams(
+          query,
+        ).toString()}]`,
+      )
     }
     return res.data || res
   }

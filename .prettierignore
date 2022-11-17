@@ -4,4 +4,3 @@ yarn.lock
 pnpm-lock.yaml
 lib
 dist
-*
