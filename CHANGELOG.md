@@ -1,5 +1,15 @@
 # 更新日志
 
+## [3.37.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.36.0...v3.37.0) (2023-02-08)
+
+### 特性
+
+- 表单支持多文件 ([#80](https://github.com/fjc0k/yapi-to-typescript/issues/80)) ([51f477b](https://github.com/fjc0k/yapi-to-typescript/commit/51f477b7854a3334875b8ccb766cdaf378c91cba))
+
+### 文档
+
+- 更新入群二维码 ([4aedd98](https://github.com/fjc0k/yapi-to-typescript/commit/4aedd9861ad8f96015b8a4cfb1f8580941f18415))
+
 ## [3.36.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.35.0...v3.36.0) (2022-11-17)
 
 ### 特性
