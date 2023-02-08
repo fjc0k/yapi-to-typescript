@@ -219,11 +219,14 @@ export function prepare(
     })
     Object.keys(fileData).forEach(key => {
       const options = (requestData[key] as FileData).getOptions()
-      formData.append(
-        key,
-        fileData[key],
-        useNativeFormData ? options?.filename : (options as any),
-      )
+      const files = Array.isArray(fileData[key]) ? fileData[key] : [fileData[key]]
+      files.forEach((file: Blob) => {
+        formData.append(
+          key,
+          file,
+          useNativeFormData ? options?.filename : (options as any),
+        )
+      })
     })
     return formData as any
   }
