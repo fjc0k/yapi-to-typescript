@@ -176,4 +176,47 @@ describe('prepare', () => {
       ),
     ).toMatchSnapshot('json')
   })
+
+  test('文件处理', async () => {
+    const payload = prepare(
+      { path: '/test' } as Partial<RequestConfig> as any,
+      {
+        file: new FileData(
+          new Blob(['1'], {
+            type: 'text1',
+          }),
+        ),
+      },
+    )
+    const files: any[] = []
+    payload.getFormData().forEach((v, k) => {
+      files.push([k, v])
+    })
+    for (const file of files) {
+      file[1] = file[1] instanceof File ? file[1].type : file[1]
+    }
+    expect(files).toMatchSnapshot('file-single')
+
+    const payload2 = prepare(
+      { path: '/test' } as Partial<RequestConfig> as any,
+      {
+        file: new FileData([
+          new Blob(['1'], {
+            type: 'text1',
+          }),
+          new Blob(['2'], {
+            type: 'text2',
+          }),
+        ]),
+      },
+    )
+    const files2: any[] = []
+    payload2.getFormData().forEach((v, k) => {
+      files2.push([k, v])
+    })
+    for (const file of files2) {
+      file[1] = file[1] instanceof File ? file[1].type : file[1]
+    }
+    expect(files2).toMatchSnapshot('file-multiple')
+  })
 })

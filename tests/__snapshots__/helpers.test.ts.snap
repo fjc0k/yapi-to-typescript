@@ -155,6 +155,28 @@ Object {
 }
 `;
 
+exports[`prepare 文件处理: file-multiple 1`] = `
+Array [
+  Array [
+    "file",
+    "text1",
+  ],
+  Array [
+    "file",
+    "text2",
+  ],
+]
+`;
+
+exports[`prepare 文件处理: file-single 1`] = `
+Array [
+  Array [
+    "file",
+    "text1",
+  ],
+]
+`;
+
 exports[`prepare 查询参数支持数组: brackets 1`] = `
 Object {
   "allData": Object {},
