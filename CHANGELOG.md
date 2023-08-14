@@ -1,5 +1,11 @@
 # 更新日志
 
+### [3.37.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.37.0...v3.37.1) (2023-08-14)
+
+### 修复
+
+- 锁定 swagger-client 版本为 3.18.4（其 3.19.0 版本后依赖了 tree-sitter 这些需要本地编译的包） ([1f96f2f](https://github.com/fjc0k/yapi-to-typescript/commit/1f96f2f6bf0eadffe0ed1b925a8d4ece30259926))
+
 ## [3.37.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.36.0...v3.37.0) (2023-02-08)
 
 ### 特性
