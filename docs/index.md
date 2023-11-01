@@ -47,7 +47,7 @@ pnpm add yapi-to-typescript
 
 钉钉扫码加入交流群：
 
-<img src="https://cdn.jsdelivr.net/gh/fjc0k/yapi-to-typescript@master/assets/dingtalk.png" width="300" />
+<img src="https://cdn.jsdelivr.net/gh/fjc0k/yapi-to-typescript@master/assets/dingtalk.jpg?v=1111" width="300" />
 
 ## 许可
 
