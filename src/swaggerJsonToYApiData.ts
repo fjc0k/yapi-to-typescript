@@ -83,9 +83,7 @@ async function handleSwaggerData(res) {
   })
 }
 
-async function run(
-  res,
-): {
+async function run(res): {
   apis: Interface[]
   cats: Category[]
   basePath: string
@@ -266,9 +264,11 @@ function handleSwagger(data, originTags = []) {
       if (param.in) {
         switch (param.in) {
           case 'path':
+            defaultParam.type = param.type
             api.req_params.push(defaultParam)
             break
           case 'query':
+            defaultParam.type = param.type
             api.req_query.push(defaultParam)
             break
           case 'body':
@@ -342,9 +342,7 @@ function handleResponse(api) {
   return res_body
 }
 
-export async function swaggerJsonToYApiData(
-  data: any,
-): Promise<{
+export async function swaggerJsonToYApiData(data: any): Promise<{
   project: Project
   cats: Category[]
   interfaces: Interface[]
@@ -374,8 +372,9 @@ export async function swaggerJsonToYApiData(
     env: [
       {
         name: 'local',
-        domain: `${yapiData.swaggerData.schemes?.[0] || 'http'}://${yapiData
-          .swaggerData.host || '127.0.0.1'}`,
+        domain: `${yapiData.swaggerData.schemes?.[0] || 'http'}://${
+          yapiData.swaggerData.host || '127.0.0.1'
+        }`,
       },
     ],
   }
