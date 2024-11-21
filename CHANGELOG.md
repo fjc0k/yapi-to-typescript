@@ -1,5 +1,15 @@
 # 更新日志
 
+## [3.38.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.37.1...v3.38.0) (2024-11-21)
+
+### 特性
+
+- 格式化代码时优先使用项目内安装的 Prettier，且兼容 Prettier 3 ([e8569ff](https://github.com/fjc0k/yapi-to-typescript/commit/e8569ff808871b42586c5b288eed9711c50112e4))
+
+### 修复
+
+- Swagger 下透传其路径参数、查询参数的类型出来 (close: [#87](https://github.com/fjc0k/yapi-to-typescript/issues/87)) ([e1f89a3](https://github.com/fjc0k/yapi-to-typescript/commit/e1f89a3ac0167aa0628f97c4f7e34bfb283979b9))
+
 ### [3.37.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.37.0...v3.37.1) (2023-08-14)
 
 ### 修复
