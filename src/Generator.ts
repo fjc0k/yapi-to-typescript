@@ -2,7 +2,6 @@ import * as changeCase from 'change-case'
 import dayjs from 'dayjs'
 import fs from 'fs-extra'
 import path from 'path'
-import prettier from 'prettier'
 import {
   castArray,
   cloneDeepFast,
@@ -36,6 +35,7 @@ import { exec } from 'child_process'
 import {
   getCachedPrettierOptions,
   getNormalizedRelativePath,
+  getPrettier,
   getRequestDataJsonSchema,
   getResponseDataJsonSchema,
   httpGet,
@@ -523,7 +523,9 @@ export class Generator {
           }
         `
         // ref: https://prettier.io/docs/en/options.html
-        const prettyOutputContent = prettier.format(rawOutputContent, {
+        const prettier = await getPrettier(this.options.cwd)
+        // 此处需用 await 以兼容 Prettier 3
+        const prettyOutputContent = await prettier.format(rawOutputContent, {
           ...(await getCachedPrettierOptions()),
           filepath: outputFilePath,
         })

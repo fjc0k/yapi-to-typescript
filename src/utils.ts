@@ -1,3 +1,4 @@
+import fs from 'fs-extra'
 import JSON5 from 'json5'
 import nodeFetch from 'node-fetch'
 import path from 'path'
@@ -596,6 +597,14 @@ export function isPostLikeMethod(method: Method): boolean {
   return !isGetLikeMethod(method)
 }
 
+export async function getPrettier(cwd: string): Promise<typeof prettier> {
+  const projectPrettierPath = path.join(cwd, 'node_modules/prettier')
+  if (await fs.pathExists(projectPrettierPath)) {
+    return require(projectPrettierPath)
+  }
+  return require('prettier')
+}
+
 export async function getPrettierOptions(): Promise<prettier.Options> {
   const prettierOptions: prettier.Options = {
     parser: 'typescript',
@@ -650,7 +659,7 @@ export async function httpGet<T>(
 
   const res = await nodeFetch(url, {
     method: 'GET',
-    agent: new ProxyAgent()
+    agent: new ProxyAgent(),
   })
 
   return res.json()
