@@ -1,5 +1,11 @@
 # 更新日志
 
+## [3.39.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.38.0...v3.39.0) (2026-09-20)
+
+### 特性
+
+- 在 React Hooks 功能没启用时去除 Request 导出 ([a065332](https://github.com/fjc0k/yapi-to-typescript/commit/a065332520377005725d45904907f2b6f883ccad))
+
 ## [3.38.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.37.1...v3.38.0) (2024-11-21)
 
 ### 特性
