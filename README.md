@@ -9,7 +9,6 @@
 - [使用](https://fjc0k.github.io/yapi-to-typescript/handbook/usage.html)
 - [统一请求函数](https://fjc0k.github.io/yapi-to-typescript/handbook/request.html)
 - [更新日志](https://fjc0k.github.io/yapi-to-typescript/handbook/changelog.html)
-- [国内镜像 🇨🇳](https://fjc0k.gitee.io/yapi-to-typescript/handbook/)
 
 ## 交流群
 
