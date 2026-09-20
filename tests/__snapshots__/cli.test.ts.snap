@@ -153,17 +153,6 @@ import request from './request'
 
 type UserRequestRestArgs = RequestFunctionRestArgs<typeof request>
 
-// Request: 目前 React Hooks 功能有用到
-export type Request<
-  TRequestData,
-  TRequestConfig extends RequestConfig,
-  TRequestResult,
-> = (TRequestConfig['requestDataOptional'] extends true
-  ? (requestData?: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
-  : (requestData: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult) & {
-  requestConfig: TRequestConfig
-}
-
 const mockUrl_0_0_0_1 = 'http://foo.bar/mock/32' as any
 const devUrl_0_0_0_1 = '' as any
 const prodUrl_0_0_0_1 = 'http://prod.com/' as any

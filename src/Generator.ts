@@ -508,14 +508,20 @@ export class Generator {
                 }
 
                 type UserRequestRestArgs = RequestFunctionRestArgs<typeof request>
-
-                // Request: 目前 React Hooks 功能有用到
-                export type Request<TRequestData, TRequestConfig extends RequestConfig, TRequestResult> = (
-                  TRequestConfig['requestDataOptional'] extends true
-                    ? (requestData?: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
-                    : (requestData: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
-                ) & {
-                  requestConfig: TRequestConfig
+                ${
+                  !syntheticalConfig.reactHooks ||
+                  !syntheticalConfig.reactHooks.enabled
+                    ? ''
+                    : `\n${dedent`
+                      // Request: 目前 React Hooks 功能有用到
+                      export type Request<TRequestData, TRequestConfig extends RequestConfig, TRequestResult> = (
+                        TRequestConfig['requestDataOptional'] extends true
+                          ? (requestData?: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
+                          : (requestData: TRequestData, ...args: RequestFunctionRestArgs<typeof request>) => TRequestResult
+                      ) & {
+                        requestConfig: TRequestConfig
+                      }
+                    `}`
                 }
 
                 ${content.join('\n\n').trim()}
