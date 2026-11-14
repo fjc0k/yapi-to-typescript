@@ -1,5 +1,11 @@
 # 更新日志
 
+### [3.39.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.39.0...v3.39.1) (2026-11-14)
+
+### 修复
+
+- 对请求路径中的参数进行 URL 编码以确保正确性 (close: [#94](https://github.com/fjc0k/yapi-to-typescript/issues/94)) ([95664c7](https://github.com/fjc0k/yapi-to-typescript/commit/95664c73e71e02172a3f7e26f42b7b61fc737e52))
+
 ## [3.39.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.38.0...v3.39.0) (2026-09-20)
 
 ### 特性
