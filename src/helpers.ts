@@ -156,8 +156,14 @@ export function prepare(
         if (requestConfig.paramNames.indexOf(key) >= 0) {
           // ref: https://github.com/YMFE/yapi/blob/master/client/containers/Project/Interface/InterfaceList/InterfaceEditForm.js#L465
           requestPath = requestPath
-            .replace(new RegExp(`\\{${key}\\}`, 'g'), data[key])
-            .replace(new RegExp(`/:${key}(?=/|$)`, 'g'), `/${data[key]}`)
+            .replace(
+              new RegExp(`\\{${key}\\}`, 'g'),
+              encodeURIComponent(data[key]),
+            )
+            .replace(
+              new RegExp(`/:${key}(?=/|$)`, 'g'),
+              `/${encodeURIComponent(data[key])}`,
+            )
           delete data[key]
         }
       })
@@ -219,7 +225,9 @@ export function prepare(
     })
     Object.keys(fileData).forEach(key => {
       const options = (requestData[key] as FileData).getOptions()
-      const files = Array.isArray(fileData[key]) ? fileData[key] : [fileData[key]]
+      const files = Array.isArray(fileData[key])
+        ? fileData[key]
+        : [fileData[key]]
       files.forEach((file: Blob) => {
         formData.append(
           key,

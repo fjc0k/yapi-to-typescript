@@ -93,6 +93,30 @@ Object {
 }
 `;
 
+exports[`prepare 支持解析带参路径: 路径参数 4 - 应 encodeURIComponent 1`] = `
+Object {
+  "allData": Object {
+    "b": "2",
+  },
+  "data": Object {
+    "b": "2",
+  },
+  "fileData": Object {},
+  "getFormData": [Function getFormData],
+  "hasFileData": false,
+  "paramNames": Array [
+    "a",
+    "id",
+  ],
+  "path": "/test/a_hello%24%26%25%2F%3F%26%241/id_110/id_110",
+  "rawData": Object {
+    "a": "hello$&%/?&$1",
+    "b": "2",
+    "id": 110,
+  },
+}
+`;
+
 exports[`prepare 支持解析非对象请求体: 布尔值 1`] = `
 Object {
   "allData": Object {},

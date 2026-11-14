@@ -106,6 +106,16 @@ describe('prepare', () => {
         { a: 1, b: '2', id: 110 },
       ),
     ).toMatchSnapshot('路径参数 3 - 全部替换')
+
+    expect(
+      prepare(
+        {
+          path: '/test/a_{a}/id_{id}/id_{id}',
+          paramNames: ['a', 'id'],
+        } as Partial<RequestConfig> as any,
+        { a: 'hello$&%/?&$1', b: '2', id: 110 },
+      ),
+    ).toMatchSnapshot('路径参数 4 - 应 encodeURIComponent')
   })
 
   test('支持追加查询参数', () => {
