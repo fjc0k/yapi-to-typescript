@@ -10,7 +10,7 @@ import { dedent, wait } from 'vtils';
 import type { Defined } from 'vtils/types';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { Generator } from './generator.ts';
+import { Generator } from './generator1.ts';
 import type { ConfigWithHooks, ServerConfig } from './types.ts';
 
 const jiti = createJiti(import.meta.url);
