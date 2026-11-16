@@ -1,6 +1,14 @@
 # 更新日志
 
 
+## [4.1.0](https://github.com/fjc0k/yapi-to-typescript/compare/v4.0.0...v4.1.0) (2026-11-16)
+
+
+### 特性
+
+* 新增 noMockUrl 配置选项以控制 Mock 地址生成 (close: [#77](https://github.com/fjc0k/yapi-to-typescript/issues/77)) ([9b3b510](https://github.com/fjc0k/yapi-to-typescript/commit/9b3b5101a6a049a9055b3089b61003fd9d27448f))
+* 新增支持导入文件时带上文件扩展名的功能 ([027ebfa](https://github.com/fjc0k/yapi-to-typescript/commit/027ebfa74d30f293b9bf27a7c9679b964ce8743d))
+
 ## [4.0.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.39.1...v4.0.0) (2026-11-16)
 
 
