@@ -362,6 +362,26 @@ export default defineConfig({
 })
 ```
 
+### enableImportFileExtension <Badge>4.1.0+</Badge>
+
+- 类型: `boolean`
+- 默认值: `false`
+- 说明:
+
+是否在导入文件时带上文件扩展名。
+
+用于解决在某些环境下导入文件时必须带上扩展名的问题。
+
+用法：
+
+```typescript
+import { defineConfig } from 'yapi-to-typescript'
+
+export default defineConfig({
+  enableImportFileExtension: true,
+})
+```
+
 ### setRequestFunctionExtraInfo <Badge>3.27.0+</Badge>
 
 - 类型: `(interfaceInfo: Interface, changeCase: ChangeCase): Record<string, any>`

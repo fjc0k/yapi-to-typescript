@@ -106,6 +106,7 @@ export async function run(
             outputFilePath: 'src/api/index.${outputConfigFileType}',
             requestFunctionFilePath: 'src/api/request.${outputConfigFileType}',
             dataKey: 'data',
+            enableImportFileExtension: false,
             projects: [
               {
                 token: 'hello',

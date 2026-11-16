@@ -61,10 +61,17 @@ export function toUnixPath(path: string) {
  * @param to 去向路径
  * @returns 相对路径
  */
-export function getNormalizedRelativePath(from: string, to: string) {
-  return toUnixPath(path.relative(path.dirname(from), to))
-    .replace(/^(?=[^.])/, './')
-    .replace(/\.(ts|js)x?$/i, '');
+export function getNormalizedRelativePath(
+  from: string,
+  to: string,
+  options: { keepExtension?: boolean } = {},
+) {
+  const relativePath = toUnixPath(
+    path.relative(path.dirname(from), to),
+  ).replace(/^(?=[^.])/, './');
+  return options.keepExtension
+    ? relativePath
+    : relativePath.replace(/\.(ts|js)x?$/i, '');
 }
 
 /**

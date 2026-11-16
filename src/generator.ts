@@ -424,15 +424,17 @@ export class Generator {
                 import { useState, useEffect } from 'react'
                 import type { RequestConfig } from 'yapi-to-typescript'
                 import type { Request } from ${JSON.stringify(
-                  getNormalizedRelativePath(
+                  this.getImportPath(
                     requestHookMakerFilePath,
                     outputFilePath,
+                    syntheticalConfig,
                   ),
                 )}
                 import baseRequest from ${JSON.stringify(
-                  getNormalizedRelativePath(
+                  this.getImportPath(
                     requestHookMakerFilePath,
                     requestFunctionFilePath,
+                    syntheticalConfig,
                   ),
                 )}
 
@@ -488,9 +490,10 @@ export class Generator {
                 import type { RequestConfig, RequestFunctionRestArgs } from 'yapi-to-typescript'
                 // @ts-ignore
                 import request from ${JSON.stringify(
-                  getNormalizedRelativePath(
+                  this.getImportPath(
                     outputFilePath,
                     requestFunctionFilePath,
+                    syntheticalConfig,
                   ),
                 )}
                 ${
@@ -500,9 +503,10 @@ export class Generator {
                     : dedent`
                       // @ts-ignore
                       import makeRequestHook from ${JSON.stringify(
-                        getNormalizedRelativePath(
+                        this.getImportPath(
                           outputFilePath,
                           requestHookMakerFilePath,
+                          syntheticalConfig,
                         ),
                       )}
                     `
@@ -556,6 +560,21 @@ export class Generator {
         }
       }),
     );
+  }
+
+  private getImportPath(
+    from: string,
+    to: string,
+    syntheticalConfig: SyntheticalConfig,
+  ) {
+    if (!syntheticalConfig.enableImportFileExtension) {
+      return getNormalizedRelativePath(from, to);
+    }
+    // 生成 JavaScript 代码时，导入的应是编译后的 .js/.jsx 文件
+    if (syntheticalConfig.target === 'javascript') {
+      to = to.replace(/\.ts(x)?$/, '.js$1');
+    }
+    return getNormalizedRelativePath(from, to, { keepExtension: true });
   }
 
   async tsc(file: string) {

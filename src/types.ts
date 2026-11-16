@@ -546,6 +546,15 @@ export interface SharedConfig {
   queryStringArrayFormat?: QueryStringArrayFormat;
 
   /**
+   * 是否在导入文件时带上文件扩展名。
+   *
+   * 用于解决在某些环境下导入文件时必须带上扩展名的问题。
+   *
+   * @default false
+   */
+  enableImportFileExtension?: boolean;
+
+  /**
    * 设置传给请求函数的参数中的 extraInfo 的值。
    *
    * @param interfaceInfo 接口信息

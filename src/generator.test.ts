@@ -34,6 +34,7 @@ const generatorFactory = ({
   preproccessInterface,
   customTypeMapping,
   setRequestFunctionExtraInfo,
+  enableImportFileExtension,
 }: {
   id: OneOrMore<
     | 0
@@ -56,6 +57,7 @@ const generatorFactory = ({
   preproccessInterface?: ServerConfig['preproccessInterface'];
   customTypeMapping?: ServerConfig['customTypeMapping'];
   setRequestFunctionExtraInfo?: ServerConfig['setRequestFunctionExtraInfo'];
+  enableImportFileExtension?: ServerConfig['enableImportFileExtension'];
 }) => {
   const apiDir = temporaryDirectory();
   return new Generator({
@@ -63,6 +65,7 @@ const generatorFactory = ({
     typesOnly: typesOnly,
     target: target,
     prodEnvName: 'production',
+    enableImportFileExtension: enableImportFileExtension,
     outputFilePath: outputFilePath
       ? outputFilePath(apiDir)
       : path.join(apiDir, 'index.ts'),
@@ -293,6 +296,38 @@ describe('Generator', () => {
       expect(
         fs.readFileSync(requestFunctionFilePath).toString(),
       ).toMatchSnapshot('请求文件');
+    });
+  }, 30000);
+
+  test('支持导入文件时带上文件扩展名 - TypeScript', async () => {
+    const generator = generatorFactory({
+      id: CatId.test,
+      enableImportFileExtension: true,
+    });
+    await generator.prepare();
+    const output = await generator.generate();
+    await generator.write(output);
+    forOwn(output, (_, outputFilePath) => {
+      expect(fs.readFileSync(outputFilePath).toString()).toContain(
+        "import request from './request.ts'",
+      );
+    });
+  });
+
+  test('支持导入文件时带上文件扩展名 - JavaScript', async () => {
+    const generator = generatorFactory({
+      id: CatId.test,
+      target: 'javascript',
+      enableImportFileExtension: true,
+    });
+    await generator.prepare();
+    const output = await generator.generate();
+    await generator.write(output);
+    forOwn(output, (_, outputFilePath) => {
+      outputFilePath = `${outputFilePath}`.replace(/\.ts(x)?$/, '.js$1');
+      expect(fs.readFileSync(outputFilePath).toString()).toContain(
+        "import request from './request.js'",
+      );
     });
   }, 30000);
 
