@@ -46,7 +46,7 @@
     "test:watch": "vitest",
     "test:update": "vitest run -u",
     "test:api": "tsx src/cli.ts",
-    "docs": "pnpm run docs:build && gh-pages --dist docs/dist --dest handbook",
+    "docs": "pnpm run docs:build && gh-pages --dist docs/dist --dest v4",
     "docs:build": "dumi build",
     "docs:dev": "dumi dev",
     "release": "pnpm run test:run && standard-version -a && pnpm run build && pnpm run docs && git push --follow-tags origin master && npm login && npm publish",

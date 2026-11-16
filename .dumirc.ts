@@ -17,8 +17,8 @@ export default defineConfig({
   exportStatic: {
     htmlSuffix: true,
   },
-  base: '/yapi-to-typescript/handbook/',
-  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
-  runtimePublicPath: {},
+  base: '/yapi-to-typescript/v4/',
+  publicPath:
+    process.env.NODE_ENV === 'production' ? '/yapi-to-typescript/v4/' : '/',
   styles: [`.__dumi-default-badge:first-child { margin-left: 0; }`],
 });

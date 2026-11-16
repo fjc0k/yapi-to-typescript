@@ -4,11 +4,11 @@
 
 ## 文档
 
-- [介绍](https://fjc0k.github.io/yapi-to-typescript/handbook/)
-- [配置](https://fjc0k.github.io/yapi-to-typescript/handbook/config.html)
-- [使用](https://fjc0k.github.io/yapi-to-typescript/handbook/usage.html)
-- [统一请求函数](https://fjc0k.github.io/yapi-to-typescript/handbook/request.html)
-- [更新日志](https://fjc0k.github.io/yapi-to-typescript/handbook/changelog.html)
+- [介绍](https://fjc0k.github.io/yapi-to-typescript/v4/)
+- [配置](https://fjc0k.github.io/yapi-to-typescript/v4/config)
+- [使用](https://fjc0k.github.io/yapi-to-typescript/v4/usage)
+- [统一请求函数](https://fjc0k.github.io/yapi-to-typescript/v4/request)
+- [更新日志](https://fjc0k.github.io/yapi-to-typescript/v4/changelog)
 
 ## 交流群
 
