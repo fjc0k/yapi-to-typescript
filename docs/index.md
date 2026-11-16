@@ -21,7 +21,7 @@ order: 1
 
 ## 环境要求
 
-首先得有 [Node.js](https://nodejs.org/en/)，并确保其版本 `>= 10.19.0`。同时：
+首先得有 [Node.js](https://nodejs.org/en/)，并确保其版本 `>= 24.21.0`，若版本过低，可考虑安装V3版本，其 Node.js 版本要求为 `>= 10.19.0`。同时：
 
 - 对于基于 YApi 的项目，要求 YApi 的版本必须 `>= 1.5.12`。
 - 对于基于 Swagger 的项目，仅支持 `Swagger 2` 和 `OpenAPI 3`。
@@ -39,6 +39,19 @@ yarn add yapi-to-typescript
 
 # pnpm
 pnpm add yapi-to-typescript
+```
+
+对于低版本 Node.js：
+
+```bash
+# npm
+npm i yapi-to-typescript@^3
+
+# yarn
+yarn add yapi-to-typescript@^3
+
+# pnpm
+pnpm add yapi-to-typescript@^3
 ```
 
 如果你在国内且没有任何科学<span style="font-size: 0;">习</span>上网措施，上述安装过程可能会非常慢，推荐你使用 [tbify](https://github.com/fjc0k/tbify)，这个工具可以自动将 npm、yarn 等包管理工具连上国内的淘宝镜像，加速安装。
