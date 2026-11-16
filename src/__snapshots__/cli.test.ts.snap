@@ -32,6 +32,7 @@ export default defineConfig([
     requestFunctionFilePath: 'src/api/request.ts',
     dataKey: 'data',
     enableImportFileExtension: false,
+    noMockUrl: false,
     projects: [
       {
         token: 'hello',
@@ -74,6 +75,7 @@ export default defineConfig([
     requestFunctionFilePath: 'src/api/request.ts',
     dataKey: 'data',
     enableImportFileExtension: false,
+    noMockUrl: false,
     projects: [
       {
         token: 'hello',
@@ -114,6 +116,7 @@ export default defineConfig([
     requestFunctionFilePath: 'src/api/request.ts',
     dataKey: 'data',
     enableImportFileExtension: false,
+    noMockUrl: false,
     projects: [
       {
         token: 'hello',
@@ -2794,6 +2797,7 @@ export default defineConfig([
     requestFunctionFilePath: 'src/api/request.ts',
     dataKey: 'data',
     enableImportFileExtension: false,
+    noMockUrl: false,
     projects: [
       {
         token: 'hello',

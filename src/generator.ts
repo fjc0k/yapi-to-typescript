@@ -165,10 +165,12 @@ export class Generator {
                           ...serverConfig,
                           ...projectConfig,
                           ...categoryConfig,
-                          mockUrl: projectInfo.getMockUrl(),
                         };
                         syntheticalConfig.target =
                           syntheticalConfig.target || 'typescript';
+                        syntheticalConfig.mockUrl = syntheticalConfig.noMockUrl
+                          ? ''
+                          : projectInfo.getMockUrl();
                         syntheticalConfig.devUrl = projectInfo.getDevUrl(
                           syntheticalConfig.devEnvName!,
                         );

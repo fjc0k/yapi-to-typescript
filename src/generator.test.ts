@@ -35,6 +35,7 @@ const generatorFactory = ({
   customTypeMapping,
   setRequestFunctionExtraInfo,
   enableImportFileExtension,
+  noMockUrl,
 }: {
   id: OneOrMore<
     | 0
@@ -58,6 +59,7 @@ const generatorFactory = ({
   customTypeMapping?: ServerConfig['customTypeMapping'];
   setRequestFunctionExtraInfo?: ServerConfig['setRequestFunctionExtraInfo'];
   enableImportFileExtension?: ServerConfig['enableImportFileExtension'];
+  noMockUrl?: ServerConfig['noMockUrl'];
 }) => {
   const apiDir = temporaryDirectory();
   return new Generator({
@@ -66,6 +68,7 @@ const generatorFactory = ({
     target: target,
     prodEnvName: 'production',
     enableImportFileExtension: enableImportFileExtension,
+    noMockUrl: noMockUrl,
     outputFilePath: outputFilePath
       ? outputFilePath(apiDir)
       : path.join(apiDir, 'index.ts'),
@@ -330,6 +333,21 @@ describe('Generator', () => {
       );
     });
   }, 30000);
+
+  test('支持不生成 Mock 地址', async () => {
+    const generator = generatorFactory({
+      id: CatId.test,
+      noMockUrl: true,
+    });
+    await generator.prepare();
+    const output = await generator.generate();
+    await generator.write(output);
+    forOwn(output, (_, outputFilePath) => {
+      const content = fs.readFileSync(outputFilePath).toString();
+      expect(content).toContain("const mockUrl_0_0_0_0 = '' as any");
+      expect(content).not.toContain('http://foo.bar/mock');
+    });
+  });
 
   test('支持项目设置里的接口基本路径', async () => {
     const generator = generatorFactory({

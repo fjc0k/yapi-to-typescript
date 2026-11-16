@@ -382,6 +382,26 @@ export default defineConfig({
 })
 ```
 
+### noMockUrl <Badge>4.1.0+</Badge>
+
+- 类型: `boolean`
+- 默认值: `false`
+- 说明:
+
+是否不生成 Mock 地址。
+
+设为 `true` 时，生成的代码中仍会保留 `mockUrl` 常量，只是其值为空字符串。
+
+用法：
+
+```typescript
+import { defineConfig } from 'yapi-to-typescript'
+
+export default defineConfig({
+  noMockUrl: true,
+})
+```
+
 ### setRequestFunctionExtraInfo <Badge>3.27.0+</Badge>
 
 - 类型: `(interfaceInfo: Interface, changeCase: ChangeCase): Record<string, any>`

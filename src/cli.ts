@@ -107,6 +107,7 @@ export async function run(
             requestFunctionFilePath: 'src/api/request.${outputConfigFileType}',
             dataKey: 'data',
             enableImportFileExtension: false,
+            noMockUrl: false,
             projects: [
               {
                 token: 'hello',

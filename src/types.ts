@@ -555,6 +555,13 @@ export interface SharedConfig {
   enableImportFileExtension?: boolean;
 
   /**
+   * 是否不生成 Mock 地址。
+   *
+   * @default false
+   */
+  noMockUrl?: boolean;
+
+  /**
    * 设置传给请求函数的参数中的 extraInfo 的值。
    *
    * @param interfaceInfo 接口信息
