@@ -45,14 +45,14 @@
     "test:run": "vitest run",
     "test:watch": "vitest",
     "test:update": "vitest run -u",
-    "testApi": "tsx src/cli.ts",
+    "test:api": "tsx src/cli.ts",
     "docs": "pnpm run docs:build && gh-pages --dist docs/dist --dest handbook",
     "docs:build": "dumi build",
     "docs:dev": "dumi dev",
     "release": "pnpm run test:run && standard-version -a && pnpm run build && pnpm run docs && git push --follow-tags origin master && npm login && npm publish",
-    "releaseBeta": "pnpm run test:run && standard-version -a --release-as patch --prerelease beta && pnpm run build && git push --follow-tags origin master && npm login && npm publish --tag next",
-    "releaseMajor": "pnpm run test:run && standard-version -a --release-as major && pnpm run build && git push --follow-tags origin master && npm login && npm publish",
-    "releaseMajorBeta": "pnpm run test:run && standard-version -a --release-as major --prerelease beta && pnpm run build && git push --follow-tags origin master && npm login && npm publish --tag next",
+    "release:beta": "pnpm run test:run && standard-version -a --release-as patch --prerelease beta && pnpm run build && git push --follow-tags origin master && npm login && npm publish --tag next",
+    "release:major": "pnpm run test:run && standard-version -a --release-as major && pnpm run build && git push --follow-tags origin master && npm login && npm publish",
+    "release:major:beta": "pnpm run test:run && standard-version -a --release-as major --prerelease beta && pnpm run build && git push --follow-tags origin master && npm login && npm publish --tag next",
     "prepare": "husky && dumi setup"
   },
   "lint-staged": {
