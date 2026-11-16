@@ -1,5 +1,19 @@
 # 更新日志
 
+
+## [4.0.0](https://github.com/fjc0k/yapi-to-typescript/compare/v3.39.1...v4.0.0) (2026-11-16)
+
+
+### 特性
+
+* 升级到最新前端基础设施，仅支持ESM导出 ([1de3985](https://github.com/fjc0k/yapi-to-typescript/commit/1de3985c35459772bc2ceb1653d06e7e157407b4))
+
+
+### 文档
+
+* **index.md:** 更新 Node.js 版本要求及低版本安装说明 ([717b787](https://github.com/fjc0k/yapi-to-typescript/commit/717b78721c0f8f32faa3b174ce40d0672165e826))
+* **README:** 移除安装部分说明，更新 Node.js 版本要求描述 ([967e7b1](https://github.com/fjc0k/yapi-to-typescript/commit/967e7b1e41f7a64ee71674f75a95056e5875cf70))
+
 ### [3.39.1](https://github.com/fjc0k/yapi-to-typescript/compare/v3.39.0...v3.39.1) (2026-11-14)
 
 ### 修复
