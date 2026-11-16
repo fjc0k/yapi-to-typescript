@@ -53,12 +53,7 @@
     "release:beta": "pnpm run test:run && standard-version -a --release-as patch --prerelease beta && pnpm run build && git push --follow-tags origin master && npm login && npm publish --tag next",
     "release:major": "pnpm run test:run && standard-version -a --release-as major && pnpm run build && git push --follow-tags origin master && npm login && npm publish",
     "release:major:beta": "pnpm run test:run && standard-version -a --release-as major --prerelease beta && pnpm run build && git push --follow-tags origin master && npm login && npm publish --tag next",
-    "prepare": "husky && dumi setup"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md,yml,yaml,css,less,scss,sass,html,htm,vue}": [
-      "biome check --write"
-    ]
+    "prepare": "dumi setup"
   },
   "dependencies": {
     "@types/json-schema": "^7.0.15",
@@ -97,8 +92,6 @@
     "codecov": "^3.8.3",
     "dumi": "^2.4.57",
     "gh-pages": "^6.3.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^17.6.0",
     "notify-dingtalk": "^1.2.0",
     "standard-version": "^9.5.0",
     "tempy": "^3.2.0",
@@ -107,6 +100,6 @@
     "vitest": "^5.1.0"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=24.21.0"
   }
 }
