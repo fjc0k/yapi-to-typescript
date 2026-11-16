@@ -1,25 +1,25 @@
-import getAvailablePort from 'get-port'
-import http from 'http'
-import onExit from 'signal-exit'
-import url from 'url'
-import { AsyncReturnType } from 'vtils/types'
-import { httpGet } from './utils'
-import { isEmpty } from 'vtils'
-import { swaggerJsonToYApiData } from './swaggerJsonToYApiData'
-import { OpenAPIV2 as SwaggerType } from 'openapi-types'
+import http from 'node:http';
+import url from 'node:url';
+import getAvailablePort from 'get-port';
+import type { OpenAPIV2 as SwaggerType } from 'openapi-types';
+import { onExit } from 'signal-exit';
+import { isEmpty } from 'vtils';
+import type { AsyncReturnType } from 'vtils/types';
+import { swaggerJsonToYApiData } from './swagger_json_to_yapi_data.ts';
+import { httpGet } from './utils.ts';
 
 export interface SwaggerToYApiServerOptions {
-  swaggerJsonUrl: string
+  swaggerJsonUrl: string;
 }
 
 export class SwaggerToYApiServer {
-  private port = 0
+  private port = 0;
 
-  private swaggerJson: SwaggerType.Document = {} as any
+  private swaggerJson: SwaggerType.Document = {} as any;
 
-  private httpServer: http.Server | null = null
+  private httpServer: http.Server | null = null;
 
-  private yapiData: AsyncReturnType<typeof swaggerJsonToYApiData> = {} as any
+  private yapiData: AsyncReturnType<typeof swaggerJsonToYApiData> = {} as any;
 
   constructor(private readonly options: SwaggerToYApiServerOptions) {}
 
@@ -27,40 +27,40 @@ export class SwaggerToYApiServer {
     if (this.port === 0) {
       this.port = await getAvailablePort({
         port: 50505,
-      })
+      });
     }
-    return this.port
+    return this.port;
   }
 
   async getUrl(): Promise<string> {
-    return `http://127.0.0.1:${await this.getPort()}`
+    return `http://127.0.0.1:${await this.getPort()}`;
   }
 
   async getSwaggerJson(): Promise<SwaggerType.Document> {
     if (isEmpty(this.swaggerJson)) {
       const res = await httpGet<SwaggerType.Document>(
         this.options.swaggerJsonUrl,
-      )
-      this.swaggerJson = res
+      );
+      this.swaggerJson = res;
     }
-    return this.swaggerJson
+    return this.swaggerJson;
   }
 
   async getYApiData(): Promise<AsyncReturnType<typeof swaggerJsonToYApiData>> {
     if (isEmpty(this.yapiData)) {
-      this.yapiData = await swaggerJsonToYApiData(await this.getSwaggerJson())
+      this.yapiData = await swaggerJsonToYApiData(await this.getSwaggerJson());
     }
-    return this.yapiData
+    return this.yapiData;
   }
 
   async start(): Promise<string> {
-    const yapiData = await this.getYApiData()
-    // eslint-disable-next-line no-async-promise-executor
-    await new Promise<void>(async resolve => {
+    const yapiData = await this.getYApiData();
+    const port = await this.getPort();
+    await new Promise<void>(resolve => {
       this.httpServer = http
         .createServer(async (req, res) => {
-          const { pathname } = url.parse(req.url || '')
-          res.setHeader('Content-Type', 'application/json')
+          const { pathname } = url.parse(req.url || '');
+          res.setHeader('Content-Type', 'application/json');
           if (pathname!.includes('/api/plugin/export')) {
             res.end(
               JSON.stringify(
@@ -71,7 +71,7 @@ export class SwaggerToYApiServer {
                   ),
                 })),
               ),
-            )
+            );
           } else if (pathname!.includes('/api/interface/getCatMenu')) {
             res.end(
               JSON.stringify({
@@ -79,7 +79,7 @@ export class SwaggerToYApiServer {
                 errmsg: '成功！',
                 data: yapiData.cats,
               }),
-            )
+            );
           } else if (pathname!.includes('/api/project/get')) {
             res.end(
               JSON.stringify({
@@ -87,32 +87,34 @@ export class SwaggerToYApiServer {
                 errmsg: '成功！',
                 data: yapiData.project,
               }),
-            )
+            );
           } else {
-            res.end('404')
+            res.end('404');
           }
         })
-        .listen(await this.getPort(), '127.0.0.1', () => {
-          onExit(() => this.stop())
-          resolve()
-        })
-    })
-    return this.getUrl()
+        .listen(port, '127.0.0.1', () => {
+          onExit(() => {
+            this.stop();
+          });
+          resolve();
+        });
+    });
+    return this.getUrl();
   }
 
   async stop(): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!this.httpServer) {
-        resolve()
+        resolve();
       } else {
         this.httpServer.close(err => {
           if (err) {
-            reject(err)
+            reject(err);
           } else {
-            resolve()
+            resolve();
           }
-        })
+        });
       }
-    })
+    });
   }
 }

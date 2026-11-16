@@ -1,12 +1,12 @@
+import type { AppendOptions } from 'form-data';
 import {
-  CliHooks,
-  Config,
-  ConfigWithHooks,
+  type CliHooks,
+  type Config,
+  type ConfigWithHooks,
   QueryStringArrayFormat,
-  RequestConfig,
-  RequestFunctionParams,
-} from './types'
-import type { AppendOptions } from 'form-data'
+  type RequestConfig,
+  type RequestFunctionParams,
+} from './types.ts';
 
 /**
  * 定义配置。
@@ -23,21 +23,21 @@ export function defineConfig(
       configurable: false,
       enumerable: false,
       writable: false,
-    })
+    });
   }
-  return config
+  return config;
 }
 
 export class FileData<T = any> {
   /**
    * 原始文件数据。
    */
-  private originalFileData: T
+  private originalFileData: T;
 
   /**
    * 选项。
    */
-  private options: AppendOptions | undefined
+  private options: AppendOptions | undefined;
 
   /**
    * 文件数据辅助类，统一网页、小程序等平台的文件上传。
@@ -46,8 +46,8 @@ export class FileData<T = any> {
    * @param options 若使用内部的 getFormData，则选项会被其使用
    */
   public constructor(originalFileData: T, options?: AppendOptions) {
-    this.originalFileData = originalFileData
-    this.options = options
+    this.originalFileData = originalFileData;
+    this.options = options;
   }
 
   /**
@@ -56,14 +56,14 @@ export class FileData<T = any> {
    * @returns 原始文件数据
    */
   public getOriginalFileData(): T {
-    return this.originalFileData
+    return this.originalFileData;
   }
 
   /**
    * 获取选项。
    */
   public getOptions(): AppendOptions | undefined {
-    return this.options
+    return this.options;
   }
 }
 
@@ -74,13 +74,13 @@ export class FileData<T = any> {
  * @returns 包含普通数据(data)和文件数据(fileData)的对象，data、fileData 为空对象时，表示没有此类数据
  */
 export function parseRequestData(requestData?: any): {
-  data: any
-  fileData: any
+  data: any;
+  fileData: any;
 } {
   const result = {
     data: {} as any,
     fileData: {} as any,
-  }
+  };
   /* istanbul ignore else */
   if (requestData != null) {
     if (typeof requestData === 'object' && !Array.isArray(requestData)) {
@@ -88,16 +88,16 @@ export function parseRequestData(requestData?: any): {
         if (requestData[key] && requestData[key] instanceof FileData) {
           result.fileData[key] = (
             requestData[key] as FileData
-          ).getOriginalFileData()
+          ).getOriginalFileData();
         } else {
-          result.data[key] = requestData[key]
+          result.data[key] = requestData[key];
         }
-      })
+      });
     } else {
-      result.data = requestData
+      result.data = requestData;
     }
   }
-  return result
+  return result;
 }
 
 const queryStringify = (
@@ -105,35 +105,33 @@ const queryStringify = (
   value: any,
   arrayFormat: QueryStringArrayFormat,
 ): string => {
-  let str = ''
+  let str = '';
   if (value != null) {
     if (!Array.isArray(value)) {
-      str = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+      str = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
     } else if (arrayFormat === QueryStringArrayFormat.indices) {
       str = value
         .map(
           (v, i) =>
             `${encodeURIComponent(`${key}[${i}]`)}=${encodeURIComponent(v)}`,
         )
-        .join('&')
+        .join('&');
     } else if (arrayFormat === QueryStringArrayFormat.repeat) {
       str = value
         .map(v => `${encodeURIComponent(key)}=${encodeURIComponent(v)}`)
-        .join('&')
+        .join('&');
     } else if (arrayFormat === QueryStringArrayFormat.comma) {
-      str = `${encodeURIComponent(key)}=${encodeURIComponent(value.join(','))}`
+      str = `${encodeURIComponent(key)}=${encodeURIComponent(value.join(','))}`;
     } else if (arrayFormat === QueryStringArrayFormat.json) {
-      str = `${encodeURIComponent(key)}=${encodeURIComponent(
-        JSON.stringify(value),
-      )}`
+      str = `${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(value))}`;
     } else {
       str = value
         .map(v => `${encodeURIComponent(`${key}[]`)}=${encodeURIComponent(v)}`)
-        .join('&')
+        .join('&');
     }
   }
-  return str
-}
+  return str;
+};
 
 /**
  * 准备要传给请求函数的参数。
@@ -142,10 +140,10 @@ export function prepare(
   requestConfig: RequestConfig,
   requestData: any,
 ): RequestFunctionParams {
-  let requestPath: string = requestConfig.path
-  const { data, fileData } = parseRequestData(requestData)
+  let requestPath: string = requestConfig.path;
+  const { data, fileData } = parseRequestData(requestData);
   const dataIsObject =
-    data != null && typeof data === 'object' && !Array.isArray(data)
+    data != null && typeof data === 'object' && !Array.isArray(data);
   if (dataIsObject) {
     // 替换路径参数
     if (
@@ -163,14 +161,14 @@ export function prepare(
             .replace(
               new RegExp(`/:${key}(?=/|$)`, 'g'),
               `/${encodeURIComponent(data[key])}`,
-            )
-          delete data[key]
+            );
+          delete data[key];
         }
-      })
+      });
     }
 
     // 追加查询参数到路径上
-    let queryString = ''
+    let queryString = '';
     if (
       Array.isArray(requestConfig.queryNames) &&
       requestConfig.queryNames.length > 0
@@ -182,16 +180,14 @@ export function prepare(
               key,
               data[key],
               requestConfig.queryStringArrayFormat,
-            )}`
+            )}`;
           }
-          delete data[key]
+          delete data[key];
         }
-      })
+      });
     }
     if (queryString) {
-      requestPath += `${
-        requestPath.indexOf('?') > -1 ? '&' : '?'
-      }${queryString}`
+      requestPath += `${requestPath.indexOf('?') > -1 ? '&' : '?'}${queryString}`;
     }
   }
 
@@ -199,45 +195,29 @@ export function prepare(
   const allData = {
     ...(dataIsObject ? data : {}),
     ...fileData,
-  }
+  };
 
   // 获取表单数据
   const getFormData = () => {
-    const useNativeFormData = typeof FormData !== 'undefined'
-    const useNodeFormData =
-      !useNativeFormData &&
-      // https://github.com/fjc0k/vtils/blob/master/src/utils/inNodeJS.ts
-      typeof global === 'object' &&
-      typeof global['process'] === 'object' &&
-      typeof global['process']['versions'] === 'object' &&
-      global['process']['versions']['node'] != null
-    const UniFormData: typeof FormData | undefined = useNativeFormData
-      ? FormData
-      : useNodeFormData
-      ? eval(`require('form-data')`)
-      : undefined
-    if (!UniFormData) {
-      throw new Error('当前环境不支持 FormData')
+    // Node.js 18+、现代浏览器均内置 FormData
+    if (typeof FormData === 'undefined') {
+      throw new Error('当前环境不支持 FormData');
     }
-    const formData = new UniFormData()
+    const formData = new FormData();
     Object.keys(data).forEach(key => {
-      formData.append(key, data[key])
-    })
+      formData.append(key, data[key]);
+    });
     Object.keys(fileData).forEach(key => {
-      const options = (requestData[key] as FileData).getOptions()
+      const options = (requestData[key] as FileData).getOptions();
       const files = Array.isArray(fileData[key])
         ? fileData[key]
-        : [fileData[key]]
+        : [fileData[key]];
       files.forEach((file: Blob) => {
-        formData.append(
-          key,
-          file,
-          useNativeFormData ? options?.filename : (options as any),
-        )
-      })
-    })
-    return formData as any
-  }
+        formData.append(key, file, options?.filename);
+      });
+    });
+    return formData as any;
+  };
 
   return {
     ...requestConfig,
@@ -248,5 +228,5 @@ export function prepare(
     fileData: fileData,
     allData: allData,
     getFormData: getFormData,
-  }
+  };
 }

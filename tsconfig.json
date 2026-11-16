@@ -1,30 +1,26 @@
 {
   "compilerOptions": {
     "strict": true,
-    "target": "ES5",
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "declaration": true,
-    "removeComments": false,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "target": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "isolatedModules": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
     "newLine": "LF",
-    "preserveSymlinks": true,
     "skipLibCheck": true,
-    "jsx": "preserve",
-    "lib": ["ESNext", "DOM"],
+    "types": ["*"],
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "declaration": false,
     "paths": {
-      "yapi-to-typescript": ["./src/index.ts"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-snapshots-plugin",
-        "snapshotCallIdentifiers": [
-          "toMatchSnapshot",
-          "toThrowErrorMatchingSnapshot",
-          "toMatchDiffSnapshot"
-        ]
-      }
-    ]
-  }
+      "@@/*": ["./.dumi/tmp/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    ".dumirc.ts",
+    "tsdown.config.ts",
+    "vitest.config.ts"
+  ]
 }

@@ -1,6 +1,6 @@
-import { URLSearchParams } from 'url'
+import { URLSearchParams } from 'node:url';
 
-let exportCount = 0
+let exportCount = 0;
 
 const mockData: Record<string, () => any> = {
   '/api/plugin/export': () => [
@@ -2167,32 +2167,34 @@ const mockData: Record<string, () => any> = {
       url: 'http://swagger.io',
     },
   }),
-}
+};
 
 const nodeFetch = async (_url: string) => {
   return {
     json: async () => {
-      const [url, query] = _url.split('?')
-      const { token } = Object.fromEntries(new URLSearchParams(query).entries())
-      const path = Object.keys(mockData).find(path => url.endsWith(path))
-      const mockRes = (path && mockData[path]()) || {}
-      if (path!.endsWith('/api/plugin/export')) {
-        exportCount++
-        ;(mockRes as any[]).forEach(group => {
-          ;(group.list as any[]).forEach(item => {
-            item.path = `/__${token}__${item.path}`
-          })
-        })
+      const [url, query] = _url.split('?');
+      const { token } = Object.fromEntries(
+        new URLSearchParams(query).entries(),
+      );
+      const path = Object.keys(mockData).find(path => url.endsWith(path));
+      const mockRes = (path && mockData[path]()) || {};
+      if (path?.endsWith('/api/plugin/export')) {
+        exportCount++;
+        (mockRes as any[]).forEach(group => {
+          (group.list as any[]).forEach(item => {
+            item.path = `/__${token}__${item.path}`;
+          });
+        });
       }
-      if (path!.endsWith('/api/project/get') && token === 'with-basepath') {
-        mockRes.data.basepath = '/i-am-basepath'
+      if (path?.endsWith('/api/project/get') && token === 'with-basepath') {
+        mockRes.data.basepath = '/i-am-basepath';
       }
-      return mockRes
+      return mockRes;
     },
-  }
-}
+  };
+};
 
-nodeFetch.resetExportCount = () => (exportCount = 0)
-nodeFetch.getExportCount = () => exportCount
+nodeFetch.resetExportCount = () => (exportCount = 0);
+nodeFetch.getExportCount = () => exportCount;
 
-module.exports = nodeFetch
+export default nodeFetch;

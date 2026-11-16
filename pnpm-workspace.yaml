@@ -1,0 +1,17 @@
+allowBuilds:
+  core-js: true
+  core-js-pure: true
+  esbuild: true
+permissions:
+  "@parcel/watcher":
+    build: true
+  "@swc/core":
+    build: true
+  tsdown:
+    skills: true
+skills:
+  dirs:
+    - .agent/skills
+saveTypes: true
+minimumReleaseAgeExclude:
+  - "@biomejs/*"

@@ -1,10 +1,9 @@
-const {
-  defineConfig,
-  getLatestConventionalChangelog,
-} = require('notify-dingtalk')
-const { dedent } = require('vtils')
+import notifyDingTalk from 'notify-dingtalk';
+import { dedent } from 'vtils';
 
-module.exports = defineConfig({
+const { defineConfig, getLatestConventionalChangelog } = notifyDingTalk;
+
+export default defineConfig({
   title: '发布公告',
   content: dedent`
     # 发布公告
@@ -17,4 +16,4 @@ module.exports = defineConfig({
 
     [进入主页→](https://github.com/fjc0k/yapi-to-typescript)
   `,
-})
+});

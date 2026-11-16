@@ -1,26 +1,30 @@
+import { fileURLToPath } from 'node:url';
+import { describe, expect, test } from 'vitest';
 import {
   defineConfig,
   FileData,
   parseRequestData,
   prepare,
-} from '../src/helpers'
-import { QueryStringArrayFormat, RequestConfig } from '../src/types'
+} from './helpers.ts';
+import { QueryStringArrayFormat, type RequestConfig } from './types.ts';
+
+const filename = fileURLToPath(import.meta.url);
 
 describe('defineConfig', () => {
   test('直接返回传入的配置', () => {
-    const config = {} as any
-    expect(defineConfig(config)).toBe(config)
-  })
-})
+    const config = {} as any;
+    expect(defineConfig(config)).toBe(config);
+  });
+});
 
 describe('FileData', () => {
   test('正确返回原始值', () => {
-    ;[1, '2', false, () => 1, /ddd/, {}, null].forEach(item => {
-      const fileData = new FileData(item)
-      expect(fileData.getOriginalFileData()).toBe(item)
-    })
-  })
-})
+    [1, '2', false, () => 1, /ddd/, {}, null].forEach(item => {
+      const fileData = new FileData(item);
+      expect(fileData.getOriginalFileData()).toBe(item);
+    });
+  });
+});
 
 describe('parseRequestData', () => {
   test('正确解析出数据和文件数据', () => {
@@ -28,7 +32,7 @@ describe('parseRequestData', () => {
       parseRequestData({
         x: 1,
         y: 2,
-        f: new FileData(__filename),
+        f: new FileData(filename),
       }),
     ).toEqual({
       data: {
@@ -36,20 +40,20 @@ describe('parseRequestData', () => {
         y: 2,
       },
       fileData: {
-        f: __filename,
+        f: filename,
       },
-    })
-  })
+    });
+  });
 
   test('传入非对象值时应将传入的值设为数据，且将文件数据设为空', () => {
-    ;['', 2, false, []].forEach(item => {
+    ['', 2, false, []].forEach(item => {
       expect(parseRequestData(item as any)).toEqual({
         data: item,
         fileData: {},
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});
 
 describe('prepare', () => {
   test('支持解析对象请求体', () => {
@@ -58,8 +62,8 @@ describe('prepare', () => {
         a: 1,
         b: '2',
       }),
-    ).toMatchSnapshot('对象')
-  })
+    ).toMatchSnapshot('对象');
+  });
 
   test('支持解析非对象请求体', () => {
     expect(
@@ -69,12 +73,12 @@ describe('prepare', () => {
         3,
         { x: false },
       ]),
-    ).toMatchSnapshot('数组')
+    ).toMatchSnapshot('数组');
 
     expect(
       prepare({ path: '/test' } as Partial<RequestConfig> as any, true),
-    ).toMatchSnapshot('布尔值')
-  })
+    ).toMatchSnapshot('布尔值');
+  });
 
   test('支持解析带参路径', () => {
     expect(
@@ -85,7 +89,7 @@ describe('prepare', () => {
         } as Partial<RequestConfig> as any,
         { a: 1, b: '2', id: 110 },
       ),
-    ).toMatchSnapshot('路径参数 1')
+    ).toMatchSnapshot('路径参数 1');
 
     expect(
       prepare(
@@ -95,7 +99,7 @@ describe('prepare', () => {
         } as Partial<RequestConfig> as any,
         { a: 1, b: '2', id: 110 },
       ),
-    ).toMatchSnapshot('路径参数 2')
+    ).toMatchSnapshot('路径参数 2');
 
     expect(
       prepare(
@@ -105,7 +109,7 @@ describe('prepare', () => {
         } as Partial<RequestConfig> as any,
         { a: 1, b: '2', id: 110 },
       ),
-    ).toMatchSnapshot('路径参数 3 - 全部替换')
+    ).toMatchSnapshot('路径参数 3 - 全部替换');
 
     expect(
       prepare(
@@ -115,8 +119,8 @@ describe('prepare', () => {
         } as Partial<RequestConfig> as any,
         { a: 'hello$&%/?&$1', b: '2', id: 110 },
       ),
-    ).toMatchSnapshot('路径参数 4 - 应 encodeURIComponent')
-  })
+    ).toMatchSnapshot('路径参数 4 - 应 encodeURIComponent');
+  });
 
   test('支持追加查询参数', () => {
     expect(
@@ -127,8 +131,8 @@ describe('prepare', () => {
         } as Partial<RequestConfig> as any,
         { a: 1, b: '2', id: 110 },
       ),
-    ).toMatchSnapshot()
-  })
+    ).toMatchSnapshot();
+  });
 
   test('查询参数支持数组', () => {
     expect(
@@ -140,7 +144,7 @@ describe('prepare', () => {
         } as Partial<RequestConfig> as any,
         { list: [1, 2, 3] },
       ),
-    ).toMatchSnapshot('brackets')
+    ).toMatchSnapshot('brackets');
 
     expect(
       prepare(
@@ -151,7 +155,7 @@ describe('prepare', () => {
         } as Partial<RequestConfig> as any,
         { list: [1, 2, 3] },
       ),
-    ).toMatchSnapshot('indices')
+    ).toMatchSnapshot('indices');
 
     expect(
       prepare(
@@ -162,7 +166,7 @@ describe('prepare', () => {
         } as Partial<RequestConfig> as any,
         { list: [1, 2, 3] },
       ),
-    ).toMatchSnapshot('repeat')
+    ).toMatchSnapshot('repeat');
 
     expect(
       prepare(
@@ -173,7 +177,7 @@ describe('prepare', () => {
         } as Partial<RequestConfig> as any,
         { list: [1, 2, 3] },
       ),
-    ).toMatchSnapshot('comma')
+    ).toMatchSnapshot('comma');
 
     expect(
       prepare(
@@ -184,8 +188,8 @@ describe('prepare', () => {
         } as Partial<RequestConfig> as any,
         { list: [1, 2, 3] },
       ),
-    ).toMatchSnapshot('json')
-  })
+    ).toMatchSnapshot('json');
+  });
 
   test('文件处理', async () => {
     const payload = prepare(
@@ -197,15 +201,15 @@ describe('prepare', () => {
           }),
         ),
       },
-    )
-    const files: any[] = []
+    );
+    const files: any[] = [];
     payload.getFormData().forEach((v, k) => {
-      files.push([k, v])
-    })
+      files.push([k, v]);
+    });
     for (const file of files) {
-      file[1] = file[1] instanceof File ? file[1].type : file[1]
+      file[1] = file[1] instanceof File ? file[1].type : file[1];
     }
-    expect(files).toMatchSnapshot('file-single')
+    expect(files).toMatchSnapshot('file-single');
 
     const payload2 = prepare(
       { path: '/test' } as Partial<RequestConfig> as any,
@@ -219,14 +223,14 @@ describe('prepare', () => {
           }),
         ]),
       },
-    )
-    const files2: any[] = []
+    );
+    const files2: any[] = [];
     payload2.getFormData().forEach((v, k) => {
-      files2.push([k, v])
-    })
+      files2.push([k, v]);
+    });
     for (const file of files2) {
-      file[1] = file[1] instanceof File ? file[1].type : file[1]
+      file[1] = file[1] instanceof File ? file[1].type : file[1];
     }
-    expect(files2).toMatchSnapshot('file-multiple')
-  })
-})
+    expect(files2).toMatchSnapshot('file-multiple');
+  });
+});

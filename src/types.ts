@@ -1,83 +1,83 @@
-import { AsyncOrSync, LiteralUnion, OmitStrict, OneOrMore } from 'vtils/types'
-import { JSONSchema4, JSONSchema4TypeName } from 'json-schema'
-import { ParsedPath } from 'path'
+import type { ParsedPath } from 'node:path';
+import type { JSONSchema4, JSONSchema4TypeName } from 'json-schema';
+import type {
+  AsyncOrSync,
+  LiteralUnion,
+  OmitStrict,
+  OneOrMore,
+} from 'vtils/types';
 
 export interface ChangeCase {
   /**
    * @example
    * changeCase.camelCase('test string') // => 'testString'
    */
-  camelCase: (value: string) => string
+  camelCase: (value: string) => string;
+  /**
+   * @example
+   * changeCase.capitalCase('test string') // => 'Test String'
+   */
+  capitalCase: (value: string) => string;
   /**
    * @example
    * changeCase.constantCase('test string') // => 'TEST_STRING'
    */
-  constantCase: (value: string) => string
+  constantCase: (value: string) => string;
   /**
    * @example
    * changeCase.dotCase('test string') // => 'test.string'
    */
-  dotCase: (value: string) => string
+  dotCase: (value: string) => string;
   /**
    * @example
-   * changeCase.headerCase('test string') // => 'Test-String'
+   * changeCase.kebabCase('test string') // => 'test-string'
    */
-  headerCase: (value: string) => string
+  kebabCase: (value: string) => string;
   /**
    * @example
-   * changeCase.lowerCase('TEST STRING') // => 'test string'
+   * changeCase.noCase('testString') // => 'test string'
    */
-  lowerCase: (value: string) => string
-  /**
-   * @example
-   * changeCase.lowerCaseFirst('TEST') // => 'tEST'
-   */
-  lowerCaseFirst: (value: string) => string
-  /**
-   * @example
-   * changeCase.paramCase('test string') // => 'test-string'
-   */
-  paramCase: (value: string) => string
+  noCase: (value: string) => string;
   /**
    * @example
    * changeCase.pascalCase('test string') // => 'TestString'
    */
-  pascalCase: (value: string) => string
+  pascalCase: (value: string) => string;
+  /**
+   * @example
+   * changeCase.pascalSnakeCase('test string') // => 'Test_String'
+   */
+  pascalSnakeCase: (value: string) => string;
   /**
    * @example
    * changeCase.pathCase('test string') // => 'test/string'
    */
-  pathCase: (value: string) => string
+  pathCase: (value: string) => string;
   /**
    * @example
    * changeCase.sentenceCase('testString') // => 'Test string'
    */
-  sentenceCase: (value: string) => string
+  sentenceCase: (value: string) => string;
   /**
    * @example
    * changeCase.snakeCase('test string') // => 'test_string'
    */
-  snakeCase: (value: string) => string
+  snakeCase: (value: string) => string;
   /**
    * @example
-   * changeCase.swapCase('Test String') // => 'tEST sTRING'
+   * changeCase.split('testString') // => ['test', 'String']
    */
-  swapCase: (value: string) => string
+  split: (value: string) => string[];
   /**
    * @example
-   * changeCase.titleCase('a simple test') // => 'A Simple Test'
+   * changeCase.splitSeparateNumbers('test1String') // => ['test', '1', 'String']
    */
-  titleCase: (value: string) => string
+  splitSeparateNumbers: (value: string) => string[];
   /**
    * @example
-   * changeCase.upperCase('test string') // => 'TEST STRING'
+   * changeCase.trainCase('test string') // => 'Test-String'
    */
-  upperCase: (value: string) => string
-  /**
-   * @example
-   * changeCase.upperCaseFirst('test') // => 'Test'
-   */
-  upperCaseFirst: (value: string) => string
+  trainCase: (value: string) => string;
 }
 
 /** 请求方式 */
@@ -160,164 +160,164 @@ export enum ResponseBodyType {
 /** 查询字符串数组格式化方式 */
 export enum QueryStringArrayFormat {
   /** 示例: `a[]=b&a[]=c` */
-  'brackets' = 'brackets',
+  brackets = 'brackets',
   /** 示例: `a[0]=b&a[1]=c` */
-  'indices' = 'indices',
+  indices = 'indices',
   /** 示例: `a=b&a=c` */
-  'repeat' = 'repeat',
+  repeat = 'repeat',
   /** 示例: `a=b,c` */
-  'comma' = 'comma',
+  comma = 'comma',
   /** 示例: `a=["b","c"]` */
-  'json' = 'json',
+  json = 'json',
 }
 
 /** 接口定义 */
 export interface Interface {
   /** 接口 ID */
-  _id: number
+  _id: number;
   /** 所属分类信息（由 YTT 自行实现） */
-  _category: OmitStrict<Category, 'list'>
+  _category: OmitStrict<Category, 'list'>;
   /** 所属项目信息（由 YTT 自行实现） */
-  _project: Project
+  _project: Project;
   /** 接口在 YApi 上的地址（由 YTT 自行实现） */
-  _url: string
+  _url: string;
   /** 接口名称 */
-  title: string
+  title: string;
   /** 状态 */
-  status: LiteralUnion<'done' | 'undone', string>
+  status: LiteralUnion<'done' | 'undone', string>;
   /** 接口备注 */
-  markdown: string
+  markdown: string;
   /** 请求路径 */
-  path: string
+  path: string;
   /** 请求方式，HEAD、OPTIONS 处理与 GET 相似，其余处理与 POST 相似 */
-  method: Method
+  method: Method;
   /** 所属项目 id */
-  project_id: number
+  project_id: number;
   /** 所属分类 id */
-  catid: number
+  catid: number;
   /** 标签列表 */
-  tag: string[]
+  tag: string[];
   /** 请求头 */
   req_headers: Array<{
     /** 名称 */
-    name: string
+    name: string;
     /** 值 */
-    value: string
+    value: string;
     /** 备注 */
-    desc: string
+    desc: string;
     /** 示例 */
-    example: string
+    example: string;
     /** 是否必需 */
-    required: Required
-  }>
+    required: Required;
+  }>;
   /** 路径参数 */
   req_params: Array<{
     /** 名称 */
-    name: string
+    name: string;
     /** 备注 */
-    desc: string
+    desc: string;
     /** 示例 */
-    example: string
+    example: string;
     /** 类型（YApi-X） */
-    type?: RequestParamType
-  }>
+    type?: RequestParamType;
+  }>;
   /** 仅 GET：请求串 */
   req_query: Array<{
     /** 名称 */
-    name: string
+    name: string;
     /** 备注 */
-    desc: string
+    desc: string;
     /** 示例 */
-    example: string
+    example: string;
     /** 是否必需 */
-    required: Required
+    required: Required;
     /** 类型（YApi-X） */
-    type?: RequestQueryType
-  }>
+    type?: RequestQueryType;
+  }>;
   /** 仅 POST：请求内容类型。为 text, file, raw 时不必特殊处理。 */
-  req_body_type: RequestBodyType
+  req_body_type: RequestBodyType;
   /** `req_body_type = json` 时是否为 json schema */
-  req_body_is_json_schema: boolean
+  req_body_is_json_schema: boolean;
   /** `req_body_type = form` 时的请求内容 */
   req_body_form: Array<{
     /** 名称 */
-    name: string
+    name: string;
     /** 类型 */
-    type: RequestFormItemType
+    type: RequestFormItemType;
     /** 备注 */
-    desc: string
+    desc: string;
     /** 示例 */
-    example: string
+    example: string;
     /** 是否必需 */
-    required: Required
-  }>
+    required: Required;
+  }>;
   /** `req_body_type = json` 时的请求内容 */
-  req_body_other: string
+  req_body_other: string;
   /** 返回数据类型 */
-  res_body_type: ResponseBodyType
+  res_body_type: ResponseBodyType;
   /** `res_body_type = json` 时是否为 json schema */
-  res_body_is_json_schema: boolean
+  res_body_is_json_schema: boolean;
   /** 返回数据 */
-  res_body: string
+  res_body: string;
   /** 创建时间（unix时间戳） */
-  add_time: number
+  add_time: number;
   /** 更新时间（unix时间戳） */
-  up_time: number
+  up_time: number;
   /** 创建人 ID */
-  uid: number
-  [key: string]: any
+  uid: number;
+  [key: string]: any;
 }
 
 /** 扩展接口定义 */
 export interface ExtendedInterface extends Interface {
-  parsedPath: ParsedPath
+  parsedPath: ParsedPath;
 }
 
 /** 接口列表 */
-export type InterfaceList = Interface[]
+export type InterfaceList = Interface[];
 
 /** 分类信息 */
 export interface Category {
   /** ID */
-  _id: number
+  _id: number;
   /** 分类在 YApi 上的地址（由 YTT 自行实现） */
-  _url: string
+  _url: string;
   /** 分类名称 */
-  name: string
+  name: string;
   /** 分类备注 */
-  desc: string
+  desc: string;
   /** 分类接口列表 */
-  list: InterfaceList
+  list: InterfaceList;
   /** 创建时间（unix时间戳） */
-  add_time: number
+  add_time: number;
   /** 更新时间（unix时间戳） */
-  up_time: number
+  up_time: number;
 }
 
 /** 分类列表，对应数据导出的 json 内容 */
-export type CategoryList = Category[]
+export type CategoryList = Category[];
 
 /** 项目信息 */
 export interface Project {
   /** ID */
-  _id: number
+  _id: number;
   /** 项目在 YApi 上的地址（由 YTT 自行实现） */
-  _url: string
+  _url: string;
   /** 名称 */
-  name: string
+  name: string;
   /** 描述 */
-  desc: string
+  desc: string;
   /** 基本路径 */
-  basepath: string
+  basepath: string;
   /** 标签 */
-  tag: string[]
+  tag: string[];
   /** 环境配置 */
   env: Array<{
     /** 环境名称 */
-    name: string
+    name: string;
     /** 环境域名 */
-    domain: string
-  }>
+    domain: string;
+  }>;
 }
 
 /** 支持生成 React Hooks 代码的相关配置 */
@@ -325,7 +325,7 @@ export interface ReactHooksConfig {
   /**
    * 是否开启该项功能。
    */
-  enabled: boolean
+  enabled: boolean;
 
   /**
    * 请求 Hook 函数制造者文件路径。
@@ -333,7 +333,7 @@ export interface ReactHooksConfig {
    * @default 与 `outputFilePath` 同级目录下的 `makeRequestHook.ts` 文件
    * @example 'src/api/makeRequestHook.ts'
    */
-  requestHookMakerFilePath?: string
+  requestHookMakerFilePath?: string;
 
   /**
    * 获取请求 Hook 的名称。
@@ -346,7 +346,7 @@ export interface ReactHooksConfig {
   getRequestHookName?(
     interfaceInfo: ExtendedInterface,
     changeCase: ChangeCase,
-  ): string
+  ): string;
 }
 
 /** 支持生成 JSON Schema 的相关配置 */
@@ -354,21 +354,21 @@ export interface JsonSchemaConfig {
   /**
    * 是否开启该项功能。
    */
-  enabled: boolean
+  enabled: boolean;
 
   /**
    * 是否生成请求数据的 JSON Schema。
    *
    * @default true
    */
-  requestData?: boolean
+  requestData?: boolean;
 
   /**
    * 是否生成返回数据的 JSON Schema。
    *
    * @default true
    */
-  responseData?: boolean
+  responseData?: boolean;
 }
 
 /** 支持生成注释的相关配置 */
@@ -378,49 +378,49 @@ export interface CommentConfig {
    *
    * @default true
    */
-  enabled?: boolean
+  enabled?: boolean;
 
   /**
    * 是否有标题。
    *
    * @default true
    */
-  title?: boolean
+  title?: boolean;
 
   /**
    * 是否有分类名称。
    *
    * @default true
    */
-  category?: boolean
+  category?: boolean;
 
   /**
    * 是否有标签。
    *
    * @default true
    */
-  tag?: boolean
+  tag?: boolean;
 
   /**
    * 是否有请求头。
    *
    * @default true
    */
-  requestHeader?: boolean
+  requestHeader?: boolean;
 
   /**
    * 是否有更新时间。
    *
    * @default true
    */
-  updateTime?: boolean
+  updateTime?: boolean;
 
   /**
    * 是否为标题、分类名称添加链接。
    *
    * @default true
    */
-  link?: boolean
+  link?: boolean;
 
   /**
    * 额外的注释标签。生成的内容形如：`@{name} {value}`。
@@ -429,20 +429,20 @@ export interface CommentConfig {
     /**
      * 标签名。
      */
-    name: string
+    name: string;
 
     /**
      * 标签值。
      */
-    value: string
+    value: string;
 
     /**
      * 标签位置，即将新标签插在标签列表的开头还是末尾。
      *
      * @default 'end'
      */
-    position?: 'start' | 'end'
-  }>
+    position?: 'start' | 'end';
+  }>;
 }
 
 /**
@@ -455,14 +455,14 @@ export interface SharedConfig {
    *
    * @default 'typescript'
    */
-  target?: 'typescript' | 'javascript'
+  target?: 'typescript' | 'javascript';
 
   /**
    * 是否只生成接口请求内容和返回内容的 TypeSript 类型，是则请求文件和请求函数都不会生成。
    *
    * @default false
    */
-  typesOnly?: boolean
+  typesOnly?: boolean;
 
   /**
    * 测试环境名称。
@@ -473,7 +473,7 @@ export interface SharedConfig {
    *
    * @example 'dev'
    */
-  devEnvName?: string
+  devEnvName?: string;
 
   /**
    * 生产环境名称。
@@ -484,7 +484,7 @@ export interface SharedConfig {
    *
    * @example 'prod'
    */
-  prodEnvName?: string
+  prodEnvName?: string;
 
   /**
    * 输出文件路径。
@@ -495,7 +495,7 @@ export interface SharedConfig {
    */
   outputFilePath?:
     | string
-    | ((interfaceInfo: Interface, changeCase: ChangeCase) => string)
+    | ((interfaceInfo: Interface, changeCase: ChangeCase) => string);
 
   /**
    * 请求函数文件路径。
@@ -503,7 +503,7 @@ export interface SharedConfig {
    * @default 与 `outputFilePath` 同级目录下的 `request.ts` 文件
    * @example 'src/api/request.ts'
    */
-  requestFunctionFilePath?: string
+  requestFunctionFilePath?: string;
 
   /**
    * 如果接口响应的结果是 `JSON` 对象，
@@ -516,34 +516,34 @@ export interface SharedConfig {
    *
    * @example 'data'
    */
-  dataKey?: OneOrMore<string>
+  dataKey?: OneOrMore<string>;
 
   /**
    * 支持生成 React Hooks 代码的相关配置。
    */
-  reactHooks?: ReactHooksConfig
+  reactHooks?: ReactHooksConfig;
 
   /**
    * 支持生成 JSON Schema 的相关配置。
    */
-  jsonSchema?: JsonSchemaConfig
+  jsonSchema?: JsonSchemaConfig;
 
   /**
    * 支持生成注释的相关配置。
    */
-  comment?: CommentConfig
+  comment?: CommentConfig;
 
   /**
    * 将自定义类型转为 JSONSchema 类型的映射表，自定义类型名称大小写不敏感。
    */
-  customTypeMapping?: Record<string, JSONSchema4TypeName>
+  customTypeMapping?: Record<string, JSONSchema4TypeName>;
 
   /**
    * 如何格式化查询字符串中的数组值。
    *
    * @default QueryStringArrayFormat.brackets
    */
-  queryStringArrayFormat?: QueryStringArrayFormat
+  queryStringArrayFormat?: QueryStringArrayFormat;
 
   /**
    * 设置传给请求函数的参数中的 extraInfo 的值。
@@ -555,7 +555,7 @@ export interface SharedConfig {
   setRequestFunctionExtraInfo?(
     interfaceInfo: Interface,
     changeCase: ChangeCase,
-  ): Record<string, any>
+  ): Record<string, any>;
 
   /**
    * 预处理接口信息，返回新的接口信息。可返回 false 排除当前接口。
@@ -578,7 +578,7 @@ export interface SharedConfig {
     interfaceInfo: Interface,
     changeCase: ChangeCase,
     syntheticalConfig: SyntheticalConfig,
-  ): Interface | false
+  ): Interface | false;
 
   /**
    * 获取请求函数的名称。
@@ -591,7 +591,7 @@ export interface SharedConfig {
   getRequestFunctionName?(
     interfaceInfo: ExtendedInterface,
     changeCase: ChangeCase,
-  ): string
+  ): string;
 
   /**
    * 获取请求数据类型的名称。
@@ -604,7 +604,7 @@ export interface SharedConfig {
   getRequestDataTypeName?(
     interfaceInfo: ExtendedInterface,
     changeCase: ChangeCase,
-  ): string
+  ): string;
 
   /**
    * 获取响应数据类型的名称。
@@ -617,7 +617,7 @@ export interface SharedConfig {
   getResponseDataTypeName?(
     interfaceInfo: ExtendedInterface,
     changeCase: ChangeCase,
-  ): string
+  ): string;
 }
 
 /**
@@ -633,7 +633,7 @@ export interface CategoryConfig extends SharedConfig {
    *
    * @example 20
    */
-  id: number | number[]
+  id: number | number[];
 }
 
 /**
@@ -647,12 +647,12 @@ export interface ProjectConfig extends SharedConfig {
    *
    * @example 'e02a47122259d0c1973a9ff81cabb30685d64abc72f39edaa1ac6b6a792a647d'
    */
-  token: string | string[]
+  token: string | string[];
 
   /**
    * 分类列表。
    */
-  categories: CategoryConfig[]
+  categories: CategoryConfig[];
 }
 
 /**
@@ -664,19 +664,19 @@ export interface ServerConfig extends SharedConfig {
    *
    * @example 'http://yapi.foo.bar'
    */
-  serverUrl: string
+  serverUrl: string;
 
   /**
    * 服务类型。
    *
    * @default 'yapi'
    */
-  serverType?: 'yapi' | 'swagger'
+  serverType?: 'yapi' | 'swagger';
 
   /**
    * 项目列表。
    */
-  projects: ProjectConfig[]
+  projects: ProjectConfig[];
 }
 
 /** 混合的配置。 */
@@ -684,14 +684,14 @@ export type SyntheticalConfig = Partial<
   ServerConfig &
     ServerConfig['projects'][0] &
     ServerConfig['projects'][0]['categories'][0] & {
-      mockUrl: string
-      devUrl: string
-      prodUrl: string
+      mockUrl: string;
+      devUrl: string;
+      prodUrl: string;
     }
->
+>;
 
 /** 配置。 */
-export type Config = ServerConfig | ServerConfig[]
+export type Config = ServerConfig | ServerConfig[];
 
 /**
  * 请求配置。
@@ -707,39 +707,39 @@ export interface RequestConfig<
   RequestDataOptional extends boolean = boolean,
 > {
   /** 接口 Mock 地址，结尾无 `/` */
-  mockUrl: MockUrl
+  mockUrl: MockUrl;
   /** 接口测试环境地址，结尾无 `/` */
-  devUrl: DevUrl
+  devUrl: DevUrl;
   /** 接口生产环境地址，结尾无 `/` */
-  prodUrl: ProdUrl
+  prodUrl: ProdUrl;
   /** 接口路径，以 `/` 开头 */
-  path: Path
+  path: Path;
   /** 请求方法 */
-  method: Method
+  method: Method;
   /** 请求头，除了 Content-Type 的所有头 */
-  requestHeaders: Record<string, string>
+  requestHeaders: Record<string, string>;
   /** 请求数据类型 */
-  requestBodyType: RequestBodyType
+  requestBodyType: RequestBodyType;
   /** 返回数据类型 */
-  responseBodyType: ResponseBodyType
+  responseBodyType: ResponseBodyType;
   /** 数据所在键 */
-  dataKey: DataKey
+  dataKey: DataKey;
   /** 路径参数的名称列表 */
-  paramNames: ParamName[]
+  paramNames: ParamName[];
   /** 查询参数的名称列表 */
-  queryNames: QueryName[]
+  queryNames: QueryName[];
   /** 请求数据是否可选 */
-  requestDataOptional: RequestDataOptional
+  requestDataOptional: RequestDataOptional;
   /** 请求数据的 JSON Schema (仅开启了 JSON Schema 生成时生效) */
-  requestDataJsonSchema: JSONSchema4
+  requestDataJsonSchema: JSONSchema4;
   /** 返回数据的 JSON Schema (仅开启了 JSON Schema 生成时生效) */
-  responseDataJsonSchema: JSONSchema4
+  responseDataJsonSchema: JSONSchema4;
   /** 请求函数名称 */
-  requestFunctionName: string
+  requestFunctionName: string;
   /** 如何格式化查询字符串中的数组值 */
-  queryStringArrayFormat: QueryStringArrayFormat
+  queryStringArrayFormat: QueryStringArrayFormat;
   /** 额外信息 */
-  extraInfo: Record<string, any>
+  extraInfo: Record<string, any>;
 }
 
 /**
@@ -747,17 +747,17 @@ export interface RequestConfig<
  */
 export interface RequestFunctionParams extends RequestConfig {
   /** 原始数据 */
-  rawData: Record<string, any>
+  rawData: Record<string, any>;
   /** 请求数据，不含文件数据 */
-  data: Record<string, any>
+  data: Record<string, any>;
   /** 是否有文件数据 */
-  hasFileData: boolean
+  hasFileData: boolean;
   /** 请求文件数据 */
-  fileData: Record<string, any>
+  fileData: Record<string, any>;
   /** 所有请求数据，包括 data、fileData */
-  allData: Record<string, any>
+  allData: Record<string, any>;
   /** 获取全部请求数据（包含文件）的 FormData 实例 */
-  getFormData: () => FormData
+  getFormData: () => FormData;
 }
 
 /** 请求函数的额外参数 */
@@ -766,33 +766,33 @@ export type RequestFunctionRestArgs<T extends Function> = T extends (
   ...args: infer R
 ) => any
   ? R
-  : never
+  : never;
 
 /** 属性定义 */
 export interface PropDefinition {
   /** 属性名称 */
-  name: string
+  name: string;
   /** 是否必需 */
-  required: boolean
+  required: boolean;
   /** 类型 */
-  type: JSONSchema4['type']
+  type: JSONSchema4['type'];
   /** 注释 */
-  comment: string
+  comment: string;
 }
 
 /** 属性定义列表 */
-export type PropDefinitions = PropDefinition[]
+export type PropDefinitions = PropDefinition[];
 
 /** 命令行钩子 */
 export interface CliHooks {
   /** 生成成功时触发 */
-  success?: () => AsyncOrSync<void>
+  success?: () => AsyncOrSync<void>;
   /** 生成失败时触发 */
-  fail?: () => AsyncOrSync<void>
+  fail?: () => AsyncOrSync<void>;
   /** 生成完毕时触发（无论成功、失败） */
-  complete?: () => AsyncOrSync<void>
+  complete?: () => AsyncOrSync<void>;
 }
 
 export type ConfigWithHooks = Config & {
-  hooks?: CliHooks
-}
+  hooks?: CliHooks;
+};

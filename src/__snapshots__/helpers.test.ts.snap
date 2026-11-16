@@ -1,4 +1,315 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`prepare > 支持解析对象请求体 > 对象 1`] = `
+{
+  "allData": {
+    "a": 1,
+    "b": "2",
+  },
+  "data": {
+    "a": 1,
+    "b": "2",
+  },
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "path": "/test",
+  "rawData": {
+    "a": 1,
+    "b": "2",
+  },
+}
+`;
+
+exports[`prepare > 支持解析带参路径 > 路径参数 1 1`] = `
+{
+  "allData": {
+    "b": "2",
+  },
+  "data": {
+    "b": "2",
+  },
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "paramNames": [
+    "a",
+    "id",
+  ],
+  "path": "/test/1/110",
+  "rawData": {
+    "a": 1,
+    "b": "2",
+    "id": 110,
+  },
+}
+`;
+
+exports[`prepare > 支持解析带参路径 > 路径参数 2 1`] = `
+{
+  "allData": {
+    "b": "2",
+  },
+  "data": {
+    "b": "2",
+  },
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "paramNames": [
+    "a",
+    "id",
+  ],
+  "path": "/test/a_1/id_110",
+  "rawData": {
+    "a": 1,
+    "b": "2",
+    "id": 110,
+  },
+}
+`;
+
+exports[`prepare > 支持解析带参路径 > 路径参数 3 - 全部替换 1`] = `
+{
+  "allData": {
+    "b": "2",
+  },
+  "data": {
+    "b": "2",
+  },
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "paramNames": [
+    "a",
+    "id",
+  ],
+  "path": "/test/a_1/id_110/id_110",
+  "rawData": {
+    "a": 1,
+    "b": "2",
+    "id": 110,
+  },
+}
+`;
+
+exports[`prepare > 支持解析带参路径 > 路径参数 4 - 应 encodeURIComponent 1`] = `
+{
+  "allData": {
+    "b": "2",
+  },
+  "data": {
+    "b": "2",
+  },
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "paramNames": [
+    "a",
+    "id",
+  ],
+  "path": "/test/a_hello%24%26%25%2F%3F%26%241/id_110/id_110",
+  "rawData": {
+    "a": "hello$&%/?&$1",
+    "b": "2",
+    "id": 110,
+  },
+}
+`;
+
+exports[`prepare > 支持解析非对象请求体 > 布尔值 1`] = `
+{
+  "allData": {},
+  "data": true,
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "path": "/test",
+  "rawData": true,
+}
+`;
+
+exports[`prepare > 支持解析非对象请求体 > 数组 1`] = `
+{
+  "allData": {},
+  "data": [
+    1,
+    2,
+    3,
+    {
+      "x": false,
+    },
+  ],
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "path": "/test",
+  "rawData": [
+    1,
+    2,
+    3,
+    {
+      "x": false,
+    },
+  ],
+}
+`;
+
+exports[`prepare > 支持追加查询参数 1`] = `
+{
+  "allData": {
+    "b": "2",
+  },
+  "data": {
+    "b": "2",
+  },
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "path": "/search?a=1&id=110",
+  "queryNames": [
+    "a",
+    "id",
+  ],
+  "rawData": {
+    "a": 1,
+    "b": "2",
+    "id": 110,
+  },
+}
+`;
+
+exports[`prepare > 文件处理 > file-multiple 1`] = `
+[
+  [
+    "file",
+    "text1",
+  ],
+  [
+    "file",
+    "text2",
+  ],
+]
+`;
+
+exports[`prepare > 文件处理 > file-single 1`] = `
+[
+  [
+    "file",
+    "text1",
+  ],
+]
+`;
+
+exports[`prepare > 查询参数支持数组 > brackets 1`] = `
+{
+  "allData": {},
+  "data": {},
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "path": "/search?list%5B%5D=1&list%5B%5D=2&list%5B%5D=3",
+  "queryNames": [
+    "list",
+  ],
+  "queryStringArrayFormat": "brackets",
+  "rawData": {
+    "list": [
+      1,
+      2,
+      3,
+    ],
+  },
+}
+`;
+
+exports[`prepare > 查询参数支持数组 > comma 1`] = `
+{
+  "allData": {},
+  "data": {},
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "path": "/search?list=1%2C2%2C3",
+  "queryNames": [
+    "list",
+  ],
+  "queryStringArrayFormat": "comma",
+  "rawData": {
+    "list": [
+      1,
+      2,
+      3,
+    ],
+  },
+}
+`;
+
+exports[`prepare > 查询参数支持数组 > indices 1`] = `
+{
+  "allData": {},
+  "data": {},
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "path": "/search?list%5B0%5D=1&list%5B1%5D=2&list%5B2%5D=3",
+  "queryNames": [
+    "list",
+  ],
+  "queryStringArrayFormat": "indices",
+  "rawData": {
+    "list": [
+      1,
+      2,
+      3,
+    ],
+  },
+}
+`;
+
+exports[`prepare > 查询参数支持数组 > json 1`] = `
+{
+  "allData": {},
+  "data": {},
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "path": "/search?list=%5B1%2C2%2C3%5D",
+  "queryNames": [
+    "list",
+  ],
+  "queryStringArrayFormat": "json",
+  "rawData": {
+    "list": [
+      1,
+      2,
+      3,
+    ],
+  },
+}
+`;
+
+exports[`prepare > 查询参数支持数组 > repeat 1`] = `
+{
+  "allData": {},
+  "data": {},
+  "fileData": {},
+  "getFormData": [Function],
+  "hasFileData": false,
+  "path": "/search?list=1&list=2&list=3",
+  "queryNames": [
+    "list",
+  ],
+  "queryStringArrayFormat": "repeat",
+  "rawData": {
+    "list": [
+      1,
+      2,
+      3,
+    ],
+  },
+}
+`;
 
 exports[`prepare 支持解析对象请求体: 对象 1`] = `
 Object {

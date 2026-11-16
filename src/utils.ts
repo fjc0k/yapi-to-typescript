@@ -1,11 +1,16 @@
-import fs from 'fs-extra'
-import JSON5 from 'json5'
-import nodeFetch from 'node-fetch'
-import path from 'path'
-import prettier from 'prettier'
-import ProxyAgent from 'proxy-agent'
-import toJsonSchema from 'to-json-schema'
+import { createRequire } from 'node:module';
+import path from 'node:path';
+import { URL } from 'node:url';
+import fs from 'fs-extra';
+import type { JSONSchema4, JSONSchema4TypeName } from 'json-schema';
+import { compile, type Options } from 'json-schema-to-typescript';
+import JSON5 from 'json5';
+import nodeFetch from 'node-fetch';
+import prettier from 'prettier';
+import { ProxyAgent } from 'proxy-agent';
+import toJsonSchema from 'to-json-schema';
 import {
+  asyncMemoize,
   castArray,
   cloneDeepFast,
   forOwn,
@@ -13,25 +18,21 @@ import {
   isEmpty,
   isObject,
   mapKeys,
-  memoize,
   run,
   traverse,
-} from 'vtils'
-import { compile, Options } from 'json-schema-to-typescript'
-import { Defined, OneOrMore } from 'vtils/types'
-import { FileData } from './helpers'
+} from 'vtils';
+import type { Defined, OneOrMore } from 'vtils/types';
+import { FileData } from './helpers.ts';
 import {
-  Interface,
+  type Interface,
   Method,
-  PropDefinition,
-  PropDefinitions,
+  type PropDefinition,
+  type PropDefinitions,
   RequestBodyType,
   RequestFormItemType,
   Required,
   ResponseBodyType,
-} from './types'
-import { JSONSchema4, JSONSchema4TypeName } from 'json-schema'
-import { URL } from 'url'
+} from './types.ts';
 
 /**
  * 抛出错误。
@@ -40,7 +41,7 @@ import { URL } from 'url'
  */
 export function throwError(...msg: string[]): never {
   /* istanbul ignore next */
-  throw new Error(msg.join(''))
+  throw new Error(msg.join(''));
 }
 
 /**
@@ -50,7 +51,7 @@ export function throwError(...msg: string[]): never {
  * @returns unix 风格的路径
  */
 export function toUnixPath(path: string) {
-  return path.replace(/[/\\]+/g, '/')
+  return path.replace(/[/\\]+/g, '/');
 }
 
 /**
@@ -63,7 +64,7 @@ export function toUnixPath(path: string) {
 export function getNormalizedRelativePath(from: string, to: string) {
   return toUnixPath(path.relative(path.dirname(from), to))
     .replace(/^(?=[^.])/, './')
-    .replace(/\.(ts|js)x?$/i, '')
+    .replace(/\.(ts|js)x?$/i, '');
 }
 
 /**
@@ -78,51 +79,57 @@ export function traverseJsonSchema(
   currentPath: Array<string | number> = [],
 ): JSONSchema4 {
   /* istanbul ignore if */
-  if (!isObject(jsonSchema)) return jsonSchema
+  if (!isObject(jsonSchema)) return jsonSchema;
 
   // Mock.toJSONSchema 产生的 properties 为数组，然而 JSONSchema4 的 properties 为对象
   if (isArray(jsonSchema.properties)) {
-    jsonSchema.properties = (jsonSchema.properties as JSONSchema4[]).reduce<
-      Defined<JSONSchema4['properties']>
-    >((props, js) => {
-      props[js.name] = js
-      return props
-    }, {})
+    jsonSchema.properties = (
+      jsonSchema.properties as unknown as JSONSchema4[]
+    ).reduce<Defined<JSONSchema4['properties']>>((props, js) => {
+      props[js.name] = js;
+      return props;
+    }, {});
   }
 
   // 处理传入的 JSONSchema
-  cb(jsonSchema, currentPath)
+  cb(jsonSchema, currentPath);
 
   // 继续处理对象的子元素
   if (jsonSchema.properties) {
     forOwn(jsonSchema.properties, (item, key) =>
       traverseJsonSchema(item, cb, [...currentPath, key]),
-    )
+    );
   }
 
   // 继续处理数组的子元素
   if (jsonSchema.items) {
-    castArray(jsonSchema.items).forEach((item, index) =>
-      traverseJsonSchema(item, cb, [...currentPath, index]),
-    )
+    castArray(jsonSchema.items).forEach((item, index) => {
+      traverseJsonSchema(item, cb, [...currentPath, index]);
+    });
   }
 
   // 处理 oneOf
   if (jsonSchema.oneOf) {
-    jsonSchema.oneOf.forEach(item => traverseJsonSchema(item, cb, currentPath))
+    jsonSchema.oneOf.forEach(item => {
+      traverseJsonSchema(item, cb, currentPath);
+    });
   }
 
   // 处理 anyOf
   if (jsonSchema.anyOf) {
-    jsonSchema.anyOf.forEach(item => traverseJsonSchema(item, cb, currentPath))
+    jsonSchema.anyOf.forEach(item => {
+      traverseJsonSchema(item, cb, currentPath);
+    });
   }
 
   // 处理 allOf
   if (jsonSchema.allOf) {
-    jsonSchema.allOf.forEach(item => traverseJsonSchema(item, cb, currentPath))
+    jsonSchema.allOf.forEach(item => {
+      traverseJsonSchema(item, cb, currentPath);
+    });
   }
 
-  return jsonSchema
+  return jsonSchema;
 }
 
 /**
@@ -137,8 +144,8 @@ export function processJsonSchema(
 ): JSONSchema4 {
   return traverseJsonSchema(jsonSchema, jsonSchema => {
     // 删除通过 swagger 导入时未剔除的 ref
-    delete jsonSchema.$ref
-    delete jsonSchema.$$ref
+    delete jsonSchema.$ref;
+    delete jsonSchema.$$ref;
 
     // 数组只取第一个判断类型
     if (
@@ -146,7 +153,7 @@ export function processJsonSchema(
       Array.isArray(jsonSchema.items) &&
       jsonSchema.items.length
     ) {
-      jsonSchema.items = jsonSchema.items[0]
+      jsonSchema.items = jsonSchema.items[0];
     }
 
     // 处理类型名称为标准的 JSONSchema 类型名称
@@ -163,32 +170,32 @@ export function processJsonSchema(
         char: 'string',
         void: 'null',
         ...mapKeys(customTypeMapping, (_, key) => key.toLowerCase()),
-      }
-      const isMultiple = Array.isArray(jsonSchema.type)
+      };
+      const isMultiple = Array.isArray(jsonSchema.type);
       const types = castArray(jsonSchema.type).map(type => {
         // 所有类型转成小写，如：String -> string
-        type = type.toLowerCase() as any
+        type = type.toLowerCase() as any;
         // 映射为标准的 JSONSchema 类型
-        type = typeMapping[type] || type
-        return type
-      })
-      jsonSchema.type = isMultiple ? types : types[0]
+        type = typeMapping[type] || type;
+        return type;
+      });
+      jsonSchema.type = isMultiple ? types : types[0];
     }
 
     // 移除字段名称首尾空格
     if (jsonSchema.properties) {
       forOwn(jsonSchema.properties, (_, prop) => {
-        const propDef = jsonSchema.properties![prop]
-        delete jsonSchema.properties![prop]
-        jsonSchema.properties![(prop as string).trim()] = propDef
-      })
+        const propDef = jsonSchema.properties![prop];
+        delete jsonSchema.properties![prop];
+        jsonSchema.properties![(prop as string).trim()] = propDef;
+      });
       if (Array.isArray(jsonSchema.required)) {
-        jsonSchema.required = jsonSchema.required.map(prop => prop.trim())
+        jsonSchema.required = jsonSchema.required.map(prop => prop.trim());
       }
     }
 
-    return jsonSchema
-  })
+    return jsonSchema;
+  });
 }
 
 /**
@@ -203,15 +210,15 @@ export function jsonSchemaToJSTTJsonSchema(
 ): JSONSchema4 {
   if (jsonSchema) {
     // 去除最外层的 description 以防止 JSTT 提取它作为类型的注释
-    delete jsonSchema.description
+    delete jsonSchema.description;
   }
   return traverseJsonSchema(jsonSchema, (jsonSchema, currentPath) => {
     // 支持类型引用
     const refValue =
       // YApi 低版本不支持配置 title，可以在 description 里配置
-      jsonSchema.title == null ? jsonSchema.description : jsonSchema.title
+      jsonSchema.title == null ? jsonSchema.description : jsonSchema.title;
     if (refValue?.startsWith('&')) {
-      const typeRelativePath = refValue.substring(1)
+      const typeRelativePath = refValue.substring(1);
       const typeAbsolutePath = toUnixPath(
         path
           .resolve(
@@ -219,38 +226,38 @@ export function jsonSchemaToJSTTJsonSchema(
             typeRelativePath,
           )
           .replace(/^[a-z]+:/i, ''),
-      )
-      const typeAbsolutePathArr = typeAbsolutePath.split('/').filter(Boolean)
+      );
+      const typeAbsolutePathArr = typeAbsolutePath.split('/').filter(Boolean);
 
-      let tsTypeLeft = ''
-      let tsTypeRight = typeName
+      let tsTypeLeft = '';
+      let tsTypeRight = typeName;
       for (const key of typeAbsolutePathArr) {
-        tsTypeLeft += 'NonNullable<'
-        tsTypeRight += `[${JSON.stringify(key)}]>`
+        tsTypeLeft += 'NonNullable<';
+        tsTypeRight += `[${JSON.stringify(key)}]>`;
       }
-      const tsType = `${tsTypeLeft}${tsTypeRight}`
+      const tsType = `${tsTypeLeft}${tsTypeRight}`;
 
-      jsonSchema.tsType = tsType
+      jsonSchema.tsType = tsType;
     }
 
     // 去除 title 和 id，防止 json-schema-to-typescript 提取它们作为接口名
-    delete jsonSchema.title
-    delete jsonSchema.id
+    delete jsonSchema.title;
+    delete jsonSchema.id;
 
     // 忽略数组长度限制
-    delete jsonSchema.minItems
-    delete jsonSchema.maxItems
+    delete jsonSchema.minItems;
+    delete jsonSchema.maxItems;
 
     if (jsonSchema.type === 'object') {
       // 将 additionalProperties 设为 false
-      jsonSchema.additionalProperties = false
+      jsonSchema.additionalProperties = false;
     }
 
     // 删除 default，防止 json-schema-to-typescript 根据它推测类型
-    delete jsonSchema.default
+    delete jsonSchema.default;
 
-    return jsonSchema
-  })
+    return jsonSchema;
+  });
 }
 
 /**
@@ -263,7 +270,7 @@ export function jsonSchemaStringToJsonSchema(
   str: string,
   customTypeMapping: Record<string, JSONSchema4TypeName>,
 ): JSONSchema4 {
-  return processJsonSchema(JSON.parse(str), customTypeMapping)
+  return processJsonSchema(JSON.parse(str), customTypeMapping);
 }
 
 /**
@@ -288,14 +295,14 @@ export function jsonToJsonSchema(
       detectFormat: false,
     },
     postProcessFnc: (type, schema, value) => {
-      if (!schema.description && !!value && type !== 'object') {
-        schema.description = JSON.stringify(value)
+      if (!schema.description && value && type !== 'object') {
+        schema.description = JSON.stringify(value);
       }
-      return schema
+      return schema;
     },
-  })
-  delete schema.description
-  return processJsonSchema(schema as any, customTypeMapping)
+  });
+  delete schema.description;
+  return processJsonSchema(schema as any, customTypeMapping);
 }
 
 /**
@@ -308,9 +315,9 @@ export function mockjsTemplateToJsonSchema(
   template: object,
   customTypeMapping: Record<string, JSONSchema4TypeName>,
 ): JSONSchema4 {
-  const actions: Array<() => void> = []
+  const actions: Array<() => void> = [];
   // https://github.com/nuysoft/Mock/blob/refactoring/src/mock/constant.js#L27
-  const keyRe = /(.+)\|(?:\+(\d+)|([+-]?\d+-?[+-]?\d*)?(?:\.(\d+-?\d*))?)/
+  const keyRe = /(.+)\|(?:\+(\d+)|([+-]?\d+-?[+-]?\d*)?(?:\.(\d+-?\d*))?)/;
   // https://github.com/nuysoft/Mock/wiki/Mock.Random
   const numberPatterns: string[] = [
     'natural',
@@ -318,33 +325,35 @@ export function mockjsTemplateToJsonSchema(
     'float',
     'range',
     'increment',
-  ]
-  const boolPatterns: string[] = ['boolean', 'bool']
+  ];
+  const boolPatterns: string[] = ['boolean', 'bool'];
   const normalizeValue = (value: any): any => {
     if (typeof value === 'string' && value.startsWith('@')) {
-      const pattern = value.slice(1)
+      const pattern = value.slice(1);
       if (numberPatterns.some(p => pattern.startsWith(p))) {
-        return 1
+        return 1;
       }
       if (boolPatterns.some(p => pattern.startsWith(p))) {
-        return true
+        return true;
       }
     }
-    return value
-  }
+    return value;
+  };
   traverse(template, (value, key, parent) => {
     if (typeof key === 'string') {
       actions.push(() => {
-        delete parent[key]
+        delete parent[key];
         parent[
           // https://github.com/nuysoft/Mock/blob/refactoring/src/mock/schema/schema.js#L16
           key.replace(keyRe, '$1')
-        ] = normalizeValue(value)
-      })
+        ] = normalizeValue(value);
+      });
     }
-  })
-  actions.forEach(action => action())
-  return jsonToJsonSchema(template, customTypeMapping)
+  });
+  actions.forEach(action => {
+    action();
+  });
+  return jsonToJsonSchema(template, customTypeMapping);
 }
 
 /**
@@ -362,9 +371,9 @@ export function propDefinitionsToJsonSchema(
       type: 'object',
       required: propDefinitions.reduce<string[]>((res, prop) => {
         if (prop.required) {
-          res.push(prop.name)
+          res.push(prop.name);
         }
-        return res
+        return res;
       }, []),
       properties: propDefinitions.reduce<
         Exclude<JSONSchema4['properties'], undefined>
@@ -373,12 +382,12 @@ export function propDefinitionsToJsonSchema(
           type: prop.type,
           description: prop.comment,
           ...(prop.type === ('file' as any) ? { tsType: FileData.name } : {}),
-        }
-        return res
+        };
+        return res;
       }, {}),
     },
     customTypeMapping,
-  )
+  );
 }
 
 const JSTTOptions: Partial<Options> = {
@@ -392,7 +401,7 @@ const JSTTOptions: Partial<Options> = {
     trailingComma: 'none',
     useTabs: false,
   },
-}
+};
 
 /**
  * 根据 JSONSchema 对象生产 TypeScript 类型定义。
@@ -406,27 +415,27 @@ export async function jsonSchemaToType(
   typeName: string,
 ): Promise<string> {
   if (isEmpty(jsonSchema)) {
-    return `export interface ${typeName} {}`
+    return `export interface ${typeName} {}`;
   }
   if (jsonSchema.__is_any__) {
-    delete jsonSchema.__is_any__
-    return `export type ${typeName} = any`
+    delete jsonSchema.__is_any__;
+    return `export type ${typeName} = any`;
   }
   // JSTT 会转换 typeName，因此传入一个全大写的假 typeName，生成代码后再替换回真正的 typeName
-  const fakeTypeName = 'THISISAFAKETYPENAME'
+  const fakeTypeName = 'THISISAFAKETYPENAME';
   const code = await compile(
     jsonSchemaToJSTTJsonSchema(cloneDeepFast(jsonSchema), typeName),
     fakeTypeName,
     JSTTOptions,
-  )
-  return code.replace(fakeTypeName, typeName).trim()
+  );
+  return code.replace(fakeTypeName, typeName).trim();
 }
 
 export function getRequestDataJsonSchema(
   interfaceInfo: Interface,
   customTypeMapping: Record<string, JSONSchema4TypeName>,
 ): JSONSchema4 {
-  let jsonSchema: JSONSchema4 | undefined
+  let jsonSchema: JSONSchema4 | undefined;
 
   // 处理表单数据（仅 POST 类接口）
   if (isPostLikeMethod(interfaceInfo.method)) {
@@ -442,8 +451,8 @@ export function getRequestDataJsonSchema(
             comment: item.desc,
           })),
           customTypeMapping,
-        )
-        break
+        );
+        break;
       case RequestBodyType.json:
         if (interfaceInfo.req_body_other) {
           jsonSchema = interfaceInfo.req_body_is_json_schema
@@ -454,12 +463,12 @@ export function getRequestDataJsonSchema(
             : jsonToJsonSchema(
                 JSON5.parse(interfaceInfo.req_body_other),
                 customTypeMapping,
-              )
+              );
         }
-        break
+        break;
       default:
         /* istanbul ignore next */
-        break
+        break;
     }
   }
 
@@ -473,21 +482,21 @@ export function getRequestDataJsonSchema(
         comment: item.desc,
       })),
       customTypeMapping,
-    )
+    );
     /* istanbul ignore else */
     if (jsonSchema) {
       jsonSchema.properties = {
         ...jsonSchema.properties,
         ...queryJsonSchema.properties,
-      }
+      };
       jsonSchema.required = [
         ...(Array.isArray(jsonSchema.required) ? jsonSchema.required : []),
         ...(Array.isArray(queryJsonSchema.required)
           ? queryJsonSchema.required
           : []),
-      ]
+      ];
     } else {
-      jsonSchema = queryJsonSchema
+      jsonSchema = queryJsonSchema;
     }
   }
 
@@ -501,25 +510,25 @@ export function getRequestDataJsonSchema(
         comment: item.desc,
       })),
       customTypeMapping,
-    )
+    );
     /* istanbul ignore else */
     if (jsonSchema) {
       jsonSchema.properties = {
         ...jsonSchema.properties,
         ...paramsJsonSchema.properties,
-      }
+      };
       jsonSchema.required = [
         ...(Array.isArray(jsonSchema.required) ? jsonSchema.required : []),
         ...(Array.isArray(paramsJsonSchema.required)
           ? paramsJsonSchema.required
           : []),
-      ]
+      ];
     } else {
-      jsonSchema = paramsJsonSchema
+      jsonSchema = paramsJsonSchema;
     }
   }
 
-  return jsonSchema || {}
+  return jsonSchema || {};
 }
 
 export function getResponseDataJsonSchema(
@@ -527,7 +536,7 @@ export function getResponseDataJsonSchema(
   customTypeMapping: Record<string, JSONSchema4TypeName>,
   dataKey?: OneOrMore<string>,
 ): JSONSchema4 {
-  let jsonSchema: JSONSchema4 = {}
+  let jsonSchema: JSONSchema4 = {};
 
   switch (interfaceInfo.res_body_type) {
     case ResponseBodyType.json:
@@ -540,69 +549,69 @@ export function getResponseDataJsonSchema(
           : mockjsTemplateToJsonSchema(
               JSON5.parse(interfaceInfo.res_body),
               customTypeMapping,
-            )
+            );
       }
-      break
+      break;
     default:
-      jsonSchema = { __is_any__: true }
-      break
+      jsonSchema = { __is_any__: true };
+      break;
   }
 
   if (dataKey && jsonSchema) {
-    jsonSchema = reachJsonSchema(jsonSchema, dataKey)
+    jsonSchema = reachJsonSchema(jsonSchema, dataKey);
   }
 
-  return jsonSchema
+  return jsonSchema;
 }
 
 export function reachJsonSchema(
   jsonSchema: JSONSchema4,
   path: OneOrMore<string>,
 ) {
-  let last = jsonSchema
+  let last = jsonSchema;
   for (const segment of castArray(path)) {
-    const _last = last.properties?.[segment]
+    const _last = last.properties?.[segment];
     if (!_last) {
-      return jsonSchema
+      return jsonSchema;
     }
-    last = _last
+    last = _last;
   }
-  return last
+  return last;
 }
 
 export function sortByWeights<T extends { weights: number[] }>(list: T[]): T[] {
   list.sort((a, b) => {
-    const x = a.weights.length > b.weights.length ? b : a
-    const minLen = Math.min(a.weights.length, b.weights.length)
-    const maxLen = Math.max(a.weights.length, b.weights.length)
-    x.weights.push(...new Array(maxLen - minLen).fill(0))
+    const x = a.weights.length > b.weights.length ? b : a;
+    const minLen = Math.min(a.weights.length, b.weights.length);
+    const maxLen = Math.max(a.weights.length, b.weights.length);
+    x.weights.push(...new Array(maxLen - minLen).fill(0));
     const w = a.weights.reduce((w, _, i) => {
       if (w === 0) {
-        w = a.weights[i] - b.weights[i]
+        w = a.weights[i] - b.weights[i];
       }
-      return w
-    }, 0)
-    return w
-  })
-  return list
+      return w;
+    }, 0);
+    return w;
+  });
+  return list;
 }
 
 export function isGetLikeMethod(method: Method): boolean {
   return (
     method === Method.GET || method === Method.OPTIONS || method === Method.HEAD
-  )
+  );
 }
 
 export function isPostLikeMethod(method: Method): boolean {
-  return !isGetLikeMethod(method)
+  return !isGetLikeMethod(method);
 }
 
 export async function getPrettier(cwd: string): Promise<typeof prettier> {
-  const projectPrettierPath = path.join(cwd, 'node_modules/prettier')
+  const projectPrettierPath = path.join(cwd, 'node_modules/prettier');
   if (await fs.pathExists(projectPrettierPath)) {
-    return require(projectPrettierPath)
+    return createRequire(import.meta.url)(projectPrettierPath);
   }
-  return require('prettier')
+  return prettier;
 }
 
 export async function getPrettierOptions(): Promise<prettier.Options> {
@@ -615,52 +624,52 @@ export async function getPrettierOptions(): Promise<prettier.Options> {
     trailingComma: 'all',
     bracketSpacing: false,
     endOfLine: 'lf',
-  }
+  };
 
   // 测试时跳过本地配置的解析
-  if (process.env.JEST_WORKER_ID) {
-    return prettierOptions
+  if (process.env.VITEST) {
+    return prettierOptions;
   }
 
   const [prettierConfigPathErr, prettierConfigPath] = await run(() =>
     prettier.resolveConfigFile(),
-  )
+  );
   if (prettierConfigPathErr || !prettierConfigPath) {
-    return prettierOptions
+    return prettierOptions;
   }
 
   const [prettierConfigErr, prettierConfig] = await run(() =>
     prettier.resolveConfig(prettierConfigPath),
-  )
+  );
   if (prettierConfigErr || !prettierConfig) {
-    return prettierOptions
+    return prettierOptions;
   }
 
   return {
     ...prettierOptions,
     ...prettierConfig,
     parser: 'typescript',
-  }
+  };
 }
 
-export const getCachedPrettierOptions = memoize(getPrettierOptions)
+export const getCachedPrettierOptions = asyncMemoize(getPrettierOptions);
 
 export async function httpGet<T>(
   url: string,
   query?: Record<string, any>,
 ): Promise<T> {
-  const _url = new URL(url)
+  const _url = new URL(url);
   if (query) {
     Object.keys(query).forEach(key => {
-      _url.searchParams.set(key, query[key])
-    })
+      _url.searchParams.set(key, query[key]);
+    });
   }
-  url = _url.toString()
+  url = _url.toString();
 
   const res = await nodeFetch(url, {
     method: 'GET',
-    agent: new ProxyAgent(),
-  })
+    agent: new ProxyAgent() as unknown as import('node:http').Agent,
+  });
 
-  return res.json()
+  return res.json() as Promise<T>;
 }

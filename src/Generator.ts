@@ -1,8 +1,12 @@
-import * as changeCase from 'change-case'
-import dayjs from 'dayjs'
-import fs from 'fs-extra'
-import path from 'path'
+import { exec } from 'node:child_process';
+import { createRequire } from 'node:module';
+import os from 'node:os';
+import path from 'node:path';
+import * as changeCase from 'change-case';
+import dayjs from 'dayjs';
+import fs from 'fs-extra';
 import {
+  asyncMemoize,
   castArray,
   cloneDeepFast,
   dedent,
@@ -10,28 +14,27 @@ import {
   isEmpty,
   isFunction,
   last,
-  memoize,
   noop,
   omit,
   uniq,
   values,
-} from 'vtils'
+} from 'vtils';
+import { SwaggerToYApiServer } from './swagger_to_yapi_server.ts';
 import {
-  CategoryList,
-  CommentConfig,
-  Config,
-  ExtendedInterface,
-  Interface,
-  InterfaceList,
+  type CategoryList,
+  type CommentConfig,
+  type Config,
+  type ExtendedInterface,
+  type Interface,
+  type InterfaceList,
   Method,
-  Project,
-  ProjectConfig,
+  type Project,
+  type ProjectConfig,
   QueryStringArrayFormat,
   RequestBodyType,
-  ServerConfig,
-  SyntheticalConfig,
-} from './types'
-import { exec } from 'child_process'
+  type ServerConfig,
+  type SyntheticalConfig,
+} from './types.ts';
 import {
   getCachedPrettierOptions,
   getNormalizedRelativePath,
@@ -42,36 +45,35 @@ import {
   jsonSchemaToType,
   sortByWeights,
   throwError,
-} from './utils'
-import { SwaggerToYApiServer } from './SwaggerToYApiServer'
+} from './utils.ts';
 
 interface OutputFileList {
   [outputFilePath: string]: {
-    syntheticalConfig: SyntheticalConfig
-    content: string[]
-    requestFunctionFilePath: string
-    requestHookMakerFilePath: string
-  }
+    syntheticalConfig: SyntheticalConfig;
+    content: string[];
+    requestFunctionFilePath: string;
+    requestHookMakerFilePath: string;
+  };
 }
 
 /**
  * @see https://webpack.js.org/guides/tree-shaking/#mark-a-function-call-as-side-effect-free
  * @see https://terser.org/docs/api-reference.html#annotations
  */
-const COMPRESSOR_TREE_SHAKING_ANNOTATION = '/*#__PURE__*/'
+const COMPRESSOR_TREE_SHAKING_ANNOTATION = '/*#__PURE__*/';
 
 export class Generator {
   /** 配置 */
-  private config: ServerConfig[] = []
+  private config: ServerConfig[] = [];
 
-  private disposes: Array<() => any> = []
+  private disposes: Array<() => any> = [];
 
   constructor(
     config: Config,
     private options: { cwd: string } = { cwd: process.cwd() },
   ) {
     // config 可能是对象或数组，统一为数组
-    this.config = castArray(config)
+    this.config = castArray(config);
   }
 
   async prepare(): Promise<void> {
@@ -81,22 +83,22 @@ export class Generator {
         if (item.serverType === 'swagger') {
           const swaggerToYApiServer = new SwaggerToYApiServer({
             swaggerJsonUrl: item.serverUrl,
-          })
-          item.serverUrl = await swaggerToYApiServer.start()
-          this.disposes.push(() => swaggerToYApiServer.stop())
+          });
+          item.serverUrl = await swaggerToYApiServer.start();
+          this.disposes.push(() => swaggerToYApiServer.stop());
         }
         if (item.serverUrl) {
           // 去除地址后面的 /
           // fix: https://github.com/fjc0k/yapi-to-typescript/issues/22
-          item.serverUrl = item.serverUrl.replace(/\/+$/, '')
+          item.serverUrl = item.serverUrl.replace(/\/+$/, '');
         }
-        return item
+        return item;
       }),
-    )
+    );
   }
 
   async generate(): Promise<OutputFileList> {
-    const outputFileList: OutputFileList = Object.create(null)
+    const outputFileList: OutputFileList = Object.create(null);
 
     await Promise.all(
       this.config.map(async (serverConfig, serverIndex) => {
@@ -107,77 +109,76 @@ export class Generator {
                 ...project,
                 token: token,
               })),
-            )
-            return projects
+            );
+            return projects;
           },
           [],
-        )
+        );
         return Promise.all(
           projects.map(async (projectConfig, projectIndex) => {
             const projectInfo = await this.fetchProjectInfo({
               ...serverConfig,
               ...projectConfig,
-            })
+            });
             await Promise.all(
               projectConfig.categories.map(
                 async (categoryConfig, categoryIndex) => {
                   // 分类处理
                   // 数组化
-                  let categoryIds = castArray(categoryConfig.id)
+                  let categoryIds = castArray(categoryConfig.id);
                   // 全部分类
                   if (categoryIds.includes(0)) {
-                    categoryIds.push(...projectInfo.cats.map(cat => cat._id))
+                    categoryIds.push(...projectInfo.cats.map(cat => cat._id));
                   }
                   // 唯一化
-                  categoryIds = uniq(categoryIds)
+                  categoryIds = uniq(categoryIds);
                   // 去掉被排除的分类
                   const excludedCategoryIds = categoryIds
                     .filter(id => id < 0)
-                    .map(Math.abs)
+                    .map(Math.abs);
                   categoryIds = categoryIds.filter(
                     id => !excludedCategoryIds.includes(Math.abs(id)),
-                  )
+                  );
                   // 删除不存在的分类
                   categoryIds = categoryIds.filter(
                     id => !!projectInfo.cats.find(cat => cat._id === id),
-                  )
+                  );
                   // 顺序化
-                  categoryIds = categoryIds.sort()
+                  categoryIds = categoryIds.sort();
 
                   const codes = (
                     await Promise.all(
                       categoryIds.map<
                         Promise<
                           Array<{
-                            outputFilePath: string
-                            code: string
-                            weights: number[]
+                            outputFilePath: string;
+                            code: string;
+                            weights: number[];
                           }>
                         >
                       >(async (id, categoryIndex2) => {
                         categoryConfig = {
                           ...categoryConfig,
                           id: id,
-                        }
+                        };
                         const syntheticalConfig: SyntheticalConfig = {
                           ...serverConfig,
                           ...projectConfig,
                           ...categoryConfig,
                           mockUrl: projectInfo.getMockUrl(),
-                        }
+                        };
                         syntheticalConfig.target =
-                          syntheticalConfig.target || 'typescript'
+                          syntheticalConfig.target || 'typescript';
                         syntheticalConfig.devUrl = projectInfo.getDevUrl(
                           syntheticalConfig.devEnvName!,
-                        )
+                        );
                         syntheticalConfig.prodUrl = projectInfo.getProdUrl(
                           syntheticalConfig.prodEnvName!,
-                        )
+                        );
 
                         // 接口列表
-                        let interfaceList = await this.fetchInterfaceList(
-                          syntheticalConfig,
-                        )
+                        let interfaceList =
+                          await this.fetchInterfaceList(syntheticalConfig);
                         interfaceList = interfaceList
                           .map(interfaceInfo => {
                             // 实现 _project 字段
@@ -186,7 +187,7 @@ export class Generator {
                               'getMockUrl',
                               'getDevUrl',
                               'getProdUrl',
-                            ])
+                            ]);
                             // 预处理
                             const _interfaceInfo = isFunction(
                               syntheticalConfig.preproccessInterface,
@@ -196,20 +197,20 @@ export class Generator {
                                   changeCase,
                                   syntheticalConfig,
                                 )
-                              : interfaceInfo
+                              : interfaceInfo;
 
-                            return _interfaceInfo
+                            return _interfaceInfo;
                           })
-                          .filter(Boolean) as any
-                        interfaceList.sort((a, b) => a._id - b._id)
+                          .filter(Boolean) as any;
+                        interfaceList.sort((a, b) => a._id - b._id);
 
                         const interfaceCodes = await Promise.all(
                           interfaceList.map<
                             Promise<{
-                              categoryUID: string
-                              outputFilePath: string
-                              weights: number[]
-                              code: string
+                              categoryUID: string;
+                              outputFilePath: string;
+                              weights: number[];
+                              code: string;
                             }>
                           >(async interfaceInfo => {
                             const outputFilePath = path.resolve(
@@ -221,32 +222,32 @@ export class Generator {
                                     changeCase,
                                   )
                                 : syntheticalConfig.outputFilePath!,
-                            )
-                            const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}_${categoryIndex2}`
+                            );
+                            const categoryUID = `_${serverIndex}_${projectIndex}_${categoryIndex}_${categoryIndex2}`;
                             const code = await this.generateInterfaceCode(
                               syntheticalConfig,
                               interfaceInfo,
                               categoryUID,
-                            )
+                            );
                             const weights: number[] = [
                               serverIndex,
                               projectIndex,
                               categoryIndex,
                               categoryIndex2,
-                            ]
+                            ];
                             return {
                               categoryUID,
                               outputFilePath,
                               weights,
                               code,
-                            }
+                            };
                           }),
-                        )
+                        );
 
                         const groupedInterfaceCodes = groupBy(
                           interfaceCodes,
                           item => item.outputFilePath,
-                        )
+                        );
                         return Object.keys(groupedInterfaceCodes).map(
                           outputFilePath => {
                             const categoryCode = [
@@ -259,17 +260,17 @@ export class Generator {
                                   ? ''
                                   : dedent`
                                       const mockUrl${categoryUID} = ${JSON.stringify(
-                                      syntheticalConfig.mockUrl,
-                                    )} as any
+                                        syntheticalConfig.mockUrl,
+                                      )} as any
                                       const devUrl${categoryUID} = ${JSON.stringify(
-                                      syntheticalConfig.devUrl,
-                                    )} as any
+                                        syntheticalConfig.devUrl,
+                                      )} as any
                                       const prodUrl${categoryUID} = ${JSON.stringify(
-                                      syntheticalConfig.prodUrl,
-                                    )} as any
+                                        syntheticalConfig.prodUrl,
+                                      )} as any
                                       const dataKey${categoryUID} = ${JSON.stringify(
-                                      syntheticalConfig.dataKey,
-                                    )} as any
+                                        syntheticalConfig.dataKey,
+                                      )} as any
                                     `,
                               ),
                               ...sortByWeights(
@@ -277,7 +278,7 @@ export class Generator {
                               ).map(item => item.code),
                             ]
                               .filter(Boolean)
-                              .join('\n\n')
+                              .join('\n\n');
                             if (!outputFileList[outputFilePath]) {
                               outputFileList[outputFilePath] = {
                                 syntheticalConfig,
@@ -307,7 +308,7 @@ export class Generator {
                                           'makeRequestHook.ts',
                                         )
                                     : '',
-                              }
+                              };
                             }
                             return {
                               outputFilePath: outputFilePath,
@@ -317,30 +318,30 @@ export class Generator {
                                   groupedInterfaceCodes[outputFilePath],
                                 ),
                               )!.weights,
-                            }
+                            };
                           },
-                        )
+                        );
                       }),
                     )
-                  ).flat()
+                  ).flat();
 
                   for (const groupedCodes of values(
                     groupBy(codes, item => item.outputFilePath),
                   )) {
-                    sortByWeights(groupedCodes)
+                    sortByWeights(groupedCodes);
                     outputFileList[groupedCodes[0].outputFilePath].content.push(
                       ...groupedCodes.map(item => item.code),
-                    )
+                    );
                   }
                 },
               ),
-            )
+            );
           }),
-        )
+        );
       }),
-    )
+    );
 
-    return outputFileList
+    return outputFileList;
   }
 
   async write(outputFileList: OutputFileList) {
@@ -353,21 +354,21 @@ export class Generator {
           requestHookMakerFilePath,
           // eslint-disable-next-line prefer-const
           syntheticalConfig,
-        } = outputFileList[outputFilePath]
+        } = outputFileList[outputFilePath];
 
-        const rawRequestFunctionFilePath = requestFunctionFilePath
-        const rawRequestHookMakerFilePath = requestHookMakerFilePath
+        const rawRequestFunctionFilePath = requestFunctionFilePath;
+        const rawRequestHookMakerFilePath = requestHookMakerFilePath;
 
         // 支持 .jsx? 后缀
-        outputFilePath = outputFilePath.replace(/\.js(x)?$/, '.ts$1')
+        outputFilePath = outputFilePath.replace(/\.js(x)?$/, '.ts$1');
         requestFunctionFilePath = requestFunctionFilePath.replace(
           /\.js(x)?$/,
           '.ts$1',
-        )
+        );
         requestHookMakerFilePath = requestHookMakerFilePath.replace(
           /\.js(x)?$/,
           '.ts$1',
-        )
+        );
 
         if (!syntheticalConfig.typesOnly) {
           if (!(await fs.pathExists(rawRequestFunctionFilePath))) {
@@ -410,7 +411,7 @@ export class Generator {
                   })
                 }
               `,
-            )
+            );
           }
           if (
             syntheticalConfig.reactHooks &&
@@ -459,7 +460,7 @@ export class Generator {
                   }
                 }
               `,
-            )
+            );
           }
         }
 
@@ -527,45 +528,49 @@ export class Generator {
                 ${content.join('\n\n').trim()}
               `
           }
-        `
+        `;
         // ref: https://prettier.io/docs/en/options.html
-        const prettier = await getPrettier(this.options.cwd)
+        const prettier = await getPrettier(this.options.cwd);
         // 此处需用 await 以兼容 Prettier 3
         const prettyOutputContent = await prettier.format(rawOutputContent, {
           ...(await getCachedPrettierOptions()),
           filepath: outputFilePath,
-        })
+        });
         const outputContent = `${dedent`
           /* prettier-ignore-start */
           ${prettyOutputContent}
           /* prettier-ignore-end */
-        `}\n`
-        await fs.outputFile(outputFilePath, outputContent)
+        `}\n`;
+        await fs.outputFile(outputFilePath, outputContent);
 
         // 如果要生成 JavaScript 代码，
         // 则先对主文件进行 tsc 编译，主文件引用到的其他文件也会被编译，
         // 然后，删除原始的 .tsx? 文件。
         if (syntheticalConfig.target === 'javascript') {
-          await this.tsc(outputFilePath)
+          await this.tsc(outputFilePath);
           await Promise.all([
             fs.remove(requestFunctionFilePath).catch(noop),
             fs.remove(requestHookMakerFilePath).catch(noop),
             fs.remove(outputFilePath).catch(noop),
-          ])
+          ]);
         }
       }),
-    )
+    );
   }
 
   async tsc(file: string) {
     return new Promise<void>(resolve => {
       // add this to fix bug that not-generator-file-on-window
-      const command = `${
-        require('os').platform() === 'win32' ? 'node ' : ''
-      }${JSON.stringify(require.resolve(`typescript/bin/tsc`))}`
+      const tscBin = path.join(
+        path.dirname(
+          createRequire(import.meta.url).resolve('typescript/package.json'),
+        ),
+        'bin/tsc',
+      );
+      const command = `${os.platform() === 'win32' ? 'node ' : ''}${JSON.stringify(tscBin)}`;
 
       exec(
-        `${command} --target ES2019 --module ESNext --jsx preserve --declaration --esModuleInterop ${JSON.stringify(
+        `${command} --target ES2019 --module ESNext --jsx preserve --declaration --esModuleInterop --ignoreConfig ${JSON.stringify(
           file,
         )}`,
         {
@@ -573,49 +578,50 @@ export class Generator {
           env: process.env,
         },
         () => resolve(),
-      )
-    })
+      );
+    });
   }
 
   async fetchApi<T = any>(url: string, query: Record<string, any>): Promise<T> {
     const res = await httpGet<{
-      errcode: any
-      errmsg: any
-      data: any
-    }>(url, query)
+      errcode: any;
+      errmsg: any;
+      data: any;
+    }>(url, query);
     /* istanbul ignore next */
     if (res && res.errcode) {
       throwError(
-        `${res.errmsg} [请求地址: ${url}] [请求参数: ${new URLSearchParams(
-          query,
-        ).toString()}]`,
-      )
+        `${res.errmsg} [请求地址: ${url}] [请求参数: ${new URLSearchParams(query).toString()}]`,
+      );
     }
-    return res.data || res
+    return res.data || res;
   }
 
-  fetchProject = memoize(
+  fetchProject = asyncMemoize(
     async ({ serverUrl, token }: SyntheticalConfig) => {
       const projectInfo = await this.fetchApi<Project>(
         `${serverUrl}/api/project/get`,
         {
           token: token!,
         },
-      )
+      );
       const basePath = `/${projectInfo.basepath || '/'}`
         .replace(/\/+$/, '')
-        .replace(/^\/+/, '/')
-      projectInfo.basepath = basePath
+        .replace(/^\/+/, '/');
+      projectInfo.basepath = basePath;
       // 实现项目在 YApi 上的地址
-      projectInfo._url = `${serverUrl}/project/${projectInfo._id}/interface/api`
-      return projectInfo
+      projectInfo._url = `${serverUrl}/project/${projectInfo._id}/interface/api`;
+      return projectInfo;
     },
-    ({ serverUrl, token }: SyntheticalConfig) => `${serverUrl}|${token}`,
-  )
+    {
+      cacheKey: ({ serverUrl, token }: SyntheticalConfig) =>
+        `${serverUrl}|${token}`,
+    },
+  );
 
-  fetchExport = memoize(
+  fetchExport = asyncMemoize(
     async ({ serverUrl, token }: SyntheticalConfig) => {
-      const projectInfo = await this.fetchProject({ serverUrl, token })
+      const projectInfo = await this.fetchProject({ serverUrl, token });
       const categoryList = await this.fetchApi<CategoryList>(
         `${serverUrl}/api/plugin/export`,
         {
@@ -624,24 +630,27 @@ export class Generator {
           isWiki: 'false',
           token: token!,
         },
-      )
+      );
       return categoryList.map(cat => {
-        const projectId = cat.list?.[0]?.project_id || 0
-        const catId = cat.list?.[0]?.catid || 0
+        const projectId = cat.list?.[0]?.project_id || 0;
+        const catId = cat.list?.[0]?.catid || 0;
         // 实现分类在 YApi 上的地址
-        cat._url = `${serverUrl}/project/${projectId}/interface/api/cat_${catId}`
+        cat._url = `${serverUrl}/project/${projectId}/interface/api/cat_${catId}`;
         cat.list = (cat.list || []).map(item => {
-          const interfaceId = item._id
+          const interfaceId = item._id;
           // 实现接口在 YApi 上的地址
-          item._url = `${serverUrl}/project/${projectId}/interface/api/${interfaceId}`
-          item.path = `${projectInfo.basepath}${item.path}`
-          return item
-        })
-        return cat
-      })
+          item._url = `${serverUrl}/project/${projectId}/interface/api/${interfaceId}`;
+          item.path = `${projectInfo.basepath}${item.path}`;
+          return item;
+        });
+        return cat;
+      });
     },
-    ({ serverUrl, token }: SyntheticalConfig) => `${serverUrl}|${token}`,
-  )
+    {
+      cacheKey: ({ serverUrl, token }: SyntheticalConfig) =>
+        `${serverUrl}|${token}`,
+    },
+  );
 
   /** 获取分类的接口列表 */
   async fetchInterfaceList({
@@ -653,42 +662,42 @@ export class Generator {
       (await this.fetchExport({ serverUrl, token })) || []
     ).find(
       cat => !isEmpty(cat) && !isEmpty(cat.list) && cat.list[0].catid === id,
-    )
+    );
 
     if (category) {
       category.list.forEach(interfaceInfo => {
         // 实现 _category 字段
-        interfaceInfo._category = omit(category, ['list'])
-      })
+        interfaceInfo._category = omit(category, ['list']);
+      });
     }
 
-    return category ? category.list : []
+    return category ? category.list : [];
   }
 
   /** 获取项目信息 */
   async fetchProjectInfo(syntheticalConfig: SyntheticalConfig) {
-    const projectInfo = await this.fetchProject(syntheticalConfig)
+    const projectInfo = await this.fetchProject(syntheticalConfig);
     const projectCats = await this.fetchApi<CategoryList>(
       `${syntheticalConfig.serverUrl}/api/interface/getCatMenu`,
       {
         token: syntheticalConfig.token!,
         project_id: projectInfo._id,
       },
-    )
+    );
     return {
       ...projectInfo,
       cats: projectCats,
       getMockUrl: () =>
         `${syntheticalConfig.serverUrl}/mock/${projectInfo._id}`,
       getDevUrl: (devEnvName: string) => {
-        const env = projectInfo.env.find(e => e.name === devEnvName)
-        return (env && env.domain) /* istanbul ignore next */ || ''
+        const env = projectInfo.env.find(e => e.name === devEnvName);
+        return (env && env.domain) /* istanbul ignore next */ || '';
       },
       getProdUrl: (prodEnvName: string) => {
-        const env = projectInfo.env.find(e => e.name === prodEnvName)
-        return (env && env.domain) /* istanbul ignore next */ || ''
+        const env = projectInfo.env.find(e => e.name === prodEnvName);
+        return (env && env.domain) /* istanbul ignore next */ || '';
       },
-    }
+    };
   }
 
   /** 生成接口代码 */
@@ -700,7 +709,7 @@ export class Generator {
     const extendedInterfaceInfo: ExtendedInterface = {
       ...interfaceInfo,
       parsedPath: path.parse(interfaceInfo.path),
-    }
+    };
     const requestFunctionName = isFunction(
       syntheticalConfig.getRequestFunctionName,
     )
@@ -708,11 +717,11 @@ export class Generator {
           extendedInterfaceInfo,
           changeCase,
         )
-      : changeCase.camelCase(extendedInterfaceInfo.parsedPath.name)
+      : changeCase.camelCase(extendedInterfaceInfo.parsedPath.name);
     const requestConfigName = changeCase.camelCase(
       `${requestFunctionName}RequestConfig`,
-    )
-    const requestConfigTypeName = changeCase.pascalCase(requestConfigName)
+    );
+    const requestConfigTypeName = changeCase.pascalCase(requestConfigName);
     const requestDataTypeName = isFunction(
       syntheticalConfig.getRequestDataTypeName,
     )
@@ -720,7 +729,7 @@ export class Generator {
           extendedInterfaceInfo,
           changeCase,
         )
-      : changeCase.pascalCase(`${requestFunctionName}Request`)
+      : changeCase.pascalCase(`${requestFunctionName}Request`);
     const responseDataTypeName = isFunction(
       syntheticalConfig.getResponseDataTypeName,
     )
@@ -728,25 +737,25 @@ export class Generator {
           extendedInterfaceInfo,
           changeCase,
         )
-      : changeCase.pascalCase(`${requestFunctionName}Response`)
+      : changeCase.pascalCase(`${requestFunctionName}Response`);
     const requestDataJsonSchema = getRequestDataJsonSchema(
       extendedInterfaceInfo,
       syntheticalConfig.customTypeMapping || {},
-    )
+    );
     const requestDataType = await jsonSchemaToType(
       requestDataJsonSchema,
       requestDataTypeName,
-    )
+    );
     const responseDataJsonSchema = getResponseDataJsonSchema(
       extendedInterfaceInfo,
       syntheticalConfig.customTypeMapping || {},
       syntheticalConfig.dataKey,
-    )
+    );
     const responseDataType = await jsonSchemaToType(
       responseDataJsonSchema,
       responseDataTypeName,
-    )
-    const isRequestDataOptional = /(\{\}|any)$/s.test(requestDataType)
+    );
+    const isRequestDataOptional = /(\{\}|any)$/s.test(requestDataType);
     const requestHookName =
       syntheticalConfig.reactHooks && syntheticalConfig.reactHooks.enabled
         ? isFunction(syntheticalConfig.reactHooks.getRequestHookName)
@@ -756,23 +765,23 @@ export class Generator {
               changeCase,
             )
           : `use${changeCase.pascalCase(requestFunctionName)}`
-        : ''
+        : '';
 
     // 支持路径参数
     const paramNames = (
       extendedInterfaceInfo.req_params /* istanbul ignore next */ || []
-    ).map(item => item.name)
-    const paramNamesLiteral = JSON.stringify(paramNames)
+    ).map(item => item.name);
+    const paramNamesLiteral = JSON.stringify(paramNames);
     const paramNameType =
-      paramNames.length === 0 ? 'string' : `'${paramNames.join("' | '")}'`
+      paramNames.length === 0 ? 'string' : `'${paramNames.join("' | '")}'`;
 
     // 支持查询参数
     const queryNames = (
       extendedInterfaceInfo.req_query /* istanbul ignore next */ || []
-    ).map(item => item.name)
-    const queryNamesLiteral = JSON.stringify(queryNames)
+    ).map(item => item.name);
+    const queryNamesLiteral = JSON.stringify(queryNames);
     const queryNameType =
-      queryNames.length === 0 ? 'string' : `'${queryNames.join("' | '")}'`
+      queryNames.length === 0 ? 'string' : `'${queryNames.join("' | '")}'`;
 
     // 接口注释
     const genComment = (genTitle: (title: string) => string) => {
@@ -795,23 +804,23 @@ export class Generator {
               link: false,
             }
           : {}),
-      } as CommentConfig
+      } as CommentConfig;
       if (!isEnabled) {
-        return ''
+        return '';
       }
       // 转义标题中的 /
       const escapedTitle = String(extendedInterfaceInfo.title).replace(
         /\//g,
         '\\/',
-      )
+      );
       const description = hasLink
         ? `[${escapedTitle}↗](${extendedInterfaceInfo._url})`
-        : escapedTitle
+        : escapedTitle;
       const summary: Array<
         | false
         | {
-            label: string
-            value: string | string[]
+            label: string;
+            value: string | string[];
           }
       > = [
         hasCategory && {
@@ -826,30 +835,26 @@ export class Generator {
         },
         hasRequestHeader && {
           label: '请求头',
-          value: `\`${extendedInterfaceInfo.method.toUpperCase()} ${
-            extendedInterfaceInfo.path
-          }\``,
+          value: `\`${extendedInterfaceInfo.method.toUpperCase()} ${extendedInterfaceInfo.path}\``,
         },
         hasUpdateTime && {
           label: '更新时间',
-          value: process.env.JEST_WORKER_ID // 测试时使用 unix 时间戳
+          value: process.env.VITEST // 测试时使用 unix 时间戳
             ? String(extendedInterfaceInfo.up_time)
             : /* istanbul ignore next */
-              `\`${dayjs(extendedInterfaceInfo.up_time * 1000).format(
-                'YYYY-MM-DD HH:mm:ss',
-              )}\``,
+              `\`${dayjs(extendedInterfaceInfo.up_time * 1000).format('YYYY-MM-DD HH:mm:ss')}\``,
         },
-      ]
+      ];
       if (typeof extraTags === 'function') {
-        const tags = extraTags(extendedInterfaceInfo)
+        const tags = extraTags(extendedInterfaceInfo);
         for (const tag of tags) {
-          ;(tag.position === 'start' ? summary.unshift : summary.push).call(
+          (tag.position === 'start' ? summary.unshift : summary.push).call(
             summary,
             {
               label: tag.name,
               value: tag.value,
             },
-          )
+          );
         }
       }
       const titleComment = hasTitle
@@ -857,20 +862,20 @@ export class Generator {
             * ${genTitle(description)}
             *
           `
-        : ''
+        : '';
       const extraComment: string = summary
         .filter(item => typeof item !== 'boolean' && !isEmpty(item.value))
         .map(item => {
-          const _item: Exclude<typeof summary[0], boolean> = item as any
-          return `* @${_item.label} ${castArray(_item.value).join(', ')}`
+          const _item: Exclude<(typeof summary)[0], boolean> = item as any;
+          return `* @${_item.label} ${castArray(_item.value).join(', ')}`;
         })
-        .join('\n')
+        .join('\n');
       return dedent`
         /**
          ${[titleComment, extraComment].filter(Boolean).join('\n')}
          */
-      `
-    }
+      `;
+    };
 
     // 请求参数额外信息
     const requestFunctionExtraInfo =
@@ -879,7 +884,7 @@ export class Generator {
             extendedInterfaceInfo,
             changeCase,
           )
-        : {}
+        : {};
 
     return dedent`
       ${genComment(title => `接口 ${title} 的 **请求类型**`)}
@@ -915,8 +920,8 @@ export class Generator {
                 (extendedInterfaceInfo.req_headers || [])
                   .filter(item => item.name.toLowerCase() !== 'content-type')
                   .reduce<Record<string, string>>((res, item) => {
-                    res[item.name] = item.value
-                    return res
+                    res[item.name] = item.value;
+                    return res;
                   }, {}),
               )},
               requestBodyType: RequestBodyType.${
@@ -925,9 +930,7 @@ export class Generator {
                   : extendedInterfaceInfo.req_body_type /* istanbul ignore next */ ||
                     RequestBodyType.none
               },
-              responseBodyType: ResponseBodyType.${
-                extendedInterfaceInfo.res_body_type
-              },
+              responseBodyType: ResponseBodyType.${extendedInterfaceInfo.res_body_type},
               dataKey: dataKey${categoryUID},
               paramNames: ${paramNamesLiteral},
               queryNames: ${queryNamesLiteral},
@@ -954,9 +957,7 @@ export class Generator {
 
             ${genComment(title => `接口 ${title} 的 **请求函数**`)}
             export const ${requestFunctionName} = ${COMPRESSOR_TREE_SHAKING_ANNOTATION} (
-              requestData${
-                isRequestDataOptional ? '?' : ''
-              }: ${requestDataTypeName},
+              requestData${isRequestDataOptional ? '?' : ''}: ${requestDataTypeName},
               ...args: UserRequestRestArgs
             ) => {
               return request<${responseDataTypeName}>(
@@ -978,10 +979,10 @@ export class Generator {
             }
           `
       }
-    `
+    `;
   }
 
   async destroy() {
-    return Promise.all(this.disposes.map(async dispose => dispose()))
+    return Promise.all(this.disposes.map(async dispose => dispose()));
   }
 }

@@ -22,93 +22,91 @@
     "url": "https://github.com/fjc0k"
   },
   "sideEffects": false,
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
-  "types": "lib/esm/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./cli": "./lib/cli.mjs",
+    "./package.json": "./package.json"
+  },
   "bin": {
-    "ytt": "lib/cjs/cli.js"
+    "ytt": "./lib/cli.mjs"
   },
   "files": [
     "lib"
   ],
+  "packageManager": "pnpm@12.21.0",
   "scripts": {
-    "build": "haoma compile",
-    "docs": "npm run docs:build && gh-pages --dist docs/dist --dest handbook",
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "test": "vitest run --coverage",
+    "test:run": "vitest run",
+    "test:watch": "vitest",
+    "test:update": "vitest run -u",
+    "testApi": "tsx src/cli.ts",
+    "docs": "pnpm run docs:build && gh-pages --dist docs/dist --dest handbook",
     "docs:build": "dumi build",
     "docs:dev": "dumi dev",
-    "release": "yarn testOnly && standard-version -a && yarn build && yarn docs && git push --follow-tags origin master && npm login && npm publish",
-    "releaseBeta": "yarn testOnly && standard-version -a --release-as patch --prerelease beta && yarn build && git push --follow-tags origin master && npm login && npm publish --tag next",
-    "test": "jest --coverage",
-    "testApi": "ts-node -T src/cli.ts",
-    "testOnly": "jest",
-    "testUpdateSnapshot": "jest --coverage -u"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "release": "pnpm run test:run && standard-version -a && pnpm run build && pnpm run docs && git push --follow-tags origin master && npm login && npm publish",
+    "releaseBeta": "pnpm run test:run && standard-version -a --release-as patch --prerelease beta && pnpm run build && git push --follow-tags origin master && npm login && npm publish --tag next",
+    "releaseMajor": "pnpm run test:run && standard-version -a --release-as major && pnpm run build && git push --follow-tags origin master && npm login && npm publish",
+    "releaseMajorBeta": "pnpm run test:run && standard-version -a --release-as major --prerelease beta && pnpm run build && git push --follow-tags origin master && npm login && npm publish --tag next",
+    "prepare": "husky && dumi setup"
   },
   "lint-staged": {
-    "*.{css,less,scss,sass,html,htm,vue,yml,yaml,json,md}": [
-      "prettier --write"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+    "*.{js,jsx,ts,tsx,json,md,yml,yaml,css,less,scss,sass,html,htm,vue}": [
+      "biome check --write"
     ]
   },
   "dependencies": {
-    "@babel/runtime": "^7.13.10",
-    "@types/json-schema": "^7.0.9",
-    "change-case": "^3.0.2",
-    "consola": "^2.3.0",
-    "dayjs": "^1.8.32",
-    "form-data": "^3.0.0",
-    "fs-extra": "^7.0.1",
-    "get-port": "^5.1.1",
-    "json-schema-to-typescript": "^10.1.4",
-    "json5": "^2.1.0",
-    "node-fetch": "^2",
-    "ora": "^3.4.0",
-    "prettier": "^2.7.1",
-    "prompts": "^2.0.4",
-    "proxy-agent": "^5.0.0",
-    "signal-exit": "^3.0.3",
+    "@types/json-schema": "^7.0.15",
+    "change-case": "^5.4.4",
+    "consola": "^3.4.2",
+    "dayjs": "^1.11.23",
+    "form-data": "^4.0.6",
+    "fs-extra": "^11.4.1",
+    "get-port": "^7.2.0",
+    "jiti": "^2.7.0",
+    "json-schema-to-typescript": "^16.0.0",
+    "json5": "^2.2.3",
+    "node-fetch": "^3.3.2",
+    "ora": "^10.0.0",
+    "prettier": "^3.10.1",
+    "prompts": "^2.4.2",
+    "proxy-agent": "^8.0.2",
+    "signal-exit": "^4.1.0",
     "swagger-client": "3.18.4",
     "to-json-schema": "^0.2.5",
-    "ts-node": "^8.0.2",
-    "typescript": "^4.2.3",
-    "vtils": "^4.57.0",
-    "yargs": "^16.2.0"
+    "typescript": "^6.0.3",
+    "vtils": "^4.138.0",
+    "yargs": "^18.2.0",
+    "openapi-types": "^12.1.3"
   },
   "devDependencies": {
-    "@types/fs-extra": "^5.0.4",
-    "@types/json5": "^0.0.30",
-    "@types/node": "^10.12.10",
-    "@types/node-fetch": "^2.6.2",
-    "@types/prompts": "^1.2.0",
+    "@biomejs/biome": "^2.6.8",
+    "@types/fs-extra": "^11.0.4",
+    "@types/json5": "^2.2.0",
+    "@types/node": "^24.19.2",
+    "@types/prompts": "^2.4.9",
     "@types/react": "^16.9.2",
-    "@types/signal-exit": "^3.0.0",
-    "@types/swagger-schema-official": "^2.0.21",
-    "@types/to-json-schema": "^0.2.0",
-    "@types/yargs": "^16.0.1",
-    "codecov": "^3",
-    "dumi": "^1.1.10",
-    "eslint": "^7",
-    "gh-pages": "^2.0.1",
-    "haoma": "^2.31.0",
-    "husky": "^4",
-    "jest": "^26",
-    "lint-staged": "^10",
+    "@types/to-json-schema": "^0.2.4",
+    "@types/yargs": "^17.0.35",
+    "@vitest/coverage-v8": "^5.1.0",
+    "codecov": "^3.8.3",
+    "dumi": "^2.4.57",
+    "gh-pages": "^6.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
     "notify-dingtalk": "^1.2.0",
-    "openapi-types": "^7.0.1",
-    "shx": "^0.3.2",
-    "standard-version": "^9.3.2",
-    "tempy": "^0.3.0",
-    "typedoc": "^0.14.2",
-    "typescript-snapshots-plugin": "^1.7.0"
+    "standard-version": "^9.5.0",
+    "tempy": "^3.2.0",
+    "tsdown": "^0.23.7",
+    "tsx": "^4.23.15",
+    "vitest": "^5.1.0"
   },
   "engines": {
-    "node": ">=10.19.0"
+    "node": ">=22.12.0"
   }
 }

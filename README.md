@@ -2,6 +2,10 @@
 
 `YApi to TypeScript`（简称 `ytt`） 是一个代码生成工具，其可根据 [YApi](https://github.com/YMFE/yapi) 或 [Swagger](https://swagger.io/) 的接口定义生成 TypeScript 或 JavaScript 的接口类型及其请求函数代码。
 
+## 安装
+
+优先安装最新版(`yapi-to-typescript@latest`)，如果最新版在你的项目使用报错，你可以选择升级你的项目基础设施或安装V3版本(`yapi-to-typescript@^3`)。
+
 ## 文档
 
 - [介绍](https://fjc0k.github.io/yapi-to-typescript/handbook/)
